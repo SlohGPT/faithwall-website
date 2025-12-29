@@ -46,122 +46,27 @@ export default function Navigation() {
 
   const perimeter = getPerimeter();
 
-  const getPointOnBorder = (progress: number) => {
-    if (width === 0 || height === 0) return { x: 0, y: 0 };
-
-    const totalPerimeter = perimeter;
-    const distance = progress * totalPerimeter;
-
-    const bottomWidth = width - 2 * borderRadius;
-    const cornerLength = (Math.PI * borderRadius) / 2;
-    const rightHeight = height - 2 * borderRadius;
-    const topWidth = width - 2 * borderRadius;
-    const leftHeight = height - 2 * borderRadius;
-
-    let accumulated = 0;
-
-    if (distance <= bottomWidth / 2) {
-      return { x: width / 2 + distance, y: height };
-    }
-    accumulated += bottomWidth / 2;
-
-    if (distance <= accumulated + cornerLength) {
-      const angle = ((distance - accumulated) / cornerLength) * (Math.PI / 2);
-      return {
-        x: width - borderRadius + Math.sin(angle) * borderRadius,
-        y: height - borderRadius + Math.cos(angle) * borderRadius
-      };
-    }
-    accumulated += cornerLength;
-
-    if (distance <= accumulated + rightHeight) {
-      return { x: width, y: height - borderRadius - (distance - accumulated) };
-    }
-    accumulated += rightHeight;
-
-    if (distance <= accumulated + cornerLength) {
-      const angle = ((distance - accumulated) / cornerLength) * (Math.PI / 2);
-      return {
-        x: width - borderRadius + Math.cos(angle) * borderRadius,
-        y: borderRadius - Math.sin(angle) * borderRadius
-      };
-    }
-    accumulated += cornerLength;
-
-    if (distance <= accumulated + topWidth) {
-      return { x: width - borderRadius - (distance - accumulated), y: 0 };
-    }
-    accumulated += topWidth;
-
-    if (distance <= accumulated + cornerLength) {
-      const angle = ((distance - accumulated) / cornerLength) * (Math.PI / 2);
-      return {
-        x: borderRadius - Math.sin(angle) * borderRadius,
-        y: borderRadius - Math.cos(angle) * borderRadius
-      };
-    }
-    accumulated += cornerLength;
-
-    if (distance <= accumulated + leftHeight) {
-      return { x: 0, y: borderRadius + (distance - accumulated) };
-    }
-    accumulated += leftHeight;
-
-    if (distance <= accumulated + cornerLength) {
-      const angle = ((distance - accumulated) / cornerLength) * (Math.PI / 2);
-      return {
-        x: borderRadius - Math.cos(angle) * borderRadius,
-        y: height - borderRadius + Math.sin(angle) * borderRadius
-      };
-    }
-    accumulated += cornerLength;
-
-    return { x: borderRadius + (distance - accumulated), y: height };
-  };
-
-  const orbPosition = getPointOnBorder(scrollProgress);
-
   const createBorderPath = () => {
     if (width === 0 || height === 0) return '';
     const r = borderRadius;
+    const w = width;
+    const h = height;
     return `
-      M ${width / 2} ${height}
-      L ${width - r} ${height}
-      A ${r} ${r} 0 0 0 ${width} ${height - r}
-      L ${width} ${r}
-      A ${r} ${r} 0 0 0 ${width - r} 0
-      L ${r} 0
-      A ${r} ${r} 0 0 0 0 ${r}
-      L 0 ${height - r}
-      A ${r} ${r} 0 0 0 ${r} ${height}
-      L ${width / 2} ${height}
+      M 0 ${h - r}
+      L 0 ${r}
+      A ${r} ${r} 0 0 1 ${r} 0
+      L ${w - r} 0
+      A ${r} ${r} 0 0 1 ${w} ${r}
+      L ${w} ${h - r}
+      A ${r} ${r} 0 0 1 ${w - r} ${h}
+      L ${r} ${h}
+      A ${r} ${r} 0 0 1 0 ${h - r}
+      Z
     `;
   };
 
   return (
     <>
-      <style>{`
-        @keyframes pulse-glow {
-          0%, 100% {
-            filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.9))
-                   drop-shadow(0 0 12px rgba(245, 158, 11, 0.6))
-                   drop-shadow(0 0 20px rgba(234, 88, 12, 0.4));
-            transform: translate(-50%, -50%) scale(1);
-          }
-          50% {
-            filter: drop-shadow(0 0 10px rgba(251, 191, 36, 1))
-                   drop-shadow(0 0 20px rgba(245, 158, 11, 0.8))
-                   drop-shadow(0 0 35px rgba(234, 88, 12, 0.5));
-            transform: translate(-50%, -50%) scale(1.2);
-          }
-        }
-        @keyframes shimmer {
-          0% { opacity: 0.4; }
-          50% { opacity: 1; }
-          100% { opacity: 0.4; }
-        }
-      `}</style>
-
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-5 md:px-6 md:pt-6">
         <div className="relative mx-auto max-w-6xl">
           <div
@@ -179,21 +84,26 @@ export default function Navigation() {
           >
             {width > 0 && height > 0 && (
               <svg
-                className="absolute inset-0 w-full h-full pointer-events-none"
+                className="absolute pointer-events-none"
                 style={{
+                  top: -1,
+                  left: -1,
+                  width: width + 2,
+                  height: height + 2,
                   overflow: 'visible',
                   opacity: showIndicator ? 1 : 0,
                   transition: 'opacity 0.4s ease',
                 }}
+                viewBox={`-1 -1 ${width + 2} ${height + 2}`}
               >
                 <defs>
-                  <linearGradient id="borderGradient" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="rgba(234, 88, 12, 0.1)" />
-                    <stop offset="50%" stopColor="rgba(245, 158, 11, 0.6)" />
+                  <linearGradient id="borderGradient" gradientUnits="userSpaceOnUse" x1="0" y1={height} x2={width} y2="0">
+                    <stop offset="0%" stopColor="rgba(234, 88, 12, 0.2)" />
+                    <stop offset="40%" stopColor="rgba(245, 158, 11, 0.7)" />
                     <stop offset="100%" stopColor="rgba(251, 191, 36, 1)" />
                   </linearGradient>
                   <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
                     <feMerge>
                       <feMergeNode in="coloredBlur"/>
                       <feMergeNode in="SourceGraphic"/>
@@ -204,8 +114,8 @@ export default function Navigation() {
                 <path
                   d={createBorderPath()}
                   fill="none"
-                  stroke="rgba(255, 255, 255, 0.08)"
-                  strokeWidth="1"
+                  stroke="rgba(255, 255, 255, 0.06)"
+                  strokeWidth="1.5"
                 />
 
                 <path
@@ -214,41 +124,15 @@ export default function Navigation() {
                   stroke="url(#borderGradient)"
                   strokeWidth="2"
                   strokeLinecap="round"
+                  strokeLinejoin="round"
                   filter="url(#glow)"
                   style={{
                     strokeDasharray: perimeter,
                     strokeDashoffset: perimeter - (scrollProgress * perimeter),
-                    transition: 'stroke-dashoffset 0.1s ease-out',
                   }}
                 />
               </svg>
             )}
-
-            <div
-              className="absolute w-3 h-3 rounded-full pointer-events-none"
-              style={{
-                left: orbPosition.x,
-                top: orbPosition.y,
-                background: 'radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(251, 191, 36, 1) 30%, rgba(245, 158, 11, 0.8) 60%, transparent 100%)',
-                animation: showIndicator ? 'pulse-glow 1.5s ease-in-out infinite' : 'none',
-                opacity: showIndicator ? 1 : 0,
-                transition: 'opacity 0.3s ease',
-                transform: 'translate(-50%, -50%)',
-                zIndex: 10,
-              }}
-            />
-
-            <div
-              className="absolute w-8 h-8 rounded-full pointer-events-none"
-              style={{
-                left: orbPosition.x,
-                top: orbPosition.y,
-                background: 'radial-gradient(circle, rgba(245, 158, 11, 0.3) 0%, transparent 70%)',
-                opacity: showIndicator ? 1 : 0,
-                transition: 'opacity 0.3s ease',
-                transform: 'translate(-50%, -50%)',
-              }}
-            />
           </div>
 
           <div className="relative">
