@@ -1,17 +1,17 @@
 import IPhoneMockup from './IPhoneMockup';
 
 const avatars = [
-  'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100',
-  'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=100',
-  'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=100',
+  'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100',
+  'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=100',
+  'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=100',
 ];
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen bg-surface overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-brand/10 rounded-full blur-[120px] animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-brand/5 rounded-full blur-[100px]" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/3 right-1/3 w-[500px] h-[500px] bg-brand/3 rounded-full blur-[130px]" />
       </div>
 
       <div className="container-main relative pt-32 md:pt-40 pb-20">
@@ -61,7 +61,7 @@ export default function Hero() {
 
           <div className="relative flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="absolute -inset-12 bg-gradient-to-br from-brand/20 via-brand/5 to-transparent rounded-full blur-3xl" />
+              <div className="absolute -inset-12 bg-gradient-to-br from-brand/8 via-brand/3 to-transparent rounded-full blur-[100px]" />
               <IPhoneMockup />
             </div>
           </div>
