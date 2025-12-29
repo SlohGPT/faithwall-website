@@ -17,18 +17,18 @@ export default function Hero() {
       <div className="container-main relative pt-32 md:pt-40 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-surface-card border-2 border-brand/30 mb-8">
+            <div className="inline-flex items-center gap-4 px-5 py-3 rounded-full bg-surface-card border-2 border-brand/30 mb-8">
               <div className="flex -space-x-2">
                 {avatars.map((src, i) => (
                   <img
                     key={i}
                     src={src}
                     alt=""
-                    className="w-7 h-7 rounded-full border-2 border-surface-card object-cover ring-1 ring-brand/20"
+                    className="w-8 h-8 rounded-full border-2 border-surface-card object-cover ring-1 ring-brand/20"
                   />
                 ))}
               </div>
-              <span className="text-sm text-white/70">Trusted by 10,000+ believers</span>
+              <span className="text-base text-white/70 font-medium">Trusted by 10,000+ believers</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6">
