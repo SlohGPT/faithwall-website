@@ -36,7 +36,7 @@ export default function Navigation() {
             </a>
 
             <div className="flex items-center gap-6 ml-auto">
-              <div className="hidden lg:flex items-center gap-5">
+              <div className="hidden lg:flex items-center gap-2">
                 <a
                   href="#blog"
                   className="text-base font-semibold text-white hover:text-white/70 transition-colors px-3 py-2"
