@@ -2,64 +2,112 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const scrollY = window.scrollY;
+      const maxScroll = 400;
+      const progress = Math.min(scrollY / maxScroll, 1);
+      setScrollProgress(progress);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const isVisible = scrollProgress > 0.05;
+  const glowIntensity = Math.min(scrollProgress * 1.5, 1);
+  const sweepPosition = scrollProgress * 100;
+
   return (
     <>
       <style>{`
-        @keyframes borderTrace {
-          0% {
-            background-position: 0% 0%;
-          }
-          100% {
-            background-position: 200% 0%;
-          }
+        .nav-container {
+          --sweep-pos: ${sweepPosition}%;
+          --glow-intensity: ${glowIntensity};
         }
 
         .nav-glow-border {
-          background: linear-gradient(
-            90deg,
-            transparent 0%,
-            transparent 40%,
-            rgba(251, 191, 36, 0.8) 45%,
-            rgba(245, 158, 11, 1) 50%,
-            rgba(234, 88, 12, 0.8) 55%,
-            transparent 60%,
-            transparent 100%
-          );
-          background-size: 200% 100%;
-          animation: borderTrace 3s linear infinite;
+          position: relative;
+          overflow: hidden;
         }
 
         .nav-glow-border::before {
           content: '';
           position: absolute;
-          inset: 1px;
-          border-radius: 39px;
-          background: rgba(0, 0, 0, 0.75);
+          inset: 0;
+          border-radius: 40px;
+          padding: 1.5px;
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(251, 191, 36, calc(0.3 * var(--glow-intensity))) calc(var(--sweep-pos) - 20%),
+            rgba(245, 158, 11, calc(0.9 * var(--glow-intensity))) calc(var(--sweep-pos) - 5%),
+            rgba(234, 88, 12, var(--glow-intensity)) var(--sweep-pos),
+            rgba(245, 158, 11, calc(0.9 * var(--glow-intensity))) calc(var(--sweep-pos) + 5%),
+            rgba(251, 191, 36, calc(0.3 * var(--glow-intensity))) calc(var(--sweep-pos) + 20%),
+            transparent 100%
+          );
+          -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+        }
+
+        .nav-glow-border::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 40px;
+          background: rgba(0, 0, 0, 0.8);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
+          z-index: -1;
+        }
+
+        .nav-ambient-glow {
+          position: absolute;
+          inset: -2px;
+          border-radius: 42px;
+          background: radial-gradient(
+            ellipse 60% 40% at calc(100% - var(--sweep-pos)) 50%,
+            rgba(245, 158, 11, calc(0.4 * var(--glow-intensity))),
+            transparent 70%
+          );
+          filter: blur(12px);
+          pointer-events: none;
+        }
+
+        .nav-fill-bar {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 2px;
+          width: calc(var(--sweep-pos) * 1%);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(251, 191, 36, calc(0.5 * var(--glow-intensity))),
+            rgba(245, 158, 11, calc(0.8 * var(--glow-intensity))),
+            rgba(234, 88, 12, var(--glow-intensity))
+          );
+          border-radius: 0 40px 40px 0;
+          opacity: var(--glow-intensity);
         }
       `}</style>
 
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-5 md:px-6 md:pt-6">
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-6xl nav-container">
           <div
-            className={`absolute inset-0 rounded-[40px] transition-all duration-500 ease-out nav-glow-border ${
-              isScrolled
-                ? 'opacity-100 scale-100'
-                : 'opacity-0 scale-[0.98]'
+            className={`absolute inset-0 rounded-[40px] transition-opacity duration-300 ease-out nav-glow-border ${
+              isVisible ? 'opacity-100' : 'opacity-0'
             }`}
-          />
+          >
+            <div className="nav-ambient-glow" />
+            <div className="nav-fill-bar" />
+          </div>
 
           <div className="relative">
             <div className="flex items-center justify-between pl-5 pr-2 py-1.5 md:pl-7 md:pr-3 md:py-2">
