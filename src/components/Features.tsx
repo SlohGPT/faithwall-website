@@ -1,74 +1,61 @@
-import { BookOpen, Cross, PenLine, Bell, Palette, Shield } from 'lucide-react';
-import { useInView } from '../hooks/useInView';
-
 const features = [
   {
-    icon: BookOpen,
-    title: 'Daily Scripture',
-    description: 'Fresh verses delivered to your lock screen every morning. Never miss your daily bread.',
+    label: 'Daily Inspiration',
+    title: 'Fresh Scripture Every Day',
+    description: 'Wake up to a new verse or prayer on your lock screen. Customized to your preferences and spiritual journey.',
+    image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
-    icon: Cross,
-    title: 'Beautiful Wallpapers',
-    description: 'Stunning faith-inspired backgrounds that make every glance meaningful.',
+    label: 'Personal Prayers',
+    title: 'Your Prayers, Your Way',
+    description: 'Add personal prayers, intentions, and affirmations. See them every time you pick up your phone.',
+    image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
-    icon: PenLine,
-    title: 'Personal Prayers',
-    description: 'Add your own prayers and intentions. See them when you need them most.',
+    label: 'Beautiful Design',
+    title: 'Stunning Backgrounds',
+    description: 'Choose from curated wallpapers or use your own photos. Every glance becomes a moment of peace.',
+    image: 'https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
-    icon: Bell,
-    title: 'Gentle Reminders',
-    description: 'Customizable notifications to pause and reflect throughout your day.',
-  },
-  {
-    icon: Palette,
-    title: 'Personalized Experience',
-    description: 'Choose themes, fonts, and styles that speak to your heart.',
-  },
-  {
-    icon: Shield,
-    title: 'Privacy First',
-    description: 'Your prayers stay on your device. No accounts required. No data collection.',
+    label: 'Privacy First',
+    title: 'Your Data Stays Yours',
+    description: 'No accounts required. No tracking. Your prayers and spiritual journey remain completely private.',
+    image: 'https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
 ];
 
 export default function Features() {
-  const { ref, inView } = useInView({ threshold: 0.1 });
-
   return (
-    <section id="features" className="section-padding bg-cream">
-      <div className="container-custom">
+    <section id="features" className="section-space bg-surface">
+      <div className="container-main">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
-            Everything You Need for{' '}
-            <span className="text-gradient-orange">Daily Spiritual Growth</span>
+          <p className="text-brand font-medium mb-3 tracking-wide uppercase text-sm">Features</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            Everything you need for
+            <br />
+            <span className="text-white/40">daily spiritual growth</span>
           </h2>
-          <p className="text-lg text-text-secondary">
-            Simple. Beautiful. Meaningful.
-          </p>
         </div>
 
-        <div
-          ref={ref}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
-        >
-          {features.map((feature, index) => (
+        <div className="grid md:grid-cols-2 gap-6">
+          {features.map((feature) => (
             <div
               key={feature.title}
-              className={`group bg-white rounded-3xl p-6 lg:p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-orange/0 hover:border-orange ${
-                inView ? 'animate-in' : 'opacity-0'
-              }`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group card-gradient p-6 lg:p-8 hover:border-brand/30 transition-all duration-300"
             >
-              <div className="w-14 h-14 rounded-2xl bg-gradient-orange flex items-center justify-center mb-5 shadow-lg shadow-orange/25 group-hover:scale-110 transition-transform">
-                <feature.icon className="w-7 h-7 text-white" />
+              <div className="mb-6 rounded-2xl overflow-hidden aspect-[16/10]">
+                <img
+                  src={feature.image}
+                  alt={feature.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-text-primary mb-3">
+              <p className="text-brand text-sm font-medium mb-2 uppercase tracking-wider">{feature.label}</p>
+              <h3 className="text-xl lg:text-2xl font-bold text-white mb-3">
                 {feature.title}
               </h3>
-              <p className="text-text-secondary leading-relaxed">
+              <p className="text-white/60 leading-relaxed">
                 {feature.description}
               </p>
             </div>
