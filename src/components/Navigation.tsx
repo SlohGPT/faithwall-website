@@ -16,63 +16,79 @@ export default function Navigation() {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-5 md:px-6 md:pt-6">
-        <div
-          className={`mx-auto max-w-6xl rounded-[40px] transition-all duration-500 ${
-            isScrolled
-              ? 'bg-black/50 backdrop-blur-xl border border-white/10'
-              : 'bg-transparent'
-          }`}
-        >
-          <div className="flex items-center justify-between pl-5 pr-2 py-1.5 md:pl-7 md:pr-3 md:py-2">
-            <a href="#" className="flex items-center gap-2.5 group pl-1.5">
-              <img
-                src="/icon-app-1024.png"
-                alt="FaithWall"
-                className="w-9 h-9 md:w-10 md:h-10 rounded-xl group-hover:scale-105 transition-transform"
-              />
-              <span className="text-lg md:text-xl font-black text-white tracking-tight">
-                FaithWall
-              </span>
-            </a>
+        <div className="relative mx-auto max-w-6xl">
+          <div
+            className={`absolute inset-0 rounded-[40px] transition-all duration-700 ease-out ${
+              isScrolled
+                ? 'opacity-100'
+                : 'opacity-0'
+            }`}
+            style={{
+              background: 'linear-gradient(135deg, rgba(245,158,11,0.4) 0%, rgba(234,88,12,0.3) 50%, rgba(220,38,38,0.2) 100%)',
+              padding: '1px',
+            }}
+          >
+            <div className="absolute inset-[1px] rounded-[39px] bg-black/70 backdrop-blur-xl" />
+          </div>
 
-            <div className="flex items-center gap-6 ml-auto">
-              <div className="hidden lg:flex items-center gap-2">
-                <a
-                  href="#blog"
-                  className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
-                >
-                  Blog
-                </a>
-                <a
-                  href="#how-it-works"
-                  className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
-                >
-                  How it works
-                </a>
-                <a
-                  href="#support"
-                  className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
-                >
-                  Support
-                </a>
-              </div>
-
-              <a
-                href="https://apps.apple.com/app/faithwall"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden lg:inline-flex items-center justify-center px-7 py-3 bg-white text-surface text-xl font-semibold rounded-full hover:bg-white/90 transition-colors"
-              >
-                Try for free
+          <div
+            className={`relative rounded-[40px] transition-all duration-700 ease-out ${
+              isScrolled
+                ? 'bg-transparent'
+                : 'bg-transparent'
+            }`}
+          >
+            <div className="flex items-center justify-between pl-5 pr-2 py-1.5 md:pl-7 md:pr-3 md:py-2">
+              <a href="#" className="flex items-center gap-2.5 group pl-1.5">
+                <img
+                  src="/icon-app-1024.png"
+                  alt="FaithWall"
+                  className="w-9 h-9 md:w-10 md:h-10 rounded-xl group-hover:scale-105 transition-transform"
+                />
+                <span className="text-lg md:text-xl font-black text-white tracking-tight">
+                  FaithWall
+                </span>
               </a>
 
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 text-white hover:text-white transition-colors"
-                aria-label="Toggle menu"
-              >
-                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
+              <div className="flex items-center gap-6 ml-auto">
+                <div className="hidden lg:flex items-center gap-2">
+                  <a
+                    href="#blog"
+                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
+                  >
+                    Blog
+                  </a>
+                  <a
+                    href="#how-it-works"
+                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
+                  >
+                    How it works
+                  </a>
+                  <a
+                    href="#support"
+                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
+                  >
+                    Support
+                  </a>
+                </div>
+
+                <a
+                  href="https://apps.apple.com/app/faithwall"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden lg:inline-flex items-center justify-center px-7 py-3 bg-white text-surface text-xl font-semibold rounded-full hover:bg-white/90 transition-colors"
+                >
+                  Try for free
+                </a>
+
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="lg:hidden p-2 text-white hover:text-white transition-colors"
+                  aria-label="Toggle menu"
+                >
+                  {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </button>
+              </div>
             </div>
           </div>
         </div>
