@@ -35,7 +35,28 @@ export default function Navigation() {
               </span>
             </a>
 
-            <div className="flex items-center gap-3 ml-auto">
+            <div className="flex items-center gap-6 ml-auto">
+              <div className="hidden lg:flex items-center gap-6">
+                <a
+                  href="#blog"
+                  className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+                >
+                  Blog
+                </a>
+                <a
+                  href="#how-it-works"
+                  className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+                >
+                  How it works
+                </a>
+                <a
+                  href="#support"
+                  className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+                >
+                  Support
+                </a>
+              </div>
+
               <a
                 href="https://apps.apple.com/app/faithwall"
                 target="_blank"
@@ -71,16 +92,39 @@ export default function Navigation() {
             isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
           }`}
         >
-          <div className="flex flex-col p-3">
+          <div className="flex flex-col p-3 gap-2">
             <a
-              href="https://apps.apple.com/app/faithwall"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-full px-6 py-3.5 bg-white text-surface font-semibold rounded-xl transition-colors"
+              href="#blog"
+              className="px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-sm font-medium"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Try for free
+              Blog
             </a>
+            <a
+              href="#how-it-works"
+              className="px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-sm font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              How it works
+            </a>
+            <a
+              href="#support"
+              className="px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-sm font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Support
+            </a>
+            <div className="pt-2 mt-2 border-t border-surface-border">
+              <a
+                href="https://apps.apple.com/app/faithwall"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-full px-6 py-3.5 bg-white text-surface font-semibold rounded-xl transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Try for free
+              </a>
+            </div>
           </div>
         </div>
       </div>
