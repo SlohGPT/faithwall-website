@@ -17,7 +17,7 @@ export default function Navigation() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-3 md:px-6 md:pt-4">
         <div
-          className={`mx-auto max-w-6xl rounded-[28px] transition-all duration-500 ${
+          className={`mx-auto max-w-6xl rounded-[40px] transition-all duration-500 ${
             isScrolled
               ? 'bg-white/10 backdrop-blur-2xl'
               : 'bg-transparent backdrop-blur-sm'
