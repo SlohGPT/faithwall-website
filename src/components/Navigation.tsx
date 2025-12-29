@@ -19,7 +19,7 @@ export default function Navigation() {
         <div
           className={`mx-auto max-w-6xl rounded-[40px] transition-all duration-500 ${
             isScrolled
-              ? 'bg-[#0a0a0f] backdrop-blur-2xl'
+              ? 'bg-black/50 backdrop-blur-xl border border-white/10'
               : 'bg-transparent'
           }`}
         >
