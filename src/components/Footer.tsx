@@ -99,8 +99,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="w-11/12">
-          <div className="text-[22vw] sm:text-[20vw] lg:text-[16vw] font-black text-white leading-none tracking-[-0.08em] select-none" style={{ letterSpacing: '-0.04em' }}>
+        <div className="w-full max-w-full overflow-hidden">
+          <div className="text-[18vw] sm:text-[20vw] lg:text-[16vw] font-black text-white leading-none tracking-[-0.08em] select-none break-words" style={{ letterSpacing: '-0.04em', wordBreak: 'break-word' }}>
             FAITHWALL
           </div>
         </div>

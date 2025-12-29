@@ -18,7 +18,7 @@
 
 @layer components {
   .container-main {
-    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-12;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 overflow-hidden;
   }
 
   .section-space {
