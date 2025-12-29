@@ -15,15 +15,15 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 md:px-6 md:pt-6">
         <div
-          className={`mx-auto max-w-5xl rounded-2xl border transition-all duration-300 ${
+          className={`mx-auto max-w-5xl rounded-[28px] transition-all duration-500 ${
             isScrolled
-              ? 'bg-surface-elevated/90 backdrop-blur-xl border-surface-border shadow-2xl'
-              : 'bg-surface-card/60 backdrop-blur-xl border-surface-border'
+              ? 'bg-surface-elevated/95 backdrop-blur-2xl shadow-2xl'
+              : 'bg-transparent backdrop-blur-sm'
           }`}
         >
-          <div className="flex items-center justify-between px-4 py-3 md:px-6">
+          <div className="flex items-center justify-between px-5 py-4 md:px-7">
             <a href="#" className="flex items-center gap-2.5 group">
               <img
                 src="/icon-app-1024.png"
@@ -61,7 +61,7 @@ export default function Navigation() {
                 href="https://apps.apple.com/app/faithwall"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-7 py-3 bg-white text-surface font-semibold rounded-xl hover:bg-white/90 transition-colors"
+                className="inline-flex items-center justify-center px-7 py-3 bg-white text-surface font-semibold rounded-full hover:bg-white/90 transition-colors"
               >
                 Try for free
               </a>
@@ -88,7 +88,7 @@ export default function Navigation() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div
-          className={`absolute top-20 left-4 right-4 bg-surface-elevated border border-surface-border rounded-2xl shadow-2xl transition-all duration-300 ${
+          className={`absolute top-20 left-4 right-4 bg-surface-elevated/95 backdrop-blur-2xl rounded-[28px] shadow-2xl transition-all duration-300 ${
             isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
           }`}
         >
@@ -119,7 +119,7 @@ export default function Navigation() {
                 href="https://apps.apple.com/app/faithwall"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-full px-6 py-3.5 bg-white text-surface font-semibold rounded-xl transition-colors"
+                className="flex items-center justify-center w-full px-6 py-3.5 bg-white text-surface font-semibold rounded-full transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Try for free
