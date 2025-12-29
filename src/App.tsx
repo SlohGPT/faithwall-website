@@ -5,7 +5,6 @@ import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
 import AppShowcase from './components/AppShowcase';
 import Testimonials from './components/Testimonials';
-import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import Newsletter from './components/Newsletter';
 import FinalCTA from './components/FinalCTA';
@@ -21,7 +20,6 @@ export default function App() {
       <HowItWorks />
       <AppShowcase />
       <Testimonials />
-      <Pricing />
       <FAQ />
       <Newsletter />
       <FinalCTA />
