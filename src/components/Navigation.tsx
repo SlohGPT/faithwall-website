@@ -3,80 +3,64 @@ import { Menu, X } from 'lucide-react';
 
 export default function Navigation() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const maxScroll = 300;
-      const progress = Math.min(scrollY / maxScroll, 1);
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? scrollY / docHeight : 0;
       setScrollProgress(progress);
+      setHasScrolled(scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const glowIntensity = scrollProgress;
-  const bgOpacity = 0.4 + scrollProgress * 0.5;
-  const borderOpacity = 0.1 + scrollProgress * 0.4;
 
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-5 md:px-6 md:pt-6">
         <div className="relative mx-auto max-w-6xl">
           <div
-            className="absolute inset-0 rounded-[40px] transition-all duration-300 ease-out overflow-hidden"
+            className="absolute inset-0 rounded-[40px] overflow-hidden"
             style={{
-              background: `rgba(0, 0, 0, ${bgOpacity})`,
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              boxShadow: `
-                inset 0 0 0 1px rgba(255, 255, 255, ${borderOpacity}),
-                0 0 ${20 + glowIntensity * 30}px rgba(245, 158, 11, ${glowIntensity * 0.3}),
-                0 0 ${40 + glowIntensity * 60}px rgba(234, 88, 12, ${glowIntensity * 0.2})
-              `,
+              background: hasScrolled ? 'rgba(0, 0, 0, 0.25)' : 'transparent',
+              backdropFilter: hasScrolled ? 'blur(24px)' : 'none',
+              WebkitBackdropFilter: hasScrolled ? 'blur(24px)' : 'none',
+              border: hasScrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
+              boxShadow: hasScrolled
+                ? '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset'
+                : 'none',
+              transition: 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
             }}
           >
             <div
-              className="absolute inset-0 rounded-[40px] transition-opacity duration-500"
+              className="absolute inset-x-0 bottom-0 h-[1px]"
               style={{
-                background: `linear-gradient(
-                  90deg,
+                background: `linear-gradient(90deg,
                   transparent 0%,
-                  rgba(251, 191, 36, ${glowIntensity * 0.15}) ${scrollProgress * 100}%,
-                  transparent ${scrollProgress * 100 + 20}%
+                  rgba(251, 191, 36, 0.4) 10%,
+                  rgba(245, 158, 11, 0.8) 50%,
+                  rgba(234, 88, 12, 0.4) 90%,
+                  transparent 100%
                 )`,
-                opacity: glowIntensity,
+                transform: `scaleX(${scrollProgress})`,
+                transformOrigin: 'left',
+                opacity: hasScrolled ? 1 : 0,
+                transition: 'opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
               }}
             />
 
             <div
-              className="absolute inset-x-0 bottom-0 h-[2px] rounded-full transition-all duration-300"
+              className="absolute top-0 bottom-0 w-[3px] pointer-events-none"
               style={{
-                background: `linear-gradient(
-                  90deg,
-                  transparent,
-                  rgba(251, 191, 36, ${glowIntensity * 0.6}),
-                  rgba(245, 158, 11, ${glowIntensity * 0.9}),
-                  rgba(234, 88, 12, ${glowIntensity})
-                )`,
-                width: `${scrollProgress * 100}%`,
-                opacity: glowIntensity,
-              }}
-            />
-
-            <div
-              className="absolute top-0 bottom-0 w-[2px] transition-all duration-300"
-              style={{
-                left: `${scrollProgress * 100}%`,
-                background: `linear-gradient(
-                  180deg,
-                  transparent,
-                  rgba(245, 158, 11, ${glowIntensity}),
-                  transparent
-                )`,
-                boxShadow: `0 0 20px rgba(245, 158, 11, ${glowIntensity * 0.8})`,
-                opacity: glowIntensity > 0.05 ? 1 : 0,
+                left: `calc(${scrollProgress * 100}% - 1.5px)`,
+                background: 'linear-gradient(180deg, transparent 0%, rgba(251, 191, 36, 0.9) 30%, rgba(245, 158, 11, 1) 50%, rgba(251, 191, 36, 0.9) 70%, transparent 100%)',
+                boxShadow: '0 0 12px 2px rgba(245, 158, 11, 0.6), 0 0 24px 4px rgba(251, 191, 36, 0.3)',
+                borderRadius: '2px',
+                opacity: hasScrolled && scrollProgress > 0.01 ? 1 : 0,
+                transition: 'opacity 0.4s ease',
               }}
             />
           </div>
@@ -87,7 +71,7 @@ export default function Navigation() {
                 <img
                   src="/icon-app-1024.png"
                   alt="FaithWall"
-                  className="w-9 h-9 md:w-10 md:h-10 rounded-xl group-hover:scale-105 transition-transform"
+                  className="w-9 h-9 md:w-10 md:h-10 rounded-xl group-hover:scale-105 transition-transform duration-300"
                 />
                 <span className="text-lg md:text-xl font-black text-white tracking-tight">
                   FaithWall
@@ -98,19 +82,19 @@ export default function Navigation() {
                 <div className="hidden lg:flex items-center gap-2">
                   <a
                     href="#blog"
-                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
+                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
                     Blog
                   </a>
                   <a
                     href="#how-it-works"
-                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
+                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
                     How it works
                   </a>
                   <a
                     href="#support"
-                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
+                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
                     Support
                   </a>
@@ -120,14 +104,14 @@ export default function Navigation() {
                   href="https://apps.apple.com/app/faithwall"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hidden lg:inline-flex items-center justify-center px-7 py-3 bg-white text-surface text-xl font-semibold rounded-full hover:bg-white/90 transition-colors"
+                  className="hidden lg:inline-flex items-center justify-center px-7 py-3 bg-white text-surface text-xl font-semibold rounded-full hover:bg-white/90 transition-all duration-300"
                 >
                   Try for free
                 </a>
 
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="lg:hidden p-2 text-white hover:text-white transition-colors"
+                  className="lg:hidden p-2 text-white hover:text-white/70 transition-colors duration-300"
                   aria-label="Toggle menu"
                 >
                   {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
