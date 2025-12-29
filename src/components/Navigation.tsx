@@ -34,36 +34,32 @@ export default function Navigation() {
 
   const showIndicator = hasScrolled && scrollProgress > 0.01;
   const borderRadius = 40;
+  const strokeWidth = 2;
   const { width, height } = containerSize;
 
+  const inset = strokeWidth / 2;
+  const innerWidth = width - strokeWidth;
+  const innerHeight = height - strokeWidth;
+  const r = borderRadius - inset;
+
   const getPerimeter = () => {
-    if (width === 0 || height === 0) return 0;
-    const straightWidth = width - 2 * borderRadius;
-    const straightHeight = height - 2 * borderRadius;
-    const cornerCircumference = 2 * Math.PI * borderRadius;
+    if (innerWidth <= 0 || innerHeight <= 0) return 0;
+    const straightWidth = innerWidth - 2 * r;
+    const straightHeight = innerHeight - 2 * r;
+    const cornerCircumference = 2 * Math.PI * r;
     return 2 * straightWidth + 2 * straightHeight + cornerCircumference;
   };
 
   const perimeter = getPerimeter();
 
-  const createBorderPath = () => {
-    if (width === 0 || height === 0) return '';
-    const r = borderRadius;
-    const w = width;
-    const h = height;
-    return `
-      M 0 ${h - r}
-      L 0 ${r}
-      A ${r} ${r} 0 0 1 ${r} 0
-      L ${w - r} 0
-      A ${r} ${r} 0 0 1 ${w} ${r}
-      L ${w} ${h - r}
-      A ${r} ${r} 0 0 1 ${w - r} ${h}
-      L ${r} ${h}
-      A ${r} ${r} 0 0 1 0 ${h - r}
-      Z
-    `;
+  const getOffsetForBottomLeftStart = () => {
+    if (innerWidth <= 0 || innerHeight <= 0) return 0;
+    const straightHeight = innerHeight - 2 * r;
+    const quarterCorner = (Math.PI * r) / 2;
+    return straightHeight + quarterCorner;
   };
+
+  const startOffset = getOffsetForBottomLeftStart();
 
   return (
     <>
@@ -86,20 +82,21 @@ export default function Navigation() {
               <svg
                 className="absolute pointer-events-none"
                 style={{
-                  top: -1,
-                  left: -1,
-                  width: width + 2,
-                  height: height + 2,
+                  top: 0,
+                  left: 0,
+                  width: width,
+                  height: height,
                   overflow: 'visible',
                   opacity: showIndicator ? 1 : 0,
                   transition: 'opacity 0.4s ease',
                 }}
-                viewBox={`-1 -1 ${width + 2} ${height + 2}`}
+                viewBox={`0 0 ${width} ${height}`}
               >
                 <defs>
                   <linearGradient id="borderGradient" gradientUnits="userSpaceOnUse" x1="0" y1={height} x2={width} y2="0">
-                    <stop offset="0%" stopColor="rgba(234, 88, 12, 0.2)" />
-                    <stop offset="40%" stopColor="rgba(245, 158, 11, 0.7)" />
+                    <stop offset="0%" stopColor="rgba(234, 88, 12, 0.15)" />
+                    <stop offset="30%" stopColor="rgba(245, 158, 11, 0.6)" />
+                    <stop offset="70%" stopColor="rgba(251, 191, 36, 0.9)" />
                     <stop offset="100%" stopColor="rgba(251, 191, 36, 1)" />
                   </linearGradient>
                   <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -111,24 +108,35 @@ export default function Navigation() {
                   </filter>
                 </defs>
 
-                <path
-                  d={createBorderPath()}
+                <rect
+                  x={inset}
+                  y={inset}
+                  width={innerWidth}
+                  height={innerHeight}
+                  rx={r}
+                  ry={r}
                   fill="none"
                   stroke="rgba(255, 255, 255, 0.06)"
-                  strokeWidth="1.5"
+                  strokeWidth={strokeWidth}
+                  shapeRendering="geometricPrecision"
                 />
 
-                <path
-                  d={createBorderPath()}
+                <rect
+                  x={inset}
+                  y={inset}
+                  width={innerWidth}
+                  height={innerHeight}
+                  rx={r}
+                  ry={r}
                   fill="none"
                   stroke="url(#borderGradient)"
-                  strokeWidth="2"
+                  strokeWidth={strokeWidth}
                   strokeLinecap="round"
-                  strokeLinejoin="round"
                   filter="url(#glow)"
+                  shapeRendering="geometricPrecision"
                   style={{
                     strokeDasharray: perimeter,
-                    strokeDashoffset: perimeter - (scrollProgress * perimeter),
+                    strokeDashoffset: perimeter - (scrollProgress * perimeter) + startOffset,
                   }}
                 />
               </svg>
