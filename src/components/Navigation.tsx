@@ -52,14 +52,6 @@ export default function Navigation() {
 
   const perimeter = getPerimeter();
 
-  const getOffsetForBottomLeftStart = () => {
-    if (innerWidth <= 0 || innerHeight <= 0) return 0;
-    const straightHeight = innerHeight - 2 * r;
-    const quarterCorner = (Math.PI * r) / 2;
-    return straightHeight + quarterCorner;
-  };
-
-  const startOffset = getOffsetForBottomLeftStart();
 
   return (
     <>
@@ -136,7 +128,7 @@ export default function Navigation() {
                   shapeRendering="geometricPrecision"
                   style={{
                     strokeDasharray: perimeter,
-                    strokeDashoffset: perimeter - (scrollProgress * perimeter) + startOffset,
+                    strokeDashoffset: perimeter * (1 - scrollProgress),
                   }}
                 />
               </svg>
