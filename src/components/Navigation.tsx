@@ -19,7 +19,7 @@ export default function Navigation() {
         <div
           className={`mx-auto max-w-5xl rounded-[28px] transition-all duration-500 ${
             isScrolled
-              ? 'bg-surface-elevated/95 backdrop-blur-2xl shadow-2xl'
+              ? 'bg-white/10 backdrop-blur-2xl'
               : 'bg-transparent backdrop-blur-sm'
           }`}
         >
@@ -88,7 +88,7 @@ export default function Navigation() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div
-          className={`absolute top-20 left-4 right-4 bg-surface-elevated/95 backdrop-blur-2xl rounded-[28px] shadow-2xl transition-all duration-300 ${
+          className={`absolute top-20 left-4 right-4 bg-surface-elevated/95 backdrop-blur-2xl rounded-[28px] transition-all duration-300 ${
             isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
           }`}
         >
