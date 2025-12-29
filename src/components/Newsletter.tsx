@@ -18,12 +18,12 @@ export default function Newsletter() {
   return (
     <section className="section-padding bg-cream relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute top-10 right-10 w-20 h-20 text-gold">
+        <div className="absolute top-10 right-10 w-20 h-20 text-orange">
           <svg viewBox="0 0 100 100" fill="currentColor">
             <path d="M50 10v80M10 50h80" strokeWidth="8" />
           </svg>
         </div>
-        <div className="absolute bottom-10 left-10 w-16 h-16 text-gold">
+        <div className="absolute bottom-10 left-10 w-16 h-16 text-orange">
           <svg viewBox="0 0 100 100" fill="currentColor">
             <path d="M50 10v80M10 50h80" strokeWidth="8" />
           </svg>
@@ -35,13 +35,13 @@ export default function Newsletter() {
           ref={ref}
           className={`max-w-2xl mx-auto text-center ${inView ? 'animate-in' : 'opacity-0'}`}
         >
-          <div className="w-16 h-16 rounded-2xl bg-gradient-gold flex items-center justify-center mx-auto mb-6 shadow-lg shadow-gold/25">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-orange flex items-center justify-center mx-auto mb-6 shadow-lg shadow-orange/25">
             <Mail className="w-8 h-8 text-white" />
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
             Join Our{' '}
-            <span className="text-gradient-gold">Faith Community</span>
+            <span className="text-gradient-orange">Faith Community</span>
           </h2>
           <p className="text-lg text-text-secondary mb-8">
             Get weekly inspiration, app updates, and exclusive wallpapers
@@ -61,7 +61,7 @@ export default function Newsletter() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="flex-1 px-5 py-3.5 rounded-xl border border-cream-dark bg-white text-text-primary placeholder-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all"
+                className="flex-1 px-5 py-3.5 rounded-xl border border-cream-dark bg-white text-text-primary placeholder-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-orange/30 focus:border-orange transition-all"
               />
               <button
                 type="submit"

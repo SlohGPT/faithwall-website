@@ -1,4 +1,4 @@
-import { Cross, Twitter, Instagram, Facebook, Mail } from 'lucide-react';
+import { Twitter, Instagram, Facebook, Mail } from 'lucide-react';
 
 const footerLinks = {
   product: [
@@ -33,11 +33,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
           <div className="col-span-2 md:col-span-1">
             <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-gold flex items-center justify-center shadow-lg">
-                <Cross className="w-5 h-5 text-white" />
-              </div>
+              <img
+                src="/icon-app-1024.png"
+                alt="FaithWall"
+                className="w-10 h-10 rounded-xl shadow-lg"
+              />
               <span className="text-xl font-semibold">
-                Faith<span className="text-gold">Wall</span>
+                Faith<span className="text-orange">Wall</span>
               </span>
             </a>
             <p className="text-white/60 text-sm mb-6 max-w-xs">
@@ -49,7 +51,7 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-gold/20 hover:text-gold transition-colors"
+                  className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-orange/20 hover:text-orange transition-colors"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -64,7 +66,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-white/60 hover:text-gold transition-colors text-sm"
+                    className="text-white/60 hover:text-orange transition-colors text-sm"
                   >
                     {link.name}
                   </a>
@@ -80,7 +82,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-white/60 hover:text-gold transition-colors text-sm"
+                    className="text-white/60 hover:text-orange transition-colors text-sm"
                   >
                     {link.name}
                   </a>
@@ -96,7 +98,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-white/60 hover:text-gold transition-colors text-sm"
+                    className="text-white/60 hover:text-orange transition-colors text-sm"
                   >
                     {link.name}
                   </a>

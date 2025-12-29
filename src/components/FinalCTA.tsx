@@ -22,7 +22,7 @@ export default function FinalCTA() {
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Start Every Day with{' '}
-            <span className="text-gold">Purpose</span>
+            <span className="text-orange">Purpose</span>
           </h2>
           <p className="text-xl text-white/80 mb-8 leading-relaxed">
             Transform your phone into a tool for spiritual growth. Join thousands of believers who begin each day with inspiration.
@@ -46,7 +46,7 @@ export default function FinalCTA() {
               {['SM', 'RK', 'DL', 'MT'].map((initials, i) => (
                 <div
                   key={initials}
-                  className="w-10 h-10 rounded-full bg-gradient-gold flex items-center justify-center text-white text-xs font-semibold border-2 border-white shadow-lg"
+                  className="w-10 h-10 rounded-full bg-gradient-orange flex items-center justify-center text-white text-xs font-semibold border-2 border-white shadow-lg"
                   style={{ zIndex: 4 - i }}
                 >
                   {initials}
@@ -54,7 +54,7 @@ export default function FinalCTA() {
               ))}
             </div>
             <p className="text-white/80 text-sm">
-              Join <span className="text-gold font-semibold">10,000+</span> believers
+              Join <span className="text-orange font-semibold">10,000+</span> believers
             </p>
           </div>
         </div>

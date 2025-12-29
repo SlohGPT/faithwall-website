@@ -39,7 +39,7 @@ export default function FAQ() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
             Common{' '}
-            <span className="text-gradient-gold">Questions</span>
+            <span className="text-gradient-orange">Questions</span>
           </h2>
           <p className="text-lg text-text-secondary">
             Everything you need to know about FaithWall
@@ -59,11 +59,11 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-cream/50 transition-colors"
               >
-                <span className={`font-semibold pr-4 ${openIndex === index ? 'text-gold' : 'text-text-primary'}`}>
+                <span className={`font-semibold pr-4 ${openIndex === index ? 'text-orange' : 'text-text-primary'}`}>
                   {faq.question}
                 </span>
                 <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-                  openIndex === index ? 'bg-gold text-white' : 'bg-cream text-text-secondary'
+                  openIndex === index ? 'bg-orange text-white' : 'bg-cream text-text-secondary'
                 }`}>
                   {openIndex === index ? (
                     <Minus className="w-4 h-4" />

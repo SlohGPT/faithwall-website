@@ -4,10 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        gold: {
-          DEFAULT: '#D4A574',
-          light: '#E8C9A0',
-          dark: '#B8956A',
+        orange: {
+          DEFAULT: '#D97B3B',
+          light: '#E9A06A',
+          dark: '#C06A2E',
+          soft: '#F5C9A8',
         },
         purple: {
           soft: '#7C6B8E',
@@ -61,7 +62,7 @@ export default {
       },
       backgroundImage: {
         'gradient-hero': 'linear-gradient(135deg, #FFFBF5 0%, #FDF8F0 50%, #F5EDE3 100%)',
-        'gradient-gold': 'linear-gradient(135deg, #D4A574 0%, #E8C9A0 100%)',
+        'gradient-orange': 'linear-gradient(135deg, #D97B3B 0%, #E9A06A 100%)',
         'gradient-dark': 'linear-gradient(180deg, #1A1A2E 0%, #2D2A4A 100%)',
       },
     },

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Cross } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { name: 'Features', href: '#features' },
@@ -32,11 +32,13 @@ export default function Navigation() {
       <div className="container-custom section-padding !py-4">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-gold flex items-center justify-center shadow-lg shadow-gold/25 group-hover:scale-105 transition-transform">
-              <Cross className="w-5 h-5 text-white" />
-            </div>
+            <img
+              src="/icon-app-1024.png"
+              alt="FaithWall"
+              className="w-10 h-10 rounded-xl shadow-lg shadow-orange/25 group-hover:scale-105 transition-transform"
+            />
             <span className="text-xl font-semibold text-text-primary">
-              Faith<span className="text-gold">Wall</span>
+              Faith<span className="text-orange">Wall</span>
             </span>
           </a>
 
@@ -45,10 +47,10 @@ export default function Navigation() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-text-secondary hover:text-gold transition-colors relative group"
+                className="text-text-secondary hover:text-orange transition-colors relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </div>
@@ -66,7 +68,7 @@ export default function Navigation() {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-text-primary hover:text-gold transition-colors"
+            className="md:hidden p-2 text-text-primary hover:text-orange transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -85,7 +87,7 @@ export default function Navigation() {
               key={link.name}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-lg text-text-primary hover:text-gold transition-colors py-3 border-b border-cream-dark"
+              className="text-lg text-text-primary hover:text-orange transition-colors py-3 border-b border-cream-dark"
             >
               {link.name}
             </a>

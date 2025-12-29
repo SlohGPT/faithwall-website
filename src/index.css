@@ -15,16 +15,16 @@
 @layer components {
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3
-           bg-gradient-gold text-white font-medium rounded-xl
-           shadow-lg shadow-gold/25
-           hover:shadow-xl hover:shadow-gold/30 hover:scale-[1.02]
+           bg-gradient-orange text-white font-medium rounded-xl
+           shadow-lg shadow-orange/25
+           hover:shadow-xl hover:shadow-orange/30 hover:scale-[1.02]
            transition-all duration-300 ease-out;
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3
-           bg-transparent border-2 border-gold text-gold font-medium rounded-xl
-           hover:bg-gold/10 hover:scale-[1.02]
+           bg-transparent border-2 border-orange text-orange font-medium rounded-xl
+           hover:bg-orange/10 hover:scale-[1.02]
            transition-all duration-300 ease-out;
   }
 
@@ -42,8 +42,8 @@
 }
 
 @layer utilities {
-  .text-gradient-gold {
-    @apply bg-gradient-gold bg-clip-text text-transparent;
+  .text-gradient-orange {
+    @apply bg-gradient-orange bg-clip-text text-transparent;
   }
 
   .animate-in {

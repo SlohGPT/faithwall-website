@@ -43,7 +43,7 @@ export default function Features() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
             Everything You Need for{' '}
-            <span className="text-gradient-gold">Daily Spiritual Growth</span>
+            <span className="text-gradient-orange">Daily Spiritual Growth</span>
           </h2>
           <p className="text-lg text-text-secondary">
             Simple. Beautiful. Meaningful.
@@ -57,12 +57,12 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className={`group bg-white rounded-3xl p-6 lg:p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-gold/0 hover:border-gold ${
+              className={`group bg-white rounded-3xl p-6 lg:p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-orange/0 hover:border-orange ${
                 inView ? 'animate-in' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-14 h-14 rounded-2xl bg-gradient-gold flex items-center justify-center mb-5 shadow-lg shadow-gold/25 group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-orange flex items-center justify-center mb-5 shadow-lg shadow-orange/25 group-hover:scale-110 transition-transform">
                 <feature.icon className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-text-primary mb-3">

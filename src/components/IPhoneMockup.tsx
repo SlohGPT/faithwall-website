@@ -25,7 +25,7 @@ export default function IPhoneMockup() {
                   <p className="text-white font-display text-lg leading-relaxed italic">
                     "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future."
                   </p>
-                  <p className="text-gold-light text-sm mt-3 font-medium">
+                  <p className="text-orange-light text-sm mt-3 font-medium">
                     Jeremiah 29:11
                   </p>
                 </div>

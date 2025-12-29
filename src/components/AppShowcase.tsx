@@ -34,7 +34,7 @@ export default function AppShowcase() {
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-gold rounded-full animate-pulse"
+            className="absolute w-1 h-1 bg-orange rounded-full animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -48,7 +48,7 @@ export default function AppShowcase() {
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             See FaithWall{' '}
-            <span className="text-gold">in Action</span>
+            <span className="text-orange">in Action</span>
           </h2>
           <p className="text-lg text-white/70">
             Beautiful inspiration on your lock screen
@@ -74,7 +74,7 @@ export default function AppShowcase() {
                           <p className="text-white font-display text-sm leading-relaxed italic">
                             "Trust in the Lord with all your heart and lean not on your own understanding."
                           </p>
-                          <p className="text-gold-light text-xs mt-2 font-medium">
+                          <p className="text-orange-light text-xs mt-2 font-medium">
                             Proverbs 3:5
                           </p>
                         </div>
@@ -94,7 +94,7 @@ export default function AppShowcase() {
                   onClick={() => setActiveIndex(index)}
                   className={`w-16 h-16 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
                     index === activeIndex
-                      ? 'border-gold scale-110 shadow-lg shadow-gold/30'
+                      ? 'border-orange scale-110 shadow-lg shadow-orange/30'
                       : 'border-transparent opacity-60 hover:opacity-100'
                   }`}
                 >

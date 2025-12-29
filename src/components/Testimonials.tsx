@@ -41,7 +41,7 @@ export default function Testimonials() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
             Loved by{' '}
-            <span className="text-gradient-gold">Believers Everywhere</span>
+            <span className="text-gradient-orange">Believers Everywhere</span>
           </h2>
           <p className="text-lg text-text-secondary">
             See what our community is saying
@@ -60,11 +60,11 @@ export default function Testimonials() {
                 transform: `rotate(${index % 2 === 0 ? '-1' : '1'}deg)`,
               }}
             >
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-gold/20" />
+              <Quote className="absolute top-6 right-6 w-10 h-10 text-orange/20" />
 
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-gold fill-current" />
+                  <Star key={i} className="w-4 h-4 text-orange fill-current" />
                 ))}
               </div>
 
@@ -73,7 +73,7 @@ export default function Testimonials() {
               </p>
 
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-gold flex items-center justify-center text-white font-semibold">
+                <div className="w-12 h-12 rounded-full bg-gradient-orange flex items-center justify-center text-white font-semibold">
                   {testimonial.avatar}
                 </div>
                 <div>

@@ -44,15 +44,15 @@ export default function Pricing() {
   return (
     <section id="pricing" className="section-padding bg-gradient-dark relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,_#D4A574_0%,_transparent_50%)]" />
-        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,_#D4A574_0%,_transparent_50%)]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,_#D97B3B_0%,_transparent_50%)]" />
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,_#D97B3B_0%,_transparent_50%)]" />
       </div>
 
       <div className="container-custom relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Simple,{' '}
-            <span className="text-gold">Fair Pricing</span>
+            <span className="text-orange">Fair Pricing</span>
           </h2>
           <p className="text-lg text-white/70">
             Start free. Upgrade when you're ready.
@@ -65,13 +65,13 @@ export default function Pricing() {
               key={plan.name}
               className={`relative rounded-3xl p-6 lg:p-8 ${
                 plan.featured
-                  ? 'bg-white border-4 border-gold shadow-2xl shadow-gold/20'
+                  ? 'bg-white border-4 border-orange shadow-2xl shadow-orange/20'
                   : 'bg-white/10 backdrop-blur-sm border border-white/20'
               } ${inView ? 'animate-in' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {plan.featured && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 px-4 py-1.5 rounded-full bg-gradient-gold text-white text-sm font-medium shadow-lg">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 px-4 py-1.5 rounded-full bg-gradient-orange text-white text-sm font-medium shadow-lg">
                   <Crown className="w-4 h-4" />
                   Most Popular
                 </div>
@@ -90,7 +90,7 @@ export default function Pricing() {
                   </span>
                 </div>
                 {plan.yearlyPrice && (
-                  <p className="text-sm text-gold mt-1">
+                  <p className="text-sm text-orange mt-1">
                     or {plan.yearlyPrice} <span className="font-medium">({plan.yearlySaving})</span>
                   </p>
                 )}
@@ -102,8 +102,8 @@ export default function Pricing() {
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
-                    <div className={`w-5 h-5 rounded-full flex items-center justify-center ${plan.featured ? 'bg-gold/20' : 'bg-white/20'}`}>
-                      <Check className={`w-3 h-3 ${plan.featured ? 'text-gold' : 'text-white'}`} />
+                    <div className={`w-5 h-5 rounded-full flex items-center justify-center ${plan.featured ? 'bg-orange/20' : 'bg-white/20'}`}>
+                      <Check className={`w-3 h-3 ${plan.featured ? 'text-orange' : 'text-white'}`} />
                     </div>
                     <span className={plan.featured ? 'text-text-primary' : 'text-white'}>
                       {feature}
@@ -118,7 +118,7 @@ export default function Pricing() {
                 rel="noopener noreferrer"
                 className={`block w-full text-center py-3 px-6 rounded-xl font-medium transition-all duration-300 ${
                   plan.featured
-                    ? 'bg-gradient-gold text-white shadow-lg shadow-gold/25 hover:shadow-xl hover:scale-[1.02]'
+                    ? 'bg-gradient-orange text-white shadow-lg shadow-orange/25 hover:shadow-xl hover:scale-[1.02]'
                     : 'bg-white/20 text-white hover:bg-white/30'
                 }`}
               >
@@ -135,11 +135,11 @@ export default function Pricing() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12 text-white/70 text-sm">
           <div className="flex items-center gap-2">
-            <Lock className="w-4 h-4 text-gold" />
+            <Lock className="w-4 h-4 text-orange" />
             Cancel anytime. No questions asked.
           </div>
           <div className="flex items-center gap-2">
-            <Heart className="w-4 h-4 text-gold" />
+            <Heart className="w-4 h-4 text-orange" />
             Your support keeps FaithWall ad-free
           </div>
         </div>
