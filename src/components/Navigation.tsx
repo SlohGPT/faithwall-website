@@ -18,8 +18,35 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const showIndicator = hasScrolled && scrollProgress > 0.01;
+
   return (
     <>
+      <style>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        @keyframes pulse-glow {
+          0%, 100% {
+            box-shadow: 0 0 8px 2px rgba(251, 191, 36, 0.8),
+                        0 0 16px 4px rgba(245, 158, 11, 0.5),
+                        0 0 32px 8px rgba(234, 88, 12, 0.3);
+            transform: scale(1);
+          }
+          50% {
+            box-shadow: 0 0 12px 4px rgba(251, 191, 36, 1),
+                        0 0 24px 8px rgba(245, 158, 11, 0.7),
+                        0 0 48px 12px rgba(234, 88, 12, 0.4);
+            transform: scale(1.1);
+          }
+        }
+        @keyframes energy-flow {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 200% 50%; }
+        }
+      `}</style>
+
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-5 md:px-6 md:pt-6">
         <div className="relative mx-auto max-w-6xl">
           <div
@@ -36,31 +63,57 @@ export default function Navigation() {
             }}
           >
             <div
-              className="absolute inset-x-0 bottom-0 h-[1px]"
+              className="absolute inset-x-0 bottom-0 h-[60px] pointer-events-none"
               style={{
-                background: `linear-gradient(90deg,
-                  transparent 0%,
-                  rgba(251, 191, 36, 0.4) 10%,
-                  rgba(245, 158, 11, 0.8) 50%,
-                  rgba(234, 88, 12, 0.4) 90%,
-                  transparent 100%
-                )`,
-                transform: `scaleX(${scrollProgress})`,
-                transformOrigin: 'left',
-                opacity: hasScrolled ? 1 : 0,
-                transition: 'opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
+                background: `radial-gradient(ellipse 60% 100% at ${scrollProgress * 100}% 100%, rgba(245, 158, 11, 0.15) 0%, transparent 70%)`,
+                opacity: showIndicator ? 1 : 0,
+                transition: 'opacity 0.4s ease',
               }}
             />
 
             <div
-              className="absolute top-0 bottom-0 w-[3px] pointer-events-none"
+              className="absolute bottom-0 left-0 h-[2px] overflow-hidden"
               style={{
-                left: `calc(${scrollProgress * 100}% - 1.5px)`,
-                background: 'linear-gradient(180deg, transparent 0%, rgba(251, 191, 36, 0.9) 30%, rgba(245, 158, 11, 1) 50%, rgba(251, 191, 36, 0.9) 70%, transparent 100%)',
-                boxShadow: '0 0 12px 2px rgba(245, 158, 11, 0.6), 0 0 24px 4px rgba(251, 191, 36, 0.3)',
-                borderRadius: '2px',
-                opacity: hasScrolled && scrollProgress > 0.01 ? 1 : 0,
+                width: `${scrollProgress * 100}%`,
+                opacity: showIndicator ? 1 : 0,
                 transition: 'opacity 0.4s ease',
+              }}
+            >
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(90deg, rgba(234, 88, 12, 0.3) 0%, rgba(245, 158, 11, 0.6) 50%, rgba(251, 191, 36, 0.9) 100%)',
+                }}
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent)',
+                  animation: 'shimmer 2s infinite linear',
+                }}
+              />
+            </div>
+
+            <div
+              className="absolute bottom-[-3px] w-[8px] h-[8px] rounded-full pointer-events-none"
+              style={{
+                left: `calc(${scrollProgress * 100}% - 4px)`,
+                background: 'radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(251, 191, 36, 1) 40%, rgba(245, 158, 11, 0.8) 70%, transparent 100%)',
+                animation: showIndicator ? 'pulse-glow 1.5s ease-in-out infinite' : 'none',
+                opacity: showIndicator ? 1 : 0,
+                transition: 'opacity 0.3s ease',
+              }}
+            />
+
+            <div
+              className="absolute bottom-[-2px] h-[6px] pointer-events-none"
+              style={{
+                left: `calc(${scrollProgress * 100}% - 40px)`,
+                width: '40px',
+                background: 'linear-gradient(90deg, transparent 0%, rgba(251, 191, 36, 0.6) 100%)',
+                filter: 'blur(2px)',
+                opacity: showIndicator ? 0.8 : 0,
+                transition: 'opacity 0.3s ease',
               }}
             />
           </div>
