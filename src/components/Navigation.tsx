@@ -8,7 +8,7 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const maxScroll = 400;
+      const maxScroll = 300;
       const progress = Math.min(scrollY / maxScroll, 1);
       setScrollProgress(progress);
     };
@@ -16,97 +16,69 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isVisible = scrollProgress > 0.05;
-  const glowIntensity = Math.min(scrollProgress * 1.5, 1);
-  const sweepPosition = scrollProgress * 100;
+  const glowIntensity = scrollProgress;
+  const bgOpacity = 0.4 + scrollProgress * 0.5;
+  const borderOpacity = 0.1 + scrollProgress * 0.4;
 
   return (
     <>
-      <style>{`
-        .nav-container {
-          --sweep-pos: ${sweepPosition}%;
-          --glow-intensity: ${glowIntensity};
-        }
-
-        .nav-glow-border {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .nav-glow-border::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 40px;
-          padding: 1.5px;
-          background: linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(251, 191, 36, calc(0.3 * var(--glow-intensity))) calc(var(--sweep-pos) - 20%),
-            rgba(245, 158, 11, calc(0.9 * var(--glow-intensity))) calc(var(--sweep-pos) - 5%),
-            rgba(234, 88, 12, var(--glow-intensity)) var(--sweep-pos),
-            rgba(245, 158, 11, calc(0.9 * var(--glow-intensity))) calc(var(--sweep-pos) + 5%),
-            rgba(251, 191, 36, calc(0.3 * var(--glow-intensity))) calc(var(--sweep-pos) + 20%),
-            transparent 100%
-          );
-          -webkit-mask:
-            linear-gradient(#fff 0 0) content-box,
-            linear-gradient(#fff 0 0);
-          -webkit-mask-composite: xor;
-          mask-composite: exclude;
-        }
-
-        .nav-glow-border::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 40px;
-          background: rgba(0, 0, 0, 0.8);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          z-index: -1;
-        }
-
-        .nav-ambient-glow {
-          position: absolute;
-          inset: -2px;
-          border-radius: 42px;
-          background: radial-gradient(
-            ellipse 60% 40% at calc(100% - var(--sweep-pos)) 50%,
-            rgba(245, 158, 11, calc(0.4 * var(--glow-intensity))),
-            transparent 70%
-          );
-          filter: blur(12px);
-          pointer-events: none;
-        }
-
-        .nav-fill-bar {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          height: 2px;
-          width: calc(var(--sweep-pos) * 1%);
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(251, 191, 36, calc(0.5 * var(--glow-intensity))),
-            rgba(245, 158, 11, calc(0.8 * var(--glow-intensity))),
-            rgba(234, 88, 12, var(--glow-intensity))
-          );
-          border-radius: 0 40px 40px 0;
-          opacity: var(--glow-intensity);
-        }
-      `}</style>
-
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-5 md:px-6 md:pt-6">
-        <div className="relative mx-auto max-w-6xl nav-container">
+        <div className="relative mx-auto max-w-6xl">
           <div
-            className={`absolute inset-0 rounded-[40px] transition-opacity duration-300 ease-out nav-glow-border ${
-              isVisible ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="absolute inset-0 rounded-[40px] transition-all duration-300 ease-out overflow-hidden"
+            style={{
+              background: `rgba(0, 0, 0, ${bgOpacity})`,
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              boxShadow: `
+                inset 0 0 0 1px rgba(255, 255, 255, ${borderOpacity}),
+                0 0 ${20 + glowIntensity * 30}px rgba(245, 158, 11, ${glowIntensity * 0.3}),
+                0 0 ${40 + glowIntensity * 60}px rgba(234, 88, 12, ${glowIntensity * 0.2})
+              `,
+            }}
           >
-            <div className="nav-ambient-glow" />
-            <div className="nav-fill-bar" />
+            <div
+              className="absolute inset-0 rounded-[40px] transition-opacity duration-500"
+              style={{
+                background: `linear-gradient(
+                  90deg,
+                  transparent 0%,
+                  rgba(251, 191, 36, ${glowIntensity * 0.15}) ${scrollProgress * 100}%,
+                  transparent ${scrollProgress * 100 + 20}%
+                )`,
+                opacity: glowIntensity,
+              }}
+            />
+
+            <div
+              className="absolute inset-x-0 bottom-0 h-[2px] rounded-full transition-all duration-300"
+              style={{
+                background: `linear-gradient(
+                  90deg,
+                  transparent,
+                  rgba(251, 191, 36, ${glowIntensity * 0.6}),
+                  rgba(245, 158, 11, ${glowIntensity * 0.9}),
+                  rgba(234, 88, 12, ${glowIntensity})
+                )`,
+                width: `${scrollProgress * 100}%`,
+                opacity: glowIntensity,
+              }}
+            />
+
+            <div
+              className="absolute top-0 bottom-0 w-[2px] transition-all duration-300"
+              style={{
+                left: `${scrollProgress * 100}%`,
+                background: `linear-gradient(
+                  180deg,
+                  transparent,
+                  rgba(245, 158, 11, ${glowIntensity}),
+                  transparent
+                )`,
+                boxShadow: `0 0 20px rgba(245, 158, 11, ${glowIntensity * 0.8})`,
+                opacity: glowIntensity > 0.05 ? 1 : 0,
+              }}
+            />
           </div>
 
           <div className="relative">
