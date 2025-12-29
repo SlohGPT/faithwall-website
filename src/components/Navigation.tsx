@@ -36,22 +36,22 @@ export default function Navigation() {
             </a>
 
             <div className="flex items-center gap-6 ml-auto">
-              <div className="hidden lg:flex items-center gap-6">
+              <div className="hidden lg:flex items-center gap-8">
                 <a
                   href="#blog"
-                  className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+                  className="text-xl font-semibold text-white/70 hover:text-white transition-colors px-4 py-2"
                 >
                   Blog
                 </a>
                 <a
                   href="#how-it-works"
-                  className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+                  className="text-xl font-semibold text-white/70 hover:text-white transition-colors px-4 py-2"
                 >
                   How it works
                 </a>
                 <a
                   href="#support"
-                  className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+                  className="text-xl font-semibold text-white/70 hover:text-white transition-colors px-4 py-2"
                 >
                   Support
                 </a>
@@ -95,21 +95,21 @@ export default function Navigation() {
           <div className="flex flex-col p-3 gap-2">
             <a
               href="#blog"
-              className="px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-sm font-medium"
+              className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Blog
             </a>
             <a
               href="#how-it-works"
-              className="px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-sm font-medium"
+              className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               How it works
             </a>
             <a
               href="#support"
-              className="px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-sm font-medium"
+              className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Support
