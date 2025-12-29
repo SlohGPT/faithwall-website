@@ -100,7 +100,7 @@ export default function Footer() {
         </div>
 
         <div className="overflow-hidden">
-          <div className="text-[15vw] sm:text-[12vw] lg:text-[10vw] font-bold text-white/[0.03] leading-none tracking-tighter select-none whitespace-nowrap">
+          <div className="text-[15vw] sm:text-[12vw] lg:text-[10vw] font-bold text-white leading-none tracking-tighter select-none whitespace-nowrap">
             FAITHWALL
           </div>
         </div>
