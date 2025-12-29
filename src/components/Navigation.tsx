@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 const navLinks = [
+  { name: 'Blog', href: '#blog' },
   { name: 'Features', href: '#features' },
   { name: 'How It Works', href: '#how-it-works' },
-  { name: 'FAQ', href: '#faq' },
+  { name: 'Support', href: '#support' },
 ];
 
 export default function Navigation() {
