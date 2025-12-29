@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply antialiased text-text-primary bg-cream-light;
+    @apply antialiased text-text-primary bg-cream-light font-sans;
   }
 }
 

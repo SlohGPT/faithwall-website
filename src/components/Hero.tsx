@@ -17,7 +17,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="container-custom section-padding pt-32 lg:pt-40">
+      <div className="container-custom section-padding pt-28 md:pt-32 lg:pt-40">
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-8 items-center">
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange/10 text-orange text-sm font-medium mb-6">

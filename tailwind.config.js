@@ -32,7 +32,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'SF Pro Text', 'system-ui', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
         display: ['Playfair Display', 'Georgia', 'serif'],
       },
       animation: {
