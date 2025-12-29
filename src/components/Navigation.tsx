@@ -15,29 +15,53 @@ export default function Navigation() {
 
   return (
     <>
+      <style>{`
+        @keyframes borderTrace {
+          0% {
+            background-position: 0% 0%;
+          }
+          100% {
+            background-position: 200% 0%;
+          }
+        }
+
+        .nav-glow-border {
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(251, 191, 36, 0.8) 45%,
+            rgba(245, 158, 11, 1) 50%,
+            rgba(234, 88, 12, 0.8) 55%,
+            transparent 60%,
+            transparent 100%
+          );
+          background-size: 200% 100%;
+          animation: borderTrace 3s linear infinite;
+        }
+
+        .nav-glow-border::before {
+          content: '';
+          position: absolute;
+          inset: 1px;
+          border-radius: 39px;
+          background: rgba(0, 0, 0, 0.75);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+        }
+      `}</style>
+
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-5 md:px-6 md:pt-6">
         <div className="relative mx-auto max-w-6xl">
           <div
-            className={`absolute inset-0 rounded-[40px] transition-all duration-700 ease-out ${
+            className={`absolute inset-0 rounded-[40px] transition-all duration-500 ease-out nav-glow-border ${
               isScrolled
-                ? 'opacity-100'
-                : 'opacity-0'
+                ? 'opacity-100 scale-100'
+                : 'opacity-0 scale-[0.98]'
             }`}
-            style={{
-              background: 'linear-gradient(135deg, rgba(245,158,11,0.4) 0%, rgba(234,88,12,0.3) 50%, rgba(220,38,38,0.2) 100%)',
-              padding: '1px',
-            }}
-          >
-            <div className="absolute inset-[1px] rounded-[39px] bg-black/70 backdrop-blur-xl" />
-          </div>
+          />
 
-          <div
-            className={`relative rounded-[40px] transition-all duration-700 ease-out ${
-              isScrolled
-                ? 'bg-transparent'
-                : 'bg-transparent'
-            }`}
-          >
+          <div className="relative">
             <div className="flex items-center justify-between pl-5 pr-2 py-1.5 md:pl-7 md:pr-3 md:py-2">
               <a href="#" className="flex items-center gap-2.5 group pl-1.5">
                 <img
