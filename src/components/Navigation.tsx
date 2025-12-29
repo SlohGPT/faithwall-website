@@ -23,7 +23,7 @@ export default function Navigation() {
               : 'bg-transparent'
           }`}
         >
-          <div className="flex items-center justify-between px-5 py-1.5 md:px-7 md:py-2">
+          <div className="flex items-center justify-between pl-5 pr-2 py-1.5 md:pl-7 md:pr-3 md:py-2">
             <a href="#" className="flex items-center gap-2.5 group pl-1.5">
               <img
                 src="/icon-app-1024.png"
