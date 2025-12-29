@@ -15,15 +15,15 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 md:px-6 md:pt-6">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-3 md:px-6 md:pt-4">
         <div
-          className={`mx-auto max-w-5xl rounded-[28px] transition-all duration-500 ${
+          className={`mx-auto max-w-6xl rounded-[28px] transition-all duration-500 ${
             isScrolled
               ? 'bg-white/10 backdrop-blur-2xl'
               : 'bg-transparent backdrop-blur-sm'
           }`}
         >
-          <div className="flex items-center justify-between px-5 py-4 md:px-7">
+          <div className="flex items-center justify-between px-5 py-2.5 md:px-7 md:py-3">
             <a href="#" className="flex items-center gap-2.5 group">
               <img
                 src="/icon-app-1024.png"
