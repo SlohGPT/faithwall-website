@@ -15,7 +15,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-3 md:px-6 md:pt-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-5 md:px-6 md:pt-6">
         <div
           className={`mx-auto max-w-6xl rounded-[40px] transition-all duration-500 ${
             isScrolled
