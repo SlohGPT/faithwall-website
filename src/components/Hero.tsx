@@ -17,14 +17,14 @@ export default function Hero() {
       <div className="container-main relative pt-32 md:pt-40 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-surface-card border border-surface-border mb-8">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-surface-card border-2 border-brand/30 mb-8">
               <div className="flex -space-x-2">
                 {avatars.map((src, i) => (
                   <img
                     key={i}
                     src={src}
                     alt=""
-                    className="w-7 h-7 rounded-full border-2 border-surface-card object-cover"
+                    className="w-7 h-7 rounded-full border-2 border-surface-card object-cover ring-1 ring-brand/20"
                   />
                 ))}
               </div>

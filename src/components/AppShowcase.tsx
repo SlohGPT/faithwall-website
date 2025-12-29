@@ -39,7 +39,7 @@ export default function AppShowcase() {
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-center mb-8">
             <div className="relative w-[240px] sm:w-[280px]">
-              <div className="bg-surface rounded-[2.5rem] p-2 border border-surface-border">
+              <div className="bg-surface rounded-[2.5rem] p-2 border-2 border-brand/20">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-surface rounded-b-2xl z-10" />
                 <div className="relative rounded-[2rem] overflow-hidden aspect-[9/19.5]">
                   <img

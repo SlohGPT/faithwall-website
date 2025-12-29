@@ -49,14 +49,14 @@ export default function Pricing() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-3xl p-6 lg:p-8 ${
+              className={`relative rounded-3xl p-6 lg:p-8 border-2 ${
                 plan.featured
-                  ? 'bg-white'
-                  : 'card-gradient'
+                  ? 'bg-white border-brand/40'
+                  : 'bg-gradient-to-br from-surface-card to-surface-elevated border-brand/20'
               }`}
             >
               {plan.featured && (
-                <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-brand text-white text-xs font-medium">
+                <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-brand text-white text-xs font-medium border-2 border-brand-light">
                   Most Popular
                 </div>
               )}

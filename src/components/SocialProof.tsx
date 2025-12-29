@@ -8,7 +8,7 @@ export default function SocialProof() {
   return (
     <section className="py-20 bg-surface">
       <div className="container-main">
-        <div className="relative rounded-[2rem] overflow-hidden">
+        <div className="relative rounded-[2rem] overflow-hidden border-2 border-brand/20">
           <div className="absolute inset-0 bg-gradient-to-br from-brand/20 via-surface-card to-surface-elevated" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(217,123,59,0.15)_0%,_transparent_60%)]" />
 

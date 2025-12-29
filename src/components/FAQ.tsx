@@ -40,7 +40,9 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="card-gradient overflow-hidden"
+              className={`rounded-3xl overflow-hidden bg-gradient-to-br from-surface-card to-surface-elevated border-2 transition-all duration-300 ${
+                openIndex === index ? 'border-brand/40' : 'border-brand/20'
+              }`}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}

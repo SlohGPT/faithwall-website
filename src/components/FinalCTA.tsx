@@ -9,7 +9,7 @@ export default function FinalCTA() {
   return (
     <section className="section-space bg-surface">
       <div className="container-main">
-        <div className="relative rounded-[2rem] overflow-hidden">
+        <div className="relative rounded-[2rem] overflow-hidden border-2 border-brand/30">
           <div className="absolute inset-0">
             <img
               src="https://images.pexels.com/photos/1064162/pexels-photo-1064162.jpeg?auto=compress&cs=tinysrgb&w=1920"

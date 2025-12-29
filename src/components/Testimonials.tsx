@@ -36,7 +36,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.author}
-              className="card-gradient p-6 lg:p-8"
+              className="rounded-3xl p-6 lg:p-8 bg-gradient-to-br from-surface-card to-surface-elevated border-2 border-brand/20 hover:border-brand/30 transition-colors duration-300"
             >
               <p className="text-white/80 leading-relaxed mb-8 text-lg">
                 "{testimonial.quote}"
@@ -45,15 +45,15 @@ export default function Testimonials() {
                 <img
                   src={testimonial.image}
                   alt={testimonial.author}
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-12 h-12 rounded-full object-cover ring-2 ring-brand/20"
                 />
                 <div>
                   <p className="font-semibold text-white">
                     {testimonial.author}
                   </p>
-                  <p className="text-sm text-white/50">
+                  <span className="inline-block mt-1 px-2 py-0.5 text-xs font-medium rounded-md bg-brand/20 text-brand-light border border-brand/30">
                     {testimonial.role}
-                  </p>
+                  </span>
                 </div>
               </div>
             </div>

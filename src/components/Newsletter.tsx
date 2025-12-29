@@ -15,7 +15,7 @@ export default function Newsletter() {
   return (
     <section className="py-20 bg-surface-elevated">
       <div className="container-main">
-        <div className="relative rounded-[2rem] overflow-hidden">
+        <div className="relative rounded-[2rem] overflow-hidden border-2 border-brand/20">
           <div className="absolute inset-0 bg-gradient-to-br from-brand/20 via-surface-card to-surface-elevated" />
 
           <div className="relative px-8 py-16 sm:px-12 sm:py-20 lg:px-20">

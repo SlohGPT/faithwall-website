@@ -42,9 +42,9 @@ export default function Features() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="group card-gradient p-6 lg:p-8 hover:border-brand/30 transition-all duration-300"
+              className="group relative rounded-3xl p-6 lg:p-8 bg-gradient-to-br from-surface-card to-surface-elevated border-2 border-brand/20 hover:border-brand/40 transition-all duration-300"
             >
-              <div className="mb-6 rounded-2xl overflow-hidden aspect-[16/10]">
+              <div className="mb-6 rounded-2xl overflow-hidden aspect-[16/10] ring-1 ring-brand/10">
                 <img
                   src={feature.image}
                   alt={feature.title}
