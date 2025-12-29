@@ -23,10 +23,8 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/80 backdrop-blur-lg shadow-lg border-b border-white/20'
-          : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-dark ${
+        isScrolled ? 'shadow-lg' : ''
       }`}
     >
       <div className="container-custom section-padding !py-4">
@@ -37,7 +35,7 @@ export default function Navigation() {
               alt="FaithWall"
               className="w-10 h-10 rounded-xl shadow-lg shadow-orange/25 group-hover:scale-105 transition-transform"
             />
-            <span className="text-xl font-semibold text-text-primary">
+            <span className="text-xl font-semibold text-white">
               Faith<span className="text-orange">Wall</span>
             </span>
           </a>
@@ -47,7 +45,7 @@ export default function Navigation() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-text-secondary hover:text-orange transition-colors relative group"
+                className="text-white/70 hover:text-orange transition-colors relative group"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange group-hover:w-full transition-all duration-300" />
@@ -68,7 +66,7 @@ export default function Navigation() {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-text-primary hover:text-orange transition-colors"
+            className="md:hidden p-2 text-white hover:text-orange transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
