@@ -20,7 +20,7 @@ export default function Navigation() {
           className={`mx-auto max-w-6xl rounded-[40px] transition-all duration-500 ${
             isScrolled
               ? 'bg-[#0a0a0f] backdrop-blur-2xl'
-              : 'bg-transparent backdrop-blur-sm'
+              : 'bg-transparent'
           }`}
         >
           <div className="flex items-center justify-between px-5 py-1.5 md:px-7 md:py-2">
