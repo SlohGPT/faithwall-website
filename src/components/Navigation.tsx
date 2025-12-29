@@ -42,19 +42,20 @@ export default function Navigation() {
               </span>
             </a>
 
-            <div className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="px-4 py-2 text-sm font-bold text-white/70 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
+            <div className="flex items-center gap-0 lg:gap-2 ml-auto lg:ml-0">
+              <div className="hidden lg:flex items-center gap-0">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="px-3 py-2 text-sm font-bold text-white hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
 
-            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3">
               <a
                 href="https://apps.apple.com/app/faithwall"
                 target="_blank"
@@ -66,11 +67,12 @@ export default function Navigation() {
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 text-white/70 hover:text-white transition-colors"
+                className="lg:hidden p-2 text-white hover:text-white transition-colors"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
+              </div>
             </div>
           </div>
         </div>
