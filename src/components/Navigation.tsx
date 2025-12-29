@@ -4,7 +4,6 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 const navLinks = [
   { name: 'Features', href: '#features' },
   { name: 'How It Works', href: '#how-it-works' },
-  { name: 'Pricing', href: '#pricing' },
   { name: 'FAQ', href: '#faq' },
 ];
 
@@ -37,7 +36,7 @@ export default function Navigation() {
                 alt="FaithWall"
                 className="w-9 h-9 md:w-10 md:h-10 rounded-xl group-hover:scale-105 transition-transform"
               />
-              <span className="text-lg md:text-xl font-semibold text-white tracking-tight">
+              <span className="text-lg md:text-xl font-black text-white tracking-tight">
                 FaithWall
               </span>
             </a>
@@ -47,7 +46,7 @@ export default function Navigation() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="px-4 py-2 text-sm text-white/70 hover:text-white transition-colors"
+                  className="px-4 py-2 text-sm font-bold text-white/70 hover:text-white transition-colors"
                 >
                   {link.name}
                 </a>
@@ -96,7 +95,7 @@ export default function Navigation() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-base text-white/80 hover:text-white hover:bg-white/5 px-4 py-3 rounded-xl transition-colors"
+                className="text-base font-bold text-white/80 hover:text-white hover:bg-white/5 px-4 py-3 rounded-xl transition-colors"
               >
                 {link.name}
               </a>
