@@ -1,12 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
-
-const navLinks = [
-  { name: 'Blog', href: '#blog' },
-  { name: 'Features', href: '#features' },
-  { name: 'How It Works', href: '#how-it-works' },
-  { name: 'Support', href: '#support' },
-];
+import { Menu, X } from 'lucide-react';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,25 +35,12 @@ export default function Navigation() {
               </span>
             </a>
 
-            <div className="flex items-center gap-0 lg:gap-2 ml-auto lg:ml-0">
-              <div className="hidden lg:flex items-center gap-0">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="px-3 py-2 text-sm font-bold text-white hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 ml-auto">
               <a
                 href="https://apps.apple.com/app/faithwall"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 bg-white text-surface font-semibold text-sm rounded-xl hover:bg-white/90 transition-colors"
+                className="inline-flex items-center justify-center px-7 py-3 bg-white text-surface font-semibold rounded-xl hover:bg-white/90 transition-colors"
               >
                 Try for free
               </a>
@@ -72,7 +52,6 @@ export default function Navigation() {
               >
                 {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
-              </div>
             </div>
           </div>
         </div>
@@ -93,27 +72,15 @@ export default function Navigation() {
           }`}
         >
           <div className="flex flex-col p-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-base font-bold text-white/80 hover:text-white hover:bg-white/5 px-4 py-3 rounded-xl transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="mt-2 pt-2 border-t border-surface-border">
-              <a
-                href="https://apps.apple.com/app/faithwall"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-full px-5 py-3 bg-white text-surface font-semibold rounded-xl transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Try for free
-              </a>
-            </div>
+            <a
+              href="https://apps.apple.com/app/faithwall"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-full px-6 py-3.5 bg-white text-surface font-semibold rounded-xl transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Try for free
+            </a>
           </div>
         </div>
       </div>
