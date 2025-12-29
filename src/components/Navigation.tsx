@@ -39,19 +39,19 @@ export default function Navigation() {
               <div className="hidden lg:flex items-center gap-2">
                 <a
                   href="#blog"
-                  className="text-base font-semibold text-white hover:text-white/70 transition-colors px-3 py-2"
+                  className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
                 >
                   Blog
                 </a>
                 <a
                   href="#how-it-works"
-                  className="text-base font-semibold text-white hover:text-white/70 transition-colors px-3 py-2"
+                  className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
                 >
                   How it works
                 </a>
                 <a
                   href="#support"
-                  className="text-base font-semibold text-white hover:text-white/70 transition-colors px-3 py-2"
+                  className="text-lg font-semibold text-white hover:text-white/70 transition-colors px-4 py-3"
                 >
                   Support
                 </a>
