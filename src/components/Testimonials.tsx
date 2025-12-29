@@ -2,19 +2,19 @@ const testimonials = [
   {
     quote: "FaithWall has transformed my morning routine. Instead of checking social media, I start with God's word.",
     author: 'Sarah M.',
-    role: 'Youth Pastor',
+    role: 'First Waitlist Member',
     image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100',
   },
   {
     quote: "As a busy mom, I needed something simple. Every time I check my phone, I'm reminded of God's promises.",
     author: 'Rachel K.',
-    role: 'Mother & Teacher',
+    role: 'First Waitlist Member',
     image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100',
   },
   {
     quote: "I've tried many devotional apps, but this is different. It meets me where I am - on my lock screen.",
     author: 'David L.',
-    role: 'Seminary Student',
+    role: 'First Waitlist Member',
     image: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=100',
   },
 ];
