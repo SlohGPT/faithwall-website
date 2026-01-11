@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Navigation() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -92,10 +93,10 @@ export default function Navigation() {
                     <stop offset="100%" stopColor="rgba(251, 191, 36, 1)" />
                   </linearGradient>
                   <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur" />
                     <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
                     </feMerge>
                   </filter>
                 </defs>
@@ -137,7 +138,7 @@ export default function Navigation() {
 
           <div className="relative">
             <div className="flex items-center justify-between pl-5 pr-2 py-1.5 md:pl-7 md:pr-3 md:py-2">
-              <a href="#" className="flex items-center gap-2.5 group pl-1.5">
+              <Link to="/" className="flex items-center gap-2.5 group pl-1.5">
                 <img
                   src="/icon-app-1024.png"
                   alt="FaithWall"
@@ -146,24 +147,24 @@ export default function Navigation() {
                 <span className="text-lg md:text-xl font-black text-white tracking-tight">
                   FaithWall
                 </span>
-              </a>
+              </Link>
 
               <div className="flex items-center gap-6 ml-auto">
                 <div className="hidden lg:flex items-center gap-2">
                   <a
-                    href="#blog"
+                    href="/#blog"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
                     Blog
                   </a>
                   <a
-                    href="#how-it-works"
+                    href="/#how-it-works"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
                     How it works
                   </a>
                   <a
-                    href="#support"
+                    href="/#support"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
                     Support
@@ -193,36 +194,34 @@ export default function Navigation() {
       </nav>
 
       <div
-        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-        }`}
+        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+          }`}
       >
         <div
           className="absolute inset-0 bg-black/70 backdrop-blur-sm"
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div
-          className={`absolute top-20 left-4 right-4 bg-surface-elevated/95 backdrop-blur-2xl rounded-[28px] transition-all duration-300 ${
-            isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
-          }`}
+          className={`absolute top-20 left-4 right-4 bg-surface-elevated/95 backdrop-blur-2xl rounded-[28px] transition-all duration-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
+            }`}
         >
           <div className="flex flex-col p-3 gap-2">
             <a
-              href="#blog"
+              href="/#blog"
               className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Blog
             </a>
             <a
-              href="#how-it-works"
+              href="/#how-it-works"
               className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               How it works
             </a>
             <a
-              href="#support"
+              href="/#support"
               className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
