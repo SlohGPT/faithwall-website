@@ -8,7 +8,7 @@ export default function EULA() {
             <main className="container-main pt-32 pb-16">
                 <div className="prose prose-invert max-w-4xl mx-auto">
                     <h1>End-User License Agreement (EULA)</h1>
-                    <p className="text-white/60">Last updated January 11, 2026</p>
+                    <p className="text-white/60">Last updated November 26, 2025</p>
 
                     <p>
                         <strong>FaithWall</strong> is licensed to You (End-User) by <strong>FaithWall</strong>, located and registered at Borová 9, 951 01 Nitrianske Hrnčiarovce, Slovakia, Nitrianske Hrnčiarovce, Nitra 95101, Slovakia ("Licensor"), for use only under the terms of this License Agreement.

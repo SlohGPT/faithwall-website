@@ -10,6 +10,7 @@ const footerLinks = {
   company: [
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms of Use', href: '/terms-of-use' },
+    { name: 'EULA', href: '/eula' },
     { name: 'Contact', href: 'mailto:hello@faithwall.app' },
   ],
   socials: [
