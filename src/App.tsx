@@ -1,29 +1,18 @@
-import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import SocialProof from './components/SocialProof';
-import Features from './components/Features';
-import HowItWorks from './components/HowItWorks';
-import AppShowcase from './components/AppShowcase';
-import Testimonials from './components/Testimonials';
-import FAQ from './components/FAQ';
-import Newsletter from './components/Newsletter';
-import FinalCTA from './components/FinalCTA';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfUse from './pages/TermsOfUse';
+import EULA from './pages/EULA';
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <Hero />
-      <SocialProof />
-      <Features />
-      <HowItWorks />
-      <AppShowcase />
-      <Testimonials />
-      <FAQ />
-      <Newsletter />
-      <FinalCTA />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
+        <Route path="/eula" element={<EULA />} />
+      </Routes>
+    </Router>
   );
 }
