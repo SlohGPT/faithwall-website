@@ -2,12 +2,11 @@ import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
 import SocialProof from '../components/SocialProof';
 import Features from '../components/Features';
-import HowItWorks from '../components/HowItWorks';
-import AppShowcase from '../components/AppShowcase';
-import Testimonials from '../components/Testimonials';
-import FAQ from '../components/FAQ';
+import HowItWorksAndPreview from '../components/HowItWorksAndPreview';
+import TestimonialsAndFAQ from '../components/TestimonialsAndFAQ';
 import Newsletter from '../components/Newsletter';
 import FinalCTA from '../components/FinalCTA';
+import Pricing from '../components/Pricing';
 import Footer from '../components/Footer';
 
 export default function Home() {
@@ -17,12 +16,11 @@ export default function Home() {
             <Hero />
             <SocialProof />
             <Features />
-            <HowItWorks />
-            <AppShowcase />
-            <Testimonials />
-            <FAQ />
+            <HowItWorksAndPreview />
+            <TestimonialsAndFAQ />
             <Newsletter />
             <FinalCTA />
+            <Pricing />
             <Footer />
         </div>
     );
