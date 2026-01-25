@@ -82,7 +82,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container-main relative pt-32 md:pt-40 pb-20">
+      <div className="container-main relative pt-40 md:pt-48 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <motion.div
             variants={containerVariants}
