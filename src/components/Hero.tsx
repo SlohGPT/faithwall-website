@@ -82,13 +82,13 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container-main relative pt-40 md:pt-48 pb-20">
+      <div className="container-main relative pt-32 md:pt-40 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-center lg:text-left"
+            className="text-center lg:text-left lg:-translate-y-10"
           >
             <motion.div variants={itemVariants} className="inline-flex items-center gap-4 px-5 py-3 rounded-full bg-surface-card border-2 border-brand/30 mb-8">
               <div className="flex -space-x-2">
