@@ -88,7 +88,7 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-center lg:text-left lg:-translate-y-20"
+            className="text-center lg:text-left lg:-translate-y-32"
           >
             <motion.div variants={itemVariants} className="inline-flex items-center gap-4 px-5 py-3 rounded-full bg-surface-card border-2 border-brand/30 mb-8">
               <div className="flex -space-x-2">
