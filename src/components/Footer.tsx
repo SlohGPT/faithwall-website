@@ -34,7 +34,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
               <img
-                src="/icon-app-1024.png"
+                src="/icon-app-180.png"
                 alt="FaithWall"
                 className="w-10 h-10 rounded-xl"
                 loading="lazy"

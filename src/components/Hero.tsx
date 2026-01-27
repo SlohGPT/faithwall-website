@@ -115,7 +115,8 @@ export default function Hero() {
               Meet FaithWall, the app that transforms your iPhone lock screen into a daily moment with God.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+            {/* Desktop buttons - hidden on mobile */}
+            <motion.div variants={itemVariants} className="hidden lg:flex flex-row gap-4 justify-start items-center">
               <AppStoreButton href="https://apple.co/3NBwVwp" />
               <a
                 href="https://apple.co/3NBwVwp"
@@ -210,6 +211,24 @@ export default function Hero() {
                   />
                 ))}
               </div>
+
+              {/* Mobile buttons - below slideshow, side by side */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="flex lg:hidden flex-row gap-3 justify-center items-center w-full mt-4"
+              >
+                <AppStoreButton href="https://apple.co/3NBwVwp" />
+                <a
+                  href="https://apple.co/3NBwVwp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 h-[52px] text-base font-bold text-white transition-all duration-200 bg-brand rounded-xl hover:bg-brand-light hover:scale-105"
+                >
+                  Get Started
+                </a>
+              </motion.div>
             </div>
           </motion.div>
         </div>
