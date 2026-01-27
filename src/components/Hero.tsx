@@ -61,25 +61,30 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen bg-surface overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-            opacity: [0.5, 0.3, 0.5]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[150px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, -60, 0],
-            opacity: [0.3, 0.5, 0.3]
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: 2 }}
-          className="absolute bottom-1/3 right-1/3 w-[500px] h-[500px] bg-brand/3 rounded-full blur-[130px]"
-        />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Only show animated blobs on larger screens to save mobile GPU */}
+        <div className="hidden md:block">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 0],
+              opacity: [0.5, 0.3, 0.5]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[150px]"
+          />
+          <motion.div
+            animate={{
+              scale: [1, 1.1, 1],
+              rotate: [0, -60, 0],
+              opacity: [0.3, 0.5, 0.3]
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: 2 }}
+            className="absolute bottom-1/3 right-1/3 w-[500px] h-[500px] bg-brand/3 rounded-full blur-[130px]"
+          />
+        </div>
+        {/* Simple, static glow for mobile instead of animated blurs */}
+        <div className="md:hidden absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-[400px] bg-brand/5 rounded-full blur-[100px]" />
       </div>
 
       <div className="container-main relative pt-32 md:pt-40 pb-20">
@@ -179,9 +184,10 @@ export default function Hero() {
                         initial={false}
                         animate={style}
                         transition={{ duration: 0.8, ease: "easeInOut" }}
-                        // @ts-ignore - fetchpriority is valid but might not be in the typings yet
-                        fetchpriority={i === index ? "high" : "low"}
+                        // @ts-ignore
+                        fetchpriority={i === index ? "auto" : (i === (index + 1) % images.length ? "auto" : "low")}
                         loading={i === index ? "eager" : "lazy"}
+                        decoding={i === index ? "sync" : "async"}
                       />
                     );
                   })}
@@ -213,7 +219,7 @@ export default function Hero() {
               </div>
 
               {/* Mobile buttons - below slideshow, side by side */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}

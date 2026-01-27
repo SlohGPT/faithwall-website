@@ -19,11 +19,23 @@ export default function Home() {
             <Hero />
             <Suspense fallback={<div className="h-40 flex items-center justify-center text-white/20">Loading...</div>}>
                 <SocialProof />
+            </Suspense>
+            <Suspense fallback={null}>
                 <Features />
+            </Suspense>
+            <Suspense fallback={null}>
                 <HowItWorksAndPreview />
+            </Suspense>
+            <Suspense fallback={null}>
                 <TestimonialsAndFAQ />
+            </Suspense>
+            <Suspense fallback={null}>
                 <Newsletter />
+            </Suspense>
+            <Suspense fallback={null}>
                 <FinalCTA />
+            </Suspense>
+            <Suspense fallback={null}>
                 <Pricing />
             </Suspense>
             <Footer />

@@ -34,9 +34,7 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5
-           bg-brand text-white font-semibold rounded-2xl
-           hover:bg-brand-light transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand text-white font-semibold rounded-2xl hover:bg-brand-light transition-all duration-200;
   }
 
   .text-muted {
@@ -62,6 +60,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);

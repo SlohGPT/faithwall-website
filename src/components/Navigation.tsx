@@ -65,8 +65,8 @@ export default function Navigation() {
             className="absolute inset-0 rounded-2xl md:rounded-[40px] overflow-visible"
             style={{
               background: hasScrolled ? 'rgba(0, 0, 0, 0.25)' : 'transparent',
-              backdropFilter: hasScrolled ? 'blur(24px)' : 'none',
-              WebkitBackdropFilter: hasScrolled ? 'blur(24px)' : 'none',
+              backdropFilter: hasScrolled ? (isMobileView ? 'blur(12px)' : 'blur(24px)') : 'none',
+              WebkitBackdropFilter: hasScrolled ? (isMobileView ? 'blur(12px)' : 'blur(24px)') : 'none',
               boxShadow: hasScrolled
                 ? '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset'
                 : 'none',
