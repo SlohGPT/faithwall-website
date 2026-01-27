@@ -88,7 +88,8 @@ export default function TestimonialsAndFAQ() {
                                             <img
                                                 src={testimonial.image}
                                                 alt={testimonial.author}
-                                                className="w-12 h-12 rounded-full object-cover ring-2 ring-brand/20"
+                                                className="w-full h-12 rounded-full object-cover ring-2 ring-brand/20"
+                                                loading="lazy"
                                             />
                                             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-black/20 to-transparent pointer-events-none" />
                                         </div>

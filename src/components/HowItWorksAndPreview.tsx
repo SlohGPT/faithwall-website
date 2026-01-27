@@ -138,6 +138,7 @@ export default function HowItWorksAndPreview() {
                                                 src={screenshots[activeIndex].image}
                                                 alt={screenshots[activeIndex].title}
                                                 className="w-full h-full object-cover"
+                                                loading="lazy"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
 
@@ -177,6 +178,7 @@ export default function HowItWorksAndPreview() {
                                                 src={screenshot.image}
                                                 alt={screenshot.title}
                                                 className="w-full h-full object-cover"
+                                                loading="lazy"
                                             />
                                         </button>
                                     ))}

@@ -37,6 +37,7 @@ export default function Footer() {
                 src="/icon-app-1024.png"
                 alt="FaithWall"
                 className="w-10 h-10 rounded-xl"
+                loading="lazy"
               />
               <span className="text-xl font-semibold text-white tracking-tight">
                 FaithWall

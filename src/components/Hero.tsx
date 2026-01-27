@@ -98,6 +98,7 @@ export default function Hero() {
                     src={src}
                     alt=""
                     className="w-8 h-8 rounded-full border-2 border-surface-card object-cover ring-1 ring-brand/20"
+                    loading="lazy"
                   />
                 ))}
               </div>
@@ -177,6 +178,9 @@ export default function Hero() {
                         initial={false}
                         animate={style}
                         transition={{ duration: 0.8, ease: "easeInOut" }}
+                        // @ts-ignore - fetchpriority is valid but might not be in the typings yet
+                        fetchpriority={i === index ? "high" : "low"}
+                        loading={i === index ? "eager" : "lazy"}
                       />
                     );
                   })}

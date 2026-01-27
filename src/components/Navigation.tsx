@@ -143,6 +143,7 @@ export default function Navigation() {
                   src="/icon-app-1024.png"
                   alt="FaithWall"
                   className="w-9 h-9 md:w-10 md:h-10 rounded-xl group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
                 <span className="text-lg md:text-xl font-black text-white tracking-tight">
                   FaithWall
