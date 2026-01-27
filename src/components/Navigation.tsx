@@ -7,6 +7,7 @@ export default function Navigation() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+  const [isMobileView, setIsMobileView] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function Navigation() {
         const rect = containerRef.current.getBoundingClientRect();
         setContainerSize({ width: rect.width, height: rect.height });
       }
+      setIsMobileView(window.innerWidth < 768);
     };
     updateSize();
     window.addEventListener('resize', updateSize);
@@ -34,7 +36,7 @@ export default function Navigation() {
   }, []);
 
   const showIndicator = hasScrolled && scrollProgress > 0.01;
-  const borderRadius = 40;
+  const borderRadius = isMobileView ? 16 : 40;
   const strokeWidth = 2;
   const { width, height } = containerSize;
 
@@ -60,7 +62,7 @@ export default function Navigation() {
         <div className="relative mx-auto max-w-6xl">
           <div
             ref={containerRef}
-            className="absolute inset-0 rounded-[40px] overflow-visible"
+            className="absolute inset-0 rounded-2xl md:rounded-[40px] overflow-visible"
             style={{
               background: hasScrolled ? 'rgba(0, 0, 0, 0.25)' : 'transparent',
               backdropFilter: hasScrolled ? 'blur(24px)' : 'none',
@@ -203,7 +205,7 @@ export default function Navigation() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div
-          className={`absolute top-20 left-4 right-4 bg-surface-elevated/95 backdrop-blur-2xl rounded-[28px] transition-all duration-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
+          className={`absolute top-20 left-4 right-4 bg-surface-elevated/95 backdrop-blur-2xl rounded-2xl transition-all duration-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
             }`}
         >
           <div className="flex flex-col p-3 gap-2">
