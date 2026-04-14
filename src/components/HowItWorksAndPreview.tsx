@@ -56,7 +56,7 @@ export default function HowItWorksAndPreview() {
     return (
         <section id="how-it-works" className="section-space relative bg-surface-elevated overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[80px] pointer-events-none" />
 
             <div className="container-main relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -149,7 +149,7 @@ export default function HowItWorksAndPreview() {
                                                     initial={{ opacity: 0, y: 10 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ delay: 0.2 }}
-                                                    className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-lg"
+                                                    className="bg-white/15 backdrop-blur-sm rounded-2xl p-4 border border-white/20 shadow-lg"
                                                 >
                                                     <p className="text-white text-xs font-medium leading-relaxed drop-shadow-md">
                                                         {screenshots[activeIndex].quote}

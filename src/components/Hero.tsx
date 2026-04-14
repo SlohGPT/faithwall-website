@@ -4,10 +4,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
 
 const images = [
-  '/assets/slideshow/slide1.png',
-  '/assets/slideshow/slide2.png',
-  '/assets/slideshow/slide3.png',
-  '/assets/slideshow/slide4.png',
+  '/assets/slideshow/slide1.webp',
+  '/assets/slideshow/slide2.webp',
+  '/assets/slideshow/slide3.webp',
+  '/assets/slideshow/slide4.webp',
 ];
 
 const avatars = [
@@ -45,7 +45,7 @@ export default function Hero() {
       setIndex((prev) => (prev + 1) % images.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, [index]); // Reset timer when index changes manually
+  }, []);
 
   const nextSlide = useCallback(() => {
     setIndex((prev) => (prev + 1) % images.length);
@@ -62,29 +62,12 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen bg-surface overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Only show animated blobs on larger screens to save mobile GPU */}
+        {/* Static ambient glow - no GPU-heavy animations */}
         <div className="hidden md:block">
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 90, 0],
-              opacity: [0.5, 0.3, 0.5]
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[150px]"
-          />
-          <motion.div
-            animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, -60, 0],
-              opacity: [0.3, 0.5, 0.3]
-            }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: 2 }}
-            className="absolute bottom-1/3 right-1/3 w-[500px] h-[500px] bg-brand/3 rounded-full blur-[130px]"
-          />
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[100px] animate-[pulse_20s_ease-in-out_infinite]" />
+          <div className="absolute bottom-1/3 right-1/3 w-[500px] h-[500px] bg-brand/3 rounded-full blur-[100px] animate-[pulse_15s_ease-in-out_infinite_2s]" />
         </div>
-        {/* Simple, static glow for mobile instead of animated blurs */}
-        <div className="md:hidden absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-[400px] bg-brand/5 rounded-full blur-[100px]" />
+        <div className="md:hidden absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-[400px] bg-brand/5 rounded-full blur-[80px]" />
       </div>
 
       <div className="container-main relative pt-32 md:pt-40 pb-20">
@@ -146,7 +129,7 @@ export default function Hero() {
                 {/* Left Arrow */}
                 <button
                   onClick={prevSlide}
-                  className="absolute left-0 z-30 p-2 rounded-full bg-surface-card/50 backdrop-blur-md border border-white/10 hover:bg-surface-card transition-colors text-white/80 hover:text-white"
+                  className="absolute left-0 z-30 p-2 rounded-full bg-surface-card/70 backdrop-blur-sm border border-white/10 hover:bg-surface-card transition-colors text-white/80 hover:text-white"
                   aria-label="Previous slide"
                 >
                   <ChevronLeft size={24} />
@@ -196,7 +179,7 @@ export default function Hero() {
                 {/* Right Arrow */}
                 <button
                   onClick={nextSlide}
-                  className="absolute right-0 z-30 p-2 rounded-full bg-surface-card/50 backdrop-blur-md border border-white/10 hover:bg-surface-card transition-colors text-white/80 hover:text-white"
+                  className="absolute right-0 z-30 p-2 rounded-full bg-surface-card/70 backdrop-blur-sm border border-white/10 hover:bg-surface-card transition-colors text-white/80 hover:text-white"
                   aria-label="Next slide"
                 >
                   <ChevronRight size={24} />

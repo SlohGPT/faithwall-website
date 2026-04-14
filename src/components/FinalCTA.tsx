@@ -12,9 +12,11 @@ export default function FinalCTA() {
         <div className="relative rounded-[2rem] overflow-hidden border-2 border-brand/30">
           <div className="absolute inset-0">
             <img
-              src="https://images.pexels.com/photos/1064162/pexels-photo-1064162.jpeg?auto=compress&cs=tinysrgb&w=1920"
+              src="https://images.pexels.com/photos/1064162/pexels-photo-1064162.jpeg?auto=compress&cs=tinysrgb&w=800"
               alt=""
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-surface/95 via-surface/80 to-surface/60" />
           </div>
@@ -53,6 +55,8 @@ export default function FinalCTA() {
                       src={src}
                       alt=""
                       className="w-9 h-9 rounded-full border-2 border-surface object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   ))}
                 </div>

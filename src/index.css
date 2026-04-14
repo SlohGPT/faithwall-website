@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* smooth scroll only for anchor clicks, not global — avoids blocking main thread */
   }
 
   body {
@@ -26,7 +26,7 @@
   }
 
   .card-glass {
-    @apply bg-surface-card/80 backdrop-blur-xl border border-surface-border rounded-3xl;
+    @apply bg-surface-card/90 backdrop-blur-sm border border-surface-border rounded-3xl;
   }
 
   .card-gradient {
@@ -46,7 +46,7 @@
   }
 
   .glow-brand {
-    box-shadow: 0 0 60px rgba(217, 123, 59, 0.3), 0 0 120px rgba(217, 123, 59, 0.15);
+    box-shadow: 0 0 40px rgba(217, 123, 59, 0.2), 0 0 80px rgba(217, 123, 59, 0.1);
   }
 }
 
