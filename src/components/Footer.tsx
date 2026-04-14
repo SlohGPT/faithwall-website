@@ -7,7 +7,7 @@ import AppStoreButton from './AppStoreButton';
 const footerLinks = {
   about: [
     { name: 'Features', href: '/#features' },
-    { name: 'Download', href: 'https://apple.co/3NBwVwp' },
+    { name: 'Download', href: 'https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070' },
     { name: 'Pricing', href: '/#pricing' },
     { name: 'FAQ', href: '/#faq' },
   ],
@@ -48,7 +48,7 @@ export default function Footer() {
             </p>
 
             <div className="mt-6">
-              <AppStoreButton href="https://apple.co/3NBwVwp" />
+              <AppStoreButton href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" />
             </div>
           </div>
 

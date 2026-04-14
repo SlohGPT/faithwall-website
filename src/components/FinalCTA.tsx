@@ -33,7 +33,7 @@ export default function FinalCTA() {
               </p>
 
               <a
-                href="https://apps.apple.com/app/faithwall"
+                href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-white text-surface font-semibold px-6 py-4 rounded-2xl hover:bg-white/90 transition-colors"

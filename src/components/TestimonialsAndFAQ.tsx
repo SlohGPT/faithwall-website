@@ -6,19 +6,19 @@ const testimonials = [
         quote: "FaithWall has transformed my morning routine. Instead of checking social media, I start with God's word.",
         author: 'Sarah M.',
         role: 'First Waitlist Member',
-        image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100',
+        image: '/assets/avatars/avatar-4.jpg',
     },
     {
         quote: "As a busy mom, I needed something simple. Every time I check my phone, I'm reminded of God's promises.",
         author: 'Rachel K.',
         role: 'First Waitlist Member',
-        image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100',
+        image: '/assets/avatars/avatar-5.jpg',
     },
     {
         quote: "I've tried many devotional apps, but this is different. It meets me where I am - on my lock screen.",
         author: 'David L.',
         role: 'First Waitlist Member',
-        image: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=100',
+        image: '/assets/avatars/avatar-6.jpg',
     },
 ];
 
@@ -108,7 +108,7 @@ export default function TestimonialsAndFAQ() {
                     </div>
 
                     {/* RIGHT COLUMN: FAQ */}
-                    <div>
+                    <div id="faq">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -136,6 +136,8 @@ export default function TestimonialsAndFAQ() {
                                     <button
                                         onClick={() => setOpenIndex(openIndex === index ? null : index)}
                                         className="w-full flex items-center justify-between p-5 text-left group"
+                                        aria-expanded={openIndex === index}
+                                        aria-controls={`faq-answer-${index}`}
                                     >
                                         <span className={`font-medium pr-4 transition-colors ${openIndex === index ? 'text-white' : 'text-white/80 group-hover:text-white'}`}>
                                             {faq.question}
@@ -148,6 +150,8 @@ export default function TestimonialsAndFAQ() {
                                         </div>
                                     </button>
                                     <div
+                                        id={`faq-answer-${index}`}
+                                        role="region"
                                         className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
                                             }`}
                                     >

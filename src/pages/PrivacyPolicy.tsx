@@ -1,9 +1,17 @@
+import { Helmet } from 'react-helmet-async';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
 export default function PrivacyPolicy() {
     return (
         <div className="min-h-screen bg-surface">
+            <Helmet>
+                <title>Privacy Policy | FaithWall</title>
+                <meta name="description" content="FaithWall's privacy policy. Learn how we handle your data — we prioritize your privacy and don't collect sensitive personal information." />
+                <link rel="canonical" href="https://faithwall.app/privacy-policy" />
+                <meta property="og:title" content="Privacy Policy | FaithWall" />
+                <meta property="og:url" content="https://faithwall.app/privacy-policy" />
+            </Helmet>
             <Navigation />
             <main className="container-main pt-32 pb-16">
                 <div className="prose prose-invert max-w-4xl mx-auto">

@@ -1,9 +1,17 @@
+import { Helmet } from 'react-helmet-async';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
 export default function EULA() {
     return (
         <div className="min-h-screen bg-surface">
+            <Helmet>
+                <title>End-User License Agreement | FaithWall</title>
+                <meta name="description" content="FaithWall's End-User License Agreement (EULA). Read the terms under which FaithWall is licensed to you." />
+                <link rel="canonical" href="https://faithwall.app/eula" />
+                <meta property="og:title" content="EULA | FaithWall" />
+                <meta property="og:url" content="https://faithwall.app/eula" />
+            </Helmet>
             <Navigation />
             <main className="container-main pt-32 pb-16">
                 <div className="prose prose-invert max-w-4xl mx-auto">

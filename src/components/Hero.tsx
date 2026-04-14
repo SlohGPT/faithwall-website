@@ -3,17 +3,14 @@ import { motion, Variants, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
 
-const images = [
-  '/assets/slideshow/slide1.webp',
-  '/assets/slideshow/slide2.webp',
-  '/assets/slideshow/slide3.webp',
-  '/assets/slideshow/slide4.webp',
-];
+const slides = [1, 2, 3, 4, 5];
+const images = slides.map(i => `/assets/slideshow/slide${i}.webp`);
+const avifImages = slides.map(i => `/assets/slideshow/slide${i}.avif`);
 
 const avatars = [
-  'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=100',
-  'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100',
-  'https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg?auto=compress&cs=tinysrgb&w=100',
+  '/assets/avatars/avatar-1.jpg',
+  '/assets/avatars/avatar-2.jpg',
+  '/assets/avatars/avatar-3.jpg',
 ];
 
 const containerVariants: Variants = {
@@ -122,9 +119,9 @@ export default function Hero() {
 
             {/* Desktop buttons - hidden on mobile */}
             <motion.div variants={itemVariants} className="hidden lg:flex flex-row gap-4 justify-start items-center">
-              <AppStoreButton href="https://apple.co/3NBwVwp" />
+              <AppStoreButton href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" />
               <a
-                href="https://apple.co/3NBwVwp"
+                href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 h-[52px] text-base font-bold text-white transition-all duration-200 bg-brand rounded-xl hover:bg-brand-light hover:scale-105"
@@ -158,6 +155,13 @@ export default function Hero() {
                   {/* Slideshow */}
                   {images.map((src, i) => {
                     const diff = (i - index + images.length) % images.length;
+                    const altTexts = [
+                      'FaithWall lock screen showing Deuteronomy 31:6 scripture on iPhone',
+                      'FaithWall widget and wallpaper setup options on iPhone',
+                      'FaithWall user reviews and testimonials from believers',
+                      'FaithWall Bible verse explorer with Old and New Testament books',
+                      'FaithWall customization with fonts and color options',
+                    ];
 
                     let style: any = {};
                     if (diff === 0) {
@@ -171,18 +175,29 @@ export default function Hero() {
                     }
 
                     return (
-                      <motion.img
+                      <motion.div
                         key={i}
-                        src={src}
-                        alt={`App screenshot ${i + 1}`}
-                        className="absolute w-full h-full object-cover rounded-[2.5rem] border-4 border-surface-card shadow-2xl"
+                        className="absolute w-full h-full rounded-[2.5rem] border-4 border-surface-card shadow-2xl overflow-hidden"
                         style={{ willChange: 'transform, opacity' }}
                         initial={false}
                         animate={style}
                         transition={cardTransition}
-                        loading={i === 0 ? "eager" : "lazy"}
-                        decoding="async"
-                      />
+                      >
+                        <picture>
+                          <source srcSet={avifImages[i]} type="image/avif" />
+                          <source srcSet={src} type="image/webp" />
+                          <img
+                            src={src}
+                            alt={altTexts[i]}
+                            width={1284}
+                            height={2778}
+                            className="w-full h-full object-cover"
+                            loading={i === 0 ? "eager" : "lazy"}
+                            decoding="async"
+                            {...(i === 0 ? { fetchPriority: "high" as const } : {})}
+                          />
+                        </picture>
+                      </motion.div>
                     );
                   })}
                 </div>
@@ -219,9 +234,9 @@ export default function Hero() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex lg:hidden flex-row gap-3 justify-center items-center w-full mt-4"
               >
-                <AppStoreButton href="https://apple.co/3NBwVwp" />
+                <AppStoreButton href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" />
                 <a
-                  href="https://apple.co/3NBwVwp"
+                  href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-6 h-[52px] text-base font-bold text-white transition-all duration-200 bg-brand rounded-xl hover:bg-brand-light hover:scale-105"

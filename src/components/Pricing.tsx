@@ -15,18 +15,16 @@ const plans = [
     featured: false,
   },
   {
-    name: 'Lifetime',
-    price: '$9.99',
-    period: 'one-time',
+    name: 'Yearly',
+    price: '$8.99',
+    period: '/year',
     badge: 'Best Value',
-    subtext: 'Just 5 months of monthly',
+    subtext: '',
     features: [
-      'Own FaithWall+ forever',
-      'Never pay again',
       'Unlimited wallpaper exports',
       'All future updates included',
     ],
-    cta: 'Get Lifetime',
+    cta: 'Get Yearly',
     featured: true,
   },
 ];
@@ -97,7 +95,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="https://apple.co/3NBwVwp"
+                href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`block w-full py-4 text-center font-bold rounded-xl transition-all duration-200 ${plan.featured

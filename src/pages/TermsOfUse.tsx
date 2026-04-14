@@ -1,9 +1,17 @@
+import { Helmet } from 'react-helmet-async';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
 export default function TermsOfUse() {
     return (
         <div className="min-h-screen bg-surface">
+            <Helmet>
+                <title>Terms of Use | FaithWall</title>
+                <meta name="description" content="FaithWall's terms of use. Read the legal terms governing your use of our iOS app and services." />
+                <link rel="canonical" href="https://faithwall.app/terms-of-use" />
+                <meta property="og:title" content="Terms of Use | FaithWall" />
+                <meta property="og:url" content="https://faithwall.app/terms-of-use" />
+            </Helmet>
             <Navigation />
             <main className="container-main pt-32 pb-16">
                 <div className="prose prose-invert max-w-4xl mx-auto">

@@ -162,10 +162,10 @@ export default function Navigation() {
               <div className="flex items-center gap-6 ml-auto">
                 <div className="hidden lg:flex items-center gap-2">
                   <a
-                    href="/#blog"
+                    href="/#features"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
-                    Blog
+                    Features
                   </a>
                   <a
                     href="/#how-it-works"
@@ -174,15 +174,21 @@ export default function Navigation() {
                     How it works
                   </a>
                   <a
-                    href="/#support"
+                    href="/#pricing"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
-                    Support
+                    Pricing
+                  </a>
+                  <a
+                    href="/#faq"
+                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
+                  >
+                    FAQ
                   </a>
                 </div>
 
                 <a
-                  href="https://apps.apple.com/app/faithwall"
+                  href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hidden lg:inline-flex items-center justify-center px-7 py-3 bg-white text-surface text-xl font-semibold rounded-full hover:bg-white/90 transition-all duration-300"
@@ -194,6 +200,7 @@ export default function Navigation() {
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   className="lg:hidden p-2 text-white hover:text-white/70 transition-colors duration-300"
                   aria-label="Toggle menu"
+                  aria-expanded={isMobileMenuOpen}
                 >
                   {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </button>
@@ -217,11 +224,11 @@ export default function Navigation() {
         >
           <div className="flex flex-col p-3 gap-2">
             <a
-              href="/#blog"
+              href="/#features"
               className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Blog
+              Features
             </a>
             <a
               href="/#how-it-works"
@@ -231,15 +238,22 @@ export default function Navigation() {
               How it works
             </a>
             <a
-              href="/#support"
+              href="/#pricing"
               className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Support
+              Pricing
+            </a>
+            <a
+              href="/#faq"
+              className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              FAQ
             </a>
             <div className="pt-2 mt-2 border-t border-surface-border">
               <a
-                href="https://apps.apple.com/app/faithwall"
+                href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-full px-8 py-3.5 bg-white text-surface text-xl font-semibold rounded-full transition-colors"
