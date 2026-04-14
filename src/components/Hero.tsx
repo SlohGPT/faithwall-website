@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { motion, Variants } from 'framer-motion';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
 
@@ -36,28 +36,45 @@ const itemVariants: Variants = {
   },
 };
 
+// Smooth spring transition for card stack
+const cardTransition = {
+  type: "spring" as const,
+  stiffness: 200,
+  damping: 30,
+  mass: 1,
+};
+
 export default function Hero() {
   const [index, setIndex] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval>>();
+
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+  }, []);
 
   // Auto-play logic
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
+    resetTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [resetTimer]);
 
   const nextSlide = useCallback(() => {
     setIndex((prev) => (prev + 1) % images.length);
-  }, []);
+    resetTimer();
+  }, [resetTimer]);
 
   const prevSlide = useCallback(() => {
     setIndex((prev) => (prev - 1 + images.length) % images.length);
-  }, []);
+    resetTimer();
+  }, [resetTimer]);
 
-  const goToSlide = (i: number) => {
+  const goToSlide = useCallback((i: number) => {
     setIndex(i);
-  };
+    resetTimer();
+  }, [resetTimer]);
 
   return (
     <section className="relative min-h-screen bg-surface overflow-hidden">
@@ -142,20 +159,15 @@ export default function Hero() {
                   {images.map((src, i) => {
                     const diff = (i - index + images.length) % images.length;
 
-                    // 0: Active (Front)
-                    // 1: Second (Right, Behind)
-                    // 2: Third (Left, Behind)
-                    // 3: Exiting/Hidden (Deep back)
-
                     let style: any = {};
                     if (diff === 0) {
-                      style = { scale: 1, rotate: 0, opacity: 1, x: 0, y: 0, zIndex: 10 };
+                      style = { scale: 1, rotate: 0, opacity: 1, x: 0, zIndex: 10 };
                     } else if (diff === 1) {
-                      style = { scale: 0.92, rotate: 6, opacity: 0.8, x: 30, y: 0, zIndex: 5 };
+                      style = { scale: 0.93, rotate: 5, opacity: 0.7, x: 28, zIndex: 5 };
                     } else if (diff === 2) {
-                      style = { scale: 0.84, rotate: -6, opacity: 0.5, x: -30, y: 0, zIndex: 3 };
+                      style = { scale: 0.86, rotate: -5, opacity: 0.4, x: -28, zIndex: 3 };
                     } else {
-                      style = { scale: 0.8, rotate: 0, opacity: 0, x: 0, y: 0, zIndex: 20 };
+                      style = { scale: 0.8, rotate: 0, opacity: 0, x: 0, zIndex: 1 };
                     }
 
                     return (
@@ -164,13 +176,12 @@ export default function Hero() {
                         src={src}
                         alt={`App screenshot ${i + 1}`}
                         className="absolute w-full h-full object-cover rounded-[2.5rem] border-4 border-surface-card shadow-2xl"
+                        style={{ willChange: 'transform, opacity' }}
                         initial={false}
                         animate={style}
-                        transition={{ duration: 0.8, ease: "easeInOut" }}
-                        // @ts-ignore
-                        fetchpriority={i === index ? "auto" : (i === (index + 1) % images.length ? "auto" : "low")}
-                        loading={i === index ? "eager" : "lazy"}
-                        decoding={i === index ? "sync" : "async"}
+                        transition={cardTransition}
+                        loading={i === 0 ? "eager" : "lazy"}
+                        decoding="async"
                       />
                     );
                   })}
