@@ -116,10 +116,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-surface-border mt-8">
-          <p className="text-center text-white/40 text-sm">
+        <div className="pt-8 border-t border-surface-border mt-8 flex flex-col md:flex-row md:justify-between md:items-center gap-3">
+          <p className="text-white/40 text-sm text-center md:text-left">
             &copy; 2026 FaithWall. Made with love for the Lord.
           </p>
+          <div className="flex items-center justify-center md:justify-end gap-1.5">
+            <span className="text-white/30 text-[15px] tracking-wide">Built by</span>
+            <a
+              href="https://www.karchi.xyz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/40 hover:text-white/80 transition-colors duration-300 text-[20px] font-black tracking-tight leading-none"
+              aria-label="karchi. digital agency"
+            >
+              karchi.
+            </a>
+          </div>
         </div>
       </div>
 
