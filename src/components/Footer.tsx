@@ -64,12 +64,23 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.about.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-white/50 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </a>
+                  {link.href.startsWith('/') ? (
+                    <Link
+                      to={link.href}
+                      className="text-white/50 hover:text-white transition-colors text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/50 hover:text-white transition-colors text-sm"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

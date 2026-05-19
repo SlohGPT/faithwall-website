@@ -161,36 +161,36 @@ export default function Navigation() {
 
               <div className="flex items-center gap-6 ml-auto">
                 <div className="hidden lg:flex items-center gap-2">
-                  <a
-                    href="/#features"
+                  <Link
+                    to="/#features"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
                     Features
-                  </a>
-                  <a
-                    href="/#how-it-works"
+                  </Link>
+                  <Link
+                    to="/#how-it-works"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
                     How it works
-                  </a>
-                  <a
-                    href="/#pricing"
+                  </Link>
+                  <Link
+                    to="/#pricing"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
                     Pricing
-                  </a>
+                  </Link>
                   <Link
                     to="/blog"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
                     Blog
                   </Link>
-                  <a
-                    href="/#faq"
+                  <Link
+                    to="/#faq"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
                     FAQ
-                  </a>
+                  </Link>
                 </div>
 
                 <a
@@ -229,27 +229,27 @@ export default function Navigation() {
             }`}
         >
           <div className="flex flex-col p-3 gap-2">
-            <a
-              href="/#features"
+            <Link
+              to="/#features"
               className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Features
-            </a>
-            <a
-              href="/#how-it-works"
+            </Link>
+            <Link
+              to="/#how-it-works"
               className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               How it works
-            </a>
-            <a
-              href="/#pricing"
+            </Link>
+            <Link
+              to="/#pricing"
               className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Pricing
-            </a>
+            </Link>
             <Link
               to="/blog"
               className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
@@ -257,13 +257,13 @@ export default function Navigation() {
             >
               Blog
             </Link>
-            <a
-              href="/#faq"
+            <Link
+              to="/#faq"
               className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               FAQ
-            </a>
+            </Link>
             <div className="pt-2 mt-2 border-t border-surface-border">
               <a
                 href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"

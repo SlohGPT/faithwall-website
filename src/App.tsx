@@ -5,6 +5,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
 import EULA from './pages/EULA';
 import NotFound from './pages/NotFound';
+import ScrollManager from './components/ScrollManager';
 
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
@@ -15,6 +16,7 @@ const blogFallback = <div className="min-h-screen bg-surface" />;
 export default function App() {
   return (
     <Router>
+      <ScrollManager />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

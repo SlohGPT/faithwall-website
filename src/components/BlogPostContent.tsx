@@ -49,8 +49,11 @@ export default function BlogPostContent({ post, slug: _slug, related }: Props) {
             <img
               src={meta.image}
               alt={meta.title}
+              width={1600}
+              height={900}
               className="w-full aspect-[16/9] object-cover"
               loading="eager"
+              decoding="async"
             />
             {meta.imageAttribution && (
               <figcaption className="mt-2 text-xs text-white/40 text-right">

@@ -54,7 +54,10 @@
 
 @layer base {
   html {
-    /* smooth scroll only for anchor clicks, not global — avoids blocking main thread */
+    /* Hash-target offset: fixed navigation is ~76px tall, give breathing room
+       so anchor landings don't sit under it. ScrollManager respects this via
+       scrollIntoView({ block: 'start' }). */
+    scroll-padding-top: 100px;
   }
 
   body {
