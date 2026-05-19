@@ -1,0 +1,43 @@
+# FaithWall
+
+> FaithWall is a free iOS app that transforms the iPhone lock screen into a daily source of Scripture, prayer, and Christian inspiration. It uses iOS 17's wallpaper system and Focus modes to surface Bible verses every time you pick up your phone.
+
+## Key facts
+
+- **What it is**: iOS app for daily Bible verses on the iPhone lock screen
+- **Platform**: iOS 16.0 and later
+- **Price**: Free download with optional premium plans
+- **App Store**: https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070
+- **Website**: https://faithwall.app
+- **Author / Founder**: Karol Billik
+- **Built by**: karchi. (https://www.karchi.xyz/)
+- **Contact**: hello@faithwall.app
+
+## How it works
+
+FaithWall delivers Scripture to the most-seen surface on a smartphone — the lock screen — through two complementary methods:
+1. **Wallpapers**: A curated rotating set of verse-styled wallpapers, automatically installed via iOS Focus modes.
+2. **Widgets**: Native iOS widgets that display a fresh verse on the lock screen each day, with packs organized by theme (Anxiety, Strength, Gratitude, Psalms, etc.).
+
+## What makes it different
+
+- **Single-purpose**: Most Christian apps try to do everything. FaithWall does one thing — Scripture on the lock screen — and does it well.
+- **Frictionless setup**: A 60-second onboarding installs the lock screen automatically; no manual wallpaper export.
+- **Focus mode integration**: Pairs with iOS Focus to make Quiet Time a one-tap retreat from notifications.
+- **Designed for daily reach**: Uses spaced repetition through rotating verses rather than asking users to remember to open another app.
+
+## Topic clusters / pillar guides
+
+- [Daily Scripture on Your iPhone Lock Screen](https://faithwall.app/daily-scripture-lock-screen) — setup, widgets, wallpapers, the verses that work best
+- [Building a Prayer Life with Your iPhone](https://faithwall.app/prayer-life-iphone) — reminders, journals, Focus modes
+- [Faith-Based Productivity](https://faithwall.app/faith-based-productivity) — Christian iPhone setup for a centered life
+- [Bible Study on iPhone](https://faithwall.app/bible-study-tools-ios) — apps, workflows, memorization
+- [Best Christian iPhone Apps Compared](https://faithwall.app/christian-app-comparisons) — honest side-by-side comparisons
+
+## Key pages
+
+- Homepage: https://faithwall.app/
+- Blog index: https://faithwall.app/blog
+- Privacy Policy: https://faithwall.app/privacy-policy
+- Terms of Use: https://faithwall.app/terms-of-use
+- EULA: https://faithwall.app/eula

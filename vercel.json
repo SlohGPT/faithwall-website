@@ -22,6 +22,12 @@
       ]
     },
     {
+      "source": "/blog-thumbnails/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
       "source": "/og-image.png",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400" }
@@ -30,7 +36,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets|favicon|icon-app|robots|sitemap|manifest|og-image).*)",
+      "source": "/((?!assets|favicon|icon-app|robots|sitemap|manifest|og-image|blog-thumbnails|llms\\.txt).*)",
       "destination": "/index.html"
     }
   ]

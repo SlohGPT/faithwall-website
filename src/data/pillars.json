@@ -1,0 +1,145 @@
+{
+  "daily-scripture-lock-screen": {
+    "slug": "daily-scripture-lock-screen",
+    "title": "Daily Scripture on Your iPhone Lock Screen — The Complete Guide",
+    "description": "Everything you need to put Bible verses on your iPhone lock screen: setup, widgets, wallpapers, and the verses that hit hardest at the right moment.",
+    "intro": "Your iPhone lock screen is the most-seen surface in your life. The average American picks up their phone 144 times a day. This guide shows you exactly how to fill that surface with Scripture — verses that meet you where you are, every single time you reach for your phone.",
+    "metaTitle": "Daily Scripture iPhone Lock Screen Guide (2026)",
+    "metaDescription": "Put Bible verses on your iPhone lock screen. Step-by-step setup for wallpapers, widgets, and rotating scripture. Free guide updated for iOS 17.",
+    "sections": [
+      { "type": "heading", "level": 2, "text": "Why a Scripture lock screen actually works" },
+      { "type": "paragraph", "text": "Habit researchers call this **environment design** — placing the thing you want to do in the path you already walk. You're going to look at your phone anyway. The question is whether the first thing you see is a notification cluster or a verse that grounds you." },
+      { "type": "paragraph", "text": "A rotating verse on your lock screen does three things at once: it interrupts doomscrolling, it embeds Scripture in your working memory through spaced repetition, and it turns unconscious phone-checks into 144 micro-moments of grace per day." },
+      { "type": "heading", "level": 2, "text": "Two methods: wallpaper vs widget" },
+      { "type": "tip", "content": "**Wallpaper** is best for a single anchor verse you want to live with for a season. **Widgets** are best if you want fresh verses to rotate daily — that's where FaithWall shines." },
+      { "type": "heading", "level": 2, "text": "The 60-second setup" },
+      { "type": "steps", "items": [
+        "Download FaithWall from the App Store (free).",
+        "Open the app and pick a verse pack — Anxiety, Strength, Gratitude, or browse by book.",
+        "Choose a wallpaper style or the daily-rotating widget.",
+        "Tap **Set Lock Screen** — FaithWall installs it automatically using iOS 17's Focus integration.",
+        "Long-press your lock screen anywhere to switch packs or styles on the fly."
+      ]},
+      { "type": "heading", "level": 2, "text": "Verses that work especially well on a lock screen" },
+      { "type": "list", "items": [
+        "Short verses — 5 to 12 words read in a glance.",
+        "Promise verses — Isaiah 41:10, Philippians 4:13, Psalm 46:1.",
+        "Identity verses — Ephesians 2:10, 2 Corinthians 5:17.",
+        "Comfort verses — Psalm 23, Matthew 11:28-30.",
+        "Direction verses — Proverbs 3:5-6, Jeremiah 29:11."
+      ]},
+      { "type": "highlight", "content": "**Pro move:** Pair your verse lock screen with iOS 17's Focus mode. Set a **Quiet Time** Focus that activates the verse wallpaper, silences non-essential notifications, and dims your screen — a one-tap retreat from the noise." },
+      { "type": "cta", "title": "Get FaithWall on the App Store", "description": "Free download. Daily Scripture on your iPhone lock screen in under 60 seconds.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
+    ],
+    "featured": ["bible-verse-lock-screen-iphone"]
+  },
+  "prayer-life-iphone": {
+    "slug": "prayer-life-iphone",
+    "title": "Building a Prayer Life with Your iPhone — A Practical Guide",
+    "description": "Use your iPhone to support — not replace — a real prayer life. Reminders, journals, focus modes, and the small habits that turn good intentions into rhythm.",
+    "intro": "The phone is the thing most likely to interrupt prayer. It can also be the thing that calls you back to it. This guide is about using iOS thoughtfully — alarms, widgets, Focus modes, and journal apps — to scaffold a prayer life that actually sticks.",
+    "metaTitle": "iPhone Prayer Life Guide — Reminders, Widgets, Journals (2026)",
+    "metaDescription": "Build a daily prayer life using your iPhone. Reminders, widgets, Focus modes, and journals that turn good intentions into rhythm.",
+    "sections": [
+      { "type": "heading", "level": 2, "text": "Start with the trigger, not the app" },
+      { "type": "paragraph", "text": "Most prayer apps fail the same way: they ask you to remember to open them. Habits don't work like that. Build the trigger first — a sound, a place, a moment — then let the phone serve it." },
+      { "type": "tip", "content": "**Anchor prayer to something you already do:** the first sip of coffee, the moment you sit in the car, the second you put your phone down for the night. Layer the iPhone reminder on top of the existing behavior — don't make a new one from scratch." },
+      { "type": "heading", "level": 2, "text": "Four iPhone setups that change everything" },
+      { "type": "steps", "items": [
+        "**Lock Screen prayer widget** — surface today's prayer focus every time you pick up the phone (FaithWall handles this).",
+        "**Three-alarm rhythm** — 7am, noon, 9pm. Label them with the prayer (\"Thanksgiving\", \"Confession\", \"Examen\"). One swipe, 60 seconds.",
+        "**Focus mode: \"With the Lord\"** — silence everything but family. Auto-activates 6:30-7:00am.",
+        "**Voice memo journal** — when something hits, talk it. Faster than typing, more honest."
+      ]},
+      { "type": "verse", "reference": "1 Thessalonians 5:17", "text": "Pray without ceasing." },
+      { "type": "heading", "level": 2, "text": "What \"praying without ceasing\" looks like on an iPhone" },
+      { "type": "paragraph", "text": "Paul wasn't asking for non-stop monologue. He was describing a posture — a continual awareness of God's presence. The iPhone can support that posture with **small, repeated touches**: a verse on the lock screen, a notification that says simply \"breathe — He's here,\" a widget that shows you who you committed to pray for today." },
+      { "type": "cta", "title": "Try FaithWall for a deeper prayer rhythm", "description": "Daily prayer prompts, rotating Scripture, and lock-screen widgets that keep you grounded.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
+    ],
+    "featured": []
+  },
+  "faith-based-productivity": {
+    "slug": "faith-based-productivity",
+    "title": "Faith-Based Productivity — The iPhone Setup for a Centered Life",
+    "description": "Productivity systems for Christians who want their iPhone to serve their soul, not steal it. Habit tracking, Focus modes, and the rhythms that hold.",
+    "intro": "Most productivity advice optimizes for output. Christian productivity has to optimize for something deeper — being faithful with what God gave you. This guide is the iPhone setup for that kind of life: focused, rhythmic, prayerful, and quietly counter-cultural.",
+    "metaTitle": "Faith-Based Productivity iPhone Setup (2026 Guide)",
+    "metaDescription": "Christian productivity on iPhone: habit tracking, Focus modes, scripture widgets, and quiet-time rhythms that compound over years.",
+    "sections": [
+      { "type": "heading", "level": 2, "text": "The hidden cost of secular productivity systems" },
+      { "type": "paragraph", "text": "Every minute you save is a minute someone wants to sell. The default iPhone is engineered to extract attention; productivity apps often double down on the same logic — more streaks, more dopamine, more numbers going up. A faith-based system asks a different question: **what am I cultivating, and Who is it for?**" },
+      { "type": "heading", "level": 2, "text": "Three rhythms worth tracking" },
+      { "type": "list", "items": [
+        "**Daily:** Scripture, prayer, one act of love.",
+        "**Weekly:** Sabbath rest, corporate worship, time in nature.",
+        "**Seasonal:** Confession, generosity check, gospel rest."
+      ]},
+      { "type": "tip", "content": "Use a simple iPhone widget — not a 50-habit dashboard — for these. Three boxes, three taps. If you can't fit it on your home screen at a glance, the system already lost." },
+      { "type": "heading", "level": 2, "text": "The Quiet Time Focus mode" },
+      { "type": "steps", "items": [
+        "Settings → Focus → + (top right) → Custom.",
+        "Name it **Quiet Time**. Pick a soft color.",
+        "Allow notifications from: spouse, kids, emergency contacts. Nothing else.",
+        "Set schedule: every day, 6:00–7:00am (or your slot).",
+        "Customize Screens: pick the FaithWall verse wallpaper for this Focus.",
+        "Save. Your phone now becomes a different phone for one hour a day."
+      ]},
+      { "type": "verse", "reference": "Colossians 3:23", "text": "Whatever you do, work heartily, as for the Lord and not for men." },
+      { "type": "cta", "title": "Anchor your day with FaithWall", "description": "Quiet Time, Scripture, and a centered start — every morning.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
+    ],
+    "featured": []
+  },
+  "bible-study-tools-ios": {
+    "slug": "bible-study-tools-ios",
+    "title": "Bible Study on iPhone — The 2026 Toolkit",
+    "description": "The actual iPhone apps and workflows that make Bible study deeper, not just faster. From verse highlighting to commentaries to memorization.",
+    "intro": "Phones are usually where Bible study goes to die — distraction wins, the verse you read at 7am is gone by 7:05. But a small set of iOS tools can flip that. Used right, the iPhone is one of the most powerful Bible study setups ever assembled.",
+    "metaTitle": "Bible Study on iPhone — Apps, Tools, and Workflows (2026)",
+    "metaDescription": "The complete iPhone Bible study setup: apps for highlighting, memorization, commentaries, and reading plans that compound.",
+    "sections": [
+      { "type": "heading", "level": 2, "text": "The four pillars of an iPhone Bible study setup" },
+      { "type": "list", "items": [
+        "**A primary reading app** — your translation, your notes, your highlights, in one place.",
+        "**A memorization app** — verses move from your eyes to your heart through spaced repetition.",
+        "**A commentary** — when a verse trips you, you want context in two taps.",
+        "**A surface that won't let you forget** — a lock screen verse, a widget, a daily reminder."
+      ]},
+      { "type": "tip", "content": "Don't optimize for **more reading**. Optimize for **slower reading**. One verse, ten minutes, repeated three times a week, beats a chapter a day you can't remember." },
+      { "type": "heading", "level": 2, "text": "The compound workflow" },
+      { "type": "steps", "items": [
+        "Pick one verse on Sunday — FaithWall sets it as your lock screen for the week.",
+        "Monday: read the surrounding paragraph in your Bible app. Highlight.",
+        "Tuesday: read the chapter. Note the context.",
+        "Wednesday: read a commentary on the verse. Write one sentence.",
+        "Thursday: pray the verse — turn it into address, request, thanksgiving.",
+        "Friday: share or teach it — text it to a friend with one sentence about what it meant."
+      ]},
+      { "type": "verse", "reference": "Psalm 119:11", "text": "I have stored up your word in my heart, that I might not sin against you." },
+      { "type": "cta", "title": "Anchor your study with FaithWall", "description": "Pick the verse. We'll keep it in front of you all week.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
+    ],
+    "featured": []
+  },
+  "christian-app-comparisons": {
+    "slug": "christian-app-comparisons",
+    "title": "The Best Christian Apps for iPhone — Honest Comparisons",
+    "description": "Side-by-side comparisons of the Christian apps actually worth installing in 2026. Bible apps, prayer apps, devotionals, wallpapers, and which combos work.",
+    "intro": "The App Store is full of Christian apps. Most of them aren't bad — they're just for someone else. This guide is the honest comparison: who each app is actually for, what it does well, where it falls short, and how to combine two or three into one solid stack.",
+    "metaTitle": "Best Christian iPhone Apps Compared (2026)",
+    "metaDescription": "Honest side-by-side comparisons of Christian iPhone apps in 2026 — Bible, prayer, devotional, and wallpaper apps that actually deliver.",
+    "sections": [
+      { "type": "heading", "level": 2, "text": "How to think about a Christian app stack" },
+      { "type": "paragraph", "text": "One app can't do everything well. The healthiest setups are usually **two or three apps doing one thing each**: a Bible app for reading, a focus app for prayer, and something that quietly carries Scripture into your phone moments. Pick for fit, not features." },
+      { "type": "heading", "level": 2, "text": "The shortlist by job-to-be-done" },
+      { "type": "list", "items": [
+        "**Reading & study:** YouVersion (free), Olive Tree (deeper), Logos (scholarly).",
+        "**Prayer & contemplation:** Hallow (Catholic), Lectio 365 (24-7 Prayer), Pray.com (mainstream).",
+        "**Devotionals:** Bible Recap, Glorify, She Reads Truth / He Reads Truth.",
+        "**Lock screen Scripture:** FaithWall — the only app dedicated to verse-on-lock-screen done right."
+      ]},
+      { "type": "highlight", "content": "**The combo most readers settle on:** YouVersion for reading + Hallow or Lectio 365 for prayer + FaithWall for daily lock-screen Scripture. Three apps, complementary jobs, no overlap." },
+      { "type": "verse", "reference": "Romans 14:5", "text": "Each one should be fully convinced in his own mind." },
+      { "type": "cta", "title": "Add FaithWall to your stack — free", "description": "The piece most Christian setups are missing: Scripture on the lock screen, every day.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
+    ],
+    "featured": []
+  }
+}

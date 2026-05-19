@@ -179,6 +179,12 @@ export default function Navigation() {
                   >
                     Pricing
                   </a>
+                  <Link
+                    to="/blog"
+                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
+                  >
+                    Blog
+                  </Link>
                   <a
                     href="/#faq"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
@@ -244,6 +250,13 @@ export default function Navigation() {
             >
               Pricing
             </a>
+            <Link
+              to="/blog"
+              className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Blog
+            </Link>
             <a
               href="/#faq"
               className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"

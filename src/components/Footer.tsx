@@ -11,6 +11,13 @@ const footerLinks = {
     { name: 'Pricing', href: '/#pricing' },
     { name: 'FAQ', href: '/#faq' },
   ],
+  resources: [
+    { name: 'Blog', href: '/blog' },
+    { name: 'Daily Scripture Guide', href: '/daily-scripture-lock-screen' },
+    { name: 'Prayer Life Guide', href: '/prayer-life-iphone' },
+    { name: 'Bible Study Tools', href: '/bible-study-tools-ios' },
+    { name: 'App Comparisons', href: '/christian-app-comparisons' },
+  ],
   company: [
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms of Use', href: '/terms-of-use' },
@@ -30,7 +37,7 @@ export default function Footer() {
   return (
     <footer className="bg-surface border-t border-surface-border relative">
       <div className="container-main py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12 mb-16">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
               <img
@@ -63,6 +70,22 @@ export default function Footer() {
                   >
                     {link.name}
                   </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-white mb-4">Resources</h4>
+            <ul className="space-y-3">
+              {footerLinks.resources.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
+                    className="text-white/50 hover:text-white transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>

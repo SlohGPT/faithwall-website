@@ -3,6 +3,9 @@
  * Spins up Vite preview, visits each route with Chrome headless,
  * captures the rendered HTML, and writes it to dist/<route>/index.html.
  * This gives Google real HTML to crawl instead of an empty <div id="root">.
+ *
+ * Routes are dynamically derived: the 4 static pages + /blog + 5 pillars + every
+ * published blog post slug from src/data/blogPosts.json.
  */
 import { execSync, spawn } from 'child_process';
 import { mkdirSync, writeFileSync, readFileSync } from 'fs';
@@ -12,7 +15,25 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, '..', 'dist');
 
-const routes = ['/', '/privacy-policy', '/terms-of-use', '/eula'];
+const STATIC_ROUTES = ['/', '/privacy-policy', '/terms-of-use', '/eula', '/blog'];
+const PILLARS = [
+  '/daily-scripture-lock-screen',
+  '/prayer-life-iphone',
+  '/faith-based-productivity',
+  '/bible-study-tools-ios',
+  '/christian-app-comparisons',
+];
+
+const posts = JSON.parse(
+  readFileSync(join(__dirname, '..', 'src/data/blogPosts.json'), 'utf-8')
+).filter((p) => p.isPublished !== false);
+
+const routes = [
+  ...STATIC_ROUTES,
+  ...PILLARS,
+  ...posts.map((p) => `/blog/${p.slug}`),
+];
+
 const PORT = 4177;
 
 async function prerender() {
@@ -40,7 +61,7 @@ async function prerender() {
       // Use Chrome headless to dump DOM
       const html = execSync(
         `"${chromePath}" --headless=new --disable-gpu --dump-dom "${url}" 2>/dev/null`,
-        { encoding: 'utf-8', timeout: 15000 }
+        { encoding: 'utf-8', timeout: 15000, maxBuffer: 10 * 1024 * 1024 }
       );
 
       // Write to dist/<route>/index.html
@@ -60,7 +81,7 @@ async function prerender() {
     server.kill();
   }
 
-  console.log('\nPrerendering complete! All routes have static HTML.');
+  console.log(`\nPrerendering complete! ${routes.length} routes have static HTML.`);
 }
 
 prerender().catch((err) => {
