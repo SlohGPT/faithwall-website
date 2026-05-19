@@ -90,7 +90,7 @@ export default function Navigation() {
               transition: 'background 0.6s cubic-bezier(0.22, 1, 0.36, 1), backdrop-filter 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
             }}
           >
-            {!isMobileView && width > 0 && height > 0 && (
+            {width > 0 && height > 0 && (
               <svg
                 className="absolute pointer-events-none"
                 style={{
@@ -144,7 +144,9 @@ export default function Navigation() {
                   stroke="url(#borderGradient)"
                   strokeWidth={strokeWidth}
                   strokeLinecap="round"
-                  filter="url(#glow)"
+                  // Skip the expensive Gaussian blur glow on mobile Safari.
+                  // Keep the gradient stroke; lose only the soft halo.
+                  {...(isMobileView ? {} : { filter: 'url(#glow)' })}
                   shapeRendering="geometricPrecision"
                   style={{
                     strokeDasharray: perimeter,

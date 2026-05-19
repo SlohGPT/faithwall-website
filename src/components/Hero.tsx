@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, Variants, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
 
@@ -15,27 +15,8 @@ const avatars = [
   '/assets/avatars/avatar-3.jpg',
 ];
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  },
-};
-
-// Smooth spring transition for card stack
+// Smooth spring transition for card stack (only motion.div used in Hero —
+// entrance animations are CSS to stay SSR-safe).
 const cardTransition = {
   type: "spring" as const,
   stiffness: 200,
@@ -101,13 +82,8 @@ export default function Hero() {
 
       <div className="container-main relative pt-32 md:pt-40 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-center lg:text-left lg:-translate-y-32"
-          >
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-4 px-5 py-3 rounded-full bg-surface-card border-2 border-brand/30 mb-8">
+          <div className="text-center lg:text-left lg:-translate-y-32">
+            <div className="inline-flex items-center gap-4 px-5 py-3 rounded-full bg-surface-card border-2 border-brand/30 mb-8 animate-fade-up-d1">
               <div className="flex -space-x-2">
                 {avatars.map((src, i) => (
                   <img
@@ -120,20 +96,20 @@ export default function Hero() {
                 ))}
               </div>
               <span className="text-base text-white/70 font-medium">Trusted by 1,000+ believers</span>
-            </motion.div>
+            </div>
 
-            <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6 animate-fade-up-d2">
               Daily Scripture
               <br />
               <span className="text-white/40">On Your Lock Screen</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p variants={itemVariants} className="text-lg sm:text-xl text-white/60 leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0">
+            <p className="text-lg sm:text-xl text-white/60 leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0 animate-fade-up-d3">
               Meet FaithWall, the app that transforms your iPhone lock screen into a daily moment with God.
-            </motion.p>
+            </p>
 
             {/* Desktop buttons - hidden on mobile */}
-            <motion.div variants={itemVariants} className="hidden lg:flex flex-row gap-4 justify-start items-center">
+            <div className="hidden lg:flex flex-row gap-4 justify-start items-center animate-fade-up-d4">
               <AppStoreButton href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" />
               <a
                 href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
@@ -143,15 +119,10 @@ export default function Hero() {
               >
                 Get Started
               </a>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="relative flex flex-col items-center justify-center lg:items-end"
-          >
+          <div className="relative flex flex-col items-center justify-center lg:items-end animate-fade-in-slide">
             <div className="w-full max-w-[500px] flex flex-col items-center gap-8">
               <div className="relative w-full flex items-center justify-center">
 
@@ -253,12 +224,7 @@ export default function Hero() {
               </div>
 
               {/* Mobile buttons - below slideshow, side by side */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="flex lg:hidden flex-row gap-3 justify-center items-center w-full mt-4"
-              >
+              <div className="flex lg:hidden flex-row gap-3 justify-center items-center w-full mt-4 animate-fade-up-d6">
                 <AppStoreButton href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" />
                 <a
                   href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
@@ -268,9 +234,9 @@ export default function Hero() {
                 >
                   Get Started
                 </a>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
