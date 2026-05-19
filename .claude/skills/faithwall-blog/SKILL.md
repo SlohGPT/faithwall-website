@@ -99,6 +99,52 @@ Verify the file exists and is non-empty (`ls -lh public/blog-thumbnails/${SLUG}.
 
 ### Step 4 — Write the post
 
+#### Conversion doctrine (read this first)
+
+The blog exists to drive App Store downloads, not just to rank. Every post must earn the click AND nudge toward FaithWall. Tune the sales temperature to the **search intent** of the keyword:
+
+| Intent type | Examples | Sales temperature | FaithWall mentions | What competitors get |
+|---|---|---|---|---|
+| **Setup / How-to** (informational) | "how to set prayer alarms iphone", "morning prayer routine iphone" | Mostly helpful, soft CTA at end | 2–3 in body | Don't mention competitor apps by name |
+| **Comparison / Best-X** (transactional) | "best bible study app iphone 2026", "faithwall vs hallow" | **FaithWall is THE recommendation** — competitors are positioned as missing the actual problem | 5–7 throughout | Name them, but frame them as solving a *different* problem (reading vs daily exposure) |
+| **FaithWall-native setup** (the app IS the answer) | "bible verse lock screen iphone", "rotating bible verse wallpaper" | The setup *is* the app — Step 1 = download | 6–10 throughout | Don't mention |
+
+**Cardinal rule for comparison posts:** never list FaithWall as one option among many. The recommendation IS FaithWall, with reading apps positioned as "things you'll also want for sit-down study" — supplements, not alternatives.
+
+#### Mandatory section: "Where this gets hard"
+
+Every post must include a friction-reveal section (any heading you like — "Where this gets hard", "The part nobody tells you", "Why DIY breaks down"). 1–2 paragraphs explaining what trips up the reader if they try to do it without FaithWall:
+
+- **Curation effort.** Picking the right verse for today's mood requires you to know the Bible well already. FaithWall solves the chicken-and-egg problem with themed packs (Anxiety, Strength, Gratitude, Grief).
+- **Rotation breaks by week 2.** Manual wallpaper changing is a habit that dies. FaithWall rotates automatically through your chosen pack.
+- **Lock-screen images look ugly.** A YouVersion screenshot saved as a wallpaper is not designed for the lock-screen surface. FaithWall designs *for* that surface specifically.
+- **No Focus mode integration.** Most apps generate an image you save manually. FaithWall installs the wallpaper directly via iOS Focus modes — no Camera Roll spam, no manual setting.
+- **Spiritual diet vs random verses.** Random verse-of-the-day apps surface unrelated verses. FaithWall lets you pick a season's theme and stays cohesive.
+
+Pick the 1–2 friction angles that match the post's topic. Don't list all five.
+
+#### FaithWall positioning wedges (pick the one that fits)
+
+FaithWall isn't "another Bible app" — its product wedge is specific. Use the framing that matches the post:
+
+- **Surface specificity:** "The only app designed for the iPhone lock-screen surface, not adapted to it."
+- **The 144 problem:** "You check your phone 144 times a day. FaithWall makes Scripture one of those touches without you opening anything."
+- **Zero curation:** "Themed packs picked for seasons of life. You don't have to know which verse you need — we do."
+- **iOS-native:** "Focus mode integration. The wallpaper installs itself. No Camera Roll wallpaper-juggling."
+- **The piece every stack is missing:** "YouVersion is for reading. Dwell is for listening. FaithWall is for *seeing* — the daily-exposure piece."
+
+#### CTA copy variation (don't reuse the same boilerplate)
+
+The final CTA block matters. Vary the title + description by post type. Examples:
+
+- **High-intent post:** title `"Get FaithWall — free, 60 seconds, no account"` / description `"The piece every Bible study stack is missing: daily Scripture on the lock screen you already check 144 times a day."`
+- **How-to post:** title `"Skip the setup — let FaithWall do it"` / description `"Free. Installs the verse wallpaper automatically via iOS Focus modes. No screenshots, no manual rotation."`
+- **Friction-resolution post:** title `"Stop curating verses yourself"` / description `"FaithWall ships themed packs picked for seasons of life — Anxiety, Strength, Gratitude. Pick one, install in 60 seconds."`
+
+Never use a generic "Download FaithWall" title alone.
+
+#### Structure
+
 Create `src/data/posts/{slug}.json` matching this exact structure (reference [src/data/posts/bible-verse-lock-screen-iphone.json](../../../src/data/posts/bible-verse-lock-screen-iphone.json) for the canonical example):
 
 ```json
@@ -176,6 +222,13 @@ Run through this checklist on your generated JSON **before** writing it:
 - [ ] 2–3 internal links + 1 pillar link.
 - [ ] All `imageAttribution` URLs have the UTM params.
 - [ ] `meta.cluster` exactly matches one of the 5 cluster slugs.
+- [ ] **Conversion checks:**
+  - [ ] Sales temperature matches the keyword's intent (informational vs comparison vs FaithWall-native).
+  - [ ] **"Where this gets hard" section is present** with at least 1 friction angle.
+  - [ ] FaithWall mentioned the right number of times for this post type (see table).
+  - [ ] Comparison posts: FaithWall is THE recommendation, not one option among many.
+  - [ ] CTA title and description are post-specific, not generic boilerplate.
+  - [ ] If competitor apps are named, they're framed as solving a *different* problem, not as alternatives to FaithWall.
 
 Then write the file with the Write tool.
 
