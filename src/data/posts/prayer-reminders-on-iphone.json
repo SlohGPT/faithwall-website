@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "title": "Prayer Reminders on iPhone: How to Build a Rhythm That Actually Sticks",
+    "description": "The exact iPhone setup for prayer reminders that survive past week two — alarms, Focus modes, widgets, and the small habits that turn good intentions into rhythm.",
+    "date": "May 19, 2026",
+    "datePublished": "2026-05-19T15:00:00.000Z",
+    "readTime": "6 min read",
+    "image": "/blog-thumbnails/prayer-reminders-on-iphone.jpg",
+    "imageAttribution": {
+      "photographer": "Aaron Burden",
+      "photographerUrl": "https://unsplash.com/@aaronburden?utm_source=faithwall&utm_medium=referral",
+      "unsplashUrl": "https://unsplash.com/photos/silhouette-of-kneeling-man-lPCu8HnGU2E?utm_source=faithwall&utm_medium=referral"
+    },
+    "keywords": ["prayer reminders on iphone", "daily prayer iphone", "iphone prayer alarms", "ios focus mode prayer", "faithwall"],
+    "cluster": "prayer-life-iphone"
+  },
+  "sections": [
+    {
+      "type": "callout",
+      "icon": "zap",
+      "title": "Quick Answer",
+      "content": "Set **prayer reminders on iPhone** by combining three alarms (7am, noon, 9pm) with descriptive labels, a Quiet Time Focus mode, and a lock-screen verse widget. The trick isn't the alarm — it's pairing each one with something you already do."
+    },
+    {
+      "type": "paragraph",
+      "text": "Most people set up **prayer reminders on iPhone** and abandon them within nine days. It's not a willpower problem. It's a design problem. A buzz that says \"Pray\" with no context, no anchor, and no follow-through is just one more notification to swipe away."
+    },
+    {
+      "type": "paragraph",
+      "text": "This guide is the iPhone setup that actually works — the one most readers settle on after trying every prayer app on the App Store. Three alarms, one Focus mode, one widget. Built around behavior, not features."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Why generic reminders fail"
+    },
+    {
+      "type": "paragraph",
+      "text": "BJ Fogg's behavior model, which has shaped most modern habit research, says a behavior happens when motivation, ability, and a prompt all show up at the same time. Reminders supply the prompt. They do nothing for the other two. A 7am alarm that says \"Pray\" hits a tired brain with no plan. Of course it gets dismissed."
+    },
+    {
+      "type": "tip",
+      "content": "**Anchor every reminder to something you already do.** Not \"Pray at 7am\" — \"Pray during the first sip of coffee.\" The phone reminds you of the anchor, not of the prayer itself. The coffee does the rest."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The three-alarm rhythm"
+    },
+    {
+      "type": "paragraph",
+      "text": "This is the simplest setup that survives the messy month of real life. Three iPhone alarms, each labeled with a specific kind of prayer. No app required."
+    },
+    {
+      "type": "steps",
+      "items": [
+        "**7:00 AM — \"Thanksgiving\"**. Anchor: first sip of coffee. One minute. Name three specific things from the last 24 hours.",
+        "**12:00 PM — \"Examen\"**. Anchor: walking back from lunch. Two minutes. What's pulling at you right now? What does God already know about it?",
+        "**9:00 PM — \"Confession + Rest\"**. Anchor: putting the phone on the charger. Three minutes. Name what you wish you'd done differently. Receive that the day is finished."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Label each alarm with the prayer type, not a generic word. \"Pray\" is forgettable. \"Examen\" is a question your tired brain will actually engage with."
+    },
+    {
+      "type": "verse",
+      "reference": "Psalm 5:3",
+      "text": "O Lord, in the morning you hear my voice; in the morning I prepare a sacrifice for you and watch."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Layer 2: the Quiet Time Focus mode"
+    },
+    {
+      "type": "paragraph",
+      "text": "iOS 17's Focus modes are the most underused prayer tool on the iPhone. A Quiet Time Focus silences notifications, swaps your lock screen, and gives you a one-tap retreat from the noise. Here's the setup:"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Settings → Focus → + (top right) → **Custom**.",
+        "Name it **Quiet Time**. Pick a soft color and the prayer-hands icon.",
+        "**Allow notifications only from**: spouse, kids, emergency contacts. Nothing else.",
+        "**Schedule**: 6:30–7:00am daily (or your slot). Optional: add a second window at 9:00–9:15pm.",
+        "**Customize Screens**: pick a Scripture wallpaper (FaithWall installs these automatically for this Focus).",
+        "Save. Your phone now becomes a different phone for one hour a day — no buzzing, no thumbnails, no scroll."
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "**Pro move:** in the Focus settings, add the FaithWall app to the **Allowed Apps** list. That way prayer prompts can still surface during Quiet Time while everything else stays silent."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Layer 3: the lock-screen widget"
+    },
+    {
+      "type": "paragraph",
+      "text": "Reminders work best when the reminder is also the prayer. A widget that surfaces *who* you're praying for, or *which verse* you're meditating on this week, removes the \"what am I praying about?\" friction. The iPhone average user picks up their phone **144 times per day**, per Reviews.org's 2026 Phone Habits report. Each pickup is a chance to remember."
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Daily prayer focus widget** — surfaces one person, one verse, or one theme each day. The thing you commit to pray for, on the screen you check 144 times.",
+        "**Verse rotation widget** — different verse every day, packs by theme (Comfort, Strength, Confession).",
+        "**Prayer list widget** — your committed list, alphabetical. Tap to mark prayed."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "If you want the wallpaper-and-widget side of this setup done for you, that's what [FaithWall does on the lock screen](/blog/bible-verse-lock-screen-iphone). For the wider prayer-on-iPhone strategy — journals, voice memos, Focus stacking — see the [prayer life pillar guide](/prayer-life-iphone)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What to do when the rhythm breaks"
+    },
+    {
+      "type": "paragraph",
+      "text": "It will. Travel happens. Sick kids happen. The week you miss every prayer alarm three days in a row is normal, not failure."
+    },
+    {
+      "type": "important",
+      "content": "**Don't restart the streak. Restart the next alarm.** Streak-counting in prayer turns into performance. The 7am alarm tomorrow doesn't care that you missed yesterday's noon. It just goes off, and you take it."
+    },
+    {
+      "type": "paragraph",
+      "text": "The point of **prayer reminders on iPhone** isn't a perfect log. It's that you're more present with God than you were a month ago. That's the only number that matters."
+    },
+    {
+      "type": "cta",
+      "title": "Get FaithWall — free on the App Store",
+      "description": "Daily Scripture and prayer widgets on your iPhone lock screen. The piece most prayer routines are missing.",
+      "buttonText": "Download FaithWall",
+      "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+    }
+  ]
+}

@@ -56,7 +56,7 @@
       { "type": "paragraph", "text": "Paul wasn't asking for non-stop monologue. He was describing a posture — a continual awareness of God's presence. The iPhone can support that posture with **small, repeated touches**: a verse on the lock screen, a notification that says simply \"breathe — He's here,\" a widget that shows you who you committed to pray for today." },
       { "type": "cta", "title": "Try FaithWall for a deeper prayer rhythm", "description": "Daily prayer prompts, rotating Scripture, and lock-screen widgets that keep you grounded.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
     ],
-    "featured": []
+    "featured": ["prayer-reminders-on-iphone"]
   },
   "faith-based-productivity": {
     "slug": "faith-based-productivity",
