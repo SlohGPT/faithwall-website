@@ -1,24 +1,21 @@
 /**
  * Post-build prerender.
- * Spins up `vite preview`, visits every route with Puppeteer's bundled Chromium,
- * captures the fully-rendered DOM (so react-helmet-async tags are inlined),
- * and writes per-route static HTML to dist/<route>/index.html.
  *
- * Works locally (macOS) and on Vercel's Linux build — Puppeteer downloads
- * its own Chromium during `npm install`, so there's no hardcoded system path.
+ * Renders every route via React 18's renderToPipeableStream from a Vite SSR
+ * bundle (dist-ssr/entry-server.js), captures react-helmet-async tags, and
+ * writes per-route static HTML to dist/<route>/index.html.
  *
- * Routes are derived from: 4 static pages + /blog + 5 pillars + every
- * published blog post slug from src/data/blogPosts.json.
+ * No headless browser, no system Chromium dependency. Works identically on
+ * macOS and Vercel's Linux build image.
  */
-import { spawn } from 'child_process';
 import { mkdirSync, writeFileSync, readFileSync } from 'fs';
 import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import puppeteer from 'puppeteer';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
 const distDir = join(root, 'dist');
+const ssrEntry = join(root, 'dist-ssr', 'entry-server.js');
 
 const STATIC_ROUTES = ['/', '/privacy-policy', '/terms-of-use', '/eula', '/about/karol-billik', '/blog'];
 const PILLARS = [
@@ -28,7 +25,6 @@ const PILLARS = [
   '/bible-study-tools-ios',
   '/christian-app-comparisons',
 ];
-
 const COMPARISONS = [
   '/faithwall-vs-youversion',
   '/faithwall-vs-hallow',
@@ -36,7 +32,7 @@ const COMPARISONS = [
 ];
 
 const posts = JSON.parse(
-  readFileSync(join(root, 'src/data/blogPosts.json'), 'utf-8')
+  readFileSync(join(root, 'src/data/blogPosts.json'), 'utf-8'),
 ).filter((p) => p.isPublished !== false);
 
 const routes = [
@@ -46,80 +42,53 @@ const routes = [
   ...posts.map((p) => `/blog/${p.slug}`),
 ];
 
-const PORT = 4177;
-
-function waitForServer(server) {
-  return new Promise((resolve, reject) => {
-    let resolved = false;
-    const onData = (data) => {
-      const s = data.toString();
-      if (s.includes('Local:') && !resolved) {
-        resolved = true;
-        resolve();
-      }
-    };
-    server.stdout.on('data', onData);
-    server.stderr.on('data', onData);
-    setTimeout(() => {
-      if (!resolved) {
-        resolved = true;
-        // Best-effort: server may have started without printing the expected line
-        resolve();
-      }
-    }, 8000);
-    server.on('exit', (code) => {
-      if (!resolved) reject(new Error(`vite preview exited early (code ${code})`));
-    });
-  });
+function helmetToString(helmet) {
+  if (!helmet) return '';
+  return [
+    helmet.title,
+    helmet.priority,
+    helmet.meta,
+    helmet.link,
+    helmet.script,
+    helmet.style,
+    helmet.base,
+  ]
+    .map((piece) => (piece && typeof piece.toString === 'function' ? piece.toString() : ''))
+    .filter(Boolean)
+    .join('\n');
 }
 
 async function prerender() {
-  const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], {
-    cwd: root,
-    stdio: 'pipe',
-  });
-
-  await waitForServer(server);
-
-  const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
-  });
+  const template = readFileSync(join(distDir, 'index.html'), 'utf-8');
+  const { render } = await import(pathToFileURL(ssrEntry).href);
 
   let succeeded = 0;
   let failed = 0;
 
-  try {
-    for (const route of routes) {
-      const url = `http://localhost:${PORT}${route}`;
-      const page = await browser.newPage();
-      try {
-        await page.goto(url, { waitUntil: 'networkidle0', timeout: 20000 });
-        // Give react-helmet-async one more tick to flush async chunks
-        await new Promise((r) => setTimeout(r, 250));
-        const html = await page.content();
+  for (const route of routes) {
+    try {
+      const { html: appHtml, helmet } = await render(route);
+      const helmetTags = helmetToString(helmet);
 
-        const outDir = route === '/' ? distDir : join(distDir, route.slice(1));
-        mkdirSync(outDir, { recursive: true });
-        const outPath = join(outDir, 'index.html');
-        writeFileSync(outPath, html);
+      const finalHtml = template
+        .replace('</head>', `${helmetTags}\n</head>`)
+        .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
 
-        succeeded += 1;
-        console.log(`  ✓ ${route} (${(html.length / 1024).toFixed(1)}KB)`);
-      } catch (err) {
-        failed += 1;
-        console.error(`  ✗ ${route}: ${err.message}`);
-      } finally {
-        await page.close();
-      }
+      const outDir = route === '/' ? distDir : join(distDir, route.slice(1));
+      mkdirSync(outDir, { recursive: true });
+      writeFileSync(join(outDir, 'index.html'), finalHtml);
+
+      succeeded += 1;
+      console.log(`  ✓ ${route} (${(finalHtml.length / 1024).toFixed(1)}KB)`);
+    } catch (err) {
+      failed += 1;
+      console.error(`  ✗ ${route}: ${err.message}`);
+      if (err.stack) console.error(err.stack);
     }
-  } finally {
-    await browser.close();
-    server.kill();
   }
 
   console.log(`\nPrerender complete: ${succeeded} succeeded, ${failed} failed (of ${routes.length}).`);
-  if (failed === routes.length) process.exit(1);
+  if (failed > 0) process.exit(1);
 }
 
 prerender().catch((err) => {

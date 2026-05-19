@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
@@ -17,7 +17,7 @@ const blogFallback = <div className="min-h-screen bg-surface" />;
 
 export default function App() {
   return (
-    <Router>
+    <>
       <ScrollManager />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -107,6 +107,6 @@ export default function App() {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </Router>
+    </>
   );
 }

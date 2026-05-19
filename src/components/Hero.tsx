@@ -194,7 +194,7 @@ export default function Hero() {
                             className="w-full h-full object-cover"
                             loading={i === 0 ? "eager" : "lazy"}
                             decoding="async"
-                            {...(i === 0 ? { fetchPriority: "high" as const } : {})}
+                            {...(i === 0 ? { fetchpriority: "high" as const } : {})}
                           />
                         </picture>
                       </motion.div>
