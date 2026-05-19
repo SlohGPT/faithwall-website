@@ -3,12 +3,17 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Navigation() {
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [isMobileView, setIsMobileView] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  // Refs for direct DOM mutation of the SVG progress ring. Updating
+  // strokeDashoffset via ref every animation frame is dramatically smoother
+  // than re-rendering the whole Navigation component (with its SVG, gradient
+  // defs, geometry calcs) on every scroll frame.
+  const progressRectRef = useRef<SVGRectElement>(null);
+  const perimeterRef = useRef(0);
 
   // iOS Chrome (and iOS 26 Safari Liquid Glass) overlay the URL bar on the
   // layout viewport instead of reserving layout space for it. env(safe-area-inset-top)
@@ -35,7 +40,7 @@ export default function Navigation() {
 
   useEffect(() => {
     let ticking = false;
-    let lastProgress = 0;
+    let lastHasScrolled = false;
     const handleScroll = () => {
       if (ticking) return;
       ticking = true;
@@ -43,13 +48,18 @@ export default function Navigation() {
         const scrollY = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const progress = docHeight > 0 ? scrollY / docHeight : 0;
-        // Only repaint the SVG ring when the change is meaningful (~1%).
-        // The ring uses a gradient + glow filter, expensive to repaint per frame.
-        if (Math.abs(progress - lastProgress) > 0.01 || progress === 0 || progress === 1) {
-          setScrollProgress(progress);
-          lastProgress = progress;
+        // Mutate the SVG ring directly — no React render, no allocation.
+        const rect = progressRectRef.current;
+        const perimeter = perimeterRef.current;
+        if (rect && perimeter > 0) {
+          rect.style.strokeDashoffset = String(perimeter * (1 - progress));
         }
-        setHasScrolled(scrollY > 20);
+        // hasScrolled only flips once (boolean) — cheap to keep in state.
+        const next = scrollY > 20;
+        if (next !== lastHasScrolled) {
+          lastHasScrolled = next;
+          setHasScrolled(next);
+        }
         ticking = false;
       });
     };
@@ -71,7 +81,7 @@ export default function Navigation() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  const showIndicator = hasScrolled && scrollProgress > 0.01;
+  const showIndicator = hasScrolled;
   const borderRadius = isMobileView ? 16 : 40;
   const strokeWidth = 2;
   const { width, height } = containerSize;
@@ -91,6 +101,19 @@ export default function Navigation() {
 
   const perimeter = getPerimeter();
 
+  // Keep perimeterRef in sync and snap the ring to the current scroll position
+  // whenever the geometry changes (initial mount, window resize, mobile/desktop
+  // breakpoint flip).
+  useEffect(() => {
+    perimeterRef.current = perimeter;
+    const rect = progressRectRef.current;
+    if (!rect || perimeter <= 0) return;
+    const scrollY = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? scrollY / docHeight : 0;
+    rect.style.strokeDasharray = String(perimeter);
+    rect.style.strokeDashoffset = String(perimeter * (1 - progress));
+  }, [perimeter]);
 
   return (
     <>
@@ -160,6 +183,7 @@ export default function Navigation() {
                 />
 
                 <rect
+                  ref={progressRectRef}
                   x={inset}
                   y={inset}
                   width={innerWidth}
@@ -174,9 +198,12 @@ export default function Navigation() {
                   // Keep the gradient stroke; lose only the soft halo.
                   {...(isMobileView ? {} : { filter: 'url(#glow)' })}
                   shapeRendering="geometricPrecision"
+                  // strokeDasharray / strokeDashoffset are mutated imperatively
+                  // by the scroll handler (and the perimeter effect for resize).
+                  // Initial values: full perimeter dash, fully offset (ring empty).
                   style={{
                     strokeDasharray: perimeter,
-                    strokeDashoffset: perimeter * (1 - scrollProgress),
+                    strokeDashoffset: perimeter,
                   }}
                 />
               </svg>
