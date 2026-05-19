@@ -1,11 +1,13 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, Variants, AnimatePresence } from 'framer-motion';
+import { motion, Variants, useReducedMotion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
 
 const slides = [1, 2, 3, 4, 5];
 const images = slides.map(i => `/assets/slideshow/slide${i}.webp`);
 const avifImages = slides.map(i => `/assets/slideshow/slide${i}.avif`);
+const mobileWebp = slides.map(i => `/assets/slideshow/slide${i}-mobile.webp`);
+const mobileAvif = slides.map(i => `/assets/slideshow/slide${i}-mobile.avif`);
 
 const avatars = [
   '/assets/avatars/avatar-1.jpg',
@@ -44,18 +46,31 @@ const cardTransition = {
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval>>();
+  const shouldReduceMotion = useReducedMotion();
 
   const resetTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
+    if (shouldReduceMotion) return;
     timerRef.current = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, 4000);
-  }, []);
+  }, [shouldReduceMotion]);
 
-  // Auto-play logic
+  // Auto-play logic — also pause when the tab is hidden so we don't burn CPU.
   useEffect(() => {
     resetTimer();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+    const onVisibility = () => {
+      if (document.hidden) {
+        if (timerRef.current) clearInterval(timerRef.current);
+      } else {
+        resetTimer();
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+      document.removeEventListener('visibilitychange', onVisibility);
+    };
   }, [resetTimer]);
 
   const nextSlide = useCallback(() => {
@@ -143,7 +158,7 @@ export default function Hero() {
                 {/* Left Arrow */}
                 <button
                   onClick={prevSlide}
-                  className="absolute left-0 z-30 p-2 rounded-full bg-surface-card/70 backdrop-blur-sm border border-white/10 hover:bg-surface-card transition-colors text-white/80 hover:text-white"
+                  className="absolute left-0 z-30 p-2 rounded-full bg-surface-card/90 border border-white/10 hover:bg-surface-card transition-colors text-white/80 hover:text-white"
                   aria-label="Previous slide"
                 >
                   <ChevronLeft size={24} />
@@ -184,10 +199,20 @@ export default function Hero() {
                         transition={cardTransition}
                       >
                         <picture>
-                          <source srcSet={avifImages[i]} type="image/avif" />
-                          <source srcSet={src} type="image/webp" />
+                          <source
+                            type="image/avif"
+                            srcSet={`${mobileAvif[i]} 640w, ${avifImages[i]} 1284w`}
+                            sizes="(max-width: 768px) 320px, 500px"
+                          />
+                          <source
+                            type="image/webp"
+                            srcSet={`${mobileWebp[i]} 640w, ${src} 1284w`}
+                            sizes="(max-width: 768px) 320px, 500px"
+                          />
                           <img
-                            src={src}
+                            src={mobileWebp[i]}
+                            srcSet={`${mobileWebp[i]} 640w, ${src} 1284w`}
+                            sizes="(max-width: 768px) 320px, 500px"
                             alt={altTexts[i]}
                             width={1284}
                             height={2778}
@@ -205,7 +230,7 @@ export default function Hero() {
                 {/* Right Arrow */}
                 <button
                   onClick={nextSlide}
-                  className="absolute right-0 z-30 p-2 rounded-full bg-surface-card/70 backdrop-blur-sm border border-white/10 hover:bg-surface-card transition-colors text-white/80 hover:text-white"
+                  className="absolute right-0 z-30 p-2 rounded-full bg-surface-card/90 border border-white/10 hover:bg-surface-card transition-colors text-white/80 hover:text-white"
                   aria-label="Next slide"
                 >
                   <ChevronRight size={24} />

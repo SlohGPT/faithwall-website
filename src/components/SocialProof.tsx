@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useInView, animate } from 'framer-motion';
 
 const stats = [
   { value: 92, label: 'Early users feel closer to God', suffix: '%' },
@@ -9,31 +9,25 @@ const stats = [
 
 function Counter({ value, suffix = '', decimals = 0 }: { value: number; suffix?: string; decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, {
-    damping: 30,
-    stiffness: 100,
-  });
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
-  }, [isInView, value, motionValue]);
-
-  useEffect(() => {
-    return springValue.on("change", (latest) => {
-      if (ref.current) {
-        ref.current.textContent = latest.toFixed(decimals) + suffix;
-        // Basic comma formatting for thousands if integers
+    if (!isInView || !ref.current) return;
+    const node = ref.current;
+    node.textContent = (0).toFixed(decimals) + suffix;
+    const controls = animate(0, value, {
+      duration: 1.2,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate(latest) {
         if (decimals === 0 && latest >= 1000) {
-          const intPart = Math.floor(latest);
-          ref.current.textContent = intPart.toLocaleString('en-US') + suffix;
+          node.textContent = Math.floor(latest).toLocaleString('en-US') + suffix;
+        } else {
+          node.textContent = latest.toFixed(decimals) + suffix;
         }
-      }
+      },
     });
-  }, [springValue, decimals, suffix]);
+    return () => controls.stop();
+  }, [isInView, value, decimals, suffix]);
 
   return <span ref={ref} />;
 }
@@ -53,7 +47,7 @@ export default function SocialProof() {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5, type: "spring" }}
                     className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-3"
                   >

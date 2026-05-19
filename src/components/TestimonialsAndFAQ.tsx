@@ -58,7 +58,7 @@ export default function TestimonialsAndFAQ() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6 }}
                             className="mb-12 text-center lg:text-left"
                         >
@@ -76,7 +76,7 @@ export default function TestimonialsAndFAQ() {
                                     key={testimonial.author}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: true, margin: "-50px" }}
                                     transition={{ delay: i * 0.1, duration: 0.5 }}
                                     className="rounded-3xl p-6 bg-gradient-to-br from-surface-card to-surface-elevated border border-white/5 hover:border-brand/20 transition-all duration-300"
                                 >
@@ -112,7 +112,7 @@ export default function TestimonialsAndFAQ() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6 }}
                             className="mb-12 text-center lg:text-left"
                         >
@@ -128,7 +128,7 @@ export default function TestimonialsAndFAQ() {
                                     key={index}
                                     initial={{ opacity: 0, y: 10 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: true, margin: "-50px" }}
                                     transition={{ delay: index * 0.1, duration: 0.5 }}
                                     className={`rounded-2xl overflow-hidden bg-surface-card border transition-all duration-300 ${openIndex === index ? 'border-brand/40 bg-surface-elevated' : 'border-white/5 hover:border-white/10'
                                         }`}

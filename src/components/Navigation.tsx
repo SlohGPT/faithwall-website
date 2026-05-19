@@ -12,6 +12,7 @@ export default function Navigation() {
 
   useEffect(() => {
     let ticking = false;
+    let lastProgress = 0;
     const handleScroll = () => {
       if (ticking) return;
       ticking = true;
@@ -19,7 +20,12 @@ export default function Navigation() {
         const scrollY = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const progress = docHeight > 0 ? scrollY / docHeight : 0;
-        setScrollProgress(progress);
+        // Only repaint the SVG ring when the change is meaningful (~1%).
+        // The ring uses a gradient + glow filter, expensive to repaint per frame.
+        if (Math.abs(progress - lastProgress) > 0.01 || progress === 0 || progress === 1) {
+          setScrollProgress(progress);
+          lastProgress = progress;
+        }
         setHasScrolled(scrollY > 20);
         ticking = false;
       });
@@ -71,16 +77,20 @@ export default function Navigation() {
             ref={containerRef}
             className="absolute inset-0 rounded-2xl md:rounded-[40px] overflow-visible"
             style={{
-              background: hasScrolled ? 'rgba(0, 0, 0, 0.25)' : 'transparent',
-              backdropFilter: hasScrolled ? (isMobileView ? 'blur(12px)' : 'blur(24px)') : 'none',
-              WebkitBackdropFilter: hasScrolled ? (isMobileView ? 'blur(12px)' : 'blur(24px)') : 'none',
+              // Mobile Safari composites multiple backdrop-filter layers slowly.
+              // Use a solid translucent background on mobile, keep the glass look on desktop.
+              background: hasScrolled
+                ? (isMobileView ? 'rgba(10, 10, 12, 0.92)' : 'rgba(0, 0, 0, 0.25)')
+                : 'transparent',
+              backdropFilter: hasScrolled && !isMobileView ? 'blur(24px)' : 'none',
+              WebkitBackdropFilter: hasScrolled && !isMobileView ? 'blur(24px)' : 'none',
               boxShadow: hasScrolled
                 ? '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset'
                 : 'none',
               transition: 'background 0.6s cubic-bezier(0.22, 1, 0.36, 1), backdrop-filter 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
             }}
           >
-            {width > 0 && height > 0 && (
+            {!isMobileView && width > 0 && height > 0 && (
               <svg
                 className="absolute pointer-events-none"
                 style={{
@@ -217,15 +227,15 @@ export default function Navigation() {
       </nav>
 
       <div
-        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+        className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-200 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
           }`}
       >
         <div
-          className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+          className="absolute inset-0 bg-black/75"
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div
-          className={`absolute top-20 left-4 right-4 bg-surface-elevated/95 backdrop-blur-2xl rounded-2xl transition-all duration-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
+          className={`absolute top-20 left-4 right-4 bg-surface-elevated rounded-2xl shadow-2xl transition-[transform,opacity] duration-200 ease-out ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
             }`}
         >
           <div className="flex flex-col p-3 gap-2">

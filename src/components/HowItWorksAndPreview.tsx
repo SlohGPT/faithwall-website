@@ -66,7 +66,7 @@ export default function HowItWorksAndPreview() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6 }}
                         >
                             <p className="text-brand font-medium mb-3 tracking-wide uppercase text-sm">How It Works</p>
@@ -86,7 +86,7 @@ export default function HowItWorksAndPreview() {
                                     key={step.number}
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
+                                    viewport={{ once: true, margin: "-50px" }}
                                     transition={{ delay: i * 0.2, duration: 0.6 }}
                                     className="relative flex flex-col sm:flex-row gap-6 sm:gap-8 items-start sm:items-center group"
                                 >
@@ -114,7 +114,7 @@ export default function HowItWorksAndPreview() {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.8 }}
                             className=""
                         >

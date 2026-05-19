@@ -36,7 +36,7 @@ export default function Pricing() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -57,7 +57,7 @@ export default function Pricing() {
               key={plan.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
               className={`relative rounded-3xl p-8 transition-all duration-300 ${plan.featured
                   ? 'bg-surface-card border-2 border-brand shadow-xl shadow-brand/10'
