@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react';
-import { motion, useInView, animate } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
+import { useInView, animate } from 'framer-motion';
 
 const stats = [
   { value: 92, label: 'Early users feel closer to God', suffix: '%' },
@@ -7,29 +7,34 @@ const stats = [
   { value: 4.7, label: 'App Store rating', decimals: 1 },
 ];
 
+function formatCount(n: number, decimals: number, suffix: string) {
+  if (decimals === 0 && n >= 1000) {
+    return Math.floor(n).toLocaleString('en-US') + suffix;
+  }
+  return n.toFixed(decimals) + suffix;
+}
+
 function Counter({ value, suffix = '', decimals = 0 }: { value: number; suffix?: string; decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  // Render the resting value ("0%" / "0+" / "0.0") in SSR so the layout
+  // is stable from first paint. React-state-based update means React
+  // tracks the text changes (no direct DOM mutation, no hydration drift).
+  const [display, setDisplay] = useState(() => formatCount(0, decimals, suffix));
 
   useEffect(() => {
-    if (!isInView || !ref.current) return;
-    const node = ref.current;
-    node.textContent = (0).toFixed(decimals) + suffix;
+    if (!isInView) return;
     const controls = animate(0, value, {
-      duration: 1.2,
+      duration: 1.6,
       ease: [0.22, 1, 0.36, 1],
       onUpdate(latest) {
-        if (decimals === 0 && latest >= 1000) {
-          node.textContent = Math.floor(latest).toLocaleString('en-US') + suffix;
-        } else {
-          node.textContent = latest.toFixed(decimals) + suffix;
-        }
+        setDisplay(formatCount(latest, decimals, suffix));
       },
     });
     return () => controls.stop();
   }, [isInView, value, decimals, suffix]);
 
-  return <span ref={ref} />;
+  return <span ref={ref}>{display}</span>;
 }
 
 export default function SocialProof() {
@@ -44,17 +49,11 @@ export default function SocialProof() {
             <div className="grid sm:grid-cols-3 gap-12 sm:gap-8">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center group">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5, type: "spring" }}
-                    className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-3"
-                  >
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-3">
                     <span className="bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
                       <Counter value={stat.value} suffix={stat.suffix} decimals={stat.decimals} />
                     </span>
-                  </motion.div>
+                  </div>
                   <p className="text-white/60 text-sm sm:text-base font-medium">
                     {stat.label}
                   </p>
