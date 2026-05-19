@@ -10,6 +10,29 @@ export default function Navigation() {
   const [isMobileView, setIsMobileView] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // iOS Chrome (and iOS 26 Safari Liquid Glass) overlay the URL bar on the
+  // layout viewport instead of reserving layout space for it. env(safe-area-inset-top)
+  // only covers the hardware notch — not the URL bar. Use the visualViewport API to
+  // measure the live URL bar overlap and expose it as --browser-top-inset so fixed
+  // top-anchored elements can clear it. On Safari iOS with reserved layout and on
+  // desktop, the delta is 0 — the variable is a no-op everywhere except the broken
+  // environments.
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const sync = () => {
+      const overlap = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+      document.documentElement.style.setProperty('--browser-top-inset', `${overlap}px`);
+    };
+    sync();
+    vv.addEventListener('resize', sync);
+    vv.addEventListener('scroll', sync);
+    return () => {
+      vv.removeEventListener('resize', sync);
+      vv.removeEventListener('scroll', sync);
+    };
+  }, []);
+
   useEffect(() => {
     let ticking = false;
     let lastProgress = 0;
@@ -72,7 +95,7 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-50 px-4 pt-5 md:px-6 md:pt-6"
+        className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 nav-safe-pt"
         style={{ willChange: 'transform' }}
       >
         <div className="relative mx-auto max-w-6xl">
@@ -240,8 +263,9 @@ export default function Navigation() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div
-          className={`absolute top-20 left-4 right-4 bg-surface-elevated rounded-2xl shadow-2xl transition-[transform,opacity] duration-200 ease-out ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
+          className={`absolute left-4 right-4 bg-surface-elevated rounded-2xl shadow-2xl transition-[transform,opacity] duration-200 ease-out ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
             }`}
+          style={{ top: 'calc(5rem + env(safe-area-inset-top, 0px) + var(--browser-top-inset, 0px))' }}
         >
           <div className="flex flex-col p-3 gap-2">
             <Link
