@@ -36,7 +36,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets|favicon|icon-app|robots|sitemap|manifest|og-image|blog-thumbnails|llms\\.txt).*)",
+      "source": "/((?!assets|favicon|icon-app|robots|sitemap|manifest|og-image|blog-thumbnails|llms\\.txt|[0-9a-f]{32}\\.txt).*)",
       "destination": "/index.html"
     }
   ]

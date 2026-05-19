@@ -207,7 +207,7 @@ Read `src/data/pillars.json`. Find the pillar whose key matches `meta.cluster`. 
 Always commit and push at the end of the skill — that's the deploy trigger for Vercel. Run these in order:
 
 ```bash
-git add src/data/posts/{slug}.json src/data/blogPosts.json src/data/pillars.json "public/blog-thumbnails/{slug}.jpg"
+git add src/data/posts/{slug}.json src/data/blogPosts.json src/data/pillars.json public/sitemap.xml "public/blog-thumbnails/{slug}.jpg"
 git commit -m "$(cat <<'EOF'
 blog: {title}
 
@@ -219,6 +219,26 @@ git push
 
 If `git push` fails because the branch is behind, do `git pull --rebase` then `git push` once. Do **not** force-push.
 
+### Step 9 — Submit to IndexNow
+
+After the push, ping IndexNow so Bing, Yandex, Seznam, and Naver re-crawl quickly. Google doesn't participate in IndexNow — it picks up new URLs from the sitemap on its own crawl cycle, so no extra action needed for Google.
+
+```bash
+npm run indexnow -- https://faithwall.app/blog/{slug}
+```
+
+(Or the equivalent: `node scripts/submit-indexnow.mjs https://faithwall.app/blog/{slug}`)
+
+The script reads the key from `scripts/indexnow.config.json` and posts to `https://api.indexnow.org/IndexNow`. A `200` or `202` means accepted.
+
+**If you get `403`**: the Vercel deploy of the new commit probably hasn't finished. IndexNow checks that `https://faithwall.app/{key}.txt` exists at submission time. Wait ~60 seconds for Vercel and re-run the same command. The key file itself was committed during initial setup — only fresh blog URLs need it to be reachable on submission.
+
+**If you get `422`**: usually means the URL itself isn't reachable. Same fix — wait for Vercel.
+
+This step is **not optional** — it's the cheapest way to cut indexing time from days to hours for Bing & Yandex.
+
+### Step 10 — Final report
+
 In your final response to the user, output exactly this format (no preamble):
 
 ```
@@ -228,6 +248,7 @@ In your final response to the user, output exactly this format (no preamble):
    cluster: {cluster}
    words: {wordCount}
    photo: {photographer} (Unsplash)
+   indexnow: ✓ submitted to Bing/Yandex/Seznam/Naver
 ```
 
 ## Anti-patterns to avoid
