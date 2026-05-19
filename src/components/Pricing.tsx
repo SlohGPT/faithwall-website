@@ -59,7 +59,7 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className={`relative rounded-3xl p-8 transition-all duration-300 ${plan.featured
+              className={`relative rounded-3xl p-8 transition-colors duration-300 ${plan.featured
                   ? 'bg-surface-card border-2 border-brand shadow-xl shadow-brand/10'
                   : 'bg-surface-card border border-white/5 hover:border-white/10'
                 }`}

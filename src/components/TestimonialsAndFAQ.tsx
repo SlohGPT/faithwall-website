@@ -78,7 +78,7 @@ export default function TestimonialsAndFAQ() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-50px" }}
                                     transition={{ delay: i * 0.1, duration: 0.5 }}
-                                    className="rounded-3xl p-6 bg-gradient-to-br from-surface-card to-surface-elevated border border-white/5 hover:border-brand/20 transition-all duration-300"
+                                    className="rounded-3xl p-6 bg-gradient-to-br from-surface-card to-surface-elevated border border-white/5 hover:border-brand/20 transition-colors duration-300"
                                 >
                                     <p className="text-white/80 leading-relaxed mb-6 text-lg italic">
                                         "{testimonial.quote}"
@@ -130,7 +130,7 @@ export default function TestimonialsAndFAQ() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-50px" }}
                                     transition={{ delay: index * 0.1, duration: 0.5 }}
-                                    className={`rounded-2xl overflow-hidden bg-surface-card border transition-all duration-300 ${openIndex === index ? 'border-brand/40 bg-surface-elevated' : 'border-white/5 hover:border-white/10'
+                                    className={`rounded-2xl overflow-hidden bg-surface-card border transition-colors duration-300 ${openIndex === index ? 'border-brand/40 bg-surface-elevated' : 'border-white/5 hover:border-white/10'
                                         }`}
                                 >
                                     <button
