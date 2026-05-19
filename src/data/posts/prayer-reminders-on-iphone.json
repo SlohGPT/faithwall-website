@@ -64,6 +64,19 @@
       "text": "Label each alarm with the prayer type, not a generic word. \"Pray\" is forgettable. \"Examen\" is a question your tired brain will actually engage with."
     },
     {
+      "type": "heading",
+      "level": 2,
+      "text": "Where this gets hard (week two)"
+    },
+    {
+      "type": "paragraph",
+      "text": "The three-alarm rhythm works for about ten days. Then three things start to break, in this order: **the labels stop being meaningful** (you stop reading them — \"Thanksgiving\" becomes another notification to swipe), **the prompt has no content** (an alarm tells you to pray, but doesn't give you what to pray about), and **there's no Scripture in the loop** (you set the alarm, you say something brief, you move on — no verse anchors it). The system collapses into a vibration you dismiss."
+    },
+    {
+      "type": "paragraph",
+      "text": "**This is where FaithWall fits.** Instead of a bare alarm, your lock screen carries the verse and prayer prompt *during* the alarm — \"Thanksgiving\" with Psalm 100 sitting underneath, \"Examen\" with Psalm 139:23–24. The alarm becomes a moment with content, not a notification asking you to come up with one. Themed packs (Confession, Gratitude, Intercession) match each alarm to a different rhythm of prayer."
+    },
+    {
       "type": "verse",
       "reference": "Psalm 5:3",
       "text": "O Lord, in the morning you hear my voice; in the morning I prepare a sacrifice for you and watch."
@@ -132,8 +145,8 @@
     },
     {
       "type": "cta",
-      "title": "Get FaithWall — free on the App Store",
-      "description": "Daily Scripture and prayer widgets on your iPhone lock screen. The piece most prayer routines are missing.",
+      "title": "Make every prayer alarm carry a verse",
+      "description": "FaithWall pairs your prayer alarms with Scripture on the lock screen — themed packs (Thanksgiving, Confession, Examen) so the alarm becomes a moment with content, not a buzz to dismiss. Free, 60 seconds, no account.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }
