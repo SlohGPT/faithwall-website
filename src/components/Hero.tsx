@@ -104,7 +104,7 @@ export default function Hero() {
                   />
                 ))}
               </div>
-              <span className="text-base text-white/70 font-medium">Trusted by 10,000+ believers</span>
+              <span className="text-base text-white/70 font-medium">Trusted by 1,000+ believers</span>
             </motion.div>
 
             <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6">

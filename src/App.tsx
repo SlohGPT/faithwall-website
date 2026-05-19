@@ -4,12 +4,14 @@ import Home from './pages/Home';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
 import EULA from './pages/EULA';
+import AuthorKarol from './pages/AuthorKarol';
 import NotFound from './pages/NotFound';
 import ScrollManager from './components/ScrollManager';
 
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const Pillar = lazy(() => import('./pages/Pillar'));
+const Compare = lazy(() => import('./pages/Compare'));
 
 const blogFallback = <div className="min-h-screen bg-surface" />;
 
@@ -22,6 +24,7 @@ export default function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/eula" element={<EULA />} />
+        <Route path="/about/karol-billik" element={<AuthorKarol />} />
         <Route
           path="/blog"
           element={
@@ -75,6 +78,30 @@ export default function App() {
           element={
             <Suspense fallback={blogFallback}>
               <Pillar cluster="christian-app-comparisons" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/faithwall-vs-youversion"
+          element={
+            <Suspense fallback={blogFallback}>
+              <Compare slug="faithwall-vs-youversion" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/faithwall-vs-hallow"
+          element={
+            <Suspense fallback={blogFallback}>
+              <Compare slug="faithwall-vs-hallow" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/best-bible-verse-lock-screen-apps"
+          element={
+            <Suspense fallback={blogFallback}>
+              <Compare slug="best-bible-verse-lock-screen-apps" />
             </Suspense>
           }
         />

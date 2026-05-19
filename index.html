@@ -5,33 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta Tags -->
-  <title>FaithWall - Transform Your Lock Screen with Daily Scripture & Inspiration</title>
-  <meta name="description"
-    content="Turn your iPhone lock screen into a daily source of faith. Beautiful scripture, prayers, and inspiration every time you pick up your phone. Free download." />
+  <!-- Site-wide defaults. Per-page title/description/canonical/og:url/og:title/og:description are set via react-helmet-async on every page. -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <link rel="canonical" href="https://faithwall.app/" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://faithwall.app/" />
+  <!-- Open Graph / Twitter site defaults -->
   <meta property="og:site_name" content="FaithWall" />
-  <meta property="og:title" content="FaithWall - Transform Your Lock Screen with Daily Scripture" />
-  <meta property="og:description"
-    content="Turn your iPhone lock screen into a daily source of faith. Beautiful scripture, prayers, and inspiration every time you pick up your phone." />
-  <meta property="og:image" content="https://faithwall.app/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="FaithWall - Daily Scripture on Your iPhone Lock Screen" />
   <meta property="og:locale" content="en_US" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FaithWall - Daily Scripture on Your Lock Screen" />
-  <meta name="twitter:description"
-    content="Beautiful scripture, prayers, and inspiration every time you pick up your phone." />
-  <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
-  <meta name="twitter:image:alt" content="FaithWall - Daily Scripture on Your iPhone Lock Screen" />
 
   <!-- Favicon & Icons -->
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -40,7 +20,7 @@
   <meta name="theme-color" content="#D97B3B" />
 
   <!-- Apple Smart App Banner -->
-  <meta name="apple-itunes-app" content="app-id=6738718498" />
+  <meta name="apple-itunes-app" content="app-id=6756815070" />
 
   <!-- Preload critical assets -->
   <link rel="preload" as="font" href="/fonts/dm-sans-latin.woff2" type="font/woff2" crossorigin />
@@ -54,7 +34,14 @@
     "name": "FaithWall",
     "url": "https://faithwall.app",
     "logo": "https://faithwall.app/icon-app-512.png",
-    "sameAs": [],
+    "sameAs": [
+      "https://www.karchi.xyz/"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Karol Billik",
+      "url": "https://faithwall.app/about/karol-billik"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "hello@faithwall.app",
@@ -81,13 +68,14 @@
     "name": "FaithWall",
     "operatingSystem": "iOS 16.0+",
     "applicationCategory": "LifestyleApplication",
-    "description": "Transform your iPhone lock screen with daily Bible scripture, prayers, and inspiration. Choose from wallpapers or widgets.",
+    "description": "FaithWall is an iOS app that displays daily Bible verses on the iPhone lock screen using wallpapers and widgets. Pick a verse pack, set it up in 60 seconds, see Scripture every time you check your phone.",
     "url": "https://faithwall.app",
-    "downloadUrl": "https://apps.apple.com/app/id6738718498",
+    "downloadUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070",
     "offers": {
       "@type": "Offer",
       "price": "0",
-      "priceCurrency": "USD"
+      "priceCurrency": "USD",
+      "description": "Free to download. Premium plans from $1.99/month or $8.99/year."
     },
     "screenshot": [
       "https://faithwall.app/assets/slideshow/slide1.webp",
@@ -95,51 +83,22 @@
       "https://faithwall.app/assets/slideshow/slide3.webp",
       "https://faithwall.app/assets/slideshow/slide4.webp",
       "https://faithwall.app/assets/slideshow/slide5.webp"
-    ]
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "ratingCount": "14",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Karol Billik",
+      "url": "https://faithwall.app/about/karol-billik"
+    }
   }
   </script>
 
-  <!-- Structured Data: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is FaithWall?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "FaithWall is an iOS app that transforms your iPhone lock screen into a daily source of faith by displaying Bible scripture, prayers, and inspirational messages every time you pick up your phone."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does FaithWall work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "FaithWall works through two methods: lock screen wallpapers and iOS widgets. You choose your favorite Bible verses, customize the font and colors, and FaithWall displays them on your lock screen automatically."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is FaithWall free to use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "FaithWall offers a free version with core features. Premium plans with additional customization options are available starting at a low monthly price."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which devices support FaithWall?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "FaithWall is available for iPhones running iOS 16 or later. The app supports lock screen widgets and wallpapers on all compatible iPhone models."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
 
 <body>

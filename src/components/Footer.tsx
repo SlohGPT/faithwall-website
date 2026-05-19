@@ -16,9 +16,12 @@ const footerLinks = {
     { name: 'Daily Scripture Guide', href: '/daily-scripture-lock-screen' },
     { name: 'Prayer Life Guide', href: '/prayer-life-iphone' },
     { name: 'Bible Study Tools', href: '/bible-study-tools-ios' },
-    { name: 'App Comparisons', href: '/christian-app-comparisons' },
+    { name: 'Best Lock-Screen Apps', href: '/best-bible-verse-lock-screen-apps' },
+    { name: 'FaithWall vs YouVersion', href: '/faithwall-vs-youversion' },
+    { name: 'FaithWall vs Hallow', href: '/faithwall-vs-hallow' },
   ],
   company: [
+    { name: 'About Karol', href: '/about/karol-billik' },
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms of Use', href: '/terms-of-use' },
     { name: 'EULA', href: '/eula' },

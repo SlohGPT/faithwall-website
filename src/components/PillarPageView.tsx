@@ -1,3 +1,4 @@
+import { Calendar } from 'lucide-react';
 import BlogRenderer from './BlogRenderer';
 import BlogCard from './BlogCard';
 import Breadcrumbs from './Breadcrumbs';
@@ -8,7 +9,15 @@ interface Props {
   featured: BlogPostListing[];
 }
 
+function formatDate(iso: string): string {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
 export default function PillarPageView({ pillar, featured }: Props) {
+  const updated = pillar.dateModified || pillar.datePublished;
   return (
     <div className="container-main pt-28 md:pt-32 pb-20">
       <div className="max-w-3xl mx-auto">
@@ -28,6 +37,14 @@ export default function PillarPageView({ pillar, featured }: Props) {
             {pillar.title}
           </h1>
           <p className="mt-5 text-lg text-white/70 leading-relaxed">{pillar.intro}</p>
+          {updated && (
+            <div className="mt-6 flex items-center gap-5 text-sm text-white/50">
+              <span className="flex items-center gap-1.5">
+                <Calendar className="w-4 h-4" /> Last updated {formatDate(updated)}
+              </span>
+              <span>By Karol Billik</span>
+            </div>
+          )}
         </header>
 
         <BlogRenderer sections={pillar.sections} />

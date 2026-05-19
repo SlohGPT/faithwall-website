@@ -16,6 +16,7 @@ export interface BlogPostMeta {
   description: string;
   date: string;
   datePublished: string;
+  dateModified?: string;
   readTime: string;
   image: string;
   imageAttribution?: ImageAttribution;
@@ -61,6 +62,8 @@ export interface PillarConfig {
   intro: string;
   metaTitle: string;
   metaDescription: string;
+  datePublished: string;
+  dateModified: string;
   sections: BlogSection[];
   featured: string[];
 }

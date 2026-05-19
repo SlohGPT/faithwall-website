@@ -9,7 +9,9 @@ export default function EULA() {
                 <title>End-User License Agreement | FaithWall</title>
                 <meta name="description" content="FaithWall's End-User License Agreement (EULA). Read the terms under which FaithWall is licensed to you." />
                 <link rel="canonical" href="https://faithwall.app/eula" />
+                <meta property="og:type" content="website" />
                 <meta property="og:title" content="EULA | FaithWall" />
+                <meta property="og:description" content="FaithWall's End-User License Agreement. Read the terms under which FaithWall is licensed to you." />
                 <meta property="og:url" content="https://faithwall.app/eula" />
             </Helmet>
             <Navigation />
@@ -217,7 +219,7 @@ export default function EULA() {
                         Borová 9, 951 01 Nitrianske Hrnčiarovce, Slovakia<br />
                         Nitrianske Hrnčiarovce, Nitra 95101<br />
                         Slovakia<br />
-                        <a href="mailto:iosnotewall@gmail.com" className="text-primary hover:underline">iosnotewall@gmail.com</a>
+                        <a href="mailto:hello@faithwall.app" className="text-primary hover:underline">hello@faithwall.app</a>
                     </p>
 
                     <h3>13. TERMINATION</h3>

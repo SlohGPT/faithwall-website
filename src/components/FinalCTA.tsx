@@ -61,7 +61,7 @@ export default function FinalCTA() {
                   ))}
                 </div>
                 <p className="text-white/60 text-sm">
-                  Join <span className="text-white font-semibold">10,000+</span> believers
+                  Join <span className="text-white font-semibold">1,000+</span> believers
                 </p>
               </div>
             </div>

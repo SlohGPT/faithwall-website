@@ -2,8 +2,8 @@ import { useRef, useEffect } from 'react';
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 
 const stats = [
-  { value: 97, label: 'Report feeling closer to God', suffix: '%' },
-  { value: 1000, label: 'Active daily users', suffix: '+' },
+  { value: 92, label: 'Early users feel closer to God', suffix: '%' },
+  { value: 500, label: 'Believers using FaithWall', suffix: '+' },
   { value: 4.7, label: 'App Store rating', decimals: 1 },
 ];
 

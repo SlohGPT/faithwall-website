@@ -33,10 +33,15 @@ export default function BlogPostContent({ post, slug: _slug, related }: Props) {
             {meta.title}
           </h1>
           <p className="mt-4 text-lg text-white/70 leading-relaxed">{meta.description}</p>
-          <div className="mt-6 flex items-center gap-5 text-sm text-white/50">
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/50">
             <span className="flex items-center gap-1.5">
               <Calendar className="w-4 h-4" /> {meta.date}
             </span>
+            {meta.dateModified && meta.dateModified.slice(0, 10) !== meta.datePublished.slice(0, 10) && (
+              <span className="text-white/40">
+                Updated {new Date(meta.dateModified).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </span>
+            )}
             <span className="flex items-center gap-1.5">
               <Clock className="w-4 h-4" /> {meta.readTime}
             </span>

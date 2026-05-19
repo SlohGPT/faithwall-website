@@ -12,6 +12,7 @@ export default function Pillar({ cluster }: { cluster: BlogCluster }) {
 
   const featured = getPillarFeatured(cluster);
   const url = `https://faithwall.app/${cluster}`;
+  const title = `${pillar.metaTitle} | FaithWall`;
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -23,6 +24,31 @@ export default function Pillar({ cluster }: { cluster: BlogCluster }) {
     ],
   };
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: pillar.title,
+    description: pillar.metaDescription,
+    datePublished: pillar.datePublished,
+    dateModified: pillar.dateModified || pillar.datePublished,
+    author: {
+      '@type': 'Person',
+      name: 'Karol Billik',
+      url: 'https://faithwall.app/about/karol-billik',
+      jobTitle: 'Founder',
+      worksFor: { '@type': 'Organization', name: 'FaithWall' },
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'FaithWall',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://faithwall.app/icon-app-512.png',
+      },
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+  };
+
   const stepSection = pillar.sections.find(
     (s): s is Extract<BlogSection, { type: 'steps' }> => s.type === 'steps'
   );
@@ -30,7 +56,7 @@ export default function Pillar({ cluster }: { cluster: BlogCluster }) {
     ? {
         '@context': 'https://schema.org',
         '@type': 'HowTo',
-        name: pillar.title,
+        name: `How to set up ${pillar.title.toLowerCase()}`,
         description: pillar.metaDescription,
         step: stepSection.items.map((text, i) => ({
           '@type': 'HowToStep',
@@ -44,14 +70,18 @@ export default function Pillar({ cluster }: { cluster: BlogCluster }) {
   return (
     <div className="min-h-screen bg-surface">
       <Helmet>
-        <title>{pillar.metaTitle} | FaithWall</title>
+        <title>{title}</title>
         <meta name="description" content={pillar.metaDescription} />
         <link rel="canonical" href={url} />
         <meta property="og:title" content={pillar.metaTitle} />
         <meta property="og:description" content={pillar.metaDescription} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
+        <meta property="article:published_time" content={pillar.datePublished} />
+        <meta property="article:modified_time" content={pillar.dateModified || pillar.datePublished} />
+        <meta property="article:author" content="Karol Billik" />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         {howToSchema && (
           <script type="application/ld+json">{JSON.stringify(howToSchema)}</script>
         )}

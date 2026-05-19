@@ -2,24 +2,24 @@ import { useState } from 'react';
 
 const faqs = [
   {
-    question: 'Is FaithWall really free?',
-    answer: "Yes! The free version includes everything you need to get started. We offer a Pro version for power users who want unlimited notes and premium features.",
+    question: 'What is FaithWall?',
+    answer: "FaithWall is a free iOS app that displays daily Bible verses on your iPhone lock screen using wallpapers and widgets. It requires iOS 16.0 or later.",
   },
   {
-    question: 'Does it work on my iPhone?',
-    answer: "FaithWall works on iPhone running iOS 16 or later. We use Apple's latest lock screen and widget features.",
+    question: 'How does FaithWall work?',
+    answer: "FaithWall installs a Scripture wallpaper or rotating verse widget on your iPhone lock screen using iOS Focus modes. You pick a verse pack — Anxiety, Strength, Gratitude, Psalms — and FaithWall surfaces a fresh verse each day. Setup takes about 60 seconds.",
+  },
+  {
+    question: 'Is FaithWall free?',
+    answer: "Yes. FaithWall is free to download and includes the core daily verse and lock-screen widgets. Premium plans for unlimited verse packs and customization are $1.99 per month or $8.99 per year.",
+  },
+  {
+    question: 'Which iPhones does FaithWall work on?',
+    answer: "FaithWall supports iPhones running iOS 16.0 or later. It uses iOS lock-screen widgets and Focus modes, both available on all compatible iPhone models from iPhone XS onward.",
   },
   {
     question: 'Is my data private?',
-    answer: "Absolutely. Your prayers and notes stay on your device. We don't have accounts, we don't collect data, and we never will.",
-  },
-  {
-    question: 'How do I set up the lock screen?',
-    answer: "Our simple 2-minute setup guide walks you through everything. It uses Apple's built-in Shortcuts app - no technical knowledge needed!",
-  },
-  {
-    question: 'Can I use my own photos?',
-    answer: 'Yes! Pro users can use any photo as their background. Free users can choose from our beautiful preset collection.',
+    answer: "Yes. FaithWall does not require an account and your verse selections stay on your device. Payment data, if you upgrade to a premium plan, is handled by RevenueCat — FaithWall never sees your card details.",
   },
 ];
 

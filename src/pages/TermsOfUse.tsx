@@ -9,22 +9,24 @@ export default function TermsOfUse() {
                 <title>Terms of Use | FaithWall</title>
                 <meta name="description" content="FaithWall's terms of use. Read the legal terms governing your use of our iOS app and services." />
                 <link rel="canonical" href="https://faithwall.app/terms-of-use" />
+                <meta property="og:type" content="website" />
                 <meta property="og:title" content="Terms of Use | FaithWall" />
+                <meta property="og:description" content="FaithWall's terms of use. Read the legal terms governing your use of our iOS app and services." />
                 <meta property="og:url" content="https://faithwall.app/terms-of-use" />
             </Helmet>
             <Navigation />
             <main className="container-main pt-32 pb-16">
                 <div className="prose prose-invert max-w-4xl mx-auto">
                     <h1>AGREEMENT TO OUR LEGAL TERMS</h1>
-                    <p className="text-white/60">Last updated January 11, 2026</p>
+                    <p className="text-white/60">Last updated May 19, 2026</p>
 
                     <p>We are FaithWall ("Company," "we," "us," "our"), a company registered in Slovakia at Borová 9, 951 01 Nitrianske Hrnčiarovce, Slovakia, Nitrianske Hrnčiarovce, Nitriansky kraj 95101.</p>
 
-                    <p>We operate the mobile application FaithWall-Never Forget Things (the "App"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").</p>
+                    <p>We operate the mobile application FaithWall — Daily Bible Verses on Your iPhone Lock Screen (the "App"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").</p>
 
-                    <p>FaithWall is a mobile productivity app that lets users create personalized lock-screen wallpapers containing their goals, habits, reminders, and notes. The app helps users stay consistent and focused by displaying their selected information every time they pick up their phone. FaithWall uses an iOS Shortcut to apply wallpapers and may process basic usage data to improve functionality.</p>
+                    <p>FaithWall is an iOS app that displays daily Bible verses on the iPhone lock screen using wallpapers and widgets. You pick a verse pack — Anxiety, Strength, Gratitude, Psalms, or browse by book — and FaithWall surfaces a fresh verse each day via iOS lock-screen widgets and Focus modes. The app may process basic usage data to improve functionality.</p>
 
-                    <p>You can contact us by phone at (+421)907758852, email at <a href="mailto:iosnotewall@gmail.com" className="text-primary hover:underline">iosnotewall@gmail.com</a>, or by mail to Borová 9, 951 01 Nitrianske Hrnčiarovce, Slovakia, Nitrianske Hrnčiarovce, Nitriansky kraj 95101, Slovakia.</p>
+                    <p>You can contact us by phone at (+421)907758852, email at <a href="mailto:hello@faithwall.app" className="text-primary hover:underline">hello@faithwall.app</a>, or by mail to Borová 9, 951 01 Nitrianske Hrnčiarovce, Slovakia, Nitrianske Hrnčiarovce, Nitriansky kraj 95101, Slovakia.</p>
 
                     <p>These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and FaithWall, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
 
@@ -82,7 +84,7 @@ export default function TermsOfUse() {
                     </ul>
                     <p>solely for your personal, non-commercial use.</p>
                     <p>Except as set out in this section or elsewhere in our Legal Terms, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.</p>
-                    <p>If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: <a href="mailto:iosnotewall@gmail.com" className="text-primary hover:underline">iosnotewall@gmail.com</a>. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.</p>
+                    <p>If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: <a href="mailto:hello@faithwall.app" className="text-primary hover:underline">hello@faithwall.app</a>. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.</p>
                     <p>We reserve all rights not expressly granted to you in and to the Services, Content, and Marks.</p>
                     <p>Any breach of these Intellectual Property Rights will constitute a material breach of our Legal Terms and your right to use our Services will terminate immediately.</p>
 
@@ -121,7 +123,7 @@ export default function TermsOfUse() {
                         <li><strong>Lifetime Access:</strong> This is a one-time non-recurring payment that grants you indefinite access to the premium features of the App. This purchase does not expire and does not auto-renew.</li>
                     </ul>
                     <h4>Cancellation</h4>
-                    <p>Users can cancel or manage their monthly subscription at any time through their Apple ID in the App Store: <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://apps.apple.com/account/subscriptions</a>. Your cancellation will take effect at the end of the current paid term. If you have any questions or are unsatisfied with our Services, please email us at <a href="mailto:iosnotewall@gmail.com" className="text-primary hover:underline">iosnotewall@gmail.com</a>.</p>
+                    <p>Users can cancel or manage their monthly subscription at any time through their Apple ID in the App Store: <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://apps.apple.com/account/subscriptions</a>. Your cancellation will take effect at the end of the current paid term. If you have any questions or are unsatisfied with our Services, please email us at <a href="mailto:hello@faithwall.app" className="text-primary hover:underline">hello@faithwall.app</a>.</p>
                     <h4>Fee Changes</h4>
                     <p>We may, from time to time, make changes to the subscription or purchase fees and will communicate any price changes to you in accordance with applicable law.</p>
 
@@ -234,7 +236,7 @@ export default function TermsOfUse() {
                     <p>Nitrianske Hrnčiarovce, Nitriansky kraj 95101</p>
                     <p>Slovakia</p>
                     <p>Phone: (+421)907758852</p>
-                    <p><a href="mailto:iosnotewall@gmail.com" className="text-primary hover:underline">iosnotewall@gmail.com</a></p>
+                    <p><a href="mailto:hello@faithwall.app" className="text-primary hover:underline">hello@faithwall.app</a></p>
                 </div>
             </main>
             <Footer />

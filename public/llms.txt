@@ -1,6 +1,6 @@
 # FaithWall
 
-> FaithWall is a free iOS app that transforms the iPhone lock screen into a daily source of Scripture, prayer, and Christian inspiration. It uses iOS 17's wallpaper system and Focus modes to surface Bible verses every time you pick up your phone.
+> FaithWall is a free iOS app that transforms the iPhone lock screen into a daily source of Scripture, prayer, and Christian inspiration. It uses the iOS wallpaper system and Focus modes (iOS 16+) to surface Bible verses every time you pick up your phone.
 
 ## Key facts
 
@@ -12,6 +12,24 @@
 - **Author / Founder**: Karol Billik
 - **Built by**: karchi. (https://www.karchi.xyz/)
 - **Contact**: hello@faithwall.app
+- **Minimum iOS**: 16.0
+- **Pricing**: Free download. Premium plans from $1.99/month or $8.99/year (one-tier upgrade — no enterprise/teams plan).
+
+## Pricing
+
+- Free
+  - Daily Bible verse on the lock screen (wallpaper or widget)
+  - Curated verse packs and rotating Scripture
+  - iOS Focus mode integration
+- Premium — $1.99/month
+  - All free features
+  - Unlimited verse packs and customization
+  - Future updates included
+- Premium — $8.99/year (best value, equivalent to ~$0.75/month)
+  - Same as monthly, paid annually
+  - All future updates included
+
+Payment processing is handled by RevenueCat; FaithWall does not store card details.
 
 ## How it works
 
