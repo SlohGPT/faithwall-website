@@ -34,7 +34,7 @@
       { "type": "highlight", "content": "**Pro move:** Pair your verse lock screen with iOS Focus mode (iOS 16+). Set a **Quiet Time** Focus that activates the verse wallpaper, silences non-essential notifications, and dims your screen — a one-tap retreat from the noise." },
       { "type": "cta", "title": "Get FaithWall on the App Store", "description": "Free download. Daily Scripture on your iPhone lock screen in under 60 seconds.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
     ],
-    "featured": ["bible-verse-lock-screen-iphone"]
+    "featured": ["lock-screen-verses-for-anxiety", "bible-verse-lock-screen-iphone"]
   },
   "prayer-life-iphone": {
     "slug": "prayer-life-iphone",
