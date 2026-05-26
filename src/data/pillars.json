@@ -96,7 +96,7 @@
       { "type": "verse", "reference": "Colossians 3:23", "text": "Whatever you do, work heartily, as for the Lord and not for men." },
       { "type": "cta", "title": "Anchor your day with FaithWall", "description": "Quiet Time, Scripture, and a centered start — every morning.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
     ],
-    "featured": ["christian-morning-routine-iphone"]
+    "featured": ["christian-focus-modes-iphone", "christian-morning-routine-iphone"]
   },
   "bible-study-tools-ios": {
     "slug": "bible-study-tools-ios",
