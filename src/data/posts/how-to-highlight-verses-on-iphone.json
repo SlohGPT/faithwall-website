@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "title": "How to Highlight Verses on iPhone: The Tap Sequence and the System That Makes It Stick",
+    "description": "How to highlight verses on iphone — the exact taps in YouVersion, Olive Tree, Bible Gateway, plus the color-coding system that keeps highlights useful.",
+    "date": "June 2, 2026",
+    "datePublished": "2026-06-02T09:00:00.000Z",
+    "readTime": "5 min read",
+    "image": "/blog-thumbnails/how-to-highlight-verses-on-iphone.jpg",
+    "imageAttribution": {
+      "photographer": "Michael Stitzel",
+      "photographerUrl": "https://unsplash.com/@mkshmily?utm_source=faithwall&utm_medium=referral",
+      "unsplashUrl": "https://unsplash.com/photos/open-bible-with-handwritten-notes-highlights-and-a-pen-DnaehS0f128?utm_source=faithwall&utm_medium=referral"
+    },
+    "keywords": ["how to highlight verses on iphone", "youversion highlighting", "bible app highlights ios", "color coding bible verses", "faithwall"],
+    "cluster": "bible-study-tools-ios"
+  },
+  "sections": [
+    {
+      "type": "callout",
+      "icon": "zap",
+      "title": "Quick Answer",
+      "content": "To highlight verses on iPhone in YouVersion: tap a verse number, then **Highlight**, pick a color. Olive Tree: long-press a verse, tap **Highlight**. Bible Gateway: long-press, drag selection, tap **Highlight**. Across all three, the easy part is making the mark — the hard part is making sure you ever see the highlighted verse again."
+    },
+    {
+      "type": "paragraph",
+      "text": "**How to highlight verses on iphone** is one of those searches where the literal answer takes thirty seconds and the *useful* answer takes a system. Every major Bible app has highlighting — YouVersion, Olive Tree, Bible Gateway, Logos, Dwell. They all work roughly the same way. What separates someone whose highlights actually do something from someone with 400 forgotten yellow lines is everything that happens *after* the tap. Here's the tap sequence for each app, plus the small system that keeps highlights from becoming digital underlining you'll never re-read."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The exact taps in the three apps people actually use"
+    },
+    {
+      "type": "paragraph",
+      "text": "**YouVersion (Bible.com)** — the most-used by far. Open a chapter. Tap the verse number once. A toolbar slides up from the bottom. Tap the highlighter icon (the marker). Pick a color from the row of swatches. Done. To remove: tap the verse again, tap the highlight, hit the trash icon."
+    },
+    {
+      "type": "paragraph",
+      "text": "**Olive Tree** — for deeper readers. Long-press any word in the verse. A selection menu appears with handles you can drag to select a longer span. Tap **Highlight** in the popover. Pick a color. Olive Tree's highlights sync to your account and export to a Notes panel — the cleanest highlight library of the three apps."
+    },
+    {
+      "type": "paragraph",
+      "text": "**Bible Gateway** — fewer people use the mobile app, but it works similarly. Long-press a verse. Drag the selection handles to widen. Tap **Highlight** → pick a color. Bible Gateway syncs highlights across the web app and iOS — useful if you read on both. For broader app comparisons, see the [best free Bible app for iPhone post](/blog/best-free-bible-app-iphone)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "A color-coding system that actually works"
+    },
+    {
+      "type": "paragraph",
+      "text": "Most people pick colors at random. By month two, every chapter looks like a rainbow and no color means anything. The fix: assign meaning. Pick four colors max — more is a maintenance burden."
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Yellow — promises.** \"He is with you.\" \"Cast your cares.\" Anything that names a covenant or commitment from God.",
+        "**Blue — commands.** \"Do not fear.\" \"Love your enemies.\" Instructions to act, not feel.",
+        "**Pink — character of God.** Verses describing who He is — merciful, jealous, patient, holy. The slow-cook of theology.",
+        "**Green — application notes.** Verses that hit you personally on a particular day. Pair with a journal note for context."
+      ]
+    },
+    {
+      "type": "tip",
+      "content": "**Write the legend on a sticky note inside your phone case.** Color systems collapse because you forget which color meant what. Three months in, you'll add green to a verse that should've been pink and the whole system unravels. The sticky note prevents the drift."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Where this gets hard"
+    },
+    {
+      "type": "paragraph",
+      "text": "Here's the real problem with iPhone highlights: **you almost never see them again**. You highlight Psalm 27:14 on a hard Tuesday, and unless you specifically go back to Psalms 27, that mark just sits there. By the end of the year you might have 200 highlights scattered across 1,189 chapters. The Bible app stores them; your brain doesn't. The whole point of a highlight is supposed to be the *retrieval*, and retrieval rarely happens."
+    },
+    {
+      "type": "paragraph",
+      "text": "Three things help, in order of cost. (1) A weekly highlight review — five minutes every Sunday, scroll your highlight log, re-read three. (2) A spaced-repetition memorization app — see the [Bible memorization apps for iPhone roundup](/blog/bible-memorization-apps-iphone) for which ones work. (3) **An exposure layer** that puts the highlights you cared about most in front of you without you opening anything. That's where a lock-screen verse setup compounds — your most-meaningful highlights become wallpaper, so you actually re-encounter them in the moments you needed them."
+    },
+    {
+      "type": "verse",
+      "reference": "Psalm 119:11",
+      "text": "I have stored up your word in my heart, that I might not sin against you."
+    },
+    {
+      "type": "paragraph",
+      "text": "The psalmist's verb is *stored up* — not *underlined*. Highlighting on a phone is the start of storage, not the substance of it. A highlight is a bookmark for future encounter. If the future encounter never happens, the bookmark was for nothing. For where highlighting fits in a wider Bible-study setup, see the [bible study tools pillar guide](/bible-study-tools-ios)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The five-step highlight loop"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "**Highlight in the moment.** Don't over-think — if a verse hits, mark it. The friction has to be near-zero.",
+        "**Color-code by meaning.** Four colors, one legend, no exceptions. (Promises / commands / character / application.)",
+        "**Add a one-line note** for green (application) highlights. Future-you needs the context.",
+        "**Weekly review.** Five minutes every Sunday — open the highlight log in your Bible app and re-read three.",
+        "**Promote one per week to your lock screen.** Turn the highlight that mattered most into a daily-rotation wallpaper for seven days."
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "**Step 5 is the difference.** Steps 1–4 are how most readers handle highlights. Step 5 — turning the week's most-meaningful highlight into a lock-screen verse — is how you stop losing the highlights you actually cared about. The exposure layer does what your weekly review can't: it puts the verse in front of you 144 times that week, not just on Sunday."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What FaithWall adds (and what it doesn't)"
+    },
+    {
+      "type": "paragraph",
+      "text": "FaithWall doesn't highlight verses — your Bible app already does that well. What FaithWall does is the **exposure half** that comes after. Pick the week's most-meaningful highlight, set it as a lock-screen verse, and it shows up every time you check your phone. You check 144 times a day, per Reviews.org's 2026 Phone Habits report — that's 1,008 micro-encounters with one verse over a week, far more than re-reading it once on Sunday."
+    },
+    {
+      "type": "important",
+      "content": "**Highlights and lock-screen verses do different jobs.** Highlights are a personal study tool — your marks, your memory, your interpretation. Lock-screen verses are an exposure tool — keeping the marks you cared about most in front of your eyes. You want both. Most readers skip the second half and wonder why their highlights stop feeling alive."
+    },
+    {
+      "type": "paragraph",
+      "text": "The literal answer to **how to highlight verses on iphone** is three taps in any major Bible app. The useful answer is the system around the tap — a color code with meaning, a Sunday review, and one verse promoted to your phone every week. Without the system, highlights are digital underlining. With it, they're a slow-burn discipleship loop."
+    },
+    {
+      "type": "cta",
+      "title": "Turn this week's best highlight into a lock-screen verse",
+      "description": "FaithWall keeps the verse you most cared about this week in front of you every time you check your phone — designed for the lock-screen surface, installed via iOS Focus modes, free.",
+      "buttonText": "Download FaithWall",
+      "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+    }
+  ]
+}
