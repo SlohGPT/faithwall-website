@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "title": "Sabbath Rest iPhone Shortcuts: The Setup That Makes the Day Actually Feel Different",
+    "description": "A sabbath rest iphone shortcuts setup with the Focus mode, the Shortcuts automations, and the lock-screen swap that turns one day a week into actual rest.",
+    "date": "June 5, 2026",
+    "datePublished": "2026-06-05T09:00:00.000Z",
+    "readTime": "6 min read",
+    "image": "/blog-thumbnails/sabbath-rest-iphone-shortcuts.jpg",
+    "imageAttribution": {
+      "photographer": "Toa Heftiba",
+      "photographerUrl": "https://unsplash.com/@heftiba?utm_source=faithwall&utm_medium=referral",
+      "unsplashUrl": "https://unsplash.com/photos/white-ceramic-mug-beside-book-on-gray-textile-C9WnRj-CZEk?utm_source=faithwall&utm_medium=referral"
+    },
+    "keywords": ["sabbath rest iphone shortcuts", "sabbath focus mode iphone", "ios shortcuts sabbath", "christian sabbath setup", "faithwall"],
+    "cluster": "faith-based-productivity"
+  },
+  "sections": [
+    {
+      "type": "callout",
+      "icon": "zap",
+      "title": "Quick Answer",
+      "content": "A **sabbath rest iphone shortcuts** setup uses three iOS tools together: a Sabbath Focus mode (work apps hidden, lock screen swapped to a rest-themed verse), a Shortcut that triggers it automatically at sundown, and Screen Time limits on email/Slack/news for the day. The phone becomes a different phone for 24 hours — without willpower."
+    },
+    {
+      "type": "paragraph",
+      "text": "A real Sabbath is harder than a busy Tuesday. Tuesday has structure; Sabbath asks you to *stop* — and willpower alone almost never holds the line. A **sabbath rest iphone shortcuts** setup is the practical fix: instead of relying on resolve, you engineer friction into the phone itself. The work apps are hidden. The lock screen changes. The notifications go quiet. The day actually feels different because the device behaves differently. Here's the setup that holds the friction so you don't have to."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Why willpower alone fails at Sabbath"
+    },
+    {
+      "type": "paragraph",
+      "text": "You decide Saturday night to take a real Sabbath. Sunday morning the work Slack pings and your thumb opens it before you've thought about it. The pattern isn't a discipline failure — it's a *design* failure. Your phone is engineered for default access to everything; resting on it requires actively swimming upstream of every notification and habit it has trained into you. The only way Sabbath holds is to change the defaults for the day."
+    },
+    {
+      "type": "stat",
+      "label": "Daily phone pickups",
+      "value": "144",
+      "context": "per Reviews.org's 2026 Phone Habits report — none of which take a day off unless you make them"
+    },
+    {
+      "type": "paragraph",
+      "text": "If 144 pickups a day continues unchanged on the Sabbath, the day will end up looking like every other one. The setup below changes what those 144 touches see, so the day genuinely rests."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The three iOS tools that build the friction"
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Focus modes (iOS 16+)** — silence the apps that pull you toward work, swap your lock screen and home screen for a different one. The headline tool of the setup.",
+        "**Shortcuts app** — triggers the Focus mode automatically at sundown Saturday and ends it at sundown Sunday, with optional 'arrive home' and 'time of day' automations layered in.",
+        "**Screen Time limits** — hard caps on specific apps (email, Slack, news) for the Sabbath window. If the Focus mode doesn't catch a habit, Screen Time will."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Used together, these three turn your iPhone into a Sabbath-specific device for 24 hours. None of them require an extra app to install — they're built in. For where this fits in the wider Christian productivity system, see the [faith-based productivity pillar guide](/faith-based-productivity)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Build the Sabbath Focus mode"
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Settings → Focus → + → **Custom**. Name it **Sabbath**. Pick a soft color and a contemplative icon.",
+        "**Allow notifications only from**: spouse, kids, parents, emergency contacts. Nothing else — no Slack, no email, no news.",
+        "**Hide on home screen**: every work app, Slack, email, news, finance, calendar. Keep Bible, journal, weather, clock, photos.",
+        "**Customize Screens** → pick a rest-themed Scripture lock screen. FaithWall installs a Sabbath pack verse here automatically.",
+        "**Schedule:** Saturday 6pm to Sunday 6pm (or your tradition). Save."
+      ]
+    },
+    {
+      "type": "tip",
+      "content": "**Don't just silence apps — hide them.** Silenced apps still tempt because the icon is on the home screen. A hidden icon requires three deliberate taps to reach (App Library → search → tap). That tiny friction is the difference between a thoughtful exception and a reflex scroll."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Shortcuts worth automating"
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Sundown trigger** — Shortcut that activates the Sabbath Focus at sunset Saturday based on your location (use the \"At sunset\" automation in Shortcuts).",
+        "**Sabbath playlist on connect** — when your phone connects to home Wi-Fi during Sabbath hours, auto-start a hymn or worship playlist. The cue replaces the dopamine of unlocking.",
+        "**Reading mode toggle** — Shortcut that turns on grayscale and disables most notifications for the day. Reading the Bible on grayscale feels different from full color."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Where this gets hard"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Focus mode silences notifications, but **if the lock screen still looks like a Tuesday, the brain still treats the day like a Tuesday**. Your phone is the most-checked surface in your life, and the wallpaper behind every glance is doing slow work on what you expect from the next hour. A Sabbath wallpaper that's identical to your weekday wallpaper undoes most of the Focus mode's effect. The lock screen has to look different for the day to feel different."
+    },
+    {
+      "type": "paragraph",
+      "text": "This is exactly where FaithWall slots in. A **Sabbath pack** of rest-themed verses (Psalm 23, Matthew 11:28-30, Hebrews 4, Mark 6:31) installs as the lock screen for the Sabbath Focus mode and rotates daily within the pack. Same screen surface, completely different visual cue. The Focus mode hides the apps; the wallpaper announces what the day is *for*."
+    },
+    {
+      "type": "verse",
+      "reference": "Exodus 20:8",
+      "text": "Remember the Sabbath day, to keep it holy."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Hebrew verb in Exodus 20:8 is *zakar* — actively remember, not passively recall. The iPhone setup is small obedience to that verb. You're not white-knuckling Sabbath; you're remembering it through the device that would otherwise make you forget. For how Focus modes pair with other rhythms across the week, see the [christian focus modes iphone post](/blog/christian-focus-modes-iphone). For the broader principle of using the lock screen to reshape your mind, see the [renew your mind iphone setup post](/blog/renew-your-mind-iphone-setup)."
+    },
+    {
+      "type": "highlight",
+      "content": "**The point of the setup isn't perfect Sabbath observance.** It's lowering the activation energy enough that rest actually happens. A Sabbath with the work apps two taps away usually becomes a Sabbath with three quick work-checks. A Sabbath with the apps hidden, the lock screen rest-themed, and the Focus mode silencing the rest becomes one you actually remember on Monday."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Run it for four weeks before adjusting"
+    },
+    {
+      "type": "important",
+      "content": "**Don't tune the setup the first time something feels off.** Week one will surprise you with how often you reach for hidden apps; week two will feel slightly empty; week three you'll start *anticipating* sundown. Resist the urge to add exceptions before week four. The setup is forming a different version of you, and that version takes about a month to settle."
+    },
+    {
+      "type": "paragraph",
+      "text": "By week four, the Sabbath Focus mode will start firing before you remember it's Saturday evening. The grayscale will feel calming instead of dim. The empty Slack inbox on Sunday morning will become the most peaceful surface you see all week. The **sabbath rest iphone shortcuts** setup isn't replacing the discipline — it's the scaffolding that lets the discipline hold without willpower. Six minutes to configure, fifty-two days of rest a year."
+    },
+    {
+      "type": "cta",
+      "title": "Give your Sabbath Focus mode a rest-themed lock screen",
+      "description": "FaithWall installs a Sabbath verse pack — Psalm 23, Matthew 11:28-30, Hebrews 4 — that rotates on your lock screen only during the Sabbath Focus window. Free, 60-second setup, no account.",
+      "buttonText": "Download FaithWall",
+      "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+    }
+  ]
+}
