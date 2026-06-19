@@ -12,7 +12,7 @@ import Footer from '../components/Footer';
 
 const HOME_TITLE = 'FaithWall — Daily Bible Verses on Your iPhone Lock Screen';
 const HOME_DESC =
-  'FaithWall is a free iOS app that displays a fresh Bible verse on your iPhone lock screen every day using wallpapers and widgets. 60-second setup, iOS 16.0+, premium plans from $1.99/month.';
+  'FaithWall is a free iOS app that displays a fresh Bible verse on your iPhone lock screen every day using wallpapers and widgets. 60-second setup, iOS 16.0+, with optional premium plans.';
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -39,7 +39,7 @@ const faqSchema = {
       name: 'Is FaithWall free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. FaithWall is free to download and includes the core daily verse and lock-screen widgets. Premium plans for unlimited verse packs and customization are $1.99 per month or $8.99 per year.',
+        text: 'Yes. FaithWall is free to download and includes the core daily verse and lock-screen widgets. Optional premium plans unlock unlimited verse packs and customization — the price, billing period, and any free trial are shown in the App Store at checkout, in your local currency.',
       },
     },
     {

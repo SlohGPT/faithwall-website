@@ -4,27 +4,24 @@ import { Check } from 'lucide-react';
 const plans = [
   {
     name: 'Monthly',
-    price: '$1.99',
-    period: '/month',
+    cadence: 'Billed monthly',
     features: [
       'Unlimited wallpaper exports',
       'All premium features',
       'Cancel anytime',
     ],
-    cta: 'Start Monthly',
+    cta: 'See price in App Store',
     featured: false,
   },
   {
     name: 'Yearly',
-    price: '$8.99',
-    period: '/year',
+    cadence: 'Billed yearly',
     badge: 'Best Value',
-    subtext: '',
     features: [
       'Unlimited wallpaper exports',
       'All future updates included',
     ],
-    cta: 'Get Yearly',
+    cta: 'See price in App Store',
     featured: true,
   },
 ];
@@ -75,12 +72,9 @@ export default function Pricing() {
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-white mb-4">{plan.name}</h3>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-5xl font-black text-white">{plan.price}</span>
-                  <span className="text-white/60 text-lg">{plan.period}</span>
+                  <span className="text-3xl font-black text-white">Shown in App Store</span>
                 </div>
-                {plan.subtext && (
-                  <p className="text-brand text-sm font-medium mt-2">{plan.subtext}</p>
-                )}
+                <p className="text-white/60 text-sm font-medium mt-2">{plan.cadence} · your local currency</p>
               </div>
 
               <ul className="space-y-4 mb-8">
@@ -108,6 +102,10 @@ export default function Pricing() {
             </motion.div>
           ))}
         </div>
+
+        <p className="text-center text-white/50 text-sm mt-10 max-w-2xl mx-auto leading-relaxed">
+          FaithWall is free to download. Your exact price, billing period, and any free-trial offer are shown in the App Store at checkout, in your local currency — and may vary between users and change over time as we test and improve our pricing.
+        </p>
       </div>
     </section>
   );

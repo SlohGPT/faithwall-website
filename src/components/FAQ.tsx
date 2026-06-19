@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     question: 'Is FaithWall free?',
-    answer: "Yes. FaithWall is free to download and includes the core daily verse and lock-screen widgets. Premium plans for unlimited verse packs and customization are $1.99 per month or $8.99 per year.",
+    answer: "Yes. FaithWall is free to download and includes the core daily verse and lock-screen widgets. Optional premium plans unlock unlimited verse packs and customization — the price, billing period, and any free trial are shown in the App Store at checkout, in your local currency.",
   },
   {
     question: 'Which iPhones does FaithWall work on?',

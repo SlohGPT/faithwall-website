@@ -18,7 +18,7 @@ export default function TermsOfUse() {
             <main className="container-main pt-32 pb-16">
                 <div className="prose prose-invert max-w-4xl mx-auto">
                     <h1>AGREEMENT TO OUR LEGAL TERMS</h1>
-                    <p className="text-white/60">Last updated May 19, 2026</p>
+                    <p className="text-white/60">Last updated June 19, 2026</p>
 
                     <p>We are FaithWall ("Company," "we," "us," "our"), a company registered in Slovakia at Borová 9, 951 01 Nitrianske Hrnčiarovce, Slovakia, Nitrianske Hrnčiarovce, Nitriansky kraj 95101.</p>
 
@@ -107,23 +107,19 @@ export default function TermsOfUse() {
                     <h3>4. PURCHASES AND PAYMENT</h3>
                     <p>We accept the following forms of payment:</p>
                     <p>You agree to provide current, complete, and accurate purchase and account information for all purchases made via the Services. You further agree to promptly update account and payment information, including email address, payment method, and payment card expiration date, so that we can complete your transactions and contact you as needed. Sales tax will be added to the price of purchases as deemed required by us. We may change prices at any time.</p>
-                    <p><strong>Standard Pricing:</strong></p>
-                    <ul>
-                        <li>Monthly Subscription: $3.99 USD (or equivalent local currency).</li>
-                        <li>Lifetime Access: $9.99 USD (or equivalent local currency).</li>
-                    </ul>
+                    <p><strong>Pricing:</strong> All purchases are processed through the Apple App Store in your local currency. The price, billing period, and any free-trial terms applicable to a purchase are those displayed to you in the app at the time of purchase, and those displayed terms govern that transaction. Because we regularly test and optimize our pricing, the specific prices, plans, and offers available may differ between users and may change over time.</p>
                     <p>All payments shall be in the user’s local App Store currency. You agree to pay all charges at the prices then in effect for your purchases and any applicable shipping fees, and you authorize us to charge your chosen payment provider for any such amounts upon placing your order. We reserve the right to correct any errors or mistakes in pricing, even if we have already requested or received payment.</p>
                     <p>We reserve the right to refuse any order placed through the Services. We may, in our sole discretion, limit or cancel quantities purchased per person, per household, or per order. These restrictions may include orders placed by or under the same customer account, the same payment method, and/or orders that use the same billing or shipping address. We reserve the right to limit or prohibit orders that, in our sole judgment, appear to be placed by dealers, resellers, or distributors.</p>
 
                     <h3>5. SUBSCRIPTIONS AND LIFETIME ACCESS</h3>
                     <h4>Billing and Renewal</h4>
-                    <p>We offer two types of access to our premium features:</p>
+                    <p>We may offer access to our premium features through auto-renewing subscriptions and/or one-time, non-recurring purchases. The plans, billing periods, prices, and any free-trial terms available to you are those displayed in the app at the time of purchase, and those displayed terms govern your transaction.</p>
                     <ul>
-                        <li><strong>Monthly Subscription:</strong> Your subscription will continue and automatically renew on a monthly basis. You consent to our charging your payment method on a recurring basis without requiring your prior approval for each recurring charge, until such time as you cancel the applicable order.</li>
-                        <li><strong>Lifetime Access:</strong> This is a one-time non-recurring payment that grants you indefinite access to the premium features of the App. This purchase does not expire and does not auto-renew.</li>
+                        <li><strong>Auto-renewing subscriptions:</strong> An auto-renewing subscription renews automatically at the end of each billing period unless canceled at least 24 hours before the end of the current period. You consent to our charging your payment method on a recurring basis, without requiring your prior approval for each recurring charge, until you cancel the applicable order. The price, billing period, and any free-trial terms are those displayed to you in the app at the time of purchase.</li>
+                        <li><strong>One-time purchases:</strong> A one-time, non-recurring purchase grants the access described in the app at the time of purchase and does not auto-renew. The price is the one displayed to you in the app at the time of purchase.</li>
                     </ul>
                     <h4>Cancellation</h4>
-                    <p>Users can cancel or manage their monthly subscription at any time through their Apple ID in the App Store: <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://apps.apple.com/account/subscriptions</a>. Your cancellation will take effect at the end of the current paid term. If you have any questions or are unsatisfied with our Services, please email us at <a href="mailto:hello@faithwall.app" className="text-primary hover:underline">hello@faithwall.app</a>.</p>
+                    <p>Users can cancel or manage their subscription at any time through their Apple ID in the App Store: <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://apps.apple.com/account/subscriptions</a>. Your cancellation will take effect at the end of the current paid term. If you have any questions or are unsatisfied with our Services, please email us at <a href="mailto:hello@faithwall.app" className="text-primary hover:underline">hello@faithwall.app</a>.</p>
                     <h4>Fee Changes</h4>
                     <p>We may, from time to time, make changes to the subscription or purchase fees and will communicate any price changes to you in accordance with applicable law.</p>
 
