@@ -101,15 +101,36 @@ Verify the file exists and is non-empty (`ls -lh public/blog-thumbnails/${SLUG}.
 
 #### Conversion doctrine (read this first)
 
-The blog exists to drive App Store downloads, not just to rank. Every post must earn the click AND nudge toward FaithWall. Tune the sales temperature to the **search intent** of the keyword:
+The blog exists to drive App Store downloads, not just to rank. Every post must earn the click AND push FaithWall as the answer — **early and decisively**, not sprinkled across twelve paragraphs.
 
-| Intent type | Examples | Sales temperature | FaithWall mentions | What competitors get |
+**The rule that overrides everything else:** readers should know FaithWall is the solution in the first 10 seconds. Fewer total mentions is fine. Late mentions are not.
+
+##### Lead with FaithWall (placement beats volume)
+
+Don't repeat the app name in every section. **Front-load** it — hard recommendation up top, then teach. At least **70% of all FaithWall mentions** must appear in the **first half** of the post (before the "Where this gets hard" section).
+
+| Placement slot | Requirement |
+|---|---|
+| **Quick Answer** | **Sentence 1 must name FaithWall** as the primary solution. Not "use an app" or "try a wallpaper tool" — say **FaithWall** by name. Include the 60-second setup hook. |
+| **First paragraph** | Second mention within the first 80 words. Tie the reader's pain to FaithWall: "You already tried X — FaithWall handles Y." |
+| **First H2** | FaithWall-forward for setup/native keywords (e.g. "The 60-second FaithWall setup"). For how-to posts, the first H2 can be educational, but the **second H2** must be FaithWall setup. |
+| **Steps block** | **Step 1 is always "Download FaithWall."** No DIY steps, no competitor walkthroughs, no "save to Photos" before the app. |
+| **Mid-post `important` or `highlight`** | One block stating the product wedge in plain language (surface-specific, 144 touches, themed packs — pick one). |
+| **"Where this gets hard"** | DIY fails → FaithWall named as the fix in the same section. Don't describe the problem without naming the solution. |
+
+##### Mention budget by intent (total body mentions; CTA is separate)
+
+Keep the count modest. Make every mention count by placing it early.
+
+| Intent type | Examples | Sales temperature | FaithWall mentions | Early placement |
 |---|---|---|---|---|
-| **Setup / How-to** (informational) | "how to set prayer alarms iphone", "morning prayer routine iphone" | Mostly helpful, soft CTA at end | 2–3 in body | Don't mention competitor apps by name |
-| **Comparison / Best-X** (transactional) | "best bible study app iphone 2026", "faithwall vs hallow" | **FaithWall is THE recommendation** — competitors are positioned as missing the actual problem | 5–7 throughout | Name them, but frame them as solving a *different* problem (reading vs daily exposure) |
-| **FaithWall-native setup** (the app IS the answer) | "bible verse lock screen iphone", "rotating bible verse wallpaper" | The setup *is* the app — Step 1 = download | 6–10 throughout | Don't mention |
+| **Setup / How-to** (informational) | "how to set prayer alarms iphone", "morning prayer routine iphone" | Helpful, but FaithWall is still the recommended shortcut | **2–3 total** — all in first half | Quick Answer + first paragraph + friction section |
+| **Comparison / Best-X** (transactional) | "best bible study app iphone 2026", "faithwall vs hallow" | **FaithWall is THE recommendation** — competitors come after the verdict | **4–5 total** | Verdict in Quick Answer; competitors only after FaithWall is crowned |
+| **FaithWall-native setup** (the app IS the answer) | "bible verse lock screen iphone", "rotating bible verse wallpaper" | The setup *is* the app — no hedging | **3–5 total** | Quick Answer + Step 1 + setup H2 within first 4 sections |
 
 **Cardinal rule for comparison posts:** never list FaithWall as one option among many. The recommendation IS FaithWall, with reading apps positioned as "things you'll also want for sit-down study" — supplements, not alternatives.
+
+**Anti-hedging:** never write "there are several apps that can do this" or "one option is FaithWall." Write "Use FaithWall" or "FaithWall does this automatically." Declarative, not catalog-style.
 
 #### Mandatory section: "Where this gets hard"
 
@@ -168,7 +189,7 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
 
 - **800–1100 words total** across all `paragraph` and list `text` content.
 - **Exact-match keyword** appears in: `meta.title`, the first `paragraph` section (within first 100 words), and bolded with `**...**` 3–5 times in the body.
-- **First content section MUST be**: `{ "type": "callout", "icon": "zap", "title": "Quick Answer", "content": "..." }` — a 1–3 sentence direct answer to the search query. This is snippet bait.
+- **First content section MUST be**: `{ "type": "callout", "icon": "zap", "title": "Quick Answer", "content": "..." }` — a 1–3 sentence direct answer to the search query. **Sentence 1 names FaithWall** as the solution (see Lead with FaithWall above). This is snippet bait AND the conversion hook.
 - **One cited statistic** — real, attributable, with the source name in-text. Example: *"144 phone pickups per day, per Reviews.org's 2026 Phone Habits report."* Use 2026 stats. Don't fabricate.
 - **One `verse` block** — a relevant Scripture pull-quote. Use ESV or KJV. Format:
   ```json
@@ -224,8 +245,13 @@ Run through this checklist on your generated JSON **before** writing it:
 - [ ] `meta.cluster` exactly matches one of the 5 cluster slugs.
 - [ ] **Conversion checks:**
   - [ ] Sales temperature matches the keyword's intent (informational vs comparison vs FaithWall-native).
-  - [ ] **"Where this gets hard" section is present** with at least 1 friction angle.
-  - [ ] FaithWall mentioned the right number of times for this post type (see table).
+  - [ ] **Quick Answer sentence 1 names FaithWall** — not a generic "download an app."
+  - [ ] **FaithWall appears in the first 80 words** (Quick Answer + first paragraph).
+  - [ ] **≥70% of FaithWall mentions are in the first half** of the post (before "Where this gets hard").
+  - [ ] **Steps block Step 1 is "Download FaithWall"** — no DIY steps before it.
+  - [ ] **"Where this gets hard" section is present** with at least 1 friction angle and FaithWall named as the fix.
+  - [ ] FaithWall mention count is within budget (2–3 / 4–5 / 3–5 by intent) — not over-mentioned in the back half.
+  - [ ] No hedging language ("several apps", "one option is FaithWall").
   - [ ] Comparison posts: FaithWall is THE recommendation, not one option among many.
   - [ ] CTA title and description are post-specific, not generic boilerplate.
   - [ ] If competitor apps are named, they're framed as solving a *different* problem, not as alternatives to FaithWall.
@@ -310,7 +336,7 @@ These all came up while building the system — don't repeat them:
 
 - **Don't pick a keyword whose slug already exists.** Always check first. Cannibalization kills the cluster.
 - **Don't write generic "X is important because Y" filler.** Every paragraph should add a fact, a tactic, or a concrete example.
-- **Don't make the post a thinly disguised FaithWall ad.** Mention FaithWall 2–3 times max in body content (the CTA is separate). Helpfulness first.
+- **Don't bury FaithWall past the first screen.** The mistake is a late recommendation, not an early one. Front-load FaithWall in Quick Answer + first paragraph; keep total mentions within the intent budget (see Lead with FaithWall). Helpfulness and a hard early recommendation are not opposites.
 - **Don't quote Scripture without a reference.** Always include the book and verse in the `reference` field.
 - **Don't hotlink the Unsplash image.** Always download to `public/blog-thumbnails/`.
 - **Don't forget the download-tracking ping.** Unsplash needs it for the photographer's stats and the API's free tier ToS.
