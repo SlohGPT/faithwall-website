@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "title": "Audio Bible App iPhone Background: Play It All Day Without Opening Anything",
+    "description": "How to run an audio bible app in the background on iPhone — the apps, the Control Center setup, and the one thing audio alone can't do that keeps Scripture in view.",
+    "date": "July 13, 2026",
+    "datePublished": "2026-07-13T09:00:00.000Z",
+    "readTime": "5 min read",
+    "image": "/blog-thumbnails/audio-bible-app-iphone-background.jpg",
+    "imageAttribution": {
+      "photographer": "Aaron Burden",
+      "photographerUrl": "https://unsplash.com/@aaronburden?utm_source=faithwall&utm_medium=referral",
+      "unsplashUrl": "https://unsplash.com/photos/open-book-TNlHf4m4gpI?utm_source=faithwall&utm_medium=referral"
+    },
+    "keywords": ["audio bible app iphone background", "audio bible iphone", "background bible audio ios", "listen to bible while working", "faithwall"],
+    "cluster": "bible-study-tools-ios"
+  },
+  "sections": [
+    {
+      "type": "callout",
+      "icon": "zap",
+      "title": "Quick Answer",
+      "content": "To run an **audio bible app in the background** on iPhone, open YouVersion or Dwell, start the audio player, then leave the app — playback continues while you drive, cook, or work. Pair it with FaithWall so the passage you're hearing stays on your lock screen after the audio stops. Free, 60-second setup."
+    },
+    {
+      "type": "paragraph",
+      "text": "Audio is the most underused Bible tool on the iPhone. You can listen to a whole chapter while the coffee brews, on the commute, or with your hands in dishwater. But the moment the audio stops, the words are gone — sound doesn't linger the way a screen does. Running an **audio bible app in the background** solves the input problem. FaithWall solves the part audio can't: keeping the verse in front of your eyes the rest of the day."
+    },
+    {
+      "type": "paragraph",
+      "text": "This is the practical setup — which apps actually keep playing when you leave them, how to control playback without unlocking, and how to pair the listening with something you'll still see at 4pm."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Which apps keep playing in the background"
+    },
+    {
+      "type": "paragraph",
+      "text": "Not every Bible app streams audio properly once you swipe away. Three do it well: **YouVersion** (free, dozens of narrated translations), **Dwell** (paid, built specifically for listening, with music beds and reading plans), and **Bible.is** (free, full audio in hundreds of languages). All three register as media apps, so iOS treats them like a podcast — playback survives locking the screen and switching apps."
+    },
+    {
+      "type": "list",
+      "items": [
+        "**YouVersion** — best free option; audio for most ESV, NIV, and KJV chapters, plus reading plans you can listen through.",
+        "**Dwell** — best pure listening experience; passage playlists, sleep timer, and a genuinely calming reader.",
+        "**Bible.is** — best for other languages and dramatized audio with a full voice cast."
+      ]
+    },
+    {
+      "type": "tip",
+      "content": "After you start playback, add the audio controls to **Control Center** and drag down from the top-right — you can pause, skip, and scrub without ever unlocking the phone. On CarPlay, the same controls appear on your dashboard."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The 60-second setup that keeps the verse in view"
+    },
+    {
+      "type": "paragraph",
+      "text": "Here's the gap. You listen to Psalm 27 on the drive in. By lunch, you couldn't quote a line of it. Audio is input; it doesn't stick without a second exposure. That's the job FaithWall does — you pick the passage you're listening through this week, and it stays on your lock screen so every phone pickup reinforces what your ears already heard."
+    },
+    {
+      "type": "steps",
+      "items": [
+        "Download **FaithWall** from the App Store — free, no account required.",
+        "Pick the book or theme you're listening through (Psalms, a Gospel, or a pack like Strength or Peace).",
+        "Tap **Set Lock Screen** — iOS installs the wallpaper automatically via Focus modes.",
+        "Start your audio bible app and swipe home; the verse on your screen now matches what you're hearing all week."
+      ]
+    },
+    {
+      "type": "stat",
+      "label": "Daily phone pickups",
+      "value": "144",
+      "context": "per Reviews.org's 2026 Phone Habits report"
+    },
+    {
+      "type": "paragraph",
+      "text": "That's 144 chances to see the passage again. Audio gives you one pass through the ear; the lock screen gives you 144 passes through the eye. Together they do what neither does alone — and that pairing is the whole idea behind our [best free Bible app for iPhone](/blog/best-free-bible-app-iphone) breakdown, where the audio-plus-exposure combo keeps coming up."
+    },
+    {
+      "type": "verse",
+      "reference": "Romans 10:17",
+      "text": "So faith comes from hearing, and hearing through the word of Christ."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Where background audio quietly breaks"
+    },
+    {
+      "type": "paragraph",
+      "text": "Three things trip people up. First, **auto-lock kills nothing but the display** — audio keeps going, so don't panic when the screen dims. Second, **some apps pause when another sound plays**; a notification chime or a maps voice prompt can stop cheaper Bible apps cold, while YouVersion and Dwell duck and resume. Third, and the real one: **audio leaves no trace.** You finish a chapter with nothing to look at, nothing to return to."
+    },
+    {
+      "type": "important",
+      "content": "**Listening is a stream; seeing is an anchor.** A podcast you half-hear on the highway isn't a spiritual diet — it's background noise unless something catches it. Pick one passage a week, listen through it on repeat, and keep that same passage on the surface you check 144 times a day. The ear plants it; the eye waters it."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Make the listening actually land"
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Loop one book, not the whole Bible.** Listening through John three times beats a scattered chapter-a-day you can't recall.",
+        "**Match your lock screen to your audio.** Hearing Psalms this week? Set the Psalms verse on your screen so the two reinforce each other.",
+        "**Use the sleep timer.** Dwell and YouVersion both let audio fade out — falling asleep to Scripture is one of the oldest habits in the book.",
+        "**Turn hearing into holding.** For verses worth keeping, see our [Bible memorization apps for iPhone](/blog/bible-memorization-apps-iphone) guide — audio plus a lock-screen verse is most of the memorization battle already."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Audio is one piece of a fuller iPhone setup — reading, plans, highlighting, and the daily-exposure layer. For how they fit together, our [Bible study tools for iOS](/bible-study-tools-ios) guide lays out the whole stack, and it's less about more apps than fewer apps doing one job each."
+    },
+    {
+      "type": "highlight",
+      "content": "**The honest split:** your audio bible app is for *hearing* — long-form, hands-free, on the move. FaithWall is for *seeing* — the short verse that catches your eye 144 times between listens. Run both. They cost nothing and they cover each other's blind spots."
+    },
+    {
+      "type": "cta",
+      "title": "Let the verse you're hearing stay in view",
+      "description": "FaithWall keeps this week's passage on your lock screen — free, installs itself via iOS Focus modes, no screenshots or manual rotation.",
+      "buttonText": "Download FaithWall",
+      "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+    }
+  ]
+}
