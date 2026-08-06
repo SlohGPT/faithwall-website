@@ -12,21 +12,31 @@
       "status": "done",
       "completed": "2026-08-06",
       "reason": "The money page holds top-5 on its head-term family against beatable editorial; hardening it is the most winnable top-3 push on the site. Also ships the template schema support later items reuse.",
-      "notes": "In src/data/comparisons.json + src/components/CompareView.tsx: add a VISIBLE FAQ section (content only — do NOT add FAQPage JSON-LD; Google retired FAQ rich results for all sites 2026-05-07, see SEO-STRATEGY §5). Add a copycat-disambiguation H2 + FAQ entries sorting the near-identical 'Bible verse lock screen' App Store apps (only apps verified to exist; this section also serves App-Store-phrase navigational searches — no separate page for those). Refresh the comparison table (price, wallpaper vs widget, auto-rotation, themed packs). Add the bias-disclosure line near the Quick Answer (SEO-STRATEGY §5). Open each H2 with a direct answer in the first 40-60 words (§5 AEO). Bump visible updated date + dateModified. Append to TODO-KAROL.md: photograph real lock screens of every listed app — no competitor has this asset. Same session, in src/pages/BlogPost.tsx: add optional ItemList emission for listicle posts, driven automatically by the presence of ranked-list section types — no per-post flags. This one-time template change upgrades p2 and p7. EXECUTED: added biasDisclosure + copycatSection (4 verified real App Store apps found via search: Bible Verse Lock Screen: Faith App, Bible Verse Lock Screen Widget, Lockscreen Bible Verse Widget, Daily Bible Verse Widget) + faq (4 entries incl. disambiguation) to the comparisons.json entry and CompareView.tsx rendering; refreshed comparisonRows with explicit price/format/auto-rotation/packs; dateModified bumped to 2026-08-06. Added 'ranked-list' BlogSection type (types/blog.ts), its renderer (BlogRenderer.tsx), and automatic ItemList JSON-LD emission in BlogPost.tsx when a post contains one — ready for p2/p7 to use."
+      "notes": "In src/data/comparisons.json + src/components/CompareView.tsx: add a VISIBLE FAQ section (content only — do NOT add FAQPage JSON-LD; Google retired FAQ rich results for all sites 2026-05-07, see SEO-STRATEGY §5). Add a copycat-disambiguation H2 + FAQ entries sorting the near-identical 'Bible verse lock screen' App Store apps (only apps verified to exist; this section also serves App-Store-phrase navigational searches — no separate page for those). Refresh the comparison table (price, wallpaper vs widget, auto-rotation, themed packs). Add the bias-disclosure line near the Quick Answer (SEO-STRATEGY §5). Open each H2 with a direct answer in the first 40-60 words (§5 AEO). Bump visible updated date + dateModified. Append to TODO-KAROL.md: photograph real lock screens of every listed app — no competitor has this asset. Same session, in src/pages/BlogPost.tsx: add optional ItemList emission for listicle posts, driven automatically by the presence of ranked-list section types — no per-post flags. This one-time template change upgrades p2 and p7. EXECUTED: added biasDisclosure + copycatSection (4 verified real App Store apps found via search: Bible Verse Lock Screen: Faith App, Bible Verse Lock Screen Widget, Lockscreen Bible Verse Widget, Daily Bible Verse Widget) + faq (4 entries incl. disambiguation) to the comparisons.json entry and CompareView.tsx rendering; refreshed comparisonRows with explicit price/format/auto-rotation/packs; dateModified bumped to 2026-08-06. Added 'ranked-list' BlogSection type (types/blog.ts), its renderer (BlogRenderer.tsx), and automatic ItemList JSON-LD emission in BlogPost.tsx when a post contains one — ready for p2/p7 to use. EFFECT (weekly refresh 2026-08-06): not yet measurable — shipped after the data window closed. Baseline recorded at ship time: the page moved from lower page 1 to upper page 1 versus the prior window (average position improved by roughly three places) and its head-term family now clusters in the top 4-6; the App-Store-phrase navigational query the copycat section targets is the page's single largest impression source and still converts nothing. Re-check both next refresh."
+    },
+    {
+      "id": "p4",
+      "rank": 2,
+      "type": "ctr-fix",
+      "target_url": "/",
+      "cluster": null,
+      "status": "pending",
+      "reason": "The homepage under-converts our own brand-family and random-verse queries it already ranks for (App Store listing absorbs brand clicks; 'faith wall' decor ambiguity dilutes the rest); a branded rich-result upgrade is the cheapest click win available.",
+      "notes": "In src/pages/Home.tsx (or wherever the head tags live): (1) add SoftwareApplication + WebSite JSON-LD with alternateName 'Faith Wall' alongside the existing FAQPage schema; (2) title: 'FaithWall — Daily Bible Verse Lock Screen App for iPhone (Free)'; (3) meta description giving a reason to click the site over the App Store listing: 'FaithWall (Faith Wall) is the free iPhone app that puts a fresh Bible verse on your lock screen every day. See how it works, browse verse packs, and set it up in 60 seconds.' Expected effect (verify in weekly refresh): brand-family CTR rises; random-verse impressions migrate to /random-bible-verse once p11 ships. DATA (2026-08-06): the brand query's impressions more than doubled this window while it held a top-4 average position and produced no clicks at all — it is the single largest unconverted impression pool on the site and the clearest CTR loss anywhere. Promoted to first pending item."
     },
     {
       "id": "p2",
-      "rank": 2,
+      "rank": 3,
       "type": "refresh",
       "target_url": "/blog/best-free-bible-app-iphone",
       "cluster": "bible-study-tools-ios",
       "status": "pending",
       "reason": "One of the fastest-rising URLs on the site (position up ~16 places, impressions roughly doubled month-over-month) still sits on page 2 for the largest-demand query family we touch, and the reigning editorial result is years stale and pre-dates iOS lock screens.",
-      "notes": "Rebuild as the definitive dated hub (word-cap override: 2,500-3,500 words). 8-10 real verified apps; 'truly free vs freemium' honesty table; FaithWall first as the free daily-exposure layer WITH the bias-disclosure line; honest 'YouVersion wins for sit-down reading' verdict kept. One URL targets 'best free bible app iphone' (primary) + 'best bible app for iphone' + 'best bible apps 2026' (dedicated 2026 H2 + FAQ entries — do NOT create a separate 2026 roundup URL). New title: 'Best Free Bible Apps for iPhone (2026): Ranked & Tested'. Visible FAQ block (content only — no FAQPage markup, §5); ItemList emits via p1 template support. Audio-Bible H2 linking /blog/audio-bible-app-iphone-background. Differentiated link to /blog/best-bible-study-app-iphone-2026 ('for study-focused apps specifically, see...'). Visible 'Last updated' date. Link /bible-study-tools-ios pillar and /best-bible-verse-lock-screen-apps. Also ensure the two hub-cluster siblings link the hub: add one in-body hub link each to src/data/posts/bible-memorization-apps-iphone.json and best-bible-study-app-iphone-2026.json (idempotent — only if absent)."
+      "notes": "Rebuild as the definitive dated hub (word-cap override: 2,500-3,500 words). 8-10 real verified apps; 'truly free vs freemium' honesty table; FaithWall first as the free daily-exposure layer WITH the bias-disclosure line; honest 'YouVersion wins for sit-down reading' verdict kept. One URL targets 'best free bible app iphone' (primary) + 'best bible app for iphone' + 'best bible apps 2026' (dedicated 2026 H2 + FAQ entries — do NOT create a separate 2026 roundup URL). New title: 'Best Free Bible Apps for iPhone (2026): Ranked & Tested'. Visible FAQ block (content only — no FAQPage markup, §5); ItemList emits via p1 template support. Audio-Bible H2 linking /blog/audio-bible-app-iphone-background. Differentiated link to /blog/best-bible-study-app-iphone-2026 ('for study-focused apps specifically, see...'). Visible 'Last updated' date. Link /bible-study-tools-ios pillar and /best-bible-verse-lock-screen-apps. Also ensure the two hub-cluster siblings link the hub: add one in-body hub link each to src/data/posts/bible-memorization-apps-iphone.json and best-bible-study-app-iphone-2026.json (idempotent — only if absent). DATA (2026-08-06): the whole target family sits on page 2 or worse for us and the page rose roughly 16 places again this window with impressions roughly doubled — the trend Play 1 is built on is holding. Two cannibalization facts to fix in this rebuild: (a) \"best bible apps 2026\" is currently served by /blog/best-bible-study-app-iphone-2026 from page 2, which contradicts SEO-STRATEGY §7 — the dedicated 2026 H2 + FAQ entries on this hub must be strong enough for Google to reassign the query, and the study page keeps study-only framing; (b) this hub already ranks on page 2 for \"best audio bible app for iphone\" while the audio spoke itself shows no query-level demand — build the Audio-Bible H2 to hold that query here and link the spoke, do not move the target. Also add the hub link to src/data/posts/how-to-highlight-verses-on-iphone.json (§4 rule 3) — it is the cluster's largest-impression spoke and currently does not link the hub."
     },
     {
       "id": "p3",
-      "rank": 3,
+      "rank": 4,
       "type": "internal-links",
       "target_url": "/best-bible-verse-lock-screen-apps",
       "cluster": null,
@@ -35,28 +45,38 @@
       "notes": "In each of these 13 post JSONs under src/data/posts/, ensure exactly one in-body contextual link to /best-bible-verse-lock-screen-apps exists (add only if absent). ANCHOR DIVERSITY (§4 rule 2): rotate across at least four distinct anchor texts so no single anchor exceeds 40% of the page's incoming links — e.g. 'best Bible verse lock screen apps', 'our ranked lock screen app list', 'compared the top scripture lock screen apps', 'which lock screen app fits you'. Posts: bible-verse-lock-screen-iphone, daily-scripture-wallpaper-iphone, psalm-23-wallpaper-iphone, scripture-wallpaper-for-iphone-free, verse-of-the-day-lock-screen-iphone, rotating-bible-verse-wallpaper-iphone, lock-screen-verses-for-anxiety, best-christian-wallpaper-app-iphone, best-christian-app-for-iphone-2026, free-christian-apps-iphone-comparison, faithwall-vs-glorify, faithwall-vs-lectio-365, faithwall-vs-bible-app. (faithwall-vs-hallow blog post is intentionally excluded — it gets consolidated by p5.) Insert inside an existing relevant paragraph, never in the CTA block. Respect the 5-in-body-link cap: if a post is at cap, replace its weakest generic link (keep pillar + 2 siblings minimum). In bible-verse-lock-screen-iphone, make the anchor a 'comparing apps first? see our ranked list' pointer early in the body (pairs with p12)."
     },
     {
-      "id": "p4",
-      "rank": 4,
-      "type": "ctr-fix",
-      "target_url": "/",
-      "cluster": null,
+      "id": "p11",
+      "rank": 5,
+      "type": "tool-page",
+      "target_url": "/random-bible-verse",
+      "cluster": "daily-scripture-lock-screen",
       "status": "pending",
-      "reason": "The homepage under-converts our own brand-family and random-verse queries it already ranks for (App Store listing absorbs brand clicks; 'faith wall' decor ambiguity dilutes the rest); a branded rich-result upgrade is the cheapest click win available.",
-      "notes": "In src/pages/Home.tsx (or wherever the head tags live): (1) add SoftwareApplication + WebSite JSON-LD with alternateName 'Faith Wall' alongside the existing FAQPage schema; (2) title: 'FaithWall — Daily Bible Verse Lock Screen App for iPhone (Free)'; (3) meta description giving a reason to click the site over the App Store listing: 'FaithWall (Faith Wall) is the free iPhone app that puts a fresh Bible verse on your lock screen every day. See how it works, browse verse packs, and set it up in 60 seconds.' Expected effect (verify in weekly refresh): brand-family CTR rises; random-verse impressions migrate to /random-bible-verse once p11 ships."
+      "reason": "Google already ranks our homepage in the top 5 for the random-verse query family — including first place on several conversational variants — and that family produces zero clicks because the homepage is not the answer the searcher wants. A dedicated generator converts pre-proven rankings into the site's first interactive tool page and completes p4's migration path.",
+      "notes": "NOT a blog post; do NOT add to seo-keywords.json. Build a root-level route /random-bible-verse: new component (src/pages or src/components per repo convention), route in src/App.tsx, sitemap entry via scripts/generate-sitemap.mjs (add to its static route list if hardcoded). Client-side generator over a curated verse array (KJV/WEB — public domain), a 'New verse' button, a one-sentence quotable definition up top, FAQ block, CTA: 'Put a fresh verse on your lock screen automatically — FaithWall is free.' Add one contextual link to it from the /daily-scripture-lock-screen pillar body AND one from the homepage body (completes p4's migration path); footer link optional. From the tool page, link the pillar and /best-bible-verse-lock-screen-apps. DATA (2026-08-06): the random-verse family is now the homepage's second-largest impression source behind the brand query, ranks top-5 on the head term and first on several \"give me / show me a random bible verse\" variants, and converts nothing. Promoted from rank 11 — ship directly after p4."
     },
     {
       "id": "p5",
-      "rank": 5,
+      "rank": 6,
       "type": "refresh",
       "target_url": "/faithwall-vs-hallow",
       "cluster": "christian-app-comparisons",
       "status": "pending",
       "reason": "Two of our own URLs accrue impressions on the same comparison matchup and internal links favor the weaker one; consolidating to one canonical URL removes the ambiguity on a money term.",
-      "notes": "Single prescribed mechanism — do all of these: (1) add a 301 redirect to vercel.json: { \"source\": \"/blog/faithwall-vs-hallow\", \"destination\": \"/faithwall-vs-hallow\", \"permanent\": true } in a top-level \"redirects\" array (create the array if absent; keep existing rewrites intact); (2) remove the faithwall-vs-hallow entry from src/data/blogPosts.json and from any pillars.json featured array (leave src/data/posts/faithwall-vs-hallow.json on disk, unregistered); (3) repoint the in-body links currently targeting /blog/faithwall-vs-hallow in src/data/posts/best-prayer-app-for-iphone.json, faithwall-vs-lectio-365.json, faithwall-vs-glorify.json to /faithwall-vs-hallow; (4) in src/data/posts/faithwall-vs-bible-app.json, remove any 'youversion vs faithwall' phrasing from meta keywords/description so it stops shadowing /faithwall-vs-youversion — body stays angled to the literal phrase 'The Bible App'; (5) node scripts/generate-sitemap.mjs."
+      "notes": "Single prescribed mechanism — do all of these: (1) add a 301 redirect to vercel.json: { \"source\": \"/blog/faithwall-vs-hallow\", \"destination\": \"/faithwall-vs-hallow\", \"permanent\": true } in a top-level \"redirects\" array (create the array if absent; keep existing rewrites intact); (2) remove the faithwall-vs-hallow entry from src/data/blogPosts.json and from any pillars.json featured array (leave src/data/posts/faithwall-vs-hallow.json on disk, unregistered); (3) repoint the in-body links currently targeting /blog/faithwall-vs-hallow in src/data/posts/best-prayer-app-for-iphone.json, faithwall-vs-lectio-365.json, faithwall-vs-glorify.json to /faithwall-vs-hallow; (4) in src/data/posts/faithwall-vs-bible-app.json, remove any 'youversion vs faithwall' phrasing from meta keywords/description so it stops shadowing /faithwall-vs-youversion — body stays angled to the literal phrase 'The Bible App'; (5) node scripts/generate-sitemap.mjs. DATA (2026-08-06): the split is confirmed and worse than assumed — the deprecated /blog/ URL now draws roughly twice the impressions of the canonical root page while ranking several places worse, so Google is preferring the URL we do not want. The blog URL is also the page currently surfacing for early \"hallow vs abide\" demand; after the 301 that demand lands on the root page, which is where p8 should be linked from."
+    },
+    {
+      "id": "p17",
+      "rank": 7,
+      "type": "refresh",
+      "target_url": "/blog/how-to-highlight-verses-on-iphone + /blog/audio-bible-app-iphone-background + /blog/verse-of-the-day-lock-screen-iphone + /blog/how-to-set-prayer-alarms-iphone",
+      "cluster": null,
+      "status": "pending",
+      "reason": "Four spokes now rank on page 1 with substantial impressions and produce no clicks at all, and their demand is entirely anonymized — the pattern SEO-STRATEGY §3 Play 3 says to treat as a citation surface rather than a CTR problem. Together they are the largest block of page-1 visibility on the site earning nothing, and nothing in the queue touches them.",
+      "notes": "AEO hardening only — do NOT retitle these into listicles (§7) and do not restructure the bodies. In each of the four post JSONs under src/data/posts/ (how-to-highlight-verses-on-iphone, audio-bible-app-iphone-background, verse-of-the-day-lock-screen-iphone, how-to-set-prayer-alarms-iphone): (1) ensure one quotable, self-contained positioning sentence appears within the first two paragraphs (§5 AEO); (2) open each H2 with a direct answer in its first 40-60 words; (3) split any passage that depends on surrounding context into self-contained ~130-170 word blocks; (4) add a visible FAQ block of 3-4 real questions if absent — content only, no FAQPage JSON-LD (§5); (5) confirm the §4 link contract holds (pillar + 2 siblings + the standing money-page link where the cluster requires it) and place those links in the first half of the body per §4 rule 7. Bump each visible updated date. Judged next refresh on impression growth and AI-surface citations, not on CTR."
     },
     {
       "id": "p6",
-      "rank": 6,
+      "rank": 8,
       "type": "refresh",
       "target_url": "/blog/best-prayer-app-for-iphone",
       "cluster": "prayer-life-iphone",
@@ -66,7 +86,7 @@
     },
     {
       "id": "p7",
-      "rank": 7,
+      "rank": 9,
       "type": "ctr-fix",
       "target_url": "/blog/best-christian-app-for-iphone-2026",
       "cluster": "christian-app-comparisons",
@@ -75,48 +95,8 @@
       "notes": "New meta title: 'Best Christian Apps for iPhone in 2026, Ranked (+ the Stack)'. Align H1; keep slug and body; the stack thesis stays as the post's angle after the ranked list. New description teasing the list: 'We ranked the best Christian apps for iPhone in 2026 — free picks first — plus the three-app stack that covers reading, prayer, and daily Scripture.' Add a visible FAQ block (no FAQPage markup, §5); ItemList emits via p1 template support."
     },
     {
-      "id": "p8",
-      "rank": 8,
-      "type": "new-post",
-      "target_keyword": "hallow vs abide",
-      "cluster": "christian-app-comparisons",
-      "status": "pending",
-      "reason": "We already appear on page 2 for a handful of hallow-vs-abide searches without a page that answers the question; comparisons are the site's fastest-growing surface and this is the biggest third-party matchup in the niche.",
-      "notes": "NEW keyword — add 'hallow vs abide' to src/data/seo-keywords.json under christian-app-comparisons in the same commit ('hallow vs glorify comparison' was already removed from the bank as superseded). Genuine third-party head-to-head with an honest verdict (pricing, Catholic vs broadly evangelical framing, sleep/meditation content); FaithWall enters as the free lock-screen layer to add to either — never a fake winner of a category it is not in — with the disclosure line. Link /faithwall-vs-hallow (root Compare URL), /best-bible-verse-lock-screen-apps (standing rule), and the pillar."
-    },
-    {
-      "id": "p9",
-      "rank": 9,
-      "type": "new-post",
-      "target_keyword": "esv vs niv app comparison",
-      "cluster": "bible-study-tools-ios",
-      "status": "pending",
-      "reason": "Unused bank keyword in the growth-frontier cluster; a translation-comparison spoke feeds the Play 1 hub topical depth exactly where the cluster is thinnest.",
-      "notes": "Keyword already in the bank — no bank change. Angle: which translation to pick AND which apps handle each best (ESV app vs YouVersion vs others for NIV) — app-focused per cluster intent, not a theology essay. Links: /blog/best-free-bible-app-iphone (cluster hub rule), /bible-study-tools-ios pillar, siblings best-bible-study-app-iphone-2026 and how-to-highlight-verses-on-iphone if present."
-    },
-    {
-      "id": "p10",
-      "rank": 10,
-      "type": "internal-links",
-      "target_url": "/best-bible-verse-lock-screen-apps + /faithwall-vs-youversion + /faithwall-vs-hallow + footer",
-      "cluster": null,
-      "status": "pending",
-      "reason": "The three highest-authority commercial pages link out to nothing and two pillars are missing from the site-wide footer; link equity currently terminates at the money layer.",
-      "notes": "In src/components/CompareView.tsx add a 'Keep reading' block rendered on all Compare pages: cross-link the sister money pages (/best-bible-verse-lock-screen-apps <-> /faithwall-vs-youversion <-> /faithwall-vs-hallow), plus /daily-scripture-lock-screen and /christian-app-comparisons pillars, plus /blog/best-christian-wallpaper-app-iphone. In src/components/Footer.tsx ensure all five pillar pages are linked (add any missing, e.g. Faith-Based Productivity, App Comparisons). Idempotent — check what exists first."
-    },
-    {
-      "id": "p11",
-      "rank": 11,
-      "type": "tool-page",
-      "target_url": "/random-bible-verse",
-      "cluster": "daily-scripture-lock-screen",
-      "status": "pending",
-      "reason": "Google already surfaces our homepage for random-verse intent we never targeted; a dedicated generator converts pre-proven rankings into the site's first interactive tool page.",
-      "notes": "NOT a blog post; do NOT add to seo-keywords.json. Build a root-level route /random-bible-verse: new component (src/pages or src/components per repo convention), route in src/App.tsx, sitemap entry via scripts/generate-sitemap.mjs (add to its static route list if hardcoded). Client-side generator over a curated verse array (KJV/WEB — public domain), a 'New verse' button, a one-sentence quotable definition up top, FAQ block, CTA: 'Put a fresh verse on your lock screen automatically — FaithWall is free.' Add one contextual link to it from the /daily-scripture-lock-screen pillar body AND one from the homepage body (completes p4's migration path); footer link optional. From the tool page, link the pillar and /best-bible-verse-lock-screen-apps."
-    },
-    {
       "id": "p12",
-      "rank": 12,
+      "rank": 10,
       "type": "ctr-fix",
       "target_url": "/blog/bible-verse-lock-screen-iphone",
       "cluster": "daily-scripture-lock-screen",
@@ -125,44 +105,74 @@
       "notes": "Low-risk title sharpen only — no body churn (anonymized-demand rule, SEO-STRATEGY §3 Play 3). New meta title: 'Bible Verse Lock Screen on iPhone: The 60-Second Setup (2026)' — pure setup intent, no 'best/app-choice' framing (the roundup owns decision intent). Description leads with the steps and the 60-second promise. Verify the early 'comparing apps first? see our ranked list' pointer to /best-bible-verse-lock-screen-apps exists (p3 adds it; add here if p3 was skipped). Keep slug and body structure."
     },
     {
-      "id": "p13",
-      "rank": 13,
-      "type": "new-post",
-      "target_keyword": "short bible verses for lock screen",
-      "cluster": "daily-scripture-lock-screen",
-      "status": "pending",
-      "reason": "The one declining content-targetable lock-screen term is served only incidentally by the pillar; a dedicated verse listicle targets it exactly. Note: this format ranks well positionally when shown but has unproven click volume — this is a depth play.",
-      "notes": "NEW keyword — add 'short bible verses for lock screen' to src/data/seo-keywords.json under daily-scripture-lock-screen in the same commit. Mirror the lock-screen-verses-for-anxiety unit: 15-25 genuinely short verses (roughly 10 words or fewer, grouped by theme: peace, strength, hope) + FaithWall pack pitch + 60-second setup. Intro links /daily-scripture-lock-screen (the pillar currently catches this query incidentally — hub citation rule); also /best-bible-verse-lock-screen-apps per standing rule and siblings lock-screen-verses-for-anxiety, verse-of-the-day-lock-screen-iphone."
-    },
-    {
-      "id": "p14",
-      "rank": 14,
-      "type": "new-post",
-      "target_keyword": "lock screen verse for grief",
-      "cluster": "daily-scripture-lock-screen",
-      "status": "pending",
-      "reason": "Unused bank keyword mirroring a themed pack the app already ships; completes the verse-listicle set alongside anxiety and short-verses. Depth play — same positional-not-click evidence as p13.",
-      "notes": "Keyword already in the bank — no bank change. Follow the anxiety-post unit: about 10 comfort verses + a gentle pitch for FaithWall's Grief pack + the 60-second setup. Tone: reverent and pastoral — grief searchers are hurting; keep the Quick Answer compassionate. Links: siblings lock-screen-verses-for-anxiety and scripture-wallpaper-for-iphone-free, pillar /daily-scripture-lock-screen, and /best-bible-verse-lock-screen-apps per standing rule."
-    },
-    {
       "id": "p15",
-      "rank": 15,
+      "rank": 11,
       "type": "new-post",
       "target_keyword": "bible verse widget iphone",
       "cluster": "daily-scripture-lock-screen",
       "status": "pending",
-      "reason": "Speculative adjacency bet — this exact term shows no current impressions for us, but widget intent is the nearest ring outward from the lock-screen moat and our existing widget posts cover prayer and reading plans only. Expect slow burn; judged at the weekly refresh after indexing.",
-      "notes": "NEW keyword — add 'bible verse widget iphone' to src/data/seo-keywords.json under daily-scripture-lock-screen in the same commit. Hybrid listicle+setup format: which verse widget apps actually work, then the 60-second FaithWall setup; cover lock-screen and home-screen widgets with a StandBy mention; weave secondary 'scripture widget lock screen'. EARLY sibling links required (first half of body): verse-of-the-day-lock-screen-iphone and bible-reading-plan-widget-iphone — they already catch adjacent widget queries and disambiguate scope (verse widgets only; no prayer/reading-plan angle creep). Also /best-bible-verse-lock-screen-apps (standing rule) + pillar."
+      "reason": "No longer speculative: the money page now holds a page-1 position on a Bible-widget lock-screen term, so widget intent is demonstrably the nearest live ring outward from the moat, and our existing widget posts cover prayer and reading plans only.",
+      "notes": "NEW keyword — add 'bible verse widget iphone' to src/data/seo-keywords.json under daily-scripture-lock-screen in the same commit. Hybrid listicle+setup format: which verse widget apps actually work, then the 60-second FaithWall setup; cover lock-screen and home-screen widgets with a StandBy mention; weave secondary 'scripture widget lock screen'. EARLY sibling links required (first half of body): verse-of-the-day-lock-screen-iphone and bible-reading-plan-widget-iphone — they already catch adjacent widget queries and disambiguate scope (verse widgets only; no prayer/reading-plan angle creep). Also /best-bible-verse-lock-screen-apps (standing rule) + pillar. DATA (2026-08-06): a \"best bible widget for iphone lock screen\" query now ranks on page 1 for /best-bible-verse-lock-screen-apps with meaningful impressions and no clicks. Scope guard: that roundup keeps the \"best widget app\" decision query (§7) — this post owns the generic \"bible verse widget iphone\" setup+picks intent and must link the roundup early rather than compete with it."
+    },
+    {
+      "id": "p8",
+      "rank": 12,
+      "type": "new-post",
+      "target_keyword": "hallow vs abide",
+      "cluster": "christian-app-comparisons",
+      "status": "pending",
+      "reason": "We already appear on page 2 for a handful of hallow-vs-abide searches without a page that answers the question; comparisons are the site's fastest-growing surface and this is the biggest third-party matchup in the niche.",
+      "notes": "NEW keyword — add 'hallow vs abide' to src/data/seo-keywords.json under christian-app-comparisons in the same commit ('hallow vs glorify comparison' was already removed from the bank as superseded). Genuine third-party head-to-head with an honest verdict (pricing, Catholic vs broadly evangelical framing, sleep/meditation content); FaithWall enters as the free lock-screen layer to add to either — never a fake winner of a category it is not in — with the disclosure line. Link /faithwall-vs-hallow (root Compare URL), /best-bible-verse-lock-screen-apps (standing rule), and the pillar. DATA (2026-08-06): the deprecated /blog/faithwall-vs-hallow page already surfaces for this exact query from page 2 with no page that answers it — the demand is real but small. Ship after p5 so the redirect is in place, and link the new post from /faithwall-vs-hallow."
+    },
+    {
+      "id": "p10",
+      "rank": 13,
+      "type": "internal-links",
+      "target_url": "/best-bible-verse-lock-screen-apps + /faithwall-vs-youversion + /faithwall-vs-hallow + footer",
+      "cluster": null,
+      "status": "pending",
+      "reason": "The three highest-authority commercial pages link out to nothing and two pillars are missing from the site-wide footer; link equity currently terminates at the money layer.",
+      "notes": "In src/components/CompareView.tsx add a 'Keep reading' block rendered on all Compare pages: cross-link the sister money pages (/best-bible-verse-lock-screen-apps <-> /faithwall-vs-youversion <-> /faithwall-vs-hallow), plus /daily-scripture-lock-screen and /christian-app-comparisons pillars, plus /blog/best-christian-wallpaper-app-iphone. In src/components/Footer.tsx ensure all five pillar pages are linked (add any missing, e.g. Faith-Based Productivity, App Comparisons). Idempotent — check what exists first."
     },
     {
       "id": "p16",
-      "rank": 16,
+      "rank": 14,
       "type": "internal-links",
       "target_url": "pillar pages + robots.txt",
       "cluster": null,
       "status": "pending",
       "reason": "Hub-and-spoke doctrine requires the pillar to link EVERY spoke; our pillar template renders only the 6 featured posts, leaving older cluster posts unreachable from their hub. Also one AI crawler missing an explicit robots.txt welcome.",
       "notes": "In src/components/PillarPageView.tsx + src/pages/Pillar.tsx: below the existing featured grid, render a complete 'All {pillar} guides' list of every published post in the cluster (title links, compact list, derived from blogPosts.json filtered by cluster — no manual curation; featured stays as-is). This guarantees pillar → every spoke with no orphan posts as the archive grows. In public/robots.txt: add an explicit 'User-agent: OAI-SearchBot / Allow: /' block alongside the other AI crawlers (it powers ChatGPT search citations; the wildcard covers it but explicit matches the rest of the file's pattern)."
+    },
+    {
+      "id": "p13",
+      "rank": 15,
+      "type": "new-post",
+      "target_keyword": "short bible verses for lock screen",
+      "cluster": "daily-scripture-lock-screen",
+      "status": "pending",
+      "reason": "The one declining content-targetable lock-screen term is served only incidentally by the pillar; a dedicated verse listicle targets it exactly. Note: this format ranks well positionally when shown but has unproven click volume — this is a depth play.",
+      "notes": "NEW keyword — add 'short bible verses for lock screen' to src/data/seo-keywords.json under daily-scripture-lock-screen in the same commit. Mirror the lock-screen-verses-for-anxiety unit: 15-25 genuinely short verses (roughly 10 words or fewer, grouped by theme: peace, strength, hope) + FaithWall pack pitch + 60-second setup. Intro links /daily-scripture-lock-screen (the pillar currently catches this query incidentally — hub citation rule); also /best-bible-verse-lock-screen-apps per standing rule and siblings lock-screen-verses-for-anxiety, verse-of-the-day-lock-screen-iphone. DATA (2026-08-06): this term declined again — impressions down and average position slipped roughly two places, with the pillar catching it incidentally near the bottom of page 1. Demoted. If it declines again at the next refresh, retire this item rather than spending a post slot on it."
+    },
+    {
+      "id": "p9",
+      "rank": 16,
+      "type": "new-post",
+      "target_keyword": "esv vs niv app comparison",
+      "cluster": "bible-study-tools-ios",
+      "status": "pending",
+      "reason": "Unused bank keyword in the growth-frontier cluster; a translation-comparison spoke feeds the Play 1 hub topical depth exactly where the cluster is thinnest.",
+      "notes": "Keyword already in the bank — no bank change. Angle: which translation to pick AND which apps handle each best (ESV app vs YouVersion vs others for NIV) — app-focused per cluster intent, not a theology essay. Links: /blog/best-free-bible-app-iphone (cluster hub rule), /bible-study-tools-ios pillar, siblings best-bible-study-app-iphone-2026 and how-to-highlight-verses-on-iphone if present."
+    },
+    {
+      "id": "p14",
+      "rank": 17,
+      "type": "new-post",
+      "target_keyword": "lock screen verse for grief",
+      "cluster": "daily-scripture-lock-screen",
+      "status": "pending",
+      "reason": "Unused bank keyword mirroring a themed pack the app already ships; completes the verse-listicle set alongside anxiety and short-verses. Depth play — same positional-not-click evidence as p13.",
+      "notes": "Keyword already in the bank — no bank change. Follow the anxiety-post unit: about 10 comfort verses + a gentle pitch for FaithWall's Grief pack + the 60-second setup. Tone: reverent and pastoral — grief searchers are hurting; keep the Quick Answer compassionate. Links: siblings lock-screen-verses-for-anxiety and scripture-wallpaper-for-iphone-free, pillar /daily-scripture-lock-screen, and /best-bible-verse-lock-screen-apps per standing rule."
     }
   ],
   "done": []

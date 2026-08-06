@@ -25,10 +25,10 @@ Strategy in one sentence: **defend the lock-screen moat to top-3, expand exactly
 ## 2. Content Pillars, Ranked by Strategic Value
 
 1. **daily-scripture-lock-screen — the moat.** Own every permutation of lock-screen Scripture intent, feed the money page, convert directly to installs. Status: winning; defend and deepen.
-2. **christian-app-comparisons — the money layer.** Home of /best-bible-verse-lock-screen-apps (the strongest page on the site), the root FaithWall-vs-X pages, and app roundups. Status: fastest-growing surface, but clicks concentrate in one wallpaper-app post — broaden the base.
+2. **christian-app-comparisons — the money layer.** Home of /best-bible-verse-lock-screen-apps (the strongest page on the site), the root FaithWall-vs-X pages, and app roundups. Status: fastest-growing surface. The money page has now overtaken the wallpaper-app post as the cluster's leading click earner, so the base is broadening as intended — keep pushing the roundup to top-3 and lift the second tier (the vs-pages and the 2026 roundup still rank on page 1 while converting almost nothing).
 3. **bible-study-tools-ios — the growth frontier.** Top-of-funnel volume via the "best/free Bible app for iPhone" hub, currently on page 2 with the largest unconverted demand pool we touch. This is Play 1.
 4. **prayer-life-iphone — adjacent flagship.** One strong "best prayer app" page just outside top-3 plus supporting spokes. Needs consolidation, not expansion.
-5. **faith-based-productivity — harvest only.** Pages rank fine when shown, but the keyword set shows essentially no search demand. No new posts here until demand appears; spend those slots on clusters 1–3.
+5. **faith-based-productivity — harvest only.** Pages rank fine when shown, but the keyword set shows essentially no search demand — re-confirmed at the 2026-08-06 weekly refresh, where every page in the cluster remained near the bottom of the site's visibility despite holding page-1 positions. No new posts here until demand appears; spend those slots on clusters 1–3.
 
 ## 3. The Three Strategic Plays
 
