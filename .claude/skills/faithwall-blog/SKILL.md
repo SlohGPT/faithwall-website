@@ -26,9 +26,9 @@ Read both files:
 
 If the user gave you a keyword in their message (e.g. "make a blog about prayer reminders"), use that and find the closest matching cluster.
 
-Otherwise:
-1. Filter out any keyword whose slug already exists in the registry (compute slug = `keyword.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')`).
-2. Count how many posts exist per cluster. Prefer a keyword whose cluster currently has the **fewest** published posts — this keeps the cluster sizes balanced.
+Otherwise — **first check `src/data/seo-priorities.json`**: if it exists and has a `pending` item of type `new-post`, that item's keyword wins over free selection (execution contracts in `SEO-STRATEGY.md` §6). If no pending new-post item:
+1. Filter out any keyword whose slug already exists in the registry (compute slug = `keyword.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')`), and any keyword with `"blocked": true` (cannibalization landmines — see `SEO-STRATEGY.md` §7; never write these).
+2. Count how many posts exist per cluster. Prefer a keyword whose cluster currently has the **fewest** published posts among clusters the strategy allows (no new `faith-based-productivity` posts while `SEO-STRATEGY.md` §2 lists it as harvest-only).
 3. Inside the chosen cluster, pick the most evergreen / highest intent keyword first (e.g. "how to..." or "best X 2026" beats "X comparison").
 
 Generate the slug from the keyword. Confirm it doesn't already exist in `src/data/posts/`.
