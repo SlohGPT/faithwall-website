@@ -42,7 +42,7 @@ Strategy in one sentence: **defend the lock-screen moat to top-3, expand exactly
 
 **Why.** /best-bible-verse-lock-screen-apps is the top page on the site, holds top-5 on its head-term family, and its remaining editorial rivals are beatable on trust. It is also starved: no blog post links to it in-body today.
 
-**How.** Harden the page (FAQPage JSON-LD alongside the existing ItemList, refreshed comparison table, a copycat-disambiguation section covering the near-identical App Store lock-screen apps — verified-real apps only, real lock-screen photography when Karol supplies it, monthly visible-date refresh). Ensure every daily-scripture-lock-screen and christian-app-comparisons post carries exactly one in-body contextual link to it (§4). App-Store-phrase navigational queries ("… app store") are won via ASO plus the disambiguation section — never a new web page.
+**How.** Harden the page (a visible FAQ section — content only, no FAQPage JSON-LD per §5 — alongside the existing ItemList, refreshed comparison table, a copycat-disambiguation section covering the near-identical App Store lock-screen apps — verified-real apps only, real lock-screen photography when Karol supplies it, monthly visible-date refresh). Ensure every daily-scripture-lock-screen and christian-app-comparisons post carries exactly one in-body contextual link to it (§4). App-Store-phrase navigational queries ("… app store") are won via ASO plus the disambiguation section — never a new web page.
 
 ### Play 3 — Fix the CTR losers: brand, titles, duplicates
 
