@@ -143,6 +143,25 @@ export default function BlogRenderer({ sections }: { sections: BlogSection[] }) 
               </ul>
             );
 
+          case 'ranked-list':
+            return (
+              <ol key={i} className="my-4 space-y-4 list-none pl-0">
+                {section.items.map((item, idx) => (
+                  <li key={idx} className="flex gap-4 items-start p-4 rounded-xl bg-surface-card border border-surface-border">
+                    <span className="shrink-0 w-8 h-8 rounded-full bg-brand text-white font-bold flex items-center justify-center text-sm">
+                      {idx + 1}
+                    </span>
+                    <div className="flex-1">
+                      <p className="font-bold text-white">{item.name}</p>
+                      <div className="text-white/80 leading-relaxed mt-1">
+                        <Markdown text={item.description} />
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            );
+
           case 'verse':
             return (
               <blockquote key={i} className="my-8 p-6 rounded-2xl bg-surface-card border-l-4 border-brand/60 italic">

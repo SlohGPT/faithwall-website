@@ -13,6 +13,22 @@ export interface CompareRow {
   competitor: string;
 }
 
+export interface CompareFaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface CopycatItem {
+  name: string;
+  note: string;
+}
+
+export interface CopycatSection {
+  heading: string;
+  intro: string;
+  items: CopycatItem[];
+}
+
 export interface CompareConfig {
   slug: string;
   title: string;
@@ -21,10 +37,13 @@ export interface CompareConfig {
   datePublished: string;
   dateModified: string;
   quickAnswer: string;
+  biasDisclosure?: string;
   comparisonRows: CompareRow[];
   whenToChooseUs: string;
   whenToChooseThem: string;
   useBoth: string;
+  copycatSection?: CopycatSection;
+  faq?: CompareFaqItem[];
   competitorName: string;
   competitorTagline: string;
   competitorIcon: string;
@@ -157,6 +176,11 @@ export default function CompareView({ config }: { config: CompareConfig }) {
               <div className="text-white/85 leading-relaxed">
                 <Inline text={config.quickAnswer} />
               </div>
+              {config.biasDisclosure && (
+                <p className="mt-3 text-sm text-white/50 italic leading-relaxed">
+                  {config.biasDisclosure}
+                </p>
+              )}
             </div>
           </div>
 
@@ -225,6 +249,45 @@ export default function CompareView({ config }: { config: CompareConfig }) {
           <div className="text-white/85 leading-relaxed text-lg">
             <Inline text={config.useBoth} />
           </div>
+
+          {config.copycatSection && (
+            <>
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4">
+                {config.copycatSection.heading}
+              </h2>
+              <div className="text-white/85 leading-relaxed text-lg mb-6">
+                <Inline text={config.copycatSection.intro} />
+              </div>
+              <div className="space-y-4">
+                {config.copycatSection.items.map((item, i) => (
+                  <div key={i} className="p-5 rounded-xl bg-surface-card border border-surface-border">
+                    <p className="font-bold text-white">{item.name}</p>
+                    <div className="text-white/75 leading-relaxed mt-1 text-sm">
+                      <Inline text={item.note} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {config.faq && config.faq.length > 0 && (
+            <>
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-12 mb-5">
+                Frequently asked questions
+              </h2>
+              <div className="space-y-4">
+                {config.faq.map((item, i) => (
+                  <div key={i} className="p-5 rounded-xl bg-surface-card border border-surface-border">
+                    <p className="font-bold text-white mb-2">{item.question}</p>
+                    <div className="text-white/75 leading-relaxed text-sm">
+                      <Inline text={item.answer} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
 
           {/* CTA */}
           <div className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center">

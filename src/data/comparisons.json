@@ -63,18 +63,35 @@
     "metaTitle": "Best Bible Verse Lock Screen Apps for iPhone (2026)",
     "metaDescription": "The best iPhone apps for putting a Bible verse on your lock screen in 2026 — honest comparison of FaithWall, YouVersion, Glorify, and Bible Gateway widgets.",
     "datePublished": "2026-05-19",
-    "dateModified": "2026-05-19",
+    "dateModified": "2026-08-06",
     "quickAnswer": "**FaithWall is the only iOS app purpose-built for a daily Bible verse on the iPhone lock screen** — both wallpaper and widget, with automatic iOS Focus mode integration and curated verse packs. Alternatives like YouVersion, Glorify, and Bible Gateway offer related features (verse-of-the-day widgets) but as side-features of larger apps. For lock-screen-first Scripture, FaithWall is the focused choice; for a full Bible reading workflow, pair it with YouVersion.",
+    "biasDisclosure": "FaithWall is our app — the ranking above reflects that, and this is our honest case for it: we're rating apps on lock-screen-first Scripture specifically, the one job FaithWall is built around.",
     "comparisonRows": [
       { "feature": "App", "faithwall": "FaithWall", "competitor": "—" },
-      { "feature": "FaithWall", "faithwall": "Purpose-built for lock-screen Scripture. Free; premium $1.99/mo. Curated verse packs, iOS Focus integration, wallpaper + widget. iOS 16+.", "competitor": "Best for: lock-screen-first Scripture exposure" },
-      { "feature": "YouVersion", "faithwall": "Free. Verse-of-the-day widget as part of full Bible reading app. Thousands of reading plans. iOS 15+.", "competitor": "Best for: deep Bible reading + reading plans" },
-      { "feature": "Glorify", "faithwall": "Free + premium ~$60/yr. Daily devotional + verse widget. Stronger devotional/audio content, weaker pure lock-screen control.", "competitor": "Best for: daily devotional + journaling" },
-      { "feature": "Bible Gateway", "faithwall": "Free. Basic verse-of-the-day widget. Strongest as a reference (translations, commentaries) rather than a lock-screen tool.", "competitor": "Best for: reference + translation comparison" }
+      { "feature": "FaithWall", "faithwall": "Price: free; premium $1.99/mo or $8.99/yr. Format: wallpaper + widget. Auto-rotation: yes, daily via iOS Focus mode. Themed packs: yes — Anxiety, Strength, Gratitude, Psalms, Grief. iOS 16+.", "competitor": "Best for: lock-screen-first Scripture exposure" },
+      { "feature": "YouVersion", "faithwall": "Price: free. Format: widget only (no dedicated wallpaper tool). Auto-rotation: yes, verse-of-the-day. Themed packs: none — reading plans instead. iOS 15+.", "competitor": "Best for: deep Bible reading + reading plans" },
+      { "feature": "Glorify", "faithwall": "Price: free + premium ~$60/yr. Format: widget + devotional screen. Auto-rotation: yes, daily. Themed packs: devotional series, not verse packs.", "competitor": "Best for: daily devotional + journaling" },
+      { "feature": "Bible Gateway", "faithwall": "Price: free. Format: widget only. Auto-rotation: yes, daily verse-of-the-day. Themed packs: none — translation/reference tool, not pack-based.", "competitor": "Best for: reference + translation comparison" }
     ],
     "whenToChooseUs": "**Choose FaithWall if** the lock screen is your priority — automatic Focus-mode setup, rotating verse packs, wallpaper + widget combo, and a freemium price ($1.99/month) that's a fraction of devotional apps' premium tiers. FaithWall doesn't try to be a Bible-reading app, a journal, or a community. It does one thing.",
     "whenToChooseThem": "**Choose another option if** lock-screen Scripture is a side-feature for you rather than the main one. YouVersion wins for reading, Glorify for devotional plus journaling, Bible Gateway for translation reference. FaithWall layers on top of any of these; it doesn't replace them.",
     "useBoth": "**The setup most readers settle on in 2026:** YouVersion (or Olive Tree) for daily reading + FaithWall for lock-screen Scripture between sessions + a guided prayer app (Hallow or Lectio 365) for prayer time. Three apps, three distinct surfaces, no overlap. FaithWall is the piece most Christian iPhone setups are missing.",
+    "copycatSection": {
+      "heading": "Which \"Bible verse lock screen\" app is FaithWall?",
+      "intro": "None of the apps below are FaithWall. The App Store has several independently published apps with near-identical generic names — a side effect of how many developers target this exact search phrase. Check the developer name and use the App Store link on this page to confirm you have the right one.",
+      "items": [
+        { "name": "Bible Verse Lock Screen: Faith App", "note": "A separate, independently published verse-widget app, free with in-app purchases. Not affiliated with FaithWall." },
+        { "name": "Bible Verse Lock Screen Widget", "note": "A separate app offering home- and lock-screen verse widgets. Not affiliated with FaithWall." },
+        { "name": "Lockscreen Bible Verse Widget", "note": "A separate app with daily verse wallpapers and topic collections. Not affiliated with FaithWall." },
+        { "name": "Daily Bible Verse Widget", "note": "A separate widget-focused app for home- and lock-screen verses. Not affiliated with FaithWall." }
+      ]
+    },
+    "faq": [
+      { "question": "What's the best Bible verse lock screen app for iPhone?", "answer": "FaithWall is the best choice for lock-screen-first Scripture — it's purpose-built for wallpaper and widget verses with automatic iOS Focus mode setup and curated verse packs. If you want lock-screen verses as a side-feature of a full Bible app instead, YouVersion's verse-of-the-day widget is the strongest built-in alternative." },
+      { "question": "Are apps like \"Bible Verse Lock Screen Widget\" the same as FaithWall?", "answer": "No. Several unrelated apps use nearly identical names — \"Bible Verse Lock Screen,\" \"Bible Verse Lock Screen Widget,\" \"Lockscreen Bible Verse Widget\" — because the search phrase itself is generic. FaithWall is a distinct, independently developed app; check the developer name and the App Store link on this page before downloading." },
+      { "question": "Do I still need a full Bible app if I use a lock-screen verse app?", "answer": "Yes, for reading. Lock-screen apps like FaithWall show one verse passively; they don't replace a full Bible with translations, search, or reading plans. Pair FaithWall with YouVersion, Olive Tree, or another reading app — one for seeing Scripture all day, one for sitting down to read it." },
+      { "question": "Is FaithWall free?", "answer": "Yes. FaithWall's core lock-screen wallpaper and widget features are free. An optional $1.99/month or $8.99/year premium tier unlocks additional verse packs and customization, and no account is required to use the free tier." }
+    ],
     "competitorName": "Other Bible Verse Apps",
     "competitorTagline": "iPhone Lock-Screen Scripture",
     "competitorIcon": "📖",

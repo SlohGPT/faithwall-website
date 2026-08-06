@@ -66,6 +66,22 @@ export default function BlogPost() {
     ],
   };
 
+  // Listicle posts self-declare via a 'ranked-list' section — no per-post schema flag needed.
+  const rankedListSection = post.sections.find((s) => s.type === 'ranked-list');
+  const itemListSchema =
+    rankedListSection && rankedListSection.type === 'ranked-list'
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: post.meta.title,
+          itemListElement: rankedListSection.items.map((item, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: item.name,
+          })),
+        }
+      : null;
+
   return (
     <div className="min-h-screen bg-surface">
       <Helmet>
@@ -90,6 +106,9 @@ export default function BlogPost() {
         ))}
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        {itemListSchema && (
+          <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
+        )}
       </Helmet>
       <Navigation />
       <BlogPostContent post={post} slug={slug} related={related} />
