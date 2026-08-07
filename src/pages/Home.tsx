@@ -10,9 +10,33 @@ import FinalCTA from '../components/FinalCTA';
 import Pricing from '../components/Pricing';
 import Footer from '../components/Footer';
 
-const HOME_TITLE = 'FaithWall — Daily Bible Verses on Your iPhone Lock Screen';
+const HOME_TITLE = 'FaithWall — Daily Bible Verse Lock Screen App for iPhone (Free)';
 const HOME_DESC =
-  'FaithWall is a free iOS app that displays a fresh Bible verse on your iPhone lock screen every day using wallpapers and widgets. 60-second setup, iOS 16.0+, with optional premium plans.';
+  "FaithWall (Faith Wall) is the free iPhone app that puts a fresh Bible verse on your lock screen every day. See how it works, browse verse packs, and set it up in 60 seconds.";
+
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'FaithWall',
+  alternateName: 'Faith Wall',
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: 'iOS 16.0 or later',
+  url: 'https://faithwall.app/',
+  downloadUrl: 'https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'FaithWall',
+  alternateName: 'Faith Wall',
+  url: 'https://faithwall.app/',
+};
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -81,6 +105,8 @@ export default function Home() {
                 <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
                 <meta name="twitter:image:alt" content="FaithWall — Daily Bible Verses on Your iPhone Lock Screen" />
                 <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+                <script type="application/ld+json">{JSON.stringify(softwareApplicationSchema)}</script>
+                <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
             </Helmet>
             <Navigation />
             <Hero />
