@@ -87,7 +87,8 @@ The daily agent works `src/data/seo-priorities.json` top-to-bottom. Contract:
    - `ctr-fix` — title/meta/H1 and any additions the notes specify. Keep slug and body structure.
    - `internal-links` — idempotent link edits: "ensure exactly one link exists" per §4; respect the 5-link cap and its replacement rule.
    - `tool-page` — build the React route/component per the item's file list. Never via SKILL.md; never add tool keywords to the blog bank.
-3. **Verify:** `node scripts/generate-sitemap.mjs` after any URL set change; JSON must parse; internal links resolve; no placeholder text; no 2024/2025 dates.
+3. **Verify:** JSON must parse; `npm run typecheck` adds no new errors vs main; `npm run build` succeeds; internal links resolve; no placeholder text; no 2024/2025 dates.
+   **Sitemap:** run `node scripts/generate-sitemap.mjs` whenever a URL is added OR any page's content changed, and commit `public/sitemap.xml`. Blog/pillar/comparison pages derive `lastmod` from their `dateModified` automatically — but **static routes (`/`, `/blog`, `/about/…`, legal pages) have hardcoded dates in `scripts/generate-sitemap.mjs`**; if you edit one of those pages, bump its `lastmod` in that file in the same commit or the change is invisible to crawlers.
 4. **Close out in the same commit:** set the item's `"status": "done"`, add `"completed": "YYYY-MM-DD"`, append a one-line summary to the item's notes if the execution deviated from plan.
 5. **Push and ping:** commit `seo: {item id} — {short description}` (or `blog: {title}` for new posts), push, then IndexNow-submit every changed public URL.
 6. **Images on cloud runs:** use `$UNSPLASH_ACCESS_KEY` if set. If unavailable or the API fails, reuse an existing on-theme file from `public/blog-thumbnails/` (same cluster), copy that post's `meta.imageAttribution`, and note the reuse in the commit body. Never ship a post without a hero image or attribution.

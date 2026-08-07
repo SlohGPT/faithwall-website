@@ -14,8 +14,13 @@ const today = new Date().toISOString().slice(0, 10);
 
 // Real last-edit dates per route. Bump when content materially changes —
 // Google ignores `lastmod` that always equals "today".
+//
+// AGENTS: these are hardcoded because static pages have no dateModified field
+// to read. If a queue item changes a static route's title, meta, schema, or
+// copy, bump that route's lastmod here IN THE SAME COMMIT (SEO-STRATEGY §6).
+// Nothing else can do it for you — the generator cannot detect the edit.
 const STATIC_ROUTES = [
-  { path: '/', lastmod: '2026-05-19', changefreq: 'weekly', priority: '1.0' },
+  { path: '/', lastmod: '2026-08-07', changefreq: 'weekly', priority: '1.0' },
   { path: '/blog', lastmod: '2026-05-19', changefreq: 'weekly', priority: '0.9' },
   { path: '/about/karol-billik', lastmod: '2026-05-19', changefreq: 'monthly', priority: '0.5' },
   { path: '/privacy-policy', lastmod: '2026-05-19', changefreq: 'monthly', priority: '0.3' },
