@@ -50,6 +50,7 @@ export interface BlogPostListing {
   thumbnail: string;
   date: string;
   datePublished: string;
+  dateModified?: string;
   cluster: BlogCluster;
   keywords: string[];
   readTime: string;
