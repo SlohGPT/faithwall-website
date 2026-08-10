@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const testimonials = [
     {
@@ -22,7 +23,14 @@ const testimonials = [
     },
 ];
 
-const faqs = [
+interface FaqItem {
+    question: string;
+    answer: string;
+    linkTo?: string;
+    linkLabel?: string;
+}
+
+const faqs: FaqItem[] = [
     {
         question: 'What is FaithWall?',
         answer: "FaithWall is a free iOS app that displays daily Bible verses on your iPhone lock screen using wallpapers and widgets. It requires iOS 16.0 or later.",
@@ -42,6 +50,12 @@ const faqs = [
     {
         question: 'Is my data private?',
         answer: "Yes. FaithWall does not require an account and your verse selections stay on your device. Payment data, if you upgrade to a premium plan, is handled by RevenueCat — FaithWall never sees your card details.",
+    },
+    {
+        question: 'Can I get a random Bible verse without downloading anything?',
+        answer: "Yes — try our free random Bible verse generator for an instant verse, no account or install needed. FaithWall is what you'd set up next if you want a fresh verse to appear automatically.",
+        linkTo: '/random-bible-verse',
+        linkLabel: 'Try the random Bible verse generator',
     },
 ];
 
@@ -157,6 +171,14 @@ export default function TestimonialsAndFAQ() {
                                     >
                                         <p className="px-5 pb-6 text-white/60 leading-relaxed text-sm lg:text-base">
                                             {faq.answer}
+                                            {faq.linkTo && (
+                                                <>
+                                                    {' '}
+                                                    <Link to={faq.linkTo} className="text-brand hover:text-brand-light underline underline-offset-2">
+                                                        {faq.linkLabel}
+                                                    </Link>
+                                                </>
+                                            )}
                                         </p>
                                     </div>
                                 </motion.div>

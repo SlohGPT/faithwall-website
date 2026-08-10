@@ -7,7 +7,7 @@
     "metaTitle": "Daily Scripture iPhone Lock Screen Guide (2026)",
     "metaDescription": "Put Bible verses on your iPhone lock screen. Step-by-step setup for wallpapers, widgets, and rotating scripture. Free guide for iOS 16+.",
     "datePublished": "2026-05-19",
-    "dateModified": "2026-05-19",
+    "dateModified": "2026-08-10",
     "sections": [
       { "type": "callout", "icon": "zap", "title": "Quick Answer", "content": "A **daily scripture lock screen** is an iPhone lock screen configured (via wallpaper or widget) to display a fresh Bible verse each day. On iOS 16+, apps like FaithWall set this up automatically using Focus modes — installation takes about 60 seconds. The average iPhone user sees their lock screen 144 times per day, turning unconscious phone-checks into Scripture exposure." },
       { "type": "heading", "level": 2, "text": "Why a Scripture lock screen actually works" },
@@ -32,6 +32,7 @@
         "Direction verses — Proverbs 3:5-6, Jeremiah 29:11."
       ]},
       { "type": "highlight", "content": "**Pro move:** Pair your verse lock screen with iOS Focus mode (iOS 16+). Set a **Quiet Time** Focus that activates the verse wallpaper, silences non-essential notifications, and dims your screen — a one-tap retreat from the noise." },
+      { "type": "paragraph", "text": "Not ready to install anything yet? Try our free [random Bible verse generator](/random-bible-verse) — tap for an instant verse, no download required, then come back here when you're ready to make it automatic." },
       { "type": "cta", "title": "Get FaithWall on the App Store", "description": "Free download. Daily Scripture on your iPhone lock screen in under 60 seconds.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
     ],
     "featured": ["daily-scripture-wallpaper-iphone", "psalm-23-wallpaper-iphone", "scripture-wallpaper-for-iphone-free", "verse-of-the-day-lock-screen-iphone", "rotating-bible-verse-wallpaper-iphone", "lock-screen-verses-for-anxiety"]
