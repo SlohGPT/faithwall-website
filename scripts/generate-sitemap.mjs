@@ -20,7 +20,8 @@ const today = new Date().toISOString().slice(0, 10);
 // copy, bump that route's lastmod here IN THE SAME COMMIT (SEO-STRATEGY §6).
 // Nothing else can do it for you — the generator cannot detect the edit.
 const STATIC_ROUTES = [
-  { path: '/', lastmod: '2026-08-07', changefreq: 'weekly', priority: '1.0' },
+  { path: '/', lastmod: '2026-08-10', changefreq: 'weekly', priority: '1.0' },
+  { path: '/random-bible-verse', lastmod: '2026-08-10', changefreq: 'monthly', priority: '0.7' },
   { path: '/blog', lastmod: '2026-05-19', changefreq: 'weekly', priority: '0.9' },
   { path: '/about/karol-billik', lastmod: '2026-05-19', changefreq: 'monthly', priority: '0.5' },
   { path: '/privacy-policy', lastmod: '2026-05-19', changefreq: 'monthly', priority: '0.3' },

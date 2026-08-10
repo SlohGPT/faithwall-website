@@ -17,7 +17,7 @@ const root = join(__dirname, '..');
 const distDir = join(root, 'dist');
 const ssrEntry = join(root, 'dist-ssr', 'entry-server.js');
 
-const STATIC_ROUTES = ['/', '/privacy-policy', '/terms-of-use', '/eula', '/about/karol-billik', '/blog'];
+const STATIC_ROUTES = ['/', '/privacy-policy', '/terms-of-use', '/eula', '/about/karol-billik', '/blog', '/random-bible-verse'];
 const PILLARS = [
   '/daily-scripture-lock-screen',
   '/prayer-life-iphone',
