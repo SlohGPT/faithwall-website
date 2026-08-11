@@ -39,5 +39,12 @@
       "source": "/((?!assets|favicon|icon-app|robots|sitemap|manifest|og-image|blog-thumbnails|llms\\.txt|pricing\\.md|[0-9a-f]{32}\\.txt).*)",
       "destination": "/index.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/blog/faithwall-vs-hallow",
+      "destination": "/faithwall-vs-hallow",
+      "permanent": true
+    }
   ]
 }
