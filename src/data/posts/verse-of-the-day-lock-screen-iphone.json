@@ -4,6 +4,7 @@
     "description": "A verse of the day lock screen iphone setup that puts today's verse where you'll actually see it — on the wallpaper, not buried inside an app you have to open.",
     "date": "June 3, 2026",
     "datePublished": "2026-06-03T09:00:00.000Z",
+    "dateModified": "2026-08-13T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/verse-of-the-day-lock-screen-iphone.jpg",
     "imageAttribution": {
@@ -23,7 +24,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Everyone wants the **verse of the day lock screen iphone** experience — a fresh Scripture meeting you each morning without you doing anything. The hard part is that most \"verse of the day\" features live inside an app. YouVersion has one. Bible.com email has one. Daily-verse widgets exist. But they all share the same flaw: *you have to open something to see today's verse*. The lock screen is the only surface you genuinely can't avoid — and it's exactly where VOTD was meant to live."
+      "text": "Everyone wants the **verse of the day lock screen iphone** experience — a fresh Scripture meeting you each morning without you doing anything. The hard part is that most \"verse of the day\" features live inside an app. YouVersion has one. Bible.com email has one. Daily-verse widgets exist. But they all share the same flaw: *you have to open something to see today's verse*. FaithWall is the only app built to put VOTD directly on the one surface you genuinely can't avoid — the lock screen itself, with zero taps required."
     },
     {
       "type": "heading",
@@ -50,6 +51,10 @@
       "text": "The four ways to do VOTD on iPhone (ranked honestly)"
     },
     {
+      "type": "paragraph",
+      "text": "Four surfaces carry a daily verse today, ranked from least to most effective: email, push notification, home-screen widget, and lock screen. Each one moves the verse a step closer to where your eyes already go by default. Not sure [which lock screen app fits you](/best-bible-verse-lock-screen-apps)? We ranked the field before you commit."
+    },
+    {
       "type": "list",
       "items": [
         "**Email VOTD** (Bible Gateway, ESV.org). Free. Lands in your inbox once a day. You'll read it maybe twice that week.",
@@ -69,7 +74,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Three reasons. **First — zero-friction exposure.** No tapping, no unlocking, no opening. The verse is just there. **Second — repeated impressions.** A verse you see 144 times in a day starts to memorize itself; an emailed verse you read once doesn't. **Third — context-matching.** A VOTD that appears on a hard Tuesday afternoon lands differently than one read at 7am before work happens. The lock screen catches you *during* the day, not before it."
+      "text": "Three reasons. **First — zero-friction exposure.** No tapping, no unlocking, no opening. The verse is just there. **Second — repeated impressions.** A verse you see 144 times in a day starts to memorize itself; an emailed verse you read once doesn't. **Third — context-matching.** A VOTD that appears on a hard Tuesday afternoon lands differently than one read at 7am before work happens. The lock screen catches you *during* the day, not before it. For the rotation argument in more depth, see the [rotating bible verse wallpaper iphone post](/blog/rotating-bible-verse-wallpaper-iphone); for the wider lock-screen mechanics — wallpaper vs widget, Focus modes, fonts — the [bible verse lock screen iphone setup guide](/blog/bible-verse-lock-screen-iphone) walks through the full picture."
     },
     {
       "type": "verse",
@@ -99,6 +104,10 @@
       "text": "Set up daily VOTD in 60 seconds"
     },
     {
+      "type": "paragraph",
+      "text": "Setting up automatic VOTD on your lock screen takes five taps and about a minute: download FaithWall, pick a pack, choose a style, set the lock screen, and let it rotate."
+    },
+    {
       "type": "steps",
       "items": [
         "Download FaithWall (free) from the App Store.",
@@ -118,6 +127,10 @@
       "text": "Pack ideas for your VOTD rotation"
     },
     {
+      "type": "paragraph",
+      "text": "The best VOTD pack matches the season you're in, not a random daily pull. FaithWall groups verses into five starter packs — Promises, Strength, Anxiety, Gratitude, and Psalms — so the curation is already done for you."
+    },
+    {
       "type": "list",
       "items": [
         "**Promises pack** — covenant verses for when you need to remember what God has actually said.",
@@ -129,7 +142,7 @@
     },
     {
       "type": "paragraph",
-      "text": "For the rotation argument in detail (why a daily fresh verse beats a static favorite), see the [rotating bible verse wallpaper iphone post](/blog/rotating-bible-verse-wallpaper-iphone). For the wider lock-screen mechanics — wallpaper vs widget, Focus modes, fonts — the [bible verse lock screen iphone setup guide](/blog/bible-verse-lock-screen-iphone) walks through the full picture."
+      "text": "Any of the five packs works with the setup above — swap packs anytime by long-pressing the lock screen."
     },
     {
       "type": "important",
@@ -137,7 +150,48 @@
     },
     {
       "type": "paragraph",
-      "text": "The **verse of the day lock screen iphone** experience has been technically possible for years. It just hasn't been *easy* until iOS 16's Focus modes made automatic wallpaper rotation possible. FaithWall is what happens when an app gets built for that exact surface. Install once. Today's verse meets you 144 times today. Tomorrow's does the same. Not sure [which lock screen app fits you](/best-bible-verse-lock-screen-apps)? We ranked the field before you commit."
+      "text": "The **verse of the day lock screen iphone** experience has been technically possible for years. It just hasn't been *easy* until iOS 16's Focus modes made automatic wallpaper rotation possible. FaithWall is what happens when an app gets built for that exact surface. Install once. Today's verse meets you 144 times today. Tomorrow's does the same."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "How do I get a verse of the day on my iPhone lock screen?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Install FaithWall, choose a themed verse pack, and tap Set Lock Screen. iOS installs the wallpaper through Focus modes and rotates in a fresh verse automatically each day — no email, no widget, no app to open."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Is a lock-screen verse of the day better than an app notification?"
+    },
+    {
+      "type": "paragraph",
+      "text": "For actual exposure, yes. A notification competes with every other banner on your phone and gets swiped away more often than read. A lock-screen verse is the background of every single phone check — no competition, no swipe-to-dismiss."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Does the verse of the day change automatically every day?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Yes, once you've picked a pack. FaithWall rotates through it daily on its own — no manual screenshot-and-save routine, which is the step that makes most DIY verse-of-the-day setups fall apart by week two."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Can I pick which Bible translation the verse of the day uses?"
+    },
+    {
+      "type": "paragraph",
+      "text": "FaithWall's packs draw from public-domain and widely used translations suited to short, legible lock-screen text. If you need a specific study translation for deeper reading, pair FaithWall with a full Bible app like YouVersion for that half of the job."
     },
     {
       "type": "cta",

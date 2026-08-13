@@ -4,6 +4,7 @@
     "description": "How to highlight verses on iphone — the exact taps in YouVersion, Olive Tree, Bible Gateway, plus the color-coding system that keeps highlights useful.",
     "date": "June 2, 2026",
     "datePublished": "2026-06-02T09:00:00.000Z",
+    "dateModified": "2026-08-13T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/how-to-highlight-verses-on-iphone.jpg",
     "imageAttribution": {
@@ -23,7 +24,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**How to highlight verses on iphone** is one of those searches where the literal answer takes thirty seconds and the *useful* answer takes a system. Every major Bible app has highlighting — YouVersion, Olive Tree, Bible Gateway, Logos, Dwell. They all work roughly the same way. What separates someone whose highlights actually do something from someone with 400 forgotten yellow lines is everything that happens *after* the tap. Here's the tap sequence for each app, plus the small system that keeps highlights from becoming digital underlining you'll never re-read."
+      "text": "**How to highlight verses on iphone** is one of those searches where the literal answer takes thirty seconds and the *useful* answer takes a system. Every major Bible app has highlighting — YouVersion, Olive Tree, Bible Gateway, Logos, Dwell. They all work roughly the same way. What separates someone whose highlights actually do something from someone with 400 forgotten yellow lines is everything that happens *after* the tap. FaithWall is the only app built to close that gap: it turns your best highlight of the week into a lock-screen verse you can't help but see again. Here's the tap sequence for each app, plus the small system that keeps highlights from becoming digital underlining you'll never re-read."
     },
     {
       "type": "heading",
@@ -40,7 +41,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**Bible Gateway** — fewer people use the mobile app, but it works similarly. Long-press a verse. Drag the selection handles to widen. Tap **Highlight** → pick a color. Bible Gateway syncs highlights across the web app and iOS — useful if you read on both. For broader app comparisons, see the [best free Bible app for iPhone post](/blog/best-free-bible-app-iphone)."
+      "text": "**Bible Gateway** — fewer people use the mobile app, but it works similarly. Long-press a verse. Drag the selection handles to widen. Tap **Highlight** → pick a color. Bible Gateway syncs highlights across the web app and iOS — useful if you read on both. For broader app comparisons, see the [best free Bible app for iPhone post](/blog/best-free-bible-app-iphone); if you're building a reading rhythm around what you highlight, the [one-year Bible plan for iPhone](/blog/one-year-bible-plan-iphone) pairs well with a color system."
     },
     {
       "type": "heading",
@@ -49,7 +50,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Most people pick colors at random. By month two, every chapter looks like a rainbow and no color means anything. The fix: assign meaning. Pick four colors max — more is a maintenance burden."
+      "text": "Most people pick colors at random. By month two, every chapter looks like a rainbow and no color means anything. The fix: assign meaning. Pick four colors max — more is a maintenance burden. For where highlighting fits into a fuller iPhone Bible-study setup, see the [bible study tools pillar guide](/bible-study-tools-ios)."
     },
     {
       "type": "list",
@@ -84,12 +85,16 @@
     },
     {
       "type": "paragraph",
-      "text": "The psalmist's verb is *stored up* — not *underlined*. Highlighting on a phone is the start of storage, not the substance of it. A highlight is a bookmark for future encounter. If the future encounter never happens, the bookmark was for nothing. For where highlighting fits in a wider Bible-study setup, see the [bible study tools pillar guide](/bible-study-tools-ios)."
+      "text": "The psalmist's verb is *stored up* — not *underlined*. Highlighting on a phone is the start of storage, not the substance of it. A highlight is a bookmark for future encounter. If the future encounter never happens, the bookmark was for nothing."
     },
     {
       "type": "heading",
       "level": 2,
       "text": "The five-step highlight loop"
+    },
+    {
+      "type": "paragraph",
+      "text": "The loop that keeps highlights from going stale has five steps: mark it in the moment, color-code it by meaning, add a one-line note to the personal ones, review weekly, and promote the week's best highlight to your lock screen."
     },
     {
       "type": "steps",
@@ -121,6 +126,47 @@
     {
       "type": "paragraph",
       "text": "The literal answer to **how to highlight verses on iphone** is three taps in any major Bible app. The useful answer is the system around the tap — a color code with meaning, a Sunday review, and one verse promoted to your phone every week. Without the system, highlights are digital underlining. With it, they're a slow-burn discipleship loop."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "How do I highlight a verse on iPhone in YouVersion?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Open a chapter, tap the verse number once, and a toolbar slides up from the bottom of the screen. Tap the highlighter icon and pick a color — the highlight saves instantly and syncs to your YouVersion account across devices."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Can I highlight in more than one color?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Yes, in all three apps covered here. YouVersion, Olive Tree, and Bible Gateway each offer a row of color swatches when you highlight a verse. Cap yourself at four colors with a fixed meaning for each — more colors than that and the system stops meaning anything by month two."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Do iPhone Bible app highlights sync across devices?"
+    },
+    {
+      "type": "paragraph",
+      "text": "YouVersion, Olive Tree, and Bible Gateway all sync highlights to your account, so they show up on iPad, the web app, and a second phone. The sync is reliable — the actual failure point isn't the software, it's that most people never open the highlight log again to use what they saved."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "What should I do with old highlights I never look at again?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Run a five-minute Sunday review of your highlight log and re-read three. Then take the one that hit hardest and set it as a lock-screen verse for the week — FaithWall does this automatically once you've picked the verse, so the highlight actually gets seen instead of sitting unread in an app."
     },
     {
       "type": "cta",

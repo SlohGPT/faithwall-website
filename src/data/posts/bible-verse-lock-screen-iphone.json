@@ -4,6 +4,7 @@
     "description": "A practical, 60-second guide to putting a daily Bible verse on your iPhone lock screen — wallpapers, widgets, Focus modes, and the verses that actually stick.",
     "date": "May 19, 2026",
     "datePublished": "2026-05-19T09:00:00.000Z",
+    "dateModified": "2026-08-13T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/bible-verse-lock-screen-iphone.jpg",
     "imageAttribution": {
@@ -23,7 +24,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report. That's 144 moments where you stare at a screen for the first half-second before anything else. A **bible verse lock screen on your iPhone** turns those half-seconds into something that grounds you instead of pulling you under."
+      "text": "The average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report. That's 144 moments where you stare at a screen for the first half-second before anything else. A **bible verse lock screen on your iPhone** turns those half-seconds into something that grounds you instead of pulling you under. FaithWall is the app built specifically for that surface — not a screenshot repurposed as wallpaper, but typography and layout designed for the lock screen itself."
     },
     {
       "type": "paragraph",
@@ -40,7 +41,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Habit researchers call it **environment design**: the easiest way to do something is to put it in the path you already walk. You're going to look at your phone anyway. The question is whether the first thing you see is a notification cluster or a verse like *\"Be still, and know that I am God.\"*"
+      "text": "Habit researchers call it **environment design**: the easiest way to do something is to put it in the path you already walk. You're going to look at your phone anyway. The question is whether the first thing you see is a notification cluster or a verse like *\"Be still, and know that I am God.\"* For more on building this into a wider rhythm, see our [pillar guide on daily Scripture lock screens](/daily-scripture-lock-screen)."
     },
     {
       "type": "tip",
@@ -50,6 +51,10 @@
       "type": "heading",
       "level": 2,
       "text": "Wallpaper or widget? A quick choice"
+    },
+    {
+      "type": "paragraph",
+      "text": "Pick wallpaper for one anchor verse you want to live with for a season, and a widget for a fresh verse every day — or run both together for the strongest setup. Want a fresh verse daily by default? See our [verse of the day lock screen setup](/blog/verse-of-the-day-lock-screen-iphone). Prefer one theme rotating through the week instead? The [rotating Bible verse wallpaper guide](/blog/rotating-bible-verse-wallpaper-iphone) covers that pattern."
     },
     {
       "type": "list",
@@ -63,6 +68,10 @@
       "type": "heading",
       "level": 2,
       "text": "The 60-second setup"
+    },
+    {
+      "type": "paragraph",
+      "text": "Setting a Bible verse lock screen takes five taps: download FaithWall, pick a pack, choose a style, tap Set Lock Screen, and adjust anytime by long-pressing your lock screen."
     },
     {
       "type": "steps",
@@ -121,7 +130,48 @@
     },
     {
       "type": "paragraph",
-      "text": "For more on building this into a wider rhythm, see our [pillar guide on daily Scripture lock screens](/daily-scripture-lock-screen). If you want to layer prayer reminders on top, the [prayer life on iPhone guide](/prayer-life-iphone) shows the alarm-and-Focus pattern most people land on."
+      "text": "If you want to layer prayer reminders on top, the [prayer life on iPhone guide](/prayer-life-iphone) shows the alarm-and-Focus pattern most people land on."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "How do I put a Bible verse on my iPhone lock screen?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Install FaithWall, pick a themed verse pack, choose a style, and tap Set Lock Screen. iOS installs the wallpaper through Focus modes, so it takes under 60 seconds and needs no screenshots or Camera Roll juggling."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Does a Bible verse lock screen work without an app?"
+    },
+    {
+      "type": "paragraph",
+      "text": "You can save a screenshot as wallpaper manually, but it isn't sized for the lock-screen surface — the clock and widgets tend to crash into the text — and it doesn't rotate on its own. An app built for the surface fixes both problems."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Can I use a Bible verse as both my lock screen and home screen?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Yes. FaithWall sets the lock screen directly; for the home screen, iOS lets you either mirror the same wallpaper or add a Scripture widget alongside your apps, so both surfaces carry the verse without duplicate setup work."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "How often should I change my Bible verse lock screen?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Weekly is the sweet spot for most people — long enough for a verse to sink in, short enough that it doesn't fade into the background. FaithWall's daily-rotation packs handle this automatically if you'd rather not think about it at all."
     },
     {
       "type": "cta",
