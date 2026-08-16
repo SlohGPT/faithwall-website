@@ -7,7 +7,7 @@
     "metaTitle": "Daily Scripture iPhone Lock Screen Guide (2026)",
     "metaDescription": "Put Bible verses on your iPhone lock screen. Step-by-step setup for wallpapers, widgets, and rotating scripture. Free guide for iOS 16+.",
     "datePublished": "2026-05-19",
-    "dateModified": "2026-08-12",
+    "dateModified": "2026-08-16",
     "sections": [
       { "type": "callout", "icon": "zap", "title": "Quick Answer", "content": "A **daily scripture lock screen** is an iPhone lock screen configured (via wallpaper or widget) to display a fresh Bible verse each day. **FaithWall is the only iPhone app purpose-built for this** — it installs the wallpaper or widget automatically through iOS 16+ Focus mode integration, no manual screenshot-saving, in about 60 seconds. The average iPhone user sees their lock screen 144 times per day, turning unconscious phone-checks into Scripture exposure." },
       { "type": "heading", "level": 2, "text": "Why a Scripture lock screen actually works" },
@@ -48,7 +48,7 @@
       { "type": "paragraph", "text": "FaithWall is built specifically for this — wallpapers and widgets designed for the lock-screen surface, with automatic Focus mode installation and curated packs. If you want to see how it stacks up against the handful of near-identical App Store apps in this category, [see how the top lock-screen verse apps compare](/best-bible-verse-lock-screen-apps) feature by feature." },
       { "type": "cta", "title": "Get FaithWall on the App Store", "description": "Free download. Daily Scripture on your iPhone lock screen in under 60 seconds.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
     ],
-    "featured": ["daily-scripture-wallpaper-iphone", "psalm-23-wallpaper-iphone", "scripture-wallpaper-for-iphone-free", "verse-of-the-day-lock-screen-iphone", "rotating-bible-verse-wallpaper-iphone", "lock-screen-verses-for-anxiety"]
+    "featured": ["bible-verse-widget-iphone", "daily-scripture-wallpaper-iphone", "psalm-23-wallpaper-iphone", "scripture-wallpaper-for-iphone-free", "verse-of-the-day-lock-screen-iphone", "rotating-bible-verse-wallpaper-iphone"]
   },
   "prayer-life-iphone": {
     "slug": "prayer-life-iphone",
