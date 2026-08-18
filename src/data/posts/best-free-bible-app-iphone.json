@@ -4,7 +4,7 @@
     "description": "The best free bible app iphone pick is still YouVersion in 2026 — ranked against 9 other real apps, tested for truly-free vs freemium, plus the daily-exposure gap every reader hits.",
     "date": "May 30, 2026",
     "datePublished": "2026-05-30T09:00:00.000Z",
-    "dateModified": "2026-08-08T09:00:00.000Z",
+    "dateModified": "2026-08-18T09:00:00.000Z",
     "readTime": "13 min read",
     "image": "/blog-thumbnails/best-free-bible-app-iphone.jpg",
     "imageAttribution": {
@@ -151,6 +151,31 @@
     {
       "type": "paragraph",
       "text": "The 2026 answer to \"best Bible apps\" hasn't changed which app wins — YouVersion still does — but the scale behind it has: YouVersion crossed one billion installs just before this year began and now sees 17.5 million-plus daily users, with Easter Sunday 2026 alone drawing 21.6 million people to Scripture. What's newly worth knowing for 2026 specifically: YouVersion opened its underlying Bible-reading technology to other developers in March 2026 (the YouVersion Platform), which is why more apps than ever now embed the same 1,487-Bible library YouVersion itself runs on — so the translation-selection gap between the app you've heard of and the ones you haven't has mostly closed. What still separates them is what each app does with that shared library, which is exactly what the ranking above sorts on."
+    },
+    {
+      "type": "ranked-list",
+      "items": [
+        {
+          "name": "FaithWall — free, and still the gap every other 2026 pick leaves open",
+          "description": "No 2026 change needed: still free, still no account. The only app on this list built for the lock screen instead of adapted to it — daily exposure is the piece none of the reading apps below cover."
+        },
+        {
+          "name": "YouVersion — the 2026 default, now open to other developers",
+          "description": "Still the best free reading pick, and 2026 changed the story behind it: over 1 billion installs, 17.5 million-plus daily users, and a March 2026 platform launch that lets other apps embed its same translation library."
+        },
+        {
+          "name": "Bible.is — best free audio Bible in 2026",
+          "description": "Nonprofit-funded and still fully free in 2026, with dramatized audio across 1,800+ languages — the deepest free audio library on this list, unchanged and unbeaten this year."
+        },
+        {
+          "name": "Olive Tree — best for study depth in 2026",
+          "description": "Freemium in 2026 as before: the base app and a KJV translation stay free, and its faster cross-reference tap-through still edges out YouVersion for anyone studying rather than just reading."
+        },
+        {
+          "name": "Dwell — best paid listening experience in 2026",
+          "description": "Subscription-based in 2026, built specifically for listening rather than reading — music beds, sleep timer, and passage playlists a free app doesn't replicate."
+        }
+      ]
     },
     {
       "type": "heading",
