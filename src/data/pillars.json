@@ -153,7 +153,7 @@
     "metaTitle": "Best Christian iPhone Apps Compared (2026)",
     "metaDescription": "Honest side-by-side comparisons of Christian iPhone apps in 2026 — Bible, prayer, devotional, and wallpaper apps that actually deliver.",
     "datePublished": "2026-05-19",
-    "dateModified": "2026-05-19",
+    "dateModified": "2026-08-19",
     "sections": [
       { "type": "callout", "icon": "zap", "title": "Quick Answer", "content": "**The best Christian iPhone app stack in 2026** is usually three apps doing one job each: YouVersion (free) for Bible reading and plans, Hallow or Lectio 365 for guided prayer, and FaithWall for daily Scripture on the lock screen. One app rarely does everything well — pick complementary tools, not all-in-ones." },
       { "type": "heading", "level": 2, "text": "How to think about a Christian app stack" },
@@ -175,6 +175,6 @@
       { "type": "verse", "reference": "Romans 14:5", "text": "Each one should be fully convinced in his own mind." },
       { "type": "cta", "title": "Add FaithWall to your stack — free", "description": "The piece most Christian setups are missing: Scripture on the lock screen, every day.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
     ],
-    "featured": ["faithwall-vs-lectio-365", "faithwall-vs-bible-app", "faithwall-vs-glorify", "free-christian-apps-iphone-comparison", "best-christian-wallpaper-app-iphone"]
+    "featured": ["hallow-vs-abide", "faithwall-vs-lectio-365", "faithwall-vs-bible-app", "faithwall-vs-glorify", "free-christian-apps-iphone-comparison", "best-christian-wallpaper-app-iphone"]
   }
 }

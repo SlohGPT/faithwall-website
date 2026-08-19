@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Calendar, Zap, Check, X as XIcon } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import Breadcrumbs from './Breadcrumbs';
@@ -65,6 +66,22 @@ function Inline({ text }: { text: string }) {
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       components={{
+        a: ({ href = '', children }) => {
+          const isInternal = href.startsWith('/') || href.startsWith('https://faithwall.app');
+          const internalPath = isInternal ? href.replace(/^https:\/\/faithwall\.app/, '') : href;
+          if (isInternal) {
+            return (
+              <Link to={internalPath} className="text-brand hover:text-brand-light underline underline-offset-2">
+                {children}
+              </Link>
+            );
+          }
+          return (
+            <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-light underline underline-offset-2">
+              {children}
+            </a>
+          );
+        },
         strong: ({ children }) => <strong className="font-bold text-white">{children}</strong>,
         p: ({ children }) => <p className="text-white/85 leading-relaxed">{children}</p>,
       }}
