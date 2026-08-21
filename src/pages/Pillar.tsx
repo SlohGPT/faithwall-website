@@ -3,7 +3,7 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import PillarPageView from '../components/PillarPageView';
 import NotFound from './NotFound';
-import { getPillar, getPillarFeatured } from '../lib/posts';
+import { getPillar, getPillarFeatured, getPillarAll } from '../lib/posts';
 import type { BlogCluster, BlogSection } from '../types/blog';
 
 export default function Pillar({ cluster }: { cluster: BlogCluster }) {
@@ -11,6 +11,7 @@ export default function Pillar({ cluster }: { cluster: BlogCluster }) {
   if (!pillar) return <NotFound />;
 
   const featured = getPillarFeatured(cluster);
+  const allPosts = getPillarAll(cluster);
   const url = `https://faithwall.app/${cluster}`;
   const title = `${pillar.metaTitle} | FaithWall`;
 
@@ -87,7 +88,7 @@ export default function Pillar({ cluster }: { cluster: BlogCluster }) {
         )}
       </Helmet>
       <Navigation />
-      <PillarPageView pillar={pillar} featured={featured} />
+      <PillarPageView pillar={pillar} featured={featured} allPosts={allPosts} />
       <Footer />
     </div>
   );

@@ -1,4 +1,5 @@
 import { Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import BlogRenderer from './BlogRenderer';
 import BlogCard from './BlogCard';
 import Breadcrumbs from './Breadcrumbs';
@@ -7,6 +8,7 @@ import type { PillarConfig, BlogPostListing } from '../types/blog';
 interface Props {
   pillar: PillarConfig;
   featured: BlogPostListing[];
+  allPosts?: BlogPostListing[];
 }
 
 function formatDate(iso: string): string {
@@ -16,7 +18,7 @@ function formatDate(iso: string): string {
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-export default function PillarPageView({ pillar, featured }: Props) {
+export default function PillarPageView({ pillar, featured, allPosts = [] }: Props) {
   const updated = pillar.dateModified || pillar.datePublished;
   return (
     <div className="container-main pt-28 md:pt-32 pb-20">
@@ -58,6 +60,24 @@ export default function PillarPageView({ pillar, featured }: Props) {
               <BlogCard key={p.slug} post={p} />
             ))}
           </div>
+        </div>
+      )}
+
+      {allPosts.length > 0 && (
+        <div className="max-w-3xl mx-auto mt-16">
+          <h2 className="text-2xl md:text-3xl font-black text-white mb-6">All {pillar.title} guides</h2>
+          <ul className="divide-y divide-white/10 border-t border-b border-white/10">
+            {allPosts.map((p) => (
+              <li key={p.slug}>
+                <Link
+                  to={`/blog/${p.slug}`}
+                  className="block py-3 text-white/80 hover:text-brand transition-colors"
+                >
+                  {p.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>

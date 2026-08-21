@@ -45,6 +45,10 @@ export function getPillarFeatured(slug: string): BlogPostListing[] {
   return [...featured, ...extras];
 }
 
+export function getPillarAll(slug: string): BlogPostListing[] {
+  return allListings.filter((p) => p.cluster === slug);
+}
+
 export function allSlugs(): string[] {
   return allListings.map((p) => p.slug);
 }

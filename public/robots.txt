@@ -27,4 +27,7 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://faithwall.app/sitemap.xml
