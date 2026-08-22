@@ -54,6 +54,15 @@ export interface CompareConfig {
 
 const APP_STORE_URL = 'https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070';
 
+const KEEP_READING_LINKS: { to: string; label: string }[] = [
+  { to: '/best-bible-verse-lock-screen-apps', label: 'Best Bible verse lock screen apps, ranked' },
+  { to: '/faithwall-vs-youversion', label: 'FaithWall vs YouVersion' },
+  { to: '/faithwall-vs-hallow', label: 'FaithWall vs Hallow' },
+  { to: '/daily-scripture-lock-screen', label: 'Daily Scripture on iPhone — the complete guide' },
+  { to: '/christian-app-comparisons', label: 'The Best Christian Apps for iPhone — honest comparisons' },
+  { to: '/blog/best-christian-wallpaper-app-iphone', label: 'Best Christian wallpaper apps for iPhone' },
+];
+
 function formatDate(iso: string): string {
   if (!iso) return '';
   const d = new Date(iso);
@@ -305,6 +314,22 @@ export default function CompareView({ config }: { config: CompareConfig }) {
               </div>
             </>
           )}
+
+          {/* Keep reading */}
+          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-12 mb-5">
+            Keep reading
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-3 mb-10">
+            {KEEP_READING_LINKS.filter((item) => item.to !== `/${config.slug}`).map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="p-4 rounded-xl bg-surface-card border border-surface-border text-white/80 hover:text-white hover:border-brand/40 transition-colors text-sm font-medium"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
 
           {/* CTA */}
           <div className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center">
