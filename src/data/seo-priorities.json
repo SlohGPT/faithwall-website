@@ -1,7 +1,7 @@
 {
-  "version": 1,
-  "updated": "2026-08-17",
-  "note": "Ranked action queue for the daily SEO agent. Consumed top-to-bottom: take the first pending item, execute per the contracts in SEO-STRATEGY.md §6, set status done + completed date in the same commit. Public repo — qualitative reasons only, never raw Search Console numbers. Re-ranked weekly by the local data-refresh task.",
+  "version": 2,
+  "updated": "2026-08-22",
+  "note": "Ranked action queue for the daily SEO agent. Consumed top-to-bottom: take the first pending item whose not_before (if any) has passed, execute per the contracts in SEO-STRATEGY.md §6, set status done + completed date in the same commit. Public repo — qualitative reasons only, never raw Search Console numbers. Re-ranked weekly by the local data-refresh task. v2 (2026-08-22): strategy overhaul added off-site/brand item types (outreach-prep, citation-audit, depth-pass, prune-merge) per SEO-STRATEGY.md §8-§9; new-post cadence capped at 2/week and ranked last by default.",
   "queue": [
     {
       "id": "p1",
@@ -190,24 +190,95 @@
       "notes": "Strengthen the audio-Bible section on the hub; do NOT create a new URL and do NOT move the target to the spoke (§7 and §3 Play 1 both bind here — the hub holds audio intent, the spoke supports it). In src/data/posts/best-free-bible-app-iphone.json: expand the existing Audio-Bible H2 into a real ranked sub-section with 4-5 verified audio-capable apps, covering what is actually free versus paywalled for audio specifically, offline download behaviour, background-playback support, and dramatised-versus-plain narration. Open it with a direct answer in the first 40-60 words and add one FAQ entry explicitly answering 'best free audio bible app for iphone'. Keep it a section of the hub — it must not grow into a page-within-a-page that competes with the hub's primary term. In src/data/posts/audio-bible-app-iphone-background.json: confirm the spoke links the hub early (§4 rule 3) and add one sentence positioning it as the how-to companion to the hub's picks, so the two pages read as hub-and-spoke rather than as alternatives. Bump both dateModified values; regenerate the sitemap. DATA (2026-08-17): 'best audio bible app for iphone' improved by about six places but is still stuck on page 2 with no clicks, and 'best free audio bible app for iphone' improved by roughly thirteen places to lower page 1 — both served by the hub, which is the correct page. Meanwhile the spoke's impressions grew by roughly an order of magnitude to become the site's eighth-largest page at an upper-page-1 position, with zero identifiable queries and zero clicks. Read together: real transactional audio demand exists and lands on the hub where it ranks too low to convert, while the spoke absorbs a large anonymized pool it cannot monetise. Strengthening the hub section is the only move that addresses both without violating §7."
     },
     {
-      "id": "p9",
+      "id": "p22",
       "rank": 18,
+      "type": "citation-audit",
+      "target_url": "(research pass — no page edits)",
+      "cluster": null,
+      "status": "pending",
+      "reason": "The off-site layer (§8) starts from evidence: we need the current map of which third-party pages rank and get cited for our core queries, and where FaithWall is absent, before drafting a single pitch. Mentions on already-trusted pages are worth more than generic links.",
+      "notes": "Core query set: {best bible verse lock screen app / apps}, {best bible app for iphone, best free bible app iphone}, {best prayer app for iphone}, {best christian wallpaper app}, {hallow alternatives, abide alternatives, youversion alternatives}, {bible verse lock screen}. For each: web-search the query, record the top-10 non-App-Store results plus any visible AI-answer sources; note which are third-party editorial (vs competitor-owned content marketing — FaithLock, Psalmo, Prayhouse et al. are competitors, mark them as such, never outreach targets); note whether FaithWall appears. Seed list from the 2026-08-22 research sweep is in SEO-STRATEGY.md §8 Tier 1-2. Output: create outreach/targets.json ({query, url, site, type: editorial|competitor|directory|ugc, faithwall_present, last_checked, notes}) + a summary in this item close-out. Qualitative only — public repo. No page edits, no sitemap, no IndexNow. Verification for this item type = targets.json parses and the build still passes untouched."
+    },
+    {
+      "id": "p23",
+      "rank": 19,
+      "type": "outreach-prep",
+      "target_url": "outreach/ (drafts — no page edits)",
+      "cluster": null,
+      "status": "pending",
+      "reason": "Tier-1 exact-niche editorial targets are verified live and are the highest-value brand/authority openings we have (§8). Drafts must exist before Karol can send them; every day they do not exist is an idle authority lever.",
+      "notes": "Draft five pitches into outreach/ as individual markdown files (outreach/bibleversedaily.md etc.), each with: verified contact route, the specific page/section we are pitching into, a subject line, a 90-140 word body in Karol first person, and a one-line disclosure that FaithWall is our app. Targets + angles (verified live 2026-08-22): (1) bibleversedaily.org — independent blog in our exact niche; angle: free/no-subscription solo-dev honesty, offer early access + answers for an honest listing. (2) warmpeach.com/blog/best-bible-apps — install-and-test methodology; angle: ask to be evaluated on their criteria; lock-screen habit category uncovered in their 17-app list. (3) learnofchrist.com/resources — publishes standalone app reviews; angle: a FaithWall Review 2026 fits their format. (4) healthyspirituality.org 11-prayer-apps piece; angle: passive/ambient counterpart to active prayer apps. (5) biblegeeks.fm prayer-apps post; angle: indie-founder story + offer a podcast interview. Tone: honest, specific, respectful of their editorial independence, zero pressure, no link-begging language — we are asking to be evaluated, not placed. HARD RULE (§6/§7): draft only. Never send, never create accounts, never submit forms. Close-out: append one TODO-KAROL.md entry listing the five files, each with a one-line summary and the send address/route. Verification = files exist, TODO updated, build untouched."
+    },
+    {
+      "id": "p24",
+      "rank": 20,
+      "type": "depth-pass",
+      "target_url": "/blog/best-free-bible-app-iphone",
+      "cluster": "bible-study-tools-ios",
+      "status": "pending",
+      "reason": "The hub is the largest named-demand pool we touch, climbing for three cycles, still page 2. Depth is the on-page half of crossing to page 1 (§3 Play 1): citation selection is passage-level and depth correlates with citation rates several-fold; the authority half is p22/p23.",
+      "notes": "Run AFTER p21 (audio section) so this builds on it. Expand toward the definitive resource per §5 depth doctrine — target 2,500+ words of genuine coverage, never padding. Sub-queries each answered in a self-contained passage (40-60 word direct-answer opener): which free tier actually includes what (per app, tested); real download sizes and offline behavior; translation availability comparison (ties to p9 topic — if this section grows complete enough, p9 the separate post becomes unnecessary, note that at close-out); widget + lock-screen support per app (our moat angle, links the money page per §4); study features vs the study-page boundary (§7 cannibalization rule binds — generic year-variants stay here, study intent stays there); audio section (p21) intact. Add >=2 effort signals per §5 (measured sizes, dated hands-on notes). Update comparison table + FAQ block. Bump dateModified, regenerate sitemap."
+    },
+    {
+      "id": "p25",
+      "rank": 21,
+      "type": "depth-pass",
+      "target_url": "/best-bible-verse-lock-screen-apps",
+      "cluster": "christian-app-comparisons",
+      "status": "pending",
+      "reason": "Play 2 pivoted from click-chasing to citation depth (§3): the money page is our most-cited surface and freshness+depth are the two levers AI-citation data actually supports. Monthly dated refresh is due in the same pass.",
+      "notes": "Depth-pass per §5: expand per-app coverage into self-contained passages (setup steps tested, widget vs lock-screen distinction, what free tiers exclude, iOS version notes), refresh the comparison table with dated re-verification of each rival app (verified-real only, §5 honesty), extend the copycat-disambiguation section if new lookalikes appeared, roll the visible updated date. >=2 new effort signals (measured/dated first-party facts). Keep ItemList schema in sync with any reorder. No FAQPage markup additions (§5). Bump dateModified, regenerate sitemap. This item doubles as the §5 monthly money-page freshness slot for September if executed after Sep 1."
+    },
+    {
+      "id": "p26",
+      "rank": 22,
+      "type": "prune-merge",
+      "target_url": "(site-wide audit)",
+      "cluster": null,
+      "status": "pending",
+      "reason": "v2 depth doctrine (§5): consolidation beats proliferation — merging overlapping pages lifts small-site rankings where adding pages does not, and a tighter page set is also the §9 enforcement-profile antidote. 35 posts accumulated across daily cadence have never been audited for overlap.",
+      "notes": "Audit-first per §6: cluster the 35 posts in blogPosts.json by target intent; flag groups where multiple posts chase the same or near-identical query (candidates visible from titles alone: the wallpaper set — scripture-wallpaper-for-iphone-free / rotating-bible-verse-wallpaper-iphone / daily-scripture-wallpaper-iphone / psalm-23-wallpaper-iphone vs the best-christian-wallpaper-app winner; the prayer-spoke set around best-prayer-app-for-iphone; verse-of-the-day-lock-screen-iphone vs bible-verse-lock-screen-iphone). For each group: check SERP overlap (§7 spot-check method) and which page carries the visibility. Output a merge plan in the close-out notes: KEEP page, MERGE-IN pages, what content moves, 301 mapping (p5 pattern). EXECUTE in this item only merges where one page has effectively no visibility and no unique intent (trivially safe); everything judgment-heavy goes to TODO-KAROL.md and the weekly refresh for data confirmation. faith-based-productivity cluster (§2 pillar 5) is explicitly in scope for the audit. Any executed merge: re-point internal links (§4), regenerate sitemap, verify 301s prerender correctly."
+    },
+    {
+      "id": "p27",
+      "rank": 23,
+      "type": "outreach-prep",
+      "target_url": "outreach/ (directory submission pack)",
+      "cluster": null,
+      "status": "pending",
+      "reason": "Tier-2 vetted directories (§8) are citation surfaces AI engines read even where links are nofollow. Submission copy must exist before Karol can act; general directories remain banned (§7) — this is only the vetted niche list.",
+      "notes": "Prepare a submission pack in outreach/directories.md covering exactly: faith.tools (go.faith.tools/submit — draft every form field: name, one-liner, description ~100 words, category, screenshots list), AlternativeTo (draft the app description + the specific alternative-to pages to attach to: Hallow, Glorify, YouVersion — note it is community-moderated, Karol account required), SaaSHub, MochiLaunch (note: their free-backlink flow wants a badge embed — flag the badge as a Karol decision, do NOT add code for it). Each entry: URL, exact steps Karol performs, the copy to paste, expected outcome, and a nofollow/citation-value note so expectations are honest. Product Hunt / Indie Hackers: one short paragraph each describing the launch-moment option, explicitly deferred to Karol — no drafts. Close-out: single TODO-KAROL.md entry pointing at the pack. Draft only — never submit, never create accounts (§7)."
+    },
+    {
+      "id": "p28",
+      "rank": 24,
+      "type": "outreach-prep",
+      "target_url": "outreach/ (Advent 2026 seasonal pitches)",
+      "cluster": null,
+      "status": "pending",
+      "not_before": "2026-11-02",
+      "reason": "Seasonal listicle-refresh windows are when add-one-app pitches convert best (§8 Tier 3). First Sunday of Advent is 2026-11-29; roundup sites refresh Advent/devotional app lists in early-to-mid November.",
+      "notes": "NOT BEFORE 2026-11-02 (§6 rule 1 — skip, do not close, until then). When eligible: re-verify which Tier-1/targets.json sites ran Advent or Christmas devotional-app roundups in past years (web-search their archives), draft one seasonal pitch per live target into outreach/advent-2026/ — angle: free lock-screen Scripture as a daily Advent practice, zero subscription during a season of paywalled devotional pushes. Include any response context from the p23 wave (check TODO-KAROL.md history — do not re-pitch a site that declined). Close-out: TODO-KAROL.md entry with send-by date 2026-11-16. Draft only, never send (§7). Lent 2027 (Ash Wednesday 2027-02-10, pitch mid-to-late Jan) gets its own item at a later weekly refresh — do not draft it now."
+    },
+    {
+      "id": "p9",
+      "rank": 25,
       "type": "new-post",
       "target_keyword": "esv vs niv app comparison",
       "cluster": "bible-study-tools-ios",
       "status": "pending",
       "reason": "Unused bank keyword in the growth-frontier cluster; a translation-comparison spoke feeds the Play 1 hub topical depth exactly where the cluster is thinnest.",
-      "notes": "Keyword already in the bank — no bank change. Angle: which translation to pick AND which apps handle each best (ESV app vs YouVersion vs others for NIV) — app-focused per cluster intent, not a theology essay. Links: /blog/best-free-bible-app-iphone (cluster hub rule), /bible-study-tools-ios pillar, siblings best-bible-study-app-iphone-2026 and how-to-highlight-verses-on-iphone if present."
+      "notes": "Keyword already in the bank — no bank change. Angle: which translation to pick AND which apps handle each best (ESV app vs YouVersion vs others for NIV) — app-focused per cluster intent, not a theology essay. Links: /blog/best-free-bible-app-iphone (cluster hub rule), /bible-study-tools-ios pillar, siblings best-bible-study-app-iphone-2026 and how-to-highlight-verses-on-iphone if present. V2 RERANK (2026-08-22): demoted below the new off-site/depth work per §5 cadence doctrine — new URLs are the lowest-value use of an agent-day while the authority layer is unbuilt. Item stays valid."
     },
     {
       "id": "p14",
-      "rank": 19,
+      "rank": 26,
       "type": "new-post",
       "target_keyword": "lock screen verse for grief",
       "cluster": "daily-scripture-lock-screen",
       "status": "pending",
       "reason": "Unused bank keyword mirroring a themed pack the app already ships; completes the verse-listicle set alongside anxiety and short-verses. Depth play — same positional-not-click evidence as p13.",
-      "notes": "Keyword already in the bank — no bank change. Follow the anxiety-post unit: about 10 comfort verses + a gentle pitch for FaithWall's Grief pack + the 60-second setup. Tone: reverent and pastoral — grief searchers are hurting; keep the Quick Answer compassionate. Links: siblings lock-screen-verses-for-anxiety and scripture-wallpaper-for-iphone-free, pillar /daily-scripture-lock-screen, and /best-bible-verse-lock-screen-apps per standing rule."
+      "notes": "Keyword already in the bank — no bank change. Follow the anxiety-post unit: about 10 comfort verses + a gentle pitch for FaithWall's Grief pack + the 60-second setup. Tone: reverent and pastoral — grief searchers are hurting; keep the Quick Answer compassionate. Links: siblings lock-screen-verses-for-anxiety and scripture-wallpaper-for-iphone-free, pillar /daily-scripture-lock-screen, and /best-bible-verse-lock-screen-apps per standing rule. V2 RERANK (2026-08-22): demoted below the new off-site/depth work per §5 cadence doctrine. Item stays valid; pastoral-care notes still bind."
     }
   ],
   "done": [
