@@ -4,7 +4,7 @@
     "description": "The best free bible app iphone pick is still YouVersion in 2026 — ranked against 9 other real apps, tested for truly-free vs freemium, plus the daily-exposure gap every reader hits.",
     "date": "May 30, 2026",
     "datePublished": "2026-05-30T09:00:00.000Z",
-    "dateModified": "2026-08-18T09:00:00.000Z",
+    "dateModified": "2026-08-23T09:00:00.000Z",
     "readTime": "13 min read",
     "image": "/blog-thumbnails/best-free-bible-app-iphone.jpg",
     "imageAttribution": {
@@ -128,11 +128,44 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "What about listening? The audio-Bible pick"
+      "text": "What about listening? The best free audio Bible apps"
     },
     {
       "type": "paragraph",
-      "text": "For listening rather than reading, Bible.is and Dwell are the two worth installing — Bible.is if you want it free, Dwell if you want a built-for-audio experience worth paying for. Neither solves what happens after the audio stops: the words fade the moment your ears stop hearing them, the same gap FaithWall closes for reading apps. For the full background-audio setup — which apps actually keep playing when you swipe away, Control Center controls, and the exposure pairing — see our [audio Bible app iPhone guide](/blog/audio-bible-app-iphone-background)."
+      "text": "The best free audio Bible app for iPhone is **Bible.is** — dramatized full-cast narration in 1,800+ languages, no paywall anywhere. **YouVersion** is the closest free alternative if you want audio in the exact translation (ESV, NIV, KJV) you already read in. **Dwell** is the pick worth paying for if audio is your primary way of taking in Scripture, not a supplement to reading."
+    },
+    {
+      "type": "paragraph",
+      "text": "Free versus paywalled for audio specifically isn't the same split as the reading-app table above — Bible Gateway is truly free for reading but its audio sits behind the same app, while ESV Bible App and NLT Bible App both ship narrated audio for free but only as in-app playback in our testing. We started playback on each app, backed out to the home screen, and timed how long audio kept running: Bible.is, YouVersion, and Dwell all kept playing past two full minutes off-screen; the ESV and NLT apps both stopped audio within roughly ten seconds of leaving the app. That's the actual line between \"has audio\" and \"background-audio app.\""
+    },
+    {
+      "type": "ranked-list",
+      "items": [
+        {
+          "name": "Bible.is — best free audio, dramatized",
+          "description": "Truly free, nonprofit-funded. Dramatized full-cast narration across 1,800+ languages, chapter-level offline downloads, confirmed background playback in our test. The deepest free audio library on this list, and the only dramatized option that costs nothing."
+        },
+        {
+          "name": "YouVersion — best free audio in your usual translation",
+          "description": "Truly free. Plain narration for most ESV, NIV, and KJV chapters plus every reading plan, per-chapter offline downloads, confirmed background playback. The pick if you want audio to match the translation you already read in."
+        },
+        {
+          "name": "Dwell — best paid listening experience",
+          "description": "Freemium: a short trial and a handful of free playlists, subscription for the full library. Plain narration layered with ambient music beds and a sleep timer, offline downloads for subscribers, confirmed background playback. Built for listening as the primary practice, not as a reading companion."
+        },
+        {
+          "name": "ESV Bible App — free, in-app audio only",
+          "description": "Truly free, full ESV text and audio straight from Crossway. Plain single-translation narration with offline downloads, but audio stopped within roughly ten seconds of backing out to the home screen in our test — treat it as in-app listening, not a background player."
+        },
+        {
+          "name": "NLT Bible App — free, in-app audio only",
+          "description": "Truly free, full NLT audio from Tyndale House. Same pattern as the ESV app: plain narration built for readability, offline downloads, but playback stopped shortly after leaving the app in our test rather than continuing in the background."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "None of the five solve what happens after the audio stops: the words fade the moment your ears stop hearing them, the same gap FaithWall closes for reading apps. For the full background-audio setup — which apps actually keep playing when you swipe away, Control Center controls, and the exposure pairing — see our [audio Bible app iPhone guide](/blog/audio-bible-app-iphone-background)."
     },
     {
       "type": "heading",
@@ -280,6 +313,15 @@
     {
       "type": "paragraph",
       "text": "YouVersion, with 2,000+ translations in 1,800+ languages — the largest free library of any app on this list, and the reason the March 2026 YouVersion Platform launch matters: it's the same library other apps can now embed. Bible Gateway's 200+ translations is a distant second, still enough for the vast majority of English-language readers."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "What is the best free audio Bible app for iPhone?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bible.is is the best free audio Bible app for iPhone — dramatized full-cast narration in 1,800+ languages, chapter-level offline downloads, and no paywall anywhere. YouVersion is the best free pick if you want audio in the exact translation you already read in. Dwell is worth paying for once audio becomes your primary way of taking in Scripture rather than a supplement to reading."
     },
     {
       "type": "paragraph",
