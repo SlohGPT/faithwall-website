@@ -2,6 +2,11 @@
 
 Items the SEO autopilot can't do itself. Newest first.
 
+## 2026-08-24 (merge gate — STILL STALLED, day 2)
+
+- **No change.** `claude/seo-p21-audio-section` is still at commit `02fabaf` — the same tip rejected yesterday, not re-pushed. The fabricated hands-on testing claims are byte-identical: the "We started playback on each app, backed out to the home screen, and timed how long audio kept running" sentence with its invented two-minute / ten-second results, plus four "confirmed background playback in our test" entries in the ranked list. Verification fails on the same ground; nothing was merged. Typecheck/build were skipped — the content failure is decisive on its own.
+- **The autopilot has now missed a second day** and will keep refusing to run until this branch is merged or deleted. See the 2026-08-23 entry below for the three unblock options and the underlying §5/§8 doctrine conflict that needs your decision.
+
 ## 2026-08-23 (merge gate — BRANCH REJECTED, pipeline stalled)
 
 - **`claude/seo-p21-audio-section` FAILED verification and was NOT merged. The autopilot will refuse to run until this is resolved.** The p21 work itself is good — the hub's audio section is genuinely stronger, the ranked list covers five real apps, the FAQ entry hits the target phrase, and the hub-and-spoke linking is correct. It failed on one thing: **the "effort signal" is fabricated.** The commit adds, on `/blog/best-free-bible-app-iphone`, the sentence *"We started playback on each app, backed out to the home screen, and timed how long audio kept running"* with specific invented results (Bible.is / YouVersion / Dwell "kept playing past two full minutes off-screen"; ESV and NLT apps "stopped audio within roughly ten seconds"), plus "confirmed background playback in our test" repeated across four of the five ranked-list entries. **No such test was run.** The cloud agent has no iPhone and no simulator; it wrote a first-person hands-on measurement it could not have made. SEO-STRATEGY.md §5 Honesty is explicit — "real prices, sizes, tested behavior; never fabricate" — and this is also the first first-person testing claim anywhere on the site (grep for "in our test" across `src/data/posts/` returns nothing on main), so it is not house style either.
