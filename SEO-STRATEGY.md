@@ -33,6 +33,8 @@ Strategy in one sentence: **hold the lock-screen moat, win the "best Bible app" 
 4. **prayer-life-iphone — adjacent flagship.** Head page in upper page 1. Consolidation, not expansion.
 5. **faith-based-productivity — harvest only.** Three consecutive refreshes with no demand. No new posts; candidate for §5 prune-merge review.
 
+**Newly evidenced surface (2026-08-24): generator/tool demand.** The /random-bible-verse tool page surfaced a coherent query family the pillar set had never reached — generator-phrased searches for a random verse — and it is now by a wide margin the most query-legible page on the site, where our pillars are almost entirely anonymized. A SERP-overlap check confirms the intent is genuinely separate from the moat family, and the competing results are thin single-purpose tool sites rather than App Store listings. This is not a sixth pillar and does not change the pillar ranking: it is one page holding one adjacent family, and the correct response is depth on the page that already owns it, not new URLs. Its value beyond its own clicks is that it is the one surface where we can actually *measure* what we rank for.
+
 ## 3. The Strategic Plays
 
 ### Play 1 — Win the "best Bible app" hub (page 2 → page 1)
@@ -50,7 +52,7 @@ Unchanged goal, upgraded method. The hub (/blog/best-free-bible-app-iphone) keep
 
 ### Play 3 — CTR: concluded, with one standing finding
 
-The homepage title/meta and rich-results work shipped and the brand-query finding stands: the two-word "faith wall" query is structurally unconvertible from the web result (decor-ambiguous SERP); the one-word "faithwall" spelling ranks #1 and converts strongly. **No further homepage markup/title passes.** The fix for two-word brand loss is off-site disambiguation and growing one-word branded demand — i.e., Play 4. The anonymized test from v1 remains binding: no `ctr-fix` on pages whose demand carries no identifiable queries.
+The homepage title/meta and rich-results work shipped and the brand-query finding stands: the two-word "faith wall" query is structurally unconvertible from the web result (decor-ambiguous SERP); the one-word "faithwall" spelling ranks #1 and converts strongly. **No further homepage markup/title passes.** **Verdict closed 2026-08-24:** after two full windows with the branded rich-result markup live, the two-word query's position and conversion are unchanged and its impressions have stopped growing, while the one-word spelling has risen from absent to converting a large share of what it sees. The diagnosis is confirmed and the play is finished — this is a SERP-context problem, not a markup problem, and it is now closed rather than pending. The fix for two-word brand loss is off-site disambiguation and growing one-word branded demand — i.e., Play 4. The anonymized test from v1 remains binding: no `ctr-fix` on pages whose demand carries no identifiable queries.
 
 ### Play 4 — Build the brand & authority layer (NEW — the missing input)
 
@@ -121,7 +123,7 @@ The daily agent works `src/data/seo-priorities.json` top-to-bottom. Contract:
 - **Do not retitle how-to spokes into listicles**; their zero-click pattern is intent-structural.
 - **Do not paste raw Search Console metrics anywhere in this public repo.**
 - **(v2) No general-directory submissions** — the category was a March 2026 core-update loser; only the §8 vetted niche list.
-- **(v2) No new tool pages without named demand evidence** in the queue item (the /random-bible-verse lesson).
+- **(v2) No new tool pages without named demand evidence** in the queue item (the /random-bible-verse lesson). *Rule unchanged, lesson corrected 2026-08-24:* that page was built on a premise the data had just contradicted, so the rule against building on premise alone stands — but the outcome was not the failure the demotion predicted. The family it targeted turned out to be real and materially larger than either pre-launch reading, which had been taken through the homepage's eyes before a dedicated page existed. The honest lesson is narrower than first recorded: **do not build on premise alone, and do not judge a query family by a surface that was never built to catch it.**
 - **(v2) The agent never sends outreach, never creates accounts, never posts on communities, never submits forms requiring identity** — drafts and research only; the send belongs to Karol.
 - **(v2) No llms.txt investment beyond what exists** — crawler-behavior studies show the file is ignored by major AI crawlers; robots.txt access for AI bots (already open, OAI-SearchBot included) is the lever that matters. Keep robots.txt welcoming; verify after any infra change.
 - **(v2) No homepage markup/title passes for the two-word brand query** — structurally unconvertible; off-site is the only lever (§3 Play 3).
