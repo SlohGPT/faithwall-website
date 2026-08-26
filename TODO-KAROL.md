@@ -2,6 +2,16 @@
 
 Items the SEO autopilot can't do itself. Newest first.
 
+## 2026-08-26 (merge gate — day 4, STILL STALLED — same one command)
+
+- **Nothing changed since yesterday, and I am not going to re-argue it.** `origin/claude/seo-p21-audio-section` is still at `02fabaf`, byte-identical; I re-checked the fabricated line (`"We started playback on each app, backed out to the home screen, and timed how long audio kept running"`) and it is still there. Rejection stands. No new autopilot branch appeared this morning either, so that is now **four consecutive days with zero autopilot output** — 08-23, 08-24, 08-25, 08-26. The queue is fine; p22 (citation-audit) and p23 (outreach-prep, the five pitch drafts) are still sitting at ranks 17 and 18 waiting to run, and neither carries any fabrication risk.
+- **The fix is still one command, and it is still only yours to run.** Deleting unmerged work is a deliberate discard, not cleanup-after-merge, so it stays outside what I will do unattended. The commit is preserved locally in your clone as the tag `rejected/p21-audio-section-02fabaf`, so nothing is lost:
+
+  `git push origin --delete claude/seo-p21-audio-section`
+
+- **Cost of the delay, stated plainly:** each stalled day is one lost autopilot run, and the item at the front of the queue is p23 — the outreach drafts that SEO-STRATEGY §8 calls the highest-leverage work available to this project. Four days of stall is four days of not starting the one workstream the strategy says is the binding constraint.
+- **Doctrine decision (§5 mandatory "dated hands-on observation") remains open** — unchanged from 08-23 and 08-25. Until it is narrowed for cloud runs or redirected to a TODO line, the same trap can produce another permanently-unmergeable branch and another multi-day stall.
+
 ## 2026-08-25 (merge gate — day 3, PIPELINE STILL STALLED — one command from you fixes it)
 
 - **The 08-24 refresh did not actually unblock the pipeline, and the reason is mechanical, not editorial.** Demoting p21 behind p22/p23 was the right editorial call, but it addressed the wrong gate. The cloud routine's precondition is *"a `claude/*` branch exists that is not in main"* — not *"the next queue item is risky."* `origin/claude/seo-p21-audio-section` is still there at `02fabaf`, byte-identical to the version rejected on 08-23, so the routine refused to start again this morning. Third consecutive day with no autopilot output. The queue itself is healthy and waiting: **p22** (citation-audit) is rank 17 and next, **p23** (outreach-prep, the five pitch drafts) is rank 18 right behind it — both zero-fabrication-risk research items.
