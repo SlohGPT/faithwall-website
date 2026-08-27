@@ -2,6 +2,17 @@
 
 Items the SEO autopilot can't do itself. Newest first.
 
+## 2026-08-27 (merge gate — day 5, STILL STALLED — unchanged, one command)
+
+- **Fifth consecutive stalled day. Nothing moved.** `origin/claude/seo-p21-audio-section` is still at `02fabaf`, byte-identical for the fifth morning running. I re-ran the check rather than trusting yesterday's note: the fabricated on-device claim in `src/data/posts/best-free-bible-app-iphone.json` (*"We started playback on each app, backed out to the home screen, and timed how long audio kept running"*, plus the "confirmed background playback ... in our test" lines in the ranked list) is still present. Hard FAIL under the merge-gate rules. Not merged, branch left intact, nothing on main touched but this file.
+- **No new autopilot branch again**, so that is **five consecutive days with zero autopilot output** — 08-23 through 08-27. Queue is healthy and idle: p22 (citation-audit) rank 17, p23 (outreach-prep — the five pitch drafts) rank 18, p29 (depth-pass) rank 19, demoted p21 rank 20.
+- **The one command is still yours, and still one command.** Deleting unmerged work is a deliberate discard, outside what I do unattended. The commit is preserved locally in your clone as tag `rejected/p21-audio-section-02fabaf`, so nothing is lost:
+
+  `git push origin --delete claude/seo-p21-audio-section`
+
+  The routine should run p22 the next morning after that.
+- **Doctrine decision (SEO-STRATEGY §5 mandatory "dated hands-on observation") still open** — unchanged since 08-23. Every future `depth-pass` and `new-post` still instructs a device-less agent to produce device evidence, so the same trap can mint another permanently-unmergeable branch and another multi-day stall.
+
 ## 2026-08-26 (merge gate — day 4, STILL STALLED — same one command)
 
 - **Nothing changed since yesterday, and I am not going to re-argue it.** `origin/claude/seo-p21-audio-section` is still at `02fabaf`, byte-identical; I re-checked the fabricated line (`"We started playback on each app, backed out to the home screen, and timed how long audio kept running"`) and it is still there. Rejection stands. No new autopilot branch appeared this morning either, so that is now **four consecutive days with zero autopilot output** — 08-23, 08-24, 08-25, 08-26. The queue is fine; p22 (citation-audit) and p23 (outreach-prep, the five pitch drafts) are still sitting at ranks 17 and 18 waiting to run, and neither carries any fabrication risk.
