@@ -2,6 +2,17 @@
 
 Items the SEO autopilot can't do itself. Newest first.
 
+## 2026-08-28 (merge gate — day 6, STILL STALLED — same one command)
+
+- **Sixth consecutive stalled day.** `origin/claude/seo-p21-audio-section` is still at `02fabaf`. I re-checked from scratch rather than trusting the note: the fabricated timed on-device test in `src/data/posts/best-free-bible-app-iphone.json` (*"We started playback on each app, backed out to the home screen, and timed how long audio kept running"*, plus four "in our test"-style assertions in the ranked list) is still present. Hard FAIL, unchanged. Not merged, branch intact, nothing on main touched but this file.
+- **No new autopilot branch again — six consecutive days with zero output (08-23 → 08-28).** That is a full week of runs lost. Queue is healthy and idle, unchanged: p22 (citation-audit) rank 17, p23 (outreach-prep — the five pitch drafts) rank 18, p29 (depth-pass) rank 19, demoted p21 rank 20.
+- **Still one command, still only yours.** Deleting unmerged work is a deliberate discard, outside what I do unattended. The commit is preserved locally in your clone as tag `rejected/p21-audio-section-02fabaf`, so nothing is lost:
+
+  `git push origin --delete claude/seo-p21-audio-section`
+
+  The routine should run p22 the next morning after that.
+- **Doctrine decision (SEO-STRATEGY §5 mandatory "dated hands-on observation") still open** — unchanged since 08-23. Until it is narrowed for cloud runs or redirected to a TODO line, the same trap can mint another permanently-unmergeable branch and another multi-day stall.
+
 ## 2026-08-27 (merge gate — day 5, STILL STALLED — unchanged, one command)
 
 - **Fifth consecutive stalled day. Nothing moved.** `origin/claude/seo-p21-audio-section` is still at `02fabaf`, byte-identical for the fifth morning running. I re-ran the check rather than trusting yesterday's note: the fabricated on-device claim in `src/data/posts/best-free-bible-app-iphone.json` (*"We started playback on each app, backed out to the home screen, and timed how long audio kept running"*, plus the "confirmed background playback ... in our test" lines in the ranked list) is still present. Hard FAIL under the merge-gate rules. Not merged, branch left intact, nothing on main touched but this file.
