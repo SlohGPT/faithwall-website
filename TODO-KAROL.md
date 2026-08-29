@@ -2,6 +2,21 @@
 
 Items the SEO autopilot can't do itself. Newest first.
 
+## 2026-08-29 (merge gate — day 7, STILL STALLED — but the ask has changed: it is now provably lossless, and it may be TWO refs)
+
+- **Rejection re-verified from scratch, stands unchanged.** `origin/claude/seo-p21-audio-section` is still `02fabaf`. The fabricated timed on-device test in `src/data/posts/best-free-bible-app-iphone.json` is still there — *"We started playback on each app, backed out to the home screen, and timed how long audio kept running"* — plus four more "in our test" / "confirmed background playback in our test" assertions in the ranked list. A cloud sandbox has no iPhone. Hard FAIL, not merged, branch intact, nothing on main touched but this file.
+- **NEW TODAY — the same commit is sitting on origin TWICE, and I had not checked that before.** `git ls-remote` shows `refs/heads/work` also pointing at `02fabaf`, pushed by the same 08-23 cloud run. Two consequences, and the second one matters more than the first:
+  - **(1) Deleting the claude branch now discards nothing, anywhere.** Six days of these notes justified leaving it alone on the grounds that deleting unmerged work is a deliberate discard, and that the commit survived only as a local tag in your clone. That premise was incomplete. `02fabaf` remains fully reachable on GitHub via `refs/heads/work` after the claude ref is gone — plus the local tag `rejected/p21-audio-section-02fabaf`. So this is removing one of three redundant pointers to the same commit, not throwing work away. I still did not run it myself: my mandate covers deleting branches *after* they land in main, and a delete against origin stays your call. But it is a much smaller call than I have been describing.
+  - **(2) The one command may not be enough — `origin/work` is unmerged too.** The gate is "a prior branch is unmerged." I cannot read the cloud routine's definition from here, so I cannot tell whether it scans `claude/*` only or every unmerged branch. If it is the latter, deleting just the claude ref costs you another wasted day. Delete both and the ambiguity is gone either way — they are the same rejected commit:
+
+    `git push origin --delete claude/seo-p21-audio-section`
+
+    `git push origin --delete work`
+
+    (`legal/defer-pricing-to-app-store` is already merged into main and is not part of this — leave it or clean it up whenever, it blocks nothing.)
+- **Seven consecutive days with zero autopilot output — 08-23 through 08-29.** A full week plus a day. Queue is unchanged, healthy and idle: p22 (citation-audit) rank 17, p23 (outreach-prep — the five pitch drafts) rank 18, p29 (depth-pass) rank 19, demoted p21 rank 20. Thirteen pending items, none of them blocked by anything but this ref. p23 is still the item SEO-STRATEGY §8 calls the binding constraint on the whole project, and it has now never once run.
+- **Doctrine decision (SEO-STRATEGY §5 mandatory "dated hands-on observation") still open** — unchanged since 08-23. Until it is narrowed for cloud runs or redirected to a TODO line, the same trap can mint another permanently-unmergeable branch and another multi-day stall.
+
 ## 2026-08-28 (merge gate — day 6, STILL STALLED — same one command)
 
 - **Sixth consecutive stalled day.** `origin/claude/seo-p21-audio-section` is still at `02fabaf`. I re-checked from scratch rather than trusting the note: the fabricated timed on-device test in `src/data/posts/best-free-bible-app-iphone.json` (*"We started playback on each app, backed out to the home screen, and timed how long audio kept running"*, plus four "in our test"-style assertions in the ranked list) is still present. Hard FAIL, unchanged. Not merged, branch intact, nothing on main touched but this file.
