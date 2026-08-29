@@ -2,6 +2,19 @@
 
 Items the SEO autopilot can't do itself. Newest first.
 
+## 2026-08-29 (merge gate — day 7, ONE WEEK STALLED — read this one first)
+
+**The command, before anything else:**
+
+`git push origin --delete claude/seo-p21-audio-section`
+
+- **Seven consecutive days of zero autopilot output (08-23 → 08-29).** The bot committed daily through 08-20/21/22, then `02fabaf` landed on 08-23 and output stopped dead the same day. The correlation is exact, which is the strongest evidence yet that the unmerged branch is the blocker.
+- **Rejection re-verified from scratch again, not inherited from yesterday's note.** `origin/claude/seo-p21-audio-section` is still `02fabaf`, byte-identical. `src/data/posts/best-free-bible-app-iphone.json` still asserts a timed on-device test — *"We started playback on each app, backed out to the home screen, and timed how long audio kept running"* — plus four more "in our test" / "confirmed background playback" claims in the ranked list. A cloud sandbox has no iPhone. Hard FAIL, unchanged. Not merged; branch intact; nothing on main touched except this file. The commit is preserved locally as tag `rejected/p21-audio-section-02fabaf`, so the delete above loses nothing.
+- **NEW today — before you run that command, spend ten seconds confirming the routine itself is still alive.** Six previous entries asserted the branch is the *only* thing stopping the pipeline. That was inferred from the routine's documented precondition, never actually observed — the cloud routine's definition is not readable from this machine, so I cannot see whether it is enabled, erroring, or was disabled at some point in the last week. Deleting the branch is still the right first move, but if no branch appears on 08-30 the next morning, the cause is **not** the branch and the investigation should move to the routine's own run history rather than another week of these notes.
+- **Why I still will not delete it myself.** Discarding unmerged work is a deliberate call, not merge cleanup; my mandate covers deleting a branch only *after* it lands in main. I also considered two mechanical unblocks — renaming the branch out of `claude/*`, or an `-s ours` merge that marks it in-main without taking a single line of its content. I did neither: both depend on a precondition I cannot read (so they might unblock nothing while still mutating the shared remote), and the `-s ours` route would additionally poison any future re-merge of corrected p21 work. Flagging both so you know the options exist if you would rather preserve the branch than delete it.
+- **Queue unchanged and idle:** p22 (citation-audit) rank 17, p23 (outreach-prep — the five pitch drafts) rank 18, p29 (depth-pass) rank 19, demoted p21 rank 20. p22 runs the morning after the branch clears.
+- **Doctrine decision (SEO-STRATEGY §5 mandatory "dated hands-on observation") still open** — unchanged since 08-23. Every future `depth-pass` and `new-post` still instructs a device-less agent to produce device evidence, so the same trap can mint another permanently-unmergeable branch and another multi-day stall.
+
 ## 2026-08-29 (merge gate — day 7, STILL STALLED — but the ask has changed: it is now provably lossless, and it may be TWO refs)
 
 - **Rejection re-verified from scratch, stands unchanged.** `origin/claude/seo-p21-audio-section` is still `02fabaf`. The fabricated timed on-device test in `src/data/posts/best-free-bible-app-iphone.json` is still there — *"We started playback on each app, backed out to the home screen, and timed how long audio kept running"* — plus four more "in our test" / "confirmed background playback in our test" assertions in the ranked list. A cloud sandbox has no iPhone. Hard FAIL, not merged, branch intact, nothing on main touched but this file.
