@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "updated": "2026-08-31",
+  "note": "Citation-audit output per SEO-STRATEGY.md §8 / seo-priorities.json p22. Qualitative only — no Search Console data. Built from WebSearch queries against the core query set; WebFetch to individual target pages was blocked by this cloud session's network egress proxy (same class of restriction as the Unsplash API block, see TODO-KAROL.md 2026-08-16), so per-page content (exact FaithWall presence, exact rank position) is confirmed via search-result snippets and follow-up WebSearch queries rather than direct page reads except where noted. Re-run and refresh this file each time a citation-audit item executes.",
+  "core_query_set": [
+    "best bible verse lock screen app / apps",
+    "best bible app for iphone",
+    "best free bible app iphone",
+    "best prayer app for iphone",
+    "best christian wallpaper app",
+    "hallow alternatives",
+    "abide alternatives",
+    "youversion alternatives",
+    "bible verse lock screen"
+  ],
+  "targets": [
+    {
+      "query": "best bible verse lock screen app iphone",
+      "url": "https://www.bibleversedaily.org/daily-bible-verse-lock-screen/",
+      "site": "bibleversedaily.org",
+      "type": "editorial",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Tier-1 outreach target (§8) — the one independent, active blog in our exact niche. Confirmed via follow-up search: no FaithWall mention found. Still the highest-value open pitch; reinforces p23's priority."
+    },
+    {
+      "query": "best bible app for iphone 2026",
+      "url": "https://www.warmpeach.com/blog/best-bible-apps-for-iphone",
+      "site": "warmpeach.com",
+      "type": "editorial",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Tier-1 outreach target (§8) — install-and-test methodology, ranks YouVersion best overall / Logos & Olive Tree for study. Confirmed via follow-up search: no FaithWall mention. Warmpeach also runs a dedicated /alternatives hub and per-app 'X alternatives' pages (see hallow/abide entries below) — an editorial site actively building comparison content, worth watching as it expands."
+    },
+    {
+      "query": "best bible verse lock screen apps ranked",
+      "url": "https://abbeybible.com/best/best-lock-screen-bible-app/",
+      "site": "abbeybible.com",
+      "type": "competitor",
+      "faithwall_present": true,
+      "last_checked": "2026-08-31",
+      "notes": "NEW FINDING, not in the prior Tier 1-2 seed list. 'Abbey' is a competitor Bible/lock-screen app whose own site publishes 'best of' roundups ranking itself #1, ahead of FaithWall at #2, on this exact head-term family (also runs /best/best-bible-widget-app/). Same pattern as FaithLock/Psalmo (self-promotional competitor content, not an outreach target) but notable because it appears to be a new, credible direct competitor for the lock-screen-app query family specifically — the search snippet cites Focus-mode integration and a freemium price point for FaithWall, so the listing entry itself reads accurate, just ranked below the host's own app. Recommend Karol spot-check this app; not an outreach target, but worth knowing about as competitive intelligence."
+    },
+    {
+      "query": "best bible verse lock screen app iphone",
+      "url": "https://www.getfaithlock.com/resources/best-bible-verse-lock-screen-apps",
+      "site": "getfaithlock.com",
+      "type": "competitor",
+      "faithwall_present": true,
+      "last_checked": "2026-08-31",
+      "notes": "FaithLock — named competitor per SEO-STRATEGY §8 seed list. Self-promotional roundup on its own domain. Not an outreach target."
+    },
+    {
+      "query": "bible app that locks your phone",
+      "url": "https://psalmo.app/blog/bible-app-that-locks-your-phone",
+      "site": "psalmo.app",
+      "type": "competitor",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Psalmo — named competitor per SEO-STRATEGY §8 seed list. Runs several comparison-shaped blog posts (bible-app-that-locks-your-phone, best-bible-app-reduce-screen-time, hallow-alternatives-free) on its own domain, self-promotional. Not an outreach target."
+    },
+    {
+      "query": "bible verse lock screen",
+      "url": "https://www.faithtime.ai/content/general/20-lock-screen-bible-verse-wallpapers/",
+      "site": "faithtime.ai",
+      "type": "competitor",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Faithtime.ai publishes multiple content-marketing pieces adjacent to our core queries (this wallpaper roundup + a separate '10 daily bible verse apps' piece) that read as its own product's content marketing rather than independent editorial — treat as competitor-owned content, not an outreach target, pending a closer look."
+    },
+    {
+      "query": "bible widget lock screen guide",
+      "url": "https://ufukozen.com/blog/bible-widget-lock-screen-complete-guide",
+      "site": "ufukozen.com",
+      "type": "ugc",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Reads as an independent personal/developer blog post (2025-dated guide), not a company site. Small but genuinely independent — low priority relative to Tier 1 but worth a future look if the Tier 1 wave gets responses."
+    },
+    {
+      "query": "best bible app for iphone 2026",
+      "url": "https://thesweetsetup.com/apps/best-bible-app-ios/",
+      "site": "thesweetsetup.com",
+      "type": "editorial",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Established independent iOS-app review publication, general app-review authority rather than niche-specific. Higher domain trust than our current Tier 1 list but broader beat (all iOS apps, not faith-specific) — good citation-surface candidate for a future outreach wave, not in the current five."
+    },
+    {
+      "query": "best free bible app iphone",
+      "url": "https://thecripplegate.com/three-must-have-bible-apps/",
+      "site": "thecripplegate.com",
+      "type": "editorial",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Independent church/pastoral blog. Small, but genuinely editorial and on-topic (recommends Bible apps to a Christian readership) — a plausible future Tier-1-style target."
+    },
+    {
+      "query": "best prayer app for iphone",
+      "url": "https://faith.tools/prayer",
+      "site": "faith.tools",
+      "type": "directory",
+      "faithwall_present": "unknown",
+      "last_checked": "2026-08-31",
+      "notes": "Already a known Tier-2 target (§8) — editorial-selection directory with a real submission flow, covered by p27's prep pack. Confirms it ranks live for prayer-app queries, reinforcing its value as a citation surface."
+    },
+    {
+      "query": "best prayer app for iphone",
+      "url": "https://margaretfeinberg.com/4-best-prayer-apps-phone/",
+      "site": "margaretfeinberg.com",
+      "type": "editorial",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Personal author/speaker blog (published Christian author), independent editorial voice, on-topic. Small reach but genuine — candidate for a future outreach wave alongside HealthySpirituality."
+    },
+    {
+      "query": "best prayer app for iphone",
+      "url": "https://www.aurahealth.io/blog/discover-the-best-prayer-apps-for-iphone",
+      "site": "aurahealth.io",
+      "type": "competitor",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Aura Health is a meditation/wellness app; this piece is content marketing adjacent to prayer-app demand rather than independent editorial. Not our exact niche and not a competitor in lock-screen-Scripture specifically, but self-interested content — treat as competitor-adjacent, not an outreach target."
+    },
+    {
+      "query": "hallow alternatives",
+      "url": "https://prayhouse.app/blog/hallow-alternatives",
+      "site": "prayhouse.app",
+      "type": "competitor",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Prayhouse — named competitor per §8 seed list. Self-promotional 'Hallow alternatives' post on its own domain lists Pray.com, Lectio 365, YouVersion, Echo Prayer, Prayhouse itself — FaithWall does not appear (expected: not a direct prayer-app alternative). Not an outreach target."
+    },
+    {
+      "query": "hallow alternatives",
+      "url": "https://psalmo.app/blog/hallow-alternatives-free",
+      "site": "psalmo.app",
+      "type": "competitor",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Psalmo's own 'free Hallow alternatives' post. Self-promotional. Not an outreach target."
+    },
+    {
+      "query": "hallow alternatives",
+      "url": "https://www.warmpeach.com/alternatives/hallow",
+      "site": "warmpeach.com",
+      "type": "editorial",
+      "faithwall_present": "unknown",
+      "last_checked": "2026-08-31",
+      "notes": "Same Tier-1 target as above (warmpeach.com), via its dedicated /alternatives/hallow page. Confirms Warmpeach is actively building an alternatives-page format across many apps — worth flagging to Karol as a possible additional angle for the existing warmpeach.md pitch (a FaithWall listing under a future 'Hallow alternatives' or 'lock-screen apps' page), not a new target."
+    },
+    {
+      "query": "hallow alternatives",
+      "url": "https://www.saashub.com/hallow-alternatives",
+      "site": "saashub.com",
+      "type": "directory",
+      "faithwall_present": "unknown",
+      "last_checked": "2026-08-31",
+      "notes": "Already a known Tier-2 directory target (§8), covered by p27. Confirms it ranks live for 'X alternatives' queries generally, reinforcing its citation-surface value even though it did not surface for the exact-niche head terms in this pass."
+    },
+    {
+      "query": "abide alternatives",
+      "url": "https://faith.tools/app/29-abide?category=prayer",
+      "site": "faith.tools",
+      "type": "directory",
+      "faithwall_present": "unknown",
+      "last_checked": "2026-08-31",
+      "notes": "Same faith.tools directory as above, confirming its alternatives-style pages also rank for abide-alternatives queries. Reinforces p27 priority."
+    },
+    {
+      "query": "youversion alternatives",
+      "url": "https://alternativeto.net/software/youversion/",
+      "site": "alternativeto.net",
+      "type": "directory",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "Already a known Tier-2 directory target (§8) — community-moderated, requires Karol's account to list FaithWall under YouVersion/Hallow/Glorify alternatives. Confirmed ranking live for the alternatives query family across multiple result pages; FaithWall not currently listed."
+    },
+    {
+      "query": "best christian wallpaper app",
+      "url": "https://apps.apple.com/us/app/christian-wallpapers/id1668115216",
+      "site": "apps.apple.com",
+      "type": "directory",
+      "faithwall_present": false,
+      "last_checked": "2026-08-31",
+      "notes": "App Store listing, not an editorial page — consistent with SEO-STRATEGY §1's observation that money SERPs are App Store listings plus content-farm listicles. No editorial third-party site surfaced for this exact query in this pass; the wallpaper-app query appears to be served mostly by App Store results and generic wallpaper-gallery apps rather than by any editorial voice, so it is currently a weaker outreach opportunity than the lock-screen or prayer query families."
+    }
+  ],
+  "summary": {
+    "editorial_targets_confirmed_absent": [
+      "bibleversedaily.org (Tier 1, p23 in progress)",
+      "warmpeach.com (Tier 1, p23 in progress)",
+      "thesweetsetup.com (not yet a Tier-1 target — candidate for a future wave)",
+      "thecripplegate.com (not yet a Tier-1 target — candidate for a future wave)",
+      "margaretfeinberg.com (not yet a Tier-1 target — candidate for a future wave, pairs with healthyspirituality.org's angle)"
+    ],
+    "competitors_confirmed": [
+      "getfaithlock.com (FaithLock) — already known",
+      "psalmo.app (Psalmo) — already known",
+      "prayhouse.app (Prayhouse) — already known",
+      "abbeybible.com (Abbey) — NEW this audit; ranks #1 ahead of FaithWall on at least one lock-screen-app roundup on its own domain",
+      "faithtime.ai — NEW this audit; content-marketing pattern on wallpaper/lock-screen queries, needs a closer look before final classification",
+      "aurahealth.io — competitor-adjacent (meditation app), content marketing on prayer-app queries, not our exact niche"
+    ],
+    "directories_confirmed_live": [
+      "faith.tools (Tier 2, p27 in progress) — ranks for both prayer and abide-alternatives queries",
+      "saashub.com (Tier 2, p27 in progress) — ranks for hallow-alternatives",
+      "alternativeto.net (Tier 2, p27 in progress) — ranks across the whole alternatives family"
+    ],
+    "new_candidate_targets_not_yet_in_seo_strategy_seed_list": [
+      "thesweetsetup.com — established independent iOS app-review publication, broader beat than faith-specific niche but real authority",
+      "thecripplegate.com — independent pastoral/church blog, on-topic for Bible-app recommendations",
+      "margaretfeinberg.com — independent published-author blog, on-topic for prayer-app recommendations"
+    ],
+    "method_note": "WebFetch to individual target URLs was blocked by this session's network egress proxy for every non-allowlisted domain tried (bibleversedaily.org, warmpeach.com, abbeybible.com). All findings above come from WebSearch result snippets and targeted follow-up WebSearch queries, which were not blocked. This is a research-capability constraint of the cloud sandbox, not a finding about the sites themselves — flagged to Karol in TODO-KAROL.md so future citation-audit runs know why per-page confirmation is search-snippet-based rather than direct-read-based."
+  }
+}
