@@ -2,6 +2,13 @@
 
 Items the SEO autopilot can't do itself. Newest first.
 
+## 2026-08-31 (p22 citation-audit)
+
+- **NEW COMPETITOR FOUND — abbeybible.com ("Abbey").** Not in the SEO-STRATEGY §8 seed list. Its own site publishes self-ranked "best lock screen Bible app" / "best Bible widget app" roundups that place Abbey #1, ahead of FaithWall, on the exact lock-screen-app head-term family. Worth a quick look — same self-promotional pattern as FaithLock/Psalmo/Prayhouse, not an outreach target, but a competitor worth knowing about. See `outreach/targets.json`.
+- **NETWORK CONSTRAINT — WebFetch to arbitrary domains is blocked from this cloud sandbox.** Every attempt to fetch a target page directly (bibleversedaily.org, warmpeach.com, abbeybible.com) returned `EGRESS_BLOCKED` from the network proxy. WebSearch itself still works and was used instead (search-result snippets + targeted follow-up queries), so this audit still shipped, but future citation-audit and outreach-prep runs will hit the same wall for any direct page read — worth knowing if a future item's contract ever requires exact on-page verification (e.g. confirming a submitted listing went live) rather than what a search snippet can show. Same class of restriction as the Unsplash API block noted 2026-08-16.
+- **THREE NEW CANDIDATE OUTREACH TARGETS surfaced, not yet in §8's seed list:** thesweetsetup.com (established independent iOS app-review publication), thecripplegate.com (independent pastoral blog), margaretfeinberg.com (independent published-author blog). None drafted yet — flagging for a future `outreach-prep` wave after the current Tier-1 five (p23) ship. No action needed from you now, just visibility.
+- **outreach/targets.json created** (first version) — the citation-audit output p22 produces. Confirms bibleversedaily.org and warmpeach.com (the two Tier-1 targets checked this pass) still do not mention FaithWall, reinforcing that p23's five drafts remain the highest-leverage open item.
+
 ## 2026-08-30 (merge gate — day 8: UNBLOCKED, and the trap that caused it is closed)
 
 **Nothing needed from you. The two commands the last six notes asked for have been run, with your go-ahead.**
