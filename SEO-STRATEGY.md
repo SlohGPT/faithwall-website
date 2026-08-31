@@ -29,7 +29,7 @@ Strategy in one sentence: **hold the lock-screen moat, win the "best Bible app" 
 
 1. **daily-scripture-lock-screen — the moat.** Own every permutation of lock-screen Scripture intent. Status: winning; defend with freshness and depth, not new URLs.
 2. **christian-app-comparisons — the money layer.** /best-bible-verse-lock-screen-apps (site's strongest page), root FaithWall-vs-X pages, roundups. Status: holding upper page 1 with the site's best conversion; further click-chasing here is done — remaining upside is depth-for-citation and third-party validation.
-3. **bible-study-tools-ios — the growth frontier.** The "best/free Bible app for iPhone" hub is the largest named-query demand pool we touch and the fastest riser for three consecutive cycles; still page 2. This is the #1 content priority — and the #1 beneficiary of any authority gain.
+3. **bible-study-tools-ios — the growth frontier, now on the board (status flipped 2026-08-31).** The "best/free Bible app for iPhone" hub is the largest named-query demand pool we touch and has risen for four consecutive cycles. It has now crossed from deep page 2 to the page-1 threshold and is taking real clicks for the first time — the largest single positional gain the site has recorded. This remains the #1 content priority: the crossing proves the depth method works, and the distance still to travel (page-1 edge to top-5) is the part §1 says is authority-bound, which makes this pillar simultaneously the #1 beneficiary of the §8 layer.
 4. **prayer-life-iphone — adjacent flagship.** Head page in upper page 1. Consolidation, not expansion.
 5. **faith-based-productivity — harvest only.** Three consecutive refreshes with no demand. No new posts; candidate for §5 prune-merge review.
 
@@ -39,7 +39,7 @@ Strategy in one sentence: **hold the lock-screen moat, win the "best Bible app" 
 
 ### Play 1 — Win the "best Bible app" hub (page 2 → page 1)
 
-Unchanged goal, upgraded method. The hub (/blog/best-free-bible-app-iphone) keeps climbing on every query in the family but sits on page 2, where clicks are ~zero.
+Unchanged goal, upgraded method — and as of 2026-08-31 the goal in its original form is met. The hub (/blog/best-free-bible-app-iphone) has climbed on every query in the family for four cycles and has now reached page 1, where it converts for the first time; the named head terms in the family moved up roughly a full page each. **The play is not closed — it is re-aimed:** the remaining target is top-5, and the on-page half of that is the depth work below while the other half is authority (§8). Treat page-1 arrival as evidence the method works, not as a finish line.
 
 - **Depth to citation-magnet standard.** Long, genuinely comprehensive pages earn several times more AI citations than short ones, and passage-level completeness — each section answering one sub-query fully, entities named plainly — is what retrieval systems select for (King; SEL Apr 2026). The hub gets a `depth-pass` (queue) toward the definitive resource on its family: real download sizes, tested offline behavior, what "free" excludes, audio section (p21), translation coverage. Cap: depth means answering more real sub-queries, never padding.
 - **Effort signals.** First-party facts and original media on the page — measured sizes, dated hands-on notes, real screenshots when Karol supplies them. "Content effort" — visible evidence of useful work — is both a ranking signal and the scaled-content defense (Shepard, Aug 2026; §9).
