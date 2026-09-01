@@ -29,8 +29,8 @@
       "site": "warmpeach.com",
       "type": "editorial",
       "faithwall_present": false,
-      "last_checked": "2026-08-31",
-      "notes": "Tier-1 outreach target (§8) — install-and-test methodology, ranks YouVersion best overall / Logos & Olive Tree for study. Confirmed via follow-up search: no FaithWall mention. Warmpeach also runs a dedicated /alternatives hub and per-app 'X alternatives' pages (see hallow/abide entries below) — an editorial site actively building comparison content, worth watching as it expands."
+      "last_checked": "2026-09-01",
+      "notes": "Tier-1 outreach target (§8) — install-and-test methodology, ranks YouVersion best overall / Logos & Olive Tree for study. Confirmed via follow-up search: no FaithWall mention. Warmpeach also runs a dedicated /alternatives hub and per-app 'X alternatives' pages (see hallow/abide entries below) — an editorial site actively building comparison content, worth watching as it expands. NUANCE FOUND BY p23 (2026-09-01): Warmpeach's own About page states the site 'doubles as the marketing home of Warmpeach, a Bible chat app currently in pre-launch' (creator: Sankalp Jonna). It is self-interested content marketing for a different product category (AI Bible-chat, not lock-screen), not disinterested third-party editorial — a step short of the Abbey/FaithLock self-promotional pattern (real stated hands-on methodology, no pay-to-play, includes real competitors), but not neutral either. Left classified as 'editorial' rather than reclassified to 'competitor' since it has no lock-screen-app product and genuinely reviews outside apps — but treat with the caveat noted. See outreach/warmpeach.md and TODO-KAROL.md 2026-09-01."
     },
     {
       "query": "best bible verse lock screen apps ranked",
@@ -188,8 +188,8 @@
   ],
   "summary": {
     "editorial_targets_confirmed_absent": [
-      "bibleversedaily.org (Tier 1, p23 in progress)",
-      "warmpeach.com (Tier 1, p23 in progress)",
+      "bibleversedaily.org (Tier 1, p23 drafted 2026-09-01, contact route unconfirmed — see outreach/bibleversedaily.md)",
+      "warmpeach.com (Tier 1, p23 drafted 2026-09-01, contact route unconfirmed — see outreach/warmpeach.md)",
       "thesweetsetup.com (not yet a Tier-1 target — candidate for a future wave)",
       "thecripplegate.com (not yet a Tier-1 target — candidate for a future wave)",
       "margaretfeinberg.com (not yet a Tier-1 target — candidate for a future wave, pairs with healthyspirituality.org's angle)"

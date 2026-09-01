@@ -2,6 +2,12 @@
 
 Items the SEO autopilot can't do itself. Newest first.
 
+## 2026-09-01 (p23 outreach-prep — five pitch drafts ready)
+
+- **Five outreach drafts are ready in `outreach/` — this is the send button §8 keeps naming.** `outreach/bibleversedaily.md`, `outreach/warmpeach.md`, `outreach/learnofchrist.md`, `outreach/healthyspirituality.md`, `outreach/biblegeeks.md`. Each has a subject line, a ~100-115 word first-person body from you, a disclosure line, and a "Contact route" field. Draft-only — nothing has been sent, no account created, no form submitted.
+- **Contact addresses need your eyes before anything goes out.** WebFetch to every one of these domains is blocked from this cloud sandbox (same constraint as p22), and WebSearch returned masked/redacted email addresses for two of the five. Confidence by target: **healthyspirituality.org** — reasonably solid (Jean Wise's public author-bio addresses); **biblegeeks.fm** — solid (their own live /contact page, use the form directly); **bibleversedaily.org** and **warmpeach.com** — address found but redacted by the search tool, open their About/Submit pages yourself and confirm before sending; **learnofchrist.com** — the only email found (jaeden@aibox.ai) is tied to the founder's *other* company via third-party lookup sites, not confirmed on learnofchrist.com itself — please verify the real inbox before using it.
+- **One nuance worth knowing about warmpeach.com before you send that one.** Their own About page says the site "doubles as the marketing home of Warmpeach, a Bible chat app currently in pre-launch." It's not neutral third-party editorial — it's a solo builder's content-marketing site for a different product (an AI Bible-chat app, no lock-screen overlap with us). Their stated review methodology looks genuinely hands-on (real install-and-test, no pay-to-play, includes real competitors like YouVersion), so still worth pitching — just go in expecting a peer-builder, not a disinterested blogger. Full note in `outreach/targets.json`.
+
 ## 2026-08-31 (weekly refresh)
 
 - **Nothing new is required from you this week.** The four open decisions below are unchanged and still yours: the Cloudflare robots.txt override (08-24), Preferred Sources (08-17), the generative-AI performance report check (08-06), and lock-screen photography (08-06). Everything else on this list has been resolved or superseded and is struck through.
