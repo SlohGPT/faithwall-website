@@ -4,7 +4,7 @@
     "description": "The best free bible app iphone pick is still YouVersion in 2026 — ranked against 9 other real apps, tested for truly-free vs freemium, plus the daily-exposure gap every reader hits.",
     "date": "May 30, 2026",
     "datePublished": "2026-05-30T09:00:00.000Z",
-    "dateModified": "2026-08-18T09:00:00.000Z",
+    "dateModified": "2026-09-03T09:00:00.000Z",
     "readTime": "13 min read",
     "image": "/blog-thumbnails/best-free-bible-app-iphone.jpg",
     "imageAttribution": {
@@ -132,7 +132,32 @@
     },
     {
       "type": "paragraph",
-      "text": "For listening rather than reading, Bible.is and Dwell are the two worth installing — Bible.is if you want it free, Dwell if you want a built-for-audio experience worth paying for. Neither solves what happens after the audio stops: the words fade the moment your ears stop hearing them, the same gap FaithWall closes for reading apps. For the full background-audio setup — which apps actually keep playing when you swipe away, Control Center controls, and the exposure pairing — see our [audio Bible app iPhone guide](/blog/audio-bible-app-iphone-background)."
+      "text": "For listening rather than reading, four apps stand out: Bible.is has the deepest free, fully dramatized narration; YouVersion bundles free audio into the same app as its #2 reading pick above; Dwell is the subscription-only app built specifically for listening; and Crossway's free ESV Bible App pairs named-voice narration with optional background music."
+    },
+    {
+      "type": "ranked-list",
+      "items": [
+        {
+          "name": "Bible.is (Faith Comes By Hearing) — best free dramatized audio",
+          "description": "Truly free, nonprofit-funded, per its App Store listing. Fully dramatized, multi-voice recordings with music and sound effects across 2,600+ languages, with whole-Bible offline downloads for listening without a connection. The deepest free audio library on this list, unchanged from the ranking above."
+        },
+        {
+          "name": "YouVersion (Bible.com) — best free audio bundled with reading",
+          "description": "Audio is included free inside the same app as the #2 reading pick above — no separate purchase. Per YouVersion's own help documentation, audio versions can be downloaded for offline listening, though not every one of its 3,500+ translations includes an audio recording."
+        },
+        {
+          "name": "Dwell Audio Bible — best paid listening-only experience",
+          "description": "Subscription required for the full library (Dwell's own pricing page lists a single-user plan at $9.99/month or $59.99/year, after a 7-day free trial). Built specifically for listening: 20+ voice recordings across 14 translations and whole-book offline downloads, per the app's own description."
+        },
+        {
+          "name": "ESV Bible App (Crossway) — best free single-translation audio",
+          "description": "Truly free, straight from the publisher. The entire ESV text is read by named voices — Crossway credits Kristyn Getty, Ray Ortlund, and Jackie Hill Perry among others — with optional instrumental background music layered in at an independent volume, per Crossway's own app description."
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "None of the four solve what happens after the audio stops: the words fade the moment your ears stop hearing them, the same gap FaithWall closes for reading apps. For the full background-audio setup — which apps keep playing when you swipe away, Control Center controls, and the exposure pairing — see our [audio Bible app iPhone guide](/blog/audio-bible-app-iphone-background)."
     },
     {
       "type": "heading",
@@ -235,6 +260,15 @@
     {
       "type": "paragraph",
       "text": "YouVersion (Bible.com) is the best free Bible app for iPhone for most people — 2,000+ translations, thousands of free reading plans, and no real paywall. Bible Gateway, Bible.is, and Blue Letter Bible are also truly free with no gated content."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "What is the best free audio Bible app for iPhone?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bible.is (Faith Comes By Hearing) is the best free audio Bible app for iPhone — truly free, nonprofit-funded, with fully dramatized narration across 2,600+ languages and whole-Bible offline downloads. YouVersion is a close second since its audio is bundled free into the same app as its reading experience; Dwell is the strongest option if you're willing to pay specifically for a built-for-listening experience."
     },
     {
       "type": "heading",
