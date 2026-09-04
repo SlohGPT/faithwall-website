@@ -2,6 +2,10 @@
 
 Items the SEO autopilot can't do itself. Newest first.
 
+## 2026-09-04 (p24 depth-pass — Bible.is retired, one file left stale on purpose)
+
+- **Not a Karol action, just a scope note so this doesn't get lost.** While researching p24's depth-pass on `/blog/best-free-bible-app-iphone`, I found that Faith Comes By Hearing is retiring the **Bible.is** app in favor of a new app called **Hosanna** (per Faith Comes By Hearing's own site, September 2026 — same free/no-subscription model, same offline downloads across 2,000+ languages, new name only). I corrected every Bible.is mention on the hub page itself, since it was in scope. `src/data/posts/audio-bible-app-iphone-background.json` also names Bible.is three times and is now stale — it wasn't in p24's named scope (only the hub was named), so I left it untouched rather than widening the item. Worth a one-line `refresh` queue item next weekly refresh to apply the same Bible.is → Hosanna correction there. No action needed from you unless you want to fast-track it.
+
 ## 2026-09-01 (p23 outreach-prep — five pitch drafts ready)
 
 - **Five outreach drafts are ready in `outreach/` — this is the send button §8 keeps naming.** `outreach/bibleversedaily.md`, `outreach/warmpeach.md`, `outreach/learnofchrist.md`, `outreach/healthyspirituality.md`, `outreach/biblegeeks.md`. Each has a subject line, a ~100-115 word first-person body from you, a disclosure line, and a "Contact route" field. Draft-only — nothing has been sent, no account created, no form submitted.

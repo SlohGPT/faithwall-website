@@ -4,8 +4,8 @@
     "description": "The best free bible app iphone pick is still YouVersion in 2026 — ranked against 9 other real apps, tested for truly-free vs freemium, plus the daily-exposure gap every reader hits.",
     "date": "May 30, 2026",
     "datePublished": "2026-05-30T09:00:00.000Z",
-    "dateModified": "2026-09-03T09:00:00.000Z",
-    "readTime": "13 min read",
+    "dateModified": "2026-09-04T09:00:00.000Z",
+    "readTime": "16 min read",
     "image": "/blog-thumbnails/best-free-bible-app-iphone.jpg",
     "imageAttribution": {
       "photographer": "Pisit Heng",
@@ -68,8 +68,8 @@
           "description": "Truly free. 200+ translations, reading plans, audio. Mirrors the Bible Gateway website closely — less native-feeling than YouVersion, worth it mainly if you already have a Bible Gateway habit."
         },
         {
-          "name": "Bible.is (Faith Comes By Hearing) — best free audio",
-          "description": "Truly free, nonprofit-funded. Full audio and text Bibles in 1,800+ languages, with dramatized casts in many. The deepest free audio library on this list."
+          "name": "Hosanna, formerly Bible.is (Faith Comes By Hearing) — best free audio",
+          "description": "Truly free, nonprofit-funded. Faith Comes By Hearing is retiring the Bible.is app in favor of Hosanna as of September 2026 — same free model, same offline downloads across 2,000+ languages, new name. Full audio and text Bibles with dramatized casts in many languages remain the deepest free audio library on this list."
         },
         {
           "name": "Dwell Audio Bible — best paid listening experience",
@@ -108,7 +108,24 @@
     },
     {
       "type": "paragraph",
-      "text": "| App | Truly free or freemium | What's free | What costs money |\n|---|---|---|---|\n| FaithWall | Truly free | Verse packs, daily rotation, Focus mode setup | Nothing |\n| YouVersion | Truly free | 2,000+ translations, reading plans, audio | Optional Plus subscription (skippable) |\n| Olive Tree | Freemium | Base app + KJV, cross-references | Extra translations and commentaries, priced individually |\n| Bible Gateway | Truly free | 200+ translations, reading plans, audio | Optional Plus subscription for extras |\n| Bible.is | Truly free | Full audio + text, 1,800+ languages | Nothing |\n| Dwell | Freemium | Short trial, a few free playlists | Subscription for the full audio library |\n| Blue Letter Bible | Truly free | Strong's numbers, interlinear, commentaries | Nothing |\n| ESV Bible App | Truly free | Full ESV text, audio, reading plans | Nothing |\n| NLT Bible App | Truly free | Full NLT text, audio, devotionals | Nothing |\n| Logos Bible App | Freemium | Mobile app, small starter library | Resource packs and subscriptions |"
+      "text": "| App | Truly free or freemium | What's free | What costs money |\n|---|---|---|---|\n| FaithWall | Truly free | Verse packs, daily rotation, Focus mode setup | Nothing |\n| YouVersion | Truly free | 2,000+ translations, reading plans, audio | Optional Plus subscription (skippable) |\n| Olive Tree | Freemium | Base app + KJV, cross-references | Extra translations and commentaries, priced individually |\n| Bible Gateway | Truly free | 200+ translations, reading plans, audio | Optional Plus subscription for extras |\n| Hosanna (formerly Bible.is) | Truly free | Full audio + text, 2,000+ languages | Nothing |\n| Dwell | Freemium | Short trial, a few free playlists | Subscription for the full audio library |\n| Blue Letter Bible | Truly free | Strong's numbers, interlinear, commentaries | Nothing |\n| ESV Bible App | Truly free | Full ESV text, audio, reading plans | Nothing |\n| NLT Bible App | Truly free | Full NLT text, audio, devotionals | Nothing |\n| Logos Bible App | Freemium | Mobile app, small starter library | Resource packs and subscriptions |"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How much space these apps actually need — and what works offline"
+    },
+    {
+      "type": "paragraph",
+      "text": "None of the ten apps above are static text files. App Store listing sizes for this group span roughly 35MB to 330MB as of September 2026, and every truly-free app on the list supports offline reading once a translation is downloaded — size mostly tracks study-tool depth, not translation count."
+    },
+    {
+      "type": "paragraph",
+      "text": "| App | Approx. size (App Store, Sept 2026) | Offline support |\n|---|---|---|\n| FaithWall | Lightweight — no reading library to store | Verse packs cache on-device; the lock screen needs no connection once a pack has loaded |\n| YouVersion | ~93MB | Full text plus most audio translations downloadable for offline use |\n| Olive Tree | ~115MB | Downloaded Bibles and study resources available offline |\n| Bible Gateway | ~102MB | 200+ translations readable in-app; its listing doesn't advertise a dedicated offline mode the way YouVersion or Olive Tree do |\n| Hosanna (formerly Bible.is) | Small base app, ~5MB | Full text and audio downloadable per language for offline listening |\n| Dwell | Not published in MB on its App Store listing | Per-book offline downloads, confirmed on Dwell's own help pages |\n| Blue Letter Bible | ~80MB | Select translations downloadable offline, including the free NLT |\n| ESV Bible App | ~36MB | Full ESV text plus the ESV Global Study Bible offline |\n| NLT Bible App | Not published in MB on its App Store listing | Works without a connection once installed, per Tyndale's own listing |\n| Logos | ~330MB, the largest on this list | Downloaded books and Bibles available offline; size reflects its library depth |"
+    },
+    {
+      "type": "paragraph",
+      "text": "One correction worth flagging here: **Bible.is**, ranked above and referenced throughout this page's audio coverage, is being retired by Faith Comes By Hearing in favor of a new app called **Hosanna**, per the organization's own site as of September 2026. Hosanna carries the same free, no-subscription model and the same offline downloads across 2,000+ languages — it's a rebrand plus platform consolidation, not a loss of the free option — so every Bible.is mention on this page now also names Hosanna as the app to actually install."
     },
     {
       "type": "heading",
@@ -132,14 +149,14 @@
     },
     {
       "type": "paragraph",
-      "text": "For listening rather than reading, four apps stand out: Bible.is has the deepest free, fully dramatized narration; YouVersion bundles free audio into the same app as its #2 reading pick above; Dwell is the subscription-only app built specifically for listening; and Crossway's free ESV Bible App pairs named-voice narration with optional background music."
+      "text": "For listening rather than reading, four apps stand out: Hosanna (Faith Comes By Hearing's rebrand of Bible.is, live as of September 2026) has the deepest free, fully dramatized narration; YouVersion bundles free audio into the same app as its #2 reading pick above; Dwell is the subscription-only app built specifically for listening; and Crossway's free ESV Bible App pairs named-voice narration with optional background music."
     },
     {
       "type": "ranked-list",
       "items": [
         {
-          "name": "Bible.is (Faith Comes By Hearing) — best free dramatized audio",
-          "description": "Truly free, nonprofit-funded, per its App Store listing. Fully dramatized, multi-voice recordings with music and sound effects across 2,600+ languages, with whole-Bible offline downloads for listening without a connection. The deepest free audio library on this list, unchanged from the ranking above."
+          "name": "Hosanna, formerly Bible.is (Faith Comes By Hearing) — best free dramatized audio",
+          "description": "Truly free, nonprofit-funded, per Faith Comes By Hearing's own site. Bible.is is being retired in favor of Hosanna as of September 2026 — same fully dramatized, multi-voice recordings with music and sound effects across 2,000+ languages, with whole-Bible offline downloads for listening without a connection. The deepest free audio library on this list, unchanged in substance, new in name."
         },
         {
           "name": "YouVersion (Bible.com) — best free audio bundled with reading",
@@ -171,6 +188,32 @@
     {
       "type": "heading",
       "level": 2,
+      "text": "Translation coverage: who actually carries ESV, NIV, and KJV"
+    },
+    {
+      "type": "paragraph",
+      "text": "The 2,000-plus-translation marketing number hides a simpler question: does the app carry the specific English translation you already use? YouVersion, Bible Gateway, and Blue Letter Bible all carry ESV, NIV, KJV, and NLT natively and free; the publisher apps below carry exactly one, on purpose."
+    },
+    {
+      "type": "paragraph",
+      "text": "YouVersion's translation library is the largest on this list — 2,000+ translations including ESV, NIV, KJV, NLT, NASB, and CSB, all free. Bible Gateway matches the major-translation coverage (NIV, KJV, ESV, NKJV, NASB, AMP, MSG, and NLT among 200+) with the same no-paywall model. Blue Letter Bible carries over 30 translations free, including KJV, NKJV, ESV, NIV, both NASB editions, CSB, and the 2015 NLT licensed free from Tyndale House — pairing each with Strong's numbers and interlinear Greek and Hebrew, the deepest free translation-comparison toolkit of the three. Olive Tree includes the KJV free and prices every other translation, ESV and NIV included, individually — skip it if you specifically want ESV vs. NIV without paying per translation. ESV Bible App (Crossway) and NLT Bible App (Tyndale) are single-translation publisher apps by design: the right pick once you already know which translation you're committed to, not the app to install while you're still deciding between ESV and NIV."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Widget and lock-screen support: what happens after you close the app"
+    },
+    {
+      "type": "paragraph",
+      "text": "Most of the ten apps above are reading apps with no lock-screen presence at all — once you close them, nothing carries the verse forward. YouVersion is the one exception with a genuine iOS widget; the rest, FaithWall included by design, treat the lock screen and the reading app as two separate jobs."
+    },
+    {
+      "type": "paragraph",
+      "text": "YouVersion ships a Verse of the Day home-screen and lock-screen widget, refreshed once daily from inside the app's own widget gallery — the only app on this list with a comparable feature, and still limited to one verse per day with no theming or Focus-mode rotation. Olive Tree, Bible Gateway, Hosanna, Dwell, Blue Letter Bible, ESV Bible App, NLT Bible App, and Logos ship no lock-screen or widget presence at all as of September 2026; closing any of them ends the exposure until you reopen the app. FaithWall exists specifically to fill that gap for any reading app on this list — it isn't a competitor to YouVersion's reading features, it's the layer that keeps a verse visible between the times you have one of these apps open, with themed packs and Focus-mode rotation YouVersion's single daily widget doesn't attempt. For the full comparison of lock-screen-specific apps, including three near-identical copycats worth telling apart, see our [ranked lock-screen app comparison](/best-bible-verse-lock-screen-apps)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
       "text": "Best Bible apps for iPhone in 2026: what actually changed"
     },
     {
@@ -189,8 +232,8 @@
           "description": "Still the best free reading pick, and 2026 changed the story behind it: over 1 billion installs, 17.5 million-plus daily users, and a March 2026 platform launch that lets other apps embed its same translation library."
         },
         {
-          "name": "Bible.is — best free audio Bible in 2026",
-          "description": "Nonprofit-funded and still fully free in 2026, with dramatized audio across 1,800+ languages — the deepest free audio library on this list, unchanged and unbeaten this year."
+          "name": "Hosanna, formerly Bible.is — best free audio Bible in 2026",
+          "description": "Nonprofit-funded and still fully free in 2026, though the app itself changed name this year: Faith Comes By Hearing retired Bible.is in favor of Hosanna, carrying the same dramatized audio across 2,000+ languages — the deepest free audio library on this list, unbeaten this year, just relaunched under a new name."
         },
         {
           "name": "Olive Tree — best for study depth in 2026",
@@ -239,7 +282,7 @@
         "**Install YouVersion** (free). Pick a translation you already love — ESV or NIV for most people, KJV if that's home.",
         "**Pick one reading plan.** A one-year plan is the most-stuck-with for first-timers — don't start with a 90-day sprint.",
         "**Install FaithWall** (free) for the lock-screen layer. Pick a themed verse pack matched to your season — Peace, Strength, Gratitude, Grief.",
-        "**Add Bible.is or Dwell** only if you actually commute or work with your hands free — audio is additive, not required.",
+        "**Add Hosanna (formerly Bible.is) or Dwell** only if you actually commute or work with your hands free — audio is additive, not required.",
         "**Skip everything else.** A stack of three or four free apps beats a stack of ten paid ones every time."
       ]
     },
@@ -259,7 +302,7 @@
     },
     {
       "type": "paragraph",
-      "text": "YouVersion (Bible.com) is the best free Bible app for iPhone for most people — 2,000+ translations, thousands of free reading plans, and no real paywall. Bible Gateway, Bible.is, and Blue Letter Bible are also truly free with no gated content."
+      "text": "YouVersion (Bible.com) is the best free Bible app for iPhone for most people — 2,000+ translations, thousands of free reading plans, and no real paywall. Bible Gateway, Hosanna (formerly Bible.is), and Blue Letter Bible are also truly free with no gated content."
     },
     {
       "type": "heading",
@@ -268,7 +311,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Bible.is (Faith Comes By Hearing) is the best free audio Bible app for iPhone — truly free, nonprofit-funded, with fully dramatized narration across 2,600+ languages and whole-Bible offline downloads. YouVersion is a close second since its audio is bundled free into the same app as its reading experience; Dwell is the strongest option if you're willing to pay specifically for a built-for-listening experience."
+      "text": "Hosanna, the Faith Comes By Hearing app that replaced Bible.is as of September 2026, is the best free audio Bible app for iPhone — truly free, nonprofit-funded, with fully dramatized narration across 2,000+ languages and whole-Bible offline downloads. YouVersion is a close second since its audio is bundled free into the same app as its reading experience; Dwell is the strongest option if you're willing to pay specifically for a built-for-listening experience."
     },
     {
       "type": "heading",
@@ -286,7 +329,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The same ranking holds for 2026: YouVersion for reading, Bible.is or Dwell for listening, Blue Letter Bible or Olive Tree for study, and FaithWall for the daily-exposure layer none of the reading apps cover. What changed in 2026 is scale, not the winner — see the section above."
+      "text": "The same ranking holds for 2026: YouVersion for reading, Hosanna (formerly Bible.is) or Dwell for listening, Blue Letter Bible or Olive Tree for study, and FaithWall for the daily-exposure layer none of the reading apps cover. What changed in 2026 is scale — and one name: Bible.is became Hosanna — not the winner. See the section above."
     },
     {
       "type": "heading",
@@ -304,7 +347,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Most people do better with two or three apps that each do one job than one app trying to do everything. A reading app (YouVersion), a lock-screen exposure layer (FaithWall), and optionally an audio app (Bible.is or Dwell) cover reading, retention, and listening without any of them competing for the same job. Piling on a fourth or fifth app usually means less use of all of them, not more depth."
+      "text": "Most people do better with two or three apps that each do one job than one app trying to do everything. A reading app (YouVersion), a lock-screen exposure layer (FaithWall), and optionally an audio app (Hosanna, formerly Bible.is, or Dwell) cover reading, retention, and listening without any of them competing for the same job. Piling on a fourth or fifth app usually means less use of all of them, not more depth."
     },
     {
       "type": "heading",
@@ -314,6 +357,24 @@
     {
       "type": "paragraph",
       "text": "YouVersion, with 2,000+ translations in 1,800+ languages — the largest free library of any app on this list, and the reason the March 2026 YouVersion Platform launch matters: it's the same library other apps can now embed. Bible Gateway's 200+ translations is a distant second, still enough for the vast majority of English-language readers."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Which of these Bible apps work fully offline?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Every truly-free app on this list — YouVersion, Bible Gateway, Hosanna (formerly Bible.is), Blue Letter Bible, ESV Bible App, and NLT Bible App — supports offline reading once you've downloaded a translation, per each app's own App Store listing. Dwell confirms offline downloads on its own help pages despite its full library sitting behind a subscription. Olive Tree and Logos both work offline for whatever you've already downloaded, though their deeper libraries are priced individually. FaithWall works differently: once a verse pack loads, the lock screen itself needs no connection to keep displaying it."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "What happened to the Bible.is app?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bible.is, the free audio Bible app from Faith Comes By Hearing, is being retired as of September 2026 in favor of Hosanna, the organization's newer unified app. Per Faith Comes By Hearing's own site, Hosanna keeps the same free, no-subscription, no-ads model and the same offline downloads across 2,000+ languages — existing Bible.is users are being directed to move over rather than losing the free option."
     },
     {
       "type": "paragraph",
