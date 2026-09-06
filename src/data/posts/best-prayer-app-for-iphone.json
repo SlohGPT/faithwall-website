@@ -4,7 +4,7 @@
     "description": "The best prayer app for iphone, ranked and free-tier tested: FaithWall first for the daily trigger, then Hallow, Lectio 365, Abide, Echo Prayer and PrayerMate compared honestly.",
     "date": "June 7, 2026",
     "datePublished": "2026-06-07T09:00:00.000Z",
-    "dateModified": "2026-08-14T09:00:00.000Z",
+    "dateModified": "2026-09-06T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/best-prayer-app-for-iphone.jpg",
     "imageAttribution": {
@@ -124,6 +124,28 @@
     {
       "type": "paragraph",
       "text": "Notice the pattern: Lectio 365 and FaithWall are the two with nothing gated at all — one for the session, one for the trigger. Hallow and Abide both hold their deepest content behind a subscription, which is fine if audio-led, produced prayer is worth paying for to you. Echo Prayer and PrayerMate are both genuinely free list-and-reminder tools, with optional paid tiers that add convenience rather than core function."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Alternatives to Echo Prayer"
+    },
+    {
+      "type": "paragraph",
+      "text": "Echo Prayer, built by The Parable Group, is free for creating a prayer list and setting reminders; the only paywall is the ECHO+ membership at roughly $15 a year, which unlocks shared Groups and Feeds plus desktop access after a two-week free trial. If you want that same list-and-reminder core with absolutely nothing gated, PrayerMate does the identical job for free, kept that way by a church sponsorship (the Diocese of London) rather than a subscription tier. If what you actually want is guided, audio-led prayer instead of a list, Echo isn't the closer alternative either — Hallow or Lectio 365 answer that need. FaithWall doesn't compete with Echo's list function at all; it holds no names, no requests, no feeds. The honest pairing is Echo or PrayerMate for organizing who and what you're praying for, FaithWall on the lock screen so you're actually reminded to open that list."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Alternatives to PrayerMate"
+    },
+    {
+      "type": "paragraph",
+      "text": "PrayerMate, the prayer-list app built by independent developer Andy Geers, is free to download and use, kept that way by sponsorship from the Diocese of London rather than a paywall; its only in-app purchase is an optional Patron subscription that supports the app's continued development. It works by aggregating prayer feeds — Operation World's daily pointers, PDF letters from mission agencies, and updates from churches and charities — around a manual list you build yourself. If you'd rather get that same list-organizing core from a bigger publisher, Echo Prayer covers the identical free function and reserves its ECHO+ subscription for group-sharing, not feed access. If audio is the actual gap, neither app closes it — Hallow and Lectio 365 are built for spoken prayer, not lists. FaithWall sits outside this comparison entirely: no feeds, no list to maintain, just a lock-screen verse that nudges you to open PrayerMate — or to [set a prayer alarm](/blog/how-to-set-prayer-alarms-iphone) — before the moment passes."
+    },
+    {
+      "type": "tip",
+      "content": "Our honest read, not a lab result: pick PrayerMate if price is what matters most, Echo Prayer if sharing your list with a spouse or small group is worth paying for — the day-to-day feature gap between the two is otherwise thin."
     },
     {
       "type": "heading",
