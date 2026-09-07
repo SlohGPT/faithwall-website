@@ -2,7 +2,8 @@
 
 **Target site:** learnofchrist.com
 **Target page:** https://learnofchrist.com/resources/apps ("508 Best Bible Apps & Christian Apps, Reviewed" — standalone-review format a "FaithWall Review 2026" fits directly)
-**Contact route:** Founder/reviewer is Jaeden Schafer (site states reviews are hands-on, no sponsorships, no affiliate links). A candidate email, jaeden@aibox.ai, surfaced via third-party contact-lookup services tied to his separate company (AI Box) — **not confirmed directly on learnofchrist.com itself**, and WebFetch to the site is blocked from this cloud sandbox so the site's own contact/submission page could not be checked directly. **Karol: verify the real submission route on learnofchrist.com before sending — do not use the AI Box address without confirming it's the right inbox for this site.**
+**Contact route:** **RESOLVED 2026-09-07 (weekly refresh, local run).** Use the site's own contact form at https://learnofchrist.com/contact. The site deliberately publishes no email address (its markup explicitly suppresses email detection), so the form is the intended route — **do not use the jaeden@aibox.ai address the cloud pass surfaced from a third-party lookup service; it was never confirmed as this site's inbox and is tied to a different company.** That line has been superseded by this one.
+**Target intel (verified 2026-09-07):** the site's app directory now lists 508 reviewed apps across 27 categories and FaithWall is absent from all of them. More useful than the absence: none of the 27 categories covers lock screen, wallpaper, or verse widgets. The strongest angle is therefore not "please review my app" but "your directory has no category for the thing a lot of people actually search for" — a category gap you can fill, with FaithWall as the first entry in it.
 **Status:** DRAFT ONLY — not sent.
 
 ---

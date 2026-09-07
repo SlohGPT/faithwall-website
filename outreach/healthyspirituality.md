@@ -2,7 +2,7 @@
 
 **Target site:** healthyspirituality.org
 **Target page:** https://healthyspirituality.org/11-apps-for-daily-prayer-divine-technology/ ("11 Apps for Daily Prayer")
-**Contact route:** Author Jean Wise — email addresses surfaced publicly on her author bio: jeanwise22@gmail.com and Jeanwise@healthyspirituality.org. Reasonably confirmed (matches her name and the site domain, consistent across search results), but **Karol: please confirm on https://healthyspirituality.org/blog/biography/ before sending, since WebFetch to the site is blocked from this cloud sandbox and this could not be directly verified on-page.**
+**Contact route:** Author Jean Wise — `jeanwise22@gmail.com` and `Jeanwise@healthyspirituality.org`, both surfaced publicly on her author bio. **Still not directly verified on-page, and now for a stronger reason: the site returns 403 to automated fetches from the local weekly refresh as well as from the cloud sandbox**, so this is the one target of the five whose contact route no tooling here can confirm. Karol: open https://healthyspirituality.org/blog/biography/ in a normal browser and confirm before sending. Everything else in this draft stands.
 **Status:** DRAFT ONLY — not sent.
 
 ---

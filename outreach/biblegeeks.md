@@ -2,7 +2,7 @@
 
 **Target site:** biblegeeks.fm
 **Target page:** https://biblegeeks.fm/podcast/258 ("Mini: Prayer Hacks and Hot Takes" — an episode already about prayer apps) plus the general contact route
-**Contact route:** Confirmed live contact page at https://biblegeeks.fm/contact — the site invites listener messages and voice-recorded questions through it. No specific named-person email surfaced; use the contact form itself.
+**Contact route:** Confirmed live contact page at https://biblegeeks.fm/contact — the site invites listener messages and voice-recorded questions through it. No specific named-person email surfaced; use the contact form itself. **Re-verified 2026-09-07 (local run):** the contact route is still live and the show is actively publishing (most recent episode 2026-08-31), so the guest-pitch optionality in this draft is real rather than aspirational. FaithWall is not mentioned anywhere on the site.
 **Status:** DRAFT ONLY — not sent.
 
 ---

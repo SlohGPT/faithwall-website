@@ -2,7 +2,8 @@
 
 **Target site:** bibleversedaily.org
 **Target page:** https://www.bibleversedaily.org/daily-bible-verse-lock-screen/ (independent blog, exact-niche match — lock-screen Scripture)
-**Contact route:** No dedicated contact/press email could be confirmed directly from the site during this pass — WebFetch to bibleversedaily.org is blocked from this cloud sandbox (same network-egress constraint noted in `outreach/targets.json` and TODO-KAROL.md 2026-08-31), and WebSearch returned only a redacted address on their About page (https://www.bibleversedaily.org/about/). **Karol: please open the About page yourself and confirm the real send-to address before sending — do not send to a guessed address.**
+**Contact route:** **RESOLVED 2026-09-07 (weekly refresh, local run).** `info@bibleversedaily.org` — published on their own About page (https://www.bibleversedaily.org/about/), behind Cloudflare's email obfuscation, which is why the cloud pass could only see it redacted. Send to that address. *(Process note: the local weekly refresh is not subject to the cloud sandbox's network-egress block, so it can read target pages directly. Contact-route resolution belongs there, not in the cloud outreach-prep run.)*
+**Target intel (verified 2026-09-07):** their lock-screen roundup was republished 2026-08-24, so the list is actively maintained — the pitch is timely rather than late. It names 15 apps, and the tail of the list has drifted well off-topic (a card-value scanner, a crypto-portfolio tracker, a sleep tracker, a vocab widget). A free, genuinely on-topic lock-screen Bible verse app has an unusually easy case to make here; consider saying plainly that the list's last few entries are not lock-screen Scripture apps, and offering FaithWall as a straight replacement rather than an addition.
 **Status:** DRAFT ONLY — not sent.
 
 ---
