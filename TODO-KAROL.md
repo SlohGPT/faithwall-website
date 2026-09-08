@@ -2,7 +2,14 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
-## 2026-09-07 (weekly refresh)
+## 2026-09-08 (daily autopilot — p27)
+
+- **ACCOUNTS + one small paid decision: the Tier-2 directory submission pack is ready at `outreach/directories.md`.** Covers faith.tools, AlternativeTo, SaaSHub, MochiLaunch with exact steps and copy to paste for each — draft only, nothing submitted, no accounts created.
+  - **faith.tools now costs money to submit to** (moved to a paid process 2026-04-02, confirmed by web search today — the original plan assumed it was free). The exact fee wasn't findable by search; you'll see it live when you start the submission. Needs your go-ahead before spending anything, however small.
+  - **AlternativeTo needs a 7-day-old account before it'll accept a new listing** — sign up now if you don't already have one, so the week isn't wasted later.
+  - **SaaSHub is free**, just needs a domain email (hello@faithwall.app) for verification — lowest-friction of the four.
+  - **MochiLaunch is a genuinely different model**: free if you embed their badge on the site, $1.99 if you'd rather not add anything to faithwall.app. That's a small design call, not just a submission — pick one before you go.
+  - All four entries name Hallow/YouVersion/Glorify as the competitors to list alongside FaithWall, since those are the pages already confirmed ranking for the alternatives queries we want to be found on.
 
 - **THE ONE THING: send the five pitches. Four of the five contact routes were blocked last week and are now resolved — the excuse is gone.** The cloud agent that drafted them cannot reach the open internet; this local refresh can, so it went and got the addresses:
   - `outreach/bibleversedaily.md` → **info@bibleversedaily.org** (published on their About page, Cloudflare-obfuscated, which is why earlier passes only saw it redacted). **This is the best of the five and it just got better:** their lock-screen roundup was republished 2026-08-24, so the list is actively maintained — and of the 15 apps it names, the tail has drifted badly off-topic (a trading-card value scanner, a crypto-portfolio tracker, a sleep tracker, a vocab widget). A free, genuinely on-topic app has an unusually easy case here. The draft now suggests offering FaithWall as a *replacement* for one of those, not just an addition.
