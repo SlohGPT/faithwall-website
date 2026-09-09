@@ -4,7 +4,7 @@
     "description": "How to run an audio bible app in the background on iPhone — the apps, the Control Center setup, and the one thing audio alone can't do that keeps Scripture in view.",
     "date": "July 13, 2026",
     "datePublished": "2026-07-13T09:00:00.000Z",
-    "dateModified": "2026-09-03T09:00:00.000Z",
+    "dateModified": "2026-09-09T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/audio-bible-app-iphone-background.jpg",
     "imageAttribution": {
@@ -37,14 +37,14 @@
     },
     {
       "type": "paragraph",
-      "text": "Not every Bible app streams audio properly once you swipe away. Three do it well: **YouVersion** (free, dozens of narrated translations), **Dwell** (paid, built specifically for listening, with music beds and reading plans), and **Bible.is** (free, full audio in hundreds of languages). All three register as media apps, so iOS treats them like a podcast — playback survives locking the screen and switching apps."
+      "text": "Not every Bible app streams audio properly once you swipe away. Three do it well: **YouVersion** (free, dozens of narrated translations), **Dwell** (paid, built specifically for listening, with music beds and reading plans), and **Hosanna** (formerly Bible.is; free, full audio across 2,000+ languages — Faith Comes By Hearing retired the Bible.is app in favor of Hosanna as of September 2026, same free, no-subscription model, per the organization's own site). All three register as media apps, so iOS treats them like a podcast — playback survives locking the screen and switching apps."
     },
     {
       "type": "list",
       "items": [
         "**YouVersion** — best free option; audio for most ESV, NIV, and KJV chapters, plus reading plans you can listen through.",
         "**Dwell** — best pure listening experience; passage playlists, sleep timer, and a genuinely calming reader.",
-        "**Bible.is** — best for other languages and dramatized audio with a full voice cast."
+        "**Hosanna** (formerly Bible.is) — best for other languages and dramatized audio with a full voice cast."
       ]
     },
     {
@@ -135,7 +135,7 @@
     },
     {
       "type": "paragraph",
-      "text": "YouVersion, Dwell, and Bible.is all register as media apps with iOS, so playback survives locking the screen, swiping to another app, or plugging into CarPlay. Cheaper or less-polished Bible apps often pause the moment you leave them — test any new one before relying on it for a commute."
+      "text": "YouVersion, Dwell, and Hosanna (formerly Bible.is) all register as media apps with iOS, so playback survives locking the screen, swiping to another app, or plugging into CarPlay. Cheaper or less-polished Bible apps often pause the moment you leave them — test any new one before relying on it for a commute."
     },
     {
       "type": "heading",
