@@ -4,7 +4,8 @@
     "description": "The christian focus modes iphone users keep — Quiet Time, Sabbath, Work, Wind-Down — with the iOS 16+ setup and verse pairing that makes each one stick.",
     "date": "May 26, 2026",
     "datePublished": "2026-05-26T09:00:00.000Z",
-    "readTime": "6 min read",
+    "dateModified": "2026-09-10T09:00:00.000Z",
+    "readTime": "8 min read",
     "image": "/blog-thumbnails/christian-focus-modes-iphone.jpg",
     "imageAttribution": {
       "photographer": "Samantha Gades",
@@ -55,6 +56,57 @@
     {
       "type": "paragraph",
       "text": "Four modes, four kinds of silence, four kinds of Scripture in front of you. They take about ten minutes each to set up and run themselves once configured. For where these slot into the wider Christian productivity system, see the [faith-based productivity guide](/faith-based-productivity)."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiet Time: give the reading a shape"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Focus mode above handles the silence; it doesn't handle what you do with it. Most quiet times collapse by week two for one of two reasons: no structure — an open Bible and a blank mind is intimidating, so you drift — or interruption, where one buzz and you're back in your inbox before the moment settles. A simple four-move rhythm fixes the first problem outright, and the Focus mode already fixes the second."
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Read** (5 min) — one short passage, slowly. A paragraph beats a chapter you can't remember.",
+        "**Reflect** (5 min) — one question: what does this show me about God, or ask of me?",
+        "**Pray** (5 min) — turn the passage back to God as thanks, confession, and request.",
+        "**Carry** (1 min) — pick one verse to take into the day. The move everyone skips, and the one that makes it stick."
+      ]
+    },
+    {
+      "type": "tip",
+      "content": "**Stack it, don't schedule it from scratch.** Quiet time holds better when it starts the moment the coffee finishes brewing, or the second you sit in the car before work, than when it depends on remembering an alarm. Layering the routine onto a trigger you never skip is what carries it past the motivated first week."
+    },
+    {
+      "type": "important",
+      "content": "A quiet time is **input** — fifteen focused minutes in the Word. A Scripture lock screen is **retention** — keeping one line of it in front of you until it sinks in. The **Carry** move is the bridge between them: the verse you pick at minute twenty is the one FaithWall can keep surfacing on the Quiet Time lock screen for the rest of the day, so the reading doesn't evaporate the second you close the Bible app."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Sabbath: build the friction in, don't rely on willpower"
+    },
+    {
+      "type": "paragraph",
+      "text": "A real Sabbath is harder than a busy Tuesday. Tuesday has structure; Sabbath asks you to *stop*, and the Sabbath Focus mode above only goes so far on its own — a phone that's engineered for default access to everything needs more than one silenced notification list to actually rest. The fix is to automate the friction rather than relying on resolve in the moment."
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Sundown trigger** — a Shortcuts automation (\"At sunset\") that switches on the Sabbath Focus automatically Saturday evening, so it doesn't depend on remembering to flip it on.",
+        "**Playlist on connect** — when your phone connects to home Wi-Fi during the Sabbath window, auto-start a hymn or worship playlist. The cue replaces the reflex of unlocking to check something.",
+        "**Reading-mode toggle** — a Shortcut that turns on grayscale for the day. Reading on grayscale feels different from full color, and it quietly removes the visual pull of every other app."
+      ]
+    },
+    {
+      "type": "tip",
+      "content": "**Hide the work apps — don't just silence them.** A silenced app still tempts because the icon is right there on the home screen. Hidden in the App Library, it takes three deliberate taps to reach. That small friction is the difference between a thoughtful exception and a reflex scroll."
+    },
+    {
+      "type": "important",
+      "content": "**Give the setup four weeks before you tune it.** Week one will surprise you with how often you reach for a hidden app; week two will feel slightly empty; week three you'll start anticipating sundown. By week four the Sabbath Focus mode fires before you remember it's Saturday evening, and the empty inbox on Sunday morning becomes the most peaceful surface you see all week."
     },
     {
       "type": "heading",

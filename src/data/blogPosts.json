@@ -107,6 +107,7 @@
     "thumbnail": "/blog-thumbnails/scripture-habit-tracker-iphone.jpg",
     "date": "June 18, 2026",
     "datePublished": "2026-06-18T09:00:00.000Z",
+    "dateModified": "2026-09-10T09:00:00.000Z",
     "cluster": "faith-based-productivity",
     "keywords": ["scripture habit tracker iphone", "bible habit tracker ios", "daily scripture streak", "scripture habit app iphone", "faithwall"],
     "readTime": "5 min read",
@@ -152,18 +153,6 @@
     "dateModified": "2026-08-09T09:00:00.000Z"
   },
   {
-    "slug": "quiet-time-routine-iphone-setup",
-    "title": "Quiet Time Routine iPhone Setup: A 20-Minute Rhythm That Holds",
-    "description": "A quiet time routine iphone setup with a four-move structure and the Focus mode that defends the slot — so your devotional time survives past the second week.",
-    "thumbnail": "/blog-thumbnails/quiet-time-routine-iphone-setup.jpg",
-    "date": "June 14, 2026",
-    "datePublished": "2026-06-14T09:00:00.000Z",
-    "cluster": "faith-based-productivity",
-    "keywords": ["quiet time routine iphone setup", "quiet time iphone", "daily devotional routine ios", "quiet time focus mode", "faithwall"],
-    "readTime": "5 min read",
-    "isPublished": true
-  },
-  {
     "slug": "bible-reading-plan-widget-iphone",
     "title": "Bible Reading Plan Widget iPhone: Make the Plan Impossible to Forget",
     "description": "A bible reading plan widget iphone setup that keeps today's passage in front of you — the home and lock screen widgets that stop plans dying by week three.",
@@ -198,18 +187,6 @@
     "dateModified": "2026-09-06T09:00:00.000Z",
     "cluster": "prayer-life-iphone",
     "keywords": ["best prayer app for iphone", "prayer app ios", "hallow vs lectio 365", "christian prayer app", "faithwall"],
-    "readTime": "6 min read",
-    "isPublished": true
-  },
-  {
-    "slug": "sabbath-rest-iphone-shortcuts",
-    "title": "Sabbath Rest iPhone Shortcuts: The Setup That Makes the Day Actually Feel Different",
-    "description": "A sabbath rest iphone shortcuts setup with the Focus mode, the Shortcuts automations, and the lock-screen swap that turns one day a week into actual rest.",
-    "thumbnail": "/blog-thumbnails/sabbath-rest-iphone-shortcuts.jpg",
-    "date": "June 5, 2026",
-    "datePublished": "2026-06-05T09:00:00.000Z",
-    "cluster": "faith-based-productivity",
-    "keywords": ["sabbath rest iphone shortcuts", "sabbath focus mode iphone", "ios shortcuts sabbath", "christian sabbath setup", "faithwall"],
     "readTime": "6 min read",
     "isPublished": true
   },
@@ -336,6 +313,7 @@
     "thumbnail": "/blog-thumbnails/christian-focus-modes-iphone.jpg",
     "date": "May 26, 2026",
     "datePublished": "2026-05-26T09:00:00.000Z",
+    "dateModified": "2026-09-10T09:00:00.000Z",
     "cluster": "faith-based-productivity",
     "keywords": ["christian focus modes iphone", "ios focus modes christian", "quiet time focus mode", "sabbath focus mode iphone", "faithwall"],
     "readTime": "6 min read",

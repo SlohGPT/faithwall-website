@@ -45,6 +45,16 @@
       "source": "/blog/faithwall-vs-hallow",
       "destination": "/faithwall-vs-hallow",
       "permanent": true
+    },
+    {
+      "source": "/blog/quiet-time-routine-iphone-setup",
+      "destination": "/blog/christian-focus-modes-iphone",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sabbath-rest-iphone-shortcuts",
+      "destination": "/blog/christian-focus-modes-iphone",
+      "permanent": true
     }
   ]
 }
