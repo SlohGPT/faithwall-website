@@ -2,6 +2,10 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-09-11 (daily autopilot — p36)
+
+- **p36's study/hub cannibalization audit is done — recommendation is RE-SCOPE, not merge, for the next weekly refresh to queue.** No page edits made; this item was audit-only per its contract. Evidence: a live §7 SERP-overlap spot-check on "best bible study app for iphone" vs "best free bible app for iphone" returned only ONE shared domain (thesweetsetup.com) across the two result sets — well under even the 4-6 "separate post is fine" band. Google treats the two queries as genuinely different intents externally, so a merge wouldn't be resolving a real external collision. The internal cannibalization (our own hub out-ranking our own study page on study phrasings) reads instead as a content-quality gap: the study page's title promises "Notes, Highlights & Commentaries" but its body never delivers comparative depth on any of that — no note-taking or highlighting discussion at all, one passing mention of commentaries — while the hub, though scoped to "free reading," already states real study facts per app (Olive Tree's cross-reference speed, Blue Letter Bible's Strong's numbers and interlinear Greek/Hebrew) that the dedicated study page never states. **Suggested next queue item (not queued by this run — that's the weekly refresh's call): a depth-pass that rebuilds the study page's body around genuine comparative study-tool coverage, paired with a light trim of the hub's per-app study-feature mentions so it states facts without out-delivering the page whose job that is.** Full detail in `src/data/seo-priorities.json` under p36's close-out notes.
+
 ## 2026-09-08 (daily autopilot — p27)
 
 - **ACCOUNTS + one small paid decision: the Tier-2 directory submission pack is ready at `outreach/directories.md`.** Covers faith.tools, AlternativeTo, SaaSHub, MochiLaunch with exact steps and copy to paste for each — draft only, nothing submitted, no accounts created.
