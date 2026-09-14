@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-07",
+ "updated": "2026-09-14",
  "note": "Citation-audit output per SEO-STRATEGY.md §8 / seo-priorities.json p22. Qualitative only — no Search Console data. Built from WebSearch queries against the core query set; WebFetch to individual target pages was blocked by this cloud session's network egress proxy (same class of restriction as the Unsplash API block, see TODO-KAROL.md 2026-08-16), so per-page content (exact FaithWall presence, exact rank position) is confirmed via search-result snippets and follow-up WebSearch queries rather than direct page reads except where noted. Re-run and refresh this file each time a citation-audit item executes. 2026-09-07 WEEKLY REFRESH: re-verified every Tier-1 target and the Tier-2 editorial directories by DIRECT PAGE READ. Process finding worth carrying forward — the network-egress block recorded above is a property of the CLOUD sandbox only; the local weekly refresh fetches target pages without restriction. So the honest division is: the cloud outreach-prep run drafts the pitch, and the local weekly refresh verifies presence and resolves contact routes. Four of the five Tier-1 contact routes were left unconfirmed by the cloud pass for exactly this reason and three are now resolved (bibleversedaily.org, warmpeach.com, learnofchrist.com); the fourth (healthyspirituality.org) is blocked to automated fetches from both environments and stays a Karol task. Placements landed: still zero — nothing has been sent.",
  "core_query_set": [
   "best bible verse lock screen app / apps",
@@ -20,8 +20,8 @@
    "site": "bibleversedaily.org",
    "type": "editorial",
    "faithwall_present": false,
-   "last_checked": "2026-09-07",
-   "notes": "Tier-1 outreach target (§8) — the one independent, active blog in our exact niche. Confirmed via follow-up search: no FaithWall mention found. Still the highest-value open pitch; reinforces p23's priority. RE-VERIFIED 2026-09-07 by direct page read (the local weekly refresh has no egress block): still no FaithWall mention. Two new facts that matter for the pitch — the roundup was republished 2026-08-24, so the list is actively maintained and the pitch is timely; and of the 15 apps it names, the tail has drifted off-topic (a card-value scanner, a crypto tracker, a sleep tracker, a vocab widget), which gives an on-topic free app an unusually strong case. Contact route resolved to info@bibleversedaily.org, published on their About page behind Cloudflare email obfuscation — see outreach/bibleversedaily.md."
+   "last_checked": "2026-09-14",
+   "notes": "Tier-1 outreach target (§8) — the one independent, active blog in our exact niche. Confirmed via follow-up search: no FaithWall mention found. Still the highest-value open pitch; reinforces p23's priority. RE-VERIFIED 2026-09-07 by direct page read (the local weekly refresh has no egress block): still no FaithWall mention. Two new facts that matter for the pitch — the roundup was republished 2026-08-24, so the list is actively maintained and the pitch is timely; and of the 15 apps it names, the tail has drifted off-topic (a card-value scanner, a crypto tracker, a sleep tracker, a vocab widget), which gives an on-topic free app an unusually strong case. Contact route resolved to info@bibleversedaily.org, published on their About page behind Cloudflare email obfuscation — see outreach/bibleversedaily.md. RE-VERIFIED 2026-09-14 by direct page read: still no FaithWall mention; the roundup still carries its 2026-08-24 date and the same fifteen apps, off-topic tail included. No send note exists for this pitch, so absence is expected."
   },
   {
    "query": "best bible app for iphone 2026",
@@ -101,8 +101,8 @@
    "site": "faith.tools",
    "type": "directory",
    "faithwall_present": false,
-   "last_checked": "2026-09-07",
-   "notes": "Already a known Tier-2 target (§8) — editorial-selection directory with a real submission flow, covered by p27's prep pack. Confirms it ranks live for prayer-app queries, reinforcing its value as a citation surface. RESOLVED 2026-09-07 by direct page read — 'unknown' is now a confirmed absence: FaithWall is not among the 40+ apps listed. Three facts p27 should build the submission copy around: (1) they publish 11 selection criteria and expect a submitter to check against them first; (2) the stated rejection reasons are missing Bible-translation citations, unclear pricing, outdated design, and insufficient safeguards against fabricated Scripture — FaithWall answers all four well (KJV/NIV/ESV named and labeled, free tier stated plainly, no generative text at all), so the copy should say so explicitly rather than leaving it to be inferred; (3) their own FAQ states 'There is no timeline. There is no reply.' — set Karol's expectations accordingly, and note there is no dedicated lock-screen or widget category, which is worth raising in the submission itself."
+   "last_checked": "2026-09-14",
+   "notes": "Already a known Tier-2 target (§8) — editorial-selection directory with a real submission flow, covered by p27's prep pack. Confirms it ranks live for prayer-app queries, reinforcing its value as a citation surface. RESOLVED 2026-09-07 by direct page read — 'unknown' is now a confirmed absence: FaithWall is not among the 40+ apps listed. Three facts p27 should build the submission copy around: (1) they publish 11 selection criteria and expect a submitter to check against them first; (2) the stated rejection reasons are missing Bible-translation citations, unclear pricing, outdated design, and insufficient safeguards against fabricated Scripture — FaithWall answers all four well (KJV/NIV/ESV named and labeled, free tier stated plainly, no generative text at all), so the copy should say so explicitly rather than leaving it to be inferred; (3) their own FAQ states 'There is no timeline. There is no reply.' — set Karol's expectations accordingly, and note there is no dedicated lock-screen or widget category, which is worth raising in the submission itself. RE-VERIFIED 2026-09-14 by direct page read: FaithWall still not listed, still no lock-screen or widget category. No submission note exists yet (see outreach/directories.md)."
   },
   {
    "query": "best prayer app for iphone",
@@ -247,6 +247,7 @@
    "learnofchrist.com -> contact form at https://learnofchrist.com/contact (no email published by design; the previously surfaced aibox.ai address is NOT confirmed and must not be used)",
    "biblegeeks.fm -> contact form at https://biblegeeks.fm/contact (re-verified live)",
    "healthyspirituality.org -> UNRESOLVED; 403 to automated fetches from both the cloud and local environments. Karol to confirm in a browser."
-  ]
+  ],
+  "placements_landed_2026_09_14": "ZERO. No send or submission note exists in TODO-KAROL.md or outreach/ for any Tier-1 pitch or Tier-2 directory, so nothing could have landed. Spot re-verified by direct page read on 2026-09-14: bibleversedaily.org (the strongest Tier-1 target) and faith.tools both still omit FaithWall. The Tier-1 drafts have now been ready for thirteen days and the Tier-2 pack for six."
  }
 }
