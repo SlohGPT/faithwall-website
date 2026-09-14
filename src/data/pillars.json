@@ -120,7 +120,7 @@
     "metaTitle": "Bible Study on iPhone — Apps, Tools, Workflows (2026)",
     "metaDescription": "The complete iPhone Bible study setup: apps for highlighting, memorization, commentaries, and reading plans that compound.",
     "datePublished": "2026-05-19",
-    "dateModified": "2026-05-19",
+    "dateModified": "2026-09-14",
     "sections": [
       { "type": "callout", "icon": "zap", "title": "Quick Answer", "content": "**The best iPhone Bible study setup in 2026** is four apps doing one job each: YouVersion for reading and reading plans, Olive Tree for deeper study and commentaries, a memorization app (Verses or Bible Memory) for spaced repetition, and FaithWall for keeping this week's verse on your lock screen. Don't optimize for more reading — optimize for slower reading." },
       { "type": "heading", "level": 2, "text": "The four pillars of an iPhone Bible study setup" },
@@ -143,7 +143,7 @@
       { "type": "verse", "reference": "Psalm 119:11", "text": "I have stored up your word in my heart, that I might not sin against you." },
       { "type": "cta", "title": "Anchor your study with FaithWall", "description": "Pick the verse. We'll keep it in front of you all week.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
     ],
-    "featured": ["audio-bible-app-iphone-background", "one-year-bible-plan-iphone", "bible-reading-plan-widget-iphone", "how-to-highlight-verses-on-iphone", "best-free-bible-app-iphone", "bible-memorization-apps-iphone"]
+    "featured": ["verse-mapping-iphone-app", "audio-bible-app-iphone-background", "one-year-bible-plan-iphone", "bible-reading-plan-widget-iphone", "how-to-highlight-verses-on-iphone", "best-free-bible-app-iphone"]
   },
   "christian-app-comparisons": {
     "slug": "christian-app-comparisons",
