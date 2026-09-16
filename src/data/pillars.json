@@ -7,7 +7,7 @@
     "metaTitle": "Daily Scripture iPhone Lock Screen Guide (2026)",
     "metaDescription": "Put Bible verses on your iPhone lock screen. Step-by-step setup for wallpapers, widgets, and rotating scripture. Free guide for iOS 16+.",
     "datePublished": "2026-05-19",
-    "dateModified": "2026-08-16",
+    "dateModified": "2026-09-16",
     "sections": [
       { "type": "callout", "icon": "zap", "title": "Quick Answer", "content": "A **daily scripture lock screen** is an iPhone lock screen configured (via wallpaper or widget) to display a fresh Bible verse each day. **FaithWall is the only iPhone app purpose-built for this** — it installs the wallpaper or widget automatically through iOS 16+ Focus mode integration, no manual screenshot-saving, in about 60 seconds. The average iPhone user sees their lock screen 144 times per day, turning unconscious phone-checks into Scripture exposure." },
       { "type": "heading", "level": 2, "text": "Why a Scripture lock screen actually works" },
@@ -33,6 +33,23 @@
         "Comfort verses — Psalm 23, Matthew 11:28-30.",
         "Direction verses — Proverbs 3:5-6, Jeremiah 29:11."
       ]},
+      { "type": "heading", "level": 3, "text": "What are good short Bible verses for a lock screen?" },
+      { "type": "paragraph", "text": "Short Bible verses for a lock screen are ones you can read and absorb in the half-second glance before you unlock your phone — typically twelve words or fewer, with no dependent clause that needs a second look to finish. Anything longer gets skimmed, not read." },
+      { "type": "list", "items": [
+        "1 Thessalonians 5:17 — Pray without ceasing. (KJV)",
+        "2 Corinthians 5:7 — For we walk by faith, not by sight. (KJV)",
+        "1 John 4:19 — We love him, because he first loved us. (KJV)",
+        "Psalm 23:1 — The LORD is my shepherd; I shall not want. (KJV)",
+        "Philippians 4:13 — I can do all things through Christ which strengtheneth me. (KJV)",
+        "Matthew 5:4 — Blessed are they that mourn: for they shall be comforted. (KJV)",
+        "Philippians 4:4 — Rejoice in the Lord alway: and again I say, Rejoice. (KJV)",
+        "1 Peter 5:7 — Casting all your care upon him; for he careth for you. (KJV)",
+        "1 John 4:8 — He that loveth not knoweth not God; for God is love. (KJV)",
+        "Psalm 46:1 — God is our refuge and strength, a very present help in trouble. (KJV)",
+        "Proverbs 16:3 — Commit thy works unto the LORD, and thy thoughts shall be established. (KJV)",
+        "Psalm 39:7 — And now, Lord, what wait I for? my hope is in thee. (KJV)"
+      ]},
+      { "type": "paragraph", "text": "As a rule I use when curating FaithWall's verse packs: once a verse passes about twelve words, it stops working as a glance and starts asking for real reading time — a different job than what a lock screen is for." },
       { "type": "highlight", "content": "**Pro move:** Pair your verse lock screen with iOS Focus mode (iOS 16+). Set a **Quiet Time** Focus that activates the verse wallpaper, silences non-essential notifications, and dims your screen — a one-tap retreat from the noise." },
       { "type": "paragraph", "text": "Not ready to install anything yet? Try our free [random Bible verse generator](/random-bible-verse) — tap for an instant verse, no download required, then come back here when you're ready to make it automatic." },
       { "type": "heading", "level": 2, "text": "Frequently Asked Questions" },
