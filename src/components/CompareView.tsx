@@ -30,6 +30,11 @@ export interface CopycatSection {
   items: CopycatItem[];
 }
 
+export interface CoverageEntry {
+  question: string;
+  answer: string;
+}
+
 export interface CompareConfig {
   slug: string;
   title: string;
@@ -43,6 +48,7 @@ export interface CompareConfig {
   whenToChooseUs: string;
   whenToChooseThem: string;
   useBoth: string;
+  descriptiveCoverage?: CoverageEntry[];
   copycatSection?: CopycatSection;
   faq?: CompareFaqItem[];
   competitorName: string;
@@ -275,6 +281,21 @@ export default function CompareView({ config }: { config: CompareConfig }) {
           <div className="text-white/85 leading-relaxed text-lg">
             <Inline text={config.useBoth} />
           </div>
+
+          {config.descriptiveCoverage && config.descriptiveCoverage.length > 0 && (
+            <>
+              {config.descriptiveCoverage.map((entry, i) => (
+                <div key={i}>
+                  <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4">
+                    {entry.question}
+                  </h2>
+                  <div className="text-white/85 leading-relaxed text-lg">
+                    <Inline text={entry.answer} />
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
 
           {config.copycatSection && (
             <>
