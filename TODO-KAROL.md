@@ -2,6 +2,10 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-09-26 (merge gate)
+
+- **Quarantined a duplicate p33 branch, no action needed.** Today's cloud run pushed `claude/seo-p33-descriptive-coverage` (882342f). It built p33 a second time from a stale base (1dc25d2, from before the 2026-09-24 refresh). The first p33 build (914a734) was already merged, live, and marked done on 2026-09-25. The duplicate conflicted in `CompareView.tsx`, `comparisons.json`, `seo-priorities.json`, and the sitemap. It could never merge, and leaving it would have blocked every later run. Nothing reached main. The commit can be recovered from tag `rejected/seo-p33-descriptive-coverage-882342f`. p33 stays done. Nothing needs re-scoping. **Worth watching:** the routine seems to have started from an old main checkout. If tomorrow's run also re-executes a finished item, check the routine's run history in the Claude Code web UI to see how it picks up main.
+
 ## 2026-09-24 (weekly refresh)
 
 - **THE ONE THING, week three: send the five Tier-1 pitches.** Nothing has changed on this since 2026-09-01: drafts are ready, contact routes are resolved, and placements landed is still zero because nothing has been sent. All five targets were re-checked today and none lists FaithWall.
