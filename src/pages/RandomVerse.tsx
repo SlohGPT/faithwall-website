@@ -1,19 +1,66 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Shuffle, Copy, Share2, Check } from 'lucide-react';
+import { Shuffle, Copy, Share2, Check, ExternalLink } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Breadcrumbs from '../components/Breadcrumbs';
 import AppStoreButton from '../components/AppStoreButton';
 import verses from '../data/randomVerses.json';
+import chapterData from '../data/bibleChapters.json';
 
 const URL = 'https://faithwall.app/random-bible-verse';
 const TITLE = 'Random Bible Verse Generator — Get a New Verse Instantly | FaithWall';
 const DESC =
-  'Free random Bible verse generator with 100+ public-domain KJV verses across ten themes. Pick a theme, tap for a new verse, copy or share it — no download, no account.';
+  'Free random Bible verse generator with 100+ public-domain KJV verses across ten themes, plus a random chapter picker across all 66 books. No download required.';
 
 const THEMES = Array.from(new Set(verses.map((v) => v.theme))).sort();
+
+type ChapterMode = 'all' | 'OT' | 'NT' | 'gospels' | 'wisdom';
+
+const GOSPEL_BOOKS = new Set(['Matthew', 'Mark', 'Luke', 'John']);
+const WISDOM_BOOKS = new Set(['Psalms', 'Proverbs']);
+
+const CHAPTER_MODE_LABELS: Record<ChapterMode, string> = {
+  all: 'Whole Bible',
+  OT: 'Old Testament',
+  NT: 'New Testament',
+  gospels: 'Gospels',
+  wisdom: 'Psalms & Proverbs',
+};
+
+function booksForMode(mode: ChapterMode) {
+  if (mode === 'all') return chapterData.books;
+  if (mode === 'OT') return chapterData.books.filter((b) => b.testament === 'OT');
+  if (mode === 'NT') return chapterData.books.filter((b) => b.testament === 'NT');
+  if (mode === 'gospels') return chapterData.books.filter((b) => GOSPEL_BOOKS.has(b.book));
+  return chapterData.books.filter((b) => WISDOM_BOOKS.has(b.book));
+}
+
+// Chapter counts are a fixed reference table, not something to recompute at
+// runtime — this assertion catches a bad edit to bibleChapters.json rather
+// than silently skewing which chapters are reachable.
+if (chapterData.books.reduce((sum, b) => sum + b.chapters, 0) !== chapterData.totalChapters) {
+  throw new Error('bibleChapters.json chapter counts do not sum to totalChapters');
+}
+
+function pickRandomChapter(mode: ChapterMode): { book: string; chapter: number } {
+  const books = booksForMode(mode);
+  const total = books.reduce((sum, b) => sum + b.chapters, 0);
+  let target = Math.floor(Math.random() * total);
+  for (const b of books) {
+    if (target < b.chapters) return { book: b.book, chapter: target + 1 };
+    target -= b.chapters;
+  }
+  const fallback = books[0];
+  return { book: fallback.book, chapter: 1 };
+}
+
+function bibleGatewayUrl(book: string, chapter: number) {
+  return `https://www.biblegateway.com/passage/?search=${encodeURIComponent(
+    `${book} ${chapter}`
+  )}&version=KJV`;
+}
 
 const faqs = [
   {
@@ -39,7 +86,7 @@ const faqs = [
   {
     question: 'Does this generate random Bible chapters, not just verses?',
     answer:
-      'No — this tool draws from single verses only, not full chapters. That is by design: a whole chapter does not fit the tap-and-read format this page is built for. If you searched for a random chapter generator, this page will still give you a real, correctly-cited verse, just not a multi-verse passage.',
+      'Yes — switch to "Random chapter" above the generator and tap New chapter for a chapter picked with equal odds from any of the 66 books, optionally narrowed to the Old Testament, New Testament, Gospels, or Psalms & Proverbs. It links out to the full King James Version text on BibleGateway rather than reproducing it here, so you always read the real passage.',
   },
   {
     question: 'Is this a Bible randomizer for the King James Version only?',
@@ -63,6 +110,8 @@ function pickIndex(exclude: number, length: number): number {
 }
 
 export default function RandomVerse() {
+  const [pageMode, setPageMode] = useState<'verse' | 'chapter'>('verse');
+
   const [activeTheme, setActiveTheme] = useState<string | null>(null);
   const pool = useMemo(
     () => (activeTheme ? verses.filter((v) => v.theme === activeTheme) : verses),
@@ -83,6 +132,22 @@ export default function RandomVerse() {
     setActiveTheme(theme);
     const nextPool = theme ? verses.filter((v) => v.theme === theme) : verses;
     setIndex(pickIndex(-1, nextPool.length));
+  }
+
+  // Same deterministic-then-randomize pattern as the verse picker above, so
+  // the chapter mode never disagrees between server and client on first paint.
+  const [chapterFilter, setChapterFilter] = useState<ChapterMode>('all');
+  const [chapter, setChapter] = useState<{ book: string; chapter: number }>({
+    book: chapterData.books[0].book,
+    chapter: 1,
+  });
+  useEffect(() => {
+    setChapter(pickRandomChapter('all'));
+  }, []);
+
+  function handleChapterFilterSelect(mode: ChapterMode) {
+    setChapterFilter(mode);
+    setChapter(pickRandomChapter(mode));
   }
 
   function shareText() {
@@ -159,81 +224,165 @@ export default function RandomVerse() {
               A random Bible verse generator instantly shows you a Scripture passage — drawn at random
               from a curated, public-domain KJV set of {verses.length} verses spanning {THEMES.length}{' '}
               themes — so you always have a verse one tap away, no download required. Pick a theme below
-              to narrow the pool, or leave it on all themes for full randomness.
+              to narrow the pool, or switch to chapter mode for a random full chapter from any of the 66
+              books instead.
             </p>
           </header>
 
-          <div className="rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-surface-card to-surface-elevated border-2 border-brand/30 text-center">
-            <blockquote>
-              <p className="text-white text-2xl sm:text-3xl leading-relaxed font-serif italic">
-                "{verse.text}"
-              </p>
-              <footer className="mt-4 text-brand font-semibold tracking-wide not-italic">
-                — {verse.reference} ({verse.translation})
-              </footer>
-            </blockquote>
+          <div className="mb-4 flex justify-center gap-2">
+            <button
+              type="button"
+              onClick={() => setPageMode('verse')}
+              aria-pressed={pageMode === 'verse'}
+              className={`px-4 py-2 rounded-xl text-sm font-bold transition-colors ${
+                pageMode === 'verse'
+                  ? 'bg-brand text-white'
+                  : 'bg-surface-elevated text-white/60 hover:text-white'
+              }`}
+            >
+              Random verse
+            </button>
+            <button
+              type="button"
+              onClick={() => setPageMode('chapter')}
+              aria-pressed={pageMode === 'chapter'}
+              className={`px-4 py-2 rounded-xl text-sm font-bold transition-colors ${
+                pageMode === 'chapter'
+                  ? 'bg-brand text-white'
+                  : 'bg-surface-elevated text-white/60 hover:text-white'
+              }`}
+            >
+              Random chapter
+            </button>
+          </div>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <button
-                type="button"
-                onClick={() => setIndex((current) => pickIndex(current, pool.length))}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand text-white font-bold hover:bg-brand-light transition-colors"
-              >
-                <Shuffle className="w-4 h-4" aria-hidden="true" />
-                New verse
-              </button>
-              <button
-                type="button"
-                onClick={handleCopy}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-elevated text-white font-semibold border border-surface-border hover:border-brand/50 transition-colors"
-              >
-                {copyState === 'copied' ? (
-                  <Check className="w-4 h-4" aria-hidden="true" />
-                ) : (
-                  <Copy className="w-4 h-4" aria-hidden="true" />
-                )}
-                {copyState === 'copied' ? 'Copied' : 'Copy'}
-              </button>
-              <button
-                type="button"
-                onClick={handleShare}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-elevated text-white font-semibold border border-surface-border hover:border-brand/50 transition-colors"
-              >
-                <Share2 className="w-4 h-4" aria-hidden="true" />
-                Share
-              </button>
-            </div>
+          {pageMode === 'verse' ? (
+            <div className="rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-surface-card to-surface-elevated border-2 border-brand/30 text-center">
+              <blockquote>
+                <p className="text-white text-2xl sm:text-3xl leading-relaxed font-serif italic">
+                  "{verse.text}"
+                </p>
+                <footer className="mt-4 text-brand font-semibold tracking-wide not-italic">
+                  — {verse.reference} ({verse.translation})
+                </footer>
+              </blockquote>
 
-            <div className="mt-6 flex flex-wrap justify-center gap-2">
-              <button
-                type="button"
-                onClick={() => handleThemeSelect(null)}
-                aria-pressed={activeTheme === null}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
-                  activeTheme === null
-                    ? 'bg-brand text-white'
-                    : 'bg-surface-elevated text-white/60 hover:text-white'
-                }`}
-              >
-                All themes
-              </button>
-              {THEMES.map((theme) => (
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 <button
-                  key={theme}
                   type="button"
-                  onClick={() => handleThemeSelect(theme)}
-                  aria-pressed={activeTheme === theme}
-                  className={`px-3 py-1.5 rounded-full text-xs font-semibold capitalize transition-colors ${
-                    activeTheme === theme
+                  onClick={() => setIndex((current) => pickIndex(current, pool.length))}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand text-white font-bold hover:bg-brand-light transition-colors"
+                >
+                  <Shuffle className="w-4 h-4" aria-hidden="true" />
+                  New verse
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-elevated text-white font-semibold border border-surface-border hover:border-brand/50 transition-colors"
+                >
+                  {copyState === 'copied' ? (
+                    <Check className="w-4 h-4" aria-hidden="true" />
+                  ) : (
+                    <Copy className="w-4 h-4" aria-hidden="true" />
+                  )}
+                  {copyState === 'copied' ? 'Copied' : 'Copy'}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleShare}
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-elevated text-white font-semibold border border-surface-border hover:border-brand/50 transition-colors"
+                >
+                  <Share2 className="w-4 h-4" aria-hidden="true" />
+                  Share
+                </button>
+              </div>
+
+              <div className="mt-6 flex flex-wrap justify-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => handleThemeSelect(null)}
+                  aria-pressed={activeTheme === null}
+                  className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
+                    activeTheme === null
                       ? 'bg-brand text-white'
                       : 'bg-surface-elevated text-white/60 hover:text-white'
                   }`}
                 >
-                  {theme}
+                  All themes
                 </button>
-              ))}
+                {THEMES.map((theme) => (
+                  <button
+                    key={theme}
+                    type="button"
+                    onClick={() => handleThemeSelect(theme)}
+                    aria-pressed={activeTheme === theme}
+                    className={`px-3 py-1.5 rounded-full text-xs font-semibold capitalize transition-colors ${
+                      activeTheme === theme
+                        ? 'bg-brand text-white'
+                        : 'bg-surface-elevated text-white/60 hover:text-white'
+                    }`}
+                  >
+                    {theme}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-surface-card to-surface-elevated border-2 border-brand/30 text-center">
+              <p className="text-brand text-sm font-semibold uppercase tracking-widest mb-3">
+                Random chapter
+              </p>
+              <p className="text-white text-3xl sm:text-4xl font-black tracking-tight">
+                {chapter.book} {chapter.chapter}
+              </p>
+              <p className="mt-3 text-white/60 text-sm">
+                Chosen uniformly at random from {booksForMode(chapterFilter).reduce(
+                  (sum, b) => sum + b.chapters,
+                  0
+                )}{' '}
+                chapters in {CHAPTER_MODE_LABELS[chapterFilter].toLowerCase()}.
+              </p>
+
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setChapter(pickRandomChapter(chapterFilter))}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand text-white font-bold hover:bg-brand-light transition-colors"
+                >
+                  <Shuffle className="w-4 h-4" aria-hidden="true" />
+                  New chapter
+                </button>
+                <a
+                  href={bibleGatewayUrl(chapter.book, chapter.chapter)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-elevated text-white font-semibold border border-surface-border hover:border-brand/50 transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" aria-hidden="true" />
+                  Read {chapter.book} {chapter.chapter} (KJV)
+                </a>
+              </div>
+
+              <div className="mt-6 flex flex-wrap justify-center gap-2">
+                {(Object.keys(CHAPTER_MODE_LABELS) as ChapterMode[]).map((mode) => (
+                  <button
+                    key={mode}
+                    type="button"
+                    onClick={() => handleChapterFilterSelect(mode)}
+                    aria-pressed={chapterFilter === mode}
+                    className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
+                      chapterFilter === mode
+                        ? 'bg-brand text-white'
+                        : 'bg-surface-elevated text-white/60 hover:text-white'
+                    }`}
+                  >
+                    {CHAPTER_MODE_LABELS[mode]}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           <section className="prose prose-invert max-w-none mt-14">
             <h2>What a random Bible verse generator actually does</h2>
@@ -271,16 +420,28 @@ export default function RandomVerse() {
               every day instead of one on demand.
             </p>
 
-            <h2>One verse, not a random chapter — why this tool stays that way</h2>
+            <h2>How do I get a random Bible chapter to read?</h2>
             <p>
-              This generator is built around single verses, so a search for a "random Bible chapter
-              generator" or a full passage will not get a multi-verse block here — it gets one real,
-              correctly-cited verse instead. That's a deliberate scope choice, not a limitation nobody
-              noticed: a full chapter rarely fits a quick tap-and-read moment the way one verse does,
-              and stretching this tool to chapter-length text would blur the thing it's actually good
-              at. If the phrasing that brought you here was "bible verse random" or "random scripture
-              generator," this is the same tool — the underlying behavior (one random, real, cited verse
-              per tap) is identical regardless of which of those terms you used to find it.
+              Switch to "Random chapter" above the generator, optionally narrow it to the Old Testament,
+              New Testament, Gospels, or Psalms &amp; Proverbs, then tap New chapter. The picker weighs
+              all 1,189 chapters across the 66-book canon equally and links out to the full King James
+              Version text on BibleGateway, so what you read is the real passage, not an excerpt.
+            </p>
+            <p>
+              A random chapter generator and a random verse generator answer different searches on
+              purpose. If the phrasing that brought you here was "bible randomizer," "random scripture
+              generator," or "random Bible chapter generator," chapter mode is built for exactly that —
+              one full, correctly-cited chapter, picked with equal odds across every chapter rather than
+              weighted toward the Bible's longer books. Verse mode stays a separate, curated-by-theme
+              pool for the quicker tap-and-read case; neither replaces the other.
+            </p>
+            <p>
+              Reading a whole chapter instead of a single verse matters for context: a verse pulled alone
+              can read as a promise or a command it was never making on its own, while the surrounding
+              chapter usually makes the actual point plain — who is speaking, to whom, and why. A random
+              chapter picker will not always land somewhere devotional; sometimes it lands in a genealogy
+              or a legal passage, and that is the honest trade for reading Scripture in the shape it was
+              actually written, rather than only ever the pre-selected, encouraging slice.
             </p>
 
             <h2>Which translation this is, and why public domain matters</h2>
