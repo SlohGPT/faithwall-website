@@ -2,6 +2,11 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-09-28 (weekly refresh)
+
+- **Watch only, no action: Google's September 2026 spam update started 2026-09-24** and may take up to two weeks (https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history). Our daily visibility has eased since mid-September, but the easing started about a week before the rollout and is gradual, not a step drop. Nothing points at the site. The 2026-10-05 refresh will re-read it after the rollout ends.
+- **Pitches: still zero sent, now week four.** The five Tier-1 drafts and the contact routes in the 2026-09-24 entry below are unchanged. A web sweep today found no third-party editorial page mentioning FaithWall yet. The one-word "faithwall" query is flat for a fourth straight week.
+
 ## 2026-09-26 (merge gate)
 
 - **Quarantined a duplicate p33 branch, no action needed.** Today's cloud run pushed `claude/seo-p33-descriptive-coverage` (882342f). It built p33 a second time from a stale base (1dc25d2, from before the 2026-09-24 refresh). The first p33 build (914a734) was already merged, live, and marked done on 2026-09-25. The duplicate conflicted in `CompareView.tsx`, `comparisons.json`, `seo-priorities.json`, and the sitemap. It could never merge, and leaving it would have blocked every later run. Nothing reached main. The commit can be recovered from tag `rejected/seo-p33-descriptive-coverage-882342f`. p33 stays done. Nothing needs re-scoping. **Worth watching:** the routine seems to have started from an old main checkout. If tomorrow's run also re-executes a finished item, check the routine's run history in the Claude Code web UI to see how it picks up main.
