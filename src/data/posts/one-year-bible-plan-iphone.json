@@ -4,6 +4,7 @@
     "description": "A one year bible plan iphone setup that actually finishes — which plan to pick, the ~15-minute daily math, and how to keep the next reading impossible to forget.",
     "date": "June 19, 2026",
     "datePublished": "2026-06-19T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/one-year-bible-plan-iphone.jpg",
     "imageAttribution": {
@@ -108,7 +109,7 @@
     {
       "type": "cta",
       "title": "Keep the plan in view — let FaithWall carry the verse",
-      "description": "Free, 60 seconds, no account. FaithWall keeps a verse from today's reading on your lock screen through iOS Focus modes — the visibility layer that gets you to December.",
+      "description": "Free to download, 60-second setup. FaithWall keeps a verse from today's reading on your lock screen through iOS Focus modes — the visibility layer that gets you to December.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

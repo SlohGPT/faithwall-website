@@ -4,6 +4,7 @@
     "description": "The best lock screen verses for anxiety — 10 short, present-tense promises plus the iPhone setup that keeps them rotating so they meet you when worry hits.",
     "date": "May 23, 2026",
     "datePublished": "2026-05-23T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/lock-screen-verses-for-anxiety.jpg",
     "imageAttribution": {
@@ -88,7 +89,7 @@
     {
       "type": "steps",
       "items": [
-        "Download FaithWall (free) and open it.",
+        "Download FaithWall (free to download) and open it.",
         "Pick the **Anxiety** pack — verses chosen for fear, worry, and rest.",
         "Tap **Set Lock Screen**. FaithWall installs it via iOS Focus (iOS 16+) — no Camera Roll juggling.",
         "Optional: pair it with a **Calm** Focus mode that silences notifications during the hours anxiety hits hardest.",
@@ -123,7 +124,7 @@
     {
       "type": "cta",
       "title": "Let FaithWall carry the Anxiety pack for you",
-      "description": "Fear, worry, and rest verses rotating on your lock screen automatically — installed via iOS Focus modes, no curating while you're panicking. Free, 60-second setup, no account.",
+      "description": "Fear, worry, and rest verses rotating on your lock screen automatically — installed via iOS Focus modes, no curating while you're panicking. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

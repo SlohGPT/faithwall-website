@@ -4,6 +4,7 @@
     "description": "A morning prayer routine iphone setup that survives past week one — a simple four-part structure, the single phone cue that fires it, and how to keep it alive.",
     "date": "June 21, 2026",
     "datePublished": "2026-06-21T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/morning-prayer-routine-iphone.jpg",
     "imageAttribution": {
@@ -120,7 +121,7 @@
     {
       "type": "cta",
       "title": "Let the verse start your prayer for you",
-      "description": "FaithWall keeps a fresh, rotating Scripture verse on your lock screen — the cue that fires your morning prayer without you opening a thing. Free, 60-second setup.",
+      "description": "FaithWall keeps a fresh, rotating Scripture verse on your lock screen — the cue that fires your morning prayer without you opening a thing. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

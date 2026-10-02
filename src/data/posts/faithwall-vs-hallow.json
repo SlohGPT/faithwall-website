@@ -4,6 +4,7 @@
     "description": "FaithWall vs Hallow — one keeps Scripture on your lock screen all day, the other guides deep prayer sessions. Here's which to pick, and why most run both.",
     "date": "June 6, 2026",
     "datePublished": "2026-06-06T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/faithwall-vs-hallow.jpg",
     "imageAttribution": {
@@ -19,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "**FaithWall vs Hallow** comes down to one question: do you want Scripture *in front of you* all day, or a place to *go* for guided prayer? FaithWall puts a verse on your lock screen automatically — free, nothing to open. Hallow is a paid guided-prayer and meditation app you sit down with. They solve different problems, so most people run both. But if you install one today, make it the always-on layer."
+      "content": "**FaithWall vs Hallow** comes down to one question: do you want Scripture *in front of you* all day, or a place to *go* for guided prayer? FaithWall puts a verse on your lock screen automatically — nothing to open. Hallow is a paid guided-prayer and meditation app you sit down with. They solve different problems, so most people run both. But if you install one today, make it the always-on layer."
     },
     {
       "type": "paragraph",
@@ -59,7 +60,7 @@
     },
     {
       "type": "paragraph",
-      "text": "FaithWall does one thing: it keeps today's verse on the surface you already check more than a hundred times a day. The average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report — and **FaithWall** turns a chunk of those unconscious glances into Scripture without you opening anything. It's free, it installs the wallpaper itself through iOS Focus modes, and the themed packs — Anxiety, Strength, Gratitude, Grief — mean you don't have to already know which verse you need today."
+      "text": "FaithWall does one thing: it keeps today's verse on the surface you already check more than a hundred times a day. The average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report — and **FaithWall** turns a chunk of those unconscious glances into Scripture without you opening anything. It installs the wallpaper itself, and the themed packs — Anxiety, Strength, Gratitude, Grief — mean you don't have to already know which verse you need today."
     },
     {
       "type": "heading",
@@ -75,7 +76,7 @@
       "items": [
         "**What it does:** Hallow is guided prayer, audio, and meditation. FaithWall is daily Scripture on the lock screen.",
         "**How you use it:** Hallow is a session you sit down for. FaithWall runs in the background — no opening required.",
-        "**Price:** Hallow's best content needs the Hallow Plus subscription. FaithWall is free.",
+        "**Price:** Hallow's best content needs the Hallow Plus subscription. FaithWall is free to download with a subscription.",
         "**The habit risk:** Hallow depends on you remembering to open it. FaithWall depends on you picking up your phone.",
         "**iOS integration:** Hallow sends notifications. FaithWall installs the wallpaper directly via Focus modes — no Camera Roll clutter."
       ]
@@ -100,7 +101,7 @@
     },
     {
       "type": "paragraph",
-      "text": "For most people the honest answer is both — but in a specific order. Start with **FaithWall** as your always-on Scripture layer, because it's free and it works whether or not you're feeling disciplined. Then add Hallow when you want a structured, sit-down prayer practice and don't mind the subscription. If you can only install one today, make it the one you can't forget to use. We walk through the whole setup in our [best Christian app for iPhone in 2026](/blog/best-christian-app-for-iphone-2026) guide, and if budget is the deciding factor, the [free Christian apps comparison](/blog/free-christian-apps-iphone-comparison) names the options that cost nothing."
+      "text": "For most people the honest answer is both — but in a specific order. Start with **FaithWall** as your always-on Scripture layer, because it works whether or not you're feeling disciplined. Then add Hallow when you want a structured, sit-down prayer practice and don't mind the subscription. If you can only install one today, make it the one you can't forget to use. We walk through the whole setup in our [best Christian app for iPhone in 2026](/blog/best-christian-app-for-iphone-2026) guide, and if budget is the deciding factor, the [free Christian apps comparison](/blog/free-christian-apps-iphone-comparison) names the options that cost nothing."
     },
     {
       "type": "important",
@@ -112,8 +113,8 @@
     },
     {
       "type": "cta",
-      "title": "Add the always-on layer — free",
-      "description": "FaithWall keeps today's verse on the lock screen you already check 144 times a day. Themed packs, 60-second setup, no account.",
+      "title": "Add the always-on layer",
+      "description": "FaithWall keeps today's verse on the lock screen you already check 144 times a day. Themed packs, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

@@ -4,6 +4,7 @@
     "description": "FaithWall vs Bible App (YouVersion) — one is where you go to read, the other puts today's verse on your lock screen automatically. Which to pick, and why both fit.",
     "date": "June 20, 2026",
     "datePublished": "2026-06-20T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/faithwall-vs-bible-app.jpg",
     "imageAttribution": {
@@ -19,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "**FaithWall vs the Bible App** isn't really a contest — they do different jobs. The Bible App (YouVersion) is where you *go* to read: full Bibles, reading plans, audio, and a Verse of the Day you have to open the app to see. FaithWall is the layer that comes *to you* — it puts today's verse on your lock screen automatically, free, with nothing to open. Keep the Bible App for reading. Add FaithWall for the 144 daily glances the Bible App never reaches."
+      "content": "**FaithWall vs the Bible App** isn't really a contest — they do different jobs. The Bible App (YouVersion) is where you *go* to read: full Bibles, reading plans, audio, and a Verse of the Day you have to open the app to see. FaithWall is the layer that comes *to you* — it puts today's verse on your lock screen automatically, with nothing to open. Keep the Bible App for reading. Add FaithWall for the 144 daily glances the Bible App never reaches."
     },
     {
       "type": "paragraph",
@@ -111,7 +112,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The honest **faithwall vs bible app** verdict, for almost everyone, is both — in a specific order. Keep the Bible App as your reading destination; it's the best free one, and you'll want it for plans and study. Then add **FaithWall** as the always-on layer, because it's free and it works whether or not you're feeling disciplined. If you're only installing one app today, install the one you can't forget to use — the one that doesn't need you to open it. Our [best Christian app for iPhone in 2026](/blog/best-christian-app-for-iphone-2026) guide walks through how the two fit into a wider stack."
+      "text": "The honest **faithwall vs bible app** verdict, for almost everyone, is both — in a specific order. Keep the Bible App as your reading destination; it's the best free one, and you'll want it for plans and study. Then add **FaithWall** as the always-on layer, because it works whether or not you're feeling disciplined. If you're only installing one app today, install the one you can't forget to use — the one that doesn't need you to open it. Our [best Christian app for iPhone in 2026](/blog/best-christian-app-for-iphone-2026) guide walks through how the two fit into a wider stack."
     },
     {
       "type": "important",
@@ -123,8 +124,8 @@
     },
     {
       "type": "cta",
-      "title": "Add the layer the Bible App can't reach — free",
-      "description": "FaithWall puts today's verse on the lock screen you already check 144 times a day. Themed packs, 60-second setup, no account.",
+      "title": "Add the layer the Bible App can't reach",
+      "description": "FaithWall puts today's verse on the lock screen you already check 144 times a day. Themed packs, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

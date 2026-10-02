@@ -1,9 +1,10 @@
 {
   "meta": {
     "title": "Hallow vs Abide: The Honest 2026 Comparison (Plus What Both Miss)",
-    "description": "Hallow vs Abide compared honestly: pricing, Catholic vs. evangelical framing, sleep content, and the free lock-screen layer that pairs with either app.",
+    "description": "Hallow vs Abide compared honestly: pricing, Catholic vs. evangelical framing, sleep content, and the lock-screen layer that pairs with either app.",
     "date": "August 19, 2026",
     "datePublished": "2026-08-19T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/hallow-vs-abide.jpg",
     "imageAttribution": {
@@ -19,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "**Hallow vs Abide** comes down to tradition and depth: Hallow is the bigger, Catholic-rooted library — rosaries, novenas, hundreds of guided sessions — while Abide is lighter and broadly evangelical, built around short daily meditations and one of the deepest sleep-story catalogs in the category. Neither one puts Scripture on the screen you actually check without opening anything — that's the free layer **FaithWall** adds underneath whichever one you pick."
+      "content": "**Hallow vs Abide** comes down to tradition and depth: Hallow is the bigger, Catholic-rooted library — rosaries, novenas, hundreds of guided sessions — while Abide is lighter and broadly evangelical, built around short daily meditations and one of the deepest sleep-story catalogs in the category. Neither one puts Scripture on the screen you actually check without opening anything — that's the layer **FaithWall** adds underneath whichever one you pick."
     },
     {
       "type": "highlight",
@@ -74,7 +75,7 @@
         "**Best for:** Hallow for structured liturgical prayer; Abide for mood-based, sleep-focused sessions.",
         "**Price:** Abide's annual plan is roughly $30 cheaper; Hallow's family plan wins for households.",
         "**Sleep content:** Abide's catalog is deeper; Hallow's leans on Rosary and Compline audio.",
-        "**What neither does:** put Scripture where you'll see it outside the session — that's **FaithWall**'s job, free."
+        "**What neither does:** put Scripture where you'll see it outside the session — that's **FaithWall**'s job."
       ]
     },
     {
@@ -88,7 +89,7 @@
     },
     {
       "type": "tip",
-      "content": "If you're still deciding between the two, start with whichever free tier you actually finish a full week using — then add the free lock-screen layer underneath it. It doesn't compete with either app's session; it just fills the hours neither one is designed to reach."
+      "content": "If you're still deciding between the two, start with whichever free tier you actually finish a full week using — then add the lock-screen layer underneath it. It doesn't compete with either app's session; it just fills the hours neither one is designed to reach."
     },
     {
       "type": "heading",
@@ -109,8 +110,8 @@
     },
     {
       "type": "cta",
-      "title": "Add the layer neither one covers — free",
-      "description": "FaithWall keeps today's verse on your lock screen whether or not you opened Hallow or Abide today. Free, 60-second setup, no account — the piece your prayer app stack is missing after the session ends.",
+      "title": "Add the layer neither one covers",
+      "description": "FaithWall keeps today's verse on your lock screen whether or not you opened Hallow or Abide today. Free to download, 60-second setup — the piece your prayer app stack is missing after the session ends.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

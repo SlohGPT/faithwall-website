@@ -4,6 +4,7 @@
     "description": "A sabbath rest iphone shortcuts setup with the Focus mode, the Shortcuts automations, and the lock-screen swap that turns one day a week into actual rest.",
     "date": "June 5, 2026",
     "datePublished": "2026-06-05T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/sabbath-rest-iphone-shortcuts.jpg",
     "imageAttribution": {
@@ -135,7 +136,7 @@
     {
       "type": "cta",
       "title": "Give your Sabbath Focus mode a rest-themed lock screen",
-      "description": "FaithWall installs a Sabbath verse pack — Psalm 23, Matthew 11:28-30, Hebrews 4 — that rotates on your lock screen only during the Sabbath Focus window. Free, 60-second setup, no account.",
+      "description": "FaithWall installs a Sabbath verse pack — Psalm 23, Matthew 11:28-30, Hebrews 4 — that rotates on your lock screen only during the Sabbath Focus window. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

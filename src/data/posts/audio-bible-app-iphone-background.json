@@ -4,7 +4,7 @@
     "description": "How to run an audio bible app in the background on iPhone — the apps, the Control Center setup, and the one thing audio alone can't do that keeps Scripture in view.",
     "date": "July 13, 2026",
     "datePublished": "2026-07-13T09:00:00.000Z",
-    "dateModified": "2026-09-09T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/audio-bible-app-iphone-background.jpg",
     "imageAttribution": {
@@ -20,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "To run an **audio bible app in the background** on iPhone, open YouVersion or Dwell, start the audio player, then leave the app — playback continues while you drive, cook, or work. Pair it with FaithWall so the passage you're hearing stays on your lock screen after the audio stops. Free, 60-second setup."
+      "content": "To run an **audio bible app in the background** on iPhone, open YouVersion or Dwell, start the audio player, then leave the app — playback continues while you drive, cook, or work. Pair it with FaithWall so the passage you're hearing stays on your lock screen after the audio stops. Free to download, 60-second setup."
     },
     {
       "type": "paragraph",
@@ -63,7 +63,7 @@
     {
       "type": "steps",
       "items": [
-        "Download **FaithWall** from the App Store — free, no account required.",
+        "Download **FaithWall** from the App Store — free to download.",
         "Pick the book or theme you're listening through (Psalms, a Gospel, or a pack like Strength or Peace).",
         "Tap **Set Lock Screen** — iOS installs the wallpaper automatically via Focus modes.",
         "Start your audio bible app and swipe home; the verse on your screen now matches what you're hearing all week."
@@ -121,7 +121,7 @@
     },
     {
       "type": "highlight",
-      "content": "**The honest split:** your audio bible app is for *hearing* — long-form, hands-free, on the move. FaithWall is for *seeing* — the short verse that catches your eye 144 times between listens. Run both. They cost nothing and they cover each other's blind spots."
+      "content": "**The honest split:** your audio bible app is for *hearing* — long-form, hands-free, on the move. FaithWall is for *seeing* — the short verse that catches your eye 144 times between listens. Run both. Between them they cover each other's blind spots."
     },
     {
       "type": "heading",
@@ -167,7 +167,7 @@
     {
       "type": "cta",
       "title": "Let the verse you're hearing stay in view",
-      "description": "FaithWall keeps this week's passage on your lock screen — free, installs itself via iOS Focus modes, no screenshots or manual rotation.",
+      "description": "FaithWall keeps this week's passage on your lock screen — free to download, no screenshots or manual rotation.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

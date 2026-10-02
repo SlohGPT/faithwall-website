@@ -4,7 +4,7 @@ const steps = [
   {
     number: '01',
     title: 'Download',
-    description: 'Get FaithWall free from the App Store. No sign-up or account needed.',
+    description: 'Download FaithWall from the App Store (free to download). A subscription unlocks the app; the price is shown before you pay.',
   },
   {
     number: '02',

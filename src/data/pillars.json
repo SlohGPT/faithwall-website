@@ -18,7 +18,7 @@
       { "type": "heading", "level": 2, "text": "The 60-second setup" },
       { "type": "paragraph", "text": "The fastest way to get a Bible verse on your lock screen is FaithWall's automated setup: download the app, pick a verse pack, and tap Set Lock Screen — iOS installs the wallpaper or widget through Focus mode integration, no screenshots or manual saving required." },
       { "type": "steps", "items": [
-        "Download FaithWall from the App Store (free).",
+        "Download FaithWall from the App Store (free to download).",
         "Open the app and pick a verse pack — Anxiety, Strength, Gratitude, or browse by book.",
         "Choose a wallpaper style or the daily-rotating widget.",
         "Tap **Set Lock Screen** — FaithWall installs it automatically using iOS Focus integration (iOS 16+).",
@@ -63,7 +63,7 @@
       { "type": "paragraph", "text": "A wallpaper is the full background image — best for one verse you want to sit with for a season. A widget is a small live element that can update on its own — best if you want a fresh verse every day without changing the wallpaper itself. FaithWall supports both, and you can switch between them anytime by long-pressing your lock screen." },
       { "type": "heading", "level": 3, "text": "Which Bible verse lock screen app should I actually use?" },
       { "type": "paragraph", "text": "FaithWall is built specifically for this — wallpapers and widgets designed for the lock-screen surface, with automatic Focus mode installation and curated packs. If you want to see how it stacks up against the handful of near-identical App Store apps in this category, [see how the top lock-screen verse apps compare](/best-bible-verse-lock-screen-apps) feature by feature." },
-      { "type": "cta", "title": "Get FaithWall on the App Store", "description": "Free download. Daily Scripture on your iPhone lock screen in under 60 seconds.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
+      { "type": "cta", "title": "Get FaithWall on the App Store", "description": "Free to download. Daily Scripture on your iPhone lock screen in under 60 seconds.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
     ],
     "featured": ["bible-verse-widget-iphone", "daily-scripture-wallpaper-iphone", "psalm-23-wallpaper-iphone", "scripture-wallpaper-for-iphone-free", "verse-of-the-day-lock-screen-iphone", "rotating-bible-verse-wallpaper-iphone"]
   },
@@ -190,7 +190,7 @@
         "[Best Bible verse lock screen apps for iPhone (2026)](/best-bible-verse-lock-screen-apps) — the four options ranked honestly."
       ]},
       { "type": "verse", "reference": "Romans 14:5", "text": "Each one should be fully convinced in his own mind." },
-      { "type": "cta", "title": "Add FaithWall to your stack — free", "description": "The piece most Christian setups are missing: Scripture on the lock screen, every day.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
+      { "type": "cta", "title": "Add FaithWall to your stack", "description": "The piece most Christian setups are missing: Scripture on the lock screen, every day.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
     ],
     "featured": ["faithwall-vs-pray-com", "hallow-vs-abide", "faithwall-vs-lectio-365", "faithwall-vs-bible-app", "faithwall-vs-glorify", "free-christian-apps-iphone-comparison"]
   }

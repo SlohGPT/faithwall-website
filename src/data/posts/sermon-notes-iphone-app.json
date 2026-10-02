@@ -4,6 +4,7 @@
     "description": "The best sermon notes iphone app setup: capture fast in Notes or GoodNotes, tag by reference, then let FaithWall keep one line in front of you all week.",
     "date": "September 29, 2026",
     "datePublished": "2026-09-29T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/sermon-notes-iphone-app.jpg",
     "imageAttribution": {
@@ -54,7 +55,7 @@
     {
       "type": "steps",
       "items": [
-        "**Download FaithWall.** Free, no account required, set up in under a minute.",
+        "**Download FaithWall.** Free to download, set up in under a minute.",
         "**Reread Sunday's notes once, Monday or Tuesday.** Pick the single line that actually changed something.",
         "**Type that line in** as your verse or takeaway for the week.",
         "**Let it rotate on your lock screen.** You'll see it more in one day than you'd have seen the original note in a month."
@@ -148,7 +149,7 @@
     {
       "type": "cta",
       "title": "Keep one line from Sunday in front of you all week",
-      "description": "Free. FaithWall turns the sermon takeaway you actually want to remember into a lock-screen verse — no account, installed via iOS Focus modes.",
+      "description": "Free to download. FaithWall turns the sermon takeaway you actually want to remember into a lock-screen verse — free to download.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

@@ -4,6 +4,7 @@
     "description": "A bible reading plan widget iphone setup that keeps today's passage in front of you — the home and lock screen widgets that stop plans dying by week three.",
     "date": "June 11, 2026",
     "datePublished": "2026-06-11T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/bible-reading-plan-widget-iphone.jpg",
     "imageAttribution": {
@@ -117,7 +118,7 @@
     {
       "type": "cta",
       "title": "Carry the verse, not just the checkbox",
-      "description": "Free, 60 seconds, no account. FaithWall keeps one verse from today's reading on your lock screen all day — the exposure layer your reading plan is missing.",
+      "description": "Free to download, 60-second setup. FaithWall keeps one verse from today's reading on your lock screen all day — the exposure layer your reading plan is missing.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

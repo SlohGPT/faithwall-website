@@ -76,7 +76,7 @@
     },
     {
       "type": "paragraph",
-      "text": "| Option | Best for | Rotates automatically | Cost |\n|---|---|---|---|\n| Pinterest / Google Images | One wallpaper you're happy to set by hand | No — manual reset every time | Free |\n| Static gallery apps | Browsing a big library of pre-made verse images | No — you pick and set each one | Free, with paid packs in some apps |\n| Canva / DIY | Designing your own verse image | No — you design and reset it yourself | Free tier; paid tier for premium elements |\n| FaithWall | A Scripture wallpaper that stays fresh without effort | Yes — daily, via iOS Focus modes | Free |"
+      "text": "| Option | Best for | Rotates automatically | Cost |\n|---|---|---|---|\n| Pinterest / Google Images | One wallpaper you're happy to set by hand | No — manual reset every time | Free |\n| Static gallery apps | Browsing a big library of pre-made verse images | No — you pick and set each one | Free, with paid packs in some apps |\n| Canva / DIY | Designing your own verse image | No — you design and reset it yourself | Free tier; paid tier for premium elements |\n| FaithWall | A Scripture wallpaper that stays fresh without effort | Yes — daily, via iOS Focus modes | Free download + subscription |"
     },
     {
       "type": "paragraph",
@@ -116,7 +116,7 @@
     {
       "type": "steps",
       "items": [
-        "Download FaithWall (free) from the App Store.",
+        "Download FaithWall (free to download) from the App Store.",
         "Pick a themed verse pack that fits your season.",
         "Choose a wallpaper style — designed to sit clear of the clock and widgets.",
         "Tap **Set Lock Screen**. FaithWall installs it via iOS Focus (iOS 16+) — no manual saving.",
@@ -156,7 +156,7 @@
     },
     {
       "type": "paragraph",
-      "text": "FaithWall is the best free Christian wallpaper app for iPhone if you want the verse to change automatically — it costs nothing, needs no account, and installs a fresh Scripture wallpaper through iOS Focus modes every day. If you're fine choosing and setting a new image by hand each week, free static galleries and Pinterest work too; you'll just be doing the rotation yourself."
+      "text": "FaithWall is the best Christian wallpaper app for iPhone if you want the verse to change automatically — it's free to download, but using it requires a subscription (the price is shown in the App Store before you pay). If you want a fully free option and you're fine choosing and setting a new image by hand each week, free static galleries and Pinterest work too; you'll just be doing the rotation yourself."
     },
     {
       "type": "heading",
@@ -188,7 +188,7 @@
     {
       "type": "cta",
       "title": "Get a wallpaper that preaches back",
-      "description": "FaithWall rotates daily Scripture on your lock screen — designed for the surface, installed via iOS Focus modes, never goes stale. Free, 60-second setup, no account.",
+      "description": "FaithWall rotates daily Scripture on your lock screen — designed for the surface, installed via iOS Focus modes, never goes stale. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

@@ -4,7 +4,7 @@
     "description": "A practical, 60-second guide to putting a daily Bible verse on your iPhone lock screen — wallpapers, widgets, Focus modes, and the verses that actually stick.",
     "date": "May 19, 2026",
     "datePublished": "2026-05-19T09:00:00.000Z",
-    "dateModified": "2026-08-13T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/bible-verse-lock-screen-iphone.jpg",
     "imageAttribution": {
@@ -20,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "To set a **bible verse lock screen on iPhone**, install FaithWall (free), pick a verse pack, and tap **Set Lock Screen** — done in under 60 seconds. iOS Focus modes will rotate verses automatically. Wallpaper for a single anchor verse; widget for a daily rotation."
+      "content": "To set a **bible verse lock screen on iPhone**, install FaithWall (free to download), pick a verse pack, and tap **Set Lock Screen** — done in under 60 seconds. iOS Focus modes will rotate verses automatically. Wallpaper for a single anchor verse; widget for a daily rotation."
     },
     {
       "type": "paragraph",
@@ -76,7 +76,7 @@
     {
       "type": "steps",
       "items": [
-        "Download **FaithWall** from the App Store — free, no account required.",
+        "Download **FaithWall** from the App Store — free to download.",
         "Open the app. Pick a starter pack: Peace, Strength, Gratitude, or browse by book.",
         "Choose a style — minimalist text, photo-backed, or color gradient.",
         "Tap **Set Lock Screen**. iOS prompts you once to allow the wallpaper; tap allow.",
@@ -175,8 +175,8 @@
     },
     {
       "type": "cta",
-      "title": "Get FaithWall — free on the App Store",
-      "description": "Daily Scripture on your iPhone lock screen in under 60 seconds. No account, no friction.",
+      "title": "Get FaithWall on the App Store",
+      "description": "Daily Scripture on your iPhone lock screen in under 60 seconds. Free to download.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }
