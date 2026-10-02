@@ -29,7 +29,7 @@ export type BlogSection =
   | { type: 'heading'; level: 2 | 3; text: string }
   | { type: 'paragraph'; text: string }
   | { type: 'tip'; content: string }
-  | { type: 'stat'; number: string; label: string; description?: string }
+  | { type: 'stat'; number?: string; value?: string; label: string; description?: string; context?: string }
   | { type: 'steps'; items: string[] }
   | { type: 'list'; items: string[] }
   | { type: 'highlight'; content: string }

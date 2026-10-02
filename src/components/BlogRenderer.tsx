@@ -108,10 +108,11 @@ export default function BlogRenderer({ sections }: { sections: BlogSection[] }) 
           case 'stat':
             return (
               <div key={i} className="my-6 p-6 rounded-2xl bg-surface-card border border-surface-border text-center">
-                <p className="text-4xl md:text-5xl font-black text-brand">{section.number}</p>
+                {/* Older posts use value/context; newer ones use number/description. */}
+                <p className="text-4xl md:text-5xl font-black text-brand">{section.number ?? section.value}</p>
                 <p className="text-white font-semibold mt-2">{section.label}</p>
-                {section.description && (
-                  <p className="text-white/60 text-sm mt-2">{section.description}</p>
+                {(section.description ?? section.context) && (
+                  <p className="text-white/60 text-sm mt-2">{section.description ?? section.context}</p>
                 )}
               </div>
             );
