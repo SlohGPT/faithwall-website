@@ -375,6 +375,8 @@ export interface WallpaperSpec {
   size: SizePreset;
   style: StylePreset;
   position: Position;
+  /** Optional visitor photo used instead of the style's generated background. Additive: omit it for the classic render. */
+  photo?: PhotoBackground;
 }
 
 export function fontString(style: StylePreset, px: number): string {
@@ -387,20 +389,24 @@ export function referenceLine(ref: string, translation: string): string {
 }
 
 export function drawWallpaper(ctx: CanvasRenderingContext2D, spec: WallpaperSpec): FitResult {
-  const { size, style } = spec;
+  const { size } = spec;
+  // With a photo, keep the chosen typography but swap in readable text colours and a shadow.
+  const style = spec.photo ? photoTextStyle(spec.style, spec.photo.textTone ?? 'light') : spec.style;
   const w = size.width;
   const h = size.height;
 
   // Background
-  if (style.background.length === 1) {
+  if (spec.photo) {
+    drawPhotoBackground(ctx, spec.photo, w, h);
+  } else if (style.background.length === 1) {
     ctx.fillStyle = style.background[0];
   } else {
     const g = ctx.createLinearGradient(0, 0, 0, h);
     style.background.forEach((c, i) => g.addColorStop(i / (style.background.length - 1), c));
     ctx.fillStyle = g;
   }
-  ctx.fillRect(0, 0, w, h);
-  if (style.glow) {
+  if (!spec.photo) ctx.fillRect(0, 0, w, h);
+  if (style.glow && !spec.photo) {
     const r = ctx.createRadialGradient(w / 2, h * 0.5, 0, w / 2, h * 0.5, Math.max(w, h) * 0.7);
     r.addColorStop(0, style.glow);
     r.addColorStop(1, 'rgba(255,255,255,0)');
@@ -456,9 +462,12 @@ export function drawWallpaper(ctx: CanvasRenderingContext2D, spec: WallpaperSpec
     y += fit.lineHeightPx;
   }
 
-  ctx.shadowColor = 'transparent';
-  ctx.shadowBlur = 0;
-  ctx.shadowOffsetY = 0;
+  // Photo wallpapers keep the soft shadow under the reference line too.
+  if (!spec.photo) {
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetY = 0;
+  }
 
   if (fit.refLines.length) {
     const ruleY = y + fit.gap * 0.5;
@@ -483,7 +492,193 @@ export function drawWallpaper(ctx: CanvasRenderingContext2D, spec: WallpaperSpec
     setLetterSpacing(ctx, '0px');
   }
 
+  ctx.shadowColor = 'transparent';
+  ctx.shadowBlur = 0;
+  ctx.shadowOffsetY = 0;
+
   return fit;
+}
+
+/* ------------------------------------------------------------------ */
+/* Optional photo background (additive; the gallery script never uses it) */
+/* ------------------------------------------------------------------ */
+
+export type TextTone = 'light' | 'dark';
+
+/** Anything drawImage accepts that also knows its pixel size (canvas, ImageBitmap, HTMLImageElement, @napi-rs/canvas Image). */
+export interface PhotoImage {
+  width: number;
+  height: number;
+}
+
+export interface PhotoBackground {
+  image: PhotoImage;
+  /** 1 = cover-fit, up to PHOTO_MAX_ZOOM. */
+  zoom?: number;
+  /** Which part of the photo stays in view when it is larger than the screen: 0 = left/top edge, 1 = right/bottom edge. */
+  focusX?: number;
+  focusY?: number;
+  /** Readability overlay strength, 0 to PHOTO_MAX_DIM. */
+  dim?: number;
+  /** Background blur, 0 to 1 (1 is about 2.5% of the image width). */
+  blur?: number;
+  /** 'light' = white text on a darkened photo (default); 'dark' = near-black text on a lightened photo. */
+  textTone?: TextTone;
+}
+
+export const PHOTO_MAX_ZOOM = 3;
+export const PHOTO_MAX_DIM = 0.8;
+export const PHOTO_DEFAULTS = { zoom: 1, focusX: 0.5, focusY: 0.5, dim: 0.4, blur: 0, textTone: 'light' as TextTone };
+
+const clamp = (n: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, Number.isFinite(n) ? n : lo));
+
+/** Where the photo lands on a w x h canvas: cover-fit, then zoomed and shifted by the focus point. */
+export function photoCoverRect(
+  imgW: number,
+  imgH: number,
+  w: number,
+  h: number,
+  zoom = 1,
+  focusX = 0.5,
+  focusY = 0.5
+): SafeBox {
+  const scale = Math.max(w / imgW, h / imgH) * clamp(zoom, 1, PHOTO_MAX_ZOOM);
+  const width = imgW * scale;
+  const height = imgH * scale;
+  return {
+    x: (w - width) * clamp(focusX, 0, 1),
+    y: (h - height) * clamp(focusY, 0, 1),
+    width,
+    height,
+  };
+}
+
+/** Same typography as `style`, but with colours chosen for text over a photo. */
+export function photoTextStyle(style: StylePreset, tone: TextTone): StylePreset {
+  const light = tone === 'light';
+  return {
+    ...style,
+    textColor: light ? '#ffffff' : '#141414',
+    refColor: light ? 'rgba(255,255,255,0.86)' : 'rgba(20,20,20,0.78)',
+    rule: style.rule ? (light ? 'rgba(255,255,255,0.65)' : 'rgba(20,20,20,0.55)') : undefined,
+    shadow: light ? 'rgba(0,0,0,0.55)' : 'rgba(255,255,255,0.55)',
+    glow: undefined,
+  };
+}
+
+type Scratch = HTMLCanvasElement | OffscreenCanvas;
+
+function makeScratch(w: number, h: number): Scratch | null {
+  const cw = Math.max(1, Math.round(w));
+  const ch = Math.max(1, Math.round(h));
+  if (typeof OffscreenCanvas !== 'undefined') return new OffscreenCanvas(cw, ch);
+  if (typeof document !== 'undefined') {
+    const c = document.createElement('canvas');
+    c.width = cw;
+    c.height = ch;
+    return c;
+  }
+  return null;
+}
+
+/** Blur through ctx.filter when the browser really supports it (Safari ignores it). */
+function tryFilterBlur(ctx: CanvasRenderingContext2D, px: number): boolean {
+  const c = ctx as CanvasRenderingContext2D & { filter?: string };
+  if (!('filter' in c)) return false;
+  const value = `blur(${px.toFixed(2)}px)`;
+  c.filter = value;
+  return c.filter === value;
+}
+
+/**
+ * Draws the photo (cover-fit + zoom + focus), optional blur and the readability overlay.
+ * Works in device pixels (the context's current scale is read once), so the blur looks
+ * identical in the reduced-size preview and the full-size export.
+ */
+export function drawPhotoBackground(ctx: CanvasRenderingContext2D, photo: PhotoBackground, w: number, h: number): void {
+  const m = ctx.getTransform();
+  const sc = Math.hypot(m.a, m.b) || 1;
+  const W = w * sc;
+  const H = h * sc;
+  const zoom = photo.zoom ?? PHOTO_DEFAULTS.zoom;
+  const fx = photo.focusX ?? PHOTO_DEFAULTS.focusX;
+  const fy = photo.focusY ?? PHOTO_DEFAULTS.focusY;
+  const dim = clamp(photo.dim ?? PHOTO_DEFAULTS.dim, 0, PHOTO_MAX_DIM);
+  const blur = clamp(photo.blur ?? PHOTO_DEFAULTS.blur, 0, 1);
+  const tone = photo.textTone ?? PHOTO_DEFAULTS.textTone;
+  const img = photo.image as unknown as CanvasImageSource;
+
+  const blurPx = blur * w * 0.025 * sc;
+  const blurred = blurPx >= 0.5;
+
+  let r = photoCoverRect(photo.image.width, photo.image.height, W, H, zoom, fx, fy);
+  if (blurred) {
+    // Grow the photo a little so the blurred edge never fades into the backdrop.
+    const margin = blurPx * 2;
+    const grow = Math.max(1, (W + margin * 2) / r.width, (H + margin * 2) / r.height);
+    if (grow > 1) {
+      const width = r.width * grow;
+      const height = r.height * grow;
+      r = {
+        x: clamp(W / 2 - (W / 2 - r.x) * grow, W + margin - width, -margin),
+        y: clamp(H / 2 - (H / 2 - r.y) * grow, H + margin - height, -margin),
+        width,
+        height,
+      };
+    }
+  }
+
+  ctx.save();
+  ctx.setTransform(1, 0, 0, 1, m.e, m.f);
+  ctx.beginPath();
+  ctx.rect(0, 0, W, H);
+  ctx.clip();
+  ctx.fillStyle = '#000000';
+  ctx.fillRect(0, 0, W, H);
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+
+  if (blurred && tryFilterBlur(ctx, blurPx)) {
+    ctx.drawImage(img, r.x, r.y, r.width, r.height);
+    (ctx as CanvasRenderingContext2D & { filter: string }).filter = 'none';
+  } else if (blurred) {
+    // No ctx.filter (Safari): halve the picture a few times, then double it back up. Each
+    // step is a smooth bilinear resample, which gives a soft, cheap blur.
+    const levels = Math.max(1, Math.min(6, Math.round(Math.log2(Math.max(2, blurPx * 0.9)))));
+    const canvases: Scratch[] = [];
+    let ok = true;
+    for (let i = 1; i <= levels && ok; i++) {
+      const c = makeScratch(W / 2 ** i, H / 2 ** i);
+      const cctx = c?.getContext('2d') as CanvasRenderingContext2D | null;
+      if (!c || !cctx) {
+        ok = false;
+        break;
+      }
+      cctx.imageSmoothingEnabled = true;
+      cctx.imageSmoothingQuality = 'high';
+      if (i === 1) cctx.drawImage(img, r.x / 2, r.y / 2, r.width / 2, r.height / 2);
+      else cctx.drawImage(canvases[i - 2] as CanvasImageSource, 0, 0, c.width, c.height);
+      canvases.push(c);
+    }
+    if (ok) {
+      for (let i = levels - 2; i >= 0; i--) {
+        const c = canvases[i];
+        const cctx = c.getContext('2d') as CanvasRenderingContext2D;
+        cctx.drawImage(canvases[i + 1] as CanvasImageSource, 0, 0, c.width, c.height);
+      }
+      ctx.drawImage(canvases[0] as CanvasImageSource, 0, 0, W, H);
+    } else {
+      ctx.drawImage(img, r.x, r.y, r.width, r.height);
+    }
+  } else {
+    ctx.drawImage(img, r.x, r.y, r.width, r.height);
+  }
+
+  if (dim > 0) {
+    ctx.fillStyle = tone === 'light' ? `rgba(0,0,0,${dim.toFixed(3)})` : `rgba(255,255,255,${dim.toFixed(3)})`;
+    ctx.fillRect(0, 0, W, H);
+  }
+  ctx.restore();
 }
 
 /** The reference uses the same face but never italic, and a slightly lighter weight. */
