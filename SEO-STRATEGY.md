@@ -1,4 +1,4 @@
-# FaithWall SEO Strategy — v2 (2026-08-22, data notes through 2026-09-24)
+# FaithWall SEO Strategy — v2 (2026-08-22, data notes through 2026-09-24; §10 install-first plan added 2026-10-02)
 
 **Who reads this:** the autonomous daily content agent and Karol. This file sets direction; `src/data/seo-priorities.json` sets the day-to-day work order. This repo is public — describe search performance qualitatively and never paste raw Search Console clicks, impressions, or CTR numbers into this file, commit messages, or post content.
 
@@ -163,3 +163,44 @@ We run an autonomous daily agent in the exact period Google is enforcing against
 4. **Consolidation over proliferation:** prune-merge keeps the page set tight; fewer, deeper pages are simultaneously the topical-authority play and the enforcement-profile antidote.
 5. **Honesty rules (§5) are also risk rules:** verified-real apps, real data, disclosure. The site must keep looking like what it is — one person's honest, tested editorial — because that is the winning profile of every 2026 update.
 6. **Monitoring:** the weekly refresh watches for step-change visibility drops coinciding with confirmed Google updates and flags them to Karol immediately rather than continuing to publish into a penalty.
+
+## 10. Install-First Plan (NEW, 2026-10-02)
+
+**The goal is App Store installs, not clicks.** Every item below is ranked by how directly it produces installs. Where this section conflicts with older sections, this one wins.
+
+**Where we stand (qualitative; the raw numbers live in Search Console and App Store Connect, not here):**
+- Clicks grew strongly in September versus August.
+- The money cluster sits mid-page-1: the /daily-scripture-lock-screen pillar, /best-bible-verse-lock-screen-apps and the "best Bible app" hub.
+- /random-bible-verse has by far the largest impression pool but the weakest purchase intent.
+- Image search shows impressions with no clicks yet.
+- On the App Store side, App Store search/browse delivers most downloads. **ChatGPT referrals are the clear second source**, larger than all web referrals. AI answers are an install channel, not a vanity metric.
+
+**Measurement (live since 2026-10-02).**
+- Every App Store link carries an Apple campaign: `ct` = `web-*`, `blog-<slug>` or `pillar-<slug>` (see `src/lib/appStore.ts`). Downloads per campaign appear in App Store Connect under Sources → Campaigns.
+- The weekly refresh cannot read App Store Connect. Karol, or a manual session with the App Store Connect connector, reviews campaigns monthly, starting mid-October, and re-ranks the queue from them:
+  - pages that produce installs get refresh and authority effort;
+  - pages that produce clicks but no installs get conversion work, or nothing.
+
+**Priorities, in order:**
+1. **Convert the traffic we already have.** Done 2026-10-02 (p43–p45):
+   - install nudges on both tools;
+   - the wallpaper gallery;
+   - a site-wide accuracy pass, after which the site no longer promises a free app that then paywalls;
+   - the maker's v2 preview and own-photo mode.
+
+   Next: after the first campaign review, keep the nudge placements that convert and remove the ones that don't.
+2. **Money cluster to top-3.** On-page work there is near its ceiling (§3 Play 2). The remaining on-page gap is the question phrasing of the money query, "what app puts Bible verses on your lock screen" (p47). The real lever is authority: the corrected §8 Tier-1 pitches are still unsent, and only Karol can send them.
+3. **AI answers.** ChatGPT search leans on Bing's index. So:
+   - keep IndexNow pings on every published change;
+   - make sure the property exists in Bing Webmaster Tools (Karol: one-click import from Search Console);
+   - keep self-contained, quotable facts near the top of the money page and the comparisons.
+
+   No llms.txt investment (§7).
+4. **Image search.** Use the gallery (p44) plus in-post embeds (p46). Grow it only toward themes that image-search queries actually show (p48). New images go on existing URLs; never one page per image.
+5. **/random-bible-verse is a feeder, not a target.** Its feature set is complete. Keep conversion tweaks and occasional freshness, and don't spin up new generator pages to chase its queries.
+6. **New content keeps §5/§9 discipline:** at most 2 new URLs a week, depth over proliferation. Prefer refreshing the pages that campaign data shows produce installs.
+
+**Additional don'ts:**
+- Never reintroduce "free app"/free-tier claims, prices, verse packs or Focus-mode integration. The app has none of these (verified in code 2026-10-02); see the Product facts rule in `.claude/skills/faithwall-blog/SKILL.md`.
+- When a competitor's brand query shows up, handle it inside the existing roundup (p49), not with a per-competitor page (§9).
+

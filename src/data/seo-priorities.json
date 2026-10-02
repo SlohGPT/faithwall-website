@@ -253,7 +253,7 @@
       "status": "done",
       "completed": "2026-10-02",
       "reason": "Since app v2.3 (live 2026-08-26) FaithWall has a hard paywall: a subscription is required, and a trial appears only on the exit offer for eligible Apple IDs. The site and all outreach drafts still described a free app with a free tier, and some pages stated old prices. This was a bait-and-switch for searchers, a \u00a79 honesty risk, and it would have put false claims in front of the Tier-1 editors.",
-      "notes": "EXECUTED (2026-10-02, manual session): every claim that FaithWall is free, has a free tier, or that its core is free was rewritten to 'free to download; a subscription unlocks it' (no prices anywhere). Home title is now 'FaithWall \u2014 Daily Bible Verse Lock Screen App for iPhone' (dropped '(Free)'); this is a factual correction, not a CTR pass, so Play 3's closure stands. The nav CTA reads 'Get the app'. comparisons.json (money page + compare pages) was corrected in a follow-up commit. The 5 Tier-1 drafts and directories.md were rewritten to true facts, with a 'Facts corrected 2026-10-02' banner and an offer of a subscription offer code. Guards: a 'Product facts' rule in .claude/skills/faithwall-blog/SKILL.md and a dated line in SEO-STRATEGY.md \u00a75. MEASUREMENT: watch the hub (/blog/best-free-bible-app-iphone) and the money page for movement on 'free'-phrased queries at the next two refreshes. The honest framing may cost some 'free app' CTR; that is accepted. Do not re-add 'free' claims to recover it."
+      "notes": "EXECUTED (2026-10-02, manual session): every claim that FaithWall is free, has a free tier, or that its core is free was rewritten to 'free to download; a subscription unlocks it' (no prices anywhere). Home title is now 'FaithWall \u2014 Daily Bible Verse Lock Screen App for iPhone' (dropped '(Free)'); this is a factual correction, not a CTR pass, so Play 3's closure stands. The nav CTA reads 'Get the app'. comparisons.json (money page + compare pages) was corrected in a follow-up commit. The 5 Tier-1 drafts and directories.md were rewritten to true facts, with a 'Facts corrected 2026-10-02' banner and an offer of a subscription offer code. Guards: a 'Product facts' rule in .claude/skills/faithwall-blog/SKILL.md and a dated line in SEO-STRATEGY.md \u00a75. MEASUREMENT: watch the hub (/blog/best-free-bible-app-iphone) and the money page for movement on 'free'-phrased queries at the next two refreshes. The honest framing may cost some 'free app' CTR; that is accepted. Do not re-add 'free' claims to recover it. FOLLOW-UP same day: a second pass removed false verse-pack and Focus-mode claims (\"rotates through iOS Focus modes\", \"pick a themed pack\") from 34 posts, the daily-scripture-lock-screen pillar, and the feature sentences on Privacy/Terms. Code check: the app has no packs and no Focus integration. The home-screen widget (systemSmall/Medium) and the 'Set Lock Screen' button ARE real."
     },
     {
       "id": "p46",
@@ -267,8 +267,52 @@
       "notes": "In each named post, add 2\u20133 'image' blocks (block type added 2026-10-02 in src/types/blog.ts / BlogRenderer.tsx: {type:'image', src, alt, width, height, caption?, href?, linkText?}). Use entries from src/data/wallpaperGallery.json chosen for the post's theme: anxiety post \u2192 fear/peace verses; psalm-23 post \u2192 the Psalm 23:1 render; the others \u2192 a style mix. Use the JSON's full-size file as src (or thumb if the page gets heavy), its alt verbatim, width/height from the JSON, href = the full-size file with linkText 'Download', caption = reference + style. Place them where the post already talks about choosing or styling a verse, never stacked at the top. Add ONE contextual link per post to /bible-verse-wallpaper-maker#wallpaper-gallery, respecting the \u00a74 5-link cap and replacement rule. Bump dateModified in the post and blogPosts.json; regenerate the sitemap. OPTIONAL, only if the psalm-23 post needs a matching iPhone render that doesn't exist: add it to the config in scripts/build-wallpaper-gallery.mjs and run the documented command (dependencies --no-save). Inspect the output image before committing. Do not claim FaithWall is free; product facts per SKILL.md. Verify the images render in the prerendered HTML and that no layout shift is introduced (explicit width/height)."
     },
     {
-      "id": "p28",
+      "id": "p47",
       "rank": 24,
+      "type": "refresh",
+      "target_url": "/best-bible-verse-lock-screen-apps",
+      "target_keyword": "what app puts bible verses on your lock screen",
+      "cluster": "lock-screen-apps",
+      "status": "pending",
+      "reason": "The money page ranks well for the superlative phrasing ('best bible verse lock screen app', 'bible lock screen app'). It sits only at the bottom of page 1 for the plain-question phrasings: 'app that puts bible verses on lock screen', 'what app puts bible verses on your lock screen', 'bible app that puts verses on lock screen'. Those are exactly the questions people also ask ChatGPT, and ChatGPT is a top install source (\u00a710). Play 3's CTR closure covers the title, not the on-page answer.",
+      "notes": "Source of the page: the money entry in src/data/comparisons.json, rendered by src/pages/Compare.tsx; read both first. Add ONE question-phrased section near the top, after the quick answer: heading 'What app puts Bible verses on your lock screen?', then a 40\u201360 word, self-contained, answer-first paragraph. It must:\n- name FaithWall and its true mechanism: you pick verses; it shows them as a Shortcut-applied wallpaper or a rotating lock-screen widget; free to download, a subscription unlocks it; no price;\n- name the honest free alternatives: YouVersion and Bible Gateway verse-of-the-day widgets.\nIf the entry has an FAQ array feeding FAQPage JSON-LD, add the same Q&A there instead of duplicating it in two places. Do NOT change the title or meta (Play 3 closed). Bump dateModified. MEASUREMENT: position of the question queries on this page at the first refresh 21+ days after ship."
+    },
+    {
+      "id": "p48",
+      "rank": 25,
+      "type": "tool-page",
+      "target_url": "/bible-verse-wallpaper-maker#wallpaper-gallery",
+      "target_keyword": "bible wallpaper",
+      "cluster": "scripture-wallpaper",
+      "status": "pending",
+      "reason": "Image search sends impressions for broad wallpaper terms ('bible wallpaper', 'holy bible wallpaper', 'god lock screen wallpaper', 'aesthetic bible verse laptop wallpaper'), but only for homepage and post screenshots ranking deep in the results. The gallery (p44) is the first set of real wallpaper files. Growing it toward the themes image search actually shows is the cheapest way to compete on that surface. Do p46 first.",
+      "notes": "Run ONLY after p46 is done. Add up to 8 new entries in scripts/build-wallpaper-gallery.mjs, aimed at the themes in the latest gsc-dump imageQueries28 (re-pull; don't rely on this note):\n- scripture-forward 'bible wallpaper' designs;\n- 2\u20133 desktop-4K 'aesthetic' renders for the laptop/desktop queries;\n- 1\u20132 'God'-themed verses (e.g. Psalm 46:10, Isaiah 41:10).\nVerse text: KJV from public/bible/kjv only. Run the documented command (dependencies --no-save). Then:\n- inspect every output image before committing (text clear of the clock zone, no clipping);\n- write accurate alt text;\n- regenerate the sitemap.\nCap: 24 gallery images total after this pass; no new URLs. MEASUREMENT: imagePages28/imageQueries28 for the maker URL at the first refresh 21+ days after ship."
+    },
+    {
+      "id": "p49",
+      "rank": 26,
+      "type": "refresh",
+      "target_url": "/blog/best-christian-wallpaper-app-iphone",
+      "target_keyword": "holy finger wallpaper app",
+      "cluster": "scripture-wallpaper",
+      "status": "pending",
+      "reason": "Brand queries for a competitor ('holy finger wallpaper app', 'what is holy finger wallpaper app') already land on this roundup at mid-page-1, but the post doesn't mention that app, so it cannot answer the query. \u00a79 forbids per-competitor pages, so the answer belongs inside the existing roundup.",
+      "notes": "FIRST verify the app exists and what it does from its public App Store listing, e.g. https://itunes.apple.com/search?term=holy%20finger&entity=software&country=us. Record the exact name, developer, what it offers and its pricing model as listed, with the date checked. If you cannot verify it with confidence, set this item to 'retired' with a note and stop. If verified, add a short, fair section or table row: what it is, who it suits, and how it differs from a rotating approach. Facts only from the listing; no disparagement; no claims of having tested it. Count it against the \u00a74 5-link cap only if you add links. Bump dateModified."
+    },
+    {
+      "id": "p50",
+      "rank": 27,
+      "type": "new-post",
+      "target_url": "/blog/short-bible-verses-for-lock-screen",
+      "target_keyword": "short bible verses for lock screen",
+      "cluster": "lock-screen",
+      "status": "pending",
+      "reason": "Re-queued fresh, per p13's retirement note. 'short bible verses for lock screen' has reappeared, and it is now the largest lock-screen-intent query in the 28-day data. The pillar ranks for it only incidentally, near the bottom of page 1, and no page targets it. Lock-screen intent is the closest thing to install intent on the site.",
+      "notes": "New post (counts against the \u00a75/\u00a79 cap of 2 new URLs a week). Add the keyword to src/data/seo-keywords.json under daily-scripture-lock-screen in the same commit.\n\nThe unit:\n- 15\u201325 genuinely short verses (about 10 words or fewer), grouped by theme (peace, strength, hope, trust). Use KJV text from public/bible/kjv, or quote another translation only where its license allows short quotes, and name the translation.\n- A one-line 'why short works on a lock screen': the clock and widgets cover the top third.\n- How to put one on your lock screen: (a) free, with the /bible-verse-wallpaper-maker tool; (b) with FaithWall: pick your verses, show them as a Shortcut-applied wallpaper or a rotating lock-screen widget; free to download, a subscription unlocks it.\n\nNO packs, NO Focus integration, NO prices, NO 'free app'. Embed 2 gallery images via the 'image' block if any gallery verse fits.\n\nLinks:\n- the intro links /daily-scripture-lock-screen (hub citation rule);\n- also /best-bible-verse-lock-screen-apps and siblings lock-screen-verses-for-anxiety and verse-of-the-day-lock-screen-iphone;\n- respect the 5-link cap.\n\nMEASUREMENT: the query's position and the post's campaign (blog-short-bible-verses-for-lock-screen) at the first refresh 21+ days after ship."
+    },
+    {
+      "id": "p28",
+      "rank": 28,
       "type": "outreach-prep",
       "target_url": "outreach/ (Advent 2026 seasonal pitches)",
       "cluster": null,
@@ -279,7 +323,7 @@
     },
     {
       "id": "p30",
-      "rank": 25,
+      "rank": 29,
       "type": "outreach-prep",
       "target_url": "outreach/ (New Year 2027 seasonal pitches)",
       "cluster": null,
@@ -290,7 +334,7 @@
     },
     {
       "id": "p31",
-      "rank": 26,
+      "rank": 30,
       "type": "outreach-prep",
       "target_url": "outreach/ (Lent 2027 seasonal pitches)",
       "cluster": null,
