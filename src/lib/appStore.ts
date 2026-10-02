@@ -3,7 +3,7 @@ export const APP_STORE_BASE = 'https://apps.apple.com/us/app/lock-screen-bible-v
 // Apple provider token for App Store campaign links.
 // Karol fills this from App Store Connect -> App Analytics -> Campaigns link generator.
 // While empty, every link stays the plain base URL (no tracking parameters).
-export const APPLE_PROVIDER_TOKEN = '';
+export const APPLE_PROVIDER_TOKEN = '128303795';
 
 /**
  * App Store URL tagged with a campaign token so installs can be attributed per page/placement.
