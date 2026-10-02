@@ -9,6 +9,7 @@ import AppStoreButton from '../components/AppStoreButton';
 import { appStoreUrl } from '../lib/appStore';
 import AppNudge from '../components/AppNudge';
 import AuthorBio from '../components/AuthorBio';
+import WallpaperGallery from '../components/WallpaperGallery';
 import verses from '../data/randomVerses.json';
 import {
   DEFAULT_SIZE,
@@ -164,6 +165,8 @@ export default function WallpaperMaker() {
   // Read ?text=&ref=&tr= once after mount. All three are optional plain text.
   useEffect(() => {
     const p = parsePrefill(window.location.search);
+    if (p.style) setStyleId(p.style);
+    if (p.size) setSizeId(p.size);
     if (p.hasText || p.ref) {
       setText(p.text);
       setReference(p.ref);
@@ -688,6 +691,8 @@ export default function WallpaperMaker() {
             text clear of the iPhone lock-screen clock and bottom buttons, and exports it as a PNG with
             nothing uploaded.
           </p>
+
+          <WallpaperGallery />
 
           <div className="max-w-3xl mt-14 space-y-12">
             <section>
