@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import { appStoreUrl } from '../lib/appStore';
 
 const plans = [
   {
@@ -89,7 +90,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+                href={appStoreUrl('web-pricing')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`block w-full py-4 text-center font-bold rounded-xl transition-all duration-200 ${plan.featured

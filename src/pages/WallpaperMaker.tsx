@@ -6,6 +6,8 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Breadcrumbs from '../components/Breadcrumbs';
 import AppStoreButton from '../components/AppStoreButton';
+import { appStoreUrl } from '../lib/appStore';
+import AppNudge from '../components/AppNudge';
 import AuthorBio from '../components/AuthorBio';
 import verses from '../data/randomVerses.json';
 import {
@@ -26,7 +28,7 @@ import {
 } from '../lib/wallpaper';
 
 const PAGE_URL = 'https://faithwall.app/bible-verse-wallpaper-maker';
-const APP_STORE_URL = 'https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070';
+const APP_STORE_URL = appStoreUrl('web-wallpaper-maker');
 const TITLE = 'Bible Verse Wallpaper Maker — Free iPhone Lock Screen Generator';
 const DESC =
   'Make a Bible verse wallpaper for your iPhone, Android or desktop in seconds. Pick a style, keep the verse clear of the lock-screen clock, and download the image.';
@@ -617,6 +619,16 @@ export default function WallpaperMaker() {
                 <p className="mt-3 min-h-[1.25rem] text-sm text-white/60" role="status" aria-live="polite">
                   {status}
                 </p>
+                {exported && (
+                  <AppNudge campaign="web-wallpaper-maker-saved" confirmation="Saved" className="mt-2">
+                    Instead of remaking a wallpaper every time, FaithWall rotates the verses you pick on
+                    your lock screen automatically.
+                  </AppNudge>
+                )}
+                <AppNudge campaign="web-wallpaper-maker-inline" variant="inline" className="mt-2">
+                  Want a verse on your lock screen without remaking it? FaithWall is an iPhone app that
+                  rotates the verses you pick.
+                </AppNudge>
               </div>
             </div>
           </div>

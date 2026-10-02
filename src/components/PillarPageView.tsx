@@ -49,7 +49,7 @@ export default function PillarPageView({ pillar, featured, allPosts = [] }: Prop
           )}
         </header>
 
-        <BlogRenderer sections={pillar.sections} />
+        <BlogRenderer sections={pillar.sections} campaign={`pillar-${pillar.slug}`} />
       </div>
 
       {featured.length > 0 && (

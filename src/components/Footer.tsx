@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
+import { appStoreUrl } from '../lib/appStore';
 
 const footerLinks = {
   about: [
     { name: 'Features', href: '/#features' },
-    { name: 'Download', href: 'https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070' },
+    { name: 'Download', href: appStoreUrl('web-footer-link') },
     { name: 'Pricing', href: '/#pricing' },
     { name: 'FAQ', href: '/#faq' },
   ],
@@ -60,7 +61,7 @@ export default function Footer() {
             </p>
 
             <div className="mt-6">
-              <AppStoreButton href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" />
+              <AppStoreButton href={appStoreUrl('web-footer')} />
             </div>
           </div>
 

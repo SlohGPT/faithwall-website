@@ -1,3 +1,5 @@
+import { appStoreUrl } from '../lib/appStore';
+
 const avatars = [
   'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100',
   'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=100',
@@ -33,7 +35,7 @@ export default function FinalCTA() {
               </p>
 
               <a
-                href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+                href={appStoreUrl('web-final-cta')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-white text-surface font-semibold px-6 py-4 rounded-2xl hover:bg-white/90 transition-colors"

@@ -9,6 +9,7 @@ import Newsletter from '../components/Newsletter';
 import FinalCTA from '../components/FinalCTA';
 import Pricing from '../components/Pricing';
 import Footer from '../components/Footer';
+import { APP_STORE_BASE } from '../lib/appStore';
 
 const HOME_TITLE = 'FaithWall — Daily Bible Verse Lock Screen App for iPhone (Free)';
 const HOME_DESC =
@@ -22,7 +23,7 @@ const softwareApplicationSchema = {
   applicationCategory: 'LifestyleApplication',
   operatingSystem: 'iOS 16.0 or later',
   url: 'https://faithwall.app/',
-  downloadUrl: 'https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070',
+  downloadUrl: APP_STORE_BASE,
   offers: {
     '@type': 'Offer',
     price: '0',

@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
+import { appStoreUrl } from '../lib/appStore';
 
 const slides = [1, 2, 3, 4, 5];
 const images = slides.map(i => `/assets/slideshow/slide${i}.webp`);
@@ -110,9 +111,9 @@ export default function Hero() {
 
             {/* Desktop buttons - hidden on mobile */}
             <div className="hidden lg:flex flex-row gap-4 justify-start items-center animate-fade-up-d4">
-              <AppStoreButton href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" />
+              <AppStoreButton href={appStoreUrl('web-home-hero')} />
               <a
-                href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+                href={appStoreUrl('web-home-hero-cta')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 h-[52px] text-base font-bold text-white transition-all duration-200 bg-brand rounded-xl hover:bg-brand-light hover:scale-105"
@@ -225,9 +226,9 @@ export default function Hero() {
 
               {/* Mobile buttons - below slideshow, side by side */}
               <div className="flex lg:hidden flex-row gap-3 justify-center items-center w-full mt-4 animate-fade-up-d6">
-                <AppStoreButton href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" />
+                <AppStoreButton href={appStoreUrl('web-home-hero-mobile')} />
                 <a
-                  href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+                  href={appStoreUrl('web-home-hero-mobile-cta')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-6 h-[52px] text-base font-bold text-white transition-all duration-200 bg-brand rounded-xl hover:bg-brand-light hover:scale-105"

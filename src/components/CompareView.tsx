@@ -7,6 +7,7 @@ import Navigation from './Navigation';
 import Footer from './Footer';
 import Breadcrumbs from './Breadcrumbs';
 import AppStoreButton from './AppStoreButton';
+import { appStoreUrl } from '../lib/appStore';
 
 export interface CompareRow {
   feature: string;
@@ -58,7 +59,7 @@ export interface CompareConfig {
   ctaDescription: string;
 }
 
-const APP_STORE_URL = 'https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070';
+
 
 const KEEP_READING_LINKS: { to: string; label: string }[] = [
   { to: '/best-bible-verse-lock-screen-apps', label: 'Best Bible verse lock screen apps, ranked' },
@@ -357,7 +358,7 @@ export default function CompareView({ config }: { config: CompareConfig }) {
             <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{config.ctaTitle}</h3>
             <p className="text-white/80 mb-6 max-w-xl mx-auto">{config.ctaDescription}</p>
             <div className="flex justify-center">
-              <AppStoreButton href={APP_STORE_URL} theme="light" />
+              <AppStoreButton href={appStoreUrl(`web-compare-${config.slug}`)} theme="light" />
             </div>
           </div>
         </div>

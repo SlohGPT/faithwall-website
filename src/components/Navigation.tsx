@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { appStoreUrl } from '../lib/appStore';
 
 export default function Navigation() {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -259,7 +260,7 @@ export default function Navigation() {
                 </div>
 
                 <a
-                  href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+                  href={appStoreUrl('web-nav')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hidden lg:inline-flex items-center justify-center px-7 py-3 bg-white text-surface text-xl font-semibold rounded-full hover:bg-white/90 transition-all duration-300"
@@ -332,7 +333,7 @@ export default function Navigation() {
             </Link>
             <div className="pt-2 mt-2 border-t border-surface-border">
               <a
-                href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+                href={appStoreUrl('web-nav-mobile')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-full px-8 py-3.5 bg-white text-surface text-xl font-semibold rounded-full transition-colors"

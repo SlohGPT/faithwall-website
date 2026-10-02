@@ -12,7 +12,7 @@ interface Props {
   related: BlogPostListing[];
 }
 
-export default function BlogPostContent({ post, slug: _slug, related }: Props) {
+export default function BlogPostContent({ post, slug, related }: Props) {
   const { meta, sections } = post;
 
   return (
@@ -85,7 +85,7 @@ export default function BlogPostContent({ post, slug: _slug, related }: Props) {
           </figure>
         )}
 
-        <BlogRenderer sections={sections} />
+        <BlogRenderer sections={sections} campaign={`blog-${slug}`} />
 
         <AuthorBio />
 
