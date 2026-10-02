@@ -25,6 +25,7 @@ import AppNudge from '../components/AppNudge';
 import AuthorBio from '../components/AuthorBio';
 import WallpaperGallery from '../components/WallpaperGallery';
 import DeviceMockup, { type DeviceKind } from '../components/DeviceMockup';
+import MiniPreview from '../components/MiniPreview';
 import { loadPhotoFile, type LoadedPhoto } from '../lib/photo';
 import verses from '../data/randomVerses.json';
 import {
@@ -275,7 +276,11 @@ export default function WallpaperMaker() {
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const dragRef = useRef<{ x: number; y: number; fx: number; fy: number; id: number } | null>(null);
+  const [renderTick, setRenderTick] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const previewRef = useRef<HTMLDivElement | null>(null);
+  const makerAreaRef = useRef<HTMLDivElement | null>(null);
+  const downloadRef = useRef<HTMLElement | null>(null);
   const exportUrlRef = useRef<string | null>(null);
 
   const size = SIZE_PRESETS.find((s) => s.id === sizeId) ?? SIZE_PRESETS[0];
@@ -359,6 +364,7 @@ export default function WallpaperMaker() {
       ctx.setTransform(scale, 0, 0, scale, 0, 0);
       drawWallpaper(ctx, { text, reference: refText, size, style, position, photo: deferredPhotoBg });
       setReady(true);
+      setRenderTick((t) => t + 1);
     })();
     return () => {
       cancelled = true;
@@ -562,7 +568,7 @@ export default function WallpaperMaker() {
 
   // Phones: as wide as the viewport height allows so the sticky preview never runs off-screen.
   const previewWidthClass = size.phone
-    ? 'w-[min(17rem,78vw)] lg:w-[clamp(13rem,calc((100svh_-_11rem)/2.2),20rem)]'
+    ? 'w-[min(15rem,78vw)] lg:w-[clamp(13rem,calc((100svh_-_11rem)/2.2),20rem)]'
     : 'w-full max-w-xl';
 
   return (
@@ -604,10 +610,13 @@ export default function WallpaperMaker() {
             </p>
           </header>
 
-          <div className="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-8 lg:gap-12 items-start">
+          <div
+            ref={makerAreaRef}
+            className="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-8 lg:gap-12 items-start"
+          >
             {/* Preview */}
             <div className="lg:sticky lg:top-24 self-start">
-              <div className={`mx-auto ${previewWidthClass}`}>
+              <div ref={previewRef} className={`mx-auto ${previewWidthClass}`}>
                 <DeviceMockup
                   device={deviceKind}
                   width={size.width}
@@ -1063,6 +1072,7 @@ export default function WallpaperMaker() {
 
               {/* 4. Download */}
               <section
+                ref={downloadRef}
                 aria-labelledby="wm-step-download"
                 className={`${groupCard} border-brand/30 bg-gradient-to-br from-brand/10 to-surface-card/60`}
               >
@@ -1325,6 +1335,15 @@ export default function WallpaperMaker() {
         </div>
       </main>
 
+      <MiniPreview
+        sourceRef={canvasRef}
+        renderTick={renderTick}
+        width={size.width}
+        height={size.height}
+        previewRef={previewRef}
+        areaRef={makerAreaRef}
+        downloadRef={downloadRef}
+      />
       <Footer />
     </div>
   );
