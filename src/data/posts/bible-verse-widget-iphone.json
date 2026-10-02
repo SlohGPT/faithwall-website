@@ -4,6 +4,7 @@
     "description": "A bible verse widget iphone setup that actually updates itself — lock screen vs home screen widgets, StandBy, and the 60-second FaithWall install.",
     "date": "August 16, 2026",
     "datePublished": "2026-08-16T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/bible-verse-widget-iphone.jpg",
     "imageAttribution": {
@@ -19,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "The best **bible verse widget iphone** setup is FaithWall's: install the free app, pick a themed verse pack, and tap **Set Lock Screen** — a widget rotates in a fresh verse automatically, on the lock screen or the home screen, in under 60 seconds. No manual swapping, no account required."
+      "content": "The best **bible verse widget iphone** setup is FaithWall's: install the app (free to download), pick a themed verse pack, and tap **Set Lock Screen** — a widget rotates in a fresh verse automatically, on the lock screen or the home screen, in under 60 seconds. No manual swapping, no account required."
     },
     {
       "type": "paragraph",
@@ -58,7 +59,7 @@
     {
       "type": "steps",
       "items": [
-        "Download **FaithWall** from the App Store — free, no account required.",
+        "Download **FaithWall** from the App Store — free to download.",
         "Open the app and pick a starter pack: Peace, Strength, Gratitude, or browse by book.",
         "Choose the lock screen widget for daily rotation above the clock, or the home screen widget for a bigger tile.",
         "Long-press the screen, tap **+**, search for it, and drop the widget where you'll actually see it.",
@@ -171,7 +172,7 @@
     {
       "type": "cta",
       "title": "Get the widget that actually rotates",
-      "description": "Free, 60 seconds, no account. FaithWall's widget cycles a fresh verse onto your lock screen or home screen automatically — no manual swapping, ever.",
+      "description": "Free to download, 60-second setup. FaithWall's widget cycles a fresh verse onto your lock screen or home screen automatically — no manual swapping, ever.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

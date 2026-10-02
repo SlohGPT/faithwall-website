@@ -4,6 +4,7 @@
     "description": "A daily prayer widget ios setup for home and lock screen — how to keep prayer glanceable so a reminder you'd swipe away becomes a prompt you actually act on.",
     "date": "June 16, 2026",
     "datePublished": "2026-06-16T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/daily-prayer-widget-ios.jpg",
     "imageAttribution": {
@@ -113,7 +114,7 @@
     {
       "type": "cta",
       "title": "Skip the blank widget — let FaithWall prompt the prayer",
-      "description": "Free, 60 seconds, no account. FaithWall keeps a verse on your lock screen that doubles as today's prayer prompt — on the surface you already check 144 times a day.",
+      "description": "Free to download, 60-second setup. FaithWall keeps a verse on your lock screen that doubles as today's prayer prompt — on the surface you already check 144 times a day.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

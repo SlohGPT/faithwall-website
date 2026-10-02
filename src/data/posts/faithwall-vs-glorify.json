@@ -4,6 +4,7 @@
     "description": "FaithWall vs Glorify — one keeps Scripture on your lock screen all day, the other guides your sit-down devotional. Here's which to pick, and why both fit.",
     "date": "June 15, 2026",
     "datePublished": "2026-06-15T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/faithwall-vs-glorify.jpg",
     "imageAttribution": {
@@ -86,7 +87,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Start with **FaithWall**. It's free, installs in 60 seconds, needs no account, and it's the piece almost every phone is missing — Scripture on the surface you actually look at. Then, if you want a guided devotional with worship and meditation layered on top, add Glorify for your focused quiet-time block. FaithWall is the daily floor; Glorify is the depth you reach for when you have ten quiet minutes."
+      "text": "Start with **FaithWall**. It installs in 60 seconds and it's the piece almost every phone is missing — Scripture on the surface you actually look at. Then, if you want a guided devotional with worship and meditation layered on top, add Glorify for your focused quiet-time block. FaithWall is the daily floor; Glorify is the depth you reach for when you have ten quiet minutes."
     },
     {
       "type": "steps",
@@ -112,7 +113,7 @@
     {
       "type": "cta",
       "title": "Get FaithWall — the layer Glorify can't cover",
-      "description": "Free, 60 seconds, no account. Daily Scripture on the lock screen you check 144 times a day — the exposure piece every devotional app is missing.",
+      "description": "Free to download, 60-second setup. Daily Scripture on the lock screen you check 144 times a day — the exposure piece every devotional app is missing.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

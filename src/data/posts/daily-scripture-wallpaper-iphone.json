@@ -4,6 +4,7 @@
     "description": "A daily scripture wallpaper iphone setup that stays fresh — why static downloads fade by day 10, the rotation method that fixes it, and the 60-second install.",
     "date": "June 25, 2026",
     "datePublished": "2026-06-25T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/daily-scripture-wallpaper-iphone.jpg",
     "imageAttribution": {
@@ -50,7 +51,7 @@
     {
       "type": "steps",
       "items": [
-        "Download **FaithWall** from the App Store — free, no account.",
+        "Download **FaithWall** from the App Store — free to download.",
         "Open the app and pick a verse pack: Anxiety, Strength, Gratitude, Grief, or browse by book.",
         "Choose a wallpaper style — minimalist text, photo-backed, or soft gradient.",
         "Tap **Set Lock Screen**. iOS asks once to allow the wallpaper; tap Allow.",
@@ -128,7 +129,7 @@
     },
     {
       "type": "cta",
-      "title": "Get FaithWall — free, 60 seconds, no account",
+      "title": "Get FaithWall — free to download, 60 seconds",
       "description": "The piece every Bible study stack is missing: daily Scripture on the lock screen you already check 144 times a day.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"

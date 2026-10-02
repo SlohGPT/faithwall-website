@@ -4,6 +4,7 @@
     "description": "Verse mapping iphone app searches turn up printables, not apps. Here's the real setup: word study, write-up, and a way to keep the mapped verse in view.",
     "date": "September 14, 2026",
     "datePublished": "2026-09-14T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/verse-mapping-iphone-app.jpg",
     "imageAttribution": {
@@ -149,7 +150,7 @@
     {
       "type": "cta",
       "title": "Skip straight to the retention half",
-      "description": "FaithWall turns the verse you just mapped into your lock screen for the week — free, installed via iOS Focus modes, no screenshots or manual wallpaper-juggling.",
+      "description": "FaithWall turns the verse you just mapped into your lock screen for the week — free to download, no screenshots or manual wallpaper-juggling.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

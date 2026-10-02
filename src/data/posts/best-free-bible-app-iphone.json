@@ -4,7 +4,7 @@
     "description": "YouVersion is the best free Bible app for iPhone in 2026, ranked against 9 others and checked for what's truly free versus paywalled behind a subscription.",
     "date": "May 30, 2026",
     "datePublished": "2026-05-30T09:00:00.000Z",
-    "dateModified": "2026-09-04T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "16 min read",
     "image": "/blog-thumbnails/best-free-bible-app-iphone.jpg",
     "imageAttribution": {
@@ -20,11 +20,11 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "**FaithWall** is the free lock-screen layer worth pairing with whichever Bible app you pick — and for the reading app itself, the honest **best free bible app iphone** answer is **YouVersion (Bible.com)**: 2,000+ translations, thousands of free reading plans, no real paywall. Ranked below: 10 real, verified apps for 2026 — tested honestly, truly-free vs freemium made clear — plus the daily-exposure gap none of them close alone."
+      "content": "**FaithWall** is the lock-screen layer worth pairing with whichever Bible app you pick — and for the reading app itself, the honest **best free bible app iphone** answer is **YouVersion (Bible.com)**: 2,000+ translations, thousands of free reading plans, no real paywall. Ranked below: 10 real, verified apps for 2026 — tested honestly, truly-free vs freemium made clear — plus the daily-exposure gap none of them close alone."
     },
     {
       "type": "highlight",
-      "content": "**FaithWall is our app** — the ranking below reflects that. We rank it first as the free daily-exposure layer, not as a pretend winner of the sit-down-reading category it doesn't compete in. Here's our honest case, verdict included: YouVersion still wins for reading."
+      "content": "**FaithWall is our app** — the ranking below reflects that. It is free to download but requires a subscription to use. We rank it first as the daily-exposure layer, not as a pretend winner of the sit-down-reading category it doesn't compete in. Here's our honest case, verdict included: YouVersion still wins for reading."
     },
     {
       "type": "paragraph",
@@ -53,7 +53,7 @@
       "items": [
         {
           "name": "FaithWall — the daily-exposure layer",
-          "description": "Free, no account, no paywall. Not a Bible-reading app — a themed verse pack that lives on your lock screen and rotates automatically via iOS Focus modes. Ranked first here because it's our app and this is the category it owns; for sit-down reading, see #2 below."
+          "description": "Free to download; a subscription unlocks it. Not a Bible-reading app — a themed verse pack that lives on your lock screen and rotates automatically via iOS Focus modes. Ranked first here because it's our app and this is the category it owns; for sit-down reading, see #2 below."
         },
         {
           "name": "YouVersion (Bible.com) — best free reading app",
@@ -100,7 +100,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Three of the ten apps above are freemium, not truly free — Olive Tree, Dwell, and Logos all gate real content behind a purchase or subscription. The other seven, FaithWall included, have nothing behind a paywall. Here's the breakdown so \"free\" actually means what you think it means:"
+      "text": "Four of the ten apps above are not truly free — Olive Tree, Dwell, and Logos all gate real content behind a purchase or subscription, and FaithWall is free to download but requires a subscription to use. The other six have nothing behind a paywall. Here's the breakdown so \"free\" actually means what you think it means:"
     },
     {
       "type": "paragraph",
@@ -108,7 +108,7 @@
     },
     {
       "type": "paragraph",
-      "text": "| App | Truly free or freemium | What's free | What costs money |\n|---|---|---|---|\n| FaithWall | Truly free | Verse packs, daily rotation, Focus mode setup | Nothing |\n| YouVersion | Truly free | 2,000+ translations, reading plans, audio | Optional Plus subscription (skippable) |\n| Olive Tree | Freemium | Base app + KJV, cross-references | Extra translations and commentaries, priced individually |\n| Bible Gateway | Truly free | 200+ translations, reading plans, audio | Optional Plus subscription for extras |\n| Hosanna (formerly Bible.is) | Truly free | Full audio + text, 2,000+ languages | Nothing |\n| Dwell | Freemium | Short trial, a few free playlists | Subscription for the full audio library |\n| Blue Letter Bible | Truly free | Strong's numbers, interlinear, commentaries | Nothing |\n| ESV Bible App | Truly free | Full ESV text, audio, reading plans | Nothing |\n| NLT Bible App | Truly free | Full NLT text, audio, devotionals | Nothing |\n| Logos Bible App | Freemium | Mobile app, small starter library | Resource packs and subscriptions |"
+      "text": "| App | Truly free or freemium | What's free | What costs money |\n|---|---|---|---|\n| FaithWall | Free download + subscription | The download | A subscription is required to use the app |\n| YouVersion | Truly free | 2,000+ translations, reading plans, audio | Optional Plus subscription (skippable) |\n| Olive Tree | Freemium | Base app + KJV, cross-references | Extra translations and commentaries, priced individually |\n| Bible Gateway | Truly free | 200+ translations, reading plans, audio | Optional Plus subscription for extras |\n| Hosanna (formerly Bible.is) | Truly free | Full audio + text, 2,000+ languages | Nothing |\n| Dwell | Freemium | Short trial, a few free playlists | Subscription for the full audio library |\n| Blue Letter Bible | Truly free | Strong's numbers, interlinear, commentaries | Nothing |\n| ESV Bible App | Truly free | Full ESV text, audio, reading plans | Nothing |\n| NLT Bible App | Truly free | Full NLT text, audio, devotionals | Nothing |\n| Logos Bible App | Freemium | Mobile app, small starter library | Resource packs and subscriptions |"
     },
     {
       "type": "heading",
@@ -224,8 +224,8 @@
       "type": "ranked-list",
       "items": [
         {
-          "name": "FaithWall — free, and still the gap every other 2026 pick leaves open",
-          "description": "No 2026 change needed: still free, still no account. The only app on this list built for the lock screen instead of adapted to it — daily exposure is the piece none of the reading apps below cover."
+          "name": "FaithWall — free to download, and still the gap every other 2026 pick leaves open",
+          "description": "No 2026 change needed: free to download, with a subscription required to use it. The only app on this list built for the lock screen instead of adapted to it — daily exposure is the piece none of the reading apps below cover."
         },
         {
           "name": "YouVersion — the 2026 default, now open to other developers",
@@ -256,7 +256,7 @@
     },
     {
       "type": "paragraph",
-      "text": "This is where a Bible *reader* app and a Bible *exposure* app are two different products, doing two different jobs. YouVersion — or Olive Tree, or Bible Gateway — is for sit-down reading. **FaithWall is the free lock-screen layer that keeps the day's verse in front of you between readings** — installs in 60 seconds, rotates a themed verse daily, no account, no paywall. Most thoughtful Christian phone setups end up running both."
+      "text": "This is where a Bible *reader* app and a Bible *exposure* app are two different products, doing two different jobs. YouVersion — or Olive Tree, or Bible Gateway — is for sit-down reading. **FaithWall is the lock-screen layer that keeps the day's verse in front of you between readings** — installs in 60 seconds, rotates a themed verse daily. Free to download; a subscription unlocks it. Most thoughtful Christian phone setups end up running both."
     },
     {
       "type": "paragraph",
@@ -281,14 +281,14 @@
       "items": [
         "**Install YouVersion** (free). Pick a translation you already love — ESV or NIV for most people, KJV if that's home.",
         "**Pick one reading plan.** A one-year plan is the most-stuck-with for first-timers — don't start with a 90-day sprint.",
-        "**Install FaithWall** (free) for the lock-screen layer. Pick a themed verse pack matched to your season — Peace, Strength, Gratitude, Grief.",
+        "**Install FaithWall** (free to download) for the lock-screen layer. Pick a themed verse pack matched to your season — Peace, Strength, Gratitude, Grief.",
         "**Add Hosanna (formerly Bible.is) or Dwell** only if you actually commute or work with your hands free — audio is additive, not required.",
         "**Skip everything else.** A stack of three or four free apps beats a stack of ten paid ones every time."
       ]
     },
     {
       "type": "tip",
-      "content": "**Don't pay for a Bible app until you've used the free ones for six months.** Almost everyone who buys premium content does so before maxing out the free tier — and on this list, seven of ten apps have no premium tier gating anything you'd actually miss."
+      "content": "**Don't pay for a Bible app until you've used the free ones for six months.** Almost everyone who buys premium content does so before maxing out the free tier — and on this list, six of ten apps have no premium tier gating anything you'd actually miss."
     },
     {
       "type": "heading",
@@ -378,16 +378,16 @@
     },
     {
       "type": "paragraph",
-      "text": "Free doesn't mean compromised. YouVersion plus FaithWall is a real, working iPhone Bible setup — one app for the morning reading, one for the rest of the day. Both free. Both built for the iPhone specifically. Install both this week and you've covered more of the day than most paid app stacks manage."
+      "text": "Free doesn't mean compromised. YouVersion plus FaithWall is a real, working iPhone Bible setup — one app for the morning reading, one for the rest of the day. YouVersion is free, and FaithWall is free to download but requires a subscription to use. Both are built for the iPhone specifically. Install both and you've covered more of the day than a reading app alone."
     },
     {
       "type": "important",
-      "content": "**\"Best free\" isn't the same as \"best.\"** The honest best free bible app iphone answer is YouVersion for reading — and for what it costs (nothing), it's hard to argue with. Pair it with a free lock-screen layer and you've built a complete free Bible setup that beats most paid stacks."
+      "content": "**\"Best free\" isn't the same as \"best.\"** The honest best free bible app iphone answer is YouVersion for reading — and for what it costs (nothing), it's hard to argue with. Pair it with a lock-screen layer like FaithWall (free to download, subscription required to use it) and you've covered both reading and daily exposure."
     },
     {
       "type": "cta",
-      "title": "Add the free lock-screen layer to your stack",
-      "description": "FaithWall is the free piece every Bible app stack is missing — daily Scripture on the lock screen between the times you open a reading app. No account, no paywall, 60-second setup.",
+      "title": "Add the lock-screen layer to your stack",
+      "description": "FaithWall is the piece every Bible app stack is missing — daily Scripture on the lock screen between the times you open a reading app. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

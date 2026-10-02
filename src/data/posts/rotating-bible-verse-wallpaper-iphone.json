@@ -4,6 +4,7 @@
     "description": "A rotating bible verse wallpaper iphone setup that actually changes daily — why static wallpapers fade by day 10 and the iOS Focus mode method that fixes it.",
     "date": "May 28, 2026",
     "datePublished": "2026-05-28T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/rotating-bible-verse-wallpaper-iphone.jpg",
     "imageAttribution": {
@@ -110,7 +111,7 @@
     {
       "type": "steps",
       "items": [
-        "Download FaithWall (free) from the App Store.",
+        "Download FaithWall (free to download) from the App Store.",
         "Pick a themed verse pack matched to your season — Strength, Gratitude, Anxiety, Psalms, Promises.",
         "Choose a wallpaper style (the type is sized for the lock-screen surface — clock and widgets won't crash the verse).",
         "Tap **Set Lock Screen**. FaithWall installs the rotating wallpaper via iOS Focus modes (iOS 16+).",
@@ -151,7 +152,7 @@
     {
       "type": "cta",
       "title": "Get a wallpaper that refreshes itself daily",
-      "description": "FaithWall rotates a fresh themed verse onto your iPhone lock screen every morning — designed for the surface, installed via iOS Focus modes, never goes stale. Free, 60-second setup, no account.",
+      "description": "FaithWall rotates a fresh themed verse onto your iPhone lock screen every morning — designed for the surface, installed via iOS Focus modes, never goes stale. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

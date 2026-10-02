@@ -4,6 +4,7 @@
     "description": "The praying through the psalms app setup that holds — a Psalter for morning structure, FaithWall's Psalms pack keeping the day's psalm on your lock screen.",
     "date": "May 27, 2026",
     "datePublished": "2026-05-27T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/praying-through-the-psalms-app.jpg",
     "imageAttribution": {
@@ -126,7 +127,7 @@
     {
       "type": "cta",
       "title": "Carry the day's psalm on your lock screen",
-      "description": "FaithWall's Psalms pack rotates the historic Psalter onto your iPhone lock screen so the morning reading keeps preaching all day. Free, 60-second setup, no account.",
+      "description": "FaithWall's Psalms pack rotates the historic Psalter onto your iPhone lock screen so the morning reading keeps preaching all day. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

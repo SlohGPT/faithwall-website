@@ -4,6 +4,7 @@
     "description": "The bible memorization apps iphone users keep — Verses, Bible Memory, Fighter Verses — plus the exposure half that makes verses actually stick past week two.",
     "date": "May 24, 2026",
     "datePublished": "2026-05-24T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/bible-memorization-apps-iphone.jpg",
     "imageAttribution": {
@@ -121,7 +122,7 @@
     {
       "type": "cta",
       "title": "Make your lock screen the review session",
-      "description": "FaithWall keeps this week's memory verse on your lock screen so spaced repetition runs all day — no app to open, no streak to keep. Free, 60-second setup, no account.",
+      "description": "FaithWall keeps this week's memory verse on your lock screen so spaced repetition runs all day — no app to open, no streak to keep. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

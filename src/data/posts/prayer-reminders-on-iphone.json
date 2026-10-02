@@ -4,6 +4,7 @@
     "description": "The exact iPhone setup for prayer reminders that survive past week two — alarms, Focus modes, widgets, and the small habits that turn good intentions into rhythm.",
     "date": "May 19, 2026",
     "datePublished": "2026-05-19T15:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/prayer-reminders-on-iphone.jpg",
     "imageAttribution": {
@@ -146,7 +147,7 @@
     {
       "type": "cta",
       "title": "Make every prayer alarm carry a verse",
-      "description": "FaithWall pairs your prayer alarms with Scripture on the lock screen — themed packs (Thanksgiving, Confession, Examen) so the alarm becomes a moment with content, not a buzz to dismiss. Free, 60 seconds, no account.",
+      "description": "FaithWall pairs your prayer alarms with Scripture on the lock screen — themed packs (Thanksgiving, Confession, Examen) so the alarm becomes a moment with content, not a buzz to dismiss. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

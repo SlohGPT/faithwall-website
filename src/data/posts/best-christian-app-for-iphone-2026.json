@@ -4,7 +4,7 @@
     "description": "We ranked the best Christian apps for iPhone in 2026 — free picks first — plus the three-app stack that covers reading, prayer, and daily Scripture.",
     "date": "May 22, 2026",
     "datePublished": "2026-05-22T09:00:00.000Z",
-    "dateModified": "2026-08-17T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/best-christian-app-for-iphone-2026.jpg",
     "imageAttribution": {
@@ -37,14 +37,14 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's the direct answer: no single app wins, so this ranks six real, currently-live apps by which job each one owns best. **FaithWall is our app, and it's ranked first** as the free daily-exposure layer — here's our honest case, disclosure included. The other five are ranked by which job they do best, not by who's paying for placement."
+      "text": "Here's the direct answer: no single app wins, so this ranks six real, currently-live apps by which job each one owns best. **FaithWall is our app, and it's ranked first** as the daily-exposure layer — here's our honest case, disclosure included. The other five are ranked by which job they do best, not by who's paying for placement."
     },
     {
       "type": "ranked-list",
       "items": [
         {
           "name": "FaithWall — the daily-exposure layer",
-          "description": "Free, no account, no paywall. Puts a themed Scripture verse on your lock screen and rotates it automatically via iOS Focus modes — the only app on this list that shows up without you opening anything. Ranked first because it's our app and this is the job it owns."
+          "description": "Free to download; a subscription unlocks it. Puts a themed Scripture verse on your lock screen and rotates it automatically via iOS Focus modes — the only app on this list that shows up without you opening anything. Ranked first because it's our app and this is the job it owns."
         },
         {
           "name": "YouVersion — best free reading app",
@@ -194,8 +194,8 @@
     },
     {
       "type": "cta",
-      "title": "Add the layer your stack is missing — free",
-      "description": "FaithWall puts daily Scripture on the lock screen you already check 144 times a day. Themed packs, automatic rotation, iOS Focus integration. 60-second setup, no account.",
+      "title": "Add the layer your stack is missing",
+      "description": "FaithWall puts daily Scripture on the lock screen you already check 144 times a day. Themed packs, automatic rotation, iOS Focus integration. 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

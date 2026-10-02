@@ -1,8 +1,10 @@
 # Outreach draft — Tier-2 directory submission pack (p27)
 
+**Facts corrected 2026-10-02** for the v2.3 subscription model — earlier versions of this draft called the app free; do not send an older copy.
+
 Covers the four vetted Tier-2 directories from SEO-STRATEGY.md §8: faith.tools, AlternativeTo, SaaSHub, MochiLaunch — plus a short deferred note on Product Hunt / Indie Hackers. **Draft only. The agent has not submitted anything, created any account, or contacted any of these sites.** Every submission step below is something Karol performs by hand.
 
-**Shared facts used in every entry below** (already verified and used across the existing Tier-1 drafts in this folder — not re-derived here): free to download, no account required to use the app, free tier plus optional verse packs (Anxiety, Strength, Gratitude, Psalms), verses stay on-device, setup takes about 60 seconds, iOS 16.0+, App Store: https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070. Pricing (from `public/pricing.md`, last updated 2026-05-19 — reconfirm it's still current before pasting anywhere): Free — $0; Premium Monthly — $1.99/mo; Premium Yearly — $8.99/yr. Contact: hello@faithwall.app. Maker: Karol, indie iOS developer, Slovakia.
+**Shared facts used in every entry below** (already verified and used across the existing Tier-1 drafts in this folder — not re-derived here): free to download, using the app requires a subscription (no free tier; price, billing period and any trial offer are shown in the App Store before paying), you pick your own verses (book/chapter/verse or search, 24 translations), two display options chosen after subscribing (full-screen lock-screen wallpaper applied by an Apple Shortcut, or a compact lock-screen widget rotating saved verses every hour, 8 hours or day), not a Bible reader, app UI in 10 languages, iOS 16.0+, App Store: https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070. **Do not paste a price anywhere** — say "free to download, subscription required" and let the App Store show the price. Contact: hello@faithwall.app. Maker: Karol, indie iOS developer, Slovakia.
 
 **Assets on hand for form uploads:** app icon at `public/icon-app-512.png` (512×512) and `public/icon-app-180.png`; five promotional lock-screen mockup images at `public/assets/slideshow/slide1.webp` through `slide5.webp` (each shows a real verse rendered on an iPhone lock screen with a short marketing headline overlaid — genuine product visuals, not pure unmarked App Store screenshots). If a form specifically wants unmarked App Store screenshots, pull fresh ones from App Store Connect instead — these are a fine fallback, not a substitute if a directory is picky about it.
 
@@ -23,17 +25,17 @@ Covers the four vetted Tier-2 directories from SEO-STRATEGY.md §8: faith.tools,
 
 **Why FaithWall should clear their bar (their own stated common rejection reasons, and how FaithWall answers each):**
 - *Missing Bible-translation citation* → the verses in-app are drawn from named public-domain translations (the site's own random-verse tool at `/random-bible-verse` labels every verse KJV) — say plainly in the submission which translation(s) ship in-app, confirmed against the current build before you paste this, since this draft can't check the App Store listing directly (this cloud session's network policy blocks apps.apple.com).
-- *Unclear pricing* → paste the exact numbers from `public/pricing.md` above; don't round or summarize them away.
+- *Unclear pricing* → say plainly that the app is free to download and requires a subscription, with the price and any trial shown in the App Store before paying. Don't paste a price; it can change.
 - *Outdated design* → link the App Store listing and, if the form allows an image, one of the slideshow mockups.
-- *No AI guardrails against fabricated Scripture* → true and easy to state plainly: FaithWall ships fixed, curated verse text — there is no generative text in the app at all, so there's nothing to guardrail.
+- *No AI guardrails against fabricated Scripture* → true and easy to state plainly: FaithWall has no generative text — you pick the verses yourself from the included translations (no AI SDKs in the app source, checked 2026-10-02), so there's nothing to guardrail.
 
 **Copy to paste:**
 
 - **App name:** FaithWall
-- **One-liner / tagline:** A free Bible verse on your iPhone lock screen, every day.
-- **Description (~100 words):** FaithWall is a free iPhone app that puts a fresh Bible verse on your lock screen every day, using iOS 16 widgets and Focus modes — no account needed to start. Pick a verse pack (Anxiety, Strength, Gratitude, Psalms, and more) and FaithWall rotates a new verse onto your wallpaper or widget automatically, so Scripture is what you see when you unlock your phone rather than something you have to remember to open an app for. Setup takes about 60 seconds. The verse text is fixed and curated — nothing in the app is AI-generated. Free tier included; a $1.99/month or $8.99/year premium tier unlocks unlimited verse packs and full customization. Built by one indie iOS developer, not a team.
+- **One-liner / tagline:** Your chosen Bible verses on your iPhone lock screen.
+- **Description (~100 words):** FaithWall is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen, so Scripture is what you see when you unlock your phone rather than something you have to remember to open an app for. You pick your own verses by book, chapter and verse or by search, in 24 translations. After subscribing you choose how to show them: a full-screen lock-screen wallpaper applied by an Apple Shortcut, or a compact lock-screen widget that rotates your saved verses every hour, 8 hours or day. Using the app requires a subscription; the price and any trial offer are shown in the App Store before you pay. It is not a Bible reader. The interface is in 10 languages. Built by one indie iOS developer, not a team.
 - **Category:** Bible / Bible study (closest fit — flag in free-text, if the form has any, that a lock-screen/wallpaper/widget category doesn't exist yet and FaithWall would be a natural first entry in one)
-- **Pricing:** Free, with $1.99/mo or $8.99/yr premium (see numbers above)
+- **Pricing:** Free to download; subscription required to use the app (price shown in the App Store before paying)
 - **Screenshots:** one or two of the slideshow mockups listed above, or fresh App Store Connect screenshots if you'd rather
 - **Contact:** hello@faithwall.app
 - **Link:** https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070 and https://faithwall.app/
@@ -59,11 +61,11 @@ Covers the four vetted Tier-2 directories from SEO-STRATEGY.md §8: faith.tools,
 **Copy to paste:**
 
 - **Name:** FaithWall
-- **Tagline:** Puts a fresh Bible verse on your iPhone lock screen every day
-- **Description:** A free iPhone app that puts a new Bible verse on your lock screen daily, using iOS 16 widgets and Focus modes. No account required. Verses stay on-device — nothing in the app is AI-generated. Free tier plus optional verse packs (Anxiety, Strength, Gratitude, Psalms); $1.99/mo or $8.99/yr unlocks unlimited packs and full customization.
+- **Tagline:** Puts the Bible verses you choose on your iPhone lock screen
+- **Description:** An iPhone app, free to download, that puts the Bible verses you choose on your lock screen as a full-screen wallpaper (applied by an Apple Shortcut) or a widget that rotates saved verses hourly, every 8 hours or daily. You pick your own verses (24 translations). Using the app requires a subscription; the price and any trial offer are shown in the App Store before paying. Not a Bible reader.
 - **Website:** https://faithwall.app/
 - **Platform:** iOS (16.0+)
-- **License / pricing model:** Freemium
+- **License / pricing model:** Paid (subscription); free to download — if the form only offers Free / Freemium / Paid, choose Paid
 - **Category / tags:** Bible, Christian, Prayer, Lock screen, Wallpaper, Widget
 - **Maker:** Karol (indie developer)
 - **Contact:** hello@faithwall.app
@@ -85,12 +87,12 @@ Covers the four vetted Tier-2 directories from SEO-STRATEGY.md §8: faith.tools,
 **Copy to paste:**
 
 - **Product name:** FaithWall
-- **Tagline:** A free Bible verse on your iPhone lock screen, every day
-- **Description:** FaithWall is a free iPhone app that puts a fresh Bible verse on your lock screen daily using iOS 16 widgets and Focus modes. No account required, verses stay on-device, setup takes about 60 seconds. Free tier plus optional verse packs (Anxiety, Strength, Gratitude, Psalms); $1.99/mo or $8.99/yr premium unlocks unlimited packs and full customization.
+- **Tagline:** Your chosen Bible verses on your iPhone lock screen
+- **Description:** FaithWall is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen as a wallpaper or a rotating widget. You pick your own verses (24 translations). Using the app requires a subscription; the price and any trial offer are shown in the App Store before paying. Not a Bible reader.
 - **Website:** https://faithwall.app/
 - **Categories:** Bible Apps, Christian Apps, Productivity (Lifestyle)
 - **Competitors / alternative to:** Hallow, Abide, YouVersion
-- **Pricing:** Freemium — Free / $1.99 mo / $8.99 yr
+- **Pricing:** Free to download; subscription required (price shown in the App Store)
 - **Contact email (for verification):** hello@faithwall.app
 
 **Expected outcome / citation value:** free, moderated, typically nofollow. Same logic as AlternativeTo — the value is appearing on the "hallow-alternatives" page that already ranks, not the link itself.

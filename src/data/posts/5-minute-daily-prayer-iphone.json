@@ -4,6 +4,7 @@
     "description": "A 5 minute daily prayer iphone setup with an ACTS structure, the alarm + lock-screen pairing, and the math that makes short prayer beat sporadic long prayer.",
     "date": "June 4, 2026",
     "datePublished": "2026-06-04T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/5-minute-daily-prayer-iphone.jpg",
     "imageAttribution": {
@@ -128,7 +129,7 @@
     {
       "type": "cta",
       "title": "Give the adoration minute a verse to work with",
-      "description": "FaithWall puts a fresh Scripture on your lock screen daily — so when your 7am alarm fires, the verse you see is your adoration prompt. Free, 60-second setup, no account.",
+      "description": "FaithWall puts a fresh Scripture on your lock screen daily — so when your 7am alarm fires, the verse you see is your adoration prompt. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

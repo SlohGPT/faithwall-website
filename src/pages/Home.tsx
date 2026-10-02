@@ -10,9 +10,9 @@ import FinalCTA from '../components/FinalCTA';
 import Pricing from '../components/Pricing';
 import Footer from '../components/Footer';
 
-const HOME_TITLE = 'FaithWall — Daily Bible Verse Lock Screen App for iPhone (Free)';
+const HOME_TITLE = 'FaithWall — Daily Bible Verse Lock Screen App for iPhone';
 const HOME_DESC =
-  "FaithWall (Faith Wall) is the free iPhone app that puts a fresh Bible verse on your lock screen every day. See how it works, browse verse packs, and set it up in 60 seconds.";
+  "FaithWall (Faith Wall) is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen. A subscription unlocks it. See how it works and which translations it supports.";
 
 const softwareApplicationSchema = {
   '@context': 'https://schema.org',
@@ -47,7 +47,7 @@ const faqSchema = {
       name: 'What is FaithWall?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'FaithWall is a free iOS app that displays daily Bible verses on your iPhone lock screen using wallpapers and widgets. It requires iOS 16.0 or later.',
+        text: 'FaithWall is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen as a wallpaper or a widget. Using it requires a FaithWall subscription. It requires iOS 16.0 or later.',
       },
     },
     {
@@ -55,7 +55,7 @@ const faqSchema = {
       name: 'How does FaithWall work?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'FaithWall installs a Scripture wallpaper or rotating verse widget on your iPhone lock screen using iOS Focus modes. You pick a verse pack — Anxiety, Strength, Gratitude, Psalms — and FaithWall surfaces a fresh verse each day. Setup takes about 60 seconds.',
+        text: 'You pick your own verses by book, chapter and verse or by search, in 24 translations. After subscribing you choose how to show them: a full-screen lock-screen wallpaper applied with an Apple Shortcut, or a compact lock-screen widget that rotates your saved verses every hour, 8 hours or day. FaithWall is not a Bible reader.',
       },
     },
     {
@@ -63,7 +63,7 @@ const faqSchema = {
       name: 'Is FaithWall free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. FaithWall is free to download and includes the core daily verse and lock-screen widgets. Optional premium plans unlock unlimited verse packs and customization — the price, billing period, and any free trial are shown in the App Store at checkout, in your local currency.',
+        text: 'FaithWall is free to download, but using it requires a subscription. The price, billing period and any trial offer are shown in the App Store before you pay, in your local currency.',
       },
     },
     {
@@ -71,7 +71,7 @@ const faqSchema = {
       name: 'Which iPhones does FaithWall work on?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'FaithWall supports iPhones running iOS 16.0 or later. It uses iOS lock-screen widgets and Focus modes, both available on all compatible iPhone models from iPhone XS onward.',
+        text: 'FaithWall supports iPhones running iOS 16.0 or later. It uses iOS lock-screen wallpapers and widgets, which are available on all compatible iPhone models.',
       },
     },
     {
@@ -79,7 +79,7 @@ const faqSchema = {
       name: 'Is my data private?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. FaithWall does not require an account and your verse selections stay on your device. Payment data, if you upgrade to a premium plan, is handled by RevenueCat — FaithWall never sees your card details.',
+        text: 'Your subscription payment is handled by Apple through the App Store, so FaithWall never sees your card details.',
       },
     },
   ],

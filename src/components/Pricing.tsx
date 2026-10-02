@@ -7,7 +7,7 @@ const plans = [
     cadence: 'Billed monthly',
     features: [
       'Unlimited wallpaper exports',
-      'All premium features',
+      'Full access to FaithWall',
       'Cancel anytime',
     ],
     cta: 'See price in App Store',
@@ -104,7 +104,7 @@ export default function Pricing() {
         </div>
 
         <p className="text-center text-white/50 text-sm mt-10 max-w-2xl mx-auto leading-relaxed">
-          FaithWall is free to download. Your exact price, billing period, and any free-trial offer are shown in the App Store at checkout, in your local currency — and may vary between users and change over time as we test and improve our pricing.
+          FaithWall is free to download, and using it requires a subscription. Your exact price, billing period, and any trial offer are shown in the App Store at checkout, in your local currency — and may vary between users and change over time as we test and improve our pricing.
         </p>
       </div>
     </section>

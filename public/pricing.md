@@ -1,32 +1,18 @@
 # Pricing — FaithWall
 
-FaithWall is an iOS app that displays daily Bible verses on the iPhone lock screen.
-Free to download. Premium plans unlock unlimited verse packs and customization.
+FaithWall is an iPhone app that puts the Bible verses you choose on your lock screen.
+It is free to download, and using it requires a FaithWall subscription. There is no free tier.
 
-## Plans
+## Price
 
-### Free
-- Price: $0
-- Daily Bible verse on the iPhone lock screen (wallpaper or widget)
-- Curated verse packs and rotating Scripture
-- iOS Focus mode integration
-- No account required
+The price, billing period and any trial offer are shown in the App Store before you pay, in your local currency, and may change over time.
 
-### Premium — Monthly
-- Price: $1.99 / month
-- All Free features
-- Unlimited verse packs
-- Unlimited customization (fonts, colors, layout)
-- All future premium features included
-- Cancel anytime
+## What you get
 
-### Premium — Yearly
-- Price: $8.99 / year (≈ $0.75 / month — about 60% off monthly)
-- All Free features
-- Unlimited verse packs
-- Unlimited customization (fonts, colors, layout)
-- All future premium features included
-- Cancel anytime
+- Pick your own verses by book, chapter and verse or by search, in 24 translations
+- Show them as a full-screen lock-screen wallpaper (applied by an Apple Shortcut) or as a compact lock-screen widget that rotates saved verses every hour, 8 hours or day
+- App interface in 10 languages
+- Not a Bible reader
 
 ## Platforms
 
@@ -35,7 +21,7 @@ Free to download. Premium plans unlock unlimited verse packs and customization.
 
 ## Payments
 
-Payment processing is handled by RevenueCat. FaithWall never stores card details.
+Subscriptions are billed through Apple and can be managed or cancelled in your App Store account settings.
 
 ## Contact
 
@@ -43,4 +29,4 @@ hello@faithwall.app
 
 ## Last updated
 
-2026-05-19
+2026-10-02

@@ -4,6 +4,7 @@
     "description": "A psalm 23 wallpaper iphone setup that actually stays readable — which lines fit the lock screen, the full text, and the rotation that beats one frozen image.",
     "date": "June 17, 2026",
     "datePublished": "2026-06-17T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/psalm-23-wallpaper-iphone.jpg",
     "imageAttribution": {
@@ -19,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "A **Psalm 23 wallpaper iPhone** setup is quick: install FaithWall (free), open the Comfort pack, and tap **Set Lock Screen** — done in about 60 seconds. Because the whole psalm won't fit one screen, FaithWall rotates its lines — *\"The Lord is my shepherd,\" \"He maketh me to lie down in green pastures,\" \"Though I walk through the valley\"* — so you live through the psalm a line at a time instead of staring at one frozen graphic."
+      "content": "A **Psalm 23 wallpaper iPhone** setup is quick: install FaithWall (free to download), open the Comfort pack, and tap **Set Lock Screen** — done in about 60 seconds. Because the whole psalm won't fit one screen, FaithWall rotates its lines — *\"The Lord is my shepherd,\" \"He maketh me to lie down in green pastures,\" \"Though I walk through the valley\"* — so you live through the psalm a line at a time instead of staring at one frozen graphic."
     },
     {
       "type": "paragraph",
@@ -67,7 +68,7 @@
     {
       "type": "steps",
       "items": [
-        "Download **FaithWall** from the App Store — free, no account required.",
+        "Download **FaithWall** from the App Store — free to download.",
         "Open the **Comfort** pack (Psalm 23 lives here alongside other shepherd-and-rest verses).",
         "Pick a style — minimalist text, photo-backed pastures, or a soft gradient.",
         "Tap **Set Lock Screen**. iOS asks once to allow the wallpaper; tap allow.",
@@ -102,7 +103,7 @@
     {
       "type": "cta",
       "title": "Put Psalm 23 where you'll actually see it",
-      "description": "Free, 60 seconds, no account. FaithWall's Comfort pack keeps Psalm 23 on your lock screen — rotating, readable, and installed via iOS Focus modes. No screenshots, no clutter.",
+      "description": "Free to download, 60-second setup. FaithWall's Comfort pack keeps Psalm 23 on your lock screen — rotating, readable, and installed via iOS Focus modes. No screenshots, no clutter.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

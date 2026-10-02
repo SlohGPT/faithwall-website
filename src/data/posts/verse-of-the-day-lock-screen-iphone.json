@@ -4,7 +4,7 @@
     "description": "A verse of the day lock screen iphone setup that puts today's verse where you'll actually see it — on the wallpaper, not buried inside an app you have to open.",
     "date": "June 3, 2026",
     "datePublished": "2026-06-03T09:00:00.000Z",
-    "dateModified": "2026-08-13T09:00:00.000Z",
+    "dateModified": "2026-10-02T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/verse-of-the-day-lock-screen-iphone.jpg",
     "imageAttribution": {
@@ -110,7 +110,7 @@
     {
       "type": "steps",
       "items": [
-        "Download FaithWall (free) from the App Store.",
+        "Download FaithWall (free to download) from the App Store.",
         "Pick a themed verse pack — Strength, Gratitude, Anxiety, Psalms, Promises. The pack is your VOTD curation for the season.",
         "Choose a wallpaper style — the typography is sized clear of the clock and widgets.",
         "Tap **Set Lock Screen**. FaithWall installs it via iOS Focus modes (iOS 16+) — no Camera Roll wallpaper-juggling.",
@@ -196,7 +196,7 @@
     {
       "type": "cta",
       "title": "Put today's verse where you'll actually see it",
-      "description": "FaithWall rotates a fresh themed verse onto your iPhone lock screen every morning — designed for the surface, installed via iOS Focus modes, no account. The VOTD experience the way it was meant to work.",
+      "description": "FaithWall rotates a fresh themed verse onto your iPhone lock screen every morning — designed for the surface, free to download. The VOTD experience the way it was meant to work.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

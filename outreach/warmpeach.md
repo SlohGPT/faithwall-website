@@ -1,5 +1,7 @@
 # Outreach draft — warmpeach.com
 
+**Facts corrected 2026-10-02** for the v2.3 subscription model — earlier versions of this draft called the app free; do not send an older copy.
+
 **Target site:** warmpeach.com
 **Target page:** https://www.warmpeach.com/blog/best-bible-apps ("Best Bible Apps in 2026: 17 Hand-Reviewed Picks" — the roundup that does not yet cover the lock-screen-habit category)
 **Contact route:** **RESOLVED 2026-09-07 (weekly refresh, local run).** `hello@warmpeach.com` — published on https://www.warmpeach.com/about behind Cloudflare email obfuscation, which is why the cloud pass saw it redacted. Send there with the app name and why it belongs, per their stated submission process. Keep the standing caveat from `outreach/targets.json` in mind: Warmpeach's About page states the site doubles as the marketing home of a pre-launch Bible chat app, so this is self-interested content marketing rather than disinterested editorial — worth pitching (different product category, real stated methodology) but not worth treating as a neutral review outlet.
@@ -13,9 +15,9 @@
 
 **Body:**
 
-Hi — I'm Karol, an indie iOS developer in Slovakia, and I built FaithWall, a free app that puts a fresh Bible verse on the iPhone lock screen every day via iOS 16 widgets and Focus modes. I read your Best Bible Apps roundup and noticed the lock-screen-habit category isn't covered in the 17 picks — it's a different job than reading or study apps, more ambient than active.
+Hi — I'm Karol, an indie iOS developer in Slovakia, and I built FaithWall, an iPhone app that puts the Bible verses you choose on the lock screen as a wallpaper or a rotating widget. I read your Best Bible Apps roundup and noticed the lock-screen-habit category isn't covered in the 17 picks — it's a different job than reading or study apps, more ambient than active.
 
-I'd genuinely like FaithWall tested on your stated criteria (a real week of installed use, screenshots, no pay-to-play) rather than added on request. Setup is about 60 seconds, no account needed, free tier plus optional verse packs. Happy to answer questions either way.
+I'd genuinely like FaithWall tested on your stated criteria (a real week of installed use, screenshots, no pay-to-play) rather than added on request. It's free to download but requires a subscription, so I'd be glad to send a subscription offer code so you can test the full app. You pick your own verses (24 translations), then show them as a full-screen wallpaper applied by an Apple Shortcut or a lock-screen widget that rotates saved verses every hour, 8 hours or day. Happy to answer questions either way.
 
 Disclosure: FaithWall is my own app.
 

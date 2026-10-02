@@ -264,7 +264,7 @@ export default function Navigation() {
                   rel="noopener noreferrer"
                   className="hidden lg:inline-flex items-center justify-center px-7 py-3 bg-white text-surface text-xl font-semibold rounded-full hover:bg-white/90 transition-all duration-300"
                 >
-                  Try for free
+                  Get the app
                 </a>
 
                 <button
@@ -338,7 +338,7 @@ export default function Navigation() {
                 className="flex items-center justify-center w-full px-8 py-3.5 bg-white text-surface text-xl font-semibold rounded-full transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Try for free
+                Get the app
               </a>
             </div>
           </div>
