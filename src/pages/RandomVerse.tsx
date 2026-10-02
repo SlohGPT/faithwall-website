@@ -6,6 +6,8 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Breadcrumbs from '../components/Breadcrumbs';
 import AppStoreButton from '../components/AppStoreButton';
+import AppNudge from '../components/AppNudge';
+import { appStoreUrl } from '../lib/appStore';
 import verses from '../data/randomVerses.json';
 import chapterData from '../data/bibleChapters.json';
 import {
@@ -458,6 +460,15 @@ export default function RandomVerse() {
                 </a>
               </div>
 
+              <AppNudge
+                campaign="web-random-verse-card"
+                title="Want a verse on your lock screen every day?"
+                className="mt-5"
+              >
+                You do not have to come back here. FaithWall is an iPhone app that puts the verses you
+                choose on your lock screen.
+              </AppNudge>
+
               <div className="mt-6 flex flex-wrap justify-center gap-2" role="group" aria-label="Verse source">
                 <button
                   type="button"
@@ -681,7 +692,7 @@ export default function RandomVerse() {
             </p>
             <div className="flex justify-center">
               <AppStoreButton
-                href="https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+                href={appStoreUrl('web-random-verse')}
                 theme="light"
               />
             </div>

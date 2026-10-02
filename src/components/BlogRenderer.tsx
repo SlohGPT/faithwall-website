@@ -3,6 +3,7 @@ import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
 import { Zap, Lightbulb, BookOpen, AlertCircle, Sparkles } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
+import { appStoreUrl } from '../lib/appStore';
 import type { BlogSection } from '../types/blog';
 
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -13,12 +14,18 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   sparkles: Sparkles,
 };
 
-function Markdown({ text }: { text: string }) {
+/** Tag any App Store link in content with the page's campaign token (no-op while the token is empty). */
+function tagAppStoreHref(href: string, campaign: string): string {
+  return href.includes('id6756815070') ? appStoreUrl(campaign) : href;
+}
+
+function Markdown({ text, campaign }: { text: string; campaign: string }) {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       components={{
-        a: ({ href = '', children }) => {
+        a: ({ href: rawHref = '', children }) => {
+          const href = tagAppStoreHref(rawHref, campaign);
           const isInternal = href.startsWith('/') || href.startsWith('https://faithwall.app');
           const internalPath = isInternal
             ? href.replace(/^https:\/\/faithwall\.app/, '')
@@ -45,7 +52,7 @@ function Markdown({ text }: { text: string }) {
   );
 }
 
-export default function BlogRenderer({ sections }: { sections: BlogSection[] }) {
+export default function BlogRenderer({ sections, campaign }: { sections: BlogSection[]; campaign: string }) {
   return (
     <div className="space-y-6">
       {sections.map((section, i) => {
@@ -63,7 +70,7 @@ export default function BlogRenderer({ sections }: { sections: BlogSection[] }) 
           case 'paragraph':
             return (
               <div key={i} className="text-white/80 leading-relaxed text-lg">
-                <Markdown text={section.text} />
+                <Markdown campaign={campaign} text={section.text} />
               </div>
             );
 
@@ -76,7 +83,7 @@ export default function BlogRenderer({ sections }: { sections: BlogSection[] }) 
                   {section.title && (
                     <p className="font-bold text-white text-lg mb-2">{section.title}</p>
                   )}
-                  <div className="text-white/85"><Markdown text={section.content} /></div>
+                  <div className="text-white/85"><Markdown campaign={campaign} text={section.content} /></div>
                 </div>
               </div>
             );
@@ -86,14 +93,14 @@ export default function BlogRenderer({ sections }: { sections: BlogSection[] }) 
             return (
               <div key={i} className="my-6 p-5 rounded-xl bg-surface-card border-l-4 border-brand">
                 <p className="text-xs uppercase tracking-widest text-brand font-bold mb-2">Tip</p>
-                <div className="text-white/85"><Markdown text={section.content} /></div>
+                <div className="text-white/85"><Markdown campaign={campaign} text={section.content} /></div>
               </div>
             );
 
           case 'highlight':
             return (
               <div key={i} className="my-6 p-5 rounded-xl bg-gradient-to-br from-brand/15 to-brand-dark/10 border border-brand/20">
-                <div className="text-white/90"><Markdown text={section.content} /></div>
+                <div className="text-white/90"><Markdown campaign={campaign} text={section.content} /></div>
               </div>
             );
 
@@ -101,7 +108,7 @@ export default function BlogRenderer({ sections }: { sections: BlogSection[] }) 
             return (
               <div key={i} className="my-6 p-5 rounded-xl bg-surface-card border-l-4 border-yellow-500/70">
                 <p className="text-xs uppercase tracking-widest text-yellow-400 font-bold mb-2">Important</p>
-                <div className="text-white/85"><Markdown text={section.content} /></div>
+                <div className="text-white/85"><Markdown campaign={campaign} text={section.content} /></div>
               </div>
             );
 
@@ -126,7 +133,7 @@ export default function BlogRenderer({ sections }: { sections: BlogSection[] }) 
                       {idx + 1}
                     </span>
                     <div className="text-white/85 leading-relaxed pt-1 flex-1">
-                      <Markdown text={item} />
+                      <Markdown campaign={campaign} text={item} />
                     </div>
                   </li>
                 ))}
@@ -138,7 +145,7 @@ export default function BlogRenderer({ sections }: { sections: BlogSection[] }) 
               <ul key={i} className="my-4 space-y-2 list-disc list-outside pl-6 marker:text-brand">
                 {section.items.map((item, idx) => (
                   <li key={idx} className="text-white/85 leading-relaxed pl-1">
-                    <Markdown text={item} />
+                    <Markdown campaign={campaign} text={item} />
                   </li>
                 ))}
               </ul>
@@ -155,7 +162,7 @@ export default function BlogRenderer({ sections }: { sections: BlogSection[] }) 
                     <div className="flex-1">
                       <p className="font-bold text-white">{item.name}</p>
                       <div className="text-white/80 leading-relaxed mt-1">
-                        <Markdown text={item.description} />
+                        <Markdown campaign={campaign} text={item.description} />
                       </div>
                     </div>
                   </li>
@@ -181,7 +188,7 @@ export default function BlogRenderer({ sections }: { sections: BlogSection[] }) 
                 <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{section.title}</h3>
                 <p className="text-white/80 mb-6 max-w-xl mx-auto">{section.description}</p>
                 <div className="flex justify-center">
-                  <AppStoreButton href={section.buttonUrl} theme="light" />
+                  <AppStoreButton href={tagAppStoreHref(section.buttonUrl, campaign)} theme="light" />
                 </div>
               </div>
             );
