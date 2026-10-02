@@ -196,15 +196,23 @@ export interface PrefillParams {
   tr: string;
   hasText: boolean;
   hasTr: boolean;
+  /** From ?style=, only when it is a known preset id. */
+  style: StyleId | null;
+  /** From ?size=, only when it is a known size preset id. */
+  size: SizeId | null;
 }
 
-/** Parse ?text=&ref=&tr= (all optional). Accepts a query string with or without the leading "?". */
+/** Parse ?text=&ref=&tr=&style=&size= (all optional). Accepts a query string with or without the leading "?". */
 export function parsePrefill(search: string): PrefillParams {
   const params = new URLSearchParams(search);
   const text = sanitizeText(params.get('text'), MAX_TEXT);
   const ref = sanitizeText(params.get('ref'), MAX_REF);
   const tr = sanitizeText(params.get('tr'), MAX_TRANSLATION);
-  return { text, ref, tr, hasText: text.length > 0, hasTr: tr.length > 0 };
+  const styleParam = params.get('style');
+  const sizeParam = params.get('size');
+  const style = STYLE_PRESETS.find((p) => p.id === styleParam)?.id ?? null;
+  const size = SIZE_PRESETS.find((p) => p.id === sizeParam)?.id ?? null;
+  return { text, ref, tr, hasText: text.length > 0, hasTr: tr.length > 0, style, size };
 }
 
 /* ------------------------------------------------------------------ */

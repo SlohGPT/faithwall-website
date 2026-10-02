@@ -50,12 +50,28 @@ const posts = JSON.parse(
   readFileSync(join(root, 'src/data/blogPosts.json'), 'utf-8')
 ).filter((p) => p.isPublished !== false);
 
+// Google image sitemap entries (full-size files only), keyed by page path.
+// Source of truth is src/data/wallpaperGallery.json (written by
+// scripts/build-wallpaper-gallery.mjs).
+const gallery = JSON.parse(
+  readFileSync(join(root, 'src/data/wallpaperGallery.json'), 'utf-8')
+);
+const IMAGES = {
+  '/bible-verse-wallpaper-maker': gallery.map((g) => `${SITE}${g.file}`),
+};
+
 function urlBlock(loc, lastmod, changefreq, priority) {
+  const images = (IMAGES[loc] || [])
+    .map((src) => `
+    <image:image>
+      <image:loc>${src}</image:loc>
+    </image:image>`)
+    .join('');
   return `  <url>
     <loc>${SITE}${loc}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
+    <priority>${priority}</priority>${images}
   </url>`;
 }
 
@@ -78,7 +94,7 @@ const blocks = [
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${blocks.join('\n')}
 </urlset>
 `;

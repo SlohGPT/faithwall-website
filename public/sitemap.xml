@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://faithwall.app/</loc>
     <lastmod>2026-08-10</lastmod>
@@ -17,6 +17,54 @@
     <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-philippians-4-13-black-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-psalm-46-1-navy-gold-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-isaiah-26-3-dark-gradient-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-philippians-4-7-minimal-white-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-1-peter-5-7-bold-sans-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-2-timothy-1-7-black-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-romans-8-28-navy-gold-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-jeremiah-29-11-sunrise-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-1-corinthians-13-13-cream-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-john-3-16-dark-gradient-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-proverbs-3-5-black-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-psalm-31-24-bold-sans-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-1-thessalonians-5-18-sunrise-iphone.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-isaiah-41-10-black-desktop-4k.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-joshua-1-9-bold-sans-desktop-4k.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://faithwall.app/wallpapers/bible-verse-wallpaper-psalm-23-1-navy-gold-desktop-4k.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://faithwall.app/blog</loc>
