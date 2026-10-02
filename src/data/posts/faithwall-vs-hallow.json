@@ -33,7 +33,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Hallow is a guided-prayer and meditation app — rosaries, the daily examen, Scripture read aloud, sleep stories, Lenten challenges. You set aside ten to forty minutes, press play, and let it lead you. It's genuinely good at that. **FaithWall** is the opposite shape: there's almost nothing to *do*. You pick a verse pack once, it installs a rotating Scripture wallpaper to your lock screen, and then it works without you. One is reading and listening. The other is *seeing*."
+      "text": "Hallow is a guided-prayer and meditation app — rosaries, the daily examen, Scripture read aloud, sleep stories, Lenten challenges. You set aside ten to forty minutes, press play, and let it lead you. It's genuinely good at that. **FaithWall** is the opposite shape: there's almost nothing to *do*. You pick your verses once, and they sit on your lock screen — as a wallpaper applied by a Shortcut, or in a widget that rotates — without you opening the app again. One is reading and listening. The other is *seeing*."
     },
     {
       "type": "paragraph",
@@ -60,7 +60,7 @@
     },
     {
       "type": "paragraph",
-      "text": "FaithWall does one thing: it keeps today's verse on the surface you already check more than a hundred times a day. The average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report — and **FaithWall** turns a chunk of those unconscious glances into Scripture without you opening anything. It installs the wallpaper itself, and the themed packs — Anxiety, Strength, Gratitude, Grief — mean you don't have to already know which verse you need today."
+      "text": "FaithWall does one thing: it keeps today's verse on the surface you already check more than a hundred times a day. The average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report — and **FaithWall** turns a chunk of those unconscious glances into Scripture without you opening anything. You pick the verses and it applies the wallpaper through an Apple Shortcut; search means you don't have to already know where a verse lives."
     },
     {
       "type": "heading",
@@ -78,7 +78,7 @@
         "**How you use it:** Hallow is a session you sit down for. FaithWall runs in the background — no opening required.",
         "**Price:** Hallow's best content needs the Hallow Plus subscription. FaithWall is free to download with a subscription.",
         "**The habit risk:** Hallow depends on you remembering to open it. FaithWall depends on you picking up your phone.",
-        "**iOS integration:** Hallow sends notifications. FaithWall installs the wallpaper directly via Focus modes — no Camera Roll clutter."
+        "**iOS integration:** Hallow sends notifications. FaithWall applies the wallpaper through an Apple Shortcut — no Camera Roll clutter."
       ]
     },
     {
@@ -114,7 +114,7 @@
     {
       "type": "cta",
       "title": "Add the always-on layer",
-      "description": "FaithWall keeps today's verse on the lock screen you already check 144 times a day. Themed packs, 60-second setup.",
+      "description": "FaithWall keeps today's verse on the lock screen you already check 144 times a day. Verses you choose, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

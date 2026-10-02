@@ -75,7 +75,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**This is where FaithWall fits.** Instead of a bare alarm, your lock screen carries the verse and prayer prompt *during* the alarm — \"Thanksgiving\" with Psalm 100 sitting underneath, \"Examen\" with Psalm 139:23–24. The alarm becomes a moment with content, not a notification asking you to come up with one. Themed packs (Confession, Gratitude, Intercession) match each alarm to a different rhythm of prayer."
+      "text": "**This is where FaithWall fits.** Instead of a bare alarm, your lock screen carries the verse and prayer prompt *during* the alarm — \"Thanksgiving\" with Psalm 100 sitting underneath, \"Examen\" with Psalm 139:23–24. The alarm becomes a moment with content, not a notification asking you to come up with one. Verses you choose (confession, gratitude, intercession) can match each alarm to a different rhythm of prayer."
     },
     {
       "type": "verse",
@@ -98,7 +98,7 @@
         "Name it **Quiet Time**. Pick a soft color and the prayer-hands icon.",
         "**Allow notifications only from**: spouse, kids, emergency contacts. Nothing else.",
         "**Schedule**: 6:30–7:00am daily (or your slot). Optional: add a second window at 9:00–9:15pm.",
-        "**Customize Screens**: pick a Scripture wallpaper (FaithWall installs these automatically for this Focus).",
+        "**Customize Screens**: pick the Scripture wallpaper you set up with FaithWall.",
         "Save. Your phone now becomes a different phone for one hour a day — no buzzing, no thumbnails, no scroll."
       ]
     },
@@ -119,7 +119,7 @@
       "type": "list",
       "items": [
         "**Daily prayer focus widget** — surfaces one person, one verse, or one theme each day. The thing you commit to pray for, on the screen you check 144 times.",
-        "**Verse rotation widget** — different verse every day, packs by theme (Comfort, Strength, Confession).",
+        "**Verse rotation widget** — a different verse each time it rotates, from the verses you choose.",
         "**Prayer list widget** — your committed list, alphabetical. Tap to mark prayed."
       ]
     },
@@ -147,7 +147,7 @@
     {
       "type": "cta",
       "title": "Make every prayer alarm carry a verse",
-      "description": "FaithWall pairs your prayer alarms with Scripture on the lock screen — themed packs (Thanksgiving, Confession, Examen) so the alarm becomes a moment with content, not a buzz to dismiss. Free to download, 60-second setup.",
+      "description": "FaithWall pairs your prayer alarms with Scripture on the lock screen — verses you choose (thanksgiving, confession, examen) so the alarm becomes a moment with content, not a buzz to dismiss. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

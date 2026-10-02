@@ -42,7 +42,7 @@
     },
     {
       "type": "paragraph",
-      "text": "FaithWall does one thing on purpose. It puts daily Scripture on the **iPhone lock screen** — the surface you already see more than any other — and rotates it automatically through a themed pack. There's no session to start, no streak to protect, no audio to press play on. You pick up your phone to check the time, and a verse is already there. It's the daily-exposure piece an open-the-app devotional can't cover by design."
+      "text": "FaithWall does one thing on purpose. It puts daily Scripture on the **iPhone lock screen** — the surface you already see more than any other — and rotates it automatically through verses you choose. There's no session to start, no streak to protect, no audio to press play on. You pick up your phone to check the time, and a verse is already there. It's the daily-exposure piece an open-the-app devotional can't cover by design."
     },
     {
       "type": "heading",
@@ -92,7 +92,7 @@
     {
       "type": "steps",
       "items": [
-        "Install **FaithWall** first — pick a themed pack (Anxiety, Strength, Gratitude, Grief) and tap Set Lock Screen.",
+        "Install **FaithWall** first — pick your verses and tap Set Lock Screen.",
         "Let it rotate a verse onto your lock screen automatically; that's your all-day baseline.",
         "Add Glorify if you want a guided morning devotional and worship for sit-down time.",
         "Pair both with a **Quiet Time** Focus mode (iOS 16+) so the devotional block stays interruption-free."
@@ -100,7 +100,7 @@
     },
     {
       "type": "highlight",
-      "content": "**Pro move:** match the season. If Glorify's plan this month is about anxiety, set FaithWall to its Anxiety pack. Now the verses on your lock screen reinforce the devotional you're already doing — same theme, two surfaces, all day long."
+      "content": "**Pro move:** match the season. If Glorify's plan this month is about anxiety, choose FaithWall verses on anxiety. Now the verses on your lock screen reinforce the devotional you're already doing — same theme, two surfaces, all day long."
     },
     {
       "type": "important",

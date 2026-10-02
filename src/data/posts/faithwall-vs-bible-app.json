@@ -33,7 +33,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The Bible App — YouVersion's — is a reading destination. Dozens of translations, hundreds of reading plans, audio Bibles, a Verse of the Day, and a community feed. You open it, you read, you close it. It's the best free reading app there is, and nothing here is a knock on it. **FaithWall** is a different shape entirely: there's almost nothing to *do*. You pick a verse pack once, it installs a rotating Scripture wallpaper to your lock screen, and then it runs without you. The Bible App is for *reading*. FaithWall is for *seeing*."
+      "text": "The Bible App — YouVersion's — is a reading destination. Dozens of translations, hundreds of reading plans, audio Bibles, a Verse of the Day, and a community feed. You open it, you read, you close it. It's the best free reading app there is, and nothing here is a knock on it. **FaithWall** is a different shape entirely: there's almost nothing to *do*. You pick your verses once, and they sit on your lock screen — as a wallpaper applied by a Shortcut, or in a widget that rotates — without you opening the app again. The Bible App is for *reading*. FaithWall is for *seeing*."
     },
     {
       "type": "verse",
@@ -71,7 +71,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**FaithWall** lives on the lock screen itself — not a widget sitting on it, but the wallpaper *as* the verse, designed for that surface and installed automatically through iOS Focus modes (iOS 16+). No screenshots, no Camera Roll clutter, no remembering. The themed packs — Anxiety, Strength, Gratitude, Grief — mean you don't have to already know which verse you need today; you pick a season and it curates. We break the whole thing down in [verse of the day on the lock screen](/blog/verse-of-the-day-lock-screen-iphone), but the short version is that the wallpaper beats the app for one reason: you never have to open it."
+      "text": "**FaithWall** lives on the lock screen itself — not a widget sitting on it, but the wallpaper *as* the verse, designed for that surface and applied through an Apple Shortcut. No screenshots, no Camera Roll clutter, no remembering. Picking verses by search as well as by book, chapter and verse means you don't have to already know where a verse lives; you choose the ones you need and FaithWall displays them. We break the whole thing down in [verse of the day on the lock screen](/blog/verse-of-the-day-lock-screen-iphone), but the short version is that the wallpaper beats the app for one reason: you never have to open it."
     },
     {
       "type": "heading",
@@ -88,8 +88,8 @@
         "**What it does:** The Bible App is full-text reading, plans, and audio. FaithWall is today's verse on the lock screen.",
         "**How you use it:** The Bible App is a session you open. FaithWall runs in the background — nothing to open.",
         "**The Verse of the Day:** The Bible App's lives inside the app or a widget you tune out. FaithWall's is the wallpaper you can't miss.",
-        "**Curation:** The Bible App hands you one daily verse. FaithWall lets you pick a themed pack for the season you're in.",
-        "**iOS integration:** The Bible App sends notifications. FaithWall installs the wallpaper directly via Focus modes."
+        "**Curation:** The Bible App hands you one daily verse. FaithWall lets you pick the verses for the season you're in.",
+        "**iOS integration:** The Bible App sends notifications. FaithWall applies the wallpaper through an Apple Shortcut."
       ]
     },
     {
@@ -125,7 +125,7 @@
     {
       "type": "cta",
       "title": "Add the layer the Bible App can't reach",
-      "description": "FaithWall puts today's verse on the lock screen you already check 144 times a day. Themed packs, 60-second setup.",
+      "description": "FaithWall puts today's verse on the lock screen you already check 144 times a day. Verses you choose, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

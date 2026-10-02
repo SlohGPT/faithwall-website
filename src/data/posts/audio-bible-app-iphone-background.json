@@ -64,8 +64,8 @@
       "type": "steps",
       "items": [
         "Download **FaithWall** from the App Store — free to download.",
-        "Pick the book or theme you're listening through (Psalms, a Gospel, or a pack like Strength or Peace).",
-        "Tap **Set Lock Screen** — iOS installs the wallpaper automatically via Focus modes.",
+        "Pick the verses that match what you're listening through (Psalms, a Gospel, or a theme like strength or peace), by book, chapter and verse or by search.",
+        "Tap **Set Lock Screen** — FaithWall applies the wallpaper through an Apple Shortcut.",
         "Start your audio bible app and swipe home; the verse on your screen now matches what you're hearing all week."
       ]
     },

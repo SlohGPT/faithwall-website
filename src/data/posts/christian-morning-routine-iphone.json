@@ -68,7 +68,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**This is where FaithWall earns its place.** It puts a fresh, designed verse on your lock screen automatically, so the very first thing you see is Scripture — before the feed gets a vote. You pick a themed pack once (Strength, Gratitude, Anxiety, Psalms) and it rotates on its own. No daily curation, no screenshot juggling, no decision to make while you're still rubbing your eyes."
+      "text": "**This is where FaithWall earns its place.** It puts a fresh, designed verse on your lock screen automatically, so the very first thing you see is Scripture — before the feed gets a vote. You pick your verses once — by book, chapter and verse, or by search — and the widget rotates through them on its own. No daily curation, no screenshot juggling, no decision to make while you're still rubbing your eyes."
     },
     {
       "type": "verse",
@@ -90,7 +90,7 @@
         "Settings → Focus → + → **Custom**. Name it **Quiet Time**.",
         "**Allow notifications only from** spouse, kids, and emergency contacts.",
         "**Schedule** it 6:00–7:00am daily — or whenever you actually wake.",
-        "**Customize Screens** → pick a Scripture lock screen (FaithWall installs this for the Focus automatically).",
+        "**Customize Screens** → pick the Scripture lock screen you set up with FaithWall.",
         "Save. Your 6am phone is now silent and pointing you at the Word."
       ]
     },
@@ -112,7 +112,7 @@
       "items": [
         "**Verse on the lock screen** — read before you unlock, 144 chances a day to remember.",
         "**One widget, not ten** — today's focus, not a dashboard you'll ignore by Friday.",
-        "**A weekly theme** — one pack for the season you're in, so the mornings stay cohesive."
+        "**A weekly theme** — one set of verses for the season you're in, so the mornings stay cohesive."
       ]
     },
     {
@@ -135,7 +135,7 @@
     {
       "type": "cta",
       "title": "Make Scripture the first thing you see",
-      "description": "FaithWall puts a fresh verse on your lock screen so your first phone-glance of the morning is the Word, not the feed. Themed packs, automatic rotation, iOS Focus integration. Free to download, 60-second setup.",
+      "description": "FaithWall puts a fresh verse on your lock screen so your first phone-glance of the morning is the Word, not the feed. Verses you choose, a rotating widget, Shortcuts automation. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

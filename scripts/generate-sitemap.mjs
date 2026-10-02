@@ -25,8 +25,8 @@ const STATIC_ROUTES = [
   { path: '/bible-verse-wallpaper-maker', lastmod: '2026-10-02', changefreq: 'monthly', priority: '0.8' },
   { path: '/blog', lastmod: '2026-05-19', changefreq: 'weekly', priority: '0.9' },
   { path: '/about/karol-billik', lastmod: '2026-05-19', changefreq: 'monthly', priority: '0.5' },
-  { path: '/privacy-policy', lastmod: '2026-05-19', changefreq: 'monthly', priority: '0.3' },
-  { path: '/terms-of-use', lastmod: '2026-05-19', changefreq: 'monthly', priority: '0.3' },
+  { path: '/privacy-policy', lastmod: '2026-10-02', changefreq: 'monthly', priority: '0.3' },
+  { path: '/terms-of-use', lastmod: '2026-10-02', changefreq: 'monthly', priority: '0.3' },
   { path: '/eula', lastmod: '2025-11-26', changefreq: 'monthly', priority: '0.3' },
 ];
 

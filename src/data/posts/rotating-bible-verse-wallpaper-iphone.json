@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Rotating Bible Verse Wallpaper iPhone: The Setup That Beats Static",
-    "description": "A rotating bible verse wallpaper iphone setup that actually changes daily — why static wallpapers fade by day 10 and the iOS Focus mode method that fixes it.",
+    "description": "A rotating bible verse wallpaper iphone setup that actually changes daily — why static wallpapers fade by day 10 and the rotation method that fixes it.",
     "date": "May 28, 2026",
     "datePublished": "2026-05-28T09:00:00.000Z",
     "dateModified": "2026-10-02T09:00:00.000Z",
@@ -20,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "A **rotating bible verse wallpaper iphone** setup needs three pieces: a themed Scripture pack, an iOS Focus mode that swaps the lock screen on a schedule, and an app that handles the rotation automatically. FaithWall ships all three — pick a pack, install once, and a new verse appears on your lock screen every day without you touching anything."
+      "content": "A **rotating bible verse wallpaper iphone** setup needs three pieces: a set of Scripture verses you chose, a way to swap the lock screen on a schedule, and an app that handles the rotation automatically. FaithWall covers it — pick your verses once, and its lock-screen widget cycles through them hourly, every 8 hours or daily, without you touching anything."
     },
     {
       "type": "paragraph",
@@ -58,9 +58,9 @@
       "type": "list",
       "items": [
         "**Change the wallpaper on a schedule** without you opening Settings every morning.",
-        "**Pull from a curated, themed pool** so the rotation is coherent — not random verses bouncing between Leviticus and Revelation.",
+        "**Pull from verses you choose** so the rotation is coherent — not random verses bouncing between Leviticus and Revelation.",
         "**Sit clear of the clock and widgets** — designed for the lock-screen surface, not adapted from a desktop crop.",
-        "**Hook into iOS Focus modes** so it can pair with your Quiet Time or Sabbath without overwriting your regular wallpaper."
+        "**Work alongside iOS lock screens** so it can pair with a Quiet Time or Sabbath Focus you set up yourself, without overwriting your regular wallpaper."
       ]
     },
     {
@@ -78,7 +78,7 @@
         "**Save 30 verse images, rotate manually each morning.** Works for week one. Dies by week three — the manual step is the friction that kills it.",
         "**iOS Photos shuffle on a Focus mode.** Free, native, but you still have to find, save, and crop 30 lock-screen-friendly images. The curation work is the whole job.",
         "**A static gallery app.** You pick one image at install and never change it. Same habituation problem as a Pinterest save — just inside an app.",
-        "**FaithWall.** Themed packs (Anxiety, Strength, Gratitude, Psalms), automatic daily rotation, installs via iOS Focus modes. The rotation is the product, not an afterthought."
+        "**FaithWall.** Verses you choose, a lock-screen widget that rotates hourly, every 8 hours or daily, and a Shortcuts-applied wallpaper. The rotation is the product, not an afterthought."
       ]
     },
     {
@@ -88,7 +88,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Two problems sink the DIY route. First — **curation effort**. Knowing which verse fits today's mood requires you to know the Bible well enough to pick on the fly. That's a chicken-and-egg problem; the people who'd benefit most from a verse wallpaper are usually the ones who don't yet have the recall to choose well. Themed packs solve this by doing the picking for you for a whole season at a time."
+      "text": "Two problems sink the DIY route. First — **curation effort**. Knowing which verse fits today's mood requires you to know the Bible well enough to pick on the fly. That's a chicken-and-egg problem; the people who'd benefit most from a verse wallpaper are usually the ones who don't yet have the recall to choose well. Choosing a whole season's verses in one sitting solves this — you pick once, and the rotation does the rest."
     },
     {
       "type": "paragraph",
@@ -112,10 +112,10 @@
       "type": "steps",
       "items": [
         "Download FaithWall (free to download) from the App Store.",
-        "Pick a themed verse pack matched to your season — Strength, Gratitude, Anxiety, Psalms, Promises.",
+        "Pick verses matched to your season — strength, gratitude, anxiety, Psalms, promises — by search or by book, chapter and verse.",
         "Choose a wallpaper style (the type is sized for the lock-screen surface — clock and widgets won't crash the verse).",
-        "Tap **Set Lock Screen**. FaithWall installs the rotating wallpaper via iOS Focus modes (iOS 16+).",
-        "Long-press your lock screen anytime to swap packs or styles. Rotation runs daily without further input."
+        "Tap **Set Lock Screen**. FaithWall applies the wallpaper through an Apple Shortcut, and the widget rotates your verses on the schedule you set.",
+        "Long-press your lock screen anytime to swap lock screens or styles. Rotation runs daily without further input."
       ]
     },
     {
@@ -125,16 +125,16 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "Pack ideas by season"
+      "text": "Verse ideas by season"
     },
     {
       "type": "list",
       "items": [
-        "**Anxiety pack** — Philippians 4, Matthew 6, Psalm 46 verses for stretches when worry runs hot.",
-        "**Strength pack** — Isaiah 40, Joshua 1, 2 Corinthians 12 for hard professional or physical seasons.",
-        "**Gratitude pack** — Psalms of thanksgiving, Colossians 3 for stable seasons where the risk is taking the good for granted.",
-        "**Psalms pack** — the historic Psalter, rotating in order, for an all-purpose daily rhythm.",
-        "**Promises pack** — covenant verses for seasons of doubt."
+        "**Anxiety** — try Philippians 4, Matthew 6, Psalm 46 verses for stretches when worry runs hot.",
+        "**Strength** — try Isaiah 40, Joshua 1, 2 Corinthians 12 for hard professional or physical seasons.",
+        "**Gratitude** — try Psalms of thanksgiving, Colossians 3 for stable seasons where the risk is taking the good for granted.",
+        "**Psalms** — try the Psalter, a few psalms at a time, for an all-purpose daily rhythm.",
+        "**Promises** — try covenant verses for seasons of doubt."
       ]
     },
     {
@@ -143,16 +143,16 @@
     },
     {
       "type": "important",
-      "content": "**Pick the pack you most need, not the prettiest one.** A rotating wallpaper compounds — three months of Anxiety-pack verses reshape how you talk to yourself under pressure. The aesthetic is bonus; the season-fit is the actual product."
+      "content": "**Pick the verses you most need, not the prettiest wallpaper.** A rotating wallpaper compounds — three months of anxiety verses reshape how you talk to yourself under pressure. The aesthetic is bonus; the season-fit is the actual product."
     },
     {
       "type": "paragraph",
-      "text": "Static Scripture wallpapers were always going to lose to your brain's filter. A **rotating bible verse wallpaper iphone** setup keeps the Word fresh in the only window where it has to be — the screen you check 144 times a day. Pick a pack. Let the rotation do the work. Haven't picked an app yet? We rounded up the [best Bible verse lock screen apps](/best-bible-verse-lock-screen-apps) so you don't have to guess."
+      "text": "Static Scripture wallpapers were always going to lose to your brain's filter. A **rotating bible verse wallpaper iphone** setup keeps the Word fresh in the only window where it has to be — the screen you check 144 times a day. Pick your verses. Let the rotation do the work. Haven't picked an app yet? We rounded up the [best Bible verse lock screen apps](/best-bible-verse-lock-screen-apps) so you don't have to guess."
     },
     {
       "type": "cta",
       "title": "Get a wallpaper that refreshes itself daily",
-      "description": "FaithWall rotates a fresh themed verse onto your iPhone lock screen every morning — designed for the surface, installed via iOS Focus modes, never goes stale. Free to download, 60-second setup.",
+      "description": "FaithWall rotates the verses you choose onto your iPhone lock screen — designed for the surface, applied with an Apple Shortcut or shown in a rotating widget, never goes stale. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

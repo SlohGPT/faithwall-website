@@ -33,7 +33,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Lectio 365 is a guided prayer app from 24-7 Prayer, the international prayer movement based in the UK. Two sessions a day: a morning office built around lectio divina — read the passage, sit with a phrase, respond in prayer, rest in silence — and a short night Compline before bed. Both are narrated, both are free, both are meant to be sat with for ten or fifteen minutes. FaithWall is the opposite shape. There's no session to sit through. You pick a verse pack once, it installs a rotating Scripture wallpaper on your lock screen, and it keeps working without you opening anything again. One is read and prayed. The other is seen."
+      "text": "Lectio 365 is a guided prayer app from 24-7 Prayer, the international prayer movement based in the UK. Two sessions a day: a morning office built around lectio divina — read the passage, sit with a phrase, respond in prayer, rest in silence — and a short night Compline before bed. Both are narrated, both are free, both are meant to be sat with for ten or fifteen minutes. FaithWall is the opposite shape. There's no session to sit through. You pick your verses once, and they sit on your lock screen — as a wallpaper applied by a Shortcut, or in a widget that rotates — without you opening anything again. One is read and prayed. The other is seen."
     },
     {
       "type": "verse",
@@ -56,7 +56,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**FaithWall** doesn't ask you to remember anything. It keeps today's verse on the surface you already check without thinking — the average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report, and FaithWall turns a slice of those glances into Scripture instead of notifications. It installs the wallpaper itself, and the themed packs — Anxiety, Strength, Gratitude, Grief — mean you don't need to already know which verse fits today."
+      "text": "**FaithWall** doesn't ask you to remember anything. It keeps today's verse on the surface you already check without thinking — the average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report, and FaithWall turns a slice of those glances into Scripture instead of notifications. You pick the verses and it applies the wallpaper through an Apple Shortcut; search means you don't need to already know where a verse lives."
     },
     {
       "type": "heading",
@@ -74,7 +74,7 @@
         "**How you use it:** Lectio 365 is two sessions you sit down for, roughly ten minutes each. FaithWall runs in the background — nothing to open.",
         "**Price:** Lectio 365 is free with no paywall. FaithWall is free to download, but using it requires a subscription.",
         "**The habit risk:** Lectio 365 depends on you remembering twice a day. FaithWall depends on you picking up your phone, which you already do.",
-        "**iOS integration:** Lectio 365 sends a notification reminding you to open it. FaithWall installs the wallpaper directly via Focus modes — nothing to remember, nothing to tap."
+        "**iOS integration:** Lectio 365 sends a notification reminding you to open it. FaithWall applies the wallpaper through an Apple Shortcut you can automate — nothing to remember, nothing to tap."
       ]
     },
     {
@@ -84,7 +84,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's where people try to make one app cover both jobs. You finish the Lectio 365 morning session, screenshot the day's verse, and set it as your wallpaper by hand. It holds for about a week. The image wasn't designed for the lock-screen surface — the text sits wrong, the crop is off, and by day ten you're back to a photo of your kids. Manual wallpaper-swapping is a habit, and habits without a system quietly die. A guided-prayer app was never built to live on your lock screen; a screenshot was never designed for it either. That's the exact gap **FaithWall** was built to close — no screenshotting, no manual swap, just a themed pack that installs itself and keeps rotating."
+      "text": "Here's where people try to make one app cover both jobs. You finish the Lectio 365 morning session, screenshot the day's verse, and set it as your wallpaper by hand. It holds for about a week. The image wasn't designed for the lock-screen surface — the text sits wrong, the crop is off, and by day ten you're back to a photo of your kids. Manual wallpaper-swapping is a habit, and habits without a system quietly die. A guided-prayer app was never built to live on your lock screen; a screenshot was never designed for it either. That's the exact gap **FaithWall** was built to close — no screenshotting, no manual swap, just your chosen verses on a widget that keeps rotating."
     },
     {
       "type": "tip",
@@ -105,7 +105,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Want the wider landscape first? Our [pillar guide to Christian app comparisons](/christian-app-comparisons) covers every category — reading, prayer, devotionals, and lock-screen Scripture — and the combinations that actually hold together over a year. If the Psalms are part of your Lectio 365 rhythm, [Praying Through the Psalms](/blog/praying-through-the-psalms-app) shows how the same Psalms pack keeps the day's psalm in front of you after the morning session ends. Haven't settled on a lock-screen app yet? We [compared the top scripture lock screen apps](/best-bible-verse-lock-screen-apps) so you don't have to guess."
+      "text": "Want the wider landscape first? Our [pillar guide to Christian app comparisons](/christian-app-comparisons) covers every category — reading, prayer, devotionals, and lock-screen Scripture — and the combinations that actually hold together over a year. If the Psalms are part of your Lectio 365 rhythm, [Praying Through the Psalms](/blog/praying-through-the-psalms-app) shows how FaithWall, with psalms you choose, keeps the day's psalm in front of you after the morning session ends. Haven't settled on a lock-screen app yet? We [compared the top scripture lock screen apps](/best-bible-verse-lock-screen-apps) so you don't have to guess."
     },
     {
       "type": "cta",

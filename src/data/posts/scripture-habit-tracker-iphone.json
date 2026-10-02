@@ -97,7 +97,7 @@
     },
     {
       "type": "paragraph",
-      "text": "This is the gap **FaithWall** fills. It isn't a habit tracker — it's the cue that makes the tracking almost a formality. You pick a themed pack (Strength, Gratitude, Anxiety, Grief), and a fresh verse rotates onto your lock screen automatically through iOS Focus modes. You're not curating verses or remembering to swap a wallpaper. The Word meets you 144 times a day, so by the time you sit down to read, you've already been thinking about it."
+      "text": "This is the gap **FaithWall** fills. It isn't a habit tracker — it's the cue that makes the tracking almost a formality. You pick your verses (strength, gratitude, anxiety, grief), and a lock-screen widget rotates through them automatically. You're not hunting for a verse each day or remembering to swap a wallpaper. The Word meets you 144 times a day, so by the time you sit down to read, you've already been thinking about it."
     },
     {
       "type": "important",
@@ -118,7 +118,7 @@
     {
       "type": "cta",
       "title": "Give your streak a cue it can't ignore",
-      "description": "Free to download, 60-second setup. FaithWall keeps a fresh verse on your lock screen through iOS Focus modes — the trigger that turns a habit tracker from a scoreboard into a streak that actually holds.",
+      "description": "Free to download, 60-second setup. FaithWall keeps your verse on your lock screen — the trigger that turns a habit tracker from a scoreboard into a streak that actually holds.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

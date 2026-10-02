@@ -119,7 +119,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**The fix is making each Focus mode visually distinct and alive.** FaithWall installs a rotating verse pack tied to each Focus mode — your Quiet Time Focus might carry a Strength pack, Sabbath carries Rest, Work carries Vocation, Wind-Down carries Confession. The wallpaper rotates daily within each pack, so the silence has a fresh voice every time. iOS gives you the silence; FaithWall fills it with something worth seeing."
+      "text": "**The fix is making each Focus mode visually distinct and alive.** Choose a different verse for each one in FaithWall, then link each lock screen to its Focus yourself in iOS — your Quiet Time Focus might carry a strength verse, Sabbath a rest verse, Work a vocation verse, Wind-Down a confession verse. Swap the verse now and then, so the silence has a fresh voice every time. iOS gives you the silence; FaithWall fills it with something worth seeing."
     },
     {
       "type": "verse",
@@ -138,14 +138,14 @@
         "Name it **Quiet Time**. Pick a soft color and a contemplative icon.",
         "**Allow notifications only from**: spouse, kids, emergency contacts. Nothing else.",
         "**Schedule**: 6:00–7:00am daily (or your slot).",
-        "**Customize Screens** → pick a Scripture lock screen. FaithWall installs one tied to your themed pack automatically.",
+        "**Customize Screens** → pick the Scripture lock screen you set up with FaithWall.",
         "**App Filters**: hide social apps, news, email. Show Bible, journal, weather.",
-        "Save. Repeat the same pattern for Sabbath, Work, and Wind-Down — different schedules, different packs, same structure."
+        "Save. Repeat the same pattern for Sabbath, Work, and Wind-Down — different schedules, different verses, same structure."
       ]
     },
     {
       "type": "highlight",
-      "content": "**The pattern is the same; the payload changes.** Once you've built one Focus mode well, the other three are essentially copy-paste with a different schedule and a different verse pack. Twenty minutes total for the whole week."
+      "content": "**The pattern is the same; the payload changes.** Once you've built one Focus mode well, the other three are essentially copy-paste with a different schedule and a different verse. Twenty minutes total for the whole week."
     },
     {
       "type": "heading",
@@ -175,8 +175,8 @@
     },
     {
       "type": "cta",
-      "title": "Pair every Focus mode with a verse pack",
-      "description": "FaithWall installs a themed verse pack per Focus mode — Strength for Quiet Time, Rest for Sabbath, Vocation for Work, Confession for Wind-Down. Free to download, 60-second setup.",
+      "title": "Pair every Focus mode with a verse",
+      "description": "Choose a different FaithWall verse for each Focus — strength for Quiet Time, rest for Sabbath, vocation for Work, confession for Wind-Down — then link each lock screen to its Focus in iOS. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

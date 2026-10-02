@@ -24,7 +24,7 @@ export default function TermsOfUse() {
 
                     <p>We operate the mobile application FaithWall — Daily Bible Verses on Your iPhone Lock Screen (the "App"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").</p>
 
-                    <p>FaithWall is an iOS app that displays daily Bible verses on the iPhone lock screen using wallpapers and widgets. You pick a verse pack — Anxiety, Strength, Gratitude, Psalms, or browse by book — and FaithWall surfaces a fresh verse each day via iOS lock-screen widgets and Focus modes. The app may process basic usage data to improve functionality.</p>
+                    <p>FaithWall is an iOS app that displays daily Bible verses on the iPhone lock screen using wallpapers and widgets. You pick your verses — by book, chapter and verse, or by search — and FaithWall shows them on your lock screen through a Shortcut-applied wallpaper or a rotating lock-screen widget. The app may process basic usage data to improve functionality.</p>
 
                     <p>You can contact us by phone at (+421)907758852, email at <a href="mailto:hello@faithwall.app" className="text-primary hover:underline">hello@faithwall.app</a>, or by mail to Borová 9, 951 01 Nitrianske Hrnčiarovce, Slovakia, Nitrianske Hrnčiarovce, Nitriansky kraj 95101, Slovakia.</p>
 

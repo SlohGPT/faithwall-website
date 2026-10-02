@@ -73,7 +73,7 @@
         "Settings → Focus → + → **Custom**. Name it **Sabbath**. Pick a soft color and a contemplative icon.",
         "**Allow notifications only from**: spouse, kids, parents, emergency contacts. Nothing else — no Slack, no email, no news.",
         "**Hide on home screen**: every work app, Slack, email, news, finance, calendar. Keep Bible, journal, weather, clock, photos.",
-        "**Customize Screens** → pick a rest-themed Scripture lock screen. FaithWall installs a Sabbath pack verse here automatically.",
+        "**Customize Screens** → pick a rest-themed Scripture lock screen. Pick the lock screen carrying a rest verse you chose in FaithWall.",
         "**Schedule:** Saturday 6pm to Sunday 6pm (or your tradition). Save."
       ]
     },
@@ -105,7 +105,7 @@
     },
     {
       "type": "paragraph",
-      "text": "This is exactly where FaithWall slots in. A **Sabbath pack** of rest-themed verses (Psalm 23, Matthew 11:28-30, Hebrews 4, Mark 6:31) installs as the lock screen for the Sabbath Focus mode and rotates daily within the pack. Same screen surface, completely different visual cue. The Focus mode hides the apps; the wallpaper announces what the day is *for*."
+      "text": "This is exactly where FaithWall slots in. A **set of rest-themed verses** (Psalm 23, Matthew 11:28-30, Hebrews 4, Mark 6:31) that you choose in FaithWall can serve as the lock screen for the Sabbath Focus mode, once you link that lock screen to the Focus yourself in iOS. Same screen surface, completely different visual cue. The Focus mode hides the apps; the wallpaper announces what the day is *for*."
     },
     {
       "type": "verse",
@@ -136,7 +136,7 @@
     {
       "type": "cta",
       "title": "Give your Sabbath Focus mode a rest-themed lock screen",
-      "description": "FaithWall installs a Sabbath verse pack — Psalm 23, Matthew 11:28-30, Hebrews 4 — that rotates on your lock screen only during the Sabbath Focus window. Free to download, 60-second setup.",
+      "description": "FaithWall puts rest verses you choose — Psalm 23, Matthew 11:28-30, Hebrews 4 — on a lock screen you can link to your Sabbath Focus. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

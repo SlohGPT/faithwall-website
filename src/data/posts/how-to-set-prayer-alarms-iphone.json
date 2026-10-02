@@ -105,8 +105,8 @@
         "Settings → Focus → + → **Custom**. Name it **Prayer 7am**.",
         "Allow notifications from: spouse, kids, emergency contacts only.",
         "**Schedule:** 6:55–7:10am daily — fires just before the alarm, holds through the prayer.",
-        "**Customize Screens:** pick a Scripture lock screen. FaithWall installs a gratitude verse here automatically when its Gratitude pack is selected.",
-        "Save. Build the same shape for the noon (Confession pack) and 9pm (Examen pack) Focus modes."
+        "**Customize Screens:** pick a Scripture lock screen carrying a gratitude verse you chose in FaithWall.",
+        "Save. Build the same shape for the noon (confession verse) and 9pm (examen verse) Focus modes."
       ]
     },
     {
@@ -129,7 +129,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Manually swapping wallpapers each day is a habit that dies fastest. FaithWall solves this by rotating a fresh verse daily inside your chosen pack — Gratitude rotating at 7am, Confession at noon, Examen-ready Psalms at 9pm. The alarm sound stays the same; the Scripture behind it doesn't. That's the difference between a prayer rhythm that compounds and one that decays."
+      "text": "Manually swapping wallpapers each day is a habit that dies fastest. FaithWall helps by rotating through the verses you chose — gratitude at 7am, confession at noon, examen-ready Psalms at 9pm — each on its own lock screen that you pair with that Focus. The alarm sound stays the same; the Scripture behind it doesn't. That's the difference between a prayer rhythm that compounds and one that decays."
     },
     {
       "type": "paragraph",
@@ -187,7 +187,7 @@
     {
       "type": "cta",
       "title": "Skip the wallpaper setup — let FaithWall do it",
-      "description": "Free to download. Installs themed verse wallpapers automatically via iOS Focus modes — Gratitude for morning, Confession for midday, Psalms for evening. No screenshots, no manual rotation.",
+      "description": "Free to download. Puts the verses you choose on your lock screen — gratitude for morning, confession for midday, Psalms for evening — as a wallpaper applied with an Apple Shortcut or a rotating widget. No screenshots, no manual rotation.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

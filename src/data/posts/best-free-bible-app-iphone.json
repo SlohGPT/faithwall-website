@@ -53,7 +53,7 @@
       "items": [
         {
           "name": "FaithWall — the daily-exposure layer",
-          "description": "Free to download; a subscription unlocks it. Not a Bible-reading app — a themed verse pack that lives on your lock screen and rotates automatically via iOS Focus modes. Ranked first here because it's our app and this is the category it owns; for sit-down reading, see #2 below."
+          "description": "Free to download; a subscription unlocks it. Not a Bible-reading app — the verses you choose, on your lock screen as a wallpaper or a rotating widget. Ranked first here because it's our app and this is the category it owns; for sit-down reading, see #2 below."
         },
         {
           "name": "YouVersion (Bible.com) — best free reading app",
@@ -121,7 +121,7 @@
     },
     {
       "type": "paragraph",
-      "text": "| App | Approx. size (App Store, Sept 2026) | Offline support |\n|---|---|---|\n| FaithWall | Lightweight — no reading library to store | Verse packs cache on-device; the lock screen needs no connection once a pack has loaded |\n| YouVersion | ~93MB | Full text plus most audio translations downloadable for offline use |\n| Olive Tree | ~115MB | Downloaded Bibles and study resources available offline |\n| Bible Gateway | ~102MB | 200+ translations readable in-app; its listing doesn't advertise a dedicated offline mode the way YouVersion or Olive Tree do |\n| Hosanna (formerly Bible.is) | Small base app, ~5MB | Full text and audio downloadable per language for offline listening |\n| Dwell | Not published in MB on its App Store listing | Per-book offline downloads, confirmed on Dwell's own help pages |\n| Blue Letter Bible | ~80MB | Select translations downloadable offline, including the free NLT |\n| ESV Bible App | ~36MB | Full ESV text plus the ESV Global Study Bible offline |\n| NLT Bible App | Not published in MB on its App Store listing | Works without a connection once installed, per Tyndale's own listing |\n| Logos | ~330MB, the largest on this list | Downloaded books and Bibles available offline; size reflects its library depth |"
+      "text": "| App | Approx. size (App Store, Sept 2026) | Offline support |\n|---|---|---|\n| FaithWall | Lightweight — no reading library to store | The wallpaper you apply stays on your lock screen without a connection |\n| YouVersion | ~93MB | Full text plus most audio translations downloadable for offline use |\n| Olive Tree | ~115MB | Downloaded Bibles and study resources available offline |\n| Bible Gateway | ~102MB | 200+ translations readable in-app; its listing doesn't advertise a dedicated offline mode the way YouVersion or Olive Tree do |\n| Hosanna (formerly Bible.is) | Small base app, ~5MB | Full text and audio downloadable per language for offline listening |\n| Dwell | Not published in MB on its App Store listing | Per-book offline downloads, confirmed on Dwell's own help pages |\n| Blue Letter Bible | ~80MB | Select translations downloadable offline, including the free NLT |\n| ESV Bible App | ~36MB | Full ESV text plus the ESV Global Study Bible offline |\n| NLT Bible App | Not published in MB on its App Store listing | Works without a connection once installed, per Tyndale's own listing |\n| Logos | ~330MB, the largest on this list | Downloaded books and Bibles available offline; size reflects its library depth |"
     },
     {
       "type": "paragraph",
@@ -209,7 +209,7 @@
     },
     {
       "type": "paragraph",
-      "text": "YouVersion ships a Verse of the Day home-screen and lock-screen widget, refreshed once daily from inside the app's own widget gallery — the only app on this list with a comparable feature, and still limited to one verse per day with no theming or Focus-mode rotation. Olive Tree, Bible Gateway, Hosanna, Dwell, Blue Letter Bible, ESV Bible App, NLT Bible App, and Logos ship no lock-screen or widget presence at all as of September 2026; closing any of them ends the exposure until you reopen the app. FaithWall exists specifically to fill that gap for any reading app on this list — it isn't a competitor to YouVersion's reading features, it's the layer that keeps a verse visible between the times you have one of these apps open, with themed packs and Focus-mode rotation YouVersion's single daily widget doesn't attempt. For the full comparison of lock-screen-specific apps, including three near-identical copycats worth telling apart, see our [ranked lock-screen app comparison](/best-bible-verse-lock-screen-apps)."
+      "text": "YouVersion ships a Verse of the Day home-screen and lock-screen widget, refreshed once daily from inside the app's own widget gallery — the only app on this list with a comparable feature, and still limited to one verse per day with no theming. Olive Tree, Bible Gateway, Hosanna, Dwell, Blue Letter Bible, ESV Bible App, NLT Bible App, and Logos ship no lock-screen or widget presence at all as of September 2026; closing any of them ends the exposure until you reopen the app. FaithWall exists specifically to fill that gap for any reading app on this list — it isn't a competitor to YouVersion's reading features, it's the layer that keeps a verse visible between the times you have one of these apps open, with verses you choose yourself and a widget that rotates through them, which YouVersion's single daily widget doesn't attempt. For the full comparison of lock-screen-specific apps, including three near-identical copycats worth telling apart, see our [ranked lock-screen app comparison](/best-bible-verse-lock-screen-apps)."
     },
     {
       "type": "heading",
@@ -256,7 +256,7 @@
     },
     {
       "type": "paragraph",
-      "text": "This is where a Bible *reader* app and a Bible *exposure* app are two different products, doing two different jobs. YouVersion — or Olive Tree, or Bible Gateway — is for sit-down reading. **FaithWall is the lock-screen layer that keeps the day's verse in front of you between readings** — installs in 60 seconds, rotates a themed verse daily. Free to download; a subscription unlocks it. Most thoughtful Christian phone setups end up running both."
+      "text": "This is where a Bible *reader* app and a Bible *exposure* app are two different products, doing two different jobs. YouVersion — or Olive Tree, or Bible Gateway — is for sit-down reading. **FaithWall is the lock-screen layer that keeps the day's verse in front of you between readings** — sets up in about 60 seconds, rotates through the verses you chose. Free to download; a subscription unlocks it. Most thoughtful Christian phone setups end up running both."
     },
     {
       "type": "paragraph",
@@ -281,7 +281,7 @@
       "items": [
         "**Install YouVersion** (free). Pick a translation you already love — ESV or NIV for most people, KJV if that's home.",
         "**Pick one reading plan.** A one-year plan is the most-stuck-with for first-timers — don't start with a 90-day sprint.",
-        "**Install FaithWall** (free to download) for the lock-screen layer. Pick a themed verse pack matched to your season — Peace, Strength, Gratitude, Grief.",
+        "**Install FaithWall** (free to download) for the lock-screen layer. Pick verses matched to your season — peace, strength, gratitude, grief — by book, chapter and verse or by search.",
         "**Add Hosanna (formerly Bible.is) or Dwell** only if you actually commute or work with your hands free — audio is additive, not required.",
         "**Skip everything else.** A stack of three or four free apps beats a stack of ten paid ones every time."
       ]
@@ -365,7 +365,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Every truly-free app on this list — YouVersion, Bible Gateway, Hosanna (formerly Bible.is), Blue Letter Bible, ESV Bible App, and NLT Bible App — supports offline reading once you've downloaded a translation, per each app's own App Store listing. Dwell confirms offline downloads on its own help pages despite its full library sitting behind a subscription. Olive Tree and Logos both work offline for whatever you've already downloaded, though their deeper libraries are priced individually. FaithWall works differently: once a verse pack loads, the lock screen itself needs no connection to keep displaying it."
+      "text": "Every truly-free app on this list — YouVersion, Bible Gateway, Hosanna (formerly Bible.is), Blue Letter Bible, ESV Bible App, and NLT Bible App — supports offline reading once you've downloaded a translation, per each app's own App Store listing. Dwell confirms offline downloads on its own help pages despite its full library sitting behind a subscription. Olive Tree and Logos both work offline for whatever you've already downloaded, though their deeper libraries are priced individually. FaithWall works differently: once you apply a wallpaper, the lock screen itself needs no connection to keep displaying it."
     },
     {
       "type": "heading",
