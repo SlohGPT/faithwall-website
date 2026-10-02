@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Praying Through the Psalms App: A 30-Day iPhone Practice",
-    "description": "The praying through the psalms app setup that holds — a Psalter for morning structure, FaithWall's Psalms pack keeping the day's psalm on your lock screen.",
+    "description": "The praying through the psalms app setup that holds — a Psalter for morning structure, FaithWall keeping the day's psalm on your lock screen.",
     "date": "May 27, 2026",
     "datePublished": "2026-05-27T09:00:00.000Z",
     "dateModified": "2026-10-02T09:00:00.000Z",
@@ -20,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "A **praying through the psalms app** setup works best as two pieces: a Psalter or daily office app for the structured morning reading (Lectio 365, Daily Office, Pray as You Go), and FaithWall's Psalms pack keeping the day's psalm on your lock screen until evening. One app delivers the structure; the other carries it through the day."
+      "content": "A **praying through the psalms app** setup works best as two pieces: a Psalter or daily office app for the structured morning reading (Lectio 365, Daily Office, Pray as You Go), and FaithWall keeping the day's psalm on your lock screen until evening. One app delivers the structure; the other carries it through the day."
     },
     {
       "type": "paragraph",
@@ -72,7 +72,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**This is where FaithWall's Psalms pack closes the loop.** Set the day's psalm — or its hinge verse — as your lock screen and the psalm follows you through the day. You check your phone 144 times a day (per Reviews.org's 2026 Phone Habits report); every glance becomes a free return to the same line you prayed at sunrise. Read it, pray it back at the kitchen counter, catch it again at lunch. The morning reading stops being a 5-minute window and becomes a thread running through the whole day."
+      "text": "**This is where FaithWall closes the loop.** Set the day's psalm — or its hinge verse — as your lock screen and the psalm follows you through the day. You check your phone 144 times a day (per Reviews.org's 2026 Phone Habits report); every glance becomes a free return to the same line you prayed at sunrise. Read it, pray it back at the kitchen counter, catch it again at lunch. The morning reading stops being a 5-minute window and becomes a thread running through the whole day."
     },
     {
       "type": "verse",
@@ -88,7 +88,7 @@
       "type": "steps",
       "items": [
         "**Morning (10 min):** Read the appointed psalms in your Psalter app — five psalms or one long one, your choice.",
-        "**Set the lock screen:** Pick the verse from the morning's psalms that hit hardest. FaithWall's Psalms pack rotates these automatically, or set a specific verse by hand.",
+        "**Set the lock screen:** Pick the verse from the morning's psalms that hit hardest. FaithWall's widget can rotate through these once you pick them, or set a single verse as your wallpaper.",
         "**Glance and pray:** Every phone-check is a free re-reading. Pray a single line silently — that counts.",
         "**Evening (5 min):** Reopen your Psalter app for the appointed evening psalms. Notice what shifted in the day's psalm now that you've lived in it.",
         "**Sunday:** Look back over the week's psalms. Pick one to memorize next week."
@@ -127,7 +127,7 @@
     {
       "type": "cta",
       "title": "Carry the day's psalm on your lock screen",
-      "description": "FaithWall's Psalms pack rotates the historic Psalter onto your iPhone lock screen so the morning reading keeps preaching all day. Free to download, 60-second setup.",
+      "description": "FaithWall puts the psalms you choose onto your iPhone lock screen so the morning reading keeps preaching all day. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

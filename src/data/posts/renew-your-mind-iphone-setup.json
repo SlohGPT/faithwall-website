@@ -84,7 +84,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Second — **the curation work crushes the habit**. Picking the right verse for today's mood requires you to already know the Bible well enough to choose well. The people who'd benefit most from a renewal setup are often the people who can't yet curate it well from a cold start. **FaithWall solves both problems**: themed packs (Strength, Anxiety, Gratitude, Psalms, Promises) handle the curation, and the wallpaper rotates daily within the pack so your brain never adapts. You pick the season; the app picks the verse."
+      "text": "Second — **the curation work crushes the habit**. Picking the right verse for today's mood requires you to already know the Bible well enough to choose well. The people who'd benefit most from a renewal setup are often the people who can't yet curate it well from a cold start. **FaithWall helps with both problems**: you pick your verses once — by book, chapter and verse, or by search — and the widget rotates through them so your brain never adapts. You pick the season; the app picks the verse."
     },
     {
       "type": "verse",
@@ -100,7 +100,7 @@
       "type": "steps",
       "items": [
         "**Pick the season.** Name what your mind is fighting right now — anxiety, comparison, fear, lust, anger. This is the theme for the next 30 days.",
-        "**Install one themed verse pack** on your lock screen matched to that season. Daily rotation, not a static wallpaper.",
+        "**Choose one set of verses** for your lock screen matched to that season. Daily rotation, not a static wallpaper.",
         "**Rename your 7am alarm** to a one-line truth that counters the season's lie. (\"He is for you.\" \"Today is not yours to fix.\" \"Be still.\")",
         "**Re-order your home screen dock**: move social to the second screen; put Bible app, weather, and clock in the bottom row.",
         "**Build one Focus mode** — Quiet Time, 6–7am — with a Scripture lock screen distinct from the daily one. Two different inputs for two different moments.",
@@ -131,7 +131,7 @@
     {
       "type": "cta",
       "title": "Put Scripture in the slot your mind keeps returning to",
-      "description": "FaithWall installs a themed verse pack on your lock screen and rotates a fresh verse daily — matched to the season your mind is fighting. Free to download, 60-second setup.",
+      "description": "FaithWall puts the verses you choose on your lock screen and can rotate them hourly, every 8 hours or daily — matched to the season your mind is fighting. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

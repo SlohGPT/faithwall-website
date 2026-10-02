@@ -20,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "A **verse of the day lock screen iphone** setup puts today's verse directly on your wallpaper — not inside an app you have to open. The fix: install FaithWall, pick a themed pack, and a fresh verse rotates onto your lock screen every morning via iOS Focus modes. 60-second setup, no account, free."
+      "content": "A **verse of the day lock screen iphone** setup puts today's verse directly on your wallpaper — not inside an app you have to open. The fix: install FaithWall, pick your verses, and its widget rotates them onto your lock screen on a schedule you set. 60-second setup, no account, free."
     },
     {
       "type": "paragraph",
@@ -105,16 +105,16 @@
     },
     {
       "type": "paragraph",
-      "text": "Setting up automatic VOTD on your lock screen takes five taps and about a minute: download FaithWall, pick a pack, choose a style, set the lock screen, and let it rotate."
+      "text": "Setting up automatic VOTD on your lock screen takes five taps and about a minute: download FaithWall, pick your verses, choose a style, set the lock screen, and let it rotate."
     },
     {
       "type": "steps",
       "items": [
         "Download FaithWall (free to download) from the App Store.",
-        "Pick a themed verse pack — Strength, Gratitude, Anxiety, Psalms, Promises. The pack is your VOTD curation for the season.",
+        "Pick your verses — strength, gratitude, anxiety, Psalms, promises. Your chosen set is your VOTD curation for the season.",
         "Choose a wallpaper style — the typography is sized clear of the clock and widgets.",
-        "Tap **Set Lock Screen**. FaithWall installs it via iOS Focus modes (iOS 16+) — no Camera Roll wallpaper-juggling.",
-        "Rotation runs daily. Long-press your lock screen anytime to swap packs."
+        "Tap **Set Lock Screen**. FaithWall applies it through an Apple Shortcut — no Camera Roll wallpaper-juggling.",
+        "Rotation runs daily. Long-press your lock screen anytime to swap lock screens."
       ]
     },
     {
@@ -124,25 +124,25 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "Pack ideas for your VOTD rotation"
+      "text": "Verse ideas for your VOTD rotation"
     },
     {
       "type": "paragraph",
-      "text": "The best VOTD pack matches the season you're in, not a random daily pull. FaithWall groups verses into five starter packs — Promises, Strength, Anxiety, Gratitude, and Psalms — so the curation is already done for you."
+      "text": "The best VOTD set matches the season you're in, not a random daily pull. Five themes make a good starting point — promises, strength, anxiety, gratitude, and Psalms — and you choose the verses for each yourself."
     },
     {
       "type": "list",
       "items": [
-        "**Promises pack** — covenant verses for when you need to remember what God has actually said.",
-        "**Strength pack** — Isaiah 40, Joshua 1, 2 Corinthians 12 for hard professional or physical seasons.",
-        "**Anxiety pack** — Philippians 4, Matthew 6, Psalm 46 for stretches where worry runs hot.",
-        "**Gratitude pack** — Psalms of thanksgiving for stable seasons where the risk is taking the good for granted.",
-        "**Psalms pack** — the historic Psalter, rotating in order, for an all-purpose daily rhythm."
+        "**Promises** — try covenant verses for when you need to remember what God has actually said.",
+        "**Strength** — try Isaiah 40, Joshua 1, 2 Corinthians 12 for hard professional or physical seasons.",
+        "**Anxiety** — try Philippians 4, Matthew 6, Psalm 46 for stretches where worry runs hot.",
+        "**Gratitude** — try Psalms of thanksgiving for stable seasons where the risk is taking the good for granted.",
+        "**Psalms** — try the Psalter, a few psalms at a time, for an all-purpose daily rhythm."
       ]
     },
     {
       "type": "paragraph",
-      "text": "Any of the five packs works with the setup above — swap packs anytime by long-pressing the lock screen."
+      "text": "Any of the five themes works with the setup above — swap verses anytime in the app."
     },
     {
       "type": "important",
@@ -150,7 +150,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The **verse of the day lock screen iphone** experience has been technically possible for years. It just hasn't been *easy* until iOS 16's Focus modes made automatic wallpaper rotation possible. FaithWall is what happens when an app gets built for that exact surface. Install once. Today's verse meets you 144 times today. Tomorrow's does the same."
+      "text": "The **verse of the day lock screen iphone** experience has been technically possible for years. It just hasn't been *easy* until iOS 16's lock-screen customization and Shortcuts automations made automatic wallpaper changes practical. FaithWall is what happens when an app gets built for that exact surface. Install once. Today's verse meets you 144 times today. Tomorrow's does the same."
     },
     {
       "type": "heading",
@@ -164,7 +164,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Install FaithWall, choose a themed verse pack, and tap Set Lock Screen. iOS installs the wallpaper through Focus modes and rotates in a fresh verse automatically each day — no email, no widget, no app to open."
+      "text": "Install FaithWall, choose your verses, and tap Set Lock Screen. FaithWall applies the wallpaper through an Apple Shortcut you can automate, so a fresh verse can appear each day — no email, no app to open."
     },
     {
       "type": "heading",
@@ -182,7 +182,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Yes, once you've picked a pack. FaithWall rotates through it daily on its own — no manual screenshot-and-save routine, which is the step that makes most DIY verse-of-the-day setups fall apart by week two."
+      "text": "Yes, once you've picked your verses and set up the widget or a Shortcuts automation. FaithWall rotates through them on its own — no manual screenshot-and-save routine, which is the step that makes most DIY verse-of-the-day setups fall apart by week two."
     },
     {
       "type": "heading",
@@ -191,12 +191,12 @@
     },
     {
       "type": "paragraph",
-      "text": "FaithWall's packs draw from public-domain and widely used translations suited to short, legible lock-screen text. If you need a specific study translation for deeper reading, pair FaithWall with a full Bible app like YouVersion for that half of the job."
+      "text": "FaithWall offers 24 translations, so you can choose wording suited to short, legible lock-screen text. If you need a specific study translation for deeper reading, pair FaithWall with a full Bible app like YouVersion for that half of the job."
     },
     {
       "type": "cta",
       "title": "Put today's verse where you'll actually see it",
-      "description": "FaithWall rotates a fresh themed verse onto your iPhone lock screen every morning — designed for the surface, free to download. The VOTD experience the way it was meant to work.",
+      "description": "FaithWall puts the verses you choose on your iPhone lock screen — designed for the surface, free to download. The VOTD experience the way it was meant to work.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

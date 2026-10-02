@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
                     </p>
                     <ul>
                         <li>Download and use our mobile application (FaithWall — Daily Bible Verses on Your iPhone Lock Screen), or any other application of ours that links to this Privacy Notice</li>
-                        <li>Use FaithWall. FaithWall is an iOS app that displays daily Bible verses on the iPhone lock screen using wallpapers and widgets. You pick a verse pack — Anxiety, Strength, Gratitude, Psalms, or browse by book — and FaithWall surfaces a fresh verse each day via iOS lock-screen widgets and Focus modes. The app may process basic usage data to improve functionality.</li>
+                        <li>Use FaithWall. FaithWall is an iOS app that displays daily Bible verses on the iPhone lock screen using wallpapers and widgets. You pick your verses — by book, chapter and verse, or by search — and FaithWall shows them on your lock screen through a Shortcut-applied wallpaper or a rotating lock-screen widget. The app may process basic usage data to improve functionality.</li>
                         <li>Engage with us in other related ways, including any marketing or events</li>
                     </ul>
 

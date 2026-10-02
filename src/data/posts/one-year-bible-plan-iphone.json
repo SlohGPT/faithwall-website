@@ -92,7 +92,7 @@
     },
     {
       "type": "paragraph",
-      "text": "This is the gap **FaithWall** closes. It isn't the reading plan — it's the part that keeps the plan in front of you. You pick a verse from today's passage, and it sits on your lock screen, rotating automatically through iOS Focus modes. You don't open an app to be reminded; the reminder is already there, 144 times a day. The reading happens once. The staying-with-it happens every time you glance down."
+      "text": "This is the gap **FaithWall** closes. It isn't the reading plan — it's the part that keeps the plan in front of you. You pick a verse from today's passage, and it sits on your lock screen, as a wallpaper (applied with an Apple Shortcut) or in a rotating widget. You don't open an app to be reminded; the reminder is already there, 144 times a day. The reading happens once. The staying-with-it happens every time you glance down."
     },
     {
       "type": "important",
@@ -109,7 +109,7 @@
     {
       "type": "cta",
       "title": "Keep the plan in view — let FaithWall carry the verse",
-      "description": "Free to download, 60-second setup. FaithWall keeps a verse from today's reading on your lock screen through iOS Focus modes — the visibility layer that gets you to December.",
+      "description": "Free to download, 60-second setup. FaithWall keeps a verse from today's reading on your lock screen, as a wallpaper or a widget — the visibility layer that gets you to December.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

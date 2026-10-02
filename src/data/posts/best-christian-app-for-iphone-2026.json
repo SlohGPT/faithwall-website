@@ -44,7 +44,7 @@
       "items": [
         {
           "name": "FaithWall — the daily-exposure layer",
-          "description": "Free to download; a subscription unlocks it. Puts a themed Scripture verse on your lock screen and rotates it automatically via iOS Focus modes — the only app on this list that shows up without you opening anything. Ranked first because it's our app and this is the job it owns."
+          "description": "Free to download; a subscription unlocks it. Puts the verses you choose on your lock screen, as a wallpaper or a rotating widget — the only app on this list that shows up without you opening anything. Ranked first because it's our app and this is the job it owns."
         },
         {
           "name": "YouVersion — best free reading app",
@@ -106,7 +106,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**This is the gap FaithWall fills, and why it belongs in every stack.** It's the only app built for the iPhone lock-screen surface itself — not a screenshot you save, but a designed verse that installs via iOS Focus modes and rotates automatically. You pick a themed pack once (Anxiety, Strength, Gratitude, Grief) and Scripture shows up across your day without a single tap. Reading apps are for sit-down study. FaithWall is for the other 143 phone-checks."
+      "text": "**This is the gap FaithWall fills, and why it belongs in every stack.** It's the only app built for the iPhone lock-screen surface itself — not a screenshot you save, but a designed verse applied through an Apple Shortcut, or a lock-screen widget that cycles through your chosen verses. You pick your verses once (by book, chapter and verse, or by search) and Scripture shows up across your day without a single tap. Reading apps are for sit-down study. FaithWall is for the other 143 phone-checks."
     },
     {
       "type": "verse",
@@ -127,7 +127,7 @@
       "items": [
         "**Reading:** YouVersion (free). Pick a plan, read 5–10 minutes each morning.",
         "**Prayer:** Hallow or Lectio 365. One guided session, morning or night.",
-        "**Seeing:** FaithWall. Daily verse on the lock screen, themed to your season. Install once, runs itself."
+        "**Seeing:** FaithWall. Your chosen verses on the lock screen, for the season you're in. Install once, runs itself."
       ]
     },
     {
@@ -195,7 +195,7 @@
     {
       "type": "cta",
       "title": "Add the layer your stack is missing",
-      "description": "FaithWall puts daily Scripture on the lock screen you already check 144 times a day. Themed packs, automatic rotation, iOS Focus integration. 60-second setup.",
+      "description": "FaithWall puts daily Scripture on the lock screen you already check 144 times a day. Verses you choose, a rotating lock-screen widget, Shortcuts-based wallpaper. 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

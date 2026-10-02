@@ -33,7 +33,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Pray.com has grown into one of the largest prayer apps on the App Store, with over 17 million users. The free tier includes Pray Radio, daily prayer audio, podcasts, a prayer-request wall, and the plain text of the Bible. Premium — $69.99 a year or $9.99 a month, family plans available — unlocks the full sleep-story catalog, family devotionals, a guided Bible-in-a-year track, and ad-free playback. It's built to be opened and sat with: pick an episode, listen, close the app. FaithWall is built for the opposite motion. Pick a verse pack once, and it installs a rotating Scripture wallpaper on your lock screen through iOS Focus modes — no app to remember to reopen."
+      "text": "Pray.com has grown into one of the largest prayer apps on the App Store, with over 17 million users. The free tier includes Pray Radio, daily prayer audio, podcasts, a prayer-request wall, and the plain text of the Bible. Premium — $69.99 a year or $9.99 a month, family plans available — unlocks the full sleep-story catalog, family devotionals, a guided Bible-in-a-year track, and ad-free playback. It's built to be opened and sat with: pick an episode, listen, close the app. FaithWall is built for the opposite motion. Pick your verses once, and they sit on your lock screen as a wallpaper (applied with an Apple Shortcut) or a rotating widget — no app to remember to reopen."
     },
     {
       "type": "verse",
@@ -56,7 +56,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**FaithWall** keeps today's verse on the one surface you check without deciding to — you unlock your phone dozens of times a day, and FaithWall turns a slice of those glances into Scripture instead of a notification pile. Nearly six in ten people (**59.9%**) carry at least one paid subscription going unused each month, averaging 2.6 of them, per Self Financial's 2026 survey. FaithWall is built to earn its place by showing up where you already look: it installs the wallpaper itself, and the themed packs — Anxiety, Strength, Gratitude, Grief — mean you don't have to already know which verse today calls for."
+      "text": "**FaithWall** keeps today's verse on the one surface you check without deciding to — you unlock your phone dozens of times a day, and FaithWall turns a slice of those glances into Scripture instead of a notification pile. Nearly six in ten people (**59.9%**) carry at least one paid subscription going unused each month, averaging 2.6 of them, per Self Financial's 2026 survey. FaithWall is built to earn its place by showing up where you already look: you choose the verses and it puts them on the lock screen itself; search means you don't have to already know which verse today calls for."
     },
     {
       "type": "heading",
@@ -74,7 +74,7 @@
         "**How you use it:** Pray.com is something you open and listen to, usually for ten minutes or more. FaithWall runs in the background — nothing to open, nothing to finish.",
         "**Price:** Pray.com's core library is free; the sleep catalog, family devotionals, and Bible-in-a-year track sit behind $69.99/year Premium. FaithWall is free to download, but using it requires a subscription; the price is shown in the App Store before you pay.",
         "**The habit risk:** Pray.com depends on you remembering to open an app and press play. FaithWall depends on you unlocking your phone, which happens whether you remember or not.",
-        "**iOS integration:** Pray.com sends a push notification asking you to come back. FaithWall installs the wallpaper directly via Focus modes — nothing to tap, nothing to remember."
+        "**iOS integration:** Pray.com sends a push notification asking you to come back. FaithWall applies the wallpaper through an Apple Shortcut — nothing to tap, nothing to remember."
       ]
     },
     {
@@ -84,7 +84,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's the mistake people make trying to get both jobs out of one app. They screenshot a verse from Pray.com's Bible reader and set it as their wallpaper by hand. It looks fine for a few days. Then the crop sits wrong behind the clock widget, and by week two they're back to a photo of the dog. An audio-and-reading app was never designed for the lock-screen surface — its images are built to be looked at inside the app, not glanced at for half a second from across a room. That's the exact gap **FaithWall** was built to close: no screenshotting, no manual re-crop, just a pack that installs itself and keeps rotating on its own."
+      "text": "Here's the mistake people make trying to get both jobs out of one app. They screenshot a verse from Pray.com's Bible reader and set it as their wallpaper by hand. It looks fine for a few days. Then the crop sits wrong behind the clock widget, and by week two they're back to a photo of the dog. An audio-and-reading app was never designed for the lock-screen surface — its images are built to be looked at inside the app, not glanced at for half a second from across a room. That's the exact gap **FaithWall** was built to close: no screenshotting, no manual re-crop, just your chosen verses in a widget that keeps rotating on its own."
     },
     {
       "type": "tip",

@@ -20,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "The best **lock screen verses for anxiety** are short, present-tense promises you can read in a glance — Philippians 4:6–7, Isaiah 41:10, Psalm 94:19. Put one on your iPhone lock screen so the verse meets you in the exact moment you reach for your phone in worry. FaithWall's Anxiety pack rotates them automatically."
+      "content": "The best **lock screen verses for anxiety** are short, present-tense promises you can read in a glance — Philippians 4:6–7, Isaiah 41:10, Psalm 94:19. Put one on your iPhone lock screen so the verse meets you in the exact moment you reach for your phone in worry. FaithWall's widget can rotate through them automatically once you choose them."
     },
     {
       "type": "paragraph",
@@ -79,7 +79,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**This is what FaithWall's Anxiety pack is for.** It rotates through verses like these automatically, so the screen stays alive instead of going stale, and you never have to curate one while you're panicking. You pick the Anxiety theme once; FaithWall keeps fresh peace in front of you, installed straight to the lock screen through iOS Focus modes — no screenshots, no manual changing."
+      "text": "**This is what FaithWall is for.** Pick verses like these once, and its widget rotates through them automatically, so the screen stays alive instead of going stale, and you never have to go looking for one while you're panicking. You pick your verses once; FaithWall keeps them in front of you on the lock screen — as a wallpaper applied with an Apple Shortcut or a rotating widget — no screenshots, no manual changing."
     },
     {
       "type": "heading",
@@ -90,10 +90,10 @@
       "type": "steps",
       "items": [
         "Download FaithWall (free to download) and open it.",
-        "Pick the **Anxiety** pack — verses chosen for fear, worry, and rest.",
-        "Tap **Set Lock Screen**. FaithWall installs it via iOS Focus (iOS 16+) — no Camera Roll juggling.",
+        "Pick your verses — search for fear, worry, or rest, or choose passages like Philippians 4:6–7 by book and chapter.",
+        "Tap **Set Lock Screen**. FaithWall applies it through an Apple Shortcut — no Camera Roll juggling.",
         "Optional: pair it with a **Calm** Focus mode that silences notifications during the hours anxiety hits hardest.",
-        "Long-press the lock screen anytime to switch packs when the season changes."
+        "Long-press the lock screen anytime to switch lock screens when the season changes."
       ]
     },
     {
@@ -123,8 +123,8 @@
     },
     {
       "type": "cta",
-      "title": "Let FaithWall carry the Anxiety pack for you",
-      "description": "Fear, worry, and rest verses rotating on your lock screen automatically — installed via iOS Focus modes, no curating while you're panicking. Free to download, 60-second setup.",
+      "title": "Let FaithWall carry your anxiety verses for you",
+      "description": "Fear, worry, and rest verses you choose, rotating on your lock screen — no hunting for a verse while you're panicking. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }
