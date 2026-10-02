@@ -192,7 +192,7 @@ We run an autonomous daily agent in the exact period Google is enforcing against
 2. **Money cluster to top-3.** On-page work there is near its ceiling (§3 Play 2). The remaining on-page gap is the question phrasing of the money query, "what app puts Bible verses on your lock screen" (p47). The real lever is authority: the corrected §8 Tier-1 pitches are still unsent, and only Karol can send them.
 3. **AI answers.** ChatGPT search leans on Bing's index. So:
    - keep IndexNow pings on every published change;
-   - make sure the property exists in Bing Webmaster Tools (Karol: one-click import from Search Console);
+   - Bing Webmaster Tools: the property was imported from Search Console on 2026-10-02 (Karol). The weekly refresh may note Bing-side issues for Karol, but it has no Bing API access;
    - keep self-contained, quotable facts near the top of the money page and the comparisons.
 
    No llms.txt investment (§7).
