@@ -7,7 +7,6 @@ import HowItWorksAndPreview from '../components/HowItWorksAndPreview';
 import TestimonialsAndFAQ from '../components/TestimonialsAndFAQ';
 import Newsletter from '../components/Newsletter';
 import FinalCTA from '../components/FinalCTA';
-import Pricing from '../components/Pricing';
 import Footer from '../components/Footer';
 import { APP_STORE_BASE } from '../lib/appStore';
 
@@ -117,7 +116,6 @@ export default function Home() {
             <TestimonialsAndFAQ />
             <Newsletter />
             <FinalCTA />
-            <Pricing />
             <Footer />
         </div>
     );

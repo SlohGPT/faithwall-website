@@ -9,7 +9,6 @@ const footerLinks = {
   about: [
     { name: 'Features', href: '/#features' },
     { name: 'Download', href: appStoreUrl('web-footer-link') },
-    { name: 'Pricing', href: '/#pricing' },
     { name: 'FAQ', href: '/#faq' },
   ],
   resources: [

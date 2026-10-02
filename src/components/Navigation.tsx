@@ -27,7 +27,12 @@ export default function Navigation() {
     const vv = window.visualViewport;
     if (!vv) return;
     const sync = () => {
-      const overlap = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+      // Pinch-zoom shrinks vv.height too; that is not a URL bar, so ignore it
+      // (otherwise the nav slides down into the page while zoomed). A real URL
+      // bar overlap is never taller than ~120px.
+      const overlap = Math.abs(vv.scale - 1) > 0.01
+        ? 0
+        : Math.min(120, Math.max(0, window.innerHeight - vv.height - vv.offsetTop));
       document.documentElement.style.setProperty('--browser-top-inset', `${overlap}px`);
     };
     sync();
@@ -240,12 +245,6 @@ export default function Navigation() {
                     How it works
                   </Link>
                   <Link
-                    to="/#pricing"
-                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
-                  >
-                    Pricing
-                  </Link>
-                  <Link
                     to="/blog"
                     className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
                   >
@@ -309,13 +308,6 @@ export default function Navigation() {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               How it works
-            </Link>
-            <Link
-              to="/#pricing"
-              className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Pricing
             </Link>
             <Link
               to="/blog"
