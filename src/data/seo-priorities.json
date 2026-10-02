@@ -220,8 +220,55 @@
       "notes": "EXECUTED (2026-10-02, manual session): new route /bible-verse-wallpaper-maker (src/pages/WallpaperMaker.tsx, src/lib/wallpaper.ts), registered in src/App.tsx, scripts/prerender.mjs, the sitemap (priority 0.8) and blogPosts.json link surfaces. A client-side canvas tool: verse text, reference, translation, about 7 style presets, size presets for iPhone, iPhone Pro Max, Android and 4K desktop, and Middle/Lower position. On phone sizes the verse is kept out of the lock-screen clock zone (top ~35%) and the bottom button zone (~12%), shown as a guide in the preview only. Exports via the share sheet where supported, else a PNG download. Prefill contract ?text=&ref=&tr= (sanitized, capped at 500/60/16 chars, read after mount so the SSR render stays deterministic) — /random-bible-verse links into it per verse. Random-verse and quick-pick buttons use public-domain KJV text. JSON-LD: WebApplication + BreadcrumbList. AuthorBio and a FaithWall CTA follow product facts (the user picks verses; wallpaper via Shortcut or a rotating widget) with no price and no 'free app' claim; the TOOL is described as free, which is true. Internal links: one contextual link each from /blog/scripture-wallpaper-for-iphone-free and /blog/best-christian-wallpaper-app-iphone (each dropped one non-pillar link to keep the link budget; dateModified bumped). No first-person device-testing claims. VERIFICATION: typecheck at baseline, build 53/53, local preview checked prefill, style switching, random verse, 375px layout. MEASUREMENT: impressions on the maker/generator family at the first refresh 21+ days after ship; secondary signal is clicks from the two wallpaper posts. Candidate follow-ups (do not queue without demand evidence): more style presets, an iPad size, a second public-domain translation (BSB) shared with /random-bible-verse."
     },
     {
-      "id": "p28",
+      "id": "p43",
       "rank": 20,
+      "type": "conversion",
+      "target_url": "/random-bible-verse + /bible-verse-wallpaper-maker + all App Store links",
+      "target_keyword": null,
+      "cluster": null,
+      "status": "done",
+      "completed": "2026-10-02",
+      "reason": "The two free tools are the site's largest traffic surface, but they offered the app only in a generic footer CTA. Installs from web traffic were also unmeasurable: the site has no analytics, and the App Store links carried no campaign token.",
+      "notes": "EXECUTED (2026-10-02, manual session): src/lib/appStore.ts — appStoreUrl(campaign) adds Apple's pt/ct/mt campaign parameters once APPLE_PROVIDER_TOKEN is filled in (Karol: App Store Connect → App Analytics → Campaigns link generator). While the token is empty, links are byte-identical to before. Every TSX App Store link has a stable campaign name (web-home-hero, web-nav, web-footer, web-pricing, web-compare-<slug>, web-random-verse(-card), web-wallpaper-maker(-inline/-saved)). BlogRenderer re-tags in-content App Store links as blog-<slug> / pillar-<slug> at render time, so no JSON was touched. src/components/AppNudge.tsx: a compact install card under the random-verse result, plus an inline line and a post-export 'Saved' nudge on the wallpaper maker. Copy follows product facts (the user picks verses; Shortcut wallpaper or rotating widget; no price, no 'free app'). VERIFICATION: typecheck at baseline, build 53/53, browser-checked desktop + 375px. MEASUREMENT: once the token is set, App Store Connect → Sources → Campaigns shows downloads per campaign. That becomes the install KPI per page. Until then, no install attribution exists for web."
+    },
+    {
+      "id": "p44",
+      "rank": 21,
+      "type": "tool-page",
+      "target_url": "/bible-verse-wallpaper-maker",
+      "target_keyword": "bible verse wallpaper iphone",
+      "cluster": "scripture-wallpaper",
+      "status": "done",
+      "completed": "2026-10-02",
+      "reason": "Google autocomplete shows wallpaper-download demand with device and style modifiers (iphone, 4k, black, phone, for laptop, desktop; scripture wallpaper iphone/for phone/desktop). That demand is largely served through Google Images and Pinterest. The maker page had no real image files, so it could not appear in image search at all. A Search Console image-search baseline (pulled 2026-10-02) showed the site earning image impressions mainly on the homepage and roundup screenshots, with no image clicks.",
+      "notes": "EXECUTED (2026-10-02, manual session): 16 ready-made wallpapers (13 iPhone 1179x2556, 3 desktop 4K) rendered by scripts/build-wallpaper-gallery.mjs. It imports src/lib/wallpaper.ts directly, so the output matches the maker exactly. Fonts are OFL Gelasio + DM Sans in scripts/fonts/. The dependencies are installed --no-save, so package.json and the Vercel build are untouched; the run command is in the script header. Verse text is read from public/bible/kjv (public domain). Files: public/wallpapers/*.jpg plus WebP thumbs, about 1.3 MB total; data in src/data/wallpaperGallery.json. src/components/WallpaperGallery.tsx (#wallpaper-gallery) has a theme filter, Download + Customize per tile, and Customize prefills ?text&ref&tr&style&size. ImageGallery/ImageObject JSON-LD; 16 image:image entries in the sitemap; /wallpapers/* cached like /bible/*. scripts/gsc-dump.mjs now also pulls imagePages28/imageQueries28 (type=image) so the weekly refresh can measure this surface. MEASUREMENT: image impressions/clicks on /bible-verse-wallpaper-maker at the first refresh 21+ days after ship. NOTE: thumbnails fall under the existing immutable *.webp cache rule — if a thumbnail is ever re-rendered, give it a new filename."
+    },
+    {
+      "id": "p45",
+      "rank": 22,
+      "type": "refresh",
+      "target_url": "site-wide (home, FAQ, pricing, nav, comparisons, 40 posts, pillars, llms.txt, pricing.md) + outreach/",
+      "target_keyword": null,
+      "cluster": null,
+      "status": "done",
+      "completed": "2026-10-02",
+      "reason": "Since app v2.3 (live 2026-08-26) FaithWall has a hard paywall: a subscription is required, and a trial appears only on the exit offer for eligible Apple IDs. The site and all outreach drafts still described a free app with a free tier, and some pages stated old prices. This was a bait-and-switch for searchers, a §9 honesty risk, and it would have put false claims in front of the Tier-1 editors.",
+      "notes": "EXECUTED (2026-10-02, manual session): every claim that FaithWall is free, has a free tier, or that its core is free was rewritten to 'free to download; a subscription unlocks it' (no prices anywhere). Home title is now 'FaithWall — Daily Bible Verse Lock Screen App for iPhone' (dropped '(Free)'); this is a factual correction, not a CTR pass, so Play 3's closure stands. The nav CTA reads 'Get the app'. comparisons.json (money page + compare pages) was corrected in a follow-up commit. The 5 Tier-1 drafts and directories.md were rewritten to true facts, with a 'Facts corrected 2026-10-02' banner and an offer of a subscription offer code. Guards: a 'Product facts' rule in .claude/skills/faithwall-blog/SKILL.md and a dated line in SEO-STRATEGY.md §5. MEASUREMENT: watch the hub (/blog/best-free-bible-app-iphone) and the money page for movement on 'free'-phrased queries at the next two refreshes. The honest framing may cost some 'free app' CTR; that is accepted. Do not re-add 'free' claims to recover it."
+    },
+    {
+      "id": "p46",
+      "rank": 23,
+      "type": "refresh",
+      "target_url": "/blog/scripture-wallpaper-for-iphone-free + /blog/psalm-23-wallpaper-iphone + /blog/daily-scripture-wallpaper-iphone + /blog/lock-screen-verses-for-anxiety + /blog/best-christian-wallpaper-app-iphone",
+      "target_keyword": null,
+      "cluster": "scripture-wallpaper",
+      "status": "pending",
+      "reason": "p44 created 16 original, verified wallpaper images, but the five wallpaper-intent posts still have no original media of their own. §5 names original media as the strongest effort signal. Embedding a few relevant ready-made wallpapers in each post also gives Google Images more surfaces, and routes post readers to the gallery and the app.",
+      "notes": "In each named post, add 2–3 'image' blocks (block type added 2026-10-02 in src/types/blog.ts / BlogRenderer.tsx: {type:'image', src, alt, width, height, caption?, href?, linkText?}). Use entries from src/data/wallpaperGallery.json chosen for the post's theme: anxiety post → fear/peace verses; psalm-23 post → the Psalm 23:1 render; the others → a style mix. Use the JSON's full-size file as src (or thumb if the page gets heavy), its alt verbatim, width/height from the JSON, href = the full-size file with linkText 'Download', caption = reference + style. Place them where the post already talks about choosing or styling a verse, never stacked at the top. Add ONE contextual link per post to /bible-verse-wallpaper-maker#wallpaper-gallery, respecting the §4 5-link cap and replacement rule. Bump dateModified in the post and blogPosts.json; regenerate the sitemap. OPTIONAL, only if the psalm-23 post needs a matching iPhone render that doesn't exist: add it to the config in scripts/build-wallpaper-gallery.mjs and run the documented command (dependencies --no-save). Inspect the output image before committing. Do not claim FaithWall is free; product facts per SKILL.md. Verify the images render in the prerendered HTML and that no layout shift is introduced (explicit width/height)."
+    },
+    {
+      "id": "p28",
+      "rank": 24,
       "type": "outreach-prep",
       "target_url": "outreach/ (Advent 2026 seasonal pitches)",
       "cluster": null,
@@ -232,7 +279,7 @@
     },
     {
       "id": "p30",
-      "rank": 21,
+      "rank": 25,
       "type": "outreach-prep",
       "target_url": "outreach/ (New Year 2027 seasonal pitches)",
       "cluster": null,
@@ -243,7 +290,7 @@
     },
     {
       "id": "p31",
-      "rank": 22,
+      "rank": 26,
       "type": "outreach-prep",
       "target_url": "outreach/ (Lent 2027 seasonal pitches)",
       "cluster": null,
