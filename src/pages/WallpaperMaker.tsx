@@ -171,7 +171,7 @@ const faqs = [
   {
     question: 'Can I use my own photo as the background?',
     answer:
-      'Not in this maker. Its backgrounds are generated colors and gradients, so every export is a clean, legible image. FaithWall, the iPhone app, can use your own photos, gradients, plain black or gray, or its 15 Faith Wallpapers behind a verse.',
+      'Yes. Choose "Your photo" under Background, then zoom and drag it into place and use the darken and blur sliders so the verse stays readable. The photo is processed in your browser and never leaves your device. FaithWall, the iPhone app, can also put your chosen verses over your own photos, gradients, plain black or gray, or its 15 Faith Wallpapers.',
   },
   {
     question: 'Why is the verse placed low on the iPhone wallpapers?',
