@@ -13,6 +13,7 @@ const BlogPost = lazy(() => import('./pages/BlogPost'));
 const Pillar = lazy(() => import('./pages/Pillar'));
 const Compare = lazy(() => import('./pages/Compare'));
 const RandomVerse = lazy(() => import('./pages/RandomVerse'));
+const WallpaperMaker = lazy(() => import('./pages/WallpaperMaker'));
 
 const blogFallback = <div className="min-h-screen bg-surface" />;
 
@@ -111,6 +112,14 @@ export default function App() {
           element={
             <Suspense fallback={blogFallback}>
               <RandomVerse />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/bible-verse-wallpaper-maker"
+          element={
+            <Suspense fallback={blogFallback}>
+              <WallpaperMaker />
             </Suspense>
           }
         />
