@@ -53,6 +53,9 @@ const data = {
   pages28: await q({ startDate: start28, endDate: end, dimensions: ['page'], rowLimit: 100 }),
   pages28prev: await q({ startDate: prevStart, endDate: prevEnd, dimensions: ['page'], rowLimit: 100 }),
   pageQuery28: await q({ startDate: start28, endDate: end, dimensions: ['page', 'query'], rowLimit: 500 }),
+  // Google Images surface (wallpaper gallery, 2026-10-02). Image search reports separately from web.
+  imagePages28: await q({ startDate: start28, endDate: end, dimensions: ['page'], type: 'image', rowLimit: 100 }),
+  imageQueries28: await q({ startDate: start28, endDate: end, dimensions: ['query'], type: 'image', rowLimit: 100 }),
 };
 
 writeFileSync(OUT, JSON.stringify(data, null, 1));

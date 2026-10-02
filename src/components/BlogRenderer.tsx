@@ -182,6 +182,34 @@ export default function BlogRenderer({ sections, campaign }: { sections: BlogSec
               </blockquote>
             );
 
+          case 'image':
+            return (
+              <figure key={i} className="my-8">
+                <img
+                  src={section.src}
+                  alt={section.alt}
+                  width={section.width}
+                  height={section.height}
+                  loading="lazy"
+                  decoding="async"
+                  className={`mx-auto h-auto rounded-2xl border border-white/10 ${section.height > section.width ? 'max-w-[280px] w-full' : 'w-full'}`}
+                />
+                {(section.caption || section.href) && (
+                  <figcaption className="mt-3 text-center text-white/60 text-sm">
+                    {section.caption}
+                    {section.href && (
+                      <>
+                        {section.caption ? ' · ' : ''}
+                        <a href={section.href} className="text-brand hover:underline">
+                          {section.linkText ?? 'Download'}
+                        </a>
+                      </>
+                    )}
+                  </figcaption>
+                )}
+              </figure>
+            );
+
           case 'cta':
             return (
               <div key={i} className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center">

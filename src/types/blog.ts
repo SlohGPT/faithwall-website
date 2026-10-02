@@ -35,6 +35,7 @@ export type BlogSection =
   | { type: 'highlight'; content: string }
   | { type: 'important'; content: string }
   | { type: 'verse'; reference: string; text: string }
+  | { type: 'image'; src: string; alt: string; width: number; height: number; caption?: string; href?: string; linkText?: string }
   | { type: 'ranked-list'; items: { name: string; description: string }[] }
   | { type: 'cta'; title: string; description: string; buttonText: string; buttonUrl: string };
 
