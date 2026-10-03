@@ -4,7 +4,7 @@
     "description": "A daily scripture wallpaper iphone setup that stays fresh — why static downloads fade by day 10, the rotation method that fixes it, and the 60-second install.",
     "date": "June 25, 2026",
     "datePublished": "2026-06-25T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-10-03T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/daily-scripture-wallpaper-iphone.jpg",
     "imageAttribution": {
@@ -12,7 +12,13 @@
       "photographerUrl": "https://unsplash.com/@aaronburden?utm_source=faithwall&utm_medium=referral",
       "unsplashUrl": "https://unsplash.com/photos/open-book-TNlHf4m4gpI?utm_source=faithwall&utm_medium=referral"
     },
-    "keywords": ["daily scripture wallpaper iphone", "scripture wallpaper rotation", "bible verse wallpaper ios", "daily verse lock screen", "faithwall"],
+    "keywords": [
+      "daily scripture wallpaper iphone",
+      "scripture wallpaper rotation",
+      "bible verse wallpaper ios",
+      "daily verse lock screen",
+      "faithwall"
+    ],
     "cluster": "daily-scripture-lock-screen"
   },
   "sections": [
@@ -64,7 +70,17 @@
     },
     {
       "type": "paragraph",
-      "text": "Long-press your lock screen any time to switch to a different lock screen, or try a different visual style. A good rhythm is one set of verses per season — anxiety passages through a job transition, gratitude psalms through ordinary weeks, strength verses when life gets heavy — and letting the rotating widget carry them from there."
+      "text": "Long-press your lock screen any time to switch to a different lock screen, or try a different visual style. A good rhythm is one set of verses per season — anxiety passages through a job transition, gratitude psalms through ordinary weeks, strength verses when life gets heavy — and letting the rotating widget carry them from there. To see how different styles carry a verse before you commit, the [ready-made wallpaper gallery](/bible-verse-wallpaper-maker#wallpaper-gallery) shows each style on a real verse — free to download, though each one is a single static image."
+    },
+    {
+      "type": "image",
+      "src": "/wallpapers/bible-verse-wallpaper-romans-8-28-navy-gold-iphone.jpg",
+      "alt": "Romans 8:28 KJV Bible verse iPhone lock screen wallpaper on a navy and gold background",
+      "width": 1179,
+      "height": 2556,
+      "caption": "Romans 8:28 (KJV) · Navy and gold style, iPhone",
+      "href": "/wallpapers/bible-verse-wallpaper-romans-8-28-navy-gold-iphone.jpg",
+      "linkText": "Download"
     },
     {
       "type": "verse",
@@ -116,6 +132,16 @@
       ]
     },
     {
+      "type": "image",
+      "src": "/wallpapers/bible-verse-wallpaper-1-thessalonians-5-18-sunrise-iphone.jpg",
+      "alt": "1 Thessalonians 5:18 KJV Bible verse iPhone lock screen wallpaper on a purple-to-gold sunrise gradient background",
+      "width": 1179,
+      "height": 2556,
+      "caption": "1 Thessalonians 5:18 (KJV) · Sunrise style, iPhone",
+      "href": "/wallpapers/bible-verse-wallpaper-1-thessalonians-5-18-sunrise-iphone.jpg",
+      "linkText": "Download"
+    },
+    {
       "type": "highlight",
       "content": "**Pro move:** pair your daily scripture wallpaper with a **Quiet Time** Focus mode in iOS. Schedule it 6:30–7:00am, silence non-essential notifications, and let FaithWall's contemplative style auto-activate. Your phone becomes a different phone for one hour."
     },
@@ -125,7 +151,7 @@
     },
     {
       "type": "paragraph",
-      "text": "If you are comparing this to free static downloads, our [scripture wallpaper for iPhone free](/blog/scripture-wallpaper-for-iphone-free) guide explains why zero-cost images fade faster. For the widget-vs-wallpaper debate, the [verse of the day lock screen](/blog/verse-of-the-day-lock-screen-iphone) post walks through why wallpaper beats an app you have to open. The full cluster guide lives at [/daily-scripture-lock-screen](/daily-scripture-lock-screen). If you're still weighing which app to install, we compared [best Bible verse lock screen apps](/best-bible-verse-lock-screen-apps) across price, format, and rotation quality."
+      "text": "For the widget-vs-wallpaper debate, the [verse of the day lock screen](/blog/verse-of-the-day-lock-screen-iphone) post walks through why wallpaper beats an app you have to open. The full cluster guide lives at [/daily-scripture-lock-screen](/daily-scripture-lock-screen). If you're still weighing which app to install, we compared [best Bible verse lock screen apps](/best-bible-verse-lock-screen-apps) across price, format, and rotation quality."
     },
     {
       "type": "cta",

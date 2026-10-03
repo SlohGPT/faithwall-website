@@ -4,7 +4,7 @@
     "description": "A scripture wallpaper for iphone free setup that actually stays fresh — why static downloads fade by day 10, and the rotating method that fixes it for good.",
     "date": "June 9, 2026",
     "datePublished": "2026-06-09T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-10-03T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/scripture-wallpaper-for-iphone-free.jpg",
     "imageAttribution": {
@@ -12,7 +12,13 @@
       "photographerUrl": "https://unsplash.com/@aaronburden?utm_source=faithwall&utm_medium=referral",
       "unsplashUrl": "https://unsplash.com/photos/opened-bible-book-on-grey-surface-c333d6YEhi0?utm_source=faithwall&utm_medium=referral"
     },
-    "keywords": ["scripture wallpaper for iphone free", "free scripture wallpaper", "bible verse wallpaper iphone", "free christian wallpaper ios", "faithwall"],
+    "keywords": [
+      "scripture wallpaper for iphone free",
+      "free scripture wallpaper",
+      "bible verse wallpaper iphone",
+      "free christian wallpaper ios",
+      "faithwall"
+    ],
     "cluster": "daily-scripture-lock-screen"
   },
   "sections": [
@@ -79,7 +85,7 @@
     },
     {
       "type": "paragraph",
-      "text": "You can absolutely do this without any app. Save a verse image, open Settings, set it as your wallpaper, or build one yourself in a [free browser-based Bible verse wallpaper maker](/bible-verse-wallpaper-maker) that keeps the text clear of the clock. The setup isn't the problem — the upkeep is. **Rotation is a habit, and manual habits die.** By the second week you've stopped swapping the image, and you're back to one frozen verse you no longer see. There's also a legibility problem: a graphic built for a Pinterest feed isn't designed for the iPhone lock-screen surface, so the clock and notifications tend to land right across the text."
+      "text": "You can absolutely do this without any app. Download a ready-made image from our [free Bible verse wallpaper gallery](/bible-verse-wallpaper-maker#wallpaper-gallery) — or build your own in the same browser-based maker, which keeps the text clear of the clock — then open Settings and set it as your wallpaper. The setup isn't the problem — the upkeep is. **Rotation is a habit, and manual habits die.** By the second week you've stopped swapping the image, and you're back to one frozen verse you no longer see. There's also a legibility problem: a graphic built for a Pinterest feed isn't designed for the iPhone lock-screen surface, so the clock and notifications tend to land right across the text."
     },
     {
       "type": "paragraph",
@@ -99,6 +105,16 @@
       "content": "You get about **12 words of legible space** on a standard iPhone lock screen before the clock and notifications crowd the text. Short verses win. Save the long Pauline arguments for your reading time — the lock screen is for one-line promises you can read in half a second."
     },
     {
+      "type": "image",
+      "src": "/wallpapers/bible-verse-wallpaper-1-peter-5-7-bold-sans-iphone.jpg",
+      "alt": "1 Peter 5:7 KJV Bible verse iPhone lock screen wallpaper on a near-black with an orange accent background",
+      "width": 1179,
+      "height": 2556,
+      "caption": "1 Peter 5:7 (KJV) · Bold sans style, iPhone",
+      "href": "/wallpapers/bible-verse-wallpaper-1-peter-5-7-bold-sans-iphone.jpg",
+      "linkText": "Download"
+    },
+    {
       "type": "heading",
       "level": 2,
       "text": "Free verses worth starting with"
@@ -111,6 +127,16 @@
         "**When you need direction** — Proverbs 3:5-6, Psalm 32:8, James 1:5.",
         "**When you're grateful** — Psalm 100:4, 1 Thessalonians 5:18, Lamentations 3:22-23."
       ]
+    },
+    {
+      "type": "image",
+      "src": "/wallpapers/bible-verse-wallpaper-proverbs-3-5-black-iphone.jpg",
+      "alt": "Proverbs 3:5 KJV Bible verse iPhone lock screen wallpaper on a pure black background",
+      "width": 1179,
+      "height": 2556,
+      "caption": "Proverbs 3:5 (KJV) · Pure black style, iPhone",
+      "href": "/wallpapers/bible-verse-wallpaper-proverbs-3-5-black-iphone.jpg",
+      "linkText": "Download"
     },
     {
       "type": "highlight",

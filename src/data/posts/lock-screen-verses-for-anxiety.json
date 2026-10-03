@@ -4,7 +4,7 @@
     "description": "The best lock screen verses for anxiety — 10 short, present-tense promises plus the iPhone setup that keeps them rotating so they meet you when worry hits.",
     "date": "May 23, 2026",
     "datePublished": "2026-05-23T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-10-03T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/lock-screen-verses-for-anxiety.jpg",
     "imageAttribution": {
@@ -12,7 +12,13 @@
       "photographerUrl": "https://unsplash.com/@aaronburden?utm_source=faithwall&utm_medium=referral",
       "unsplashUrl": "https://unsplash.com/photos/open-book-TNlHf4m4gpI?utm_source=faithwall&utm_medium=referral"
     },
-    "keywords": ["lock screen verses for anxiety", "bible verses for anxiety iphone", "anxiety scripture wallpaper", "calming verses lock screen", "faithwall"],
+    "keywords": [
+      "lock screen verses for anxiety",
+      "bible verses for anxiety iphone",
+      "anxiety scripture wallpaper",
+      "calming verses lock screen",
+      "faithwall"
+    ],
     "cluster": "daily-scripture-lock-screen"
   },
   "sections": [
@@ -46,7 +52,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Short verses win here — five to twelve words you can absorb in a glance. These ten carry weight without needing a paragraph of context:"
+      "text": "Short verses win here — five to twelve words you can absorb in a glance. These ten carry weight without needing a paragraph of context: A few of them, along with other fear and peace verses, are free ready-made downloads in our [verse wallpaper gallery](/bible-verse-wallpaper-maker#wallpaper-gallery), in King James wording."
     },
     {
       "type": "list",
@@ -64,9 +70,29 @@
       ]
     },
     {
+      "type": "image",
+      "src": "/wallpapers/bible-verse-wallpaper-isaiah-26-3-dark-gradient-iphone.jpg",
+      "alt": "Isaiah 26:3 KJV Bible verse iPhone lock screen wallpaper on a dark indigo gradient background",
+      "width": 1179,
+      "height": 2556,
+      "caption": "Isaiah 26:3 (KJV) · Dark gradient style, iPhone",
+      "href": "/wallpapers/bible-verse-wallpaper-isaiah-26-3-dark-gradient-iphone.jpg",
+      "linkText": "Download"
+    },
+    {
       "type": "verse",
       "reference": "Philippians 4:6-7",
       "text": "Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus."
+    },
+    {
+      "type": "image",
+      "src": "/wallpapers/bible-verse-wallpaper-philippians-4-7-minimal-white-iphone.jpg",
+      "alt": "Philippians 4:7 KJV Bible verse iPhone lock screen wallpaper on a clean white background",
+      "width": 1179,
+      "height": 2556,
+      "caption": "Philippians 4:7 (KJV) · Minimal white style, iPhone",
+      "href": "/wallpapers/bible-verse-wallpaper-philippians-4-7-minimal-white-iphone.jpg",
+      "linkText": "Download"
     },
     {
       "type": "heading",
