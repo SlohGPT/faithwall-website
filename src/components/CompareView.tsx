@@ -49,6 +49,7 @@ export interface CompareConfig {
   whenToChooseUs: string;
   whenToChooseThem: string;
   useBoth: string;
+  leadQuestion?: DescriptiveCoverageItem;
   descriptiveCoverage?: DescriptiveCoverageItem[];
   copycatSection?: CopycatSection;
   faq?: CompareFaqItem[];
@@ -216,6 +217,17 @@ export default function CompareView({ config }: { config: CompareConfig }) {
               )}
             </div>
           </div>
+
+          {config.leadQuestion && (
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4">
+                {config.leadQuestion.question}
+              </h2>
+              <div className="text-white/85 leading-relaxed text-lg space-y-4">
+                <Inline text={config.leadQuestion.answer} />
+              </div>
+            </div>
+          )}
 
           {/* Logo header */}
           <div className="my-10 grid grid-cols-2 gap-4">
