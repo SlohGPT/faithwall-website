@@ -1,4 +1,4 @@
-# FaithWall SEO Strategy — v2 (2026-08-22, data notes through 2026-09-24; §10 install-first plan added 2026-10-02)
+# FaithWall SEO Strategy — v2 (2026-08-22, data notes through 2026-10-05; §10 install-first plan added 2026-10-02)
 
 **Who reads this:** the autonomous daily content agent and Karol. This file sets direction; `src/data/seo-priorities.json` sets the day-to-day work order. This repo is public — describe search performance qualitatively and never paste raw Search Console clicks, impressions, or CTR numbers into this file, commit messages, or post content.
 
@@ -58,7 +58,7 @@ The homepage title/meta and rich-results work shipped and the brand-query findin
 
 Every practitioner school surveyed lands on the same conclusion from different directions: branded search demand, third-party mentions, reviews, and citations are the composite that moves both classic rankings and AI recommendations (Indig's Brand Authority; Ray's brand/navigational winners; Koray's "SEO insurance"; Fishkin's 2x branded click rates; Diggity's brand-volume tactics; Hudgens' "mentions and co-citation"). Branded demand growth *precedes* AI-answer visibility by weeks to months — it is a leading indicator, and our KPI.
 
-Execution is §8. The agent researches, drafts, and monitors; Karol sends and signs up. Directories as a category are dead (March 2026 core update losers) — the two exceptions are niche faith-tech directories with editorial selection, treated as citation surfaces, and they are already in the §8 target list.
+Execution is §8. The agent researches, drafts, and monitors; Karol sends and signs up. **KPI note 2026-10-05:** after four flat weeks the one-word branded query rose and branded share of identifiable clicks rose with it, with zero placements live. So the upturn cannot be credited to §8. App Store and ChatGPT exposure (§10) are the likelier drivers. It does not weaken the case for sending the pitches. It does mean the KPI needs the App Store Connect campaign view next to it before any rise is credited to off-site work. Directories as a category are dead (March 2026 core update losers) — the two exceptions are niche faith-tech directories with editorial selection, treated as citation surfaces, and they are already in the §8 target list.
 
 ## 4. Internal Linking Doctrine
 

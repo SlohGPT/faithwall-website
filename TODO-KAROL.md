@@ -2,26 +2,20 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-10-05 (weekly refresh)
+
+- **THE ONE THING, week five: send the five corrected Tier-1 pitches.** Contact routes are in the 2026-09-24 entry below. Send only the copies corrected on 2026-10-02, and generate the offer codes first. Nothing has been sent yet, so there are no placements to check. Mark each one "SENT YYYY-MM-DD" in its draft file.
+- **Re-ping the pages fixed on 2026-10-02 to IndexNow (Bing, which ChatGPT search leans on).** A web-search snippet check today still shows the old copy for faithwall.app: "free with premium" pricing, verse packs and Focus-mode integration. The repo is clean, so the index is stale. One command from the repo: `node scripts/submit-indexnow.mjs https://faithwall.app/ https://faithwall.app/best-bible-verse-lock-screen-apps https://faithwall.app/daily-scripture-lock-screen https://faithwall.app/blog/best-free-bible-app-iphone https://faithwall.app/faithwall-vs-hallow https://faithwall.app/faithwall-vs-youversion`. Then run URL inspection on the homepage in Bing Webmaster Tools. The weekly refresh doesn't submit on its own.
+- **Spam-update watch, no action needed.** Google's September 2026 spam update (started 2026-09-24) still showed as rolling out today. Our clicks held through the rollout. Daily impressions eased from their mid-September peak, but that started about a week before the rollout and was gradual, not a step drop. Nothing points at the site.
+- **Brand KPI turned up.** The one-word "faithwall" query rose for the first time after four flat weeks, and branded share of identifiable clicks rose with it. No placement has landed yet, so this is not the off-site layer at work. App Store or ChatGPT exposure is the likelier source. Your mid-October campaign review in App Store Connect is the place to check that.
+
 ## 2026-10-02 (pricing-accuracy fix)
 
 - **The five outreach drafts and the directory pack are corrected and ready to send.** Since v2.3 FaithWall needs a subscription, but the site and drafts still called it free. I rewrote the pitch bodies in `outreach/bibleversedaily.md`, `warmpeach.md`, `learnofchrist.md`, `biblegeeks.md`, `healthyspirituality.md` and the app description in `outreach/directories.md`. Each now says: free to download, subscription required, you pick your own verses, wallpaper or rotating widget. Each offers a subscription offer code so the reviewer can test the full app, and each file starts with a "Facts corrected 2026-10-02" line. **Send only these corrected copies.** Before sending, generate the offer codes in App Store Connect. The site copy and posts got the same fix, and a Product facts rule now guards the daily blog skill and SEO-STRATEGY §5.
 
-## 2026-09-30 (fallback daily post)
-
-- **CODE BUG (found while writing today's post): the "stat" block schema is inconsistent across the post set and about half of it silently renders blank.** `BlogRenderer.tsx`'s `case 'stat'` reads `section.number` / `section.label` / `section.description`. But 9 post JSONs (`5-minute-daily-prayer-iphone`, `audio-bible-app-iphone-background`, `bible-verse-widget-iphone`, `faithwall-vs-bible-app`, `how-to-set-prayer-alarms-iphone`, `morning-prayer-routine-iphone`, `one-year-bible-plan-iphone`, `renew-your-mind-iphone-setup`, `rotating-bible-verse-wallpaper-iphone`, `scripture-habit-tracker-iphone`, `verse-of-the-day-lock-screen-iphone`, plus the unregistered `sabbath-rest-iphone-shortcuts`) instead use `value` / `label` / `context` — the big number and the description line render empty on the live page, leaving just a floating label in a stat card. 4 other posts already use the correct fields and render fine (`best-free-bible-app-iphone`, `hallow-vs-abide`, `scripture-wallpaper-for-iphone-free`, `sermon-notes-iphone-app`, `verse-mapping-iphone-app`). Today's new post (`prayer-journal-app-iphone-2026`) uses the correct fields. This wasn't in scope to fix here (touching 9+ unrelated files isn't this item's named scope), but it's a live-site visual bug on roughly a third of the posts that use a stat block — worth either a small `refresh`-type queue item to rename the fields in those files, or a one-line change to `BlogRenderer.tsx` to fall back to `value`/`context` if `number`/`description` are absent. Your call which fix is cheaper.
-
-## 2026-09-28 (weekly refresh)
-
-- **Watch only, no action: Google's September 2026 spam update started 2026-09-24** and may take up to two weeks (https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history). Our daily visibility has eased since mid-September, but the easing started about a week before the rollout and is gradual, not a step drop. Nothing points at the site. The 2026-10-05 refresh will re-read it after the rollout ends.
-- **Pitches: still zero sent, now week four.** The five Tier-1 drafts and the contact routes in the 2026-09-24 entry below are unchanged. A web sweep today found no third-party editorial page mentioning FaithWall yet. The one-word "faithwall" query is flat for a fourth straight week.
-
-## 2026-09-26 (merge gate)
-
-- **Quarantined a duplicate p33 branch, no action needed.** Today's cloud run pushed `claude/seo-p33-descriptive-coverage` (882342f). It built p33 a second time from a stale base (1dc25d2, from before the 2026-09-24 refresh). The first p33 build (914a734) was already merged, live, and marked done on 2026-09-25. The duplicate conflicted in `CompareView.tsx`, `comparisons.json`, `seo-priorities.json`, and the sitemap. It could never merge, and leaving it would have blocked every later run. Nothing reached main. The commit can be recovered from tag `rejected/seo-p33-descriptive-coverage-882342f`. p33 stays done. Nothing needs re-scoping. **Worth watching:** the routine seems to have started from an old main checkout. If tomorrow's run also re-executes a finished item, check the routine's run history in the Claude Code web UI to see how it picks up main.
-
 ## 2026-09-24 (weekly refresh)
 
-- **THE ONE THING, week three: send the five Tier-1 pitches.** Nothing has changed on this since 2026-09-01: drafts are ready, contact routes are resolved, and placements landed is still zero because nothing has been sent. All five targets were re-checked today and none lists FaithWall.
+- **Contact routes for the five Tier-1 pitches** (still unsent as of 2026-10-05):
   - `outreach/bibleversedaily.md` → **info@bibleversedaily.org** (best of the five)
   - `outreach/warmpeach.md` → **hello@warmpeach.com** (caveat: content marketing for their own pre-launch Bible chat app)
   - `outreach/learnofchrist.md` → **the form at https://learnofchrist.com/contact** (pitch the missing lock-screen/widget category)
@@ -29,9 +23,6 @@ Items the SEO autopilot can't do itself. Newest first. Resolved items are delete
   - `outreach/healthyspirituality.md` → **confirm the address in a normal browser** at https://healthyspirituality.org/blog/biography/
   - When you send one, add a line "SENT YYYY-MM-DD" to its draft file so the weekly refresh can start tracking it.
 - **ACCOUNTS + one small paid decision: the Tier-2 directory pack at `outreach/directories.md` is still unsubmitted.** faith.tools (paid, needs your go-ahead), AlternativeTo (sign up now, 7-day account age rule), SaaSHub (free, lowest friction; re-checked today, FaithWall absent), MochiLaunch (free with badge or $1.99).
-- **Brand KPI: flat for a third week.** The one-word "faithwall" query still ranks first and converts well, but its visibility has held level since early September. Branded share of identifiable clicks is flat too, because non-brand clicks keep growing. Organic branded growth has stalled with zero placements live. That is the case for sending. Two-word "faith wall" is still classed as unconvertible, so no homepage work.
-- **For visibility — queue changes, no decision needed.** **p33** (descriptive lock-screen wording on the money page) is released: its gate was checked and the descriptive phrasings slipped further, so it runs next. **p39** fixes only the hub's meta description, which currently reads as a keyword string rather than a sentence. **p40** adds a random-chapter mode to /random-bible-verse, which is now the site's largest impression source, backed by rising chapter/passage-generator searches.
-- **Resolved since last week:** the Cloudflare robots.txt override is gone. The live faithwall.app/robots.txt now matches the repo file exactly: no managed block, no content-signal line, and every AI crawler is allowed. Thanks. That item has been deleted below.
 
 ## Still open — needs your access or your decision
 
