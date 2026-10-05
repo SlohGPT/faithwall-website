@@ -46,7 +46,7 @@ GlobalFonts.registerFromPath(join(root, 'scripts/fonts/Gelasio-Italic.ttf'), 'Ge
 GlobalFonts.registerFromPath(join(root, 'scripts/fonts/DMSans-Medium.ttf'), 'DM Sans');
 GlobalFonts.registerFromPath(join(root, 'scripts/fonts/DMSans-Bold.ttf'), 'DM Sans');
 
-// [reference, theme, style id, size id]
+// [reference, theme, style id, size id, optional alt-text lead-in]
 const PLAN = [
   ['Philippians 4:13', 'strength', 'black', 'iphone'],
   ['Psalm 46:1', 'strength', 'navy-gold', 'iphone'],
@@ -64,6 +64,15 @@ const PLAN = [
   ['Isaiah 41:10', 'strength', 'black', 'desktop-4k'],
   ['Joshua 1:9', 'courage', 'bold-sans', 'desktop-4k'],
   ['Psalm 23:1', 'trust', 'navy-gold', 'desktop-4k'],
+  // 2026-10-05 (p48): themes from Google Images queries for the maker page.
+  ['Psalm 23:1', 'trust', 'navy-gold', 'iphone', 'The Lord is my shepherd'],
+  ['Psalm 46:10', 'peace', 'black', 'iphone', 'Be still, and know that I am God'],
+  ['Isaiah 41:10', 'fear', 'dark-gradient', 'iphone', 'Fear thou not; for I am thy God'],
+  ['Psalm 119:105', 'trust', 'cream', 'iphone', 'Thy word is a lamp unto my feet'],
+  ['Genesis 22:14', 'trust', 'minimal-white', 'iphone', 'Jehovah-jireh'],
+  ['Psalm 46:10', 'peace', 'cream', 'desktop-4k', 'Be still, and know that I am God'],
+  ['Matthew 11:28', 'anxiety', 'dark-gradient', 'desktop-4k', 'Come unto me and I will give you rest'],
+  ['Isaiah 40:31', 'strength', 'sunrise', 'desktop-4k', 'They that wait upon the Lord shall renew their strength'],
 ];
 
 const BG_WORDS = {
@@ -100,7 +109,7 @@ mkdirSync(outDir, { recursive: true });
 const gallery = [];
 let totalBytes = 0;
 
-for (const [ref, theme, styleId, sizeId] of PLAN) {
+for (const [ref, theme, styleId, sizeId, altLead] of PLAN) {
   const size = SIZE_PRESETS.find((s) => s.id === sizeId);
   const base = STYLE_PRESETS.find((s) => s.id === styleId);
   if (!size || !base) throw new Error(`Bad plan row ${ref}`);
@@ -146,7 +155,7 @@ for (const [ref, theme, styleId, sizeId] of PLAN) {
     thumb: `/wallpapers/${thumb}`,
     thumbWidth: thumbMeta.width,
     thumbHeight: thumbMeta.height,
-    alt: `${ref} ${TRANSLATION} Bible verse ${deviceWords} on a ${BG_WORDS[styleId]} background`,
+    alt: `${altLead ? `${altLead}: ` : ''}${ref} ${TRANSLATION} Bible verse ${deviceWords} on a ${BG_WORDS[styleId]} background`,
   });
   console.log(`${file}  ${(jpg.length / 1024).toFixed(0)} KB  font ${fit.fontSize}px  ${fit.lines.length} lines`);
 }
