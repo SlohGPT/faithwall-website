@@ -221,9 +221,10 @@
       "target_url": "/blog/best-christian-wallpaper-app-iphone",
       "target_keyword": "holy finger wallpaper app",
       "cluster": "scripture-wallpaper",
-      "status": "pending",
+      "status": "retired",
       "reason": "Brand queries for a competitor ('holy finger wallpaper app', 'what is holy finger wallpaper app') already land on this roundup at mid-page-1, but the post doesn't mention that app, so it cannot answer the query. \u00a79 forbids per-competitor pages, so the answer belongs inside the existing roundup.",
-      "notes": "FIRST verify the app exists and what it does from its public App Store listing, e.g. https://itunes.apple.com/search?term=holy%20finger&entity=software&country=us. Record the exact name, developer, what it offers and its pricing model as listed, with the date checked. If you cannot verify it with confidence, set this item to 'retired' with a note and stop. If verified, add a short, fair section or table row: what it is, who it suits, and how it differs from a rotating approach. Facts only from the listing; no disparagement; no claims of having tested it. Count it against the \u00a74 5-link cap only if you add links. Bump dateModified."
+      "notes": "FIRST verify the app exists and what it does from its public App Store listing, e.g. https://itunes.apple.com/search?term=holy%20finger&entity=software&country=us. Record the exact name, developer, what it offers and its pricing model as listed, with the date checked. If you cannot verify it with confidence, set this item to 'retired' with a note and stop. If verified, add a short, fair section or table row: what it is, who it suits, and how it differs from a rotating approach. Facts only from the listing; no disparagement; no claims of having tested it. Count it against the \u00a74 5-link cap only if you add links. Bump dateModified.\nRETIRED (local autopilot, 2026-10-06): could not verify a \"Holy Finger\" app. iTunes Search API (US) for \"holy finger\", \"holy finger wallpaper\", \"holyfinger\", \"holy finger wallpaper app\" and \"holy finger bible\" returned no app by that name (only unrelated games and \"His Holy Face\"), and a web search found no listing either. Per this item's own rule, no section added. Re-queue only if Karol supplies the App Store link or exact app name.",
+      "completed": "2026-10-06"
     },
     {
       "id": "p50",

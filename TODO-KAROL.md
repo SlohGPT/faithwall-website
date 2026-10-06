@@ -2,6 +2,10 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-10-06
+
+- **2026-10-06: p49 retired — "holy finger wallpaper app" could not be verified.** No App Store or web listing found for an app by that name. If you know the real app name or have the link, tell the autopilot and it will re-queue the roundup section.
+
 ## 2026-10-05 (weekly refresh)
 
 - **THE ONE THING, week five: send the five corrected Tier-1 pitches.** Contact routes are in the 2026-09-24 entry below. Send only the copies corrected on 2026-10-02, and generate the offer codes first. Nothing has been sent yet, so there are no placements to check. Mark each one "SENT YYYY-MM-DD" in its draft file.
