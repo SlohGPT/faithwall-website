@@ -2,6 +2,10 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-10-08
+
+- **2026-10-08 (optional): one real lock-screen screenshot for `/blog/short-bible-verses-for-lock-screen` (p50).** The post shipped with a reused stock hero (the same Anthony Garand photo as `bible-verse-lock-screen-iphone`, because there's no Unsplash key locally) and no device evidence. A screenshot of your own iPhone lock screen with a short verse such as Lamentations 3:23 in the FaithWall widget would be the strongest effort signal the page could carry. Drop it in the repo and the autopilot can embed it.
+
 ## 2026-10-06
 
 - **2026-10-06: p49 retired — "holy finger wallpaper app" could not be verified.** No App Store or web listing found for an app by that name. If you know the real app name or have the link, tell the autopilot and it will re-queue the roundup section.

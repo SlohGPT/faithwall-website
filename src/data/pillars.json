@@ -65,7 +65,7 @@
       { "type": "paragraph", "text": "FaithWall is built specifically for this — wallpapers and widgets designed for the lock-screen surface, with a Shortcuts-applied wallpaper and a widget that rotates your chosen verses. If you want to see how it stacks up against the handful of near-identical App Store apps in this category, [see how the top lock-screen verse apps compare](/best-bible-verse-lock-screen-apps) feature by feature." },
       { "type": "cta", "title": "Get FaithWall on the App Store", "description": "Free to download. Daily Scripture on your iPhone lock screen in under 60 seconds.", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }
     ],
-    "featured": ["bible-verse-widget-iphone", "daily-scripture-wallpaper-iphone", "psalm-23-wallpaper-iphone", "scripture-wallpaper-for-iphone-free", "verse-of-the-day-lock-screen-iphone", "rotating-bible-verse-wallpaper-iphone"]
+    "featured": ["short-bible-verses-for-lock-screen", "bible-verse-widget-iphone", "daily-scripture-wallpaper-iphone", "psalm-23-wallpaper-iphone", "scripture-wallpaper-for-iphone-free", "verse-of-the-day-lock-screen-iphone"]
   },
   "prayer-life-iphone": {
     "slug": "prayer-life-iphone",
