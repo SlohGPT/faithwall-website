@@ -1,4 +1,4 @@
-# FaithWall SEO Strategy — v2 (2026-08-22, data notes through 2026-10-05; §10 install-first plan added 2026-10-02)
+# FaithWall SEO Strategy — v2 (2026-08-22, data notes through 2026-10-10; §10 install-first plan added 2026-10-02)
 
 **Who reads this:** the autonomous daily content agent and Karol. This file sets direction; `src/data/seo-priorities.json` sets the day-to-day work order. This repo is public — describe search performance qualitatively and never paste raw Search Console clicks, impressions, or CTR numbers into this file, commit messages, or post content.
 
@@ -58,7 +58,7 @@ The homepage title/meta and rich-results work shipped and the brand-query findin
 
 Every practitioner school surveyed lands on the same conclusion from different directions: branded search demand, third-party mentions, reviews, and citations are the composite that moves both classic rankings and AI recommendations (Indig's Brand Authority; Ray's brand/navigational winners; Koray's "SEO insurance"; Fishkin's 2x branded click rates; Diggity's brand-volume tactics; Hudgens' "mentions and co-citation"). Branded demand growth *precedes* AI-answer visibility by weeks to months — it is a leading indicator, and our KPI.
 
-Execution is §8. The agent researches, drafts, and monitors; Karol sends and signs up. **KPI note 2026-10-05:** after four flat weeks the one-word branded query rose and branded share of identifiable clicks rose with it, with zero placements live. So the upturn cannot be credited to §8. App Store and ChatGPT exposure (§10) are the likelier drivers. It does not weaken the case for sending the pitches. It does mean the KPI needs the App Store Connect campaign view next to it before any rise is credited to off-site work. Directories as a category are dead (March 2026 core update losers) — the two exceptions are niche faith-tech directories with editorial selection, treated as citation surfaces, and they are already in the §8 target list.
+Execution is §8. The agent researches, drafts, and monitors; Karol sends and signs up. **KPI note 2026-10-05:** after four flat weeks the one-word branded query rose and branded share of identifiable clicks rose with it, with zero placements live. So the upturn cannot be credited to §8. App Store and ChatGPT exposure (§10) are the likelier drivers. It does not weaken the case for sending the pitches. It does mean the KPI needs the App Store Connect campaign view next to it before any rise is credited to off-site work. **Update 2026-10-10:** the one-word query rose again, and branded share rose with it. The daily data, though, shows the rise starting abruptly on a single late-September day rather than building. That is the signature of an outside event, not of App Store or ChatGPT exposure accumulating, and still no placement is live. Treat the KPI as contaminated until that step has passed and a trend can be read on its own. Nothing is credited to §8. Directories as a category are dead (March 2026 core update losers) — the two exceptions are niche faith-tech directories with editorial selection, treated as citation surfaces, and they are already in the §8 target list.
 
 ## 4. Internal Linking Doctrine
 
@@ -172,7 +172,7 @@ We run an autonomous daily agent in the exact period Google is enforcing against
 - Clicks grew strongly in September versus August.
 - The money cluster sits mid-page-1: the /daily-scripture-lock-screen pillar, /best-bible-verse-lock-screen-apps and the "best Bible app" hub.
 - /random-bible-verse has by far the largest impression pool but the weakest purchase intent.
-- Image search shows impressions with no clicks yet.
+- Image search: within days of p48 the wallpaper gallery became the site's main Google Images landing page and earned its first image click (2026-10-10 read). Positions are still deep.
 - On the App Store side, App Store search/browse delivers most downloads. **ChatGPT referrals are the clear second source**, larger than all web referrals. AI answers are an install channel, not a vanity metric.
 
 **Measurement (live since 2026-10-02).**

@@ -2,6 +2,15 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-10-10 (weekly refresh)
+
+- **THE ONE THING, week six: send the five corrected Tier-1 pitches.** Nothing has been sent yet, so there are still no placements to check. Contact routes are in the 2026-09-24 entry below. Send only the copies corrected on 2026-10-02, generate the offer codes first, and mark each draft file "SENT YYYY-MM-DD".
+- **The App Store Connect campaign review is due next week (SEO-STRATEGY §10).** Under Sources → Campaigns, check which `web-*`, `blog-*` and `pillar-*` campaigns produced downloads since 2026-10-02. The weekly refresh can't read App Store Connect. Bring the numbers to a session and the queue gets re-ranked from them.
+- **A second product called "FaithWall" exists.** It's a Bible-goal phone gate from The Biblical Man / Dead Hidden newsletter. It was announced in a Substack post on 2026-06-02, is in beta at deadhidden.org, and its author said both app stores were reviewing it. A web search found no App Store listing for it yet. If it launches under the same name, it competes directly for the one-word "faithwall" search, the KPI the off-site layer is built around. Your call whether a name or trademark check is worth it. Queue item p51 tracks whether it launches.
+- **Brand KPI: still rising, but not creditable to SEO.** The one-word "faithwall" query rose again, and branded share of clicks rose with it. The rise starts abruptly on a single day in late September instead of building, which points to an outside event, not the off-site layer or the site. Your local report has the detail.
+- **Watch, no action yet: the money page dipped in the four days after 2026-10-02/04.** `/best-bible-verse-lock-screen-apps` slipped a couple of positions and its clicks dried up over those days. Four days is within noise. The next refresh re-reads it with a full week.
+- **The queue ran empty, so the autopilot wrote fallback posts.** Two new items now lead it: p51 (audit how third-party pages and AI answers describe FaithWall, and draft correction requests where they still say "free") and p52 (a small synonym pass on `/random-bible-verse`).
+
 ## 2026-10-10
 
 - **2026-10-10 (optional): one real lock-screen screenshot for `/blog/scripture-based-prayer-prompts` (fallback post).** It shipped with a reused stock hero (the Jeremy Yap photo from `best-prayer-app-for-iphone`, since there's no Unsplash key locally). Its effort signals are the widget's rotation options, the iOS Customize path and your named judgment call (rotate every 8 hours). It has no device evidence. A screenshot of the FaithWall lock-screen widget showing one of the post's 12 prompt verses (e.g. Psalm 46:10) would be the strongest addition. Drop it in the repo and the autopilot can embed it.
@@ -16,10 +25,7 @@ Items the SEO autopilot can't do itself. Newest first. Resolved items are delete
 
 ## 2026-10-05 (weekly refresh)
 
-- **THE ONE THING, week five: send the five corrected Tier-1 pitches.** Contact routes are in the 2026-09-24 entry below. Send only the copies corrected on 2026-10-02, and generate the offer codes first. Nothing has been sent yet, so there are no placements to check. Mark each one "SENT YYYY-MM-DD" in its draft file.
 - **Re-ping the pages fixed on 2026-10-02 to IndexNow (Bing, which ChatGPT search leans on).** A web-search snippet check today still shows the old copy for faithwall.app: "free with premium" pricing, verse packs and Focus-mode integration. The repo is clean, so the index is stale. One command from the repo: `node scripts/submit-indexnow.mjs https://faithwall.app/ https://faithwall.app/best-bible-verse-lock-screen-apps https://faithwall.app/daily-scripture-lock-screen https://faithwall.app/blog/best-free-bible-app-iphone https://faithwall.app/faithwall-vs-hallow https://faithwall.app/faithwall-vs-youversion`. Then run URL inspection on the homepage in Bing Webmaster Tools. The weekly refresh doesn't submit on its own.
-- **Spam-update watch, no action needed.** Google's September 2026 spam update (started 2026-09-24) still showed as rolling out today. Our clicks held through the rollout. Daily impressions eased from their mid-September peak, but that started about a week before the rollout and was gradual, not a step drop. Nothing points at the site.
-- **Brand KPI turned up.** The one-word "faithwall" query rose for the first time after four flat weeks, and branded share of identifiable clicks rose with it. No placement has landed yet, so this is not the off-site layer at work. App Store or ChatGPT exposure is the likelier source. Your mid-October campaign review in App Store Connect is the place to check that.
 
 ## 2026-10-02 (pricing-accuracy fix)
 
@@ -27,7 +33,7 @@ Items the SEO autopilot can't do itself. Newest first. Resolved items are delete
 
 ## 2026-09-24 (weekly refresh)
 
-- **Contact routes for the five Tier-1 pitches** (still unsent as of 2026-10-05):
+- **Contact routes for the five Tier-1 pitches** (still unsent as of 2026-10-10):
   - `outreach/bibleversedaily.md` → **info@bibleversedaily.org** (best of the five)
   - `outreach/warmpeach.md` → **hello@warmpeach.com** (caveat: content marketing for their own pre-launch Bible chat app)
   - `outreach/learnofchrist.md` → **the form at https://learnofchrist.com/contact** (pitch the missing lock-screen/widget category)
@@ -44,7 +50,7 @@ Items the SEO autopilot can't do itself. Newest first. Resolved items are delete
 - **DECISION (2026-08-22): owned audience.** The site converts nothing it can keep — no email capture, no community channel. Options: a light email capture ("verse pack of the month"), or leaning on the app itself as the owned channel. Product/brand call, yours. Rented attention should land somewhere we keep.
 - **DATA EXPORT WANTED (2026-08-22): original data study.** The strongest citable asset we could own is aggregate, anonymized app data — most-set verses by month, verse-category popularity by season. Nobody in this niche has published anything like it. If you can export aggregate numbers (no user-level data), a `data-study` queue item turns it into a citable page.
 - **APP-SIDE (2026-08-22): App Store review velocity.** Review prompts timed to a genuine win-moment (e.g. after the 7th daily verse shown) feed the same brand composite §8 is built on. Flagging, not prescribing.
-- **ENVIRONMENT (2026-08-16): the cloud session's outbound network policy blocks api.unsplash.com** (403 from the proxy, confirmed as a policy denial). Posts fall back to reusing an on-theme image, so nothing breaks. Needs your access to the environment config. Not currently blocking anything — the next three queue items (p33, p39, p40) need no new imagery. Related and worth knowing: the same policy blocks the cloud agent from reading any target page directly, which is why contact-route resolution has moved to this weekly local refresh.
+- **ENVIRONMENT (2026-08-16): the cloud session's outbound network policy blocks api.unsplash.com** (403 from the proxy, confirmed as a policy denial). Posts fall back to reusing an on-theme image, so nothing breaks. Needs your access to the environment config. Not blocking anything. **Update 2026-10-10:** the local autopilot has no `$UNSPLASH_ACCESS_KEY` either, so the last two fallback posts reused stock heroes from older posts. Setting the key locally would give new posts their own images. Related and worth knowing: the same policy blocks the cloud agent from reading any target page directly, which is why contact-route resolution has moved to this weekly local refresh.
 
 ## Informational — no action
 
