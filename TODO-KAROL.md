@@ -2,6 +2,10 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-10-10
+
+- **2026-10-10 (optional): one real lock-screen screenshot for `/blog/scripture-based-prayer-prompts` (fallback post).** It shipped with a reused stock hero (the Jeremy Yap photo from `best-prayer-app-for-iphone`, since there's no Unsplash key locally). Its effort signals are the widget's rotation options, the iOS Customize path and your named judgment call (rotate every 8 hours). It has no device evidence. A screenshot of the FaithWall lock-screen widget showing one of the post's 12 prompt verses (e.g. Psalm 46:10) would be the strongest addition. Drop it in the repo and the autopilot can embed it.
+
 ## 2026-10-08
 
 - **2026-10-08 (optional): one real lock-screen screenshot for `/blog/short-bible-verses-for-lock-screen` (p50).** The post shipped with a reused stock hero (the same Anthony Garand photo as `bible-verse-lock-screen-iphone`, because there's no Unsplash key locally) and no device evidence. A screenshot of your own iPhone lock screen with a short verse such as Lamentations 3:23 in the FaithWall widget would be the strongest effort signal the page could carry. Drop it in the repo and the autopilot can embed it.
