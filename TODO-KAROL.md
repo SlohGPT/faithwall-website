@@ -2,6 +2,20 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-10-11 (p51 accuracy audit)
+
+- **No correction requests to send. One five-minute check for you instead.** Details are in `outreach/targets.json`, under `summary.accuracy_audit_2026_10_11` and `summary.namesake_check_2026_10_11`.
+  - **No third-party page describes FaithWall wrongly, because none mentions it at all.** The two competitor roundups recorded in August as listing it (abbeybible.com, getfaithlock.com) don't list it on a direct read. No reviews, directory listings or App Store mirror pages turned up either. So `outreach/corrections.md` was not needed and was not created.
+  - **The only stale descriptions found are search-engine summaries of our *own* pages.** They still quote copy from before 2026-10-02: a monthly price, "no paywall", themed packs, Focus modes. The live site and main are clean. ChatGPT is the second install source and leans on Bing, so ask it "Is the FaithWall app free?" and "What does FaithWall do?". If it repeats the old claims, request re-indexing in Bing Webmaster Tools (URL submission) and Search Console (URL Inspection) for:
+    - /best-bible-verse-lock-screen-apps
+    - /faithwall-vs-hallow
+    - /blog/scripture-wallpaper-for-iphone-free
+    - /blog/best-christian-wallpaper-app-iphone
+    - /blog/best-free-bible-app-iphone
+  - **The namesake still has no public App Store listing.** Its beta page now calls it "FaithWall Verse". It is a TestFlight beta, and its public App Store release is listed as "still in progress". In the autopilot's search tool (not Google), its June Substack post ranks first for "faithwall app" and "faithwall bible app". The name and trademark call is still yours. p51 has closed, so nothing in the queue tracks the namesake any more. The weekly refresh should re-check it.
+  - **Our own blog skill still pitches "themed packs" and "we pick the verse for you"** in `.claude/skills/faithwall-blog/SKILL.md` (friction angles, the "Zero curation" wedge, a CTA example). That contradicts its own Product facts rule, and a future post could put the claim back on the site. Rewriting it is a skill edit, outside what this item allowed.
+  - **Placements: still zero.** All five Tier-1 pitches are unsent. New candidate for a later outreach wave: codeinfaith.com's 2026 Bible-widgets roundup, which is independent and doesn't mention FaithWall.
+
 ## 2026-10-10 (weekly refresh)
 
 - **THE ONE THING, week six: send the five corrected Tier-1 pitches.** Nothing has been sent yet, so there are still no placements to check. Contact routes are in the 2026-09-24 entry below. Send only the copies corrected on 2026-10-02, generate the offer codes first, and mark each draft file "SENT YYYY-MM-DD".
