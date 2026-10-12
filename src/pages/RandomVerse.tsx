@@ -600,7 +600,8 @@ export default function RandomVerse() {
               A random Bible verse generator picks one Scripture verse for you at the tap of a button,
               with no signup and no choosing a book or chapter yourself. This one can draw from all
               31,102 verses of the King James Version or from a curated topic set. It is also called a
-              Bible randomizer or a random scripture generator.
+              Bible randomizer, a random scripture generator, a Bible verse picker, or a Bible quote
+              generator.
             </p>
             <p>
               Whole Bible mode includes everything, genealogies and legal passages as well as the
@@ -608,6 +609,15 @@ export default function RandomVerse() {
               encouraging, By topic mode draws from {verses.length} curated verses across{' '}
               {THEMES.length} themes: love, peace, strength, hope, comfort, faith, joy, gratitude,
               courage, and guidance.
+            </p>
+
+            <h2>Can I use this as a Bible quote generator?</h2>
+            <p>
+              Yes. Every result is a complete KJV verse with its reference attached, so you can copy or
+              share it as a correctly cited Bible quote. By topic mode keeps the draw to encouraging
+              verses on themes like peace, hope, and strength. To turn a quote into an iPhone
+              lock-screen image, open it in our{' '}
+              <Link to="/bible-verse-wallpaper-maker">Bible verse wallpaper maker</Link>.
             </p>
 
             <h2>Is this generator truly random?</h2>
