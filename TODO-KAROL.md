@@ -2,6 +2,10 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-10-14
+
+- **2026-10-14 (optional): one real lock-screen screenshot for `/blog/lock-screen-verse-for-grief` (fallback post).** It shipped with a reused stock hero (the Simon Wilkes photo from `psalm-23-wallpaper-iphone`, since there's no Unsplash key locally). Its effort signals are KJV word counts from the site's own Bible text, the widget's rotation options with a named judgment call (once a day for grief), and an editorial call on which verses to hold back. It has no device evidence. The post's core setup is the FaithWall widget sitting under the clock on a personal-photo lock screen, so one screenshot of exactly that (any photo, with Psalm 34:18 or Matthew 5:4 in the widget) would be the strongest addition. Drop it in the repo and the autopilot can embed it.
+
 ## 2026-10-11 (p51 accuracy audit)
 
 - **No correction requests to send. One five-minute check for you instead.** Details are in `outreach/targets.json`, under `summary.accuracy_audit_2026_10_11` and `summary.namesake_check_2026_10_11`.
