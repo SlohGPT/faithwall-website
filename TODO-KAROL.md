@@ -2,6 +2,10 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-10-19 (merge gate)
+
+- **Decide at the 10-26 refresh: publish the held post `bible-study-group-iphone-tools`, or drop it.** The local autopilot built this fallback post at 08:46, 36 minutes before the weekly refresh put new URLs on hold (09:22). It passed every gate check, so it is merged to main, but `isPublished` is set to `false` in `src/data/blogPosts.json` so it stays off the site during the hold. It is not in the sitemap, the blog index or the pillar page, and it was not sent to IndexNow. **To publish:** run `git revert c881e9d` (or set the flag to `true` yourself), change `date`/`datePublished` to the release day in `blogPosts.json` and the post JSON, run `node scripts/generate-sitemap.mjs`, push, then IndexNow `https://faithwall.app/blog/bible-study-group-iphone-tools`. The pillar's featured list already includes it. **To drop it:** delete the post's entry and its JSON. Process gap: this morning's refresh did not merge this branch before it edited the queue, even though the branch was already pushed.
+
 ## 2026-10-19 (weekly refresh)
 
 - **WATCH, already queued: the money page fell on 2026-09-30 and has not recovered.** `/best-bible-verse-lock-screen-apps` dropped out of the top 5 into the bottom half of page 1 in a single day, and its clicks have nearly stopped. Its impressions held. The date falls inside Google's September 2026 spam update (rollout 09-24 to 10-08), on a day trade press reported a second wave of impact. The 10-02 and 10-04 edits did not cause it, because the drop came first. The one suspect on the page is a 09-25 passage that lists search phrasings in quotes, which reads as keyword stuffing. p53, now at the top of the queue, removes it on the next daily run. You don't need to do anything unless you want to review p53's diff. Your local report has the numbers.
