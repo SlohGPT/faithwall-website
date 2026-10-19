@@ -2,6 +2,21 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-10-19 (weekly refresh)
+
+- **WATCH, already queued: the money page fell on 2026-09-30 and has not recovered.** `/best-bible-verse-lock-screen-apps` dropped out of the top 5 into the bottom half of page 1 in a single day, and its clicks have nearly stopped. Its impressions held. The date falls inside Google's September 2026 spam update (rollout 09-24 to 10-08), on a day trade press reported a second wave of impact. The 10-02 and 10-04 edits did not cause it, because the drop came first. The one suspect on the page is a 09-25 passage that lists search phrasings in quotes, which reads as keyword stuffing. p53, now at the top of the queue, removes it on the next daily run. You don't need to do anything unless you want to review p53's diff. Your local report has the numbers.
+- **Precautionary hold: no new URLs until the 2026-10-26 refresh** (SEO-STRATEGY §9 rule 6). Apart from p53, nothing in the queue is eligible yet, so the autopilot will run monitoring passes instead of fallback posts. Tell it if you want the hold lifted.
+- **5 minutes: request indexing for the four newest posts.** In Search Console, open URL Inspection and click Request indexing for each one. Google doesn't know three of them yet and lists the fourth as "Discovered – currently not indexed", 5-11 days after publishing:
+  - /blog/short-bible-verses-for-lock-screen
+  - /blog/scripture-based-prayer-prompts
+  - /blog/bible-app-vs-olive-tree
+  - /blog/lock-screen-verse-for-grief
+  Do the five pages from the 2026-10-11 list in the same session.
+- **THE ONE THING, week seven: send the five corrected Tier-1 pitches.** Nothing has been sent yet, so there are still no placements to check. Contact routes are in the 2026-09-24 entry below. Send only the copies corrected on 2026-10-02, generate the offer codes first, and mark each draft file "SENT YYYY-MM-DD".
+- **Due now: the App Store Connect campaign review (SEO-STRATEGY §10).** Under Sources → Campaigns, check which `web-*`, `blog-*` and `pillar-*` campaigns produced downloads since 2026-10-02. The weekly refresh can't read App Store Connect. Bring the numbers to a session and the queue gets re-ranked from them. It matters more now that the money page has lost its clicks: the review shows whether that page was producing installs.
+- **Brand KPI: the late-September jump has faded.** The one-word "faithwall" query is back near its old weekly level. It was a one-off outside event, not a trend, and nothing is credited to outreach. If you know what happened between about 09-29 and 10-08 (an App Store feature, a mention, an ASO change), note it here. It would show what actually moves branded search.
+- **Namesake re-check (from p51): still no public App Store listing found** for the other "FaithWall" (beta name "FaithWall Verse"). The autopilot's search tool isn't Google, so treat this as a weak negative. The name call is still yours.
+
 ## 2026-10-14
 
 - **2026-10-14 (optional): one real lock-screen screenshot for `/blog/lock-screen-verse-for-grief` (fallback post).** It shipped with a reused stock hero (the Simon Wilkes photo from `psalm-23-wallpaper-iphone`, since there's no Unsplash key locally). Its effort signals are KJV word counts from the site's own Bible text, the widget's rotation options with a named judgment call (once a day for grief), and an editorial call on which verses to hold back. It has no device evidence. The post's core setup is the FaithWall widget sitting under the clock on a personal-photo lock screen, so one screenshot of exactly that (any photo, with Psalm 34:18 or Matthew 5:4 in the widget) would be the strongest addition. Drop it in the repo and the autopilot can embed it.
@@ -20,15 +35,6 @@ Items the SEO autopilot can't do itself. Newest first. Resolved items are delete
   - **Our own blog skill still pitches "themed packs" and "we pick the verse for you"** in `.claude/skills/faithwall-blog/SKILL.md` (friction angles, the "Zero curation" wedge, a CTA example). That contradicts its own Product facts rule, and a future post could put the claim back on the site. Rewriting it is a skill edit, outside what this item allowed.
   - **Placements: still zero.** All five Tier-1 pitches are unsent. New candidate for a later outreach wave: codeinfaith.com's 2026 Bible-widgets roundup, which is independent and doesn't mention FaithWall.
 
-## 2026-10-10 (weekly refresh)
-
-- **THE ONE THING, week six: send the five corrected Tier-1 pitches.** Nothing has been sent yet, so there are still no placements to check. Contact routes are in the 2026-09-24 entry below. Send only the copies corrected on 2026-10-02, generate the offer codes first, and mark each draft file "SENT YYYY-MM-DD".
-- **The App Store Connect campaign review is due next week (SEO-STRATEGY §10).** Under Sources → Campaigns, check which `web-*`, `blog-*` and `pillar-*` campaigns produced downloads since 2026-10-02. The weekly refresh can't read App Store Connect. Bring the numbers to a session and the queue gets re-ranked from them.
-- **A second product called "FaithWall" exists.** It's a Bible-goal phone gate from The Biblical Man / Dead Hidden newsletter. It was announced in a Substack post on 2026-06-02, is in beta at deadhidden.org, and its author said both app stores were reviewing it. A web search found no App Store listing for it yet. If it launches under the same name, it competes directly for the one-word "faithwall" search, the KPI the off-site layer is built around. Your call whether a name or trademark check is worth it. Queue item p51 tracks whether it launches.
-- **Brand KPI: still rising, but not creditable to SEO.** The one-word "faithwall" query rose again, and branded share of clicks rose with it. The rise starts abruptly on a single day in late September instead of building, which points to an outside event, not the off-site layer or the site. Your local report has the detail.
-- **Watch, no action yet: the money page dipped in the four days after 2026-10-02/04.** `/best-bible-verse-lock-screen-apps` slipped a couple of positions and its clicks dried up over those days. Four days is within noise. The next refresh re-reads it with a full week.
-- **The queue ran empty, so the autopilot wrote fallback posts.** Two new items now lead it: p51 (audit how third-party pages and AI answers describe FaithWall, and draft correction requests where they still say "free") and p52 (a small synonym pass on `/random-bible-verse`).
-
 ## 2026-10-10
 
 - **2026-10-10 (optional): one real lock-screen screenshot for `/blog/scripture-based-prayer-prompts` (fallback post).** It shipped with a reused stock hero (the Jeremy Yap photo from `best-prayer-app-for-iphone`, since there's no Unsplash key locally). Its effort signals are the widget's rotation options, the iOS Customize path and your named judgment call (rotate every 8 hours). It has no device evidence. A screenshot of the FaithWall lock-screen widget showing one of the post's 12 prompt verses (e.g. Psalm 46:10) would be the strongest addition. Drop it in the repo and the autopilot can embed it.
@@ -36,10 +42,6 @@ Items the SEO autopilot can't do itself. Newest first. Resolved items are delete
 ## 2026-10-08
 
 - **2026-10-08 (optional): one real lock-screen screenshot for `/blog/short-bible-verses-for-lock-screen` (p50).** The post shipped with a reused stock hero (the same Anthony Garand photo as `bible-verse-lock-screen-iphone`, because there's no Unsplash key locally) and no device evidence. A screenshot of your own iPhone lock screen with a short verse such as Lamentations 3:23 in the FaithWall widget would be the strongest effort signal the page could carry. Drop it in the repo and the autopilot can embed it.
-
-## 2026-10-06
-
-- **2026-10-06: p49 retired — "holy finger wallpaper app" could not be verified.** No App Store or web listing found for an app by that name. If you know the real app name or have the link, tell the autopilot and it will re-queue the roundup section.
 
 ## 2026-10-05 (weekly refresh)
 
@@ -74,4 +76,4 @@ Items the SEO autopilot can't do itself. Newest first. Resolved items are delete
 
 - **Prayer-spoke SERPs carry mixed intent (found by p26, 2026-09-07).** The live SERPs for both `how-to-set-prayer-alarms-iphone` and `prayer-reminders-on-iphone` are dominated by Islamic salah-time content (Muslim Pro, Athan, Azan-alarm apps) rather than Christian-prayer results. Worth knowing if either page's impressions ever look anomalously low relative to position — the query itself carries intent no on-page fix reaches.
 - **Competitor noted (p22, 2026-08-31): abbeybible.com ("Abbey").** Publishes self-ranked "best lock screen Bible app" roundups placing itself #1 ahead of FaithWall on our exact head-term family — the same self-promotional pattern as FaithLock/Psalmo/Prayhouse. Not an outreach target; a competitor worth knowing about. See `outreach/targets.json`.
-- **Three additional outreach candidates surfaced and not yet drafted:** thesweetsetup.com (established independent iOS app-review publication), thecripplegate.com (independent pastoral blog), margaretfeinberg.com (independent published-author blog). A future `outreach-prep` wave, after the current Tier-1 five actually ship.
+- **Four additional outreach candidates surfaced and not yet drafted:** thesweetsetup.com (established independent iOS app-review publication), thecripplegate.com (independent pastoral blog), margaretfeinberg.com (independent published-author blog), codeinfaith.com (independent 2026 Bible-widgets roundup, added 2026-10-11). A future `outreach-prep` wave, after the current Tier-1 five actually ship.
