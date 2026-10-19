@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "title": "Bible Study Group iPhone Tools: Three Apps That Carry the Week",
+    "description": "Bible study group iPhone tools that hold up between meetings: YouVersion for shared reading, Church Center for logistics, FaithWall for the week's verse.",
+    "date": "October 19, 2026",
+    "datePublished": "2026-10-19T09:00:00.000Z",
+    "readTime": "5 min read",
+    "image": "/blog-thumbnails/bible-study-group-iphone-tools.jpg",
+    "imageAttribution": {
+      "photographer": "Aaron Burden",
+      "photographerUrl": "https://unsplash.com/@aaronburden?utm_source=faithwall&utm_medium=referral",
+      "unsplashUrl": "https://unsplash.com/photos/white-book-page-on-top-of-table-Hzi7U2SZ2GE?utm_source=faithwall&utm_medium=referral"
+    },
+    "keywords": [
+      "bible study group iphone tools",
+      "small group bible study app",
+      "youversion plans with friends",
+      "church center app groups",
+      "group memory verse",
+      "faithwall"
+    ],
+    "cluster": "bible-study-tools-ios"
+  },
+  "sections": [
+    {
+      "type": "callout",
+      "icon": "zap",
+      "title": "Quick Answer",
+      "content": "The tool most small groups are missing is FaithWall: each member picks the week's memory verse once, and it stays on their iPhone lock screen, so the passage you discussed on Tuesday is still in view on Saturday. Pair it with YouVersion's Plans with Friends for the shared reading and Church Center, or a single group thread, for logistics."
+    },
+    {
+      "type": "paragraph",
+      "text": "Search **Bible study group iPhone tools** and you mostly get long app lists, as if a group's problem were a shortage of software. It isn't. A typical group already juggles a Bible app, a church app, a chat thread and a shared doc nobody opens. What goes missing is the passage itself: read on Monday, discussed on Wednesday, gone by Friday. FaithWall handles that last part and nothing else, which is why it sits alongside whatever your group already uses instead of replacing it."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What does a small group actually need from an iPhone?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Three jobs, one app per job. Logistics covers when you meet, who is bringing food and who is away this week. Shared reading keeps everyone on the same passage between meetings. Carry-over keeps the verse you discussed in view after the meeting ends. Most groups cover the first two and leave the third to willpower. Good **Bible study group iPhone tools** do one of these jobs well; the [Bible study tools guide](/bible-study-tools-ios) maps the wider field if you're building from scratch."
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Logistics:** Church Center if your church runs Planning Center; otherwise one Messages or WhatsApp thread.",
+        "**Shared reading:** YouVersion's Bible App, with a reading plan started With Friends.",
+        "**Carry-over:** one memory verse a week, set on every member's lock screen."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How do you keep the week's memory verse in front of everyone?"
+    },
+    {
+      "type": "paragraph",
+      "text": "The leader picks one verse from the passage and posts the reference in the group thread on Sunday night. Each member then sets it in FaithWall on their own phone. There is no group account and no shared feed to manage: everyone chooses the verse themselves, in the translation they already read."
+    },
+    {
+      "type": "steps",
+      "items": [
+        "**Download FaithWall.** It's free to download; using it requires a subscription, and the App Store shows the price before you pay.",
+        "Find the reference the leader posted. Search by book, chapter and verse in any of the 24 translations, so a group that reads different translations still carries the same verse.",
+        "Choose how it shows: a full-screen wallpaper applied through an Apple Shortcut, or a compact lock-screen widget.",
+        "Keep earlier weeks' verses saved. The widget rotates through your saved verses every hour, every 8 hours or once a day, so a whole term of memory verses keeps coming back around."
+      ]
+    },
+    {
+      "type": "highlight",
+      "content": "**Why the lock screen and not the Bible app:** a reading plan only helps on the days someone opens it. The lock screen is the one screen every member sees many times a day without deciding to, which makes it the right home for the single verse the group agreed to carry."
+    },
+    {
+      "type": "paragraph",
+      "text": "Memorizing together beats memorizing alone, mostly because someone will ask about it next week. For the drilling side, with flashcards and first-letter prompts, see these [Bible memorization apps for iPhone](/blog/bible-memorization-apps-iphone): the lock screen handles exposure, they handle recall. If anyone in the group is picking a reading app for the first time, the [best free Bible apps for iPhone](/blog/best-free-bible-app-iphone) roundup compares what each one gives you without paying."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Which app should run the shared reading?"
+    },
+    {
+      "type": "paragraph",
+      "text": "YouVersion's Bible App, from Life.Church, is the default, and for good reason: it's free, and some of your group may have it already. Start any reading plan, choose With Friends, pick a start date and share the invite. Everyone who joins can follow the group's progress and read each other's comments on the day's passage. Two details from its App Store listing, checked October 19, 2026, matter before you ask everyone to install it: the download is 182.3 MB and it requires iOS 18 or later, so a member on an older iPhone may be left out. For choosing the plan itself, the [one-year Bible plan guide](/blog/one-year-bible-plan-iphone) covers pacing."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Where should group logistics live?"
+    },
+    {
+      "type": "paragraph",
+      "text": "If your church already uses Planning Center, use Church Center. If it doesn't, use one thread in Messages or WhatsApp and resist adding a second. Church Center is free to download from Ministry Centered Technologies (85.9 MB, iOS 16 or later, per its App Store listing on October 19, 2026), but it only works when your church runs Planning Center. Inside it, leaders can turn on group chat where the church admin allows it, post events with RSVPs, take attendance and share study material in a Resources tab. Planning Center says new members are added to the group's chats automatically and removed when they leave."
+    },
+    {
+      "type": "paragraph",
+      "text": "The call I'd make: choose Church Center over a slicker chat app whenever you have the choice, because it's the one the church office can see. Membership changes then happen in one place, instead of depending on whoever created the WhatsApp group remembering to add the newcomer."
+    },
+    {
+      "type": "stat",
+      "number": "74.1 vs 60.4",
+      "label": "discipleship scores of small-group regulars vs non-participants",
+      "description": "Per Lifeway Research's State of Discipleship survey of 2,130 Protestant churchgoers, scored 0 to 100. Those in a group at least five times a month averaged 74.1; those in none averaged 60.4. It's a correlation, not proof that groups cause growth, but it is a good reason to protect the group's weekly rhythm."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "What about video studies, shared notes and prayer requests?"
+    },
+    {
+      "type": "paragraph",
+      "text": "For video curriculum, the RightNow Media app streams studies with downloadable leader guides, but it's only free to people whose church, school or employer subscribes. Its App Store listing says subscriptions are available exclusively through organizations, so ask your church office before planning a series around it."
+    },
+    {
+      "type": "tip",
+      "content": "**Prayer requests:** keep them in a shared list in Apple's Reminders app. Open the list, tap the Share button and send the invite through Messages. Members can add, edit and complete items, and once the list is shared you can assign a request to whoever is following up. Answered prayers get ticked off instead of scrolling away in a chat."
+    },
+    {
+      "type": "paragraph",
+      "text": "For shared discussion notes, a collaborative note in Apple Notes holds up to 100 people, according to Apple Support. One catch: on iOS 26 or earlier, everyone in the note needs an Apple device signed in to an Apple Account, so a group with Android members is better served by a shared doc. If your group discusses Sunday's sermon, the [sermon notes setup](/blog/sermon-notes-iphone-app) shows how to tag notes so they turn up again later."
+    },
+    {
+      "type": "verse",
+      "reference": "Colossians 3:16",
+      "text": "Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Where group tools break down"
+    },
+    {
+      "type": "paragraph",
+      "text": "Every app above depends on someone opening it. The reading plan shows a streak, the chat shows a badge, Church Center sends a reminder, and each is one more notification competing with work email. By Thursday, the passage you spent an hour on lives only inside an app nobody has opened since. That gap is what FaithWall fills, and it is the one weakness the other **Bible study group iPhone tools** share: after setup it asks nothing of anyone. The verse is simply there when you check the time."
+    },
+    {
+      "type": "important",
+      "content": "**Keep the stack to three apps.** Every tool you add means one more invite, login and notification for the least technical person in your group, and that person decides whether the setup survives. One place for logistics, one for reading, one verse on the lock screen."
+    },
+    {
+      "type": "cta",
+      "title": "Give your group one verse to carry",
+      "description": "Set the week's memory verse in FaithWall and keep it on your lock screen as a wallpaper or a rotating widget. Free to download, subscription required.",
+      "buttonText": "Download FaithWall",
+      "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
+    }
+  ]
+}
