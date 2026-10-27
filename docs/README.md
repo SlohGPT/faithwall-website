@@ -2,12 +2,13 @@
 
 Session journal for this repo. One entry per session, append-only, numbered in order (next entry = highest number + 1). Public repo: entries describe search performance qualitatively and never contain raw Search Console numbers. Direction lives in `SEO-STRATEGY.md`, the work order in `src/data/seo-priorities.json`, and human tasks in `TODO-KAROL.md`.
 
-## Status (2026-10-26)
+## Status (2026-10-27)
 
 - The hub (`/blog/best-free-bible-app-iphone`) is still the site's leading click source, now in upper page 1 on its head terms. The generator page's visibility rose steeply in the latest week. It is a feeder, so it gets no extra work.
 - The money page (`/best-bible-verse-lock-screen-apps`) is still in the bottom half of page 1 since 2026-09-30. p53 went live on 10-20. Read it on 11-02; the stop rule is 11-09. The moat pillar is easing slowly, on watch.
 - The new-URL hold is extended to the 2026-11-02 refresh. The four newest posts are still unknown to Google 12-18 days after publishing, with no on-site fault found. The held post `/blog/bible-study-group-iphone-tools` stays unpublished until then.
-- The queue now has due-now work: p54 (hub facts refresh), p55 (vs-pages, from 10-29) and p56 (prayer and wallpaper roundups, from 10-31). The refresh landed after today's autopilot run, so p54 is first picked up on 10-27. All three are facts-only and bump no dates unless a fact changed. p28 (Advent pitches) follows on 11-02.
+- The queue now has due-now work: p54 (hub facts refresh), p55 (vs-pages, from 10-29) and p56 (prayer and wallpaper roundups, from 10-31). All three are facts-only and bump no dates unless a fact changed. p28 (Advent pitches) follows on 11-02.
+- **(10-27) p54 is stuck.** The cloud routine is running again (first branch since 10-01), but its proxy now blocks `itunes.apple.com` and `apps.apple.com`. So it left p54 pending and pushed a TODO-only branch, which was merged. The local autopilot can reach the API from this Mac, but it guard-exits behind the cloud branch. Unless Karol changes something, p54-p56 will loop like this. See entry 10.
 - Regression: Cloudflare's managed robots.txt and AI-crawler block are back on faithwall.app (GPTBot and ClaudeBot get a 403). ChatGPT search and the Google and Bing crawlers are unaffected. It's flagged to Karol.
 - The App Store lists the app as "Lock Screen Bible Verse" (since 10-18), while the site says FaithWall. Karol decides whether the site should name the listing.
 - Off-site: zero pitches sent, zero placements.
@@ -23,3 +24,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [07 — Merge gate, 2026-10-25](journal/07-merge-gate-2026-10-25.md): no branch; still a starved queue; no runs on 10-24; App Store name is now "Lock Screen Bible Verse".
 - [08 — Weekly SEO refresh, 2026-10-26](journal/08-weekly-seo-refresh-2026-10-26.md): hold extended to 11-02 (new posts still undiscovered), facts-only refreshes p54-p56 queued, Cloudflare AI block back, App Store rename sent to Karol.
 - [09 — Merge gate, 2026-10-26](journal/09-merge-gate-2026-10-26.md): no branch; the refresh queued p54 after today's autopilot run, so this was the last starved-queue day. Expect a p54 branch on 10-27.
+- [10 — Merge gate, 2026-10-27](journal/10-merge-gate-2026-10-27.md): cloud branch merged (TODO only). p54 is blocked by the cloud proxy's Apple-domain 403, and the local run, which can reach the API, guard-exits behind it. Gate cleared.
