@@ -4,7 +4,7 @@
     "description": "YouVersion is the best free Bible app for iPhone in 2026, ranked against 9 others and checked for what's truly free versus paywalled behind a subscription.",
     "date": "May 30, 2026",
     "datePublished": "2026-05-30T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-10-28T09:00:00.000Z",
     "readTime": "16 min read",
     "image": "/blog-thumbnails/best-free-bible-app-iphone.jpg",
     "imageAttribution": {
@@ -46,7 +46,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's the direct answer first: FaithWall ranks first for daily exposure, YouVersion ranks first for reading, and the other eight cover everything from audio to original-language study. Every app below is currently live on the App Store — no discontinued names, no vaporware, no apps that only exist in someone else's listicle."
+      "text": "Here's the direct answer first: FaithWall ranks first for daily exposure, YouVersion ranks first for reading, and the other eight cover everything from audio to original-language study. Every app below was re-checked against the US App Store in October 2026, and nine of the ten are live there; the exception, Tyndale's NLT Bible App, is not listed, and its row below says so."
     },
     {
       "type": "ranked-list",
@@ -57,11 +57,11 @@
         },
         {
           "name": "YouVersion (Bible.com) — best free reading app",
-          "description": "2,000+ translations, thousands of free reading plans, audio Bibles, and a Plus tier you can ignore forever. The honest best free bible app iphone pick for almost everyone."
+          "description": "3,500+ translations, thousands of free reading plans, audio Bibles, and a Plus tier you can ignore forever. The honest best free bible app iphone pick for almost everyone."
         },
         {
           "name": "Olive Tree Bible App — best for deeper reading",
-          "description": "Freemium: the base app plus a KJV translation is free; additional translations and commentaries are priced individually. Faster cross-reference tap-through than YouVersion — pick this if you want to study, not just read."
+          "description": "Freemium: the base app plus five major translations (ESV, NIV, KJV, NKJV, and CSB, per its App Store listing) are free; further translations and commentaries are sold individually or through Bible Study Pack subscriptions. Faster cross-reference tap-through than YouVersion — pick this if you want to study, not just read."
         },
         {
           "name": "Bible Gateway — best if you already use the website",
@@ -81,11 +81,11 @@
         },
         {
           "name": "ESV Bible App (Crossway) — best single-translation app",
-          "description": "Truly free. Full ESV text, audio, and reading plans straight from the publisher. No ads, no upsell — built to keep you inside the ESV, not to cross-sell other translations."
+          "description": "Truly free. Full ESV text, audio, and reading plans straight from the publisher. No ads; an optional subscription unlocks Crossway's wider study library, the ESV Study Bible among it, while the text, audio, and plans stay free — built to keep you inside the ESV, not to cross-sell other translations."
         },
         {
-          "name": "NLT Bible App (Tyndale) — best for readability",
-          "description": "Truly free. Full New Living Translation text, audio, and devotionals from Tyndale House. The NLT is built for plain-English readability, and the app's uncluttered interface matches that."
+          "name": "NLT Bible App (Tyndale) — not currently on the App Store",
+          "description": "Not listed on the US App Store as of October 2026. Tyndale House's only Bible-related app there is Filament Bible, which by its own description is not a Bible app but a companion to Filament-enabled print Bibles. The NLT is built for plain-English readability, and you can still read it free inside YouVersion, whose listing names it among its versions."
         },
         {
           "name": "Logos Bible App — best if you outgrow the rest",
@@ -100,15 +100,15 @@
     },
     {
       "type": "paragraph",
-      "text": "Four of the ten apps above are not truly free — Olive Tree, Dwell, and Logos all gate real content behind a purchase or subscription, and FaithWall is free to download but requires a subscription to use. The other six have nothing behind a paywall. Here's the breakdown so \"free\" actually means what you think it means:"
+      "text": "Four of the ten apps above are not truly free — Olive Tree, Dwell, and Logos all gate real content behind a purchase or subscription, and FaithWall is free to download but requires a subscription to use. Of the other six, five keep their core text, plans, and audio free, with at most an optional subscription for extras, and the sixth, Tyndale's NLT Bible App, is not on the US App Store as of October 2026. Here's the breakdown so \"free\" actually means what you think it means:"
     },
     {
       "type": "paragraph",
-      "text": "Notice the pattern: every freemium app on this list gates *more content*, not the core function. Olive Tree still lets you read the whole KJV for free; Dwell still lets you sample real playlists before asking for a subscription; Logos still gives you a working library, just a small one. None of the three pull a bait-and-switch where the advertised free feature turns out to require payment once you're inside the app — that distinction is why they made this list instead of getting filtered out during testing."
+      "text": "Notice the pattern: every freemium app on this list gates *more content*, not the core function. Olive Tree still lets you read five major translations, ESV and NIV included, for free; Dwell still lets you sample real playlists before asking for a subscription; Logos still gives you a working library, just a small one. None of the three pull a bait-and-switch where the advertised free feature turns out to require payment once you're inside the app — that distinction is why they made this list instead of getting filtered out during testing."
     },
     {
       "type": "paragraph",
-      "text": "| App | Truly free or freemium | What's free | What costs money |\n|---|---|---|---|\n| FaithWall | Free download + subscription | The download | A subscription is required to use the app |\n| YouVersion | Truly free | 2,000+ translations, reading plans, audio | Optional Plus subscription (skippable) |\n| Olive Tree | Freemium | Base app + KJV, cross-references | Extra translations and commentaries, priced individually |\n| Bible Gateway | Truly free | 200+ translations, reading plans, audio | Optional Plus subscription for extras |\n| Hosanna (formerly Bible.is) | Truly free | Full audio + text, 2,000+ languages | Nothing |\n| Dwell | Freemium | Short trial, a few free playlists | Subscription for the full audio library |\n| Blue Letter Bible | Truly free | Strong's numbers, interlinear, commentaries | Nothing |\n| ESV Bible App | Truly free | Full ESV text, audio, reading plans | Nothing |\n| NLT Bible App | Truly free | Full NLT text, audio, devotionals | Nothing |\n| Logos Bible App | Freemium | Mobile app, small starter library | Resource packs and subscriptions |"
+      "text": "| App | Truly free or freemium | What's free | What costs money |\n|---|---|---|---|\n| FaithWall | Free download + subscription | The download | A subscription is required to use the app |\n| YouVersion | Truly free | 3,500+ translations, reading plans, audio | Optional Plus subscription (skippable) |\n| Olive Tree | Freemium | Base app + five translations (ESV, NIV, KJV, NKJV, CSB), cross-references | Further translations and commentaries, individually or by subscription |\n| Bible Gateway | Truly free | 200+ translations, reading plans, audio | Optional Plus subscription for extras |\n| Hosanna (formerly Bible.is) | Truly free | Full audio + text, 2,000+ languages | Nothing |\n| Dwell | Freemium | Short trial, a few free playlists | Subscription for the full audio library |\n| Blue Letter Bible | Truly free | Strong's numbers, interlinear, commentaries | Nothing |\n| ESV Bible App | Truly free | Full ESV text, audio, reading plans | Optional subscription for the full study library |\n| NLT Bible App | Not on the US App Store (Oct 2026) | — | — |\n| Logos Bible App | Freemium | Mobile app, small starter library | Resource packs and subscriptions |"
     },
     {
       "type": "heading",
@@ -117,11 +117,11 @@
     },
     {
       "type": "paragraph",
-      "text": "None of the ten apps above are static text files. App Store listing sizes for this group span roughly 35MB to 330MB as of September 2026, and every truly-free app on the list supports offline reading once a translation is downloaded — size mostly tracks study-tool depth, not translation count."
+      "text": "None of the ten apps above are static text files. App Store listing sizes for this group span roughly 35MB to 335MB as of October 2026, and every truly-free app on the list supports offline reading once a translation is downloaded — size mostly tracks study-tool depth, not translation count."
     },
     {
       "type": "paragraph",
-      "text": "| App | Approx. size (App Store, Sept 2026) | Offline support |\n|---|---|---|\n| FaithWall | Lightweight — no reading library to store | The wallpaper you apply stays on your lock screen without a connection |\n| YouVersion | ~93MB | Full text plus most audio translations downloadable for offline use |\n| Olive Tree | ~115MB | Downloaded Bibles and study resources available offline |\n| Bible Gateway | ~102MB | 200+ translations readable in-app; its listing doesn't advertise a dedicated offline mode the way YouVersion or Olive Tree do |\n| Hosanna (formerly Bible.is) | Small base app, ~5MB | Full text and audio downloadable per language for offline listening |\n| Dwell | Not published in MB on its App Store listing | Per-book offline downloads, confirmed on Dwell's own help pages |\n| Blue Letter Bible | ~80MB | Select translations downloadable offline, including the free NLT |\n| ESV Bible App | ~36MB | Full ESV text plus the ESV Global Study Bible offline |\n| NLT Bible App | Not published in MB on its App Store listing | Works without a connection once installed, per Tyndale's own listing |\n| Logos | ~330MB, the largest on this list | Downloaded books and Bibles available offline; size reflects its library depth |"
+      "text": "| App | Approx. size (App Store, Oct 2026) | Offline support |\n|---|---|---|\n| FaithWall | ~126MB, with no reading library to store | The wallpaper you apply stays on your lock screen without a connection |\n| YouVersion | ~182MB | Select text versions downloadable for offline reading; audio Bibles can't be downloaded, per its listing and help center |\n| Olive Tree | ~120MB | Downloaded Bibles and study resources available offline |\n| Bible Gateway | ~104MB | 200+ translations readable in-app; its listing doesn't advertise a dedicated offline mode the way YouVersion or Olive Tree do |\n| Hosanna (formerly Bible.is) | ~139MB | Full text and audio downloadable per language for offline listening |\n| Dwell | ~258MB | Per-book offline downloads, confirmed on Dwell's own help pages |\n| Blue Letter Bible | ~97MB | Select translations downloadable offline, including the free NLT |\n| ESV Bible App | ~36MB | Full ESV text plus the ESV Global Study Bible offline |\n| NLT Bible App | Not listed on the US App Store (Oct 2026) | — |\n| Logos | ~334MB, the largest on this list | Downloaded books and Bibles available offline; size reflects its library depth |"
     },
     {
       "type": "paragraph",
@@ -134,7 +134,7 @@
     },
     {
       "type": "paragraph",
-      "text": "YouVersion earns the top reading spot for one reason: it's genuinely free without a hidden paywall, and it's the app people actually keep. It carries 2,000+ translations in 1,800+ languages, thousands of free reading plans, audio Bibles in most major translations, and an optional Plus subscription you can ignore forever. The interface isn't the prettiest on iPhone and the social features can feel cluttered, but for free, it's an honest 9 out of 10 — and there's a reason nearly every Christian phone already has it installed."
+      "text": "YouVersion earns the top reading spot for one reason: it's genuinely free without a hidden paywall, and it's the app people actually keep. It carries 3,500+ translations in 2,300+ languages, thousands of free reading plans, audio Bibles in most major translations, and an optional Plus subscription you can ignore forever. The interface isn't the prettiest on iPhone and the social features can feel cluttered, but for free, it's an honest 9 out of 10 — and there's a reason nearly every Christian phone already has it installed."
     },
     {
       "type": "stat",
@@ -160,7 +160,7 @@
         },
         {
           "name": "YouVersion (Bible.com) — best free audio bundled with reading",
-          "description": "Audio is included free inside the same app as the #2 reading pick above — no separate purchase. Per YouVersion's own help documentation, audio versions can be downloaded for offline listening, though not every one of its 3,500+ translations includes an audio recording."
+          "description": "Audio is included free inside the same app as the #2 reading pick above — no separate purchase. Per YouVersion's own App Store listing and iOS help article (checked October 2026), audio Bibles can't be downloaded for offline listening, so they need a connection, and not every one of its 3,500+ translations includes an audio recording."
         },
         {
           "name": "Dwell Audio Bible — best paid listening-only experience",
@@ -192,11 +192,11 @@
     },
     {
       "type": "paragraph",
-      "text": "The 2,000-plus-translation marketing number hides a simpler question: does the app carry the specific English translation you already use? YouVersion, Bible Gateway, and Blue Letter Bible all carry ESV, NIV, KJV, and NLT natively and free; the publisher apps below carry exactly one, on purpose."
+      "text": "The 3,500-plus-translation marketing number hides a simpler question: does the app carry the specific English translation you already use? YouVersion, Bible Gateway, and Blue Letter Bible all carry ESV, NIV, KJV, and NLT natively and free; the ESV publisher app below carries exactly one, on purpose."
     },
     {
       "type": "paragraph",
-      "text": "YouVersion's translation library is the largest on this list — 2,000+ translations including ESV, NIV, KJV, NLT, NASB, and CSB, all free. Bible Gateway matches the major-translation coverage (NIV, KJV, ESV, NKJV, NASB, AMP, MSG, and NLT among 200+) with the same no-paywall model. Blue Letter Bible carries over 30 translations free, including KJV, NKJV, ESV, NIV, both NASB editions, CSB, and the 2015 NLT licensed free from Tyndale House — pairing each with Strong's numbers and interlinear Greek and Hebrew, the deepest free translation-comparison toolkit of the three. Olive Tree includes the KJV free and prices every other translation, ESV and NIV included, individually — skip it if you specifically want ESV vs. NIV without paying per translation. ESV Bible App (Crossway) and NLT Bible App (Tyndale) are single-translation publisher apps by design: the right pick once you already know which translation you're committed to, not the app to install while you're still deciding between ESV and NIV."
+      "text": "YouVersion's translation library is the largest on this list — 3,500+ translations including ESV, NIV, KJV, NLT, NASB, and CSB, all free. Bible Gateway matches the major-translation coverage (NIV, KJV, ESV, NKJV, NASB, AMP, MSG, and NLT among 200+) with the same no-paywall model. Blue Letter Bible carries over 30 translations free, including KJV, NKJV, ESV, NIV, both NASB editions, CSB, and the 2015 NLT licensed free from Tyndale House — pairing each with Strong's numbers and interlinear Greek and Hebrew, the deepest free translation-comparison toolkit of the three. Olive Tree includes five major translations free, ESV, NIV, KJV, NKJV, and CSB among them, per its App Store listing, and sells further translations individually or through Bible Study Pack subscriptions. ESV Bible App (Crossway) is a single-translation publisher app by design (Tyndale's NLT Bible App, ranked above, is not on the US App Store as of October 2026): the right pick once you already know which translation you're committed to, not the app to install while you're still deciding between ESV and NIV."
     },
     {
       "type": "heading",
@@ -209,7 +209,7 @@
     },
     {
       "type": "paragraph",
-      "text": "YouVersion ships a Verse of the Day home-screen and lock-screen widget, refreshed once daily from inside the app's own widget gallery — the only app on this list with a comparable feature, and still limited to one verse per day with no theming. Olive Tree, Bible Gateway, Hosanna, Dwell, Blue Letter Bible, ESV Bible App, NLT Bible App, and Logos ship no lock-screen or widget presence at all as of September 2026; closing any of them ends the exposure until you reopen the app. FaithWall exists specifically to fill that gap for any reading app on this list — it isn't a competitor to YouVersion's reading features, it's the layer that keeps a verse visible between the times you have one of these apps open, with verses you choose yourself and a widget that rotates through them, which YouVersion's single daily widget doesn't attempt. For the full comparison of lock-screen-specific apps, including three near-identical copycats worth telling apart, see our [ranked lock-screen app comparison](/best-bible-verse-lock-screen-apps)."
+      "text": "YouVersion ships a Verse of the Day home-screen and lock-screen widget, refreshed once daily from inside the app's own widget gallery — the only app on this list with a comparable feature, and still limited to one verse per day with no theming. Olive Tree, Bible Gateway, Hosanna, Dwell, Blue Letter Bible, ESV Bible App, and Logos ship no lock-screen or widget presence at all as of September 2026; closing any of them ends the exposure until you reopen the app. FaithWall exists specifically to fill that gap for any reading app on this list — it isn't a competitor to YouVersion's reading features, it's the layer that keeps a verse visible between the times you have one of these apps open, with verses you choose yourself and a widget that rotates through them, which YouVersion's single daily widget doesn't attempt. For the full comparison of lock-screen-specific apps, including three near-identical copycats worth telling apart, see our [ranked lock-screen app comparison](/best-bible-verse-lock-screen-apps)."
     },
     {
       "type": "heading",
@@ -237,7 +237,7 @@
         },
         {
           "name": "Olive Tree — best for study depth in 2026",
-          "description": "Freemium in 2026 as before: the base app and a KJV translation stay free, and its faster cross-reference tap-through still edges out YouVersion for anyone studying rather than just reading."
+          "description": "Freemium in 2026: the base app and five major translations, ESV and NIV included, are free, and its faster cross-reference tap-through still edges out YouVersion for anyone studying rather than just reading."
         },
         {
           "name": "Dwell — best paid listening experience in 2026",
@@ -288,7 +288,7 @@
     },
     {
       "type": "tip",
-      "content": "**Don't pay for a Bible app until you've used the free ones for six months.** Almost everyone who buys premium content does so before maxing out the free tier — and on this list, six of ten apps have no premium tier gating anything you'd actually miss."
+      "content": "**Don't pay for a Bible app until you've used the free ones for six months.** Almost everyone who buys premium content does so before maxing out the free tier — and on this list, five of the nine apps still on the App Store have no premium tier gating anything you'd actually miss."
     },
     {
       "type": "heading",
@@ -302,7 +302,7 @@
     },
     {
       "type": "paragraph",
-      "text": "YouVersion (Bible.com) is the best free Bible app for iPhone for most people — 2,000+ translations, thousands of free reading plans, and no real paywall. Bible Gateway, Hosanna (formerly Bible.is), and Blue Letter Bible are also truly free with no gated content."
+      "text": "YouVersion (Bible.com) is the best free Bible app for iPhone for most people — 3,500+ translations, thousands of free reading plans, and no real paywall. Bible Gateway, Hosanna (formerly Bible.is), and Blue Letter Bible are also truly free with no gated content."
     },
     {
       "type": "heading",
@@ -356,7 +356,7 @@
     },
     {
       "type": "paragraph",
-      "text": "YouVersion, with 2,000+ translations in 1,800+ languages — the largest free library of any app on this list, and the reason the March 2026 YouVersion Platform launch matters: it's the same library other apps can now embed. Bible Gateway's 200+ translations is a distant second, still enough for the vast majority of English-language readers."
+      "text": "YouVersion, with 3,500+ translations in 2,300+ languages — the largest free library of any app on this list, and the reason the March 2026 YouVersion Platform launch matters: it's the same library other apps can now embed. Bible Gateway's 200+ translations is a distant second, still enough for the vast majority of English-language readers."
     },
     {
       "type": "heading",
@@ -365,7 +365,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Every truly-free app on this list — YouVersion, Bible Gateway, Hosanna (formerly Bible.is), Blue Letter Bible, ESV Bible App, and NLT Bible App — supports offline reading once you've downloaded a translation, per each app's own App Store listing. Dwell confirms offline downloads on its own help pages despite its full library sitting behind a subscription. Olive Tree and Logos both work offline for whatever you've already downloaded, though their deeper libraries are priced individually. FaithWall works differently: once you apply a wallpaper, the lock screen itself needs no connection to keep displaying it."
+      "text": "Every truly-free app on this list — YouVersion, Bible Gateway, Hosanna (formerly Bible.is), Blue Letter Bible, and ESV Bible App — supports offline reading once you've downloaded a translation, though only YouVersion's and Hosanna's App Store listings say so outright. Dwell confirms offline downloads on its own help pages despite its full library sitting behind a subscription. Olive Tree and Logos both work offline for whatever you've already downloaded, though their deeper libraries are priced individually. FaithWall works differently: once you apply a wallpaper, the lock screen itself needs no connection to keep displaying it."
     },
     {
       "type": "heading",
