@@ -26,3 +26,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [09 — Merge gate, 2026-10-26](journal/09-merge-gate-2026-10-26.md): no branch; the refresh queued p54 after today's autopilot run, so this was the last starved-queue day. Expect a p54 branch on 10-27.
 - [10 — Merge gate, 2026-10-27](journal/10-merge-gate-2026-10-27.md): cloud branch merged (TODO only). p54 is blocked by the cloud proxy's Apple-domain 403, and the local run, which can reach the API, guard-exits behind it. Gate cleared.
 - [11 — Merge gate, 2026-10-28](journal/11-merge-gate-2026-10-28.md): local p54 branch (hub facts refresh) verified, facts spot-checked against the iTunes API, fast-forwarded, live, IndexNow 200; gate cleared.
+- [12 — Merge gate, 2026-10-28 (second firing)](journal/12-merge-gate-2026-10-28-second-firing.md): the other account's copy of the gate caught up at 17:02 and found nothing to do; no branch, liveness fine.
