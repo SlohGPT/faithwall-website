@@ -5,7 +5,7 @@
     "metaTitle": "FaithWall vs YouVersion: Honest 2026 Comparison",
     "metaDescription": "FaithWall vs YouVersion: lock-screen Scripture vs full Bible reading app. Honest 2026 comparison covering pricing, daily verses, plans, and audio.",
     "datePublished": "2026-05-19",
-    "dateModified": "2026-10-02",
+    "dateModified": "2026-10-29",
     "quickAnswer": "**Use both.** FaithWall and YouVersion solve different problems. **FaithWall** is purpose-built for putting a daily Bible verse on your iPhone lock screen — a wallpaper or a rotating widget of the verses you choose. **YouVersion** is the deep reading and reading-plan app — thousands of plans, audio Bible, community. Most users settle on YouVersion for reading and FaithWall for daily lock-screen exposure. Both are free to download; YouVersion is free to use, while FaithWall requires a subscription.",
     "comparisonRows": [
       { "feature": "Free to download", "faithwall": "Yes", "competitor": "Yes" },
@@ -17,7 +17,7 @@
       { "feature": "Reading plans", "faithwall": "No", "competitor": "Yes (thousands)" },
       { "feature": "Social / community", "faithwall": "No (private by design)", "competitor": "Yes (friends, prayers, comments)" },
       { "feature": "Pricing model", "faithwall": "Free download + subscription", "competitor": "Free (donor-supported)" },
-      { "feature": "Minimum iOS", "faithwall": "iOS 16.0+", "competitor": "iOS 15.0+" }
+      { "feature": "Minimum iOS", "faithwall": "iOS 16.0+", "competitor": "iOS 18.0+" }
     ],
     "whenToChooseUs": "**Choose FaithWall if** you want Scripture on the lock screen every time you pick up your phone — without opening another app. You choose your own verses and show them as a wallpaper or a rotating widget, which is built for daily exposure rather than long reading sessions. FaithWall complements a Bible app; it doesn't replace one.",
     "whenToChooseThem": "**Choose YouVersion if** your primary need is reading the Bible itself — multiple translations side by side, structured reading plans, audio narration, or community features. YouVersion has the deepest catalog of Christian reading plans on any platform and the largest community on iOS.",
@@ -34,7 +34,7 @@
     "metaTitle": "FaithWall vs Hallow: 2026 Comparison for iPhone",
     "metaDescription": "FaithWall vs Hallow: which Christian iPhone app fits your daily rhythm? Honest comparison of pricing, denominational lean, and core use cases.",
     "datePublished": "2026-05-19",
-    "dateModified": "2026-10-02",
+    "dateModified": "2026-10-29",
     "quickAnswer": "**Different jobs, often used together.** **Hallow** is a guided prayer and meditation app — Catholic in tradition but broadly Christian in reach — best for structured prayer sessions and audio content. **FaithWall** is lock-screen Scripture — passive Bible exposure every time you check your phone. Hallow is what you open intentionally; FaithWall is what you see automatically. Many users run both: Hallow for daily prayer time, FaithWall for the in-between moments.",
     "comparisonRows": [
       { "feature": "Free to download", "faithwall": "Yes", "competitor": "Yes (limited)" },
@@ -46,9 +46,9 @@
       { "feature": "Sleep/calm content", "faithwall": "No", "competitor": "Yes (significant catalog)" },
       { "feature": "Bible verses", "faithwall": "Verses you choose yourself (24 translations)", "competitor": "Embedded in prayers" },
       { "feature": "Pricing model", "faithwall": "Free download + subscription", "competitor": "Limited daily content; premium ~$70/yr" },
-      { "feature": "Minimum iOS", "faithwall": "iOS 16.0+", "competitor": "iOS 15.0+" }
+      { "feature": "Minimum iOS", "faithwall": "iOS 16.0+", "competitor": "iOS 16.4+" }
     ],
-    "whenToChooseUs": "**Choose FaithWall if** you want Scripture present in your day without having to open another app. The lock screen is the surface you check 144 times a day (Reviews.org, 2026); FaithWall puts Bible verses there. It's a quieter, lower-friction tool than a full prayer app than a full prayer app.",
+    "whenToChooseUs": "**Choose FaithWall if** you want Scripture present in your day without having to open another app. The lock screen is the surface you check 144 times a day (Reviews.org, 2026); FaithWall puts Bible verses there. It's a quieter, lower-friction tool than a full prayer app.",
     "whenToChooseThem": "**Choose Hallow if** you want guided prayer time — audio meditations, structured rosaries or novenas, sleep content rooted in Scripture, or Catholic devotional traditions. Hallow's catalog of audio content is the deepest in the Christian app space, and it's the most polished prayer-first experience on iPhone. Weighing it against a lighter, cheaper option? See our honest [Hallow vs Abide comparison](/blog/hallow-vs-abide).",
     "useBoth": "**The combo many Catholic and ecumenical readers settle on:** Hallow for a dedicated morning or evening prayer session, FaithWall for keeping Scripture on the lock screen the rest of the day. Hallow runs the deep moments; FaithWall handles the 144 small ones in between.",
     "competitorName": "Hallow",

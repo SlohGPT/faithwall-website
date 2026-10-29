@@ -2,6 +2,10 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-10-29 (local autopilot, p55)
+
+- **DECISION: FaithWall's stated minimum iOS.** The site says FaithWall "requires iOS 16.0 or later" in five places: the homepage FAQ (`Home.tsx`, `FAQ.tsx`, `TestimonialsAndFAQ.tsx`), the money page's FaithWall row, and the "Minimum iOS" rows on both vs-pages. The live US listing ("Lock Screen Bible Verse", v2.3.2) says iOS 15.0 or later, and `FaithWall.xcodeproj` sets `IPHONEOS_DEPLOYMENT_TARGET = 15.0`. Lock-screen widgets only exist from iOS 16, so "16.0+" is the honest minimum for the widget path, but it isn't the listing's figure. p55 left FaithWall's cells alone because changing two pages out of five would be a guess. Your call: say "iOS 15.0+ (lock-screen widget needs iOS 16)" everywhere, or raise the app's deployment target to 16.0 in the next build so the listing matches the site. Either way, it's one small sitewide queue item.
+
 ## 2026-10-28 (local autopilot, p54)
 
 - **DECISION: the hub's NLT Bible App row.** p54 re-checked every app on `/blog/best-free-bible-app-iphone` against the iTunes API. Tyndale House has no NLT Bible App on the US App Store. Its only Bible-related listing is Filament Bible, which describes itself as "not a Bible app" but a companion to Filament-enabled print Bibles. Under p54's rule (b), the row now says plainly that the app isn't listed, and every place that called it a live, free, offline app was corrected. The page still ranks "10 Bible apps", and its H2, title and meta say so. A facts-only refresh can't touch those. Your call: drop the row (and edit the count in the H2, title and meta description), or swap in another free single-translation app. Either one is a small queue item.
