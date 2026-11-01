@@ -2,6 +2,11 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-01 (local autopilot, p56)
+
+- **For the 11-02 refresh: the Lectio 365 fact p56 corrected is stale on two other pages.** Lectio 365 now runs morning, midday and night, per its listing and 24-7 Prayer's page. `/blog/faithwall-vs-lectio-365` still says twice a day in six places, including its meta description, and `/blog/hallow-vs-abide` says "twice-daily office" once. p56 could only touch its two named files. The vs-lectio meta needs a queue item that allows a meta edit, because the facts-only rule (c) forbids one.
+- **CHECK: "ranked and tested" in the prayer roundup's meta description.** p56 left it alone under rule (c). It is the same kind of claim as the hub's method sentence flagged on 10-28: if you didn't test these apps yourself, it should go.
+
 ## 2026-10-31 (daily run — no commit otherwise, informational only)
 
 - **p56 hit the same `itunes.apple.com`/`apps.apple.com` egress block flagged on 10-27 and predicted for it on 10-28.** Confirmed via `__agentproxy/status`: both hosts get a 403 policy denial from the proxy (a separate WebFetch attempt got `getaddrinfo ENOTFOUND`, consistent with a disallowed domain, not an Apple-side outage). Per p56's own clause (f), it was left **pending, untouched** rather than closed or guessed. Today's §8 monitoring pass (WebSearch against every live `outreach/targets.json` placement — bibleversedaily.org, warmpeach.com, learnofchrist.com, healthyspirituality.org, biblegeeks.fm, faith.tools, saashub.com, alternativeto.net) found no new FaithWall pickups anywhere; placements are still zero, so no file changed and nothing else was committed today. p54 and p55 only closed because they ran on your Mac instead of this cloud session. Until `itunes.apple.com`/`apps.apple.com` is allowed in the cloud environment's network policy, every iTunes-dependent `refresh`/`depth-pass` item at the top of the queue will keep recurring here the same way.

@@ -4,7 +4,7 @@
     "description": "The best prayer app for iphone, ranked and tested: FaithWall first for the daily trigger, then Hallow, Lectio 365, Abide, Echo Prayer and PrayerMate compared honestly.",
     "date": "June 7, 2026",
     "datePublished": "2026-06-07T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-11-01T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/best-prayer-app-for-iphone.jpg",
     "imageAttribution": {
@@ -42,8 +42,8 @@
     {
       "type": "list",
       "items": [
-        "**Hallow** — the deepest guided library. Rosaries, the daily examen, Scripture read aloud, sleep prayers. Best for contemplative, audio-led prayer. Most of it needs the paid Hallow Plus plan.",
-        "**Lectio 365** — a free, twice-daily prayer office from 24-7 Prayer. Best if you want gentle structure without a subscription.",
+        "**Hallow** — the deepest guided library. Rosaries, the daily examen, Scripture read aloud, sleep prayers. Best for contemplative, audio-led prayer. Daily prayers, including the rosary, are free; the full library needs a paid subscription.",
+        "**Lectio 365** — a free prayer office from 24-7 Prayer, with morning, midday and night sessions. Best if you want gentle structure without a subscription.",
         "**Echo Prayer** — built around prayer *lists*, not content. Best for intercession: add names, set reminders, mark answered prayer.",
         "**Pray.com** — mainstream and story-heavy, with bedtime audio. Best for a broad, devotional feel.",
         "**Abide** — guided Christian meditation and sleep. Best if anxiety is the thing that keeps you from praying."
@@ -119,7 +119,7 @@
     },
     {
       "type": "paragraph",
-      "text": "| App | Best for | Free tier | What costs money |\n|---|---|---|---|\n| FaithWall | The daily lock-screen trigger | Free to download; no free tier | A subscription is required to use the app |\n| Hallow | Deep guided Catholic prayer, audio-led | A limited library of sessions | Hallow Plus subscription unlocks most content |\n| Lectio 365 | A free structured daily office | The full twice-daily office, no paywall | Nothing required; optional donations |\n| Abide | Guided meditation and sleep prayer | A handful of free sessions | Subscription for the full library |\n| Echo Prayer | Organizing an intercession list | Unlimited prayer lists and reminders | Optional Echo Plus for extra features |\n| PrayerMate | Rotating through prayer categories and feeds | Full prayer-list organizing, 500+ prayer feeds | Optional PrayerMate Prime for backup and extras |"
+      "text": "| App | Best for | Free tier | What costs money |\n|---|---|---|---|\n| FaithWall | The daily lock-screen trigger | Free to download; no free tier | A subscription is required to use the app |\n| Hallow | Deep guided Catholic prayer, audio-led | A limited library of sessions | A Hallow subscription unlocks the full library |\n| Lectio 365 | A free structured daily office | The full morning, midday and night office, no paywall | Nothing required; optional donations |\n| Abide | Guided meditation and sleep prayer | A handful of free sessions | Subscription for the full library |\n| Echo Prayer | Organizing an intercession list | Unlimited prayer lists and reminders | Optional Echo Plus for extra features |\n| PrayerMate | Rotating through prayer categories and feeds | Full prayer-list organizing, 500+ prayer feeds | Optional Patron subscription to support the app; a few paid prayer guides |"
     },
     {
       "type": "paragraph",
@@ -132,7 +132,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Echo Prayer, built by The Parable Group, is free for creating a prayer list and setting reminders; the only paywall is the ECHO+ membership at roughly $15 a year, which unlocks shared Groups and Feeds plus desktop access after a two-week free trial. If you want that same list-and-reminder core with absolutely nothing gated, PrayerMate does the identical job for free, kept that way by a church sponsorship (the Diocese of London) rather than a subscription tier. If what you actually want is guided, audio-led prayer instead of a list, Echo isn't the closer alternative either — Hallow or Lectio 365 answer that need. FaithWall doesn't compete with Echo's list function at all; it holds no names, no requests, no feeds. The honest pairing is Echo or PrayerMate for organizing who and what you're praying for, FaithWall on the lock screen so you're actually reminded to open that list."
+      "text": "Echo Prayer, built by The Parable Group, is free for creating a prayer list and setting reminders; the only paywall is the ECHO+ membership at roughly $15 a year, which unlocks shared Groups and Feeds plus desktop access after a two-week free trial. If you want that same list-and-reminder core with absolutely nothing gated, PrayerMate does the identical job for free, funded by donations and optional Patron support rather than by gating features. If what you actually want is guided, audio-led prayer instead of a list, Echo isn't the closer alternative either — Hallow or Lectio 365 answer that need. FaithWall doesn't compete with Echo's list function at all; it holds no names, no requests, no feeds. The honest pairing is Echo or PrayerMate for organizing who and what you're praying for, FaithWall on the lock screen so you're actually reminded to open that list."
     },
     {
       "type": "heading",
@@ -141,7 +141,7 @@
     },
     {
       "type": "paragraph",
-      "text": "PrayerMate, the prayer-list app built by independent developer Andy Geers, is free to download and use, kept that way by sponsorship from the Diocese of London rather than a paywall; its only in-app purchase is an optional Patron subscription that supports the app's continued development. It works by aggregating prayer feeds — Operation World's daily pointers, PDF letters from mission agencies, and updates from churches and charities — around a manual list you build yourself. If you'd rather get that same list-organizing core from a bigger publisher, Echo Prayer covers the identical free function and reserves its ECHO+ subscription for group-sharing, not feed access. If audio is the actual gap, neither app closes it — Hallow and Lectio 365 are built for spoken prayer, not lists. FaithWall sits outside this comparison entirely: no feeds, no list to maintain, just a lock-screen verse that nudges you to open PrayerMate — or to [set a prayer alarm](/blog/how-to-set-prayer-alarms-iphone) — before the moment passes."
+      "text": "PrayerMate, the prayer-list app from Discipleship Tech, is free to download and use, kept that way by donations rather than a paywall; its in-app purchases are an optional Patron subscription that supports the app's continued development and a few paid prayer guides. It works by aggregating prayer feeds — Operation World's daily pointers, PDF letters from mission agencies, and updates from churches and charities — around a manual list you build yourself. If you'd rather get that same list-organizing core from a bigger publisher, Echo Prayer covers the identical free function and reserves its ECHO+ subscription for group-sharing, not feed access. If audio is the actual gap, neither app closes it — Hallow and Lectio 365 are built for spoken prayer, not lists. FaithWall sits outside this comparison entirely: no feeds, no list to maintain, just a lock-screen verse that nudges you to open PrayerMate — or to [set a prayer alarm](/blog/how-to-set-prayer-alarms-iphone) — before the moment passes."
     },
     {
       "type": "tip",
@@ -159,7 +159,7 @@
     },
     {
       "type": "paragraph",
-      "text": "For a structured daily session with nothing gated, Lectio 365 is the best free prayer app for iPhone — a full twice-daily office with no paywall. For the daily trigger that gets you back into that session, FaithWall is free to download and puts a verse on your lock screen as the cue. Most people get more out of pairing the two than picking just one."
+      "text": "For a structured daily session with nothing gated, Lectio 365 is the best free prayer app for iPhone — a full morning, midday and night office with no paywall. For the daily trigger that gets you back into that session, FaithWall is free to download and puts a verse on your lock screen as the cue. Most people get more out of pairing the two than picking just one."
     },
     {
       "type": "heading",
@@ -168,7 +168,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Hallow is worth the subscription if you specifically want a deep, audio-led library — guided rosaries, the daily examen, Scripture narrated aloud, sleep content. Lectio 365 covers the same daily-office ground for free but with less production value and a narrower library. If budget matters more than depth, start with Lectio 365 free and upgrade later if you outgrow it."
+      "text": "Hallow is worth the subscription if you specifically want a deep, audio-led library — the daily examen, Scripture narrated aloud, sleep content. Lectio 365 covers the same daily-office ground for free but with less production value and a narrower library. If budget matters more than depth, start with Lectio 365 free and upgrade later if you outgrow it."
     },
     {
       "type": "heading",
