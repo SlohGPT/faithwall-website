@@ -2,6 +2,11 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-02 (merge gate: p28 quarantined)
+
+- **The cloud run's Advent drafts failed the merge gate, so none of them landed.** Branch `claude/p28-advent-outreach-2026-11-02` (`5658b65`) was rejected for one line in its warmpeach draft, which called FaithWall "a habit that costs nothing to try". The Product facts rule bans that wording by name, and it is false under the hard paywall. The branch's commit message and TODO note both said the pitches never touch price, so the line got past the run's own check. JSON, typecheck and build all passed. The other three drafts had no such line, and nothing was sent.
+- **Quarantined and recoverable from tag `rejected/p28-advent-outreach-5658b65`.** The branch is deleted from origin, so the pipeline keeps running. The rejected text must not be reused. p28 stays pending and restarts from main on the next autopilot run. Send-by 11-16 is unchanged, and you have nothing to do on this yet. The rerun must also meet the refresh's two 11-02 notes, which this branch predates: name "Lock Screen Bible Verse" next to FaithWall in each draft, and say the Tier-1 five go out first.
+
 ## 2026-11-02 (weekly refresh)
 
 - **READ FIRST: the money page stepped down again on 10-29.** `/best-bible-verse-lock-screen-apps` had held the bottom half of page 1 since 09-30. On 10-29 its daily impressions fell by about nine-tenths and its named phrasings moved to the page-1/page-2 edge or past it. It hasn't bounced through 11-01. p53 shows no recovery after 11 days. The page hadn't been edited since 10-20, is still indexed with its own canonical, and Google re-crawled it on 10-28. The hub also slipped from upper to mid page 1 from 10-28, with a partial rebound in the last two days. Both fall inside ranking volatility reported from about 10-26 that Google hasn't confirmed, and the status dashboard lists nothing after the September spam update. **Nothing to do on the pages.** Editing them mid-volatility would blur the read. The 11-09 refresh decides, and the stop rule stands. The generator, pillar and wallpaper pages are fine, so it isn't site-wide.
