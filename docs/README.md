@@ -2,12 +2,12 @@
 
 Session journal for this repo. One entry per session, append-only, numbered in order (next entry = highest number + 1). Public repo: entries describe search performance qualitatively and never contain raw Search Console numbers. Direction lives in `SEO-STRATEGY.md`, the work order in `src/data/seo-priorities.json`, and human tasks in `TODO-KAROL.md`.
 
-## Status (2026-11-02)
+## Status (2026-11-03)
 
 - **Watch:** the money page (`/best-bible-verse-lock-screen-apps`) stepped down again on 10-29, from the bottom of page 1 to the page-1/page-2 edge, with most of its impressions gone. p53 shows no recovery. The hub slipped from upper to mid page 1 from 10-28, with a partial rebound. Both fall inside ranking volatility that Google has not confirmed. No edits to either page; the 11-09 refresh decides and the stop rule stands. See entry 17.
 - The hub (`/blog/best-free-bible-app-iphone`) is still the leading click source. The generator page keeps rising and is a feeder, so it gets no extra work. The moat pillar's slide has stopped, and the watch is closed.
 - The new-URL hold is extended to the 2026-11-09 refresh. The four newest posts are still not indexed 19-25 days after publishing (two discovered, two unknown), and no other post links to them in-body. The held post `/blog/bible-study-group-iphone-tools` stays unpublished.
-- Queue: p28 (Advent pitches, due now; the first attempt was quarantined on 11-02 and it restarts from main, see entry 18), p57 (Lectio 365 fact fix), p58 (in-body links to the four posts), p59 (blog skill accuracy), then p30 and p31. None of these needs the Apple API.
+- Queue: p57 (Lectio 365 fact fix), p58 (in-body links to the four posts), p59 (blog skill accuracy), then p30 and p31. None of these needs the Apple API. p28 is done: its Advent drafts were merged on 11-03 and are Karol's to send, Tier-1 first, by 11-16. Three wording points need checking first (see entry 19 and TODO-KAROL).
 - Regression, unchanged: Cloudflare's managed robots.txt and AI-crawler block are on faithwall.app (GPTBot and ClaudeBot get a 403). ChatGPT search and the Google and Bing crawlers are unaffected. It's flagged to Karol.
 - The App Store lists the app as "Lock Screen Bible Verse" (since 10-18), while the site says FaithWall. Karol decides whether the site should name the listing.
 - Off-site: zero pitches sent, zero placements.
@@ -32,3 +32,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [16 — Merge gate, 2026-11-01](journal/16-merge-gate-2026-11-01.md): local p56 branch (prayer roundup facts, wallpaper roundup verified) spot-checked against the iTunes API, fast-forwarded, live and submitted to IndexNow. Queue is down to dated outreach, so the 11-02 refresh must refill it.
 - [17 — Weekly SEO refresh, 2026-11-02](journal/17-weekly-seo-refresh-2026-11-02.md): money page stepped down again on 10-29 and the hub slipped during unconfirmed volatility, no edits; hold extended to 11-09; p57-p59 queued, including in-body links to the four unindexed posts.
 - [18 — Merge gate, 2026-11-02](journal/18-merge-gate-2026-11-02.md): cloud p28 branch (Advent pitches) rejected for a banned "costs nothing to try" line in one draft, quarantined to a tag, p28 restarts from main. Gate cleared.
+- [19 — Merge gate, 2026-11-03](journal/19-merge-gate-2026-11-03.md): cloud p28 restart (five Advent drafts) passed the Product facts read and fast-forwarded. Three wording points were flagged to Karol for review before sending. Gate cleared.

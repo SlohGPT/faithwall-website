@@ -2,6 +2,13 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-03 (merge gate: p28 Advent drafts merged — three things to check before sending)
+
+- **The fresh p28 run passed the gate and is on main** (`outreach/advent-2026/`). It has no banned wording: every "free" is "free to download" with the subscription stated, and there's no price, no trial length and no verse packs. Three things in the pitch bodies need a look before you send them:
+- **Every draft opens "I wrote to you recently".** That's only true once the matching Tier-1 pitch in `outreach/` has gone out, so send that one first, as the section below says.
+- **learnofchrist:** "your reviews of apps like Hallow and Abide mention their Advent-season features". The run's own note says the Abide review only mentions a seasonal sale, and the gate couldn't confirm it. Check the Abide review on the site, or cut the sentence down to Hallow.
+- **learnofchrist:** "the specific thing FaithWall does: pick a set of verses, including an Advent-themed set" can be read as the app supplying an Advent set. It doesn't: you pick your own verses. Reword it to something like "you pick your own verses (an Advent set, say)".
+
 ## 2026-11-03 (p28 — Advent 2026 outreach drafts ready, send-by 2026-11-16)
 
 - **Fresh restart from main, clean of the quarantined text.** Five seasonal Advent follow-up drafts now sit in `outreach/advent-2026/` (bibleversedaily, warmpeach, learnofchrist, biblegeeks, healthyspirituality — the full Tier-1 five). Each names "Lock Screen Bible Verse" (the App Store listing name since 2026-10-18) next to FaithWall, as the 11-02 refresh required, and each was checked line-by-line against the Product facts ban list (no "costs nothing"/"no cost"/"free" other than "free to download", no price, no trial length) — the exact failure that got branch `5658b65` rejected.
