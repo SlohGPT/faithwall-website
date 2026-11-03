@@ -2,6 +2,14 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-03 (p28 — Advent 2026 outreach drafts ready, send-by 2026-11-16)
+
+- **Fresh restart from main, clean of the quarantined text.** Five seasonal Advent follow-up drafts now sit in `outreach/advent-2026/` (bibleversedaily, warmpeach, learnofchrist, biblegeeks, healthyspirituality — the full Tier-1 five). Each names "Lock Screen Bible Verse" (the App Store listing name since 2026-10-18) next to FaithWall, as the 11-02 refresh required, and each was checked line-by-line against the Product facts ban list (no "costs nothing"/"no cost"/"free" other than "free to download", no price, no trial length) — the exact failure that got branch `5658b65` rejected.
+- **Send the original Tier-1 five first.** `outreach/{bibleversedaily,warmpeach,learnofchrist,biblegeeks,healthyspirituality}.md` are still unsent after two months — nothing has ever gone out to any of them, and nothing has declined. Those go out before these Advent follow-ups; the Advent drafts are a seasonal add-on to use alongside or shortly after, not instead of, the standing pitch.
+- **No Advent/Christmas history confirmed for any of the five sites.** WebSearch (cloud sandbox, no direct page fetch) found no dedicated Advent or Christmas devotional-app roundup on any of bibleversedaily.org, warmpeach.com, biblegeeks.fm or healthyspirituality.org, and only incidental Advent mentions inside other apps' reviews on learnofchrist.com. Each draft says so plainly rather than claiming a seasonal callback that isn't there.
+- **healthyspirituality.org's contact route is still unresolved** — the site 403s every automated fetch from both environments. Confirm the author's email at https://healthyspirituality.org/blog/biography/ in a normal browser before sending either draft to that site (unchanged from the standing Tier-1 TODO).
+- Send-by for the Advent angle: **2026-11-16**, so a reply has time to land before Advent begins 2026-11-29.
+
 ## 2026-11-02 (merge gate: p28 quarantined)
 
 - **The cloud run's Advent drafts failed the merge gate, so none of them landed.** Branch `claude/p28-advent-outreach-2026-11-02` (`5658b65`) was rejected for one line in its warmpeach draft, which called FaithWall "a habit that costs nothing to try". The Product facts rule bans that wording by name, and it is false under the hard paywall. The branch's commit message and TODO note both said the pitches never touch price, so the line got past the run's own check. JSON, typecheck and build all passed. The other three drafts had no such line, and nothing was sent.
