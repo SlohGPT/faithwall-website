@@ -32,7 +32,7 @@ export default function BlogPostContent({ post, slug, related }: Props) {
           <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
             {meta.title}
           </h1>
-          <p className="mt-4 text-lg text-white/70 leading-relaxed">{meta.description}</p>
+          <p className="mt-4 text-lg text-white/70 leading-[1.7] md:leading-relaxed">{meta.description}</p>
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/50">
             <span className="flex items-center gap-1.5">
               <Calendar className="w-4 h-4" /> {meta.date}

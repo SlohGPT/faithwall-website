@@ -32,19 +32,33 @@ function Markdown({ text, campaign }: { text: string; campaign: string }) {
             : href;
           if (isInternal) {
             return (
-              <Link to={internalPath} className="text-brand hover:text-brand-light underline underline-offset-2">
+              <Link to={internalPath} className="text-brand-light hover:text-white underline underline-offset-2">
                 {children}
               </Link>
             );
           }
           return (
-            <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-light underline underline-offset-2">
+            <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand-light hover:text-white underline underline-offset-2">
               {children}
             </a>
           );
         },
         strong: ({ children }) => <strong className="font-bold text-white">{children}</strong>,
-        p: ({ children }) => <p className="text-white/80 leading-relaxed">{children}</p>,
+        p: ({ children }) => <p className="text-white/80 leading-[1.7] md:leading-relaxed">{children}</p>,
+        // Wide GFM tables scroll inside their own container instead of being clipped by the page.
+        table: ({ children }) => (
+          <div
+            className="my-2 overflow-x-auto overscroll-x-contain rounded-xl border border-white/10"
+            role="region"
+            aria-label="Comparison table, scrolls sideways"
+            tabIndex={0}
+          >
+            <table className="w-full min-w-[32rem] md:min-w-0 border-collapse text-left text-base leading-relaxed">{children}</table>
+          </div>
+        ),
+        thead: ({ children }) => <thead className="bg-surface-card">{children}</thead>,
+        th: ({ children }) => <th className="px-4 py-3 font-bold text-white align-top">{children}</th>,
+        td: ({ children }) => <td className="px-4 py-3 border-t border-white/10 align-top">{children}</td>,
       }}
     >
       {text}
@@ -54,12 +68,13 @@ function Markdown({ text, campaign }: { text: string; campaign: string }) {
 
 export default function BlogRenderer({ sections, campaign }: { sections: BlogSection[]; campaign: string }) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-7 md:space-y-6">
       {sections.map((section, i) => {
         switch (section.type) {
           case 'heading': {
             const Tag = section.level === 2 ? 'h2' : 'h3';
-            const size = section.level === 2 ? 'text-2xl md:text-3xl mt-10' : 'text-xl md:text-2xl mt-6';
+            // space-y-* outranks plain mt-*; the !important margin gives headings real room above on phones.
+            const size = section.level === 2 ? 'text-2xl md:text-3xl mt-10 max-md:!mt-14' : 'text-xl md:text-2xl mt-6 max-md:!mt-10';
             return (
               <Tag key={i} className={`${size} font-bold text-white tracking-tight`}>
                 {section.text}
@@ -69,7 +84,7 @@ export default function BlogRenderer({ sections, campaign }: { sections: BlogSec
 
           case 'paragraph':
             return (
-              <div key={i} className="text-white/80 leading-relaxed text-lg">
+              <div key={i} className="text-white/80 leading-[1.7] md:leading-relaxed text-lg">
                 <Markdown campaign={campaign} text={section.text} />
               </div>
             );
@@ -83,7 +98,7 @@ export default function BlogRenderer({ sections, campaign }: { sections: BlogSec
                   {section.title && (
                     <p className="font-bold text-white text-lg mb-2">{section.title}</p>
                   )}
-                  <div className="text-white/85"><Markdown campaign={campaign} text={section.content} /></div>
+                  <div className="text-white/85 text-[17px] md:text-base"><Markdown campaign={campaign} text={section.content} /></div>
                 </div>
               </div>
             );
@@ -93,14 +108,14 @@ export default function BlogRenderer({ sections, campaign }: { sections: BlogSec
             return (
               <div key={i} className="my-6 p-5 rounded-xl bg-surface-card border-l-4 border-brand">
                 <p className="text-xs uppercase tracking-widest text-brand font-bold mb-2">Tip</p>
-                <div className="text-white/85"><Markdown campaign={campaign} text={section.content} /></div>
+                <div className="text-white/85 text-[17px] md:text-base"><Markdown campaign={campaign} text={section.content} /></div>
               </div>
             );
 
           case 'highlight':
             return (
               <div key={i} className="my-6 p-5 rounded-xl bg-gradient-to-br from-brand/15 to-brand-dark/10 border border-brand/20">
-                <div className="text-white/90"><Markdown campaign={campaign} text={section.content} /></div>
+                <div className="text-white/90 text-[17px] md:text-base"><Markdown campaign={campaign} text={section.content} /></div>
               </div>
             );
 
@@ -108,7 +123,7 @@ export default function BlogRenderer({ sections, campaign }: { sections: BlogSec
             return (
               <div key={i} className="my-6 p-5 rounded-xl bg-surface-card border-l-4 border-yellow-500/70">
                 <p className="text-xs uppercase tracking-widest text-yellow-400 font-bold mb-2">Important</p>
-                <div className="text-white/85"><Markdown campaign={campaign} text={section.content} /></div>
+                <div className="text-white/85 text-[17px] md:text-base"><Markdown campaign={campaign} text={section.content} /></div>
               </div>
             );
 
@@ -126,13 +141,13 @@ export default function BlogRenderer({ sections, campaign }: { sections: BlogSec
 
           case 'steps':
             return (
-              <ol key={i} className="my-4 space-y-3 list-none pl-0 counter-reset-steps">
+              <ol key={i} className="my-4 space-y-4 md:space-y-3 list-none pl-0 counter-reset-steps">
                 {section.items.map((item, idx) => (
                   <li key={idx} className="flex gap-4 items-start">
                     <span className="shrink-0 w-8 h-8 rounded-full bg-brand text-white font-bold flex items-center justify-center text-sm">
                       {idx + 1}
                     </span>
-                    <div className="text-white/85 leading-relaxed pt-1 flex-1">
+                    <div className="text-white/85 leading-[1.7] md:leading-relaxed text-[17px] md:text-base pt-0.5 md:pt-1 flex-1">
                       <Markdown campaign={campaign} text={item} />
                     </div>
                   </li>
@@ -142,9 +157,9 @@ export default function BlogRenderer({ sections, campaign }: { sections: BlogSec
 
           case 'list':
             return (
-              <ul key={i} className="my-4 space-y-2 list-disc list-outside pl-6 marker:text-brand">
+              <ul key={i} className="my-4 space-y-3 md:space-y-2 list-disc list-outside pl-6 marker:text-brand">
                 {section.items.map((item, idx) => (
-                  <li key={idx} className="text-white/85 leading-relaxed pl-1">
+                  <li key={idx} className="text-white/85 leading-[1.7] md:leading-relaxed text-[17px] md:text-base pl-1">
                     <Markdown campaign={campaign} text={item} />
                   </li>
                 ))}
@@ -160,8 +175,8 @@ export default function BlogRenderer({ sections, campaign }: { sections: BlogSec
                       {idx + 1}
                     </span>
                     <div className="flex-1">
-                      <p className="font-bold text-white">{item.name}</p>
-                      <div className="text-white/80 leading-relaxed mt-1">
+                      <p className="font-bold text-white text-[17px] md:text-base">{item.name}</p>
+                      <div className="text-white/80 leading-[1.7] md:leading-relaxed text-[17px] md:text-base mt-1">
                         <Markdown campaign={campaign} text={item.description} />
                       </div>
                     </div>

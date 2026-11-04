@@ -38,7 +38,7 @@ export default function PillarPageView({ pillar, featured, allPosts = [] }: Prop
           <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
             {pillar.title}
           </h1>
-          <p className="mt-5 text-lg text-white/70 leading-relaxed">{pillar.intro}</p>
+          <p className="mt-5 text-lg text-white/70 leading-[1.7] md:leading-relaxed">{pillar.intro}</p>
           {updated && (
             <div className="mt-6 flex items-center gap-5 text-sm text-white/50">
               <span className="flex items-center gap-1.5">

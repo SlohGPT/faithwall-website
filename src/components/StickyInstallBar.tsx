@@ -114,12 +114,12 @@ export default function StickyInstallBar({ kind }: { kind: InstallBarKind }) {
             decoding="async"
           />
           <p className="min-w-0 flex-1 text-[13px] font-medium leading-snug text-white/85">
-            Your verse on your lock screen, every unlock
+            Your verse on your lock screen
           </p>
           <AppStoreButton
             href={appStoreUrl(CAMPAIGN[kind])}
             theme="light"
-            className="shrink-0 !px-3 !py-1.5"
+            className="shrink-0 !px-3 !py-1.5 [&_span:last-child]:!text-[16px]"
           />
           <button
             type="button"
