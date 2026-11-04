@@ -53,7 +53,7 @@ export default function BlogPostContent({ post, slug, related }: Props) {
           <figure className="mb-10 rounded-2xl overflow-hidden">
             <img
               src={meta.image}
-              alt={meta.title}
+              alt={meta.imageAlt ?? meta.title}
               width={1600}
               height={900}
               className="w-full aspect-[16/9] object-cover"

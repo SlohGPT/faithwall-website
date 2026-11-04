@@ -18,7 +18,7 @@ export default function BlogCard({ post }: { post: BlogPostListing }) {
       <div className="aspect-[16/9] overflow-hidden bg-surface-elevated">
         <img
           src={post.thumbnail}
-          alt={post.title}
+          alt={post.thumbnailAlt ?? post.title}
           width={1600}
           height={900}
           loading="lazy"

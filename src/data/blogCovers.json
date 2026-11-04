@@ -1,0 +1,357 @@
+{
+  "_comment": "Verse + background per blog cover. Edit slug/ref/palette, then run: node scripts/build-blog-thumbnails.mjs. Verse text, file and alt are filled in by the script (KJV from public/bible/kjv).",
+  "covers": [
+    {
+      "slug": "5-minute-daily-prayer-iphone",
+      "ref": "Psalm 86:7",
+      "palette": "black-ember",
+      "text": "In the day of my trouble I will call upon thee: for thou wilt answer me.",
+      "file": "/blog-thumbnails/psalm-86-7-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 86:7 (KJV)"
+    },
+    {
+      "slug": "audio-bible-app-iphone-background",
+      "ref": "Romans 10:17",
+      "palette": "navy-gold",
+      "text": "So then faith cometh by hearing, and hearing by the word of God.",
+      "file": "/blog-thumbnails/romans-10-17-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Romans 10:17 (KJV)"
+    },
+    {
+      "slug": "best-bible-study-app-iphone-2026",
+      "ref": "2 Timothy 2:15",
+      "palette": "cream",
+      "text": "Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.",
+      "file": "/blog-thumbnails/2-timothy-2-15-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing 2 Timothy 2:15 (KJV)"
+    },
+    {
+      "slug": "best-christian-app-for-iphone-2026",
+      "ref": "Deuteronomy 6:6",
+      "palette": "sand",
+      "text": "And these words, which I command thee this day, shall be in thine heart:",
+      "file": "/blog-thumbnails/deuteronomy-6-6-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Deuteronomy 6:6 (KJV)"
+    },
+    {
+      "slug": "best-christian-wallpaper-app-iphone",
+      "ref": "Psalm 19:1",
+      "palette": "sunrise",
+      "text": "The heavens declare the glory of God; and the firmament sheweth his handywork.",
+      "file": "/blog-thumbnails/psalm-19-1-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 19:1 (KJV)"
+    },
+    {
+      "slug": "best-prayer-app-for-iphone",
+      "ref": "Jeremiah 33:3",
+      "palette": "plum",
+      "text": "Call unto me, and I will answer thee, and shew thee great and mighty things, which thou knowest not.",
+      "file": "/blog-thumbnails/jeremiah-33-3-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Jeremiah 33:3 (KJV)"
+    },
+    {
+      "slug": "bible-app-vs-olive-tree",
+      "ref": "Proverbs 4:7",
+      "palette": "dusk",
+      "text": "Wisdom is the principal thing; therefore get wisdom: and with all thy getting get understanding.",
+      "file": "/blog-thumbnails/proverbs-4-7-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Proverbs 4:7 (KJV)"
+    },
+    {
+      "slug": "bible-memorization-apps-iphone",
+      "ref": "Psalm 119:11",
+      "palette": "dark-gradient",
+      "text": "Thy word have I hid in mine heart, that I might not sin against thee.",
+      "file": "/blog-thumbnails/psalm-119-11-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 119:11 (KJV)"
+    },
+    {
+      "slug": "bible-reading-plan-widget-iphone",
+      "ref": "Psalm 119:133",
+      "palette": "ember",
+      "text": "Order my steps in thy word: and let not any iniquity have dominion over me.",
+      "file": "/blog-thumbnails/psalm-119-133-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 119:133 (KJV)"
+    },
+    {
+      "slug": "bible-study-group-iphone-tools",
+      "ref": "Matthew 18:20",
+      "palette": "charcoal-orange",
+      "text": "For where two or three are gathered together in my name, there am I in the midst of them.",
+      "file": "/blog-thumbnails/matthew-18-20-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Matthew 18:20 (KJV)"
+    },
+    {
+      "slug": "bible-verse-lock-screen-iphone",
+      "ref": "Psalm 119:105",
+      "palette": "dark-gradient",
+      "text": "Thy word is a lamp unto my feet, and a light unto my path.",
+      "file": "/blog-thumbnails/psalm-119-105-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 119:105 (KJV)"
+    },
+    {
+      "slug": "bible-verse-widget-iphone",
+      "ref": "Isaiah 26:3",
+      "palette": "ember",
+      "text": "Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.",
+      "file": "/blog-thumbnails/isaiah-26-3-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Isaiah 26:3 (KJV)"
+    },
+    {
+      "slug": "christian-focus-modes-iphone",
+      "ref": "Ecclesiastes 3:1",
+      "palette": "charcoal-orange",
+      "text": "To every thing there is a season, and a time to every purpose under the heaven:",
+      "file": "/blog-thumbnails/ecclesiastes-3-1-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Ecclesiastes 3:1 (KJV)"
+    },
+    {
+      "slug": "christian-morning-routine-iphone",
+      "ref": "Psalm 90:14",
+      "palette": "black-ember",
+      "text": "O satisfy us early with thy mercy; that we may rejoice and be glad all our days.",
+      "file": "/blog-thumbnails/psalm-90-14-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 90:14 (KJV)"
+    },
+    {
+      "slug": "daily-prayer-widget-ios",
+      "ref": "Colossians 4:2",
+      "palette": "navy-gold",
+      "text": "Continue in prayer, and watch in the same with thanksgiving;",
+      "file": "/blog-thumbnails/colossians-4-2-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Colossians 4:2 (KJV)"
+    },
+    {
+      "slug": "daily-scripture-wallpaper-iphone",
+      "ref": "Lamentations 3:23",
+      "palette": "cream",
+      "text": "They are new every morning: great is thy faithfulness.",
+      "file": "/blog-thumbnails/lamentations-3-23-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Lamentations 3:23 (KJV)"
+    },
+    {
+      "slug": "faithwall-vs-bible-app",
+      "ref": "Psalm 107:20",
+      "palette": "sand",
+      "text": "He sent his word, and healed them, and delivered them from their destructions.",
+      "file": "/blog-thumbnails/psalm-107-20-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 107:20 (KJV)"
+    },
+    {
+      "slug": "faithwall-vs-glorify",
+      "ref": "Psalm 1:2",
+      "palette": "sunrise",
+      "text": "But his delight is in the law of the Lord; and in his law doth he meditate day and night.",
+      "file": "/blog-thumbnails/psalm-1-2-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 1:2 (KJV)"
+    },
+    {
+      "slug": "faithwall-vs-hallow",
+      "ref": "Psalm 16:8",
+      "palette": "plum",
+      "text": "I have set the Lord always before me: because he is at my right hand, I shall not be moved.",
+      "file": "/blog-thumbnails/psalm-16-8-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 16:8 (KJV)"
+    },
+    {
+      "slug": "faithwall-vs-lectio-365",
+      "ref": "Psalm 119:164",
+      "palette": "dusk",
+      "text": "Seven times a day do I praise thee because of thy righteous judgments.",
+      "file": "/blog-thumbnails/psalm-119-164-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 119:164 (KJV)"
+    },
+    {
+      "slug": "faithwall-vs-pray-com",
+      "ref": "Psalm 145:18",
+      "palette": "sunrise",
+      "text": "The Lord is nigh unto all them that call upon him, to all that call upon him in truth.",
+      "file": "/blog-thumbnails/psalm-145-18-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 145:18 (KJV)"
+    },
+    {
+      "slug": "free-christian-apps-iphone-comparison",
+      "ref": "Ecclesiastes 4:12",
+      "palette": "plum",
+      "text": "And if one prevail against him, two shall withstand him; and a threefold cord is not quickly broken.",
+      "file": "/blog-thumbnails/ecclesiastes-4-12-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Ecclesiastes 4:12 (KJV)"
+    },
+    {
+      "slug": "hallow-vs-abide",
+      "ref": "Psalm 46:10",
+      "palette": "dusk",
+      "text": "Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.",
+      "file": "/blog-thumbnails/psalm-46-10-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 46:10 (KJV)"
+    },
+    {
+      "slug": "how-to-highlight-verses-on-iphone",
+      "ref": "Psalm 119:130",
+      "palette": "dark-gradient",
+      "text": "The entrance of thy words giveth light; it giveth understanding unto the simple.",
+      "file": "/blog-thumbnails/psalm-119-130-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 119:130 (KJV)"
+    },
+    {
+      "slug": "how-to-set-prayer-alarms-iphone",
+      "ref": "Psalm 55:17",
+      "palette": "ember",
+      "text": "Evening, and morning, and at noon, will I pray, and cry aloud: and he shall hear my voice.",
+      "file": "/blog-thumbnails/psalm-55-17-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 55:17 (KJV)"
+    },
+    {
+      "slug": "lock-screen-verse-for-grief",
+      "ref": "Psalm 34:18",
+      "palette": "charcoal-orange",
+      "text": "The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.",
+      "file": "/blog-thumbnails/psalm-34-18-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 34:18 (KJV)"
+    },
+    {
+      "slug": "lock-screen-verses-for-anxiety",
+      "ref": "1 Peter 5:7",
+      "palette": "black-ember",
+      "text": "Casting all your care upon him; for he careth for you.",
+      "file": "/blog-thumbnails/1-peter-5-7-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing 1 Peter 5:7 (KJV)"
+    },
+    {
+      "slug": "morning-prayer-routine-iphone",
+      "ref": "Psalm 92:2",
+      "palette": "navy-gold",
+      "text": "To shew forth thy lovingkindness in the morning, and thy faithfulness every night,",
+      "file": "/blog-thumbnails/psalm-92-2-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 92:2 (KJV)"
+    },
+    {
+      "slug": "one-year-bible-plan-iphone",
+      "ref": "Psalm 119:160",
+      "palette": "cream",
+      "text": "Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.",
+      "file": "/blog-thumbnails/psalm-119-160-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 119:160 (KJV)"
+    },
+    {
+      "slug": "prayer-journal-app-iphone-2026",
+      "ref": "Habakkuk 2:2",
+      "palette": "sand",
+      "text": "And the Lord answered me, and said, Write the vision, and make it plain upon tables, that he may run that readeth it.",
+      "file": "/blog-thumbnails/habakkuk-2-2-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Habakkuk 2:2 (KJV)"
+    },
+    {
+      "slug": "prayer-reminders-on-iphone",
+      "ref": "1 Thessalonians 5:17",
+      "palette": "navy-gold",
+      "text": "Pray without ceasing.",
+      "file": "/blog-thumbnails/1-thessalonians-5-17-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing 1 Thessalonians 5:17 (KJV)"
+    },
+    {
+      "slug": "praying-through-the-psalms-app",
+      "ref": "Psalm 119:97",
+      "palette": "cream",
+      "text": "O how love I thy law! it is my meditation all the day.",
+      "file": "/blog-thumbnails/psalm-119-97-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 119:97 (KJV)"
+    },
+    {
+      "slug": "psalm-23-wallpaper-iphone",
+      "ref": "Psalm 23:1",
+      "palette": "sand",
+      "text": "The Lord is my shepherd; I shall not want.",
+      "file": "/blog-thumbnails/psalm-23-1-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 23:1 (KJV)"
+    },
+    {
+      "slug": "quiet-time-routine-iphone-setup",
+      "ref": "Psalm 62:1",
+      "palette": "sunrise",
+      "text": "Truly my soul waiteth upon God: from him cometh my salvation.",
+      "file": "/blog-thumbnails/psalm-62-1-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 62:1 (KJV)"
+    },
+    {
+      "slug": "renew-your-mind-iphone-setup",
+      "ref": "Colossians 3:2",
+      "palette": "plum",
+      "text": "Set your affection on things above, not on things on the earth.",
+      "file": "/blog-thumbnails/colossians-3-2-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Colossians 3:2 (KJV)"
+    },
+    {
+      "slug": "rotating-bible-verse-wallpaper-iphone",
+      "ref": "Psalm 118:24",
+      "palette": "dusk",
+      "text": "This is the day which the Lord hath made; we will rejoice and be glad in it.",
+      "file": "/blog-thumbnails/psalm-118-24-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 118:24 (KJV)"
+    },
+    {
+      "slug": "sabbath-rest-iphone-shortcuts",
+      "ref": "Exodus 20:8",
+      "palette": "dark-gradient",
+      "text": "Remember the sabbath day, to keep it holy.",
+      "file": "/blog-thumbnails/exodus-20-8-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Exodus 20:8 (KJV)"
+    },
+    {
+      "slug": "scripture-based-prayer-prompts",
+      "ref": "Matthew 6:9",
+      "palette": "ember",
+      "text": "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.",
+      "file": "/blog-thumbnails/matthew-6-9-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Matthew 6:9 (KJV)"
+    },
+    {
+      "slug": "scripture-habit-tracker-iphone",
+      "ref": "Galatians 6:9",
+      "palette": "charcoal-orange",
+      "text": "And let us not be weary in well doing: for in due season we shall reap, if we faint not.",
+      "file": "/blog-thumbnails/galatians-6-9-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Galatians 6:9 (KJV)"
+    },
+    {
+      "slug": "scripture-wallpaper-for-iphone-free",
+      "ref": "Isaiah 40:8",
+      "palette": "black-ember",
+      "text": "The grass withereth, the flower fadeth: but the word of our God shall stand for ever.",
+      "file": "/blog-thumbnails/isaiah-40-8-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Isaiah 40:8 (KJV)"
+    },
+    {
+      "slug": "sermon-notes-iphone-app",
+      "ref": "James 1:22",
+      "palette": "ember",
+      "text": "But be ye doers of the word, and not hearers only, deceiving your own selves.",
+      "file": "/blog-thumbnails/james-1-22-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing James 1:22 (KJV)"
+    },
+    {
+      "slug": "short-bible-verses-for-lock-screen",
+      "ref": "Psalm 46:1",
+      "palette": "charcoal-orange",
+      "text": "God is our refuge and strength, a very present help in trouble.",
+      "file": "/blog-thumbnails/psalm-46-1-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 46:1 (KJV)"
+    },
+    {
+      "slug": "verse-mapping-iphone-app",
+      "ref": "Nehemiah 8:8",
+      "palette": "black-ember",
+      "text": "So they read in the book in the law of God distinctly, and gave the sense, and caused them to understand the reading.",
+      "file": "/blog-thumbnails/nehemiah-8-8-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Nehemiah 8:8 (KJV)"
+    },
+    {
+      "slug": "verse-of-the-day-lock-screen-iphone",
+      "ref": "Psalm 119:18",
+      "palette": "navy-gold",
+      "text": "Open thou mine eyes, that I may behold wondrous things out of thy law.",
+      "file": "/blog-thumbnails/psalm-119-18-bible-verse-iphone-lock-screen.jpg",
+      "alt": "iPhone lock screen showing Psalm 119:18 (KJV)"
+    }
+  ]
+}

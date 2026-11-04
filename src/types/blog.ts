@@ -19,6 +19,7 @@ export interface BlogPostMeta {
   dateModified?: string;
   readTime: string;
   image: string;
+  imageAlt?: string;
   imageAttribution?: ImageAttribution;
   keywords: string[];
   cluster: BlogCluster;
@@ -49,6 +50,7 @@ export interface BlogPostListing {
   title: string;
   description: string;
   thumbnail: string;
+  thumbnailAlt?: string;
   date: string;
   datePublished: string;
   dateModified?: string;

@@ -1,6 +1,6 @@
 ---
 name: faithwall-blog
-description: Write one full SEO blog post for faithwall.app end-to-end. Use this skill when the user says "make a blog", "today's blog", "new faithwall blog", "create today's blog post", "make a faithwall blog", or any variation asking for a new daily FaithWall blog post. Picks an unused long-tail keyword from src/data/seo-keywords.json, fetches an on-theme Unsplash photo with proper attribution, writes the post in Karol's voice following the strict section template, validates it, and registers it in src/data/blogPosts.json.
+description: Write one full SEO blog post for faithwall.app end-to-end. Use this skill when the user says "make a blog", "today's blog", "new faithwall blog", "create today's blog post", "make a faithwall blog", or any variation asking for a new daily FaithWall blog post. Picks an unused long-tail keyword from src/data/seo-keywords.json, gives it a generated lock-screen cover (a KJV verse on an iPhone lock screen), writes the post in Karol's voice following the strict section template, validates it, and registers it in src/data/blogPosts.json.
 ---
 
 # FaithWall Daily Blog Skill
@@ -24,10 +24,10 @@ Since app v2.3 (live 2026-08-26) FaithWall has a hard paywall. A subscription is
 
 After running this skill end-to-end:
 1. A new file `src/data/posts/{slug}.json` exists, ~800–1100 words, validates as JSON, follows the section template below.
-2. A new Unsplash photo is at `public/blog-thumbnails/{slug}.jpg` with proper attribution recorded in the post's `meta.imageAttribution`.
+2. A generated lock-screen cover is at `public/blog-thumbnails/{ref-slug}-bible-verse-iphone-lock-screen.jpg`, the post's `meta.image` / `meta.imageAlt` point at it, and there is no `imageAttribution` (generated covers need no credit).
 3. The new post is inserted at **index 0** of `src/data/blogPosts.json`.
 4. The post's slug is added to the matching pillar's `featured` array in `src/data/pillars.json` (drop the oldest if >6).
-5. You report back the slug, cluster, word count, and photo credit in one paragraph. Offer to commit.
+5. You report back the slug, cluster, word count, and the cover verse in one paragraph. Offer to commit.
 
 ## The 8 steps
 
@@ -61,54 +61,15 @@ Sketch (don't write yet):
   - `bible-study-tools-ios` → `/bible-study-tools-ios`
   - `christian-app-comparisons` → `/christian-app-comparisons`
 
-### Step 3 — Fetch the Unsplash hero photo
+### Step 3 — Pick the cover verse and generate the cover
 
-The Unsplash key lives in `.env.local` (gitignored). Source it before any curl.
+Covers are generated, not stock photos: an iPhone lock screen showing one KJV verse on FaithWall's dark + orange look (`scripts/build-blog-thumbnails.mjs`). Do not use Unsplash.
 
-**Pick a soft, aesthetic search query — not the raw keyword.** Literal queries like "iphone lock screen bible" return ugly screenshots. Pick a query that evokes the *feeling* of the post:
+1. Pick ONE short verse (ideally under ~20 words, a single verse) that fits the post's topic, preferably one the post itself quotes. Its reference must not already be used in `src/data/blogCovers.json` (each cover file is named after its verse).
+2. Append `{ "slug": "{slug}", "ref": "Psalm 23:1", "palette": "..." }` to `covers` in `src/data/blogCovers.json`. `palette` is any key of `PALETTES` in the script; choose one different from the previous two entries so the grid varies. Never type the verse text: the script reads it from `public/bible/kjv`.
+3. The image itself is generated at the end of Step 6, once the post and its registry entry exist.
 
-| Cluster | Good queries |
-|---------|--------------|
-| daily-scripture-lock-screen | "open bible candle morning", "open bible sunlight", "bible journal pen" |
-| prayer-life-iphone | "praying hands sunrise", "kneeling sunset prayer", "open hands light" |
-| faith-based-productivity | "morning coffee bible journal", "minimalist desk morning", "open notebook coffee" |
-| bible-study-tools-ios | "bible study notes highlighter", "stack of books theology", "open bible pen study" |
-| christian-app-comparisons | "iphone in hand morning", "modern church interior", "bokeh light cross" |
-
-Run:
-
-```bash
-set -a && source .env.local && set +a
-SEARCH_Q="open bible candle morning"   # pick from table above
-ENC_Q=$(python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))" "$SEARCH_Q")
-curl -s "https://api.unsplash.com/search/photos?query=${ENC_Q}&per_page=10&orientation=landscape&content_filter=high" \
-  -H "Authorization: Client-ID ${UNSPLASH_ACCESS_KEY}"
-```
-
-Parse the JSON. From the top 5 results, pick the one with the **most `likes`** that isn't obviously off-topic (read the `alt_description`). Capture:
-- `id`
-- `user.name` → **photographer**
-- `user.links.html` → **photographerUrl** (append `?utm_source=faithwall&utm_medium=referral`)
-- `links.html` → **unsplashUrl** (append the same UTM params)
-- `links.download_location` — used in next step
-- `urls.regular` or `urls.full` for download
-
-Download the photo and **ping the download tracking endpoint** (Unsplash API ToS requirement):
-
-```bash
-SLUG="my-post-slug"
-PHOTO_ID="abc123"
-DOWNLOAD_LOC="https://api.unsplash.com/photos/${PHOTO_ID}/download?ixid=..."
-REGULAR_URL="https://images.unsplash.com/photo-..."  # but bump w=1600 q=85
-
-# Download a sharper version of the image
-curl -sL "${REGULAR_URL/&w=1080/&w=1600}" -o "public/blog-thumbnails/${SLUG}.jpg"
-
-# Fire the download tracker (ToS)
-curl -s -H "Authorization: Client-ID ${UNSPLASH_ACCESS_KEY}" "${DOWNLOAD_LOC}" > /dev/null
-```
-
-Verify the file exists and is non-empty (`ls -lh public/blog-thumbnails/${SLUG}.jpg`).
+**Cloud / no Chrome:** the cloud sandbox has no Chrome, so skip the generation in Step 6: keep the `blogCovers.json` entry, and until a local run reuse an existing generated cover (any `/blog-thumbnails/*-bible-verse-iphone-lock-screen.jpg`) as `meta.image` and `thumbnail`, with no `imageAttribution`. Note in the commit body that the cover needs `node scripts/build-blog-thumbnails.mjs {slug}`. Never remove or restyle the cover of `/blog/best-free-bible-app-iphone` (ranking measurement until 2026-11-09).
 
 ### Step 4 — Write the post
 
@@ -189,8 +150,8 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
     "date": "Month DD, YYYY",
     "datePublished": "YYYY-MM-DDTHH:MM:SS.000Z",
     "readTime": "X min read",
-    "image": "/blog-thumbnails/{slug}.jpg",
-    "imageAttribution": { "photographer": "...", "photographerUrl": "...?utm_source=faithwall&utm_medium=referral", "unsplashUrl": "...?utm_source=faithwall&utm_medium=referral" },
+    "image": "/blog-thumbnails/{ref-slug}-bible-verse-iphone-lock-screen.jpg",
+    "imageAlt": "iPhone lock screen showing {Reference} (KJV)",
     "keywords": ["primary keyword", "secondary keyword", "...", "faithwall"],
     "cluster": "one of the 5 cluster slugs"
   },
@@ -254,7 +215,7 @@ Run through this checklist on your generated JSON **before** writing it:
 - [ ] At least one cited statistic with the source name.
 - [ ] Word count is 800–1100.
 - [ ] 2–3 internal links + 1 pillar link.
-- [ ] All `imageAttribution` URLs have the UTM params.
+- [ ] `meta.image` + `meta.imageAlt` point at the generated cover (or the cloud fallback above); no `imageAttribution`.
 - [ ] `meta.cluster` exactly matches one of the 5 cluster slugs.
 - [ ] **Conversion checks:**
   - [ ] Sales temperature matches the keyword's intent (informational vs comparison vs FaithWall-native).
@@ -280,7 +241,8 @@ Read `src/data/blogPosts.json`. Use the Edit tool to **insert the new entry at i
   "slug": "...",
   "title": "...",
   "description": "...",
-  "thumbnail": "/blog-thumbnails/{slug}.jpg",
+  "thumbnail": "/blog-thumbnails/{ref-slug}-bible-verse-iphone-lock-screen.jpg",
+  "thumbnailAlt": "iPhone lock screen showing {Reference} (KJV)",
   "date": "Month DD, YYYY",
   "datePublished": "YYYY-MM-DDTHH:MM:SS.000Z",
   "cluster": "...",
@@ -288,6 +250,12 @@ Read `src/data/blogPosts.json`. Use the Edit tool to **insert the new entry at i
   "readTime": "X min read",
   "isPublished": true
 }
+```
+
+Then generate the cover (local runs only; needs Google Chrome, no npm installs). It writes the jpg and sets `meta.image` / `meta.imageAlt` in the post and `thumbnail` / `thumbnailAlt` in the registry entry:
+
+```bash
+node scripts/build-blog-thumbnails.mjs {slug}
 ```
 
 ### Step 7 — Update the pillar's `featured` list
@@ -299,7 +267,7 @@ Read `src/data/pillars.json`. Find the pillar whose key matches `meta.cluster`. 
 Always commit and push at the end of the skill — that's the deploy trigger for Vercel. Run these in order:
 
 ```bash
-git add src/data/posts/{slug}.json src/data/blogPosts.json src/data/pillars.json public/sitemap.xml "public/blog-thumbnails/{slug}.jpg"
+git add src/data/posts/{slug}.json src/data/blogPosts.json src/data/blogCovers.json src/data/pillars.json public/sitemap.xml public/blog-thumbnails
 git commit -m "$(cat <<'EOF'
 blog: {title}
 
@@ -339,7 +307,7 @@ In your final response to the user, output exactly this format (no preamble):
    url: https://faithwall.app/blog/{slug}
    cluster: {cluster}
    words: {wordCount}
-   photo: {photographer} (Unsplash)
+   cover: {Reference} (KJV) lock-screen cover
    indexnow: ✓ submitted to Bing/Yandex/Seznam/Naver
 ```
 
@@ -351,8 +319,7 @@ These all came up while building the system — don't repeat them:
 - **Don't write generic "X is important because Y" filler.** Every paragraph should add a fact, a tactic, or a concrete example.
 - **Don't bury FaithWall past the first screen.** The mistake is a late recommendation, not an early one. Front-load FaithWall in Quick Answer + first paragraph; keep total mentions within the intent budget (see Lead with FaithWall). Helpfulness and a hard early recommendation are not opposites.
 - **Don't quote Scripture without a reference.** Always include the book and verse in the `reference` field.
-- **Don't hotlink the Unsplash image.** Always download to `public/blog-thumbnails/`.
-- **Don't forget the download-tracking ping.** Unsplash needs it for the photographer's stats and the API's free tier ToS.
+- **Don't use Unsplash photos for covers.** Covers are generated (Step 3); never hotlink an image.
 - **Don't write a post longer than 1100 words.** Tighter beats longer. Trim ruthlessly.
 - **Don't put internal links in the CTA section.** They belong inside paragraphs in the body.
 
