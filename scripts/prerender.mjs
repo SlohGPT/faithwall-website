@@ -70,9 +70,13 @@ async function prerender() {
       const { html: appHtml, helmet } = await render(route);
       const helmetTags = helmetToString(helmet);
 
+      // React 18.3.1's stream writer can flush its whole 2048-byte buffer when a
+      // multi-byte char (e.g. an em dash) doesn't fit, emitting 1-2 unused zero
+      // bytes. Real content never contains NUL, so strip them.
       const finalHtml = template
         .replace('</head>', `${helmetTags}\n</head>`)
-        .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+        .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
+        .replace(/\0/g, '');
 
       const outDir = route === '/' ? distDir : join(distDir, route.slice(1));
       mkdirSync(outDir, { recursive: true });
