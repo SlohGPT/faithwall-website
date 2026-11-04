@@ -2,6 +2,19 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-04 evening (manual session: fixes landed, two decisions settled)
+
+- **Still yours: send the five Tier-1 pitches.** They are the off-site work the autopilot can't do. Send the Advent follow-ups after them, by **11-16**. Every Advent draft opens "I wrote to you recently", so its Tier-1 pitch has to go first. Nothing else on this list needs you.
+- **Done, nothing for you to do:**
+  - The NUL-byte bug from the section below is fixed. `scripts/prerender.mjs` now strips them, and the three pages are clean live.
+  - The two Advent wording points from 11-03 are fixed in all five drafts. The Abide mention is cut, so learnofchrist now names Hallow only. The verse line now says you pick a verse yourself, for example an Advent verse, and set it as the wallpaper, or the lock-screen widget rotates verses on its own. `outreach/directories.md` says the same.
+  - The homepage stats band used to show "0+" and "0%" to Google and link previews, and it had a survey percentage with no source. It now shows 1,000+ installs, 24 translations and the 4.7 App Store rating, and it still counts up when you scroll to it.
+  - On phones, posts, pillars, comparisons and the two tools now show a slim App Store bar after the first screen. Readers can dismiss it. Installs from it show up in App Store Connect as the campaigns `web-sticky-blog`, `-pillar`, `-compare` and `-tool`. Article text is also easier to read on a phone, and tables no longer get cut off.
+  - Blog covers are now branded lock-screen images, each showing one KJV verse, instead of stock photos. The hub post keeps its cover. The blog skill makes a new cover for every new post.
+- **DECISION settled: the App Store name.** "Lock Screen Bible Verse" is not a 10-18 rename. The US listing has had that title since at least May 2026. Queue item **p60** (from 11-10) adds it to the app schema, plus one line under the hero download button, so visitors recognise the listing they land on.
+- **DECISION settled: the minimum iOS.** The listing and the Xcode project both say iOS 15.0. The site will say "installs on iOS 15.0 or later; the lock-screen widget needs iOS 16", and p60 makes that change everywhere at once. Keep the deployment target at 15.0, unless you'd rather drop iOS 15 in a future build.
+- **Local only:** the untracked `.agents/skills/faithwall-blog/` folder in your checkout is an old Codex copy of the blog skill. It still has the banned claims ("free", Focus modes). Codex is the only tool that reads it. Delete it, or copy the current `.claude` skill over it, if you still use Codex here.
+
 ## 2026-11-04 (merge gate: p57 merged, and a build bug puts NUL bytes in three live pages)
 
 - **p57 is live.** The Lectio 365 post and the one line in hallow-vs-abide now say morning, midday and night instead of twice daily. Both were submitted to IndexNow. You have nothing to do for this one.

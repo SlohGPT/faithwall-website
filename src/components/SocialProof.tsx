@@ -2,7 +2,8 @@ import { useRef, useEffect, useState } from 'react';
 import { useInView, animate } from 'framer-motion';
 
 // Every stat here must be verifiable: 1,000+ matches the hero's "Trusted by
-// 1,000+ believers" (RevenueCat: 698 new customers in 28 days to 11-04 alone), 24 = translations in the verse
+// 1,000+ believers" (RevenueCat's new-customer count backs it; this repo is
+// public, so no raw figures here), 24 = translations in the verse
 // picker, 4.7 = global App Store rating. No survey percentages without a source.
 const stats = [
   { value: 1000, label: 'Believers have installed FaithWall', suffix: '+' },
