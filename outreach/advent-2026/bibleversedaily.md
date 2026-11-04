@@ -18,9 +18,9 @@
 
 **Body:**
 
-Hi — I'm Karol, an indie iOS developer in Slovakia. I wrote to you recently about FaithWall, the iPhone app that puts the Bible verses you choose on the lock screen (on the App Store as "Lock Screen Bible Verse") — following up with a seasonal angle in case it's useful for your December content.
+Hi — I'm Karol, an indie iOS developer in Slovakia. I wrote to you recently about FaithWall, the iPhone app that puts a Bible verse you choose on the lock screen (on the App Store as "Lock Screen Bible Verse") — following up with a seasonal angle in case it's useful for your December content.
 
-Most Advent devotionals ask people to open something each day. FaithWall works the other way: you pick an Advent-themed set of verses once, as a wallpaper or a rotating lock-screen widget, and it's just there every time you glance at your phone through the season — no daily app-opening required. It's free to download; a subscription unlocks the app, and I'd be glad to send a subscription offer code so you can see it through December yourself. Might be worth a line in your lock-screen roundup as a different kind of Advent practice, alongside active devotionals rather than instead of them.
+Most Advent devotionals ask people to open something each day. FaithWall works the other way: you pick an Advent verse once and set it as your lock-screen wallpaper (or use the lock-screen widget, which rotates verses on its own), and it's just there every time you glance at your phone through the season — no daily app-opening required. It's free to download; a subscription unlocks the app, and I'd be glad to send a subscription offer code so you can see it through December yourself. Might be worth a line in your lock-screen roundup as a different kind of Advent practice, alongside active devotionals rather than instead of them.
 
 Disclosure: FaithWall is my own app — flagging timing, not asking for a placement.
 

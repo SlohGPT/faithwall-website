@@ -62,7 +62,7 @@ Covers the four vetted Tier-2 directories from SEO-STRATEGY.md §8: faith.tools,
 
 - **Name:** FaithWall
 - **Tagline:** Puts the Bible verses you choose on your iPhone lock screen
-- **Description:** An iPhone app, free to download, that puts the Bible verses you choose on your lock screen as a full-screen wallpaper (applied by an Apple Shortcut) or a widget that rotates saved verses hourly, every 8 hours or daily. You pick your own verses (24 translations). Using the app requires a subscription; the price and any trial offer are shown in the App Store before paying. Not a Bible reader.
+- **Description:** An iPhone app, free to download, that puts the Bible verses you choose on your lock screen as a full-screen wallpaper (applied by an Apple Shortcut) or a lock-screen widget that rotates verses on its own, hourly, every 8 hours or daily. You pick your own verses (24 translations). Using the app requires a subscription; the price and any trial offer are shown in the App Store before paying. Not a Bible reader.
 - **Website:** https://faithwall.app/
 - **Platform:** iOS (16.0+)
 - **License / pricing model:** Paid (subscription); free to download — if the form only offers Free / Freemium / Paid, choose Paid
