@@ -1,9 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
 import { useInView, animate } from 'framer-motion';
 
+// Every stat here must be verifiable: 1,000+ matches the hero's "Trusted by
+// 1,000+ believers" (RevenueCat: 698 new customers in 28 days to 11-04 alone), 24 = translations in the verse
+// picker, 4.7 = global App Store rating. No survey percentages without a source.
 const stats = [
-  { value: 92, label: 'Early users feel closer to God', suffix: '%' },
-  { value: 500, label: 'Believers using FaithWall', suffix: '+' },
+  { value: 1000, label: 'Believers have installed FaithWall', suffix: '+' },
+  { value: 24, label: 'Bible translations to pick from' },
   { value: 4.7, label: 'App Store rating', decimals: 1 },
 ];
 
@@ -17,13 +20,22 @@ function formatCount(n: number, decimals: number, suffix: string) {
 function Counter({ value, suffix = '', decimals = 0 }: { value: number; suffix?: string; decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
-  // Render the resting value ("0%" / "0+" / "0.0") in SSR so the layout
-  // is stable from first paint. React-state-based update means React
-  // tracks the text changes (no direct DOM mutation, no hydration drift).
-  const [display, setDisplay] = useState(() => formatCount(0, decimals, suffix));
+  // SSR renders the FINAL value, so crawlers, link previews and no-JS readers
+  // see real numbers (it used to ship "0+" and "0%"). After hydration, a counter
+  // that is still below the fold resets to 0 and counts up when scrolled to.
+  const [display, setDisplay] = useState(() => formatCount(value, decimals, suffix));
+  const armed = useRef(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    const el = ref.current;
+    if (el && el.getBoundingClientRect().top > window.innerHeight) {
+      armed.current = true;
+      setDisplay(formatCount(0, decimals, suffix));
+    }
+  }, [decimals, suffix]);
+
+  useEffect(() => {
+    if (!isInView || !armed.current) return;
     const controls = animate(0, value, {
       duration: 1.6,
       ease: [0.22, 1, 0.36, 1],
