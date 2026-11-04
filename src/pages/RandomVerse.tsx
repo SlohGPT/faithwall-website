@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Shuffle, Copy, Share2, Check, ExternalLink, Smartphone } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import StickyInstallBar from '../components/StickyInstallBar';
 import Breadcrumbs from '../components/Breadcrumbs';
 import AppStoreButton from '../components/AppStoreButton';
 import AppNudge from '../components/AppNudge';
@@ -725,6 +726,7 @@ export default function RandomVerse() {
       </main>
 
       <Footer />
+      <StickyInstallBar kind="tool" />
     </div>
   );
 }

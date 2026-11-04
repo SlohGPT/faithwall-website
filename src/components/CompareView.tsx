@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
 import Footer from './Footer';
+import StickyInstallBar from './StickyInstallBar';
 import Breadcrumbs from './Breadcrumbs';
 import AppStoreButton from './AppStoreButton';
 import { appStoreUrl } from '../lib/appStore';
@@ -376,6 +377,7 @@ export default function CompareView({ config }: { config: CompareConfig }) {
         </div>
       </article>
       <Footer />
+      <StickyInstallBar kind="compare" />
     </div>
   );
 }

@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import StickyInstallBar from '../components/StickyInstallBar';
 import Breadcrumbs from '../components/Breadcrumbs';
 import AppStoreButton from '../components/AppStoreButton';
 import { appStoreUrl } from '../lib/appStore';
@@ -1345,6 +1346,7 @@ export default function WallpaperMaker() {
         downloadRef={downloadRef}
       />
       <Footer />
+      <StickyInstallBar kind="tool" />
     </div>
   );
 }

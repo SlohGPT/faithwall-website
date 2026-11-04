@@ -156,6 +156,12 @@
   }
 }
 
+/* Mobile sticky install bar (StickyInstallBar): lift the wallpaper maker's floating preview thumbnail
+   above it. Done here, not in MiniPreview's inline style, so the prerendered HTML stays unchanged. */
+html.install-bar-on button[aria-label="Show preview"] {
+  bottom: calc(12px + var(--install-bar-h, 0px)) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

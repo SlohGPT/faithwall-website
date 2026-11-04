@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import StickyInstallBar from '../components/StickyInstallBar';
 import PillarPageView from '../components/PillarPageView';
 import NotFound from './NotFound';
 import { getPillar, getPillarFeatured, getPillarAll } from '../lib/posts';
@@ -90,6 +91,7 @@ export default function Pillar({ cluster }: { cluster: BlogCluster }) {
       <Navigation />
       <PillarPageView pillar={pillar} featured={featured} allPosts={allPosts} />
       <Footer />
+      <StickyInstallBar kind="pillar" />
     </div>
   );
 }

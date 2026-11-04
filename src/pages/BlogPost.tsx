@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import StickyInstallBar from '../components/StickyInstallBar';
 import BlogPostContent from '../components/BlogPostContent';
 import NotFound from './NotFound';
 import { getPost, getListing, getRelated } from '../lib/posts';
@@ -113,6 +114,7 @@ export default function BlogPost() {
       <Navigation />
       <BlogPostContent post={post} slug={slug} related={related} />
       <Footer />
+      <StickyInstallBar kind="blog" />
     </div>
   );
 }
