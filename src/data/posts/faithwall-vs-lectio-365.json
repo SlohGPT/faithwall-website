@@ -1,10 +1,10 @@
 {
   "meta": {
     "title": "FaithWall vs Lectio 365: The Daily Office vs. the Always-On Layer",
-    "description": "FaithWall vs Lectio 365 — one is a free, twice-daily guided prayer session, the other keeps Scripture on your lock screen all day. How they fit together.",
+    "description": "FaithWall vs Lectio 365 — one is free guided prayer at morning, midday and night, the other keeps Scripture on your lock screen all day. How they fit together.",
     "date": "July 2, 2026",
     "datePublished": "2026-07-02T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-11-04T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/faithwall-vs-lectio-365.jpg",
     "imageAttribution": {
@@ -20,7 +20,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "**FaithWall vs Lectio 365** comes down to session vs. surface. Lectio 365 is a free, twice-daily guided prayer app from 24-7 Prayer — a morning and night office built on lectio divina. **FaithWall** puts today's verse on your lock screen automatically, no session required. Different jobs, so most people who love Lectio 365 still add FaithWall for the other twenty-three hours."
+      "content": "**FaithWall vs Lectio 365** comes down to session vs. surface. Lectio 365 is a free guided prayer app from 24-7 Prayer — a short morning, midday and night office built on lectio divina. **FaithWall** puts today's verse on your lock screen automatically, no session required. Different jobs, so most people who love Lectio 365 still add FaithWall for the other twenty-three hours."
     },
     {
       "type": "paragraph",
@@ -33,7 +33,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Lectio 365 is a guided prayer app from 24-7 Prayer, the international prayer movement based in the UK. Two sessions a day: a morning office built around lectio divina — read the passage, sit with a phrase, respond in prayer, rest in silence — and a short night Compline before bed. Both are narrated, both are free, both are meant to be sat with for ten or fifteen minutes. FaithWall is the opposite shape. There's no session to sit through. You pick your verses once, and they sit on your lock screen — as a wallpaper applied by a Shortcut, or in a widget that rotates — without you opening anything again. One is read and prayed. The other is seen."
+      "text": "Lectio 365 is a guided prayer app from 24-7 Prayer, the international prayer movement based in the UK. Three short prayer times a day: a morning office built around lectio divina — read the passage, sit with a phrase, respond in prayer, rest in silence — a midday prayer time, and a short night Compline before bed. All three are free, and each is meant to be sat with, not glanced at. FaithWall is the opposite shape. There's no session to sit through. You pick your verses once, and they sit on your lock screen — as a wallpaper applied by a Shortcut, or in a widget that rotates — without you opening anything again. One is read and prayed. The other is seen."
     },
     {
       "type": "verse",
@@ -47,7 +47,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Lectio 365 is genuinely one of the best free prayer apps on iOS. The production is excellent — ambient music, a rotating cast of narrators, and a lectio divina structure that teaches you *how* to pray, not just *what* to pray. Unlike some guided-prayer apps, there's no premium tier walling off content; the whole library is free, funded by donations to the 24-7 Prayer movement. The catch is the one every session-based app shares: it only works when you remember to open it, twice a day, indefinitely. Miss a week and the rhythm doesn't pause gently — it just stops."
+      "text": "Lectio 365 is genuinely one of the best free prayer apps on iOS. The production is excellent — ambient music, a rotating cast of narrators, and a lectio divina structure that teaches you *how* to pray, not just *what* to pray. Unlike some guided-prayer apps, there's no premium tier walling off content; the whole library is free, funded by donations to the 24-7 Prayer movement. The catch is the one every session-based app shares: it only works when you remember to open it, morning, midday and night, indefinitely. Miss a week and the rhythm doesn't pause gently — it just stops."
     },
     {
       "type": "heading",
@@ -70,10 +70,10 @@
     {
       "type": "list",
       "items": [
-        "**What it does:** Lectio 365 is a guided morning-and-night prayer office. FaithWall is daily Scripture on the lock screen.",
-        "**How you use it:** Lectio 365 is two sessions you sit down for, roughly ten minutes each. FaithWall runs in the background — nothing to open.",
+        "**What it does:** Lectio 365 is a guided morning, midday and night prayer office. FaithWall is daily Scripture on the lock screen.",
+        "**How you use it:** Lectio 365 is three short prayer times you stop for, spread across the day. FaithWall runs in the background — nothing to open.",
         "**Price:** Lectio 365 is free with no paywall. FaithWall is free to download, but using it requires a subscription.",
-        "**The habit risk:** Lectio 365 depends on you remembering twice a day. FaithWall depends on you picking up your phone, which you already do.",
+        "**The habit risk:** Lectio 365 depends on you remembering three times a day. FaithWall depends on you picking up your phone, which you already do.",
         "**iOS integration:** Lectio 365 sends a notification reminding you to open it. FaithWall applies the wallpaper through an Apple Shortcut you can automate — nothing to remember, nothing to tap."
       ]
     },
@@ -88,7 +88,7 @@
     },
     {
       "type": "tip",
-      "content": "If you only add one thing to your Lectio 365 practice this week, make it the piece that works without discipline — sixty seconds once, not ten minutes twice."
+      "content": "If you only add one thing to your Lectio 365 practice this week, make it the piece that works without discipline — sixty seconds once, not three sessions a day."
     },
     {
       "type": "heading",
@@ -101,7 +101,7 @@
     },
     {
       "type": "important",
-      "content": "Lectio 365 and FaithWall aren't competitors — they're two different shapes of the same devotion. One is a room you enter twice a day. The other is a light left on in the hallway the rest of the time. The mistake is treating either one alone as a complete spiritual diet."
+      "content": "Lectio 365 and FaithWall aren't competitors — they're two different shapes of the same devotion. One is a room you enter three times a day. The other is a light left on in the hallway the rest of the time. The mistake is treating either one alone as a complete spiritual diet."
     },
     {
       "type": "paragraph",
