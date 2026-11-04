@@ -2,6 +2,11 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-04 (merge gate: p57 merged, and a build bug puts NUL bytes in three live pages)
+
+- **p57 is live.** The Lectio 365 post and the one line in hallow-vs-abide now say morning, midday and night instead of twice daily. Both were submitted to IndexNow. You have nothing to do for this one.
+- **A prerender bug puts invisible NUL bytes (`\0`) into some pages.** Three live pages have them: `/blog/faithwall-vs-lectio-365` (3), `/blog/faithwall-vs-pray-com` (2) and `/blog/free-christian-apps-iphone-comparison` (2). The source JSON is clean. React 18.3.1's server renderer flushes its whole 2048-byte buffer when an em dash doesn't fit at the end, and the unused 1-2 bytes go out as zeros. Browsers drop them, so readers see nothing, but the HTML is malformed and any text edit can move the bug onto another page. The simplest fix is one line in `scripts/prerender.mjs`: strip `\0` from `finalHtml` before `writeFileSync`. Upgrading React would also fix it but is bigger. The merge gate didn't make the change, because it's code, not queue content. Details are in `docs/journal/20-merge-gate-2026-11-04.md`.
+
 ## 2026-11-03 (merge gate: p28 Advent drafts merged — three things to check before sending)
 
 - **The fresh p28 run passed the gate and is on main** (`outreach/advent-2026/`). It has no banned wording: every "free" is "free to download" with the subscription stated, and there's no price, no trial length and no verse packs. Three things in the pitch bodies need a look before you send them:
