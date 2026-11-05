@@ -154,9 +154,11 @@
       "target_url": ".claude/skills/faithwall-blog/SKILL.md",
       "target_keyword": null,
       "cluster": null,
-      "status": "pending",
+      "status": "done",
       "reason": "The daily blog skill still pitches themed packs and 'we pick the verse', which the app does not have and which break the skill's own Product facts rule. Fallback posts are on hold, so nothing is being harmed today, but this must be fixed before they resume. Otherwise a future post can put the false claim back on the site. Open since p51.",
-      "notes": "Edit only .claude/skills/faithwall-blog/SKILL.md. Lines as of 2026-11-02: the mid-post block row ('surface-specific, 144 touches, themed packs'), the 'Curation effort' friction angle, the 'Zero curation' wedge, and the friction-resolution title/description example ('Stop curating verses yourself', 'ships themed packs'). grep for 'themed pack', 'we do', 'curat' first, because line numbers drift. Rewrite to the true product: you choose your own verses, shown as a wallpaper or a rotating lock-screen widget. Keep the Product facts section as it stands and don't weaken it. Touch no site copy, post or data file, so no build or sitemap change is needed. No Apple API needed. Skill edits don't affect the site, so the merge gate only needs the diff to stay inside this one file."
+      "notes": "Edit only .claude/skills/faithwall-blog/SKILL.md. Lines as of 2026-11-02: the mid-post block row ('surface-specific, 144 touches, themed packs'), the 'Curation effort' friction angle, the 'Zero curation' wedge, and the friction-resolution title/description example ('Stop curating verses yourself', 'ships themed packs'). grep for 'themed pack', 'we do', 'curat' first, because line numbers drift. Rewrite to the true product: you choose your own verses, shown as a wallpaper or a rotating lock-screen widget. Keep the Product facts section as it stands and don't weaken it. Touch no site copy, post or data file, so no build or sitemap change is needed. No Apple API needed. Skill edits don't affect the site, so the merge gate only needs the diff to stay inside this one file.",
+      "completed": "2026-11-05",
+      "close_note": "Done in a manual session (website journal 22, branch fix/rotation-facts) together with a sitewide facts fix. The four themed-pack and curation lines now describe search and picking one verse. The wording follows the corrected product facts, not this item's original notes: the wallpaper shows the verse you pick, and the widget starts with it and then rotates random Bible verses, not a set you chose."
     },
     {
       "id": "p60",
