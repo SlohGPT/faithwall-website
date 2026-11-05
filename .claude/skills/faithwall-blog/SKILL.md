@@ -329,3 +329,15 @@ If `src/data/seo-keywords.json` is running low (every keyword has been used), te
 > "The keyword bank is mostly exhausted in cluster X. Want me to generate 5 new long-tail keywords for that cluster first, or pick from another cluster?"
 
 Don't silently invent new keywords without flagging.
+
+## How blocks render on the site
+
+The renderer turns some blocks into pictures, so write them with that in mind.
+
+- **`verse`** becomes a lock-screen figure: a cropped iPhone showing the clock and the verse, with the reference under it and a caption ("Psalm 119:18 as a lock screen"). Keep verses under about 45 words; longer ones shrink until the type gets small. The palette comes from the reference, so the same verse always looks the same.
+- **`stat`** counts become dot fields: a whole number from 10 to 400 (for example `144`, or `66 days`) draws one dot per unit, and a percentage draws a ring. Only use a count when one dot per unit is honest. Ranges, scores, money and "1 billion+" stay as plain numbers. Always give the stat a `number` (or `value`) and a `label`; a stat without a number renders nothing.
+- **`steps`** are drawn as a numbered rail, so use them only for real sequences, never for a list of options.
+- **`tip` and `important`** get a sentence-case label ("Tip", "Important") and a small icon. `callout` and `highlight` keep their own title and no label.
+- **Contents box:** a post with 4 or more H2s gets a closed "On this page" box before the first H2, built from the H2 texts. Write H2s that read well as a list, and keep them unique within the post.
+- **Yes/No table cells** that start with "Yes" or "No" get a check or a cross before the text.
+- **Illustration:** the renderer places a post illustration before the second H2 (before the first when there are fewer than three). Nothing to write for it.
