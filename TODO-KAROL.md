@@ -2,6 +2,14 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-05 (manual session: visuals for long posts, a wrong product claim fixed)
+
+- **Optional, your call: two titles say "rotates".** "Daily Scripture Wallpaper iPhone: The Setup That Rotates Without You" and "Rotating Bible Verse Wallpaper iPhone: The Setup That Beats Static". The widget does rotate verses on its own, so they aren't false, and they rank on those words, so they stay unless you want them changed. Their body text now says what rotates.
+- **Done, nothing for you to do:**
+  - Long posts now have pictures: verses drawn as lock screens, stats as dot grids and rings, numbered steps, an "On this page" box and one small vector illustration per post in the brand colours.
+  - The site said the widget rotates through the verses the user chose. The app doesn't do that: the wallpaper is one verse you pick, and the widget starts with it and then shows random verses. Fixed in 42 files and in the blog skill. The hub and the money page follow on 11-10 (queue p61), after the 11-09 measurement.
+  - Two posts called FaithWall plainly "free", and one said "no account required". Both now say "free to download, with a subscription".
+
 ## 2026-11-04 evening (manual session: fixes landed, two decisions settled)
 
 - **Still yours: send the five Tier-1 pitches.** They are the off-site work the autopilot can't do. Send the Advent follow-ups after them, by **11-16**. Every Advent draft opens "I wrote to you recently", so its Tier-1 pitch has to go first. Nothing else on this list needs you.

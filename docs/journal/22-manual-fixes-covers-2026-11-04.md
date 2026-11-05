@@ -49,3 +49,53 @@ Session type: manual, from Karol's karchi workspace. It started as a read-only A
 - Karol: send the Tier-1 pitches, then the Advent follow-ups by 11-16.
 - p60 runs from 11-10.
 - The Cloudflare AI-crawler block is unchanged and still flagged.
+
+## Update 2026-11-05: a visual system for long articles, spot illustrations, and a sitewide product-fact fix
+
+### What was asked
+
+"If it's the text colors or if it lacks some, let's say, 2D vector designs, because the text is way too long and it is becoming unreadable, like people need some visual side to it as well, then build a vector system, design something really cool, some illustrations or whatever." Karol left the rest to this session: "whatever you need to do, you do right now."
+
+### What was found
+
+- Long posts were walls of text. Verses, stats, steps and tips were all drawn as the same tinted box, so nothing stood out, and desktop lines ran long.
+- **A false product claim ran across the site.** About 40 posts, the blog skill and the pillars said the lock-screen widget "rotates through the verses you choose". The app source says otherwise. The wallpaper is one verse the user picks, applied by an Apple Shortcut, and it stays until they pick another. The optional widget rotation (hourly, every 8 hours or daily) starts with that verse and then shows random Bible verses in the user's translation.
+- Two posts called FaithWall plainly "free", and one still had "no account required". The blog skill bans both.
+- One stat block (the 144 daily pickups in `daily-scripture-wallpaper-iphone`) had no value or label, so it had never rendered.
+
+### What was decided
+
+- **Visuals come from the renderer, not from rewriting posts.** Every existing block type gets its own picture, so all posts improve at once and no post text changes for the visual part. Rejected: hand-adding images to each post. That is slow, it touches text inside the measurement window, and it leaves future autopilot posts plain.
+- **Spot illustrations are inline SVG built from one small kit** (phone, widget card, rings, sparks) in the brand colours, one scene per post picked from its slug and title. Rejected: AI-generated raster art. It would be heavier, inconsistent from post to post, and off-brand.
+- **The hub and the money page are held back until the 11-09 refresh.** The hub keeps its old layout through a frozen copy of the old renderer, so its HTML is unchanged. Its rotation sentences and the money page's are queued as **p61** (from 11-10), together with removing the freeze.
+- **Titles that say "rotates" stay as they are.** "Daily Scripture Wallpaper iPhone: The Setup That Rotates Without You" and "Rotating Bible Verse Wallpaper iPhone: The Setup That Beats Static" rank on those words. The widget does rotate on its own, so the titles aren't false; their body text now says what rotates. Renaming them is Karol's call (TODO-KAROL).
+- p59 (blog skill accuracy) is closed. The facts fix rewrote the same skill lines, more correctly.
+
+### What was built
+
+Built by three subagents in separate worktrees, reviewed and merged here:
+
+- `ecd3d24`, the visual layer:
+  - Verse blocks render as a phone lock screen (a serif face, the reference in the brand colour), captioned "X as a lock screen".
+  - Stats render as pictures: a grid of dots for counts such as 144 pickups, a ring for percentages, and a plain large number otherwise.
+  - Steps sit on a numbered rail, and tips and warnings are quieter.
+  - Pages with four or more H2s get an "On this page" box.
+  - Comparison yes/no cells get glyphs, and text is capped at about 34rem so a desktop line is roughly 50 to 64 characters.
+- `38f3303`: the blog skill now says how each block renders, so new posts use them on purpose.
+- `6280312`: 13 spot-illustration scenes: lock screen, morning, evening, reminders, widget, study, focus, compare, comfort, design, shared, plans and audio. A picker matches each post to a scene, and `scripts/render-illustrations.mjs` draws a contact sheet. The illustration sits before the second H2 (before the first H2 on short posts) and is hidden from screen readers.
+- `4340ae9`: the rotation fact is corrected in 42 files (posts, pillars, the blog skill), with `dateModified` set to 11-05 and the sitemap regenerated.
+- `cb5f109`, `fdb6078`: no bare "free" and no "no account" claim; p59 closed.
+- `b7c9d32`: the empty 144-pickups stat now has a value, a label and a source, plus one line after it.
+- Queue item **p61** and this update.
+
+### How it was verified
+
+- Merged main: build "57 succeeded, 0 failed", typecheck at the 7-error baseline, zero NUL bytes in all 57 HTML files.
+- All 40 posts except the hub carry an illustration in the prerendered HTML. The hub's visible text is identical to the live page before the push.
+- Headless Chrome at 390 and 1280 px: no horizontal overflow, and the illustration, verse figure, step rail and dot stat render as intended.
+- Live after the push: three sample posts show the illustration and the verse figure, the hub shows neither, and there are zero NUL bytes. A live phone capture of the anxiety post shows its candle scene and the Philippians lock screen.
+
+### What is still open
+
+- p61 from 11-10: the hub gets the new layout, and the hub and money page stop saying the widget rotates the user's verses.
+- Karol: optionally rename the two "rotates" titles (TODO-KAROL, 2026-11-05).
