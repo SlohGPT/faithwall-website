@@ -1,0 +1,251 @@
+/**
+ * FROZEN COPY of the article renderer as it was before the visual layer.
+ * Only the slugs in LEGACY_LAYOUT_SLUGS (BlogRenderer.tsx) use it, so a page under
+ * ranking measurement keeps byte-identical markup. Do not edit. Delete this file
+ * with queue item p61 (from 2026-11-10).
+ */
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Link } from 'react-router-dom';
+import { Zap, Lightbulb, BookOpen, AlertCircle, Sparkles } from 'lucide-react';
+import AppStoreButton from './AppStoreButton';
+import { appStoreUrl } from '../lib/appStore';
+import type { BlogSection } from '../types/blog';
+
+const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  zap: Zap,
+  lightbulb: Lightbulb,
+  book: BookOpen,
+  alert: AlertCircle,
+  sparkles: Sparkles,
+};
+
+/** Tag any App Store link in content with the page's campaign token (no-op while the token is empty). */
+function tagAppStoreHref(href: string, campaign: string): string {
+  return href.includes('id6756815070') ? appStoreUrl(campaign) : href;
+}
+
+function Markdown({ text, campaign }: { text: string; campaign: string }) {
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        a: ({ href: rawHref = '', children }) => {
+          const href = tagAppStoreHref(rawHref, campaign);
+          const isInternal = href.startsWith('/') || href.startsWith('https://faithwall.app');
+          const internalPath = isInternal
+            ? href.replace(/^https:\/\/faithwall\.app/, '')
+            : href;
+          if (isInternal) {
+            return (
+              <Link to={internalPath} className="text-brand-light hover:text-white underline underline-offset-2">
+                {children}
+              </Link>
+            );
+          }
+          return (
+            <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand-light hover:text-white underline underline-offset-2">
+              {children}
+            </a>
+          );
+        },
+        strong: ({ children }) => <strong className="font-bold text-white">{children}</strong>,
+        p: ({ children }) => <p className="text-white/80 leading-[1.7] md:leading-relaxed">{children}</p>,
+        // Wide GFM tables scroll inside their own container instead of being clipped by the page.
+        table: ({ children }) => (
+          <div
+            className="my-2 overflow-x-auto overscroll-x-contain rounded-xl border border-white/10"
+            role="region"
+            aria-label="Comparison table, scrolls sideways"
+            tabIndex={0}
+          >
+            <table className="w-full min-w-[32rem] md:min-w-0 border-collapse text-left text-base leading-relaxed">{children}</table>
+          </div>
+        ),
+        thead: ({ children }) => <thead className="bg-surface-card">{children}</thead>,
+        th: ({ children }) => <th className="px-4 py-3 font-bold text-white align-top">{children}</th>,
+        td: ({ children }) => <td className="px-4 py-3 border-t border-white/10 align-top">{children}</td>,
+      }}
+    >
+      {text}
+    </ReactMarkdown>
+  );
+}
+
+export default function BlogRendererLegacy({ sections, campaign }: { sections: BlogSection[]; campaign: string }) {
+  return (
+    <div className="space-y-7 md:space-y-6">
+      {sections.map((section, i) => {
+        switch (section.type) {
+          case 'heading': {
+            const Tag = section.level === 2 ? 'h2' : 'h3';
+            // space-y-* outranks plain mt-*; the !important margin gives headings real room above on phones.
+            const size = section.level === 2 ? 'text-2xl md:text-3xl mt-10 max-md:!mt-14' : 'text-xl md:text-2xl mt-6 max-md:!mt-10';
+            return (
+              <Tag key={i} className={`${size} font-bold text-white tracking-tight`}>
+                {section.text}
+              </Tag>
+            );
+          }
+
+          case 'paragraph':
+            return (
+              <div key={i} className="text-white/80 leading-[1.7] md:leading-relaxed text-lg">
+                <Markdown campaign={campaign} text={section.text} />
+              </div>
+            );
+
+          case 'callout': {
+            const Icon = ICONS[section.icon || 'sparkles'] || Sparkles;
+            return (
+              <div key={i} className="my-8 p-6 rounded-2xl bg-brand/10 border border-brand/30 flex gap-4">
+                <Icon className="w-6 h-6 text-brand shrink-0 mt-1" />
+                <div className="flex-1">
+                  {section.title && (
+                    <p className="font-bold text-white text-lg mb-2">{section.title}</p>
+                  )}
+                  <div className="text-white/85 text-[17px] md:text-base"><Markdown campaign={campaign} text={section.content} /></div>
+                </div>
+              </div>
+            );
+          }
+
+          case 'tip':
+            return (
+              <div key={i} className="my-6 p-5 rounded-xl bg-surface-card border-l-4 border-brand">
+                <p className="text-xs uppercase tracking-widest text-brand font-bold mb-2">Tip</p>
+                <div className="text-white/85 text-[17px] md:text-base"><Markdown campaign={campaign} text={section.content} /></div>
+              </div>
+            );
+
+          case 'highlight':
+            return (
+              <div key={i} className="my-6 p-5 rounded-xl bg-gradient-to-br from-brand/15 to-brand-dark/10 border border-brand/20">
+                <div className="text-white/90 text-[17px] md:text-base"><Markdown campaign={campaign} text={section.content} /></div>
+              </div>
+            );
+
+          case 'important':
+            return (
+              <div key={i} className="my-6 p-5 rounded-xl bg-surface-card border-l-4 border-yellow-500/70">
+                <p className="text-xs uppercase tracking-widest text-yellow-400 font-bold mb-2">Important</p>
+                <div className="text-white/85 text-[17px] md:text-base"><Markdown campaign={campaign} text={section.content} /></div>
+              </div>
+            );
+
+          case 'stat':
+            return (
+              <div key={i} className="my-6 p-6 rounded-2xl bg-surface-card border border-surface-border text-center">
+                {/* Older posts use value/context; newer ones use number/description. */}
+                <p className="text-4xl md:text-5xl font-black text-brand">{section.number ?? section.value}</p>
+                <p className="text-white font-semibold mt-2">{section.label}</p>
+                {(section.description ?? section.context) && (
+                  <p className="text-white/60 text-sm mt-2">{section.description ?? section.context}</p>
+                )}
+              </div>
+            );
+
+          case 'steps':
+            return (
+              <ol key={i} className="my-4 space-y-4 md:space-y-3 list-none pl-0 counter-reset-steps">
+                {section.items.map((item, idx) => (
+                  <li key={idx} className="flex gap-4 items-start">
+                    <span className="shrink-0 w-8 h-8 rounded-full bg-brand text-white font-bold flex items-center justify-center text-sm">
+                      {idx + 1}
+                    </span>
+                    <div className="text-white/85 leading-[1.7] md:leading-relaxed text-[17px] md:text-base pt-0.5 md:pt-1 flex-1">
+                      <Markdown campaign={campaign} text={item} />
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            );
+
+          case 'list':
+            return (
+              <ul key={i} className="my-4 space-y-3 md:space-y-2 list-disc list-outside pl-6 marker:text-brand">
+                {section.items.map((item, idx) => (
+                  <li key={idx} className="text-white/85 leading-[1.7] md:leading-relaxed text-[17px] md:text-base pl-1">
+                    <Markdown campaign={campaign} text={item} />
+                  </li>
+                ))}
+              </ul>
+            );
+
+          case 'ranked-list':
+            return (
+              <ol key={i} className="my-4 space-y-4 list-none pl-0">
+                {section.items.map((item, idx) => (
+                  <li key={idx} className="flex gap-4 items-start p-4 rounded-xl bg-surface-card border border-surface-border">
+                    <span className="shrink-0 w-8 h-8 rounded-full bg-brand text-white font-bold flex items-center justify-center text-sm">
+                      {idx + 1}
+                    </span>
+                    <div className="flex-1">
+                      <p className="font-bold text-white text-[17px] md:text-base">{item.name}</p>
+                      <div className="text-white/80 leading-[1.7] md:leading-relaxed text-[17px] md:text-base mt-1">
+                        <Markdown campaign={campaign} text={item.description} />
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            );
+
+          case 'verse':
+            return (
+              <blockquote key={i} className="my-8 p-6 rounded-2xl bg-surface-card border-l-4 border-brand/60 italic">
+                <p className="text-white text-xl md:text-2xl leading-relaxed font-serif">
+                  "{section.text}"
+                </p>
+                <footer className="mt-3 text-brand/90 text-sm font-semibold not-italic tracking-wide">
+                  — {section.reference}
+                </footer>
+              </blockquote>
+            );
+
+          case 'image':
+            return (
+              <figure key={i} className="my-8">
+                <img
+                  src={section.src}
+                  alt={section.alt}
+                  width={section.width}
+                  height={section.height}
+                  loading="lazy"
+                  decoding="async"
+                  className={`mx-auto h-auto rounded-2xl border border-white/10 ${section.height > section.width ? 'max-w-[280px] w-full' : 'w-full'}`}
+                />
+                {(section.caption || section.href) && (
+                  <figcaption className="mt-3 text-center text-white/60 text-sm">
+                    {section.caption}
+                    {section.href && (
+                      <>
+                        {section.caption ? ' · ' : ''}
+                        <a href={section.href} className="text-brand hover:underline">
+                          {section.linkText ?? 'Download'}
+                        </a>
+                      </>
+                    )}
+                  </figcaption>
+                )}
+              </figure>
+            );
+
+          case 'cta':
+            return (
+              <div key={i} className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center">
+                <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{section.title}</h3>
+                <p className="text-white/80 mb-6 max-w-xl mx-auto">{section.description}</p>
+                <div className="flex justify-center">
+                  <AppStoreButton href={tagAppStoreHref(section.buttonUrl, campaign)} theme="light" />
+                </div>
+              </div>
+            );
+
+          default:
+            return null;
+        }
+      })}
+    </div>
+  );
+}

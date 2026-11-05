@@ -52,6 +52,25 @@
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+/* Gelasio (OFL), the serif the lock-screen covers use. Latin subset of scripts/fonts. Only fetched on pages that show a verse figure. */
+@font-face {
+  font-family: 'Gelasio';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/gelasio-regular-latin.woff2') format('woff2');
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0152-0153, U+2010-2015, U+2018-201F, U+2026, U+2212;
+}
+
+@font-face {
+  font-family: 'Gelasio';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/gelasio-italic-latin.woff2') format('woff2');
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0152-0153, U+2010-2015, U+2018-201F, U+2026, U+2212;
+}
+
 @layer base {
   html {
     /* Hash-target offset: fixed navigation is ~76px tall, give breathing room
@@ -70,6 +89,87 @@
 }
 
 @layer components {
+  /* Lock-screen verse figure. Sizes are design units of the covers' 860px-wide
+     phone (script: scripts/build-blog-thumbnails.mjs); --u is one unit. */
+  .lockfig {
+    --w: 260px;
+    --u: calc(var(--w) / 860);
+    margin: 2.5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    /* Centred over the text column (same 34rem measure as the paragraphs). */
+    .lockfig { --w: 290px; width: 100%; max-width: 34rem; margin-left: 0; margin-right: auto; }
+  }
+  .lockfig-phone {
+    box-sizing: border-box;
+    width: var(--w);
+    padding: calc(var(--u) * 16) calc(var(--u) * 16) 0;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-bottom: 0;
+    border-radius: calc(var(--u) * 124) calc(var(--u) * 124) 0 0;
+    background: linear-gradient(160deg, #3a3a44, #121217 40%, #26262e);
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - var(--u) * 260), transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - var(--u) * 260), transparent 100%);
+  }
+  .lockfig-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: calc(var(--u) * 300);
+    border-radius: calc(var(--u) * 108) calc(var(--u) * 108) 0 0;
+    overflow: hidden;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    text-align: center;
+  }
+  .lockfig-island {
+    margin-top: calc(var(--u) * 26);
+    width: calc(var(--u) * 210);
+    height: calc(var(--u) * 62);
+    border-radius: 9999px;
+    background: #000;
+  }
+  .lockfig-date {
+    margin-top: calc(var(--u) * 40);
+    font-size: calc(var(--u) * 40);
+    font-weight: 500;
+    line-height: 1;
+    opacity: 0.85;
+  }
+  .lockfig-date::before { content: 'Tuesday, March 10'; }
+  .lockfig-time {
+    font-size: calc(var(--u) * 232);
+    font-weight: 700;
+    letter-spacing: calc(var(--u) * -6);
+    line-height: 1;
+    margin-top: calc(var(--u) * 12);
+  }
+  .lockfig-time::before { content: '9:41'; }
+  .lockfig-verse {
+    margin: calc(var(--u) * 56) 0 0;
+    padding: 0 calc(var(--u) * 62);
+  }
+  .lockfig-verse p {
+    margin: 0;
+    line-height: 1.28;
+    text-wrap: balance;
+  }
+  .lockfig-ref {
+    display: block;
+    margin-top: calc(var(--u) * 30);
+    font-size: calc(var(--u) * 44);
+    font-style: normal;
+    font-weight: 700;
+  }
+  .lockfig-caption {
+    margin-top: 0.25rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
   .container-main {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 overflow-hidden;
   }
