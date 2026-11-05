@@ -4,7 +4,7 @@
     "description": "How to set prayer alarms iphone — the three-alarm setup, the Focus mode pairing, and the small tweaks that stop you swiping past them by week two.",
     "date": "May 29, 2026",
     "datePublished": "2026-05-29T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/psalm-55-17-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Psalm 55:17 (KJV)",
@@ -125,7 +125,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Manually swapping wallpapers each day is a habit that dies fastest. FaithWall helps by rotating through the verses you chose — gratitude at 7am, confession at noon, examen-ready Psalms at 9pm — each on its own lock screen that you pair with that Focus. The alarm sound stays the same; the Scripture behind it doesn't. That's the difference between a prayer rhythm that compounds and one that decays."
+      "text": "Manually swapping wallpapers each day is a habit that dies fastest. FaithWall helps because you pick a verse for each moment — gratitude at 7am, confession at noon, examen-ready Psalms at 9pm — each on its own lock screen that you pair with that Focus. The alarm sound stays the same; the Scripture behind it doesn't. That's the difference between a prayer rhythm that compounds and one that decays."
     },
     {
       "type": "paragraph",
@@ -183,7 +183,7 @@
     {
       "type": "cta",
       "title": "Skip the wallpaper setup — let FaithWall do it",
-      "description": "Free to download. Puts the verses you choose on your lock screen — gratitude for morning, confession for midday, Psalms for evening — as a wallpaper applied with an Apple Shortcut or a rotating widget. No screenshots, no manual rotation.",
+      "description": "Free to download. Puts the verse you choose on your lock screen — gratitude for morning, confession for midday, Psalms for evening — as a wallpaper applied with an Apple Shortcut, or adds a widget that rotates fresh verses. No screenshots to crop.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

@@ -15,7 +15,7 @@ Since app v2.3 (live 2026-08-26) FaithWall has a hard paywall. A subscription is
 - **Never describe FaithWall as free. "Free to download" is the only allowed phrasing.** No "free app", "free tier", "free version", "completely free", "no paywall", "no cost", "costs nothing". In comparison tables use "Free download + subscription".
 - **Never state a price or the trial length.** Say the App Store shows them before paying.
 - The user picks their own verses (by book/chapter/verse or search, 24 translations). Never say it picks verses for you.
-- Two ways to show them, chosen after subscribing: (1) a full-screen lock-screen wallpaper applied by an Apple Shortcut, or (2) a compact lock-screen widget that rotates saved verses every hour, 8 hours or day.
+- Two ways to show them, chosen after subscribing: (1) a full-screen lock-screen wallpaper applied by an Apple Shortcut, or (2) a compact lock-screen widget that rotates verses every hour, 8 hours or day. The wallpaper shows the one verse the user picked and changes only when they pick a new verse; it does not rotate. The widget starts with the user's chosen verse, then shows random Bible verses from their translation (a queue of about 90, so no repeats for roughly 90 days at the daily setting). The user does not pick the rotating verses, and there are no verse sets, packs, themes or categories.
 - It is not a Bible reader. The app UI is in 10 languages.
 - Never mention "Focus modes" as the mechanism. Never claim "no account required", "verse packs", or that verses "stay on-device" (unverified).
 - Statements that OTHER apps are free, that the website's tools are free, or that KJV is public domain are fine.
@@ -89,7 +89,7 @@ Don't repeat the app name in every section. **Front-load** it — hard recommend
 | **First paragraph** | Second mention within the first 80 words. Tie the reader's pain to FaithWall: "You already tried X — FaithWall handles Y." |
 | **First H2** | FaithWall-forward for setup/native keywords (e.g. "The 60-second FaithWall setup"). For how-to posts, the first H2 can be educational, but the **second H2** must be FaithWall setup. |
 | **Steps block** | **Step 1 is always "Download FaithWall."** No DIY steps, no competitor walkthroughs, no "save to Photos" before the app. |
-| **Mid-post `important` or `highlight`** | One block stating the product wedge in plain language (surface-specific, 144 touches, themed packs — pick one). |
+| **Mid-post `important` or `highlight`** | One block stating the product wedge in plain language (surface-specific, 144 touches, the verse you choose — pick one). |
 | **"Where this gets hard"** | DIY fails → FaithWall named as the fix in the same section. Don't describe the problem without naming the solution. |
 
 ##### Mention budget by intent (total body mentions; CTA is separate)
@@ -110,8 +110,8 @@ Keep the count modest. Make every mention count by placing it early.
 
 Every post must include a friction-reveal section (any heading you like — "Where this gets hard", "The part nobody tells you", "Why DIY breaks down"). 1–2 paragraphs explaining what trips up the reader if they try to do it without FaithWall:
 
-- **Curation effort.** Picking the right verse for today's mood requires you to know the Bible well already. FaithWall solves the chicken-and-egg problem with themed packs (Anxiety, Strength, Gratitude, Grief).
-- **Rotation breaks by week 2.** Manual wallpaper changing is a habit that dies. FaithWall rotates automatically through your chosen pack.
+- **Curation effort.** Picking the right verse for today's mood requires you to know the Bible well already. FaithWall removes the daily choosing: search helps the user find one verse for the season (anxiety, strength, gratitude, grief), and the widget brings fresh verses after it.
+- **Rotation breaks by week 2.** Manual wallpaper changing is a habit that dies. FaithWall's widget rotates automatically, starting with the user's verse and then random Bible verses; the wallpaper stays until they pick a new verse.
 - **Lock-screen images look ugly.** A YouVersion screenshot saved as a wallpaper is not designed for the lock-screen surface. FaithWall designs *for* that surface specifically.
 - **Manual image-saving.** Most apps generate an image you save manually. FaithWall applies the wallpaper through an Apple Shortcut, or shows a lock-screen widget instead (see Product facts).
 - **Spiritual diet vs random verses.** Random verse-of-the-day apps surface unrelated verses. FaithWall lets you pick a season's theme and stays cohesive.
@@ -124,7 +124,7 @@ FaithWall isn't "another Bible app" — its product wedge is specific. Use the f
 
 - **Surface specificity:** "The only app designed for the iPhone lock-screen surface, not adapted to it."
 - **The 144 problem:** "You check your phone 144 times a day. FaithWall makes Scripture one of those touches without you opening anything."
-- **Zero curation:** "Themed packs picked for seasons of life. You don't have to know which verse you need — we do."
+- **Zero curation:** "Search finds a verse for the season you're in. You don't have to know where it lives."
 - **iOS-native:** "Wallpaper applied by an Apple Shortcut, or a rotating lock-screen widget. See Product facts."
 - **The piece every stack is missing:** "YouVersion is for reading. Dwell is for listening. FaithWall is for *seeing* — the daily-exposure piece."
 
@@ -133,8 +133,8 @@ FaithWall isn't "another Bible app" — its product wedge is specific. Use the f
 The final CTA block matters. Vary the title + description by post type. Examples:
 
 - **High-intent post:** title `"Get FaithWall — free to download, 60 seconds"` / description `"The piece every Bible study stack is missing: daily Scripture on the lock screen you already check 144 times a day."`
-- **How-to post:** title `"Skip the setup — let FaithWall do it"` / description `"Free to download. Puts your chosen verses on the lock screen as a wallpaper or widget. No screenshots, no manual wallpaper swapping."`
-- **Friction-resolution post:** title `"Stop curating verses yourself"` / description `"FaithWall ships themed packs picked for seasons of life — Anxiety, Strength, Gratitude. Pick one, install in 60 seconds."`
+- **How-to post:** title `"Skip the setup — let FaithWall do it"` / description `"Free to download. Puts your chosen verse on the lock screen as a wallpaper, with a widget that rotates fresh verses. No screenshots to crop."`
+- **Friction-resolution post:** title `"Stop curating verses yourself"` / description `"Search for the season you're in — anxiety, strength, gratitude — pick a verse, install in 60 seconds."`
 
 Never use a generic "Download FaithWall" title alone.
 

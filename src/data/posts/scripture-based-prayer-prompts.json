@@ -4,6 +4,7 @@
     "description": "Scripture-based prayer prompts for praise, thanks, confession, requests and intercession: 12 KJV verses, a three-question method and a lock-screen setup.",
     "date": "October 10, 2026",
     "datePublished": "2026-10-10T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/matthew-6-9-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Matthew 6:9 (KJV)",
@@ -22,7 +23,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "FaithWall is the easiest way to keep scripture-based prayer prompts where you'll actually use them: you choose the verses, and it puts them on your iPhone lock screen as a wallpaper or as a widget that rotates on its own. The 12 prompts below each pair one verse with one question. The verse gives you the words, and the question tells you where to take them."
+      "content": "FaithWall is the easiest way to keep scripture-based prayer prompts where you'll actually use them: you choose a verse, and it puts it on your iPhone lock screen as a wallpaper, or starts a widget that rotates fresh verses on its own. The 12 prompts below each pair one verse with one question. The verse gives you the words, and the question tells you where to take them."
     },
     {
       "type": "paragraph",
@@ -62,13 +63,13 @@
     },
     {
       "type": "paragraph",
-      "text": "Save the verses you want to pray from in FaithWall, then show them as a full-screen wallpaper or as a lock-screen widget. For prompts, the widget is the better fit. It rotates through your saved verses on a timer, so each glance at your phone can bring a different starting point without you changing anything."
+      "text": "Pick the verse you want to pray from in FaithWall, then show it as a full-screen wallpaper or as a lock-screen widget. For prompts, the widget is the better fit. It starts with your verse and then rotates random Bible verses on a timer, so each glance at your phone can bring a different starting point without you changing anything."
     },
     {
       "type": "steps",
       "items": [
         "Download **FaithWall** from the App Store. It's free to download, a subscription unlocks it, and the App Store shows the price before you pay.",
-        "Search or browse to the verses below, or your own, and save them. You choose every verse, in any of 24 translations.",
+        "Search or browse to one of the verses below, or your own, and pick it. You choose the starting verse, in any of 24 translations.",
         "Pick the lock-screen widget and set it to rotate every hour, every 8 hours or once a day.",
         "Press and hold your lock screen, tap **Customize**, choose the lock screen, then tap the widget row under the clock and pick the app's widget."
       ]
@@ -93,7 +94,7 @@
     },
     {
       "type": "paragraph",
-      "text": "These follow the movements most churchgoers already use. Lifeway's same survey found that 80% thank God and 62% praise him during their time alone with him, while 49% confess sins. Each prompt below is one KJV verse and one line to pray from it. Save the verses and keep the lines in your head."
+      "text": "These follow the movements most churchgoers already use. Lifeway's same survey found that 80% thank God and 62% praise him during their time alone with him, while 49% confess sins. Each prompt below is one KJV verse and one line to pray from it. Pick a verse and keep the lines in your head."
     },
     {
       "type": "heading",
@@ -178,11 +179,11 @@
     },
     {
       "type": "paragraph",
-      "text": "The prompts aren't the hard part. Keeping them in front of you is. Most people who try **Scripture-based prayer prompts** write them on an index card or in the Notes app, use them for a week, and then the card ends up in a drawer. Rotation dies next. You meant to move to a new verse every few days, and by week two you've looked at the same one so long that your eyes skip it. FaithWall handles both problems. The verses sit on the lock screen instead of behind an app icon, and the widget moves to your next saved verse on its timer, so the prompt changes before you stop seeing it."
+      "text": "The prompts aren't the hard part. Keeping them in front of you is. Most people who try **Scripture-based prayer prompts** write them on an index card or in the Notes app, use them for a week, and then the card ends up in a drawer. Rotation dies next. You meant to move to a new verse every few days, and by week two you've looked at the same one so long that your eyes skip it. FaithWall handles both problems. The verses sit on the lock screen instead of behind an app icon, and the widget moves to a new verse on its timer, so the prompt changes before you stop seeing it."
     },
     {
       "type": "important",
-      "content": "**The lock screen shows the verse, not the question.** The app displays the verses you saved. It doesn't write prompts or choose verses for you, which is why the three questions above matter: they work on whichever verse comes up."
+      "content": "**The lock screen shows the verse, not the question.** The app displays the verse you picked, and its widget then brings random Bible verses. It doesn't write prompts, which is why the three questions above matter: they work on whichever verse comes up."
     },
     {
       "type": "heading",
@@ -205,7 +206,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Start with six to twelve. With fewer than six you'll memorize the rotation within a week. With more than twelve, each verse comes round too rarely to sink in. At an 8-hour rotation, twelve saved verses means each one comes up about every four days."
+      "text": "You don't choose the rest. Your pick is the first verse, and after it the widget works through a queue of about 90 random Bible verses, so you won't see a repeat for roughly 90 days at the daily setting. Run the three questions on whichever verse comes up. If you want one prompt to stay put, use the wallpaper, which stays on your verse until you pick another."
     },
     {
       "type": "heading",
@@ -219,7 +220,7 @@
     {
       "type": "cta",
       "title": "Pray from the verse you already see",
-      "description": "Choose the verses for your prompts, and FaithWall rotates them on your lock screen as a widget or shows one as a wallpaper. Free to download; a subscription unlocks it.",
+      "description": "Pick the verse for your prompt, and FaithWall shows it as a wallpaper, or starts a widget that rotates fresh verses on your lock screen. Free to download; a subscription unlocks it.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

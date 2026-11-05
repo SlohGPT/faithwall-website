@@ -4,7 +4,7 @@
     "description": "We ranked the best Christian apps for iPhone in 2026 — free picks first — plus the three-app stack that covers reading, prayer, and daily Scripture.",
     "date": "May 22, 2026",
     "datePublished": "2026-05-22T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/deuteronomy-6-6-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Deuteronomy 6:6 (KJV)",
@@ -40,7 +40,7 @@
       "items": [
         {
           "name": "FaithWall — the daily-exposure layer",
-          "description": "Free to download; a subscription unlocks it. Puts the verses you choose on your lock screen, as a wallpaper or a rotating widget — the only app on this list that shows up without you opening anything. Ranked first because it's our app and this is the job it owns."
+          "description": "Free to download; a subscription unlocks it. Puts the verse you choose on your lock screen as a wallpaper, or adds a widget that rotates fresh verses — the only app on this list that shows up without you opening anything. Ranked first because it's our app and this is the job it owns."
         },
         {
           "name": "YouVersion — best free reading app",
@@ -102,7 +102,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**This is the gap FaithWall fills, and why it belongs in every stack.** It's the only app built for the iPhone lock-screen surface itself — not a screenshot you save, but a designed verse applied through an Apple Shortcut, or a lock-screen widget that cycles through your chosen verses. You pick your verses once (by book, chapter and verse, or by search) and Scripture shows up across your day without a single tap. Reading apps are for sit-down study. FaithWall is for the other 143 phone-checks."
+      "text": "**This is the gap FaithWall fills, and why it belongs in every stack.** It's the only app built for the iPhone lock-screen surface itself — not a screenshot you save, but a designed verse applied through an Apple Shortcut, or a lock-screen widget that starts with your chosen verse and then rotates random Bible verses. You pick your verse (by book, chapter and verse, or by search) and Scripture shows up across your day without a single tap. Reading apps are for sit-down study. FaithWall is for the other 143 phone-checks."
     },
     {
       "type": "verse",
@@ -123,7 +123,7 @@
       "items": [
         "**Reading:** YouVersion (free). Pick a plan, read 5–10 minutes each morning.",
         "**Prayer:** Hallow or Lectio 365. One guided session, morning or night.",
-        "**Seeing:** FaithWall. Your chosen verses on the lock screen, for the season you're in. Install once, runs itself."
+        "**Seeing:** FaithWall. Your chosen verse on the lock screen for the season you're in, and a widget that brings a fresh one. Install once, runs itself."
       ]
     },
     {
@@ -191,7 +191,7 @@
     {
       "type": "cta",
       "title": "Add the layer your stack is missing",
-      "description": "FaithWall puts daily Scripture on the lock screen you already check 144 times a day. Verses you choose, a rotating lock-screen widget, Shortcuts-based wallpaper. 60-second setup.",
+      "description": "FaithWall puts daily Scripture on the lock screen you already check 144 times a day. Your chosen verse, a lock-screen widget that rotates fresh verses, Shortcuts-based wallpaper. 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

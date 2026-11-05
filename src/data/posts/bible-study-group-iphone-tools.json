@@ -4,6 +4,7 @@
     "description": "Bible study group iPhone tools that hold up between meetings: YouVersion for shared reading, Church Center for logistics, FaithWall for the week's verse.",
     "date": "October 19, 2026",
     "datePublished": "2026-10-19T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/matthew-18-20-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Matthew 18:20 (KJV)",
@@ -60,7 +61,7 @@
         "**Download FaithWall.** It's free to download; using it requires a subscription, and the App Store shows the price before you pay.",
         "Find the reference the leader posted. Search by book, chapter and verse in any of the 24 translations, so a group that reads different translations still carries the same verse.",
         "Choose how it shows: a full-screen wallpaper applied through an Apple Shortcut, or a compact lock-screen widget.",
-        "Keep earlier weeks' verses saved. The widget rotates through your saved verses every hour, every 8 hours or once a day, so a whole term of memory verses keeps coming back around."
+        "Pick a new verse each week. The wallpaper stays on the current one until you change it, and the widget starts with your verse and then rotates random Bible verses every hour, every 8 hours or once a day."
       ]
     },
     {

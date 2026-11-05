@@ -4,7 +4,7 @@
     "description": "A one year bible plan iphone setup that actually finishes — which plan to pick, the ~15-minute daily math, and how to keep the next reading impossible to forget.",
     "date": "June 19, 2026",
     "datePublished": "2026-06-19T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/psalm-119-160-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Psalm 119:160 (KJV)",
@@ -88,7 +88,7 @@
     },
     {
       "type": "paragraph",
-      "text": "This is the gap **FaithWall** closes. It isn't the reading plan — it's the part that keeps the plan in front of you. You pick a verse from today's passage, and it sits on your lock screen, as a wallpaper (applied with an Apple Shortcut) or in a rotating widget. You don't open an app to be reminded; the reminder is already there, 144 times a day. The reading happens once. The staying-with-it happens every time you glance down."
+      "text": "This is the gap **FaithWall** closes. It isn't the reading plan — it's the part that keeps the plan in front of you. You pick a verse from today's passage, and it sits on your lock screen as a wallpaper (applied with an Apple Shortcut); the widget starts with it and then rotates random Bible verses. You don't open an app to be reminded; the reminder is already there, 144 times a day. The reading happens once. The staying-with-it happens every time you glance down."
     },
     {
       "type": "important",

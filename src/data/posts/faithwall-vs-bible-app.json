@@ -4,7 +4,7 @@
     "description": "FaithWall vs Bible App (YouVersion) — one is where you go to read, the other puts today's verse on your lock screen automatically. Which to pick, and why both fit.",
     "date": "June 20, 2026",
     "datePublished": "2026-06-20T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/psalm-107-20-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Psalm 107:20 (KJV)",
@@ -29,7 +29,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The Bible App — YouVersion's — is a reading destination. Dozens of translations, hundreds of reading plans, audio Bibles, a Verse of the Day, and a community feed. You open it, you read, you close it. It's the best free reading app there is, and nothing here is a knock on it. **FaithWall** is a different shape entirely: there's almost nothing to *do*. You pick your verses once, and they sit on your lock screen — as a wallpaper applied by a Shortcut, or in a widget that rotates — without you opening the app again. The Bible App is for *reading*. FaithWall is for *seeing*."
+      "text": "The Bible App — YouVersion's — is a reading destination. Dozens of translations, hundreds of reading plans, audio Bibles, a Verse of the Day, and a community feed. You open it, you read, you close it. It's the best free reading app there is, and nothing here is a knock on it. **FaithWall** is a different shape entirely: there's almost nothing to *do*. You pick a verse, and it sits on your lock screen as a wallpaper applied by a Shortcut, with a widget that rotates fresh verses, without you opening the app again. The Bible App is for *reading*. FaithWall is for *seeing*."
     },
     {
       "type": "verse",
@@ -84,7 +84,7 @@
         "**What it does:** The Bible App is full-text reading, plans, and audio. FaithWall is today's verse on the lock screen.",
         "**How you use it:** The Bible App is a session you open. FaithWall runs in the background — nothing to open.",
         "**The Verse of the Day:** The Bible App's lives inside the app or a widget you tune out. FaithWall's is the wallpaper you can't miss.",
-        "**Curation:** The Bible App hands you one daily verse. FaithWall lets you pick the verses for the season you're in.",
+        "**Curation:** The Bible App hands you one daily verse. FaithWall lets you pick the verse for the season you're in.",
         "**iOS integration:** The Bible App sends notifications. FaithWall applies the wallpaper through an Apple Shortcut."
       ]
     },

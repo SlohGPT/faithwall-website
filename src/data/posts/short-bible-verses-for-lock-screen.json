@@ -4,6 +4,7 @@
     "description": "Short Bible verses for lock screen use: 20 complete KJV verses of 12 words or fewer, grouped by peace, strength, hope and trust, plus how to set one up.",
     "date": "October 8, 2026",
     "datePublished": "2026-10-08T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/psalm-46-1-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Psalm 46:1 (KJV)",
@@ -21,7 +22,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "**FaithWall** keeps short Bible verses on your iPhone lock screen for you: you choose the verses, and it shows them as a wallpaper applied by an Apple Shortcut or as a rotating lock-screen widget. The best **short Bible verses for lock screen** use run 12 words or fewer, like Lamentations 3:23 or Psalm 56:3, so they read in one glance."
+      "content": "**FaithWall** keeps short Bible verses on your iPhone lock screen for you: you choose a verse, and it shows it as a wallpaper applied by an Apple Shortcut, or starts a rotating lock-screen widget. The best **short Bible verses for lock screen** use run 12 words or fewer, like Lamentations 3:23 or Psalm 56:3, so they read in one glance."
     },
     {
       "type": "paragraph",
@@ -53,14 +54,14 @@
     },
     {
       "type": "paragraph",
-      "text": "Two ways. FaithWall keeps verses you picked on the lock screen, and its widget rotates them for you; our free maker makes one fixed image you set by hand. Short verses suit both, and the widget most, since a lock-screen widget is a small space."
+      "text": "Two ways. FaithWall keeps a verse you picked on the lock screen, and its widget rotates fresh verses for you; our free maker makes one fixed image you set by hand. Short verses suit both, and the widget most, since a lock-screen widget is a small space."
     },
     {
       "type": "steps",
       "items": [
         "Download FaithWall. It is free to download; a subscription unlocks it, and the App Store shows the price before you pay.",
-        "Pick your verses by reference or search, in any of 24 translations. Four or five from the list below is a good start.",
-        "Choose a full-screen wallpaper applied by an Apple Shortcut, or a lock-screen widget that rotates your saved verses every hour, every 8 hours or once a day.",
+        "Pick your verse by reference or search, in any of 24 translations. Choose one from the list below.",
+        "Choose a full-screen wallpaper applied by an Apple Shortcut, or a lock-screen widget that starts with your verse and then rotates random Bible verses every hour, every 8 hours or once a day.",
         "For the widget, press and hold your lock screen, tap **Customize**, choose the lock screen, then tap the widget row under the clock and pick the app's widget."
       ]
     },
@@ -198,7 +199,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**FaithWall's rotating widget fixes that.** Save five verses from this list, or all 20, and the widget moves through them on the schedule you set. You chose every one, so nothing random appears; you just stop staring past the same line for a month. Prefer one new verse each morning? Here's how a [verse of the day lock screen](/blog/verse-of-the-day-lock-screen-iphone) setup works."
+      "text": "**FaithWall's rotating widget fixes that.** Pick a verse from this list, and the widget starts with it, then moves on to random Bible verses on the schedule you set, so you just stop staring past the same line for a month. Prefer one new verse each morning? Here's how a [verse of the day lock screen](/blog/verse-of-the-day-lock-screen-iphone) setup works."
     },
     {
       "type": "verse",
@@ -212,7 +213,7 @@
     {
       "type": "cta",
       "title": "Keep your short verses moving",
-      "description": "Choose the verses from this list, and FaithWall puts them on your lock screen as a wallpaper or a widget that changes on its own. Free to download; a subscription unlocks it.",
+      "description": "Choose a verse from this list, and FaithWall puts it on your lock screen as a wallpaper, or starts a widget that changes on its own. Free to download; a subscription unlocks it.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

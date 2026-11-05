@@ -4,7 +4,7 @@
     "description": "A morning prayer routine iphone setup that survives past week one — a simple four-part structure, the single phone cue that fires it, and how to keep it alive.",
     "date": "June 21, 2026",
     "datePublished": "2026-06-21T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/psalm-92-2-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Psalm 92:2 (KJV)",
@@ -95,7 +95,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The routine rarely dies on day one. It dies around day ten, when the novelty wears off and the cue fades into the wallpaper. A static verse you set once becomes invisible fast — your eye stops registering it the way it stops registering a poster you've walked past a hundred times. That's the curation problem, too: keeping a fresh, fitting verse in front of yourself every morning means knowing the Bible well enough to pick one, every day, forever. **FaithWall** closes both gaps — it rotates the verse automatically through verses you picked ahead of time, so the cue stays alive and you never have to play curator at 6am. The structure is yours to keep; the daily verse takes care of itself."
+      "text": "The routine rarely dies on day one. It dies around day ten, when the novelty wears off and the cue fades into the wallpaper. A static verse you set once becomes invisible fast — your eye stops registering it the way it stops registering a poster you've walked past a hundred times. That's the curation problem, too: keeping a fresh, fitting verse in front of yourself every morning means knowing the Bible well enough to pick one, every day, forever. **FaithWall** closes both gaps — its widget brings a fresh verse automatically, starting with the one you picked ahead of time, so the cue stays alive and you never have to play curator at 6am. The structure is yours to keep; the daily verse takes care of itself."
     },
     {
       "type": "heading",
@@ -117,7 +117,7 @@
     {
       "type": "cta",
       "title": "Let the verse start your prayer for you",
-      "description": "FaithWall keeps a fresh, rotating Scripture verse on your lock screen — the cue that fires your morning prayer without you opening a thing. Free to download, 60-second setup.",
+      "description": "FaithWall keeps Scripture on your lock screen, with a widget that rotates fresh verses — the cue that fires your morning prayer without you opening a thing. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

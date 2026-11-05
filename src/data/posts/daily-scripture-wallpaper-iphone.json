@@ -1,10 +1,10 @@
 {
   "meta": {
     "title": "Daily Scripture Wallpaper iPhone: The Setup That Rotates Without You",
-    "description": "A daily scripture wallpaper iphone setup that stays fresh — why static downloads fade by day 10, the rotation method that fixes it, and the 60-second install.",
+    "description": "A daily scripture wallpaper iphone setup — why static downloads fade by day 10, how a rotating widget keeps a fresh verse in view, and the 60-second install.",
     "date": "June 25, 2026",
     "datePublished": "2026-06-25T09:00:00.000Z",
-    "dateModified": "2026-10-03T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/lamentations-3-23-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Lamentations 3:23 (KJV)",
@@ -22,11 +22,11 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "A **daily scripture wallpaper iphone** setup means your lock screen shows a fresh Bible verse every day without you saving a new image. Download FaithWall, pick your verses, tap **Set Lock Screen**, and an Apple Shortcut applies the wallpaper (a Shortcuts personal automation can re-apply it on a schedule). Total time: about 60 seconds."
+      "content": "A **daily scripture wallpaper iphone** setup means your lock screen keeps Scripture in view every day without you saving a new image. Download FaithWall, pick a verse, tap **Set Lock Screen**, and an Apple Shortcut applies the wallpaper, which stays until you pick a new verse. Add the widget and a fresh verse rotates in on its own. Total time: about 60 seconds."
     },
     {
       "type": "paragraph",
-      "text": "You have already tried the Pinterest route. You found a verse you loved, saved it to Photos, set it as wallpaper, and felt good for nine days. Then your brain filed it as background noise. A **daily scripture wallpaper on your iPhone** fixes that by changing the verse before your eyes stop registering it — and FaithWall handles the rotation so you are not juggling screenshots every Sunday night."
+      "text": "You have already tried the Pinterest route. You found a verse you loved, saved it to Photos, set it as wallpaper, and felt good for nine days. Then your brain filed it as background noise. A **daily scripture wallpaper on your iPhone** fixes that by bringing in a new verse before your eyes stop registering it — and FaithWall's widget handles the rotation so you are not juggling screenshots every Sunday night."
     },
     {
       "type": "stat",
@@ -54,10 +54,10 @@
       "type": "steps",
       "items": [
         "Download **FaithWall** from the App Store — free to download.",
-        "Open the app and pick your verses: search, or browse by book, chapter and verse.",
+        "Open the app and pick your verse: search, or browse by book, chapter and verse.",
         "Choose a wallpaper style — minimalist text, photo-backed, or soft gradient.",
         "Tap **Set Lock Screen**. iOS asks once to allow the wallpaper; tap Allow.",
-        "Wake your phone tomorrow. New verse. No action required."
+        "Add the widget, and tomorrow a new verse rotates in on its own. No action required."
       ]
     },
     {
@@ -66,7 +66,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Long-press your lock screen any time to switch to a different lock screen, or try a different visual style. A good rhythm is one set of verses per season — anxiety passages through a job transition, gratitude psalms through ordinary weeks, strength verses when life gets heavy — and letting the rotating widget carry them from there. To see how different styles carry a verse before you commit, the [ready-made wallpaper gallery](/bible-verse-wallpaper-maker#wallpaper-gallery) shows each style on a real verse — free to download, though each one is a single static image."
+      "text": "Long-press your lock screen any time to switch to a different lock screen, or try a different visual style. A good rhythm is one verse per season — an anxiety passage through a job transition, a gratitude psalm through ordinary weeks, a strength verse when life gets heavy — and letting the rotating widget bring fresh verses in between. To see how different styles carry a verse before you commit, the [ready-made wallpaper gallery](/bible-verse-wallpaper-maker#wallpaper-gallery) shows each style on a real verse — free to download, though each one is a single static image."
     },
     {
       "type": "image",
@@ -91,9 +91,9 @@
     {
       "type": "list",
       "items": [
-        "**Full wallpaper rotation** — the verse fills the lock screen. Best for maximum impact on every pickup. FaithWall's default mode.",
+        "**Full wallpaper** — the verse you picked fills the lock screen and stays until you pick another. Best for maximum impact on every pickup. FaithWall's default mode.",
         "**Widget + wallpaper combo** — anchor image as wallpaper, daily verse in a small widget above the time. Good if you want a personal photo behind the text.",
-        "**Seasonal verses** — pick one theme (anxiety, strength), choose the verses yourself, and let the widget cycle through them for a month. Cohesive spiritual diet, not random verses."
+        "**Seasonal verse** — pick one verse for the theme you need (anxiety, strength) and keep it as your wallpaper for a month. A steady anchor, not a random pick."
       ]
     },
     {
@@ -103,11 +103,11 @@
     },
     {
       "type": "paragraph",
-      "text": "DIY rotation sounds simple until you try it. Saving a new verse image every morning means you need to **know which verse fits today's mood** — which requires Bible fluency you might not have on a hard Tuesday. FaithWall helps with that chicken-and-egg problem: search for the theme you need — worry, strength, rest — pick the verses once, and the choosing is done."
+      "text": "DIY rotation sounds simple until you try it. Saving a new verse image every morning means you need to **know which verse fits today's mood** — which requires Bible fluency you might not have on a hard Tuesday. FaithWall helps with that chicken-and-egg problem: search for the theme you need — worry, strength, rest — pick one verse, and the choosing is done."
     },
     {
       "type": "paragraph",
-      "text": "Manual rotation also dies by week two. A calendar reminder to swap wallpapers competes with every other reminder you swipe past. FaithWall applies the wallpaper through an Apple Shortcut you can automate, so there's no Camera Roll clutter, no Sunday-night guilt about forgetting to change it. For the full rotation breakdown, see our guide on [rotating bible verse wallpaper on iPhone](/blog/rotating-bible-verse-wallpaper-iphone)."
+      "text": "Manual rotation also dies by week two. A calendar reminder to swap wallpapers competes with every other reminder you swipe past. FaithWall applies the wallpaper through an Apple Shortcut, so there's no Camera Roll clutter, and its widget brings a fresh verse on its own, so there's no Sunday-night guilt about forgetting to change it. For the full rotation breakdown, see our guide on [rotating bible verse wallpaper on iPhone](/blog/rotating-bible-verse-wallpaper-iphone)."
     },
     {
       "type": "heading",

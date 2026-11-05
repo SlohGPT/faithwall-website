@@ -4,7 +4,7 @@
     "description": "How to run an audio bible app in the background on iPhone — the apps, the Control Center setup, and the one thing audio alone can't do that keeps Scripture in view.",
     "date": "July 13, 2026",
     "datePublished": "2026-07-13T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/romans-10-17-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Romans 10:17 (KJV)",
@@ -60,7 +60,7 @@
       "type": "steps",
       "items": [
         "Download **FaithWall** from the App Store — free to download.",
-        "Pick the verses that match what you're listening through (Psalms, a Gospel, or a theme like strength or peace), by book, chapter and verse or by search.",
+        "Pick a verse that matches what you're listening through (a Psalm, a Gospel passage, or a theme like strength or peace), by book, chapter and verse or by search.",
         "Tap **Set Lock Screen** — FaithWall applies the wallpaper through an Apple Shortcut.",
         "Start your audio bible app and swipe home; the verse on your screen now matches what you're hearing all week."
       ]
@@ -163,7 +163,7 @@
     {
       "type": "cta",
       "title": "Let the verse you're hearing stay in view",
-      "description": "FaithWall keeps this week's passage on your lock screen — free to download, no screenshots or manual rotation.",
+      "description": "FaithWall keeps this week's passage on your lock screen — free to download, no screenshots to crop.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

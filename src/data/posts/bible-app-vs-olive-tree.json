@@ -1,9 +1,10 @@
 {
   "meta": {
     "title": "Bible App vs Olive Tree: Daily Reading or Deep Study? (2026)",
-    "description": "Bible App vs Olive Tree on iPhone, compared: price, offline reading, study tools and App Store sizes, plus how to keep your chosen verses on the lock screen.",
+    "description": "Bible App vs Olive Tree on iPhone, compared: price, offline reading, study tools and App Store sizes, plus how to keep your chosen verse on the lock screen.",
     "date": "October 13, 2026",
     "datePublished": "2026-10-13T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "7 min read",
     "image": "/blog-thumbnails/proverbs-4-7-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Proverbs 4:7 (KJV)",
@@ -26,7 +27,7 @@
     },
     {
       "type": "highlight",
-      "content": "**FaithWall** is our app, so weigh this page knowing that. It isn't a Bible reader and doesn't compete with either one. It shows the verses you choose on your iPhone lock screen, as a wallpaper applied by an Apple Shortcut or a widget that rotates them. That's the honest case for adding it to whichever app wins below."
+      "content": "**FaithWall** is our app, so weigh this page knowing that. It isn't a Bible reader and doesn't compete with either one. It shows the verse you choose on your iPhone lock screen, as a wallpaper applied by an Apple Shortcut or a widget that starts with it and then rotates random Bible verses. That's the honest case for adding it to whichever app wins below."
     },
     {
       "type": "paragraph",
@@ -100,7 +101,7 @@
     },
     {
       "type": "important",
-      "content": "Neither app keeps the verses you're actually working on in front of you. **FaithWall** shows the verses you choose on your lock screen, as a wallpaper an Apple Shortcut applies or a widget that rotates them every hour, 8 hours or day, so what you read or studied stays in view between sessions."
+      "content": "Neither app keeps the verses you're actually working on in front of you. **FaithWall** shows the verse you choose on your lock screen, as a wallpaper an Apple Shortcut applies or a widget that starts with it and then rotates random Bible verses every hour, 8 hours or day, so what you read or studied stays in view between sessions."
     },
     {
       "type": "paragraph",
@@ -117,11 +118,11 @@
     },
     {
       "type": "paragraph",
-      "text": "That's the gap FaithWall closes: you pick the verses, from this week's plan or last night's study passage, and they rotate on the lock screen on their own."
+      "text": "That's the gap FaithWall closes: you pick a verse, from this week's plan or last night's study passage, and it sits on the lock screen until you pick another."
     },
     {
       "type": "tip",
-      "content": "Studying a passage in Olive Tree this week? Save the two or three verses at its center and put those on your lock screen instead of a random verse of the day. Seeing the passage you studied all week is what moves it into memory."
+      "content": "Studying a passage in Olive Tree this week? Pick the verse at its center and put that on your lock screen instead of a random verse of the day. Seeing the passage you studied all week is what moves it into memory."
     },
     {
       "type": "heading",
@@ -139,7 +140,7 @@
     {
       "type": "cta",
       "title": "Keep this week's passage in view",
-      "description": "Read in YouVersion, study in Olive Tree, and let FaithWall put the verses you chose on your lock screen. Free to download; the App Store shows subscription details before you pay.",
+      "description": "Read in YouVersion, study in Olive Tree, and let FaithWall put the verse you chose on your lock screen. Free to download; the App Store shows subscription details before you pay.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

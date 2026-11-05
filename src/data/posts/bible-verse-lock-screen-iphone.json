@@ -4,7 +4,7 @@
     "description": "A practical, 60-second guide to putting a daily Bible verse on your iPhone lock screen — wallpapers, widgets, Focus modes, and the verses that actually stick.",
     "date": "May 19, 2026",
     "datePublished": "2026-05-19T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-11-05T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/psalm-119-105-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Psalm 119:105 (KJV)",
@@ -16,7 +16,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "To set a **bible verse lock screen on iPhone**, install FaithWall (free to download), pick your verses, and tap **Set Lock Screen** — done in under 60 seconds. A rotating widget can cycle through your chosen verses automatically. Wallpaper for a single anchor verse; widget for a daily rotation."
+      "content": "To set a **bible verse lock screen on iPhone**, install FaithWall (free to download), pick a verse, and tap **Set Lock Screen** — done in under 60 seconds. A widget can rotate fresh verses automatically, starting with your chosen one. Wallpaper for a single anchor verse; widget for a daily rotation."
     },
     {
       "type": "paragraph",
@@ -50,13 +50,13 @@
     },
     {
       "type": "paragraph",
-      "text": "Pick wallpaper for one anchor verse you want to live with for a season, and a widget for a fresh verse every day — or run both together for the strongest setup. Want a fresh verse daily by default? See our [verse of the day lock screen setup](/blog/verse-of-the-day-lock-screen-iphone). Prefer one theme rotating through the week instead? The [rotating Bible verse wallpaper guide](/blog/rotating-bible-verse-wallpaper-iphone) covers that pattern."
+      "text": "Pick wallpaper for one anchor verse you want to live with for a season, and a widget for a fresh verse every day — or run both together for the strongest setup. Want a fresh verse daily by default? See our [verse of the day lock screen setup](/blog/verse-of-the-day-lock-screen-iphone). Prefer a verse that changes on its own instead? The [rotating Bible verse wallpaper guide](/blog/rotating-bible-verse-wallpaper-iphone) covers the widget that does that."
     },
     {
       "type": "list",
       "items": [
         "**Wallpaper** — best when you want to live with one anchor verse for a season. Think Philippians 4:13 for a hard month, or Psalm 23 during grief.",
-        "**Widget** — best when you want a fresh verse every day. FaithWall's widget rotates through your chosen verses on the schedule you set — hourly, every 8 hours, or daily.",
+        "**Widget** — best when you want a fresh verse every day. FaithWall's widget starts with your chosen verse, then rotates random Bible verses on the schedule you set — hourly, every 8 hours, or daily.",
         "**Both** — power move. Anchor verse as the wallpaper, daily rotation in a small widget above the time."
       ]
     },
@@ -67,13 +67,13 @@
     },
     {
       "type": "paragraph",
-      "text": "Setting a Bible verse lock screen takes five taps: download FaithWall, pick your verses, choose a style, tap Set Lock Screen, and adjust anytime by long-pressing your lock screen."
+      "text": "Setting a Bible verse lock screen takes five taps: download FaithWall, pick a verse, choose a style, tap Set Lock Screen, and adjust anytime by long-pressing your lock screen."
     },
     {
       "type": "steps",
       "items": [
         "Download **FaithWall** from the App Store — free to download.",
-        "Open the app. Pick your verses: search for them, or browse by book, chapter and verse.",
+        "Open the app. Pick your verse: search for it, or browse by book, chapter and verse.",
         "Choose a style — minimalist text, photo-backed, or color gradient.",
         "Tap **Set Lock Screen**. iOS prompts you once to allow the wallpaper; tap allow.",
         "Long-press your lock screen any time to switch to a different lock screen or style."
@@ -119,8 +119,8 @@
     {
       "type": "steps",
       "items": [
-        "**Rotate weekly.** FaithWall does this automatically; if you're DIY-ing, set a calendar reminder for Sunday night.",
-        "**Pick verses by season, not by mood.** Don't search \"verse for anxiety\" on a bad day — pick four anchor verses on a good day and let them carry you through the bad ones.",
+        "**Change it weekly.** FaithWall's wallpaper stays until you pick a new verse, so set a calendar reminder for Sunday night.",
+        "**Pick your verse by season, not by mood.** Don't search \"verse for anxiety\" on a bad day — pick an anchor verse on a good day and let it carry you through the bad ones.",
         "**Write one out by hand each Saturday.** The verse on the screen is just the prompt. Internalizing it is the work."
       ]
     },
@@ -140,7 +140,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Install FaithWall, pick your verses, choose a style, and tap Set Lock Screen. FaithWall applies the wallpaper through an Apple Shortcut, so it takes under 60 seconds and needs no screenshots or Camera Roll juggling."
+      "text": "Install FaithWall, pick a verse, choose a style, and tap Set Lock Screen. FaithWall applies the wallpaper through an Apple Shortcut, so it takes under 60 seconds and needs no screenshots or Camera Roll juggling."
     },
     {
       "type": "heading",
@@ -149,7 +149,7 @@
     },
     {
       "type": "paragraph",
-      "text": "You can save a screenshot as wallpaper manually, but it isn't sized for the lock-screen surface — the clock and widgets tend to crash into the text — and it doesn't rotate on its own. An app built for the surface fixes both problems."
+      "text": "You can save a screenshot as wallpaper manually, but it isn't sized for the lock-screen surface — the clock and widgets tend to crash into the text. An app built for the surface fixes that."
     },
     {
       "type": "heading",
@@ -167,7 +167,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Weekly is the sweet spot for most people — long enough for a verse to sink in, short enough that it doesn't fade into the background. FaithWall's rotating widget handles this automatically if you'd rather not think about it at all."
+      "text": "Weekly is the sweet spot for most people — long enough for a verse to sink in, short enough that it doesn't fade into the background. If you'd rather not think about it at all, FaithWall's widget brings a fresh verse on its own, hourly, every 8 hours or daily."
     },
     {
       "type": "cta",
