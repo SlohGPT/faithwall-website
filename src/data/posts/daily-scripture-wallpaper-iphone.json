@@ -30,7 +30,13 @@
     },
     {
       "type": "stat",
-      "content": "The average American picks up their phone **144 times per day**, per Reviews.org's 2026 Phone Habits report. That is 144 half-second glances at whatever sits on your lock screen — a notification pile or a line of Scripture."
+      "value": "144",
+      "label": "Daily phone pickups",
+      "context": "per Reviews.org's 2026 Phone Habits report"
+    },
+    {
+      "type": "paragraph",
+      "text": "That is 144 half-second glances a day at whatever sits on your lock screen: a notification pile or a line of Scripture."
     },
     {
       "type": "heading",
