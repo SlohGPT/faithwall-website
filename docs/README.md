@@ -2,7 +2,7 @@
 
 Session journal for this repo. One entry per session, append-only, numbered in order (next entry = highest number + 1). Public repo: entries describe search performance qualitatively and never contain raw Search Console numbers. Direction lives in `SEO-STRATEGY.md`, the work order in `src/data/seo-priorities.json`, and human tasks in `TODO-KAROL.md`.
 
-## Status (2026-11-07)
+## Status (2026-11-08)
 
 - **Watch:** the money page (`/best-bible-verse-lock-screen-apps`) stepped down again on 10-29, from the bottom of page 1 to the page-1/page-2 edge, with most of its impressions gone. p53 shows no recovery. The hub slipped from upper to mid page 1 from 10-28, with a partial rebound. Both fall inside ranking volatility that Google has not confirmed. No edits to either page; the 11-09 refresh decides and the stop rule stands. See entry 17.
 - The hub (`/blog/best-free-bible-app-iphone`) is still the leading click source. The generator page keeps rising and is a feeder, so it gets no extra work. The moat pillar's slide has stopped, and the watch is closed.
@@ -41,3 +41,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [22 — Manual session, 2026-11-04](journal/22-manual-fixes-covers-2026-11-04.md): NUL fix, Advent wording fixed, homepage stats render real values, generated lock-screen blog covers, mobile install bar and readability pass; App Store name and minimum iOS settled into p60. Update 11-05: visual system and spot illustrations for long posts, the false widget-rotation claim fixed in 42 files, p59 closed, p61 queued.
 - [23 — Merge gate, 2026-11-07](journal/23-merge-gate-2026-11-07.md): local p58 branch (in-body links to the four unindexed posts) verified, fast-forwarded two days late (no gate runs on 11-05 or 11-06), live and submitted to IndexNow. Gate cleared.
 - [24 — Merge gate, 2026-11-07 (second firing)](journal/24-merge-gate-2026-11-07-second-firing.md): a 19:14 catch-up found nothing to do. The local autopilot that fired with it ran a §8 monitoring pass and pushed no branch, because the queue is gated until 11-10 and the hold bars fallback posts. There was no branch, and liveness is fine.
+- [25 — Merge gate, 2026-11-08](journal/25-merge-gate-2026-11-08.md): no branch. The 3-day liveness rule tripped on the count, but every pending item is gated until 11-10 or later and today's local autopilot ran a §8 monitoring pass, so the routine is healthy. Gate clear.
