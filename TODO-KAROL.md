@@ -2,6 +2,11 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-10 (local autopilot, p60)
+
+- **Before you send the Tier-1 pitches: three of them still describe the widget wrongly.** `outreach/bibleversedaily.md`, `outreach/warmpeach.md` and `outreach/learnofchrist.md` say the widget "rotates (your) saved verses". The app doesn't do that: the wallpaper is one verse you pick, and the widget starts with it and then rotates fresh verses on its own. `outreach/directories.md` says the same in its shared-facts line (line 7) and in one entry (line 36), and its shared facts also give "iOS 16.0+"; the App Store listing says iOS 15.0 (the lock-screen widget needs iOS 16). The 11-04 fix (3c8e84a) reached the Advent drafts but not these. p60 named only site files, so the autopilot left the drafts alone. Fix the wording before sending, or ask a session to do it.
+- **Done, nothing for you to do:** the homepage now names the listing ("Listed on the App Store as Lock Screen Bible Verse" under the hero download button, and in the app schema), and the homepage FAQ, both vs-pages and the money page say FaithWall installs on iOS 15.0 or later, with the lock-screen widget on iOS 16 or later. One leftover for the weekly refresh: the sitewide app schema in `index.html` still says iOS 16.0+.
+
 ## 2026-11-09 (weekly refresh)
 
 - **Money page: the stop rule applies, and there's nothing for you to do on the page.** `/best-bible-verse-lock-screen-apps` hasn't recovered from the 09-30 drop in forty days, so it's now treated as a change in Google's results that edits won't fix. It gets no more edits for the drop. The second step on 10-29 partly came back from 11-04. p60 and p61 still fix its product facts from 11-10. The way back to the top 5 is the off-site work below.

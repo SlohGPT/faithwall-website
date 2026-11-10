@@ -121,6 +121,9 @@ export default function Hero() {
                 Get Started
               </a>
             </div>
+            <p className="hidden lg:block mt-3 text-sm text-white/50 animate-fade-up-d4">
+              Listed on the App Store as Lock Screen Bible Verse
+            </p>
           </div>
 
           <div className="relative flex flex-col items-center justify-center lg:items-end animate-fade-in-slide">
@@ -236,6 +239,9 @@ export default function Hero() {
                   Get Started
                 </a>
               </div>
+              <p className="lg:hidden -mt-5 text-sm text-white/50 text-center animate-fade-up-d6">
+                Listed on the App Store as Lock Screen Bible Verse
+              </p>
             </div>
           </div>
         </div>

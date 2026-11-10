@@ -18,9 +18,9 @@ const softwareApplicationSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'FaithWall',
-  alternateName: 'Faith Wall',
+  alternateName: ['Faith Wall', 'Lock Screen Bible Verse'],
   applicationCategory: 'LifestyleApplication',
-  operatingSystem: 'iOS 16.0 or later',
+  operatingSystem: 'iOS 15.0 or later',
   url: 'https://faithwall.app/',
   downloadUrl: APP_STORE_BASE,
   offers: {
@@ -47,7 +47,7 @@ const faqSchema = {
       name: 'What is FaithWall?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'FaithWall is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen as a wallpaper or a widget. Using it requires a FaithWall subscription. It requires iOS 16.0 or later.',
+        text: 'FaithWall is an iPhone app, free to download, that puts a Bible verse you choose on your lock screen as a wallpaper, or rotates verses through a lock-screen widget. Using it requires a FaithWall subscription. It installs on iOS 15.0 or later; the lock-screen widget needs iOS 16 or later.',
       },
     },
     {
@@ -55,7 +55,7 @@ const faqSchema = {
       name: 'How does FaithWall work?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'You pick your own verses by book, chapter and verse or by search, in 24 translations. After subscribing you choose how to show them: a full-screen lock-screen wallpaper applied with an Apple Shortcut, or a compact lock-screen widget that rotates your saved verses every hour, 8 hours or day. FaithWall is not a Bible reader.',
+        text: 'You pick your own verses by book, chapter and verse or by search, in 24 translations. After subscribing you choose how to show them: a full-screen lock-screen wallpaper applied with an Apple Shortcut, or a compact lock-screen widget that starts with the verse you picked and then rotates fresh verses on its own every hour, 8 hours or day. FaithWall is not a Bible reader.',
       },
     },
     {
@@ -71,7 +71,7 @@ const faqSchema = {
       name: 'Which iPhones does FaithWall work on?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'FaithWall supports iPhones running iOS 16.0 or later. It uses iOS lock-screen wallpapers and widgets, which are available on all compatible iPhone models.',
+        text: 'FaithWall installs on iPhones running iOS 15.0 or later. The lock-screen widget needs iOS 16 or later, because Apple added lock-screen widgets in iOS 16.',
       },
     },
     {

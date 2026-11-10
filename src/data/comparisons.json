@@ -5,7 +5,7 @@
     "metaTitle": "FaithWall vs YouVersion: Honest 2026 Comparison",
     "metaDescription": "FaithWall vs YouVersion: lock-screen Scripture vs full Bible reading app. Honest 2026 comparison covering pricing, daily verses, plans, and audio.",
     "datePublished": "2026-05-19",
-    "dateModified": "2026-11-05",
+    "dateModified": "2026-11-10",
     "quickAnswer": "**Use both.** FaithWall and YouVersion solve different problems. **FaithWall** is purpose-built for putting a daily Bible verse on your iPhone lock screen — a wallpaper of the verse you choose, or a widget that rotates fresh verses. **YouVersion** is the deep reading and reading-plan app — thousands of plans, audio Bible, community. Most users settle on YouVersion for reading and FaithWall for daily lock-screen exposure. Both are free to download; YouVersion is free to use, while FaithWall requires a subscription.",
     "comparisonRows": [
       { "feature": "Free to download", "faithwall": "Yes", "competitor": "Yes" },
@@ -17,7 +17,7 @@
       { "feature": "Reading plans", "faithwall": "No", "competitor": "Yes (thousands)" },
       { "feature": "Social / community", "faithwall": "No (private by design)", "competitor": "Yes (friends, prayers, comments)" },
       { "feature": "Pricing model", "faithwall": "Free download + subscription", "competitor": "Free (donor-supported)" },
-      { "feature": "Minimum iOS", "faithwall": "iOS 16.0+", "competitor": "iOS 18.0+" }
+      { "feature": "Minimum iOS", "faithwall": "iOS 15.0+ (lock-screen widget: iOS 16+)", "competitor": "iOS 18.0+" }
     ],
     "whenToChooseUs": "**Choose FaithWall if** you want Scripture on the lock screen every time you pick up your phone — without opening another app. You choose your own verse and show it as a wallpaper, with a widget that rotates fresh verses, which is built for daily exposure rather than long reading sessions. FaithWall complements a Bible app; it doesn't replace one.",
     "whenToChooseThem": "**Choose YouVersion if** your primary need is reading the Bible itself — multiple translations side by side, structured reading plans, audio narration, or community features. YouVersion has the deepest catalog of Christian reading plans on any platform and the largest community on iOS.",
@@ -34,7 +34,7 @@
     "metaTitle": "FaithWall vs Hallow: 2026 Comparison for iPhone",
     "metaDescription": "FaithWall vs Hallow: which Christian iPhone app fits your daily rhythm? Honest comparison of pricing, denominational lean, and core use cases.",
     "datePublished": "2026-05-19",
-    "dateModified": "2026-10-29",
+    "dateModified": "2026-11-10",
     "quickAnswer": "**Different jobs, often used together.** **Hallow** is a guided prayer and meditation app — Catholic in tradition but broadly Christian in reach — best for structured prayer sessions and audio content. **FaithWall** is lock-screen Scripture — passive Bible exposure every time you check your phone. Hallow is what you open intentionally; FaithWall is what you see automatically. Many users run both: Hallow for daily prayer time, FaithWall for the in-between moments.",
     "comparisonRows": [
       { "feature": "Free to download", "faithwall": "Yes", "competitor": "Yes (limited)" },
@@ -46,7 +46,7 @@
       { "feature": "Sleep/calm content", "faithwall": "No", "competitor": "Yes (significant catalog)" },
       { "feature": "Bible verses", "faithwall": "Verses you choose yourself (24 translations)", "competitor": "Embedded in prayers" },
       { "feature": "Pricing model", "faithwall": "Free download + subscription", "competitor": "Limited daily content; premium ~$70/yr" },
-      { "feature": "Minimum iOS", "faithwall": "iOS 16.0+", "competitor": "iOS 16.4+" }
+      { "feature": "Minimum iOS", "faithwall": "iOS 15.0+ (lock-screen widget: iOS 16+)", "competitor": "iOS 16.4+" }
     ],
     "whenToChooseUs": "**Choose FaithWall if** you want Scripture present in your day without having to open another app. The lock screen is the surface you check 144 times a day (Reviews.org, 2026); FaithWall puts Bible verses there. It's a quieter, lower-friction tool than a full prayer app.",
     "whenToChooseThem": "**Choose Hallow if** you want guided prayer time — audio meditations, structured rosaries or novenas, sleep content rooted in Scripture, or Catholic devotional traditions. Hallow's catalog of audio content is the deepest in the Christian app space, and it's the most polished prayer-first experience on iPhone. Weighing it against a lighter, cheaper option? See our honest [Hallow vs Abide comparison](/blog/hallow-vs-abide).",
@@ -63,12 +63,12 @@
     "metaTitle": "Best Bible Verse Lock Screen Apps for iPhone (2026)",
     "metaDescription": "The best iPhone apps for putting a Bible verse on your lock screen in 2026 — honest comparison of FaithWall, YouVersion, Glorify, and Bible Gateway widgets.",
     "datePublished": "2026-05-19",
-    "dateModified": "2026-10-20",
+    "dateModified": "2026-11-10",
     "quickAnswer": "**FaithWall is the only iOS app purpose-built for a daily Bible verse on the iPhone lock screen** — both wallpaper and widget, where you choose the verses yourself. Alternatives like YouVersion, Glorify, and Bible Gateway offer related features (verse-of-the-day widgets) but as side-features of larger apps. For lock-screen-first Scripture, FaithWall is the focused choice; for a full Bible reading workflow, pair it with YouVersion.",
     "biasDisclosure": "FaithWall is our app — the ranking above reflects that, and this is our honest case for it: we're rating apps on lock-screen-first Scripture specifically, the one job FaithWall is built around.",
     "comparisonRows": [
       { "feature": "App", "faithwall": "FaithWall", "competitor": "—" },
-      { "feature": "FaithWall", "faithwall": "Price: free to download, subscription required (the price is shown in the App Store before you pay). Format: full-screen wallpaper AND a Lock Screen widget — a widget is a small tile, a wallpaper is the whole background; FaithWall is one of the few in this list that does both. Auto-rotation: the widget rotates your saved verses every hour, 8 hours or day; the wallpaper is applied by an Apple Shortcut. Verses: you pick them by book/chapter/verse or search, in 24 translations. Backgrounds: 15 Faith Wallpapers, your own photos, gradients or plain colors. Requires iOS 16.0 or later.", "competitor": "Best for: lock-screen-first Scripture exposure" },
+      { "feature": "FaithWall", "faithwall": "Price: free to download, subscription required (the price is shown in the App Store before you pay). Format: full-screen wallpaper AND a Lock Screen widget — a widget is a small tile, a wallpaper is the whole background; FaithWall is one of the few in this list that does both. Auto-rotation: the widget rotates your saved verses every hour, 8 hours or day; the wallpaper is applied by an Apple Shortcut. Verses: you pick them by book/chapter/verse or search, in 24 translations. Backgrounds: 15 Faith Wallpapers, your own photos, gradients or plain colors. Requires iOS 15.0 or later (the lock-screen widget needs iOS 16 or later).", "competitor": "Best for: lock-screen-first Scripture exposure" },
       { "feature": "YouVersion", "faithwall": "Price: free — no subscription tier at all; Life.Church runs it as a nonprofit, so the free tier excludes nothing. Format: widget only, no dedicated full-screen wallpaper tool and no custom accessory-shape Lock Screen widget. Auto-rotation: yes, verse-of-the-day, editorially curated rather than user-themed. Reading plans: thousands. Re-verified Sept 2026: the official app (published by Life.Church) now requires iOS 17.0 or later, up from iOS 15 in our last check — worth knowing if you're on an older iPhone.", "competitor": "Best for: deep Bible reading + reading plans" },
       { "feature": "Glorify", "faithwall": "Price: free download; Glorify+ subscription is roughly $59.99/yr per Glorify's own pricing help article. Format: home/lock screen widget plus an in-app devotional screen, not a full wallpaper tool. Free tier excludes: most guided audio devotionals and prayer courses, which sit behind Glorify+. Auto-rotation: yes, daily. Content: devotional series. Re-verified Sept 2026: the main listing (Glorify: Devotional & Prayer) is a 349.1 MB download requiring iOS 16.0 or later — noticeably heavier than the other apps here.", "competitor": "Best for: daily devotional + journaling" },
       { "feature": "Bible Gateway", "faithwall": "Price: free, no premium tier — free tier excludes nothing because there's nothing to unlock. Format: widget only, no wallpaper option. Auto-rotation: yes, daily verse-of-the-day. Content: a translation and reference tool. Re-verified Sept 2026: requires iOS 17.0 or later and runs 75-114MB depending on App Store region, reflecting its large multi-translation library.", "competitor": "Best for: reference + translation comparison" }
