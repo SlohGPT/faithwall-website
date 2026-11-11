@@ -8,9 +8,6 @@ import { SCENES, type SceneName } from './scenes';
  */
 export type IllustrationName = SceneName;
 
-/** Posts under ranking measurement get no new visual. */
-const SKIP = new Set(['best-free-bible-app-iphone']);
-
 /**
  * Keyword rules, first match wins. They run over "slug title" (lower case) and
  * go from the most specific topic to the general ones; the lock screen is the
@@ -51,7 +48,6 @@ const OVERRIDES: Record<string, IllustrationName> = {
 };
 
 export function pickIllustration(slug: string, title: string): IllustrationName | null {
-  if (SKIP.has(slug)) return null;
   if (OVERRIDES[slug]) return OVERRIDES[slug];
   const hay = `${slug} ${title}`.toLowerCase();
   for (const [re, name] of RULES) if (re.test(hay)) return name;

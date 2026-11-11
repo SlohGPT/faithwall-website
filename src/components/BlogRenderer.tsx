@@ -4,18 +4,11 @@ import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
 import { Zap, Lightbulb, AlertCircle, Sparkles, Check, X, ChevronDown } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
-import BlogRendererLegacy from './BlogRendererLegacy';
 import LockScreenVerse from './LockScreenVerse';
 import StatBlock from './StatBlock';
 import PostIllustration from './illustrations';
 import { appStoreUrl } from '../lib/appStore';
 import type { BlogSection } from '../types/blog';
-
-/**
- * Pages that keep the pre-visual-layer markup because their ranking is being measured.
- * remove with queue item p61, from 2026-11-10 (then delete BlogRendererLegacy.tsx too).
- */
-export const LEGACY_LAYOUT_SLUGS = new Set(['best-free-bible-app-iphone']);
 
 /** Text blocks stop at about 65-72 characters per line on desktop (measured at 1280px); images, tables and the CTA use the full column. */
 const MEASURE = 'md:max-w-[34rem]';
@@ -172,14 +165,12 @@ function Contents({ items }: { items: { id: string; text: string }[] }) {
 interface Props {
   sections: BlogSection[];
   campaign: string;
-  /** Page slug (post or pillar): picks the illustration and switches legacy pages to the old markup. */
+  /** Page slug (post or pillar): picks the illustration. */
   slug: string;
   title: string;
 }
 
 export default function BlogRenderer({ sections, campaign, slug, title }: Props) {
-  if (LEGACY_LAYOUT_SLUGS.has(slug)) return <BlogRendererLegacy sections={sections} campaign={campaign} />;
-
   const h2 = headingIds(sections);
   const h2Indexes = [...h2.keys()];
   const showContents = h2Indexes.length >= 4;
