@@ -2,7 +2,7 @@
 
 Session journal for this repo. One entry per session, append-only, numbered in order (next entry = highest number + 1). Public repo: entries describe search performance qualitatively and never contain raw Search Console numbers. Direction lives in `SEO-STRATEGY.md`, the work order in `src/data/seo-priorities.json`, and human tasks in `TODO-KAROL.md`.
 
-## Status (2026-11-12)
+## Status (2026-11-14)
 
 - **Money page: stop rule applied (entry 26).** `/best-bible-verse-lock-screen-apps` hasn't recovered from the 09-30 drop in forty days, so the drop is treated as a results-page change and the page gets no more edits for it. Its 10-29 second step partly reversed from 11-04. p60 (11-10) and p61 (11-11) fixed its product facts. Authority (§8) is the only lever left for the top-5 slot.
 - **Watch:** the hub (`/blog/best-free-bible-app-iphone`) has stayed in mid page 1 since 10-28, and pages that slipped with it have recovered. p54 is a suspect, not proven. The hub's NLT row, which tells readers one of its ten apps isn't on the App Store, is Karol's call, with a default swap from the 11-16 refresh. Over 28 days the hub and the generator page take about the same number of clicks; in the latest week the generator took the most. The generator stays a feeder. The pillar shows Google jump links from its new contents box.
@@ -13,7 +13,7 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - The App Store title "Lock Screen Bible Verse" dates to at least May 2026, not 10-18. Since 11-10 (p60, entry 28) the homepage names it under the hero button and in the app schema, and the homepage FAQ, both vs-pages and the money page say iOS 15.0, with the widget needing iOS 16. The sitewide `index.html` app schema still says iOS 16.0+ (weekly refresh). The outreach drafts still carry the old rotation and iOS wording (TODO-KAROL 11-10).
 - Since 11-04 (entry 22), blog covers are generated lock-screen images, each showing one KJV verse; the hub keeps its cover. Content pages also have a mobile-only install bar (campaign tokens `web-sticky-*`, client-side only) and a readability pass on article text.
 - Since 11-05 (entry 22), posts and pillars have a visual layer: verses drawn as lock screens, stats as dot grids and rings, a step rail, a contents box and one inline-SVG spot illustration per post. Since 11-11 (p61, entry 30) the hub has it too, so its position from 11-11 is a new baseline. The site no longer says the widget rotates verses the user chose: it rotates random verses after the chosen one. One `faithwall-vs-hallow` row still says "Verses you choose yourself" (next refresh).
-- Off-site: zero pitches sent, zero placements. A search under both names found no third-party mention (entry 26).
+- Off-site: zero pitches sent, zero placements. A search under both names found no third-party mention (entry 26). The 11-13 §8 pass (merged in entry 33) re-read all tracked pages: still zero. The other "FaithWall" (Dead Hidden) is now a paid web app and Chrome extension with no App Store listing yet, so the one-word brand KPI needs that caveat.
 
 ## Index
 
@@ -49,3 +49,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [30 — Merge gate, 2026-11-11](journal/30-merge-gate-2026-11-11.md): local p61 branch (hub on the visual layer, false widget-rotation claim removed from hub and money page) verified, fast-forwarded, live on two pages and submitted to IndexNow. It came from a recovered crashed run. Gate cleared.
 - [31 — Merge gate, 2026-11-11 (second firing)](journal/31-merge-gate-2026-11-11-second-firing.md): the 10:00 slot fired after the 09:15 run had already merged p61. There was no branch, and liveness is fine.
 - [32 — Merge gate, 2026-11-12](journal/32-merge-gate-2026-11-12.md): local p62 branch (citation audit under both app names, Tier-1 seasonal status; data files only) verified and fast-forwarded. No public URL changed, so no IndexNow. Gate cleared.
+- [33 — Merge gate, 2026-11-14](journal/33-merge-gate-2026-11-14.md): catch-up for the 11-13 slot, which never fired on the day. Local §8 monitoring-pass branch (namesake FaithWall now on sale, placements still zero; data files and TODO only) verified, namesake facts spot-checked live, fast-forwarded. No public URL changed, so no IndexNow. Gate cleared.
