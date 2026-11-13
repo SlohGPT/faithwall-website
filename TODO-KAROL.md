@@ -2,6 +2,10 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-13 (local autopilot, monitoring pass)
+
+- **For your information: the other "FaithWall" is now on sale.** Adam Johnson's FaithWall (Dead Hidden / The Biblical Man) was an invitation-only iPhone beta on 10-11. It now sells a Scripture-first distraction blocker under the FaithWall name: a live web app, a Chrome extension for buyers and a one-time paid licence. Its pages are deadhidden.org/faithwall and the new faithwall.deadhidden.org. It has no App Store listing yet, but its pages say native phone blocking comes next. Some one-word "faithwall" searches may now be people looking for it, so read the brand KPI with that in mind. Placements are still zero; details are in `outreach/targets.json` (`namesake_check_2026_11_13`).
+
 ## 2026-11-10 (local autopilot, p60)
 
 - **Before you send the Tier-1 pitches: three of them still describe the widget wrongly.** `outreach/bibleversedaily.md`, `outreach/warmpeach.md` and `outreach/learnofchrist.md` say the widget "rotates (your) saved verses". The app doesn't do that: the wallpaper is one verse you pick, and the widget starts with it and then rotates fresh verses on its own. `outreach/directories.md` says the same in its shared-facts line (line 7) and in one entry (line 36), and its shared facts also give "iOS 16.0+"; the App Store listing says iOS 15.0 (the lock-screen widget needs iOS 16). The 11-04 fix (3c8e84a) reached the Advent drafts but not these. p60 named only site files, so the autopilot left the drafts alone. Fix the wording before sending, or ask a session to do it.
