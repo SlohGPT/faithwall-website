@@ -272,3 +272,114 @@ The sister sites' part-1 and part-2 work was also due for a check.
 - QuranWall and NoteWall: fixes in progress. They reply with commit hashes.
 - 12-15: QuranWall's Turkish go/no-go, and this site's first campaign read.
 - 2027-01-15: p77.
+
+## Update, 2026-11-16 late night: a free keyword research tool for all three sites
+
+### What was asked
+
+Karol: "anything else you want to research and build strategy on, let's say GEO or free tools or keywords? Maybe you can find some keyword researcher that will help you research the keywords for free … something open source like this or something free which we could actually use with MCP or API … so we can actually research the keywords and basically have the exact cluster to make content, either free tools or blogs or comparisons … then communicate with all of the sessions, so everything will be like the system will be the same on all of the apps Just unique with the keywords cluster and stuff."
+
+The sister sites' fix rounds were also due for a check.
+
+### How it was done
+
+- **Research:** a workflow swept four areas:
+  - free and open-source keyword tools;
+  - official APIs;
+  - MCP servers;
+  - the evidence on GEO, meaning what gets a site cited by AI search.
+
+  A critic and verifiers then checked the result against the vendors' own pages. The notes stay private, outside the repo.
+- **Build:** a written spec went to a builder agent. Three reviewers then read the result, each through one lens: correctness, safety and portability to the sister repos. A fixer and a verifier followed. A second round fixed what the first real run showed, again with three verifiers, a fixer and a re-verifier.
+- **Sister sites:** a checker per site and lens (content and live pages, then lint and gates). Two skeptics per site re-judged every finding.
+
+### What was found
+
+- **No free tool gives real search volume.**
+  - The open-source "keyword researchers" either scrape Google, against its terms, or resell Keyword Planner data.
+  - No MCP server offers keyword ideas. Google's official Ads MCP server has no keyword-ideas tool.
+  - pytrends is archived, and scraping Trends breaks Google's terms.
+- **What is free and allowed now:**
+  - Search Console's API: our own queries, pages and query-by-page pairs, with regex filters.
+  - Google autocomplete, used politely. It proves a phrasing is searched, never how often.
+  - Forum questions read by hand.
+- **Free once Karol sets it up:**
+  - the Bing Webmaster Tools API (queries and related keywords: evidence, not volume);
+  - Bing's AI Performance report: Copilot citations, interface only;
+  - Search Console's AI report: impressions only, interface only;
+  - the Trends API alpha, by application only.
+- **Paid, later, only with Karol's OK:** DataForSEO pay-as-you-go, or the Google Ads Keyword Planner API, which is gated behind an approval. Keywords Everywhere is the small alternative.
+- **GEO:**
+  - No study shows llms.txt or schema raising AI citations. Schema stays for rich results and accuracy only.
+  - What matters is that AI search crawlers can reach the pages, and that the pages say clearly what each app does.
+  - The ASO session's private referrer data adds the stakes: ChatGPT's iPhone app is the biggest single referrer of App Store downloads for all three apps. For FaithWall and QuranWall it is ahead of all websites together. App Store search is still much bigger.
+- **The ASO session's November brief (private data, direction only):**
+  - US English pages are the most valuable site work.
+  - The App Store's web referrer line moves with how ChatGPT routes people, so it can't show whether the site works. The campaign tokens can.
+  - US metadata and the FaithWall and QuranWall builds are frozen until 12-14.
+  - The two tokens it didn't recognise, `web-home-hero-mobile` and `web-nav-mobile`, are names from before b73c084 (2026-10-02 to 11-16). The site no longer emits them. §11 now maps every older token to today's name.
+- **First cluster pass on this site** (run note `docs/keyword-research/2026-11-16-faithwall.md`, map `src/data/keyword-clusters.json`):
+  - The random verse generator family is by far the largest. The tool page shows for almost all of it but gets few of the clicks: that is p70's title and description work after 12-02. A steady sub-intent wants a whole chapter, book or passage, which becomes a mode on the same tool, not a new URL.
+  - Comparison queries come second. Lock screen queries split cleanly: app-shaped ones land on the lock screen app roundup, how-to ones on the pillar. The pillar, not the post, shows for "short bible verses for lock screen", which is the p63 case.
+  - Autocomplete shows wide mood demand (anxiety, strength, "when you feel"), but it barely reaches the site. A verse-by-feeling picker is recorded as a candidate free tool, not a decision.
+  - Short follow-ups typed inside AI Mode ("are these free", "for iphone", "yes please") already reach the hub, the random verse tool and the homepage. So do long "alternatives to [app]" questions on the prayer roundup. AI search seems to use some of our pages already.
+  - Two shared-query pairs look like the same intent on two kinds of page (Hallow vs Abide; Christian news apps): questions for the overlap audit after the read-out. The wallpaper pairs match a post with the maker tool, different intents, so they stay apart and link to each other.
+  - No page change and no queue item came from this pass. Everything waits for the 12-02 read-out; the 11-23 refresh turns the map's decisions into queue items with cluster_id.
+- **Sister fix rounds** (findings both skeptics kept went back to each session tonight; each replies with a hash):
+  - QuranWall (checked at 6c7f69c; its later 795957d and 473c711 change docs only): every claimed fix holds, with its self-test and gates. Sent back: download counts written with k or as installs, counts in words past ten, a few setup and plan-name phrasings, its docs' naming of one round, the legal pages' app name, and llms.txt wording. Also sent: the site, the listing and the EULA disagree on what the wallpaper shows (one ayah you chose, in Arabic or a translation, against "a new ayah every day" beside a translation). That is Karol's answer, through its six-question TODO item; the listing side goes to the ASO session. Its licence item gains the website's own translation quotes.
+  - NoteWall (0c1916e): the claimed fixes are live. Sent back: a high-severity post claiming per-goal wallpapers that rotate through the day; "iPhone-only" wording where the listing also lists iPad; an unbacked "join thousands"; gamification and "seamless" leftovers; an unnamed phone-check study on many posts; a dateModified bump on a held page that its annotation doesn't record; and lint gaps (unsupported features, vague sources, ratios written without a percent sign).
+
+### What was decided and why
+
+- **Build our own, free tool:** one dependency-free script, the same file on all three sites, with each site's settings in its own config.
+  - Search Console stays the best evidence.
+  - Autocomplete goes only through the tool, which holds one allowance per site per day and stops at the first error.
+  - Raw data lives only in a private folder outside the repo.
+  - The public cluster map carries no numbers.
+  - A volume can appear only as a band from Keyword Planner or DataForSEO, with its source and date.
+- **Suggested decision order, a deliberate change from the research design.** The design put the App Store handoff first. The tool checks our own pages first, in this order: brand queries and AI follow-up fragments (monitor), hold, prune-merge (only between pages of the same kind), long AI Mode questions (monitor, or an FAQ answer), CTR fix or refresh, App Store handoff, FAQ answer, tool page, comparison, new post. The reason: this site's money pages already rank for app-shaped queries, so an app-install query goes to the App Store keyword work only when no page of ours shows for it.
+- **Page kinds for prune-merge:** posts, tool pages, the homepage and other pages. Two pages of one kind may merge; pages of different kinds get linked. A private flag marks clusters where two pages each get a real part, so the read-out sees the overlap even on held pages.
+- **A short head is a follow-up fragment unless it, or members holding at least half of its cluster, match a regex family.** My brief said any member would do. On the real data one stray member kept "free" and "app" out of monitor, so I kept the builder's share rule. A site with no regex families skips this test.
+- **The config names the private folder,** as older files in this repo already do. Naming a folder leaks nothing in it. The engine exempts only that key and the credential path from its own path check.
+- **The default credential is the shared indexing service account,** the same default as the three Search Console scripts, which now build the path from the home folder instead of a fixed user path. A sister config may set its own `key_path`. doctor names the source it used, never the path.
+- **The engine runs locally only:** in the weekly refresh or a manual session. The cloud run has no private data folder and can't reach every API.
+- **geo-probe joins the weekly refresh.** An AI search bot that is blocked or refused is now a regression for the TODO list, given the ChatGPT referrer finding. Training-bot blocks stay Karol's Cloudflare decision. Tonight's probe: the search and user bots are allowed; GPTBot and ClaudeBot are still refused, which is that open decision.
+- **The App Store's web referrer line is no site KPI** (§11). The campaign read uses the tokens only.
+- **The sister sites port the same file byte for byte, checked by its sha256.** A bug is fixed here and re-sent, never forked.
+
+### What was built
+
+- `scripts/keyword-research.mjs`: one dependency-free Node script (Node 18 or later) with `doctor`, `gsc`, `expand`, `check` and `geo-probe`, plus stubs for Bing, volumes and result-page checks that wait for keys. Private output goes to the private folder, which only Karol's account can read. The script holds the daily autocomplete allowance per site and refuses seeds that look personal. Its `check` fails a public file that carries a metric number, a position, a percentage, money, a private path, a key-shaped string or a schema error. `check --staged` runs before the weekly refresh commits. There, naming a private file is a warning; a home path, a secrets path or a key-shaped string is a failure.
+- `src/data/kw-config.json`: this site's seeds, markets, intent rules, regex families, held pages and tool pages.
+- `src/data/keyword-clusters.json`: the first curated map, one decision per cluster, qualitative evidence only.
+- `docs/keyword-research/README.md` (how-to, clustering rules, decision rubric) and the first run note.
+- `package.json`: `npm run kw` and `npm run kw:check`. `.gitignore`: key files and a private folder name.
+- The three Search Console scripts (`gsc-dump`, `gsc-report`, `inspect-urls`) build the default credential path from the home folder. Those edits had sat uncommitted since earlier work.
+- SEO-STRATEGY §5: autocomplete goes only through the engine, plus a paragraph on the engine and the cluster map. §11: the older-token map and the web referrer line.
+- TODO-KAROL: the late-night section. The App Store agreement still comes first.
+- Outside the repo:
+  - the two weekly refresh prompts now run doctor, gsc and geo-probe, curate the map, write a run note and run the staged check before they commit;
+  - the two local autopilot prompts read an item's cluster and never run the engine.
+
+### How it was verified
+
+- **Research:** a critic and verifiers checked each claim about tools, terms and APIs.
+- **Engine round 1:** three reviewers (correctness, safety, portability) found 34 issues. A fixer closed them and a verifier re-checked.
+- **Engine round 2:** this round brought the staged-check split, the decision order, tool pages and page kinds, private near-match hints in the expand output, and "searched" as a metric word. One builder, then three verifiers, then a fixer and a re-verifier for their 11 findings.
+  - The final state: self-test 98/98, doctor with no warning, eslint clean, `kw:check` on the four public files with no failure or warning.
+  - The staged cases were proved in a scratch git repo.
+- **On the real data (decisions only):**
+  - Brand queries and AI follow-ups come out monitor: iphone, free, yes, app, another, and "how can i change it".
+  - Held pages stay hold.
+  - The long AI Mode questions on the prayer roundup are monitor, or an FAQ answer where the page shows lower.
+  - prune-merge fires only between posts.
+- **During curation:** `kw:check` caught a position phrase in the README, and it was reworded.
+- **Before the commit:** typecheck at its known baseline (all errors outside this change); the build and prerender green on every route; `lint:facts` with no failure or warning; no site file imports the two new data files, so no page changed; `kw -- check --staged` on the staged files passed.
+- **Sister checks:** a checker per site and lens, then two skeptics per finding. A finding was sent as confirmed only when both kept it.
+
+### Still open
+
+- Karol: the late-night TODO-KAROL items. The Bing key and the analytics and CDN answer unblock the most.
+- QuranWall and NoteWall: their fix rounds (sent tonight), then the engine port. They reply with a commit hash and the sha256 of their copy. Their configs start with their own seeds and families; with no families, the short-head test is skipped.
+- 11-23: the first weekly refresh with the engine. It writes a run note and curates the draft clusters. Seasonal seeds for p67 and p69 go into the config before then.
+- The cloud autopilot's prompt doesn't mention the cluster map yet. Only the local runs read it.

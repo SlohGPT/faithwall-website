@@ -5,10 +5,12 @@
 // Dependency-free: node:crypto JWT + fetch (Node 18+).
 import { readFileSync } from 'node:fs';
 import { createSign } from 'node:crypto';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
 
 const KEY_PATH =
   process.env.GOOGLE_APPLICATION_CREDENTIALS ??
-  '/Users/carly/GITHUB REPOS/karchi/scripts/service-account-key.json';
+  join(homedir(), 'GITHUB REPOS', 'karchi', 'scripts', 'service-account-key.json');
 const SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
 const SITE_HINT = process.env.SITE ?? 'faithwall';
 

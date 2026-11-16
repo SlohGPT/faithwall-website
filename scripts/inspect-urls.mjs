@@ -22,7 +22,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const KEY_PATH =
   process.env.GOOGLE_APPLICATION_CREDENTIALS ??
-  '/Users/carly/GITHUB REPOS/karchi/scripts/service-account-key.json';
+  join(homedir(), 'GITHUB REPOS', 'karchi', 'scripts', 'service-account-key.json');
 const SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
 const PROPERTY = process.env.SITE ?? 'sc-domain:faithwall.app';
 const WORKERS = 6;

@@ -2,6 +2,42 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-16 late night (keyword research tool)
+
+The App Store agreement at the top of the next section still comes first.
+
+- **New: a free keyword research tool, the same on all three sites.** You asked for a free keyword researcher we could use through MCP or an API. No free tool gives real search volumes. The open-source "keyword researchers" either scrape Google, which breaks Google's terms, or resell Keyword Planner data. No MCP server offers keyword ideas either, Google's own Ads MCP server included. So this session built a small script, `scripts/keyword-research.mjs`, that uses only free, allowed sources:
+  - Search Console: what people already find us for.
+  - Google autocomplete: a small daily allowance per site. It proves a phrase is searched, never how often.
+  - Bing, once you create a key (item 2).
+
+  The script groups searches into clusters and suggests one move per cluster: a refresh, an FAQ answer, a tool, a comparison or a new post. Nothing was bought. The how-to is in `docs/keyword-research/README.md`. QuranWall and NoteWall get the same script with their own keywords. If you'd rather skip Bing entirely, say so.
+- **1. Which analytics tool does each site use, and is it behind Cloudflare? (5 minutes)** Counting visits from ChatGPT, Perplexity, Claude, Gemini and Copilot waits on this. So does the Cloudflare check in item 4 for QuranWall and NoteWall. Only FaithWall is known to be on Cloudflare.
+- **2. Bing Webmaster Tools API key (about 20 minutes, only you can).**
+  1. Sign in to Bing Webmaster Tools.
+  2. Import the three sites from Search Console.
+  3. Go to Settings → API Access and generate an API key.
+  4. Save the key to a file outside every repo: `~/.claude/secrets/bing-wmt.key`, readable only by you (`chmod 600`). Don't paste it into chat.
+
+  The next session then makes three test calls to see what the real responses look like, and only then wires Bing into the tool. Bing's AI Performance report, in the same dashboard, shows how often Copilot cites each site. It has no API yet, so glance at it once a month.
+- **3. Search Console's AI report (5 minutes).** Google now reports how often each page shows in its AI features (AI Overviews and AI Mode). It shows impressions only: no queries, no clicks. Open each of the three properties and tell the next session whether the report appears. An empty report is normal at our size.
+- **4. Cloudflare AI Crawl Control: keep AI search allowed (10 minutes per Cloudflare site).** This updates the Cloudflare part of item 8 in the evening list.
+  - **Why it matters now:** the ASO session found that ChatGPT's iPhone app is the biggest single referrer of App Store downloads for all three apps. For FaithWall and QuranWall it brings more than all websites together. App Store search is still much bigger.
+  - **What must never be blocked:** ChatGPT's search crawler (OAI-SearchBot), which finds pages, and ChatGPT-User, which fetches a page when someone asks about it.
+  - **What to check:** in Cloudflare → AI Crawl Control, the Search policy is Allow and Agent is not Block.
+  - **Your decision:** whether to block the training crawlers (GPTBot, ClaudeBot).
+
+  From now on, the weekly refresh runs the tool's `geo-probe`, which reads the live robots rules and each bot's response, and puts a blocked search bot on this list.
+- **5. Optional (5 minutes): apply for the Google Trends API alpha.** It gives relative interest over time, not volumes. It's a small pilot, so don't wait for it. Scraping Trends (pytrends) is off-limits.
+- **6. Later, not now: paid search volumes.** If the free data can't decide between topics after about 4 weeks, there are two options:
+  - DataForSEO: you create the account and top up a $50 minimum, which doesn't expire. That is roughly a few dollars a month at our use.
+  - Google Ads' Keyword Planner API: 45 to 90 minutes of setup, plus Google's approval wait.
+
+  Keywords Everywhere, about $7 a month, is the small alternative.
+- **7. Later, after a 3-month review: an AI answer tracker.** Each month, it would ask ChatGPT, Gemini and Claude about 30 fixed questions per site through their official APIs, to see whether each site gets cited. The cap would be about $15 a month. It needs your OK and keys you create. Not now.
+- **8. Optional (1 minute): make the Search Console key file readable only by you.** The tool's check shows it is readable by other accounts on this Mac. It is not in git (checked). Run `chmod 600` on `scripts/service-account-key.json` in the karchi folder.
+- **QuranWall's list gets one item from this work:** before any QuranWall tool or mood page, name a Quran translation whose licence allows commercial website use (or choose Arabic only with a link out), and name a reviewer for meanings. Its session adds this to its own TODO-KAROL.md.
+
 ## 2026-11-16 night (the first item blocks the campaign read)
 
 - **First: accept Apple's updated agreement in App Store Connect (2 minutes, only you can).** Since about 11-11 Apple's analytics API answers every request with `REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED`, so the App Store data our sessions read stops at 11-11. Only the Account Holder can fix it: App Store Connect → Business (Agreements, Tax, and Banking) → review and accept the pending agreement. Until then the 12-15 campaign read (item 1 below), the control-group read-out and the other-language decision all work from data frozen at 11-11. It covers all three apps, because they share one developer account.
