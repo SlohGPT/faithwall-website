@@ -1,6 +1,6 @@
 # Keyword research
 
-The site's keyword system. The same script runs on FaithWall, QuranWall and NoteWall, and each site keeps its own seeds and cluster map. Started 2026-11-16 (engine 1.0.0; 1.1.0 on 2026-11-16).
+The site's keyword system. The same script runs on FaithWall, QuranWall and NoteWall, and each site keeps its own seeds and cluster map. Started 2026-11-16 (engine 1.0.0; 1.1.0 on 2026-11-16; 1.2.0 on 2026-11-17).
 
 ## Why we built our own
 
@@ -40,7 +40,7 @@ Rules the tool enforces:
 - **B3:** a number with a percent sign or the word percent.
 - **B4:** a currency sign beside a number, or a number beside EUR or USD.
 - **B5:** private paths and file names: a home folder path, the secrets folder, the key file, the budget file, the raw Search Console pull files, the private keyword folder. A home path or the key file name fails everywhere.
-- **B6:** anything shaped like a secret: key blocks, API keys, tokens, long hex or base64 runs.
+- **B6:** anything shaped like a secret: key blocks, API keys, tokens, long hex or base64 runs. Since 1.2.0 it skips URL components that only look like a key: the value of a query parameter with a plain name (an image `ixid`, `utm_*`, `w`), and a slug or file path made of word-like parts that may end in a short id (a photo slug, a PDF path on a university site, a repo path in a journal). It still flags credential parameters (`token=`, `sig=`, `password=`, `X-Amz-Signature=` and similar names), a password in a link (`user:<secret>@host`), a random path segment (webhook links) and long hex. New prefix rules catch keys that are shorter than the old length floor: Stripe live keys (`sk_live_`, `rk_live_`), GitHub tokens (`ghp_`, `gho_`, `ghu_`, `ghs_`, `ghr_`, `github_pat_`) and JWTs. Writing the bare word `sk_live` is fine. The self-test builds every key-like test value at run time, so no realistic key sits in the repo; it now has 106 tests (103 in 1.1.0).
 - **B7:** a table cell that holds only a number.
 - **B8:** the configured banned phrases (config key `public_ban_phrases`), in prose only; a cluster's head and members are search text and skip it.
 

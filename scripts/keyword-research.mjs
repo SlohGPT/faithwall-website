@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Keyword engine 1.1.0: first-party keyword analysis + a lint for the public keyword files.
+ * Keyword engine 1.2.0: first-party keyword analysis + a lint for the public keyword files.
  *
  * It never produces or invents a search volume. It reads Search Console (your own data), Google
  * Autocomplete (a few requests a day, hard capped) and your own robots.txt, writes everything to a
@@ -50,7 +50,7 @@
  *                          catches "searched" ("searched 300 times").
  *   geo-probe              fetch the live robots.txt, evaluate it per bot (RFC 9309) and send one
  *                          request per bot user agent; exit 4 if a search bot is blocked.
- *   bing | volumes | serp  stubs in 1.1.0 (no credentials, nothing is read or sent).
+ *   bing | volumes | serp  stubs in 1.2.0 (no credentials, nothing is read or sent).
  *   help                   this text
  *
  * Global: --version, --config <path>.
@@ -104,7 +104,7 @@ import { fileURLToPath } from 'node:url';
 
 // ---------------------------------------------------------------- constants
 
-export const ENGINE_VERSION = '1.1.0';
+export const ENGINE_VERSION = '1.2.0';
 const HARD_CAP = 15; // autocomplete requests per site per UTC day, whatever the config says
 const MIN_DAYS = 28; // days with impressions needed before "no demand" conclusions are allowed
 const ROW_LIMIT = 25000; // Search Console page size
@@ -906,6 +906,38 @@ const B6 = [
   /[0-9a-f]{32,}/gi,
 ];
 const B6_TOKEN = /[A-Za-z0-9_\-+/=]{40,}/g;
+// 1.2.0: vendor prefixes that are a secret at any length (the 40-char floor below would miss them). The lookbehind is a letter or digit,
+// not \b, so STRIPE_sk_live_... is still seen.
+const B6_PREFIX = [
+  /(?<![A-Za-z0-9])[rs]k_live_[0-9A-Za-z]{16,}/g,
+  /(?<![A-Za-z0-9])gh[pousr]_[0-9A-Za-z]{30,}/g,
+  /(?<![A-Za-z0-9])github_pat_[0-9A-Za-z_]{40,}/g,
+  /(?<![A-Za-z0-9])eyJ[0-9A-Za-z_\-]{8,}\.eyJ[0-9A-Za-z_\-]{8,}\.[0-9A-Za-z_\-]{8,}/g,
+];
+// 1.2.0: a 40+ char run that is only a URL component is not a key. Two kinds are skipped, nothing else:
+//  (a) the value of a query parameter whose name is not credential-like (ixid, ixlib, utm_*, w, q);
+//  (b) a slug or file path made of word-like parts (letters with up to 4 digits, or 1-4 digits), whose last part may be a short id (6-12 chars).
+// Never skipped: a credential parameter (key, token, secret, sig, password, auth, ... see B6_CRED_PARAM), userinfo (user:SECRET@host),
+// one random segment, or a path with a long digit or random part (Slack and Discord webhooks).
+const B6_RUN_STOP = /[\s"'`<>()\[\]{}]/;
+const B6_RUN_MAX = 2048; // longer than any URL we meet; a longer run loses its scheme, so it is not skipped (fails safe)
+const B6_URL = /^[a-z][a-z0-9+.-]*:\/\//i;
+const B6_CRED_PARAM = /[?&;][a-z0-9_.\-]*(?:key|token|secret|sig|password|passwd|pwd|pass|auth|cred|bearer|jwt|session|sid|code|nonce|ticket|otp|private|licen[sc]e|hash|digest)[a-z0-9_.\-]*=$/i;
+const B6_PARAM_NAME = /^[A-Za-z][A-Za-z0-9_.\-]{0,31}=/;
+const B6_SEG = /^(?:[A-Za-z]{1,20}\d{0,4}|\d{1,4})$/;
+function b6IsUrlPart(text, index, tok) {
+  let start = index;
+  while (start > 0 && index - start < B6_RUN_MAX && !B6_RUN_STOP.test(text[start - 1])) start--;
+  const run = text.slice(start, index);
+  const isUrl = B6_URL.test(run);
+  const eq = tok.indexOf('=');
+  // "ixid=..." : the token swallowed the parameter name and the "=". The name must be short and plain, so "?<random>==" is not a parameter.
+  if (eq > 0 && /[?&;]/.test(text[index - 1] ?? '') && isUrl) return B6_PARAM_NAME.test(tok) && !B6_CRED_PARAM.test(run + tok.slice(0, eq + 1));
+  if (isUrl && /[?&][^=?&#]*=$/.test(run)) return !B6_CRED_PARAM.test(run); // a value that starts after the "="
+  const parts = tok.split(/[\/_\-]/).filter(Boolean);
+  if (parts.length >= 3 && parts.slice(0, -1).every((x) => B6_SEG.test(x)) && (B6_SEG.test(parts.at(-1)) || /^[A-Za-z0-9]{6,12}$/.test(parts.at(-1)))) return !/\/\/[^/?#@]*:$/.test(run);
+  return false;
+}
 const B7_CELL = /^\s*[~≈]?\d[\d,.]*\s*[k%]?\s*$/;
 
 export const BAN_RULE_IDS = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8'];
@@ -950,8 +982,9 @@ export function scanBan(text, opts = {}) {
   if (!skip.has('B6')) {
     const six = [];
     hits(String(text), B6, 'B6', six);
+    hits(String(text), B6_PREFIX, 'B6', six);
     B6_TOKEN.lastIndex = 0;
-    if (!skip.has('B6TOKEN')) for (const m of String(text).matchAll(B6_TOKEN)) if (/\d/.test(m[0]) && /[A-Z]/.test(m[0]) && /[a-z]/.test(m[0])) six.push({ rule: 'B6', index: m.index ?? 0 });
+    if (!skip.has('B6TOKEN')) for (const m of String(text).matchAll(B6_TOKEN)) if (/\d/.test(m[0]) && /[A-Z]/.test(m[0]) && /[a-z]/.test(m[0]) && !b6IsUrlPart(String(text), m.index ?? 0, m[0])) six.push({ rule: 'B6', index: m.index ?? 0 });
     for (const h of six) out.push({ rule: 'B6', index: h.index });
   }
   if (!skip.has('B7') && opts.table && /^\s*\|/.test(stripped)) {
@@ -2491,7 +2524,7 @@ export async function main(argv = process.argv.slice(2), env = process.env, cwd 
     const privateDir = resolvePrivateDir(config, root);
     // The stubs run after config validation like every command, but touch nothing and never read a key file.
     if (command === 'bing') {
-      console.log(bingKeyPathPresent(env) ? 'bing: key present; API calls not built in 1.1.0 (needs the 3-call spike, see TODO-KAROL)' : 'skipped: no credentials');
+      console.log(bingKeyPathPresent(env) ? 'bing: key present; API calls not built in 1.2.0 (needs the 3-call spike, see TODO-KAROL)' : 'skipped: no credentials');
       return EXIT.OK;
     }
     if (command === 'volumes' || command === 'serp') {
@@ -2672,6 +2705,77 @@ export async function runSelfTest(log = (s) => console.log(s)) {
     const out = formatViolation('FAIL', 'f.md', { ...hit.find((h) => h.rule === 'B6'), line: 3, where: null });
     ok(!out.includes(secret) && !out.includes('QQQQ'), 'secret echoed');
     ok(!('snippet' in hit.find((h) => h.rule === 'B6')), 'B6 hit carries a snippet');
+  });
+  // 1.2.0: B6 and URL parts. Every key-like value is built at run time by a deterministic generator, so no realistic key is committed
+  // (GitHub secret scanning and our own B6 scan read this file). Failure messages never print a value.
+  const UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const ALNUM = UPPER + UPPER.toLowerCase() + '0123456789';
+  const gen = (n, alphabet = ALNUM, seed = 0) => {
+    let o = '';
+    for (let i = 0; i < n; i++) o += alphabet[(i * 7 + 3 + seed * 5 + ((i * i) % 11)) % alphabet.length];
+    return o;
+  };
+  const b6 = (s) => scanBan(s, {}).filter((h) => h.rule === 'B6').length;
+  const mixed = (s) => /\d/.test(s) && /[A-Z]/.test(s) && /[a-z]/.test(s);
+  t('ban rule B6 (1.2.0): URL components, slugs, file paths and plain repo paths are not keys', () => {
+    const must = {
+      'unsplash slug 1': '"unsplashUrl": "https://unsplash.com/photos/person-touching-prayer-beads-5oirZ5YiHEE?utm_source=quranwall&utm_medium=referral"',
+      'unsplash slug 2': '"unsplashUrl": "https://unsplash.com/photos/yellow-pillar-candle-in-black-lantern-S7mAngnWV1A?utm_source=quranwall&utm_medium=referral"',
+      'unsplash slug 3': '"unsplashUrl": "https://unsplash.com/photos/brown-beaded-necklace-on-book-page-AKFHzzr20eQ?utm_source=quranwall&utm_medium=referral"',
+      'unsplash slug 4 (id with underscore)': '"unsplashUrl": "https://unsplash.com/photos/white-ceramic-teapot-beside-brown-and-white-food-on-white-ceramic-round-plate-L_8N35hsYj8?utm_source=quranwall&utm_medium=referral"',
+      'unsplash slug 5': '"unsplashUrl": "https://unsplash.com/photos/white-book-page-on-brown-wooden-table-mt3czQ62E2M?utm_source=quranwall&utm_medium=referral"',
+      'teapot slug, bare': 'https://unsplash.com/photos/white-ceramic-teapot-beside-brown-and-white-food-on-white-ceramic-round-plate-LvQ3Zr4kH1w',
+      'images.unsplash.com ixid': '"src": "https://images.unsplash.com/photo-1517842645767-c639042777db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NDU3ODl8MHwxfHxwZXJzb24lMjBwbGFubmluZyUyMGNhbGVuZGFyJTIwcGhvbmV8ZW58MHx8fHwxNzYzMDAwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080"',
+      'ixid in markdown, html-escaped ampersand': '[img](https://images.unsplash.com/photo-1?fm=jpg&amp;ixid=M3w5NDU3ODl8MHwxfHxwZXJzb24lMjBwbGFubmluZyUyMGNhbGVuZGFyJTIwcGhvbmV8ZW58MHx8fHwxNzYzMDAwMDAwfDA)',
+      '.edu pdf path (Wharton)': '[Dai (PDF)](https://faculty.wharton.upenn.edu/wp-content/uploads/2014/06/Dai_Fresh_Start_2014_Mgmt_Sci.pdf).',
+      '.edu pdf path (USC)': 'https://dornsife.usc.edu/wendy-wood/wp-content/uploads/sites/183/2023/10/Wood.Quinn_.Kashy_.2002_Habits_in_Everyday_Life.pdf',
+      'repo path in a journal': 'see (`OTHER/docs/journal/04-some-long-topic-name-nov2026.md`)',
+      'bare sk_live': 'the Stripe sk_live setting is off',
+    };
+    const wrong = Object.entries(must).filter(([, v]) => b6(v) !== 0).map(([k]) => k);
+    ok(!wrong.length, `B6 flagged: ${wrong.join('; ')}`);
+  });
+  t('ban rule B6 (1.2.0): keys, credential parameters, userinfo, random segments and prefix keys still fail', () => {
+    const URLSAFE = ALNUM + '_-';
+    const B64 = ALNUM + '+/';
+    const b64u = (o) => Buffer.from(JSON.stringify(o)).toString('base64url');
+    const jwt = b64u({ alg: 'HS256', typ: 'JWT' }) + '.' + b64u({ sub: 'x' + gen(12) }) + '.' + gen(43, URLSAFE);
+    const must = {
+      'AIza + 35': 'key = AIza' + gen(35, URLSAFE),
+      'ghp_ + 36': 'token ' + 'gh' + 'p_' + gen(36),
+      'github_pat_ 11 + 59': 'github_' + 'pat_' + gen(11) + '_' + gen(59),
+      'JWT': 'auth ' + jwt,
+      'sk_live_ + 24': 'sk_' + 'live_' + gen(24),
+      'rk_live_ + 24': 'rk_' + 'live_' + gen(24, ALNUM, 1),
+      'prefix after underscore': 'STRIPE_sk_' + 'live_' + gen(24),
+      'PEM header': '-----BEGIN ' + 'PRIVATE KEY-----',
+      'json secret, base64 with + / ==': '{"secret":"' + gen(61, B64) + '=="}',
+      'token= 45': 'https://example.com/hook?token=' + gen(45),
+      'token= 72, after another parameter': 'https://example.com/hook?a=1&token=' + gen(72),
+      'api_key= 50': 'https://example.com/x?api_key=' + gen(50),
+      'access_token= 60': 'https://example.com/x?b=1&access_token=' + gen(60),
+      'X-Amz-Signature= 64': 'https://example.com/x?X-Amz-Signature=' + gen(64, ALNUM, 2),
+      'sig= 48': 'https://example.com/x?sv=2020&sig=' + gen(48, ALNUM, 3),
+      'password= 48, html-escaped ampersand': 'https://example.com/x?a=1&amp;password=' + gen(48),
+      'unnamed query value ending in ==': 'https://example.com/hook?' + gen(50, ALNUM, 4) + '==',
+      'userinfo': 'https://user:' + gen(44) + '@example.com/x',
+      'userinfo, word-like password': 'https://user:' + ['Correct', 'Horse', 'Battery', 'Staple', 'Words', '4', 'Eva', 'Pass1'].join('-') + '@example.com/x',
+      'one random path segment': 'https://hooks.example.com/services/' + gen(50),
+      'random path with dashes': 'https://hooks.example.com/services/' + gen(48, URLSAFE, 6),
+      'slack-style webhook': 'https://hooks.example.com/services/T' + gen(8, '0123456789') + '/B' + gen(8, '0123456789') + '/' + gen(24),
+      'discord-style webhook': 'https://discord.com/api/webhooks/' + gen(18, '0123456789') + '/' + gen(68, URLSAFE, 7),
+      'oauth fragment token': 'https://example.com/cb#access.token=' + gen(48),
+      '32 hex chars': 'sha ' + gen(32, '0123456789abcdef'),
+    };
+    const missed = Object.entries(must).filter(([, v]) => b6(v) < 1).map(([k]) => k);
+    ok(!missed.length, `B6 missed: ${missed.join('; ')}`);
+    for (const n of [35, 45, 50, 64, 72]) ok(mixed(gen(n)), `generator output ${n} is not mixed`);
+  });
+  t('ban rule B6 (1.2.0): a very long run on one line is flagged and stays fast', () => {
+    const blob = gen(400000, ALNUM);
+    const t0 = Date.now();
+    ok(b6(blob) >= 1, 'long blob not flagged');
+    ok(Date.now() - t0 < 5000, 'B6 scan of a 400k run is slow');
   });
   t('ban rules: volume_band is exempt from B1, B3, B7 only; members skip B8, prose does not', () => {
     eq(jsonScanOpts('clusters', 'clusters[0].volume_band', phrases).skip, ['B1', 'B3', 'B7']);
