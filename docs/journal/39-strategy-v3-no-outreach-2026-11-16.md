@@ -158,3 +158,117 @@ Research ran as multi-agent workflows: audits of all three sites (design, readab
 - From 12-02: p63, p70 and p71. The first refresh on or after 12-02 writes the cohort read-out, and then p72 releases the hold or the refresh extends it.
 - 12-07: p77, the Portuguese go/no-go.
 - Not done: trailing-slash and `/index.html` duplicates (p75; canonicals already point at the clean URL), cover image formats (p74), the post bundle (p76). Android-only elements shift only below the fold, which is accepted.
+
+## Update, 2026-11-16 night: other languages and the sister sites
+
+### What was asked
+
+Two follow-ups from Karol arrived while the conversion layer was shipping:
+- "research if actually publish blogs in different languages, like and target the other countries, for all of my free apps";
+- "for all of my apps, since for example Quran Wall, like you should know where we get our customers the most or where it would help basically".
+
+The sister sites' part-1 and part-2 work was also due for a check.
+
+### How it was done
+
+- **Languages:**
+  - A research workflow covered six areas:
+    - revenue by country (RevenueCat);
+    - App Store downloads and listings by storefront;
+    - Search Console by country;
+    - search results and autocomplete;
+    - scripture and translation rights;
+    - implementation cost.
+  - A critic and two verifiers then checked the result.
+  - The ASO session supplied its own revenue audit per language: ASO repo, `docs/journal/04-audit-record/07-country-value-for-web-languages.md`. That audit's decision rule settled the question.
+  - The figures live in the private notes (`~/.claude/faithwall-gsc/research-2026-11-16/i18n/`), not here.
+- **Sister sites:** a verification workflow ran three independent checkers per site:
+  - the code against the briefs;
+  - the live site, with the QR codes decoded;
+  - leaks and the scheduled prompts.
+  Every finding then got an adversarial re-check.
+
+### What was found
+
+- **Where the customers come from:**
+  - **FaithWall:** the US brings most of the money. Brazil brings many installs but little money per install.
+  - **QuranWall:** Turkey is the biggest market, by installs and by number of payers. The US has few payers, but each is worth more. The rest is spread thin over Egypt, Indonesia, Pakistan, the Gulf and Malaysia.
+  - **NoteWall:** English-speaking countries bring most of the money.
+- **The money rule (ASO audit):** a translated post pays only if its clicks beat a US-audience English post's by more than the value ratio times the effort ratio.
+  - On today's numbers, Portuguese and Turkish posts need many times the clicks, and Arabic needs more.
+  - Fewer of those clicks come from iPhones, which raises the bar again.
+- **This site and Brazil:** Google barely shows faithwall.app in Brazil. The App Store reaches Brazil through the live Portuguese listing.
+  - Correction to the evening update: "the listing is English" was wrong for Brazil, France and Italy, where FaithWall's listing is localized.
+- **The research synthesis said "go now" for a 3-page Portuguese pilot.** The critic and the money rule overruled it, for four reasons:
+  - the synthesis's own success bar came to roughly one install a month;
+  - the build would change the English pages' asset hashes during the control-group window;
+  - keyword demand was never pulled;
+  - the native reviewer had no cost or availability.
+- **Rights:**
+  - FaithWall's app ships Bíblia Livre (CC BY) with no user-facing credit found. It also ships two texts labelled non-commercial: Schlachter 1951 and Uwspółcześniona Biblia Gdańska.
+  - QuranWall's bundled translations match Tanzil-distributed editions, whose terms say non-commercial only.
+  - Both apps' items go to Karol. QuranWall's are in its own TODO-KAROL.md.
+- **Vercel:** the three app sites don't appear in the shared client team's usage report, so which account hosts them is unconfirmed. The question goes to Karol.
+- **QuranWall:** 15 candidate findings, 10 confirmed. The main ones:
+  - a banned "60 seconds to set up" stat is live on the home page, and the lint can't see it;
+  - "thousands of believers";
+  - two FAQs name a "Premium" plan. The listing's in-app purchases are called "QuranWall+" or just Weekly and Yearly;
+  - the lint's rescue list lets "the only app with…" claims through;
+  - a local path sits in a public script.
+- **NoteWall:** 16 candidates, 7 confirmed, none of them a live banned claim:
+  - the "free" rule misses "Download NoteWall Free";
+  - nothing re-bans the on-device privacy claims removed today;
+  - two static files carry tokens outside the fixed list;
+  - some product facts are typed by hand.
+
+### What was decided and why
+
+- **FaithWall: English only, Portuguese included.**
+  - A Portuguese page can't pass the money rule on today's numbers.
+  - The App Store moves Brazil better: the Portuguese keyword refresh after the 12-14 hold (ASO repo, Karol's OK), plus a Brazil price and offer check.
+  - p77 now re-checks two triggers from 2027-01-15:
+    - a Brazilian customer worth at least about a quarter of a US one;
+    - or Portuguese keyword demand that clears the break-even.
+  - A go waits for p72 and for a scripture text that is cleared and credited.
+  - Spanish, Italian, French, German, Korean, Russian and Polish: no.
+- **QuranWall: a Turkish go/no-go from 12-15**, on three conditions:
+  - at least half its English URLs indexed;
+  - a Turkish reviewer who knows Islamic terminology;
+  - a quote policy: Diyanet's written permission, or reference-only pages.
+  - Other languages:
+    - Arabic: no until 2027-04;
+    - Indonesian: after Turkish;
+    - Malay and Urdu: blocked until those listings exist;
+    - French: no.
+  - Its own repo records this.
+- **NoteWall: English only.** English-speaking countries carry its revenue, and its English pages already reach non-English searchers. Japan's weak listing conversion is App Store work.
+- **Sister sites:** every confirmed finding went back to its session, with the fix.
+
+### What was built
+
+- **This docs commit:**
+  - SEO-STRATEGY §11 "Languages" rewritten;
+  - p77 re-specified;
+  - the TODO-KAROL night section: the agreement, languages, Brazil, Bible credits and Vercel;
+  - this update and the hub.
+- **Outside the repo:**
+  - The cohort file's notes got the ASO read-out context.
+  - Messages with the verified fixes and the language verdicts went to the QuranWall and NoteWall sessions.
+
+### How it was verified
+
+- **Language figures:**
+  - Two verifiers re-derived the revenue and download tables from the primary data.
+  - The ASO audit had its own verifier per app.
+- **Sister sites:**
+  - A second agent reproduced each confirmed finding.
+  - Before the messages went out, the flagged strings were grepped again at both repos' latest commits.
+  - The "Premium" finding was checked against the in-app purchase names on the live listing.
+- **Queue:** the JSON round-tripped byte-identically through Python before the edit, and parses after it.
+
+### Still open
+
+- Karol: the agreement first, then the rest of the night section.
+- QuranWall and NoteWall: fixes in progress. They reply with commit hashes.
+- 12-15: QuranWall's Turkish go/no-go, and this site's first campaign read.
+- 2027-01-15: p77.

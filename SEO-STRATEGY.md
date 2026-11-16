@@ -239,6 +239,18 @@ FAIL blocks a merge. A list item that starts with another app's bold name and ne
 
 OAI-SearchBot and PerplexityBot are allowed. Cloudflare's managed block stops GPTBot and ClaudeBot (training crawlers), and that is Karol's call (TODO-KAROL). No llms.txt investment beyond keeping its facts true (§7).
 
-**Languages.** English only for now. The large majority of clicks come from English-speaking countries, the listing is English, and a translated page that lands on an English listing converts poorly. Portuguese (Brazil) is the first candidate and Spanish the second. p77 reads the data from 12-07 and makes the go/no-go call. Any go starts with Karol localizing the listing, before any page. QuranWall's Turkish and NoteWall's listing-only localization are decided in their own repos.
+**Languages (decided 2026-11-16 night, entry 39).** English only, Portuguese (Brazil) included, until a trigger below fires.
+- **Why.** The ASO revenue audit (ASO repo, `docs/journal/04-audit-record/07-country-value-for-web-languages.md`) found that a new customer from Brazil is worth a small fraction of a US one, mostly because of local App Store prices. No other language has a measured money case. So a Portuguese page would need many times the clicks of a US-audience English page to repay its translation and review, and fewer of those clicks come from iPhones. Google barely shows this site in Brazil. The App Store already reaches Brazil through the live Portuguese (Brazil) listing; the listing is also localized for France and Italy.
+- **What helps Brazil instead.** Two App Store moves, planned in the ASO repo with Karol's OK, both in TODO-KAROL:
+  - the Portuguese (Brazil) keyword refresh after the US metadata hold ends on 12-14;
+  - a check of the Brazil price tier and paywall offer.
+- **Re-open triggers.** p77 checks them from 2027-01-15. Either one is enough:
+  - (a) the ASO table shows a Brazilian customer worth at least about a quarter of a US one;
+  - (b) App Store keyword data shows Portuguese demand large enough to clear the audit's click break-even.
+- **What a go needs.** Only after the control-group read-out (p72). The pilot follows the 3-page spec in the private research notes, with a paid native reviewer and a scripture text whose licence is cleared and credited in the app (BLIVRE, TODO-KAROL).
+- **Spanish, Italian, French, German, Korean, Russian and Polish:** no.
+- **The sister sites record their own decisions:**
+  - QuranWall: Turkish go/no-go from 12-15 on three conditions; Arabic no; Malay and Urdu blocked until those listings exist.
+  - NoteWall: English only.
 
 **Sister sites.** QuranWall and NoteWall run the same layer with their own facts files, `qw-web-*` and `nw-web-*` tokens and lint lists (briefs sent 11-16). Each site links only to its own app. Three sites with one owner cross-linking their apps would read as a link network, blur each site's topic, and muddy attribution, since the three apps share one provider token.

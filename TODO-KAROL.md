@@ -2,6 +2,22 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-16 night (the first item blocks the campaign read)
+
+- **First: accept Apple's updated agreement in App Store Connect (2 minutes, only you can).** Since about 11-11 Apple's analytics API answers every request with `REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED`, so the App Store data our sessions read stops at 11-11. Only the Account Holder can fix it: App Store Connect → Business (Agreements, Tax, and Banking) → review and accept the pending agreement. Until then the 12-15 campaign read (item 1 below), the control-group read-out and the other-language decision all work from data frozen at 11-11. It covers all three apps, because they share one developer account.
+- **Other languages: for now, English only on all three sites, with one test to watch on QuranWall.** You asked whether to publish blogs in other languages for the countries where the apps' customers are.
+  - **FaithWall: no Portuguese site yet.** A Brazilian customer brings in much less than a US one, mostly because App Store prices there are lower. A Portuguese page would need many times the clicks of an English page to pay for itself. Google barely shows this site in Brazil, while the App Store already reaches Brazil through the Portuguese listing. p77 looks again from 2027-01-15.
+  - **QuranWall: Turkey is its biggest market.** A 3-page Turkish test is decided from 12-15. It goes ahead if its English pages are indexed, you have found a Turkish reviewer, and you have picked a quote policy (Diyanet's written permission, or pages that cite verse references only). Details are in QuranWall's TODO-KAROL.md.
+  - **NoteWall stays English.** Most of its money comes from English-speaking countries.
+  - The next two items are what to do about Brazil and the Bible texts instead.
+- **Brazil: two App Store moves instead of a Portuguese website.** Approve the Portuguese (Brazil) keyword refresh the ASO session plans for after the 12-14 hold. And ask the ASO session to check the Brazil price tier and paywall offer: Brazilian users buy far less often than US users. Both move more money than a translated blog would.
+- **Credit the Bible texts in the app (a licence question, only you can decide).**
+  - **Bíblia Livre needs a credit.** The app's Portuguese default, Bíblia Livre (BLIVRE), is a Creative Commons Attribution text, and attribution means a visible credit. The app's code has no user-facing credit, only code comments; the Settings screens and the listing weren't checked. Add a credits line, after confirming which licence version applies (sources disagree between CC BY 3.0 Brasil and 4.0).
+  - **Two texts are labelled non-commercial.** The source collection labels Schlachter 1951 (German) and Uwspółcześniona Biblia Gdańska (Polish) as "free non-commercial distribution", and FaithWall is a paid app. For each: ask permission, swap to a cleared edition, or accept the risk knowingly.
+  - **The Italian Riveduta 1927 file has no recorded source.**
+  - **Small fix:** the app's short name "RVR" for the Spanish Reina-Valera 1909 reads as Reina-Valera 1960, a registered mark. "RV1909" avoids that.
+- **Vercel: which account hosts the three app sites?** faithwall.app, notewall.info and quranwall.com don't appear in the shared client Vercel team's usage report. FaithWall's and NoteWall's repos are linked to two other Vercel accounts, and QuranWall's has no link file. Check in the dashboard which account and plan each one deploys from. Vercel's Hobby plan is for non-commercial use only.
+
 ## 2026-11-16 evening (v3.1: install cards and measurement, live)
 
 - **Live since about 19:15 (b73c084): the site now asks for the install properly.** Posts outside the control group get an install card in the middle and at the end, with Apple's official badge. On a computer the cards show a QR code and a Copy link button, so a desktop reader can get the app onto their iPhone. On phones a small "Get the app" bar appears after one screen of scrolling. Unknown URLs now return a real 404. The control group keeps its old buttons until p72, not before 12-02, so we can tell whether the cards cost any Google traffic: the hub, six posts, the five pillars and the three comparison pages. QuranWall and NoteWall got the same build brief tonight, and their sessions build it in their own repos.
