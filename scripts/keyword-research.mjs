@@ -917,7 +917,7 @@ const B6_PREFIX = [
   /(?<![A-Za-z0-9])(?:AKIA|ASIA)[0-9A-Z]{16}(?![0-9A-Za-z])/g,
   /(?<![A-Za-z0-9])GOCSPX-[0-9A-Za-z_-]{20,}/g,
   /(?<![A-Za-z0-9])npm_[0-9A-Za-z]{36}(?![0-9A-Za-z])/g,
-  /(?<![A-Za-z0-9])xox[abprs]-[0-9A-Za-z-]{10,}/g,
+  /(?<![A-Za-z0-9])xox[abprs]-(?=[0-9A-Za-z-]*\d)[0-9A-Za-z-]{10,}/g,
 ];
 // 1.2.0: a 40+ char run that is only a URL component is not a key. Two kinds are skipped, nothing else:
 //  (a) the value of a query parameter whose name is not credential-like (ixid, ixlib, utm_*, w, q);
@@ -2858,6 +2858,7 @@ export async function runSelfTest(log = (s) => console.log(s)) {
       'npm_ then 35 chars': 'npm' + '_' + 'abcdefghijklmnopqrstuvwxyzabcdefghi',
       'xoxb- then 9 chars': 'xo' + 'xb-' + '123456789',
       'xoxz- is not a Slack prefix': 'xo' + 'xz-' + '1234567890123',
+      'xoxp- prose without a digit': 'xo' + 'xp-love-you-forever',
     };
     const wrong = Object.entries(must).filter(([, v]) => b6(v) !== 0).map(([k]) => k);
     ok(!wrong.length, `B6 flagged: ${wrong.join('; ')}`);
