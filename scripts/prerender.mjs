@@ -91,7 +91,29 @@ async function prerender() {
     }
   }
 
-  console.log(`\nPrerender complete: ${succeeded} succeeded, ${failed} failed (of ${routes.length}).`);
+  // dist/404.html: Vercel serves it with status 404 for any path that has no file in dist
+  // (the catch-all rewrite is gone). Rendered from a path no route matches, so the `*` route
+  // (NotFound) wins. The root is flagged so src/main.tsx renders it instead of hydrating.
+  try {
+    const { html: appHtml, helmet } = await render('/__not-found__');
+    // The template and NotFound's Helmet each carry a robots meta: drop both and write exactly one.
+    const helmetTags = helmetToString(helmet)
+      .replace(/<meta\b[^>]*\bname="robots"[^>]*>/gi, '')
+      .replace(/<link\b[^>]*\brel="canonical"[^>]*>/gi, '');
+    const finalHtml = template
+      .replace(/<meta\s+name="robots"[^>]*>\s*/i, '')
+      .replace('</head>', `<meta name="robots" content="noindex, follow" />\n${helmetTags}\n</head>`)
+      .replace('<div id="root"></div>', `<div id="root" data-not-found="1">${appHtml}</div>`)
+      .replace(/\0/g, '');
+    writeFileSync(join(distDir, '404.html'), finalHtml);
+    console.log(`  ✓ 404.html (${(finalHtml.length / 1024).toFixed(1)}KB)`);
+  } catch (err) {
+    failed += 1;
+    console.error(`  ✗ 404.html: ${err.message}`);
+    if (err.stack) console.error(err.stack);
+  }
+
+  console.log(`\nPrerender complete: ${succeeded} succeeded, ${failed} failed (of ${routes.length} routes + 404.html).`);
   if (failed > 0) process.exit(1);
 }
 

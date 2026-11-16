@@ -4,10 +4,15 @@ import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
 import { Zap, Lightbulb, AlertCircle, Sparkles, Check, X, ChevronDown } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
+import AppNudge, { RatingLine } from './AppNudge';
+import InstallHandoff from './InstallHandoff';
 import LockScreenVerse from './LockScreenVerse';
 import StatBlock from './StatBlock';
 import PostIllustration from './illustrations';
 import { appStoreUrl } from '../lib/appStore';
+import { isConversionHeld } from '../data/conversionHold';
+import { useIsAndroid } from '../hooks/useIsAndroid';
+import facts from '../data/facts.json';
 import type { BlogSection } from '../types/blog';
 
 /** Text blocks stop at about 65-72 characters per line on desktop (measured at 1280px); images, tables and the CTA use the full column. */
@@ -50,9 +55,9 @@ function firstText(node: React.ReactNode): string {
   return '';
 }
 
-/** Tag any App Store link in content with the page's campaign token (no-op while the token is empty). */
+/** Tag any App Store link in content with the page type's campaign token (no-op while the token is empty). */
 function tagAppStoreHref(href: string, campaign: string): string {
-  return href.includes('id6756815070') ? appStoreUrl(campaign) : href;
+  return href.includes(`id${facts.appId}`) ? appStoreUrl(campaign) : href;
 }
 
 function Markdown({ text, campaign }: { text: string; campaign: string }) {
@@ -162,20 +167,112 @@ function Contents({ items }: { items: { id: string; text: string }[] }) {
   );
 }
 
-interface Props {
-  sections: BlogSection[];
-  campaign: string;
-  /** Page slug (post or pillar): picks the illustration. */
-  slug: string;
-  title: string;
+/** Characters of reader-facing text in a section (links, image sources and alt text do not count). */
+function textLength(section: BlogSection): number {
+  switch (section.type) {
+    case 'heading':
+    case 'paragraph':
+      return section.text.length;
+    case 'callout':
+      return (section.title?.length ?? 0) + section.content.length;
+    case 'tip':
+    case 'highlight':
+    case 'important':
+      return section.content.length;
+    case 'stat':
+      return section.label.length + (section.description ?? section.context ?? '').length;
+    case 'steps':
+    case 'list':
+      return section.items.reduce((n, item) => n + item.length, 0);
+    case 'ranked-list':
+      return section.items.reduce((n, item) => n + item.name.length + item.description.length, 0);
+    case 'verse':
+      return section.text.length;
+    case 'cta':
+      return section.title.length + section.description.length;
+    default:
+      return 0;
+  }
 }
 
-export default function BlogRenderer({ sections, campaign, slug, title }: Props) {
+/**
+ * Where the one mid-article install card goes (the section index it sits in front of), or -1.
+ * Candidates are the H2s from the third one on; the card goes before the first candidate s where
+ * (a) it is at least 3 sections after the illustration, (b) the section before it is not an image,
+ * (c) every 'cta' block is more than 3 sections away, and (d) at least 30 % of the article's text
+ * comes before it.
+ */
+function midCardIndex(sections: BlogSection[], h2Indexes: number[], illustrationAt: number | undefined): number {
+  if (illustrationAt === undefined) return -1;
+  const total = sections.reduce((n, sec) => n + textLength(sec), 0);
+  const ctaIndexes = sections.flatMap((sec, i) => (sec.type === 'cta' ? [i] : []));
+  let before = 0;
+  let counted = 0; // sections[0..counted-1] are in `before`
+  for (const s of h2Indexes.slice(2)) {
+    for (; counted < s; counted++) before += textLength(sections[counted]);
+    if (
+      s - illustrationAt >= 3 &&
+      sections[s - 1]?.type !== 'image' &&
+      ctaIndexes.every((c) => Math.abs(c - s) > 3) &&
+      before >= 0.3 * total
+    ) {
+      return s;
+    }
+  }
+  return -1;
+}
+
+/** The post's own closing block on pages that are not held back: title and description, price line, requirements, rating, badge, QR on desktop. */
+function EndCta({ section, campaign }: { section: Extract<BlogSection, { type: 'cta' }>; campaign: string }) {
+  const href = tagAppStoreHref(section.buttonUrl, campaign);
+  const isAndroid = useIsAndroid();
+  // Most posts' own closing copy already says "free to download"; then the card adds only the subscription half.
+  const saysFree = /free to download/i.test(`${section.title} ${section.description}`);
+  return (
+    <div
+      data-install-card="end"
+      data-nosnippet=""
+      className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center"
+    >
+      <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{section.title}</h3>
+      <p className="text-white/80 mb-4 max-w-[32rem] mx-auto">{section.description}</p>
+      <div className="mb-6 space-y-1 text-[15px] leading-snug text-white/70">
+        <p>{saysFree ? facts.subscriptionLine : facts.installLine}</p>
+        <p>{`iPhone · ${facts.minIOSText}`}</p>
+        <RatingLine className="justify-center" />
+        {isAndroid && <p>FaithWall is made for iPhone.</p>}
+      </div>
+      <div className="flex justify-center">
+        <AppStoreButton href={href} theme="light" />
+      </div>
+      <InstallHandoff className="mx-auto mt-6" />
+    </div>
+  );
+}
+
+interface Props {
+  sections: BlogSection[];
+  /** Page slug (post or pillar): picks the illustration and the hold check. */
+  slug: string;
+  title: string;
+  /** Picks the App Store campaign tokens and whether the hold applies. */
+  pageType: 'blog' | 'pillar';
+}
+
+export default function BlogRenderer({ sections, slug, title, pageType }: Props) {
   const h2 = headingIds(sections);
   const h2Indexes = [...h2.keys()];
   const showContents = h2Indexes.length >= 4;
   // The illustration sits before the second H2, or before the first when the page has fewer than three.
   const illustrationAt = h2Indexes.length >= 3 ? h2Indexes[1] : h2Indexes[0];
+
+  const isPost = pageType === 'blog';
+  const campaign = isPost ? 'web-blog-body' : 'web-pillar';
+  const endCampaign = isPost ? 'web-blog-end' : 'web-pillar';
+  const midCampaign = isPost ? 'web-blog-mid' : 'web-pillar';
+  // Held pages (src/data/conversionHold.ts) keep today's closing block and get no mid-article card.
+  const held = isConversionHeld(pageType, slug);
+  const midAt = held ? -1 : midCardIndex(sections, h2Indexes, illustrationAt);
 
   return (
     <div className="space-y-7 md:space-y-6">
@@ -200,7 +297,7 @@ export default function BlogRenderer({ sections, campaign, slug, title }: Props)
 
             case 'paragraph':
               return (
-                <div className="text-white/80 leading-[1.7] md:leading-relaxed text-lg">
+                <div className="text-white/80 leading-[1.7] md:leading-relaxed text-[17px] md:text-lg">
                   <Markdown campaign={campaign} text={section.text} />
                 </div>
               );
@@ -324,12 +421,13 @@ export default function BlogRenderer({ sections, campaign, slug, title }: Props)
               );
 
             case 'cta':
+              if (!held) return <EndCta section={section} campaign={endCampaign} />;
               return (
-                <div className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center">
+                <div data-hides-sticky className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center">
                   <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{section.title}</h3>
                   <p className="text-white/80 mb-6 max-w-[32rem] mx-auto">{section.description}</p>
                   <div className="flex justify-center">
-                    <AppStoreButton href={tagAppStoreHref(section.buttonUrl, campaign)} theme="light" />
+                    <AppStoreButton href={tagAppStoreHref(section.buttonUrl, endCampaign)} theme="light" />
                   </div>
                 </div>
               );
@@ -343,6 +441,7 @@ export default function BlogRenderer({ sections, campaign, slug, title }: Props)
           <Fragment key={i}>
             {showContents && i === h2Indexes[0] && <Contents items={[...h2.values()]} />}
             {i === illustrationAt && <PostIllustration slug={slug} title={title} />}
+            {i === midAt && <AppNudge variant="install" placement="mid" campaign={midCampaign} className="!mt-10 mb-10" />}
             {block}
           </Fragment>
         );

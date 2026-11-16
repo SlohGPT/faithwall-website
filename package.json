@@ -8,6 +8,10 @@
     "build": "node scripts/generate-sitemap.mjs && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
     "generate-sitemap": "node scripts/generate-sitemap.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",
+    "lint:facts": "node scripts/lint-facts.mjs --diff origin/main --worktree --dist",
+    "lint:facts:all": "node scripts/lint-facts.mjs --all",
+    "check:facts": "node scripts/check-facts.mjs",
+    "inspect:urls": "node scripts/inspect-urls.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"

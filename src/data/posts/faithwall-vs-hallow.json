@@ -4,7 +4,7 @@
     "description": "FaithWall vs Hallow — one keeps Scripture on your lock screen all day, the other guides deep prayer sessions. Here's which to pick, and why most run both.",
     "date": "June 6, 2026",
     "datePublished": "2026-06-06T09:00:00.000Z",
-    "dateModified": "2026-11-05T09:00:00.000Z",
+    "dateModified": "2026-11-16T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/psalm-16-8-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Psalm 16:8 (KJV)",
@@ -56,7 +56,7 @@
     },
     {
       "type": "paragraph",
-      "text": "FaithWall does one thing: it keeps today's verse on the surface you already check more than a hundred times a day. The average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report — and **FaithWall** turns a chunk of those unconscious glances into Scripture without you opening anything. You pick the verse and it applies the wallpaper through an Apple Shortcut; search means you don't have to already know where a verse lives."
+      "text": "FaithWall does one thing: it keeps today's verse on the surface you already check more than a hundred times a day. The average American picks up their phone **186 times a day**, per Reviews.org's 2026 Phone Habits report — and **FaithWall** turns a chunk of those unconscious glances into Scripture without you opening anything. You pick the verse and it applies the wallpaper through an Apple Shortcut; search means you don't have to already know where a verse lives."
     },
     {
       "type": "heading",
@@ -101,7 +101,7 @@
     },
     {
       "type": "important",
-      "content": "Hallow and FaithWall aren't competitors — they're complements. The mistake is treating either one as your whole spiritual diet. Reading and prayer happen in seasons; lock-screen exposure happens 144 times a day."
+      "content": "Hallow and FaithWall aren't competitors — they're complements. The mistake is treating either one as your whole spiritual diet. Reading and prayer happen in seasons; lock-screen exposure happens 186 times a day."
     },
     {
       "type": "paragraph",
@@ -110,7 +110,7 @@
     {
       "type": "cta",
       "title": "Add the always-on layer",
-      "description": "FaithWall keeps today's verse on the lock screen you already check 144 times a day. Verses you choose, 60-second setup.",
+      "description": "FaithWall keeps today's verse on the lock screen you already check 186 times a day. Verses you choose, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

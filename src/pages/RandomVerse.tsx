@@ -6,9 +6,7 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import StickyInstallBar from '../components/StickyInstallBar';
 import Breadcrumbs from '../components/Breadcrumbs';
-import AppStoreButton from '../components/AppStoreButton';
 import AppNudge from '../components/AppNudge';
-import { appStoreUrl } from '../lib/appStore';
 import verses from '../data/randomVerses.json';
 import chapterData from '../data/bibleChapters.json';
 import {
@@ -105,7 +103,7 @@ const faqs = [
   {
     question: 'Can I set one of these verses as my lock screen?',
     answer:
-      'Yes. Under any verse, "Make it a lock-screen wallpaper" opens our wallpaper maker with that verse filled in. For verses on your lock screen on an ongoing basis, FaithWall is an iPhone app where you pick the verses and it shows them as a Shortcut-applied wallpaper or a rotating lock-screen widget.',
+      'Yes. Under any verse, "Make it a lock-screen wallpaper" opens our wallpaper maker with that verse filled in. For verses on your lock screen on an ongoing basis, FaithWall is an iPhone app where you pick a verse and it shows it as a Shortcut-applied wallpaper or a lock-screen widget that starts with that verse and then shows random verses.',
   },
   {
     question: 'Is this the same verse list FaithWall uses?',
@@ -115,7 +113,7 @@ const faqs = [
   {
     question: 'Does this generator track or store anything?',
     answer:
-      "No account is needed, and the random pick happens in your browser. The page downloads Bible text files from this site as static files (the index plus the one book your verse falls in), and nothing about which verse you land on is sent anywhere.",
+      "You don't sign in to use this page, and the random pick happens in your browser. The page downloads Bible text files from this site as static files (the index plus the one book your verse falls in), and nothing about which verse you land on is sent anywhere.",
   },
   {
     question: 'Does this generate random Bible chapters, not just verses?',
@@ -154,6 +152,8 @@ export default function RandomVerse() {
   const [loading, setLoading] = useState(false);
   const [note, setNote] = useState<string | null>(null);
   const [copyState, setCopyState] = useState<'idle' | 'copied'>('idle');
+  // True once the visitor has drawn a verse; the install card only appears after that.
+  const [drawn, setDrawn] = useState(false);
 
   // Bible index (about 9 KB) is fetched after mount; book files only on demand.
   const [bibleIndex, setBibleIndex] = useState<BibleIndex | null>(null);
@@ -213,6 +213,7 @@ export default function RandomVerse() {
   }
 
   function handleNewVerse() {
+    setDrawn(true);
     if (source === 'bible') {
       void pickWholeBible(translationId);
     } else {
@@ -224,6 +225,7 @@ export default function RandomVerse() {
   }
 
   function handleSourceSelect(next: Source) {
+    setDrawn(true);
     setSource(next);
     if (next === 'bible') {
       void pickWholeBible(translationId);
@@ -236,6 +238,7 @@ export default function RandomVerse() {
   }
 
   function handleThemeSelect(theme: string | null) {
+    setDrawn(true);
     setActiveTheme(theme);
     setNote(null);
     pickCurated(theme);
@@ -461,15 +464,6 @@ export default function RandomVerse() {
                 </a>
               </div>
 
-              <AppNudge
-                campaign="web-random-verse-card"
-                title="Want a verse on your lock screen every day?"
-                className="mt-5"
-              >
-                You do not have to come back here. FaithWall is an iPhone app that puts the verses you
-                choose on your lock screen.
-              </AppNudge>
-
               <div className="mt-6 flex flex-wrap justify-center gap-2" role="group" aria-label="Verse source">
                 <button
                   type="button"
@@ -518,6 +512,10 @@ export default function RandomVerse() {
                     </button>
                   ))}
                 </div>
+              )}
+
+              {drawn && (
+                <AppNudge variant="install" placement="tool" campaign="web-random" className="mt-5" />
               )}
             </div>
           ) : (
@@ -667,9 +665,9 @@ export default function RandomVerse() {
             <h2>How can I get a random Bible verse automatically every day?</h2>
             <p>
               The easiest way is an app that keeps Scripture on your iPhone lock screen, so you never
-              have to open a page and tap. FaithWall does this with verses you pick yourself, shown as
-              a wallpaper applied through an iOS Shortcut or as a rotating lock-screen widget. It is
-              not a Bible reader.
+              have to open a page and tap. FaithWall does this with a verse you pick yourself, shown as
+              a wallpaper applied through an iOS Shortcut or as a lock-screen widget that starts with
+              that verse and then shows random verses. It is not a Bible reader.
             </p>
             <p>
               <Link to="/best-bible-verse-lock-screen-apps">
@@ -693,22 +691,6 @@ export default function RandomVerse() {
             </p>
           </section>
 
-          <div className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center">
-            <h3 className="text-2xl md:text-3xl font-black text-white mb-3">
-              Keep your verses on your lock screen
-            </h3>
-            <p className="text-white/80 mb-6 max-w-xl mx-auto">
-              With FaithWall you pick the verses, and they show on your iPhone lock screen as a
-              wallpaper or a rotating widget, with no tapping required.
-            </p>
-            <div className="flex justify-center">
-              <AppStoreButton
-                href={appStoreUrl('web-random-verse')}
-                theme="light"
-              />
-            </div>
-          </div>
-
           <section className="mt-4">
             <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-5">
               Frequently asked questions
@@ -726,7 +708,7 @@ export default function RandomVerse() {
       </main>
 
       <Footer />
-      <StickyInstallBar kind="tool" />
+      <StickyInstallBar kind="random" />
     </div>
   );
 }

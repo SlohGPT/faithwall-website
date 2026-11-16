@@ -4,7 +4,7 @@
     "description": "A daily prayer widget ios setup for home and lock screen — how to keep prayer glanceable so a reminder you'd swipe away becomes a prompt you actually act on.",
     "date": "June 16, 2026",
     "datePublished": "2026-06-16T09:00:00.000Z",
-    "dateModified": "2026-10-02T09:00:00.000Z",
+    "dateModified": "2026-11-16T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/colossians-4-2-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Colossians 4:2 (KJV)",
@@ -20,7 +20,7 @@
     },
     {
       "type": "paragraph",
-      "text": "A **daily prayer widget iOS** setup sounds like a small thing. It isn't. The average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report — and almost none of those pickups point you toward prayer. A widget changes the odds: it puts a prompt to pray on the surface your eyes already land on, instead of inside an app you have to remember to open."
+      "text": "A **daily prayer widget iOS** setup sounds like a small thing. It isn't. The average American picks up their phone **186 times a day**, per Reviews.org's 2026 Phone Habits report — and almost none of those pickups point you toward prayer. A widget changes the odds: it puts a prompt to pray on the surface your eyes already land on, instead of inside an app you have to remember to open."
     },
     {
       "type": "heading",
@@ -40,7 +40,7 @@
       "type": "list",
       "items": [
         "**Home screen widget** — larger, can show a prayer prompt, today's focus, or a verse. Best for the deliberate moment you sit down.",
-        "**Lock screen widget** — tiny, glanceable, lives above the clock. Best for the 144 quick checks where you just need the nudge.",
+        "**Lock screen widget** — tiny, glanceable, lives above the clock. Best for the 186 quick checks where you just need the nudge.",
         "**The lock screen itself** — the most-seen surface of all. A Scripture verse here becomes a prayer prompt you can't miss."
       ]
     },
@@ -75,7 +75,7 @@
     },
     {
       "type": "paragraph",
-      "text": "This is where the lock screen earns its keep. Instead of a generic reminder, **FaithWall** puts an actual verse on the surface you check 144 times a day — and a verse is a prayer prompt with the words already in it. *\"Cast all your anxieties on him\"* doesn't ask you to invent a prayer; it hands you one. You don't have to know what to pray. You read the verse, and the prayer starts itself."
+      "text": "This is where the lock screen earns its keep. Instead of a generic reminder, **FaithWall** puts an actual verse on the surface you check 186 times a day — and a verse is a prayer prompt with the words already in it. *\"Cast all your anxieties on him\"* doesn't ask you to invent a prayer; it hands you one. You don't have to know what to pray. You read the verse, and the prayer starts itself."
     },
     {
       "type": "important",
@@ -110,7 +110,7 @@
     {
       "type": "cta",
       "title": "Skip the blank widget — let FaithWall prompt the prayer",
-      "description": "Free to download, 60-second setup. FaithWall keeps a verse on your lock screen that doubles as today's prayer prompt — on the surface you already check 144 times a day.",
+      "description": "Free to download, 60-second setup. FaithWall keeps a verse on your lock screen that doubles as today's prayer prompt — on the surface you already check 186 times a day.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

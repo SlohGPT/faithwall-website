@@ -13,6 +13,10 @@ export default function TermsOfUse() {
                 <meta property="og:title" content="Terms of Use | FaithWall" />
                 <meta property="og:description" content="FaithWall's terms of use. Read the legal terms governing your use of our iOS app and services." />
                 <meta property="og:url" content="https://faithwall.app/terms-of-use" />
+                <meta property="og:image" content="https://faithwall.app/og-image.png" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
             </Helmet>
             <Navigation />
             <main className="container-main pt-32 pb-16">

@@ -79,6 +79,10 @@ export default function Pillar({ cluster }: { cluster: BlogCluster }) {
         <meta property="og:description" content={pillar.metaDescription} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://faithwall.app/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
         <meta property="article:published_time" content={pillar.datePublished} />
         <meta property="article:modified_time" content={pillar.dateModified || pillar.datePublished} />
         <meta property="article:author" content="Karol Billik" />

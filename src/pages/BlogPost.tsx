@@ -33,8 +33,8 @@ export default function BlogPost() {
     image: {
       '@type': 'ImageObject',
       url: imageUrl,
-      width: 1200,
-      height: 675,
+      width: 1600,
+      height: 1067,
     },
     datePublished: post.meta.datePublished,
     dateModified,
@@ -94,8 +94,8 @@ export default function BlogPost() {
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
         <meta property="og:image" content={imageUrl} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="675" />
+        <meta property="og:image:width" content="1600" />
+        <meta property="og:image:height" content="1067" />
         <meta name="twitter:title" content={post.meta.title} />
         <meta name="twitter:description" content={post.meta.description} />
         <meta name="twitter:image" content={imageUrl} />

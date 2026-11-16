@@ -9,8 +9,8 @@ const steps = [
     },
     {
         number: '02',
-        title: 'Personalize',
-        description: 'Add your favorite verses, prayers, or daily affirmations.',
+        title: 'Pick your verse',
+        description: 'Choose the verse you want to see on your lock screen.',
     },
     {
         number: '03',

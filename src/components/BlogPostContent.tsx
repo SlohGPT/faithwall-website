@@ -59,15 +59,17 @@ export default function BlogPostContent({ post, slug, related }: Props) {
               className="w-full aspect-[16/9] object-cover"
               loading="eager"
               decoding="async"
+              // React 18 only knows the lowercase attribute (same workaround as the Hero image).
+              {...{ fetchpriority: 'high' }}
             />
             {meta.imageAttribution && (
-              <figcaption className="mt-2 text-xs text-white/40 text-right">
+              <figcaption className="mt-2 text-sm text-white/60 text-right">
                 Photo by{' '}
                 <a
                   href={meta.imageAttribution.photographerUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-white/70"
+                  className="underline hover:text-white"
                 >
                   {meta.imageAttribution.photographer}
                 </a>{' '}
@@ -76,7 +78,7 @@ export default function BlogPostContent({ post, slug, related }: Props) {
                   href={meta.imageAttribution.unsplashUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-white/70"
+                  className="underline hover:text-white"
                 >
                   Unsplash
                 </a>
@@ -85,7 +87,7 @@ export default function BlogPostContent({ post, slug, related }: Props) {
           </figure>
         )}
 
-        <BlogRenderer sections={sections} campaign={`blog-${slug}`} slug={slug} title={meta.title} />
+        <BlogRenderer sections={sections} slug={slug} title={meta.title} pageType="blog" />
 
         <AuthorBio />
 

@@ -2,19 +2,15 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
+import { RatingLine } from './AppNudge';
 import { appStoreUrl } from '../lib/appStore';
+import facts from '../data/facts.json';
 
 const slides = [1, 2, 3, 4, 5];
 const images = slides.map(i => `/assets/slideshow/slide${i}.webp`);
 const avifImages = slides.map(i => `/assets/slideshow/slide${i}.avif`);
 const mobileWebp = slides.map(i => `/assets/slideshow/slide${i}-mobile.webp`);
 const mobileAvif = slides.map(i => `/assets/slideshow/slide${i}-mobile.avif`);
-
-const avatars = [
-  '/assets/avatars/avatar-1.jpg',
-  '/assets/avatars/avatar-2.jpg',
-  '/assets/avatars/avatar-3.jpg',
-];
 
 // Smooth spring transition for card stack (only motion.div used in Hero —
 // entrance animations are CSS to stay SSR-safe).
@@ -84,19 +80,8 @@ export default function Hero() {
       <div className="container-main relative pt-32 md:pt-40 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div className="text-center lg:text-left lg:-translate-y-32">
-            <div className="inline-flex items-center gap-4 px-5 py-3 rounded-full bg-surface-card border-2 border-brand/30 mb-8 animate-fade-up-d1">
-              <div className="flex -space-x-2">
-                {avatars.map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt=""
-                    className="w-8 h-8 rounded-full border-2 border-surface-card object-cover ring-1 ring-brand/20"
-                    loading="lazy"
-                  />
-                ))}
-              </div>
-              <span className="text-base text-white/70 font-medium">Trusted by 1,000+ believers</span>
+            <div className="inline-flex items-center px-5 py-3 rounded-full bg-surface-card border-2 border-brand/30 mb-8 animate-fade-up-d1">
+              <span className="text-base text-white/70 font-medium">Used by 1,000+ people</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6 animate-fade-up-d2">
@@ -105,25 +90,37 @@ export default function Hero() {
               <span className="text-white/40">On Your Lock Screen</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-white/60 leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0 animate-fade-up-d3">
+            <p className="text-lg sm:text-xl text-white/60 leading-relaxed mb-6 lg:mb-10 max-w-lg mx-auto lg:mx-0 animate-fade-up-d3">
               Meet FaithWall, the app that transforms your iPhone lock screen into a daily moment with God.
             </p>
 
-            {/* Desktop buttons - hidden on mobile */}
-            <div className="hidden lg:flex flex-row gap-4 justify-start items-center animate-fade-up-d4">
-              <AppStoreButton href={appStoreUrl('web-home-hero')} />
-              <a
-                href={appStoreUrl('web-home-hero-cta')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 h-[52px] text-base font-bold text-white transition-all duration-200 bg-brand rounded-xl hover:bg-brand-light hover:scale-105"
-              >
-                Get Started
-              </a>
+            {/* Phones: install row above the slideshow so it sits in the first screen. */}
+            <div className="lg:hidden animate-fade-up-d4">
+              <div className="flex items-center justify-center gap-3">
+                <img
+                  src="/icon-app-180.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 shrink-0 rounded-[10px]"
+                  decoding="async"
+                />
+                <AppStoreButton href={appStoreUrl('web-home-hero')} />
+              </div>
+              <RatingLine className="mt-3 justify-center text-sm text-white/60" />
+              <p className="mt-1.5 text-sm text-white/50">
+                Listed on the App Store as {facts.storeName}
+              </p>
             </div>
-            <p className="hidden lg:block mt-3 text-sm text-white/50 animate-fade-up-d4">
-              Listed on the App Store as Lock Screen Bible Verse
-            </p>
+
+            {/* Desktop: badge with the rating under it. No QR handoff here: it made the column taller and pushed the pill under the nav at 1440x900. */}
+            <div className="hidden lg:block animate-fade-up-d4">
+              <AppStoreButton href={appStoreUrl('web-home-hero')} />
+              <RatingLine className="mt-3 text-sm text-white/60" />
+              <p className="mt-1.5 text-sm text-white/50">
+                Listed on the App Store as {facts.storeName}
+              </p>
+            </div>
           </div>
 
           <div className="relative flex flex-col items-center justify-center lg:items-end animate-fade-in-slide">
@@ -226,22 +223,6 @@ export default function Hero() {
                   />
                 ))}
               </div>
-
-              {/* Mobile buttons - below slideshow, side by side */}
-              <div className="flex lg:hidden flex-row gap-3 justify-center items-center w-full mt-4 animate-fade-up-d6">
-                <AppStoreButton href={appStoreUrl('web-home-hero-mobile')} />
-                <a
-                  href={appStoreUrl('web-home-hero-mobile-cta')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 h-[52px] text-base font-bold text-white transition-all duration-200 bg-brand rounded-xl hover:bg-brand-light hover:scale-105"
-                >
-                  Get Started
-                </a>
-              </div>
-              <p className="lg:hidden -mt-5 text-sm text-white/50 text-center animate-fade-up-d6">
-                Listed on the App Store as Lock Screen Bible Verse
-              </p>
             </div>
           </div>
         </div>

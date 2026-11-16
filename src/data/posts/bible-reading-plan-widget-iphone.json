@@ -4,7 +4,7 @@
     "description": "A bible reading plan widget iphone setup that keeps today's passage in front of you — the home and lock screen widgets that stop plans dying by week three.",
     "date": "June 11, 2026",
     "datePublished": "2026-06-11T09:00:00.000Z",
-    "dateModified": "2026-11-05T09:00:00.000Z",
+    "dateModified": "2026-11-16T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/psalm-119-133-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Psalm 119:133 (KJV)",
@@ -24,7 +24,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report. A widget turns a fraction of those glances into a nudge toward today's chapter instead of today's feed."
+      "text": "The average American picks up their phone **186 times a day**, per Reviews.org's 2026 Phone Habits report. A widget turns a fraction of those glances into a nudge toward today's chapter instead of today's feed."
     },
     {
       "type": "heading",
@@ -48,7 +48,7 @@
       "type": "list",
       "items": [
         "**Home screen widget** — bigger, shows the day's passage reference and your streak. Best for the moment you sit down to read.",
-        "**Lock screen widget** — tiny, glanceable, lives above the clock. Best for the 144 micro-checks where you just need the nudge.",
+        "**Lock screen widget** — tiny, glanceable, lives above the clock. Best for the 186 micro-checks where you just need the nudge.",
         "**The pairing** — a reading-plan widget for *what to read*, and a Scripture lock screen for *carrying one verse from it* through the day."
       ]
     },
@@ -83,7 +83,7 @@
     },
     {
       "type": "paragraph",
-      "text": "This is the gap **FaithWall** fills. It isn't a reading-plan app — it's the *exposure* layer. You read the chapter in your plan, then let FaithWall keep one verse from it on your lock screen all day, with a widget that rotates fresh verses so the screen stays alive instead of fading by mid-morning. The reading happens once; the meditation happens 144 times."
+      "text": "This is the gap **FaithWall** fills. It isn't a reading-plan app — it's the *exposure* layer. You read the chapter in your plan, then let FaithWall keep one verse from it on your lock screen all day, with a widget that rotates fresh verses so the screen stays alive instead of fading by mid-morning. The reading happens once; the meditation happens 186 times."
     },
     {
       "type": "important",

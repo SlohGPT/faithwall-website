@@ -5,84 +5,56 @@ import SocialProof from '../components/SocialProof';
 import Features from '../components/Features';
 import HowItWorksAndPreview from '../components/HowItWorksAndPreview';
 import TestimonialsAndFAQ from '../components/TestimonialsAndFAQ';
-import Newsletter from '../components/Newsletter';
 import FinalCTA from '../components/FinalCTA';
 import Footer from '../components/Footer';
-import { APP_STORE_BASE } from '../lib/appStore';
+import facts from '../data/facts.json';
+import { homeFaq } from '../data/homeFaq';
 
 const HOME_TITLE = 'FaithWall — Daily Bible Verse Lock Screen App for iPhone';
 const HOME_DESC =
   "FaithWall (Faith Wall) is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen. A subscription unlocks it. See how it works and which translations it supports.";
 
-const softwareApplicationSchema = {
+const mobileApplicationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'FaithWall',
-  alternateName: ['Faith Wall', 'Lock Screen Bible Verse'],
+  '@type': 'MobileApplication',
+  name: facts.brand,
+  alternateName: ['Faith Wall', facts.storeName],
+  operatingSystem: facts.minIOSText,
   applicationCategory: 'LifestyleApplication',
-  operatingSystem: 'iOS 15.0 or later',
+  description:
+    'FaithWall is an iOS app that displays daily Bible verses on the iPhone lock screen using wallpapers and widgets. Pick your own verse and see Scripture every time you check your phone. Free to download; a subscription unlocks it.',
   url: 'https://faithwall.app/',
-  downloadUrl: APP_STORE_BASE,
+  downloadUrl: facts.storeUrl,
+  installUrl: facts.storeUrl,
   offers: {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'USD',
+    description:
+      'Free to download; using the app requires a subscription. Price, billing period and any trial offer are shown in the App Store before purchase.',
   },
-};
-
-const websiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'FaithWall',
-  alternateName: 'Faith Wall',
-  url: 'https://faithwall.app/',
+  screenshot: [
+    'https://faithwall.app/assets/slideshow/slide1.webp',
+    'https://faithwall.app/assets/slideshow/slide2.webp',
+    'https://faithwall.app/assets/slideshow/slide3.webp',
+    'https://faithwall.app/assets/slideshow/slide4.webp',
+    'https://faithwall.app/assets/slideshow/slide5.webp',
+  ],
+  author: {
+    '@type': 'Person',
+    name: 'Karol Billik',
+    url: 'https://faithwall.app/about/karol-billik',
+  },
 };
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is FaithWall?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'FaithWall is an iPhone app, free to download, that puts a Bible verse you choose on your lock screen as a wallpaper, or rotates verses through a lock-screen widget. Using it requires a FaithWall subscription. It installs on iOS 15.0 or later; the lock-screen widget needs iOS 16 or later.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How does FaithWall work?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'You pick your own verses by book, chapter and verse or by search, in 24 translations. After subscribing you choose how to show them: a full-screen lock-screen wallpaper applied with an Apple Shortcut, or a compact lock-screen widget that starts with the verse you picked and then rotates fresh verses on its own every hour, 8 hours or day. FaithWall is not a Bible reader.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is FaithWall free?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'FaithWall is free to download, but using it requires a subscription. The price, billing period and any trial offer are shown in the App Store before you pay, in your local currency.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Which iPhones does FaithWall work on?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'FaithWall installs on iPhones running iOS 15.0 or later. The lock-screen widget needs iOS 16 or later, because Apple added lock-screen widgets in iOS 16.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is my data private?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Your subscription payment is handled by Apple through the App Store, so FaithWall never sees your card details.',
-      },
-    },
-  ],
+  mainEntity: homeFaq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
 };
 
 export default function Home() {
@@ -105,8 +77,7 @@ export default function Home() {
                 <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
                 <meta name="twitter:image:alt" content="FaithWall — Daily Bible Verses on Your iPhone Lock Screen" />
                 <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-                <script type="application/ld+json">{JSON.stringify(softwareApplicationSchema)}</script>
-                <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
+                <script type="application/ld+json">{JSON.stringify(mobileApplicationSchema)}</script>
             </Helmet>
             <Navigation />
             <Hero />
@@ -114,7 +85,6 @@ export default function Home() {
             <Features />
             <HowItWorksAndPreview />
             <TestimonialsAndFAQ />
-            <Newsletter />
             <FinalCTA />
             <Footer />
         </div>

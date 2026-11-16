@@ -1,37 +1,35 @@
 import { ComponentProps } from 'react';
 
-interface AppStoreButtonProps extends ComponentProps<'a'> {
+interface AppStoreButtonProps extends Omit<ComponentProps<'a'>, 'children'> {
     theme?: 'dark' | 'light';
 }
 
-export default function AppStoreButton({ theme = 'light', className = '', ...props }: AppStoreButtonProps) {
-    // theme 'light' = White Button with Black Text (Official "Light" badge)
-    // theme 'dark' = Black Button with White Text (Official "Dark" badge)
+// Apple's official "Download on the App Store" badge (US-UK, SVG), served unmodified from /public/badges.
+// The files' viewBox is 119.66407 x 40; scaled to 44 px tall that is 131.63 px wide (132 here), so the box is
+// reserved up front (no layout shift). Apple's rules: never alter or recolor the artwork, keep it at least 40 px
+// tall, leave clear space of at least a quarter of its height around it, one badge per card or section.
+const BADGE_HEIGHT = 44;
+const BADGE_WIDTH = Math.round((119.66407 / 40) * BADGE_HEIGHT); // 132
 
-    const isDark = theme === 'dark';
+export default function AppStoreButton({ theme = 'light', className = '', ...props }: AppStoreButtonProps) {
+    // theme 'light' = the white badge, theme 'dark' = the black badge.
+    const src = theme === 'dark' ? '/badges/app-store-black.svg' : '/badges/app-store-white.svg';
 
     return (
         <a
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2.5 rounded-xl px-4 py-2 transition-opacity hover:opacity-90 border ${isDark
-                    ? 'bg-black text-white border-white/20'
-                    : 'bg-white text-black border-black/10'
-                } ${className}`}
+            className={`inline-block shrink-0 transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface rounded-[10px] ${className}`}
             {...props}
         >
-            <svg
-                viewBox="0 0 16 20"
-                fill="currentColor"
-                className="h-6 w-auto mb-1"
-                aria-hidden="true"
-            >
-                <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282" />
-            </svg>
-            <div className="flex flex-col items-start leading-none pointer-events-none">
-                <span className="text-[10px] whitespace-nowrap opacity-80 font-medium">Download on the</span>
-                <span className="text-[18px] font-bold whitespace-nowrap -mt-0.5 font-sans">App Store</span>
-            </div>
+            <img
+                src={src}
+                alt="Download on the App Store"
+                width={BADGE_WIDTH}
+                height={BADGE_HEIGHT}
+                className="block"
+                decoding="async"
+            />
         </a>
     );
 }

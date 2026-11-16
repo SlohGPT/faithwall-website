@@ -367,11 +367,11 @@ export default function CompareView({ config }: { config: CompareConfig }) {
           </div>
 
           {/* CTA */}
-          <div className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center">
+          <div data-hides-sticky className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center">
             <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{config.ctaTitle}</h3>
             <p className="text-white/80 mb-6 max-w-xl mx-auto">{config.ctaDescription}</p>
             <div className="flex justify-center">
-              <AppStoreButton href={appStoreUrl(`web-compare-${config.slug}`)} theme="light" />
+              <AppStoreButton href={appStoreUrl('web-cmp')} theme="light" />
             </div>
           </div>
         </div>

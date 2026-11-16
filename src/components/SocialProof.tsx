@@ -1,14 +1,16 @@
 import { useRef, useEffect, useState } from 'react';
 import { useInView, animate } from 'framer-motion';
+import facts from '../data/facts.json';
 
-// Every stat here must be verifiable: 1,000+ matches the hero's "Trusted by
-// 1,000+ believers" (RevenueCat's new-customer count backs it; this repo is
-// public, so no raw figures here), 24 = translations in the verse
-// picker, 4.7 = global App Store rating. No survey percentages without a source.
-const stats = [
-  { value: 1000, label: 'Believers have installed FaithWall', suffix: '+' },
+// Every stat here must be verifiable: 1,000+ matches the hero's "Used by 1,000+
+// people" (RevenueCat's new-customer count backs it; this repo is public, so no
+// raw figures here), 24 = translations in the verse picker, and the rating is
+// the US App Store value from facts.json, shown only while facts.rating.show is
+// true (scripts/check-facts.mjs keeps it current). No survey percentages without a source.
+const stats: { value: number; label: string; suffix?: string; decimals?: number }[] = [
+  { value: 1000, label: 'People have installed FaithWall', suffix: '+' },
   { value: 24, label: 'Bible translations to pick from' },
-  { value: 4.7, label: 'App Store rating', decimals: 1 },
+  ...(facts.rating.show ? [{ value: Number(facts.rating.value), label: 'US App Store rating', decimals: 1 }] : []),
 ];
 
 function formatCount(n: number, decimals: number, suffix: string) {
@@ -59,7 +61,7 @@ export default function SocialProof() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(217,123,59,0.15)_0%,_transparent_60%)]" />
 
           <div className="relative px-8 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-24">
-            <div className="grid sm:grid-cols-3 gap-12 sm:gap-8">
+            <div className={`grid ${stats.length === 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2'} gap-12 sm:gap-8`}>
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center group">
                   <div className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-3">

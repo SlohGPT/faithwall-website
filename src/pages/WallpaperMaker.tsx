@@ -23,6 +23,7 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import AppStoreButton from '../components/AppStoreButton';
 import { appStoreUrl } from '../lib/appStore';
 import AppNudge from '../components/AppNudge';
+import { useIsAndroid } from '../hooks/useIsAndroid';
 import AuthorBio from '../components/AuthorBio';
 import WallpaperGallery from '../components/WallpaperGallery';
 import DeviceMockup, { type DeviceKind } from '../components/DeviceMockup';
@@ -54,7 +55,7 @@ import {
 } from '../lib/wallpaper';
 
 const PAGE_URL = 'https://faithwall.app/bible-verse-wallpaper-maker';
-const APP_STORE_URL = appStoreUrl('web-wallpaper-maker');
+const APP_STORE_URL = appStoreUrl('web-maker');
 const TITLE = 'Bible Verse Wallpaper Maker — Free iPhone Lock Screen Generator';
 const DESC =
   'Make a Bible verse wallpaper for your iPhone, Android or desktop in seconds. Pick a style, keep the verse clear of the lock-screen clock, and download the image.';
@@ -183,7 +184,7 @@ const faqs = [
   {
     question: 'What is the difference between this maker and FaithWall?',
     answer:
-      'This page makes one image that you set by hand. FaithWall is an iPhone app where you pick a verse (by reference or by search, in 24 translations) and it puts the verse on your lock screen as a wallpaper applied by an Apple Shortcut, or as a lock-screen widget that rotates your saved verses.',
+      'This page makes one image that you set by hand. FaithWall is an iPhone app where you pick a verse (by reference or by search, in 24 translations) and it puts the verse on your lock screen as a wallpaper applied by an Apple Shortcut, or as a lock-screen widget that starts with the verse you picked and then shows random verses.',
   },
 ];
 
@@ -219,24 +220,28 @@ function slugify(value: string) {
 
 type ExportState = { url: string; filename: string; via: 'shared' | 'downloaded' } | null;
 
-function FaithWallCta({ compact = false }: { compact?: boolean }) {
+function FaithWallCta() {
+  const isAndroid = useIsAndroid();
+  if (isAndroid) return null;
   return (
-    <div className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center">
+    <div
+      data-install-card="tool"
+      data-nosnippet
+      className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center"
+    >
       <h3 className="text-2xl md:text-3xl font-black text-white mb-3">
-        {compact ? 'Skip the remake next time' : 'Put a verse on your lock screen without remaking it'}
+        Put a verse on your lock screen without remaking it
       </h3>
       <p className="text-white/80 mb-4 max-w-2xl mx-auto">
         In FaithWall, an iPhone app, you pick the verse yourself, by book, chapter and verse or by
         search, in 24 translations. It then reaches your lock screen as a full-screen wallpaper
-        applied by an Apple Shortcut, or as a lock-screen widget that rotates your saved verses
-        hourly, every 8 hours, or daily.
+        applied by an Apple Shortcut, or as a lock-screen widget that starts with the verse you
+        picked and then shows random verses hourly, every 8 hours, or daily.
       </p>
-      {!compact && (
-        <p className="text-white/70 mb-6 max-w-2xl mx-auto text-sm">
-          Wallpaper backgrounds include 15 Faith Wallpapers, your own photos, gradients, and plain
-          black or gray.
-        </p>
-      )}
+      <p className="text-white/70 mb-6 max-w-2xl mx-auto text-sm">
+        Wallpaper backgrounds include 15 Faith Wallpapers, your own photos, gradients, and plain
+        black or gray.
+      </p>
       <div className="flex justify-center">
         <AppStoreButton href={APP_STORE_URL} theme="light" />
       </div>
@@ -277,7 +282,6 @@ export default function WallpaperMaker() {
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const dragRef = useRef<{ x: number; y: number; fx: number; fy: number; id: number } | null>(null);
-  const [renderTick, setRenderTick] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const previewRef = useRef<HTMLDivElement | null>(null);
   const makerAreaRef = useRef<HTMLDivElement | null>(null);
@@ -365,7 +369,6 @@ export default function WallpaperMaker() {
       ctx.setTransform(scale, 0, 0, scale, 0, 0);
       drawWallpaper(ctx, { text, reference: refText, size, style, position, photo: deferredPhotoBg });
       setReady(true);
-      setRenderTick((t) => t + 1);
     })();
     return () => {
       cancelled = true;
@@ -1103,15 +1106,8 @@ export default function WallpaperMaker() {
                   {status}
                 </p>
                 {exported && (
-                  <AppNudge campaign="web-wallpaper-maker-saved" confirmation="Saved">
-                    Instead of remaking a wallpaper every time, FaithWall rotates the verses you pick on
-                    your lock screen automatically.
-                  </AppNudge>
+                  <AppNudge variant="install" placement="tool" campaign="web-maker" confirmation="Saved" />
                 )}
-                <AppNudge campaign="web-wallpaper-maker-inline" variant="inline">
-                  Want a verse on your lock screen without remaking it? FaithWall is an iPhone app that
-                  rotates the verses you pick.
-                </AppNudge>
               </section>
             </div>
           </div>
@@ -1161,7 +1157,6 @@ export default function WallpaperMaker() {
                   Download {exported.filename}
                 </a>
               </p>
-              <FaithWallCta compact />
             </section>
           )}
 
@@ -1274,14 +1269,14 @@ export default function WallpaperMaker() {
               <p className="text-white/80 leading-relaxed mb-4">
                 A wallpaper you make by hand stays the same until you rebuild it. FaithWall, an iPhone
                 app, takes over that chore: you choose a verse in the app, and it reaches your lock screen
-                as a full-screen wallpaper or a rotating widget, so you stop opening an editor every time
+                as a full-screen wallpaper or a lock-screen widget, so you stop opening an editor every time
                 you want a different verse.
               </p>
               <p className="text-white/75 leading-relaxed mb-4">
                 You pick the verse yourself, by book, chapter and verse or by search, in 24 translations.
                 From there it gets onto the lock screen one of two ways: as a full-screen wallpaper that an
-                Apple Shortcut applies, or as a lock-screen widget that rotates your saved verses hourly,
-                every 8 hours, or daily. Wallpaper backgrounds include 15 Faith Wallpapers, your own
+                Apple Shortcut applies, or as a lock-screen widget that starts with the verse you picked and
+                then shows random verses hourly, every 8 hours, or daily. Wallpaper backgrounds include 15 Faith Wallpapers, your own
                 photos, gradients, and plain black or gray.
               </p>
               <p className="text-white/75 leading-relaxed">
@@ -1337,16 +1332,12 @@ export default function WallpaperMaker() {
       </main>
 
       <MiniPreview
-        sourceRef={canvasRef}
-        renderTick={renderTick}
-        width={size.width}
-        height={size.height}
         previewRef={previewRef}
         areaRef={makerAreaRef}
         downloadRef={downloadRef}
       />
       <Footer />
-      <StickyInstallBar kind="tool" />
+      <StickyInstallBar kind="maker" />
     </div>
   );
 }

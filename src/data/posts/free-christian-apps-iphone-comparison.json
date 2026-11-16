@@ -4,7 +4,7 @@
     "description": "A free christian apps iphone comparison that names the actually-free options — Bible reading, prayer, devotional — and the freemium traps to skip.",
     "date": "June 1, 2026",
     "datePublished": "2026-06-01T09:00:00.000Z",
-    "dateModified": "2026-11-05T09:00:00.000Z",
+    "dateModified": "2026-11-16T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/ecclesiastes-4-12-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Ecclesiastes 4:12 (KJV)",
@@ -86,7 +86,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Two failure modes kill most free-app stacks. First — **the lock-screen category gets skipped**. Every \"best free Christian apps\" list ranks Bible apps, prayer apps, devotionals — and forgets that the most-touched surface on your iPhone is the lock screen. You check your phone 144 times today (Reviews.org's 2026 Phone Habits report). If three of those touches are for the Bible app and 141 are for everything else, the apps you installed are doing only 2% of the spiritual work the lock screen could do."
+      "text": "Two failure modes kill most free-app stacks. First — **the lock-screen category gets skipped**. Every \"best free Christian apps\" list ranks Bible apps, prayer apps, devotionals — and forgets that the most-touched surface on your iPhone is the lock screen. You check your phone 186 times today (Reviews.org's 2026 Phone Habits report). If three of those touches are for the Bible app and 183 are for everything else, the apps you installed are doing under 2% of the spiritual work the lock screen could do."
     },
     {
       "type": "paragraph",
@@ -130,7 +130,7 @@
     {
       "type": "cta",
       "title": "Add the missing piece every list skips",
-      "description": "FaithWall is the lock-screen layer most Christian app comparisons forget — daily Scripture on the surface you already check 144 times a day. Free to download, 60-second setup.",
+      "description": "FaithWall is the lock-screen layer most Christian app comparisons forget — daily Scripture on the surface you already check 186 times a day. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

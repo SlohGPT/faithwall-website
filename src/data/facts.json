@@ -1,0 +1,21 @@
+{
+  "_note": "Single source of product facts for the site, schema, llms.txt, lints and prompts. Public App Store data only. scripts/check-facts.mjs compares it with the live US listing; it may rewrite only rating.* and only when the 1-decimal value or rating.show flips (show = value >= 4.5 and count >= 20). A change in storeName or minIOS needs a human because copy depends on it.",
+  "brand": "FaithWall",
+  "storeName": "Lock Screen Bible Verse",
+  "appId": "6756815070",
+  "storeUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070",
+  "providerToken": "128303795",
+  "minIOS": "15.0",
+  "minIOSText": "iOS 15.0 or later",
+  "widgetMinIOS": "16.0",
+  "installLine": "Free to download; a subscription unlocks it.",
+  "subscriptionLine": "A subscription unlocks it.",
+  "rating": {
+    "value": "4.7",
+    "count": 48,
+    "asOf": "2026-11-16",
+    "storefront": "us",
+    "show": true
+  },
+  "contactEmail": "hello@faithwall.app"
+}

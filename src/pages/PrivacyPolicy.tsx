@@ -13,6 +13,10 @@ export default function PrivacyPolicy() {
                 <meta property="og:title" content="Privacy Policy | FaithWall" />
                 <meta property="og:description" content="FaithWall's privacy policy. We don't collect sensitive personal information, don't require an account, and your verse selections stay on your device." />
                 <meta property="og:url" content="https://faithwall.app/privacy-policy" />
+                <meta property="og:image" content="https://faithwall.app/og-image.png" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
             </Helmet>
             <Navigation />
             <main className="container-main pt-32 pb-16">

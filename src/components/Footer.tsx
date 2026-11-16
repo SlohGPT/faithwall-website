@@ -8,7 +8,7 @@ import { appStoreUrl } from '../lib/appStore';
 const footerLinks = {
   about: [
     { name: 'Features', href: '/#features' },
-    { name: 'Download', href: appStoreUrl('web-footer-link') },
+    { name: 'Download', href: appStoreUrl('web-site') },
     { name: 'FAQ', href: '/#faq' },
   ],
   resources: [
@@ -40,7 +40,7 @@ export default function Footer() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <footer className="bg-surface border-t border-surface-border relative">
+    <footer data-site-footer className="bg-surface border-t border-surface-border relative">
       <div className="container-main py-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12 mb-16">
           <div className="col-span-2 md:col-span-1">
@@ -60,7 +60,7 @@ export default function Footer() {
             </p>
 
             <div className="mt-6">
-              <AppStoreButton href={appStoreUrl('web-footer')} />
+              <AppStoreButton href={appStoreUrl('web-site')} />
             </div>
           </div>
 
@@ -155,7 +155,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-surface-border mt-8 flex flex-col md:flex-row md:justify-between md:items-center gap-3">
+        <p className="mt-8 text-center md:text-left text-white/60 text-xs leading-relaxed">
+          Apple, the Apple logo, iPhone and App Store are trademarks of Apple Inc., registered in the U.S. and other countries and regions.
+        </p>
+
+        <div className="pt-6 border-t border-surface-border mt-6 flex flex-col md:flex-row md:justify-between md:items-center gap-3">
           <p className="text-white/40 text-sm text-center md:text-left">
             &copy; 2026 FaithWall. Made with love for the Lord.
           </p>

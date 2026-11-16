@@ -13,6 +13,10 @@ export default function EULA() {
                 <meta property="og:title" content="EULA | FaithWall" />
                 <meta property="og:description" content="FaithWall's End-User License Agreement. Read the terms under which FaithWall is licensed to you." />
                 <meta property="og:url" content="https://faithwall.app/eula" />
+                <meta property="og:image" content="https://faithwall.app/og-image.png" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
             </Helmet>
             <Navigation />
             <main className="container-main pt-32 pb-16">
@@ -63,17 +67,17 @@ export default function EULA() {
 
                     <h3>1. THE APPLICATION</h3>
                     <p>
-                        <strong>FaithWall</strong> ("Licensed Application") is a piece of software created to help users organize their goals, reminders, and notes by generating personalized lock-screen wallpapers that make important information instantly visible throughout the day. It is customized for iOS mobile devices ("Devices").
+                        <strong>FaithWall</strong> ("Licensed Application") is a piece of software that displays Bible verses on the iPhone lock screen using wallpapers and widgets. It is customized for iOS mobile devices ("Devices").
                     </p>
                     <p>
-                        The Application’s main use is to allow users to create, customize, and export wallpapers containing their notes, habits, and reminders using built-in templates and design tools.
+                        The Application’s main use is to let users pick a Bible verse (by book, chapter and verse, or by search) and show it on their lock screen, either as a wallpaper applied through an iOS Shortcut or in a lock-screen widget that starts with the verse they picked and then shows random verses.
                     </p>
                     <p>Furthermore, it is used to:</p>
                     <ul>
                         <li>Generate wallpapers through an integrated iOS Shortcut;</li>
-                        <li>Provide optional premium features such as advanced templates, unlimited wallpapers, and automation tools;</li>
+                        <li>Provide access to the application’s features through a subscription purchased in the App Store;</li>
                         <li>Save user preferences and design settings for easier reuse; and</li>
-                        <li>Offer motivational and organizational tools that support consistency and habit building.</li>
+                        <li>Offer a choice of Bible translations for the verses shown.</li>
                     </ul>
                     <p>
                         The Licensed Application is not tailored to comply with industry-specific regulations (Health Insurance Portability and Accountability Act (HIPAA), Federal Information Security Management Act (FISMA), etc.), so if your interactions would be subjected to such laws, you may not use this Licensed Application. You may not use the Licensed Application in a way that would violate the Gramm-Leach-Bliley Act (GLBA).

@@ -259,7 +259,7 @@ export default function Navigation() {
                 </div>
 
                 <a
-                  href={appStoreUrl('web-nav')}
+                  href={appStoreUrl('web-site')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hidden lg:inline-flex items-center justify-center px-7 py-3 bg-white text-surface text-xl font-semibold rounded-full hover:bg-white/90 transition-all duration-300"
@@ -325,7 +325,7 @@ export default function Navigation() {
             </Link>
             <div className="pt-2 mt-2 border-t border-surface-border">
               <a
-                href={appStoreUrl('web-nav-mobile')}
+                href={appStoreUrl('web-site')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-full px-8 py-3.5 bg-white text-surface text-xl font-semibold rounded-full transition-colors"

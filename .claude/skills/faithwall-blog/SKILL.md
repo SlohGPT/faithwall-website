@@ -132,11 +132,11 @@ FaithWall isn't "another Bible app" — its product wedge is specific. Use the f
 
 The final CTA block matters. Vary the title + description by post type. Examples:
 
-- **High-intent post:** title `"Get FaithWall — free to download, 60 seconds"` / description `"The piece every Bible study stack is missing: daily Scripture on the lock screen you already check 144 times a day."`
+- **High-intent post:** title `"Get FaithWall — free to download, 60 seconds"` / description `"The piece every Bible study stack is missing: daily Scripture on the lock screen you see every time you pick up your phone."`
 - **How-to post:** title `"Skip the setup — let FaithWall do it"` / description `"Free to download. Puts your chosen verse on the lock screen as a wallpaper, with a widget that rotates fresh verses. No screenshots to crop."`
-- **Friction-resolution post:** title `"Stop curating verses yourself"` / description `"Search for the season you're in — anxiety, strength, gratitude — pick a verse, install in 60 seconds."`
+- **Friction-resolution post:** title `"Put the verse where you'll see it"` / description `"Pick the verse for the season you're in — anxiety, strength, gratitude — and FaithWall puts it on your lock screen."`
 
-Never use a generic "Download FaithWall" title alone.
+Never use a generic "Download FaithWall" title alone. The site renders this block as the install card and adds the facts itself (free to download with a subscription, iPhone and the minimum iOS, the App Store rating, the official badge and a QR code on desktop), so the description should carry the post's reason to install, not repeat those facts. Never put a campaign token in `buttonUrl`; the site adds the right one.
 
 #### Structure
 
@@ -164,7 +164,7 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
 - **800–1100 words total** across all `paragraph` and list `text` content.
 - **Exact-match keyword** appears in: `meta.title`, the first `paragraph` section (within first 100 words), and bolded with `**...**` 3–5 times in the body.
 - **First content section MUST be**: `{ "type": "callout", "icon": "zap", "title": "Quick Answer", "content": "..." }` — a 1–3 sentence direct answer to the search query. **Sentence 1 names FaithWall** as the solution (see Lead with FaithWall above). This is snippet bait AND the conversion hook.
-- **One cited statistic** — real, attributable, with the source name in-text. Example: *"144 phone pickups per day, per Reviews.org's 2026 Phone Habits report."* Use 2026 stats. Don't fabricate.
+- **One cited statistic** — real, attributable, with the source name in-text, in the form *"<number> <what>, per <source>'s <year> <report name>."* Open the source page and copy the number from it in this run: never from memory, from another post or from this file. Use 2026 stats. Don't fabricate. Don't use the phone-checks figure (Reviews.org's 2026 report: 186 checks a day; 144 is its 2023 figure), because most posts already carry it.
 - **One `verse` block** — a relevant Scripture pull-quote. Use ESV or KJV. Format:
   ```json
   { "type": "verse", "reference": "Psalm 119:105", "text": "Your word is a lamp to my feet and a light to my path." }
@@ -264,7 +264,13 @@ Read `src/data/pillars.json`. Find the pillar whose key matches `meta.cluster`. 
 
 ### Step 8 — Commit and push
 
-Always commit and push at the end of the skill — that's the deploy trigger for Vercel. Run these in order:
+Always commit and push at the end of the skill — that's the deploy trigger for Vercel. First run the facts gate on your uncommitted work and fix every FAIL it prints (it checks the Product facts rules and campaign tokens; the merge gate runs the same check):
+
+```bash
+node scripts/lint-facts.mjs --diff origin/main --worktree
+```
+
+Then run these in order:
 
 ```bash
 git add src/data/posts/{slug}.json src/data/blogPosts.json src/data/blogCovers.json src/data/pillars.json public/sitemap.xml public/blog-thumbnails
@@ -277,7 +283,7 @@ EOF
 git push
 ```
 
-If `git push` fails because the branch is behind, do `git pull --rebase` then `git push` once. Do **not** force-push.
+If `git push` fails because the branch is behind, do `git pull --rebase` then `git push` once. Do **not** force-push. If it fails with a 403, the active GitHub CLI account is the wrong one: push once as SlohGPT with `git -c credential.helper= -c 'credential.helper=!f() { test "$1" = get && echo username=SlohGPT && echo "password=$(gh auth token --user SlohGPT)"; }; f' push`, and never run `gh auth switch`.
 
 ### Step 9 — Submit to IndexNow
 
@@ -295,7 +301,9 @@ The script reads the key from `scripts/indexnow.config.json` and posts to `https
 
 **If you get `422`**: usually means the URL itself isn't reachable. Same fix — wait for Vercel.
 
-This step is **not optional** — it's the cheapest way to cut indexing time from days to hours for Bing & Yandex.
+This step is **not optional** — it's the cheapest way to cut indexing time from days to hours for Bing & Yandex. Bing's index also feeds ChatGPT search and Copilot answers.
+
+Google has no ping: sitemap pings are retired, and the Indexing API is only for job postings and livestreams, so never use either. Google finds the post through the sitemap and the in-body links from indexed pages (§4 rule 8). Requesting indexing in Search Console is Karol's manual step, once per new URL, never repeated.
 
 ### Step 10 — Final report
 

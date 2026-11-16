@@ -9,14 +9,14 @@ The price, billing period and any trial offer are shown in the App Store before 
 
 ## What you get
 
-- Pick your own verses by book, chapter and verse or by search, in 24 translations
-- Show them as a full-screen lock-screen wallpaper (applied by an Apple Shortcut) or as a compact lock-screen widget that rotates saved verses every hour, 8 hours or day
+- Pick your own verse by book, chapter and verse or by search, in 24 translations
+- Show it as a full-screen lock-screen wallpaper (applied by an Apple Shortcut) or as a compact lock-screen widget that starts with the verse you picked and then shows random verses, updated every hour, 8 hours or day
 - App interface in 10 languages
 - Not a Bible reader
 
 ## Platforms
 
-- iOS 16.0 or later
+- iOS 15.0 or later (the lock-screen widget needs iOS 16)
 - App Store: https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070
 
 ## Payments
@@ -29,4 +29,4 @@ hello@faithwall.app
 
 ## Last updated
 
-2026-10-02
+2026-11-16

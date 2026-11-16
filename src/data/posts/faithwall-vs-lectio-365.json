@@ -4,7 +4,7 @@
     "description": "FaithWall vs Lectio 365 — one is free guided prayer at morning, midday and night, the other keeps Scripture on your lock screen all day. How they fit together.",
     "date": "July 2, 2026",
     "datePublished": "2026-07-02T09:00:00.000Z",
-    "dateModified": "2026-11-05T09:00:00.000Z",
+    "dateModified": "2026-11-16T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/psalm-119-164-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Psalm 119:164 (KJV)",
@@ -52,7 +52,7 @@
     },
     {
       "type": "paragraph",
-      "text": "**FaithWall** doesn't ask you to remember anything. It keeps today's verse on the surface you already check without thinking — the average American picks up their phone **144 times a day**, per Reviews.org's 2026 Phone Habits report, and FaithWall turns a slice of those glances into Scripture instead of notifications. You pick the verse and it applies the wallpaper through an Apple Shortcut; search means you don't need to already know where a verse lives."
+      "text": "**FaithWall** doesn't ask you to remember anything. It keeps today's verse on the surface you already check without thinking — the average American picks up their phone **186 times a day**, per Reviews.org's 2026 Phone Habits report, and FaithWall turns a slice of those glances into Scripture instead of notifications. You pick the verse and it applies the wallpaper through an Apple Shortcut; search means you don't need to already know where a verse lives."
     },
     {
       "type": "heading",
@@ -106,7 +106,7 @@
     {
       "type": "cta",
       "title": "Add the always-on layer",
-      "description": "FaithWall keeps today's verse on the lock screen you already check 144 times a day. Free to download, 60-second setup — the piece your Lectio 365 rhythm is missing after the session ends.",
+      "description": "FaithWall keeps today's verse on the lock screen you already check 186 times a day. Free to download, 60-second setup — the piece your Lectio 365 rhythm is missing after the session ends.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

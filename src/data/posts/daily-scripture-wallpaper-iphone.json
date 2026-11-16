@@ -4,7 +4,7 @@
     "description": "A daily scripture wallpaper iphone setup — why static downloads fade by day 10, how a rotating widget keeps a fresh verse in view, and the 60-second install.",
     "date": "June 25, 2026",
     "datePublished": "2026-06-25T09:00:00.000Z",
-    "dateModified": "2026-11-05T09:00:00.000Z",
+    "dateModified": "2026-11-16T09:00:00.000Z",
     "readTime": "5 min read",
     "image": "/blog-thumbnails/lamentations-3-23-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Lamentations 3:23 (KJV)",
@@ -30,13 +30,13 @@
     },
     {
       "type": "stat",
-      "value": "144",
+      "value": "186",
       "label": "Daily phone pickups",
       "context": "per Reviews.org's 2026 Phone Habits report"
     },
     {
       "type": "paragraph",
-      "text": "That is 144 half-second glances a day at whatever sits on your lock screen: a notification pile or a line of Scripture."
+      "text": "That is 186 half-second glances a day at whatever sits on your lock screen: a notification pile or a line of Scripture."
     },
     {
       "type": "heading",
@@ -149,7 +149,7 @@
     },
     {
       "type": "important",
-      "content": "You check your phone 144 times a day. FaithWall makes Scripture one of those touches without you opening anything — the daily-exposure piece every Bible reading stack is missing."
+      "content": "You check your phone 186 times a day. FaithWall makes Scripture one of those touches without you opening anything — the daily-exposure piece every Bible reading stack is missing."
     },
     {
       "type": "paragraph",
@@ -158,7 +158,7 @@
     {
       "type": "cta",
       "title": "Get FaithWall — free to download, 60 seconds",
-      "description": "The piece every Bible study stack is missing: daily Scripture on the lock screen you already check 144 times a day.",
+      "description": "The piece every Bible study stack is missing: daily Scripture on the lock screen you already check 186 times a day.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 
 const features = [
   {
-    title: 'Fresh Scripture Every Day',
-    description: 'Wake up to a new verse or prayer on your lock screen. Customized to your preferences and spiritual journey.',
+    title: 'The Verse You Need, on Your Lock Screen',
+    description: 'Pick a verse by book, chapter and verse, or search for it, in 24 translations. FaithWall sets it as your wallpaper, and it stays there until you choose another.',
     image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800',
     large: true,
   },
   {
-    title: 'Your Prayers, Your Way',
-    description: 'Add personal prayers, intentions, and affirmations. See them every time you pick up your phone.',
+    title: 'A Widget That Starts With Your Verse',
+    description: 'On iOS 16 or later, add the lock-screen widget. It shows the verse you picked first, then random verses every hour, 8 hours or day.',
     image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
@@ -18,8 +18,8 @@ const features = [
     image: 'https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
-    title: 'Your Data Stays Yours',
-    description: 'No accounts required. No tracking. Your prayers and spiritual journey remain completely private.',
+    title: 'No New Habit Needed',
+    description: 'You already pick up your phone all day. Set your verse once, and it is there every time you do.',
     image: 'https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
 ];

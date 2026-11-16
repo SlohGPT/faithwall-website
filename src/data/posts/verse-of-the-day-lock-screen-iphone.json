@@ -4,7 +4,7 @@
     "description": "A verse of the day lock screen iphone setup that puts today's verse where you'll actually see it — on the wallpaper, not buried inside an app you have to open.",
     "date": "June 3, 2026",
     "datePublished": "2026-06-03T09:00:00.000Z",
-    "dateModified": "2026-11-05T09:00:00.000Z",
+    "dateModified": "2026-11-16T09:00:00.000Z",
     "readTime": "6 min read",
     "image": "/blog-thumbnails/psalm-119-18-bible-verse-iphone-lock-screen.jpg",
     "imageAlt": "iPhone lock screen showing Psalm 119:18 (KJV)",
@@ -34,12 +34,12 @@
     {
       "type": "stat",
       "label": "Daily phone pickups",
-      "value": "144",
+      "value": "186",
       "context": "per Reviews.org's 2026 Phone Habits report"
     },
     {
       "type": "paragraph",
-      "text": "You touch your phone **144 times today**. If today's verse is inside an app, you'll see it once — when you open the app — and forget it by lunch. If today's verse is on your lock screen, you'll see it 144 times. Same verse, same curation, completely different impact. That's the whole argument for a **verse of the day lock screen iphone** setup over an in-app one."
+      "text": "You touch your phone **186 times today**. If today's verse is inside an app, you'll see it once — when you open the app — and forget it by lunch. If today's verse is on your lock screen, it is there each of the 186 times you check your phone. Same verse, same curation, completely different impact. That's the whole argument for a **verse of the day lock screen iphone** setup over an in-app one."
     },
     {
       "type": "heading",
@@ -70,7 +70,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Three reasons. **First — zero-friction exposure.** No tapping, no unlocking, no opening. The verse is just there. **Second — repeated impressions.** A verse you see 144 times in a day starts to memorize itself; an emailed verse you read once doesn't. **Third — context-matching.** A VOTD that appears on a hard Tuesday afternoon lands differently than one read at 7am before work happens. The lock screen catches you *during* the day, not before it. For the rotation argument in more depth, see the [rotating bible verse wallpaper iphone post](/blog/rotating-bible-verse-wallpaper-iphone); for the wider lock-screen mechanics — wallpaper vs widget, Focus modes, fonts — the [bible verse lock screen iphone setup guide](/blog/bible-verse-lock-screen-iphone) walks through the full picture."
+      "text": "Three reasons. **First — zero-friction exposure.** No tapping, no unlocking, no opening. The verse is just there. **Second — repeated impressions.** A verse that is there each of the 186 times you check your phone in a day starts to memorize itself; an emailed verse you read once doesn't. **Third — context-matching.** A VOTD that appears on a hard Tuesday afternoon lands differently than one read at 7am before work happens. The lock screen catches you *during* the day, not before it. For the rotation argument in more depth, see the [rotating bible verse wallpaper iphone post](/blog/rotating-bible-verse-wallpaper-iphone); for the wider lock-screen mechanics — wallpaper vs widget, Focus modes, fonts — the [bible verse lock screen iphone setup guide](/blog/bible-verse-lock-screen-iphone) walks through the full picture."
     },
     {
       "type": "verse",
@@ -79,7 +79,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The psalmist asks for the opening; the iPhone owner has 144 of them daily. A lock-screen VOTD answers Psalm 119:18 in a small, specific way — every glance becomes a tiny opening of the eyes to the Word."
+      "text": "The psalmist asks for the opening; the iPhone owner has 186 of them daily. A lock-screen VOTD answers Psalm 119:18 in a small, specific way — every glance becomes a tiny opening of the eyes to the Word."
     },
     {
       "type": "heading",
@@ -115,7 +115,7 @@
     },
     {
       "type": "highlight",
-      "content": "**The setup difference in one line:** an app-based VOTD shows you today's verse once; a lock-screen VOTD shows you today's verse 144 times. Same verse, same curation, completely different rate of compounding."
+      "content": "**The setup difference in one line:** an app-based VOTD shows you today's verse once; a lock-screen VOTD puts today's verse in front of you on each of your 186 daily phone checks. Same verse, same curation, completely different rate of compounding."
     },
     {
       "type": "heading",
@@ -146,7 +146,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The **verse of the day lock screen iphone** experience has been technically possible for years. It just hasn't been *easy* until iOS 16's lock-screen customization and Shortcuts automations made automatic wallpaper changes practical. FaithWall is what happens when an app gets built for that exact surface. Install once. Today's verse meets you 144 times today. Tomorrow's does the same."
+      "text": "The **verse of the day lock screen iphone** experience has been technically possible for years. It just hasn't been *easy* until iOS 16's lock-screen customization and Shortcuts automations made automatic wallpaper changes practical. FaithWall is what happens when an app gets built for that exact surface. Install once. Today's verse is waiting every time you check your phone, 186 times a day on average. Tomorrow's does the same."
     },
     {
       "type": "heading",
