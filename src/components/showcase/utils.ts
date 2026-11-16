@@ -39,12 +39,9 @@ export function usePageVisible(): boolean {
   return visible;
 }
 
-const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-/** "Mon Nov 16": the Lock Screen date line (weekday short, month short, day). */
+/** "Monday, November 16": the Lock Screen date line, written in full as iOS does (weekday, month, day; en-US). */
 export function formatLockDate(d: Date): string {
-  return `${WEEKDAYS[d.getDay()]} ${MONTHS[d.getMonth()]} ${d.getDate()}`;
+  return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 }
 
 /** Visitor's date for the Lock Screen. Empty on the server and the first client render, filled in after mount. */

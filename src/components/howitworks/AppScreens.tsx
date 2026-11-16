@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { ArrowRight, Check, ChevronDown, ChevronLeft, X } from 'lucide-react';
 import DeviceMockup from '../DeviceMockup';
-import { AppLockVerse } from '../LockScreenVerse';
 import { SHOWCASE_VERSES } from '../../data/showcaseVerses';
 import { HomeScreen } from '../showcase/HomeScreen';
-import Wallpaper from '../showcase/Wallpaper';
+import AppLockScreen from '../showcase/AppLockScreen';
 import { SYSTEM_FONT, usePageVisible, usePrefersReducedMotion } from '../showcase/utils';
 
 /*
@@ -199,27 +198,11 @@ const RING_CSS = `
 @media (prefers-reduced-motion:reduce){.hiw-anim{animation:none!important}}
 `;
 
+/** The review sheet's live Lock Screen preview, as a real framed iPhone. */
 function MiniLock() {
   return (
-    <div
-      className="absolute overflow-hidden"
-      style={{
-        top: pt(206),
-        left: '50%',
-        width: pt(129),
-        height: pt(280),
-        transform: 'translateX(-50%)',
-        borderRadius: pt(16),
-        containerType: 'inline-size',
-        background: '#111',
-        boxShadow: `0 0 0 ${pt(3)} #1a1a1d, 0 ${pt(8)} ${pt(18)} rgba(60,30,10,0.25)`,
-      }}
-    >
-      <Wallpaper variant="dawn" />
-      <span className="absolute inset-x-0 text-center text-white" style={{ top: '8%', fontSize: '21cqw', fontWeight: 600, lineHeight: 1, textShadow: '0 0.4cqw 3cqw rgba(0,0,0,0.25)' }}>
-        9:41
-      </span>
-      <AppLockVerse text={VERSE.text} reference={VERSE.reference} />
+    <div className="absolute" style={{ top: pt(206), left: '50%', width: pt(129), transform: 'translateX(-50%)' }}>
+      <AppLockScreen verse={VERSE} wallpaper="dawn" />
     </div>
   );
 }

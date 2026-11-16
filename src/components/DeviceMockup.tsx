@@ -16,7 +16,7 @@ import { PHONE_SAFE_BOTTOM, PHONE_SAFE_TOP } from '../lib/wallpaper';
 
 export type DeviceKind = 'iphone' | 'android' | 'desktop';
 export type UiTone = 'light' | 'dark';
-/** 'maker' = the wallpaper maker's preview (default). 'showcase' = the homepage mockups: no verse guide line, system clock font, short date. */
+/** 'maker' = the wallpaper maker's preview (default). 'showcase' = the homepage mockups: no verse guide line, system clock font, full date, iOS status bar, round corners, polished frame. */
 export type MockupVariant = 'maker' | 'showcase';
 /** 'lock' = status icons, date, clock, flashlight, camera, home indicator (default). 'home' = status bar with the time, home indicator. */
 export type MockupUi = 'lock' | 'home';
@@ -44,8 +44,22 @@ interface DeviceMockupProps {
 
 const ROUNDED_FONT = 'ui-rounded, "SF Pro Rounded", "DM Sans", system-ui, -apple-system, sans-serif';
 export const SYSTEM_FONT = "system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
-// Chrome 139+ draws iPhone-style continuous (squircle) corners; other browsers ignore it.
+// The wallpaper maker keeps its squircle corners (Chrome 139+; other browsers ignore it). The homepage mockups
+// (variant 'showcase') use plain circular corners: Chrome's squircle is far squarer than an iPhone's.
 const squircle = { cornerShape: 'squircle' } as CSSProperties;
+
+const MAKER_FRAME_SHADOW =
+  'inset 0 0 0 0.18cqw rgba(255,255,255,0.22), inset 0 0.3cqw 0.6cqw rgba(255,255,255,0.12), 0 3cqw 6cqw rgba(0,0,0,0.55), 0 0 10cqw rgba(217,123,59,0.1)';
+// Showcase: a crisp light hairline on the outer edge (a thin dark line where the band meets the bezel comes from the
+// bezel's own shadow), a soft long drop shadow and the faint warm glow.
+const SHOWCASE_FRAME_SHADOW = [
+  'inset 0 0 0 0.22cqw rgba(255,255,255,0.62)',
+  'inset 0 0.3cqw 0.6cqw rgba(255,255,255,0.14)',
+  '0 0 0 0.1cqw rgba(0,0,0,0.5)',
+  '0 4cqw 8cqw rgba(0,0,0,0.38)',
+  '0 12cqw 20cqw -4cqw rgba(0,0,0,0.5)',
+  '0 0 10cqw rgba(217,123,59,0.1)',
+].join(', ');
 
 const TITANIUM =
   'linear-gradient(145deg, #6b6b71 0%, #3a3a3f 22%, #1d1d21 50%, #2c2c31 78%, #55555b 100%)';
@@ -84,6 +98,97 @@ function SideButton({
   );
 }
 
+// Dynamic Island geometry, in cqw of the screen width (see the island markup below).
+const ISLAND_W = 31;
+const ISLAND_TOP = 2.9;
+const ISLAND_H = 9.2;
+const ISLAND_CY = ISLAND_TOP + ISLAND_H / 2;
+const ISLAND_SIDE = (100 - ISLAND_W) / 2; // the space between the screen edge and the island
+
+/** Cellular bars, Wi-Fi (three arcs over a dot) and battery: the iOS status icons, in that order. */
+function StatusIcons() {
+  return (
+    <>
+      <svg viewBox="0 0 18 12" style={{ width: '4.6cqw', height: '3cqw', display: 'block' }} fill="currentColor">
+        <rect x="0" y="8" width="3" height="4" rx="0.8" />
+        <rect x="5" y="5.5" width="3" height="6.5" rx="0.8" />
+        <rect x="10" y="3" width="3" height="9" rx="0.8" />
+        <rect x="15" y="0" width="3" height="12" rx="0.8" />
+      </svg>
+      <svg viewBox="0 0 17 12" style={{ width: '4.4cqw', height: '3.1cqw', display: 'block' }} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+        <path d="M5.89 7.5A3.9 3.9 0 0 1 11.11 7.5" />
+        <path d="M4.15 5.57A6.5 6.5 0 0 1 12.85 5.57" />
+        <path d="M2.41 3.64A9.1 9.1 0 0 1 14.59 3.64" />
+        <circle cx="8.5" cy="10.4" r="1.15" fill="currentColor" stroke="none" />
+      </svg>
+      <svg viewBox="0 0 26 12" style={{ width: '7cqw', height: '3.2cqw', display: 'block' }} fill="none">
+        <rect x="0.5" y="0.5" width="21" height="11" rx="3.4" stroke="currentColor" opacity="0.5" />
+        <rect x="2" y="2" width="15" height="8" rx="2.2" fill="currentColor" />
+        <path d="M23.2 4.2v3.6c0.9-0.3 1.5-1.1 1.5-1.8s-0.6-1.5-1.5-1.8z" fill="currentColor" opacity="0.5" />
+      </svg>
+    </>
+  );
+}
+
+/**
+ * The iOS status bar (showcase variant). Both groups sit on the Dynamic Island's centre line and are centred in the
+ * space between the screen edge and the island, like iOS: the icons on the right, the time on the left (home UI only).
+ */
+function ShowcaseStatusBar({ ink, time }: { ink: string; time: boolean }) {
+  const group = {
+    position: 'absolute',
+    top: `${ISLAND_CY}cqw`,
+    width: `${ISLAND_SIDE}cqw`,
+    transform: 'translateY(-50%)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: ink,
+  } as const;
+  return (
+    <>
+      {time && (
+        <span
+          style={{
+            ...group,
+            left: 0,
+            fontFamily: SYSTEM_FONT,
+            fontSize: '4.3cqw',
+            fontWeight: 600,
+            lineHeight: 1,
+            letterSpacing: '-0.01em',
+            fontVariantNumeric: 'tabular-nums',
+          }}
+        >
+          9:41
+        </span>
+      )}
+      <span style={{ ...group, right: 0, gap: '1.3cqw' }}>
+        <StatusIcons />
+      </span>
+    </>
+  );
+}
+
+/** iPhone 16 Pro Camera Control: flush with the right edge, below the side button, darker and sapphire-like. */
+function CameraControl() {
+  return (
+    <span
+      aria-hidden="true"
+      className="absolute"
+      style={{
+        top: '58%',
+        height: '7%',
+        width: '0.7cqw',
+        right: '-0.45cqw',
+        borderRadius: '0 0.4cqw 0.4cqw 0',
+        background: 'linear-gradient(90deg, #14161d, #2b3446 45%, #0c0e14)',
+        boxShadow: 'inset 0 0 0 0.1cqw rgba(150,175,220,0.32), 0 0 0 0.08cqw rgba(0,0,0,0.5)',
+      }}
+    />
+  );
+}
+
 /** Time, date, flashlight, camera and home indicator, placed in the wallpaper's safe zones. */
 function PhoneLockUi({
   kind,
@@ -106,22 +211,26 @@ function PhoneLockUi({
   return (
     <div className="pointer-events-none absolute inset-0 select-none" aria-hidden="true">
       {/* Status icons next to the camera cut-out */}
-      <div
-        className="absolute flex items-center"
-        style={{ top: android ? '3.1cqw' : '4.6cqw', right: '8cqw', gap: '1.4cqw', color: ink }}
-      >
-        <svg viewBox="0 0 18 12" style={{ width: '4.6cqw', height: '3cqw' }} fill="currentColor">
-          <rect x="0" y="8" width="3" height="4" rx="0.8" />
-          <rect x="5" y="5.5" width="3" height="6.5" rx="0.8" />
-          <rect x="10" y="3" width="3" height="9" rx="0.8" />
-          <rect x="15" y="0" width="3" height="12" rx="0.8" />
-        </svg>
-        <svg viewBox="0 0 26 12" style={{ width: '7cqw', height: '3.2cqw' }} fill="none">
-          <rect x="0.5" y="0.5" width="21" height="11" rx="3.4" stroke="currentColor" opacity="0.5" />
-          <rect x="2" y="2" width="15" height="8" rx="2.2" fill="currentColor" />
-          <rect x="23" y="4" width="2" height="4" rx="1" fill="currentColor" opacity="0.5" />
-        </svg>
-      </div>
+      {showcase ? (
+        <ShowcaseStatusBar ink={ink} time={false} />
+      ) : (
+        <div
+          className="absolute flex items-center"
+          style={{ top: android ? '3.1cqw' : '4.6cqw', right: '8cqw', gap: '1.4cqw', color: ink }}
+        >
+          <svg viewBox="0 0 18 12" style={{ width: '4.6cqw', height: '3cqw' }} fill="currentColor">
+            <rect x="0" y="8" width="3" height="4" rx="0.8" />
+            <rect x="5" y="5.5" width="3" height="6.5" rx="0.8" />
+            <rect x="10" y="3" width="3" height="9" rx="0.8" />
+            <rect x="15" y="0" width="3" height="12" rx="0.8" />
+          </svg>
+          <svg viewBox="0 0 26 12" style={{ width: '7cqw', height: '3.2cqw' }} fill="none">
+            <rect x="0.5" y="0.5" width="21" height="11" rx="3.4" stroke="currentColor" opacity="0.5" />
+            <rect x="2" y="2" width="15" height="8" rx="2.2" fill="currentColor" />
+            <rect x="23" y="4" width="2" height="4" rx="1" fill="currentColor" opacity="0.5" />
+          </svg>
+        </div>
+      )}
 
       {/* Date and clock */}
       <div
@@ -140,6 +249,7 @@ function PhoneLockUi({
             fontWeight: 600,
             lineHeight: 1.2,
             minHeight: '5.4cqw',
+            ...(showcase ? { whiteSpace: 'nowrap' as const } : null),
           }}
         >
           {dateLabel}
@@ -211,10 +321,13 @@ function PhoneLockUi({
 }
 
 /** Home Screen chrome: the 9:41 time on the left of the Dynamic Island, signal and battery on the right, home indicator. */
-function PhoneHomeUi({ tone }: { tone: UiTone }) {
+function PhoneHomeUi({ tone, variant }: { tone: UiTone; variant: MockupVariant }) {
   const ink = tone === 'light' ? '#ffffff' : '#101010';
   return (
     <div className="pointer-events-none absolute inset-0 select-none" aria-hidden="true">
+      {variant === 'showcase' ? (
+        <ShowcaseStatusBar ink={ink} time />
+      ) : (
       <div
         className="absolute flex items-center justify-between"
         style={{ top: '3.4cqw', height: '8.2cqw', left: '9cqw', right: '8cqw', color: ink, fontFamily: SYSTEM_FONT }}
@@ -236,6 +349,7 @@ function PhoneHomeUi({ tone }: { tone: UiTone }) {
           </svg>
         </span>
       </div>
+      )}
       <span
         className="absolute left-1/2 -translate-x-1/2 rounded-full"
         style={{ bottom: '1.9cqw', width: '34cqw', height: '1.3cqw', background: ink, opacity: 0.85 }}
@@ -354,6 +468,9 @@ export default function DeviceMockup({
   }
 
   const iphone = device === 'iphone';
+  const showcase = variant === 'showcase';
+  // Maker: squircle corners. Showcase: none (plain circular border-radius).
+  const corner = showcase ? undefined : squircle;
   // Frame, black bezel, screen radius (all in cqw of the whole device width).
   const frameGap = iphone ? 1.1 : 0.9;
   const bezel = iphone ? 2.3 : 1.7;
@@ -370,6 +487,7 @@ export default function DeviceMockup({
             <SideButton side="left" top={21.5} height={6.4} />
             <SideButton side="left" top={29.5} height={6.4} />
             <SideButton side="right" top={26} height={10} width={1} />
+            {showcase && <CameraControl />}
           </>
         ) : (
           <>
@@ -382,9 +500,8 @@ export default function DeviceMockup({
             padding: `${frameGap}cqw`,
             borderRadius: `${frameRadius}cqw`,
             background: iphone ? TITANIUM : GRAPHITE,
-            boxShadow:
-              'inset 0 0 0 0.18cqw rgba(255,255,255,0.22), inset 0 0.3cqw 0.6cqw rgba(255,255,255,0.12), 0 3cqw 6cqw rgba(0,0,0,0.55), 0 0 10cqw rgba(217,123,59,0.1)',
-            ...squircle,
+            boxShadow: showcase ? SHOWCASE_FRAME_SHADOW : MAKER_FRAME_SHADOW,
+            ...corner,
           }}
         >
           <div
@@ -392,8 +509,10 @@ export default function DeviceMockup({
               padding: `${bezel}cqw`,
               borderRadius: `${bezelRadius}cqw`,
               background: '#050507',
-              boxShadow: 'inset 0 0 0 0.2cqw rgba(255,255,255,0.05)',
-              ...squircle,
+              boxShadow: showcase
+                ? '0 0 0 0.2cqw rgba(0,0,0,0.9), inset 0 0 0 0.2cqw rgba(255,255,255,0.05)'
+                : 'inset 0 0 0 0.2cqw rgba(255,255,255,0.05)',
+              ...corner,
             }}
           >
             <div
@@ -403,13 +522,13 @@ export default function DeviceMockup({
                 aspectRatio: aspect,
                 borderRadius: `${screenRadius}cqw`,
                 containerType: 'inline-size',
-                ...squircle,
+                ...corner,
                 ...screenStyle,
                 ...extraStyle,
               }}
             >
               {children}
-              {showUi && ui === 'home' && <PhoneHomeUi tone={uiTone} />}
+              {showUi && ui === 'home' && <PhoneHomeUi tone={uiTone} variant={variant} />}
               {showUi && ui !== 'home' && (
                 <PhoneLockUi kind={iphone ? 'iphone' : 'android'} tone={uiTone} dateLabel={dateLabel} variant={variant} />
               )}

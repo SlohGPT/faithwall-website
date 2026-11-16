@@ -1,8 +1,9 @@
 import { useEffect, useState, type CSSProperties } from 'react';
-import { SHOWCASE_VERSES } from '../../data/showcaseVerses';
-import { AppLockVerse } from '../LockScreenVerse';
+import { SHOWCASE_VERSES, type ShowcaseVerse } from '../../data/showcaseVerses';
+import DeviceMockup from '../DeviceMockup';
 import AppLockScreen from '../showcase/AppLockScreen';
 import FaithWallWidget from '../showcase/FaithWallWidget';
+import { AppTile, Dock, SearchPill, TILES } from '../showcase/HomeScreen';
 import Wallpaper, { type WallpaperVariant } from '../showcase/Wallpaper';
 import { SYSTEM_FONT, useLockDate, usePageVisible, usePrefersReducedMotion } from '../showcase/utils';
 import { useInView } from './useInView';
@@ -26,9 +27,38 @@ export function LockScreensArt() {
   );
 }
 
-/* T2: the small Home Screen widget and the Lock Screen rectangular widget. Starts with the user's verse (0), then the
-   next verses, only while the tile is on screen, the tab is visible and motion is allowed. */
+/* T2: the small Home Screen widget and the Lock Screen rectangular widget, each on a real framed phone cropped by the
+   tile's bottom edge. Starts with the user's verse (0), then the next verses, only while the tile is on screen, the tab
+   is visible and motion is allowed. */
 const WIDGET_LOOP_MS = 4500;
+
+/** A Home Screen with the small widget (2 x 2 cells) and its neighbouring app tiles. Fills a DeviceMockup screen. */
+function SmallWidgetHome({ verse }: { verse: ShowcaseVerse }) {
+  return (
+    <div className="absolute inset-0 overflow-hidden text-white" style={{ fontFamily: SYSTEM_FONT }}>
+      <div className="absolute" style={{ inset: '-6cqw', filter: 'blur(1.4cqw) saturate(1.05)' }}>
+        <Wallpaper variant="dawn" />
+      </div>
+      <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.3)' }} />
+      <div
+        className="absolute grid grid-cols-4"
+        style={{ top: '19cqw', left: '6.5cqw', right: '6.5cqw', rowGap: '5.2cqw', justifyItems: 'center' }}
+      >
+        <div className="flex flex-col items-center" style={{ gridColumn: '1 / span 2', gridRow: '1 / span 2', alignSelf: 'start' }}>
+          <FaithWallWidget size="small" verse={verse} />
+          <span style={{ marginTop: '1.8cqw', fontSize: '2.9cqw', lineHeight: 1, color: '#fff', textShadow: '0 0.2cqw 0.9cqw rgba(0,0,0,0.55)' }}>
+            FaithWall
+          </span>
+        </div>
+        {TILES.slice(0, 8).map((t) => (
+          <AppTile key={t.label} tile={t} />
+        ))}
+      </div>
+      <SearchPill />
+      <Dock />
+    </div>
+  );
+}
 
 export function WidgetsArt() {
   const reduced = usePrefersReducedMotion();
@@ -49,101 +79,84 @@ export function WidgetsArt() {
 
   const verse = SHOWCASE_VERSES[index];
   const date = useLockDate();
-  const caption = { fontSize: '3cqw', color: 'rgba(255,255,255,0.62)', textShadow: '0 0.2cqw 0.8cqw rgba(0,0,0,0.5)' } as const;
+  const caption = 'mb-2 block text-center text-[11px] leading-none text-white/60 [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]';
 
   return (
-    <div ref={ref} aria-hidden="true" className="absolute inset-0 flex justify-center px-4 pt-6 sm:px-6">
-      <div
-        className="relative h-full w-full max-w-[380px] overflow-hidden rounded-t-[7cqw] border border-b-0 border-white/10 text-white"
-        style={{ containerType: 'inline-size', fontFamily: SYSTEM_FONT }}
-      >
-        <div className="absolute" style={{ inset: '-6cqw', filter: 'blur(1.4cqw) saturate(1.05)' }}>
-          <Wallpaper variant="dawn" />
+    <div ref={ref} aria-hidden="true" className="absolute inset-0 flex items-start justify-center px-3 pt-4 sm:px-4">
+      <div className="flex w-full max-w-[420px] items-start justify-center gap-[3%]">
+        {/* Home Screen: small widget, app name under it */}
+        <div className="w-[48%]">
+          <span className={caption}>Home Screen</span>
+          <DeviceMockup device="iphone" width={1290} height={2796} showUi uiTone="light" dateLabel="" variant="showcase" ui="home">
+            <SmallWidgetHome verse={verse} />
+          </DeviceMockup>
         </div>
-        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.3)' }} />
-        <div className="absolute inset-x-0 flex items-stretch justify-center" style={{ top: '6cqw', gap: '5cqw', paddingInline: '3.4cqw' }}>
-          {/* Home Screen: small widget, app name under it */}
-          <div className="flex flex-col items-center" style={{ marginTop: '9cqw' }}>
-            <FaithWallWidget size="small" verse={verse} />
-            <span style={{ marginTop: '1.8cqw', fontSize: '2.9cqw', lineHeight: 1, color: 'rgba(255,255,255,0.9)', textShadow: '0 0.2cqw 0.8cqw rgba(0,0,0,0.5)' }}>
-              FaithWall
-            </span>
-            <span style={{ ...caption, marginTop: 'auto', paddingTop: '4cqw' }}>Home Screen</span>
-          </div>
-          {/* Lock Screen: a tiny clock, the accessory-rectangular widget under it */}
-          <div className="flex flex-col items-center">
-            <span style={{ fontSize: '3cqw', fontWeight: 600, opacity: 0.85 }}>{date}</span>
-            <span style={{ fontSize: '15cqw', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.02em', opacity: 0.9, fontVariantNumeric: 'tabular-nums' }}>
-              9:41
-            </span>
-            <div style={{ marginTop: '4cqw' }}>
+        {/* Lock Screen: the clock, the accessory-rectangular widget under it */}
+        <div className="w-[48%]">
+          <span className={caption}>Lock Screen</span>
+          <DeviceMockup device="iphone" width={1290} height={2796} showUi uiTone="light" dateLabel={date} variant="showcase">
+            <Wallpaper variant="dawn" />
+            <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.14)' }} />
+            <div className="absolute inset-x-0 flex justify-center text-white" style={{ top: '57cqw', fontFamily: SYSTEM_FONT }}>
               <FaithWallWidget size="rectangular" verse={verse} />
             </div>
-            <span style={{ ...caption, marginTop: 'auto', paddingTop: '4cqw' }}>Lock Screen</span>
-          </div>
+          </DeviceMockup>
         </div>
       </div>
     </div>
   );
 }
 
-/* T3: one notification banner over a dimmed, blurred wallpaper. The title and body are the app's own reminder copy. */
+/* T3: a real framed iPhone Lock Screen with one notification under the clock, cropped by the tile's bottom edge.
+   The title and body are the app's own reminder copy. */
 export function ReminderArt() {
   const date = useLockDate();
   return (
-    <div aria-hidden="true" className="absolute inset-0 flex justify-center px-4 pt-6 sm:px-6">
-      <div
-        className="relative h-full w-full max-w-[380px] overflow-hidden rounded-t-[7cqw] border border-b-0 border-white/10 text-white"
-        style={{ containerType: 'inline-size', fontFamily: SYSTEM_FONT }}
-      >
-        <div className="absolute" style={{ inset: '-6cqw', filter: 'blur(1.6cqw) saturate(1.05)' }}>
+    <div aria-hidden="true" className="absolute inset-0 flex justify-center px-4 pt-4 sm:px-6">
+      <div className="w-[66%] max-w-[250px]">
+        <DeviceMockup device="iphone" width={1290} height={2796} showUi uiTone="light" dateLabel={date} variant="showcase">
           <Wallpaper variant="hills" />
-        </div>
-        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.42)' }} />
-        <div className="absolute inset-x-0 text-center" style={{ top: '7cqw' }}>
-          <p style={{ margin: 0, fontSize: '3.4cqw', fontWeight: 600, opacity: 0.8 }}>{date}</p>
-          <p style={{ margin: 0, fontSize: '17cqw', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.02em', opacity: 0.92, fontVariantNumeric: 'tabular-nums' }}>
-            9:41
-          </p>
-        </div>
-        <div
-          className="absolute flex"
-          style={{
-            left: '4cqw',
-            right: '4cqw',
-            top: '34cqw',
-            gap: '3.4cqw',
-            padding: '3.4cqw',
-            borderRadius: '6cqw',
-            background: 'rgba(70,70,76,0.62)',
-            boxShadow: '0 2cqw 6cqw -1cqw rgba(0,0,0,0.5), inset 0 0.25cqw 0 rgba(255,255,255,0.12)',
-            backdropFilter: 'blur(14px)',
-            WebkitBackdropFilter: 'blur(14px)',
-          }}
-        >
-          <img
-            src="/icon-app-180.png"
-            alt=""
-            width={180}
-            height={180}
-            decoding="async"
-            style={{ width: '11cqw', height: '11cqw', borderRadius: '2.6cqw', flex: 'none' }}
-          />
-          <div className="min-w-0 flex-1" style={{ lineHeight: 1.25 }}>
-            <div className="flex items-baseline justify-between" style={{ gap: '2cqw', fontSize: '3.2cqw', color: 'rgba(255,255,255,0.6)' }}>
-              <span style={{ fontWeight: 600 }}>FaithWall</span>
-              <span>now</span>
+          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.3)' }} />
+          <div
+            className="absolute flex text-white"
+            style={{
+              left: '4cqw',
+              right: '4cqw',
+              top: '54cqw',
+              gap: '3.4cqw',
+              padding: '3.4cqw',
+              borderRadius: '6cqw',
+              fontFamily: SYSTEM_FONT,
+              background: 'rgba(70,70,76,0.62)',
+              boxShadow: '0 2cqw 6cqw -1cqw rgba(0,0,0,0.5), inset 0 0.25cqw 0 rgba(255,255,255,0.12)',
+              backdropFilter: 'blur(14px)',
+              WebkitBackdropFilter: 'blur(14px)',
+            }}
+          >
+            <img
+              src="/icon-app-180.png"
+              alt=""
+              width={180}
+              height={180}
+              decoding="async"
+              style={{ width: '11cqw', height: '11cqw', borderRadius: '2.6cqw', flex: 'none' }}
+            />
+            <div className="min-w-0 flex-1" style={{ lineHeight: 1.25 }}>
+              <div className="flex items-baseline justify-between" style={{ gap: '2cqw', fontSize: '3.2cqw', color: 'rgba(255,255,255,0.6)' }}>
+                <span style={{ fontWeight: 600 }}>FaithWall</span>
+                <span>now</span>
+              </div>
+              <p style={{ margin: 0, marginTop: '0.6cqw', fontSize: '4cqw', fontWeight: 600 }}>Quick moment of peace 🕊️</p>
+              <p style={{ margin: 0, fontSize: '4cqw', color: 'rgba(255,255,255,0.88)' }}>Your daily verse is ready. Breathe and read.</p>
             </div>
-            <p style={{ margin: 0, marginTop: '0.6cqw', fontSize: '4cqw', fontWeight: 600 }}>Quick moment of peace 🕊️</p>
-            <p style={{ margin: 0, fontSize: '4cqw', color: 'rgba(255,255,255,0.88)' }}>Your daily verse is ready. Breathe and read.</p>
           </div>
-        </div>
+        </DeviceMockup>
       </div>
     </div>
   );
 }
 
-/* T4: a fan of three phone-shaped cards on the original SVG scenes, each with a small time and a short verse block. */
+/* T4: a fan of three real framed phones (AppLockScreen) on the original SVG scenes, cropped by the tile's bottom edge. */
 const FAN: { scene: WallpaperVariant; verse: number; style: CSSProperties }[] = [
   { scene: 'hills', verse: 3, style: { left: '6%', top: '16%', transform: 'rotate(-9deg)', zIndex: 1 } },
   { scene: 'night', verse: 4, style: { right: '6%', top: '16%', transform: 'rotate(9deg)', zIndex: 1 } },
@@ -153,25 +166,11 @@ const FAN: { scene: WallpaperVariant; verse: number; style: CSSProperties }[] = 
 export function WallpapersArt() {
   return (
     <div aria-hidden="true" className="absolute inset-0">
-      {FAN.map((c) => {
-        const v = SHOWCASE_VERSES[c.verse];
-        return (
-          <div
-            key={c.scene}
-            className="absolute w-[34%] max-w-[150px] overflow-hidden rounded-[1.6rem] border border-white/15 shadow-[0_18px_40px_-12px_rgba(0,0,0,0.7)]"
-            style={{ aspectRatio: '9 / 19', containerType: 'inline-size', fontFamily: SYSTEM_FONT, ...c.style }}
-          >
-            <Wallpaper variant={c.scene} />
-            <p
-              className="absolute inset-x-0 m-0 text-center text-white"
-              style={{ top: '9cqw', fontSize: '26cqw', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.02em', opacity: 0.9, textShadow: '0 0.3cqw 2cqw rgba(0,0,0,0.35)' }}
-            >
-              9:41
-            </p>
-            <AppLockVerse text={v.text} reference={v.reference} size={7.2} />
-          </div>
-        );
-      })}
+      {FAN.map((c) => (
+        <div key={c.scene} className="absolute w-[34%] max-w-[150px]" style={c.style}>
+          <AppLockScreen verse={SHOWCASE_VERSES[c.verse]} wallpaper={c.scene} />
+        </div>
+      ))}
     </div>
   );
 }
