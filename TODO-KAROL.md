@@ -2,6 +2,27 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-16, last update (what the app really does)
+
+Checked against the app's source code: two answers to the evening list's item 3, and three short questions.
+
+- **Answered by the app's code** (evening item 3, bullets 1 and 3):
+  - **Bible browser.** The app has one, with every book and chapter, so the site no longer says "not a Bible reader". It now says FaithWall "has a built-in Bible browser for finding your verse, but it is built for the lock screen, not for study."
+  - **Widget.** The widget shows the verse you picked. It shows random verses only when "Auto-rotate verses" is on in Settings, and that is off by default.
+    - The site now says so in the AI files, the home FAQ, the hub and a few pages. The other pages follow in p78, after 12-02.
+    - The listing's "a fresh verse every day" is true only with that setting on. That's for the ASO session at the next listing update.
+- **1. Free exports (2 minutes).** The site says "there is no free tier" (llms.txt, pricing.md and the prayer-app roundup).
+  - The app's code gives new users 3 free wallpaper exports, and your Terms say so too.
+  - But the paywall has no close button.
+  - What does a new user actually get today? Until you answer, the site keeps "no free tier".
+- **2. Legal pages (5 minutes).** The Privacy Policy and the Terms of Use say FaithWall works through "a rotating lock-screen widget". Rotation is an option, off by default.
+  - Suggested wording: "or a lock-screen widget (with an optional auto-rotate setting)".
+  - It's legal text, so it's your call. Tell the next session.
+- **3. Two phrases to confirm (1 minute).** The site says FaithWall is "not a study app" and has "no reading plans", because the source has neither feature.
+  - If either is wrong, say so.
+  - If both are right, the next session also adjusts one FAQ answer on /best-bible-verse-lock-screen-apps. It says lock-screen apps lack translations and search, but FaithWall has both, for picking a verse.
+- Nothing to do: /blog/best-free-all-time had links pointing at it but no page. It now redirects to the free Bible apps roundup.
+
 ## 2026-11-16 late night (keyword research tool)
 
 The App Store agreement at the top of the next section still comes first.

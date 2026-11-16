@@ -383,3 +383,82 @@ The sister sites' fix rounds were also due for a check.
 - QuranWall and NoteWall: their fix rounds (sent tonight), then the engine port. They reply with a commit hash and the sha256 of their copy. Their configs start with their own seeds and families; with no families, the short-head test is skipped.
 - 11-23: the first weekly refresh with the engine. It writes a run note and curates the draft clusters. Seasonal seeds for p67 and p69 go into the config before then.
 - The cloud autopilot's prompt doesn't mention the cluster map yet. Only the local runs read it.
+
+## Update, 2026-11-16, last of the night: what the app really does, engine 1.1.0, sister rounds
+
+### What was asked
+
+Karol's late-night request still stands: one keyword system on all three sites, each with its own clusters, with the sessions kept in step. The skeptic checks on the first engine port also turned up accuracy errors on this site and bugs in the engine. This update fixes both, re-sends the engine and checks NoteWall's fifth round.
+
+### What was found
+
+- **Against the iOS source** (read-only):
+  - **FaithWall has a Bible browser.** `BibleExplorerView` and `VerseListView` open every book and chapter. Yet llms.txt, pricing.md, the home FAQ, the hub, the YouVersion compare page, the Olive Tree post and the random-verse page said it was "not a Bible reader".
+  - **Widget rotation is opt-in.** `widgetRotationEnabled` is false by default. The setting is called "Auto-rotate verses" and offers every hour, every 8 hours or every day. The site described rotation as what the widget does by default: 45 sentences on 25 files.
+  - **Counts:** 24 translations (8 bundled) and 10 interface languages. The lint had no number check, so a wrong count would have passed.
+  - **Free exports:** the app's code gives new users 3 free wallpaper exports and the Terms say so, while the paywall has no close button and the site says there is no free tier. That is Karol's call.
+  - **An orphan path:** `/blog/best-free-all-time` had links pointing at it but no page.
+- **Engine, from both sister ports** (each finding kept by two skeptics):
+  - companion slugs in a queue target ("(+ ...)") were not parsed, so those pages were not held;
+  - the App Store handoff flag fired on every app-install cluster, not only where no page of ours ranks;
+  - building a draft dropped a handoff the curator had set;
+  - the README listed none of the words the check refuses;
+  - the geo-probe text assumed Cloudflare, but two of the three sites are on Vercel.
+- **The two local autopilot prompts** still carried the old product facts ("a rotating widget", "not a Bible reader"). The autopilot would have written exactly what the merge gate now fails. The cloud routine's prompt has no product facts.
+- **NoteWall round 5:** the phone-check statistic fixes are live and correct. What both skeptics kept went back to their session: claims about users and how often people look at their phones, the post title that still says the wallpaper changes "automatically", and lint gaps.
+
+### What was decided and why
+
+- **The wording used wherever this was fixed:** "a widget that shows that verse (an optional setting, off by default, makes it show random verses instead)" and "a built-in Bible browser (all books and chapters) for finding your verse, but it is built for the lock screen, not for study". The YouVersion compare row keeps "no reading plans".
+- **Held pages got fact fixes only,** as the hold allows: the hub and two compare entries.
+- **The other 44 widget sentences wait for p78,** which runs after p72. A sweep across 20 posts shouldn't land inside the cohort read-out. Until then the merge gate fails any added line that repeats the claim, so a page the autopilot touches gets fixed on contact.
+- **The legal pages are Karol's.** The Privacy Policy and the Terms say "a rotating lock-screen widget"; the suggested wording is in TODO-KAROL.
+- **"No free tier" stays until Karol answers** the free-exports question.
+- **The lint learns the facts:** a Bible-reader denial fails, and so does a translation or language count that differs from `facts.json`. A widget sentence with no opt-in warns in `--all` and fails on added lines. `--self-test` keeps the cases.
+- **One engine for three sites.** The fixes go into the shared file as 1.1.0 rather than into per-site patches. The sisters port it and match the sha256.
+- **The key-shaped-string rule** in `check --staged` also flags long mixed-case URL paths, such as an Unsplash photo URL. The hub's photo URL was shortened to the photo id, which redirects to the same page. The engine fix waits for 1.2.0.
+
+### What was built
+
+- `8e53929` site:
+  - `public/llms.txt` and `public/pricing.md`;
+  - the home FAQ, the hub and the Olive Tree post;
+  - the YouVersion compare page and the lock-screen apps compare page;
+  - the random-verse page and the blog skill's product facts;
+  - `facts.json` (translation and interface-language counts);
+  - a redirect from `/blog/best-free-all-time` to the hub;
+  - three new lint rules and a self-test in `scripts/lint-facts.mjs`.
+- `4c2e886` keyword engine 1.1.0:
+  - companion slugs held, and "gated" queue items count as pending;
+  - the handoff flag only within position twenty, and the curator's handoff kept;
+  - a `bot_settings_hint` config key instead of the Cloudflare text, and a doctor warning for lookaround advice;
+  - the README's "Words the lint refuses" section.
+- `0b45c4f` queue: p78 (the widget sentences, after p72) and p71's note.
+- Outside the repo: the product-facts line in both local autopilot prompts.
+
+### How it was verified
+
+- The method:
+  - finders, then two skeptics per finding; only findings both kept were built;
+  - per part, one builder, three reviewers, then a fixer.
+- **Site gates on the release:**
+  - `lint:facts` (diff and dist): no failure or warning;
+  - `--all`: no failure, 44 warnings, all of them the widget sentences left for p78;
+  - `--self-test` passes every case;
+  - typecheck at its 7-error baseline;
+  - build and prerender green on all 57 routes;
+  - no NUL bytes in `dist/`.
+- **Engine:**
+  - self-test 103 of 103;
+  - `kw:check` clean on all three sites;
+  - holds on FaithWall and QuranWall unchanged; NoteWall gains its three companion pages until 12-01.
+- The shortened photo URL returns a redirect to the original photo page.
+
+### Still open
+
+- **Karol:** the newest TODO-KAROL section (free exports, the legal pages, two phrases to confirm).
+- **p78** after p72.
+- **NoteWall:** the round-5 findings and the 1.1.0 port were sent.
+- **QuranWall:** its session is closed. Its findings and the 1.1.0 port wait for a new QuranWall session.
+- **Engine 1.2.0:** URL paths in the key-shaped-string rule.
+- Still unanswered from the late-night update: the cluster-map line for the cloud autopilot prompt.
