@@ -61,6 +61,11 @@
       "source": "/blog/sabbath-rest-iphone-shortcuts",
       "destination": "/blog/christian-focus-modes-iphone",
       "permanent": true
+    },
+    {
+      "source": "/blog/best-free-all-time",
+      "destination": "/blog/best-free-bible-app-iphone",
+      "permanent": true
     }
   ]
 }

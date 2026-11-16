@@ -1,6 +1,6 @@
 # FaithWall
 
-> FaithWall is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen. Using it requires a FaithWall subscription. You pick your own verse (book/chapter/verse or search, 24 translations) and show it as a lock-screen wallpaper, or in a lock-screen widget that starts with that verse and then shows random verses. It is not a Bible reader.
+> FaithWall is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen. Using it requires a FaithWall subscription. You pick your own verse (book/chapter/verse or search, 24 translations) and show it as a lock-screen wallpaper, or in a lock-screen widget that shows that verse (an optional "Auto-rotate verses" setting, off by default, makes the widget show random verses instead). It has a built-in Bible browser (all books and chapters) for finding your verse, but it is not a study app.
 
 ## Key facts
 
@@ -24,14 +24,14 @@ Payments are handled by Apple through the App Store.
 
 You choose your own verse by book, chapter and verse or by search, in 24 translations. After subscribing you pick how to show it:
 1. **Wallpaper**: a full-screen lock-screen wallpaper applied with an Apple Shortcut.
-2. **Widget**: a compact lock-screen widget (iOS 16 or later) that starts with the verse you picked and then shows random verses, updated every hour, 8 hours or day.
+2. **Widget**: a compact lock-screen widget (iOS 16 or later) that shows the verse you picked. An optional "Auto-rotate verses" setting (off by default) makes it show random verses instead, changing every hour, every 8 hours or once a day.
 
-The app interface is available in 10 languages. FaithWall is not a Bible reader.
+The app interface is available in 10 languages. FaithWall is built for the lock screen: its built-in Bible browser is for finding and picking your verse.
 
 ## What makes it different
 
 - **Single-purpose**: Most Christian apps try to do everything. FaithWall does one thing — your chosen Scripture on the lock screen.
-- **Your verse**: You pick the verse for your wallpaper and the verse your widget starts with. The wallpaper never changes by itself.
+- **Your verse**: You pick the verse for your wallpaper and the verse your widget shows. The wallpaper never changes by itself.
 
 ## Topic clusters / pillar guides
 

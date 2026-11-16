@@ -27,7 +27,7 @@
     },
     {
       "type": "highlight",
-      "content": "**FaithWall** is our app, so weigh this page knowing that. It isn't a Bible reader and doesn't compete with either one. It shows the verse you choose on your iPhone lock screen, as a wallpaper applied by an Apple Shortcut or a widget that starts with it and then rotates random Bible verses. That's the honest case for adding it to whichever app wins below."
+      "content": "**FaithWall** is our app, so weigh this page knowing that. It has a built-in Bible browser for finding your verse, but it is built for the lock screen, not for study, so it doesn't compete with either one. It shows the verse you choose on your iPhone lock screen, as a wallpaper applied by an Apple Shortcut or a widget that shows it (an optional setting, off by default, makes the widget show random Bible verses instead). That's the honest case for adding it to whichever app wins below."
     },
     {
       "type": "paragraph",
@@ -101,7 +101,7 @@
     },
     {
       "type": "important",
-      "content": "Neither app keeps the verses you're actually working on in front of you. **FaithWall** shows the verse you choose on your lock screen, as a wallpaper an Apple Shortcut applies or a widget that starts with it and then rotates random Bible verses every hour, 8 hours or day, so what you read or studied stays in view between sessions."
+      "content": "Neither app keeps the verses you're actually working on in front of you. **FaithWall** shows the verse you choose on your lock screen, as a wallpaper an Apple Shortcut applies or a widget that shows it (an optional setting, off by default, makes the widget show random Bible verses every hour, 8 hours or day instead), so what you read or studied stays in view between sessions."
     },
     {
       "type": "paragraph",

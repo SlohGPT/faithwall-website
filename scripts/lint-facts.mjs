@@ -11,6 +11,7 @@
  *                          untracked changes too)
  *   --dist                 check the built site in dist/ (links, JSON-LD, NUL bytes, 404, sitemap, held pages)
  *   --prompts <files...>   lint scheduled-task prompt files with the same text rules
+ *   --self-test            run the built-in true-positive / negative checks of the text rules
  *
  * Exit code 1 on any FAIL. WARN never fails.
  *
@@ -47,6 +48,8 @@ const rules = [
   ['picks-for-you', /\b(?:Faith ?Wall|the app|it)\b[^.]{0,40}\b(?:picks|chooses|selects|curates|recommends|suggests|finds|matches)\b[^.]{0,25}\b(?:verses?|scriptures?|passages?)\b[^.]{0,15}\bfor you\b|\bverses?\s+(?:picked|chosen|selected|curated)\s+for\s+you\b|\bpersonali[sz]ed\s+(?:verses?|scripture)\b/i, null],
   ['unverified-feature', /\bFaith ?Wall\b[^.]{0,80}\b(?:no account (?:required|needed)|on-?device|offline|verse packs?|wallpaper packs?|themed packs?|ad-?free|no ads|Focus modes?\b)/i, null, /\bnever\b|\bno\b.{0,6}\bFocus|\blink\b/i],
   // bare (no brand needed): "No accounts required" / "without creating an account" is an unverified feature claim
+  // wrong: FaithWall has a Bible browser with full chapter text (BibleExplorerView / VerseListView), so it is not "not a Bible reader"
+  ['bible-reader-denial', /\b(?:Faith ?Wall|it|this app|the app)\s+(?:is(?:n'?t|\s+not|\s+no)|was(?:n'?t|\s+not)|(?:is\s+)?not|can'?t\s+be\s+used\s+as)\s+(?:really\s+|actually\s+)?(?:a|an)?\s*(?:full\s+|real\s+|proper\s+)?Bible(?:[- ]read(?:er|ing(?:\s+app)?)|\s+app)\b|(?:^|[-*(:;.—–]\s*|\bNo \()\s*not a (?:full\s+)?Bible(?:[- ]read(?:er|ing app)|\s+app)\b/i, null],
   ['no-account-bare', /\bno (?:user )?accounts?\b[^.]{0,30}\b(?:required|needed|necessary)\b|\bwithout (?:creating |signing up for |making )?an account\b/i, null],
 ];
 
@@ -59,7 +62,23 @@ const SKIPKEYS = new Set(['keywords', 'slug', 'image', 'url', 'href', 'id', 'ima
 // A list item about another app ("**Fighter Verses** — ... verses chosen for you") that never names
 // FaithWall can't make a FaithWall claim through a bare phrase, so the bare-phrase rules skip it.
 const OTHER_APP_ITEM = /^\s*(?:[-*]\s+)?\*\*(?!Faith ?Wall\b)[^*]{2,60}\*\*/;
-const BARE_RULES = new Set(['picks-for-you', 'rotate-own-set', 'no-account-bare']);
+const BARE_RULES = new Set(['picks-for-you', 'rotate-own-set', 'no-account-bare', 'bible-reader-denial']);
+
+// Widget rotation is an optional setting, off by default (SettingsView widgetRotationEnabled = false).
+// A sentence about FaithWall's widget that says it rotates or shows random/fresh verses needs an opt-in
+// qualifier in the same sentence. WARN in --all, FAIL on added lines in --diff.
+const WIDGET_ROTATION = /\bwidgets?\b[^.]{0,140}\b(?:rotat\w*|auto-?rotat\w*|(?:will\s+)?change\w*\s+(?:to\s+)?(?:a\s+)?(?:different|new)\s+verse|(?:shows?|displays?|cycles? through|changes? to)\s+(?:random|fresh|new|different)\s+(?:Bible\s+)?verses?|random\s+(?:Bible\s+)?verses?|fresh\s+verses?)\b|\b(?:rotat\w*|random\s+(?:Bible\s+)?verses?|fresh\s+verses?)\b[^.]{0,100}\bwidgets?\b/i;
+const ROTATION_OPT_IN = /\b(?:turn(?:s|ed)?\s+on|turning\s+on|optional(?:ly)?|off by default|opt[- ]in|if you|setting|toggle)\b/i;
+const OTHER_APPS = /\b(?:YouVersion|Olive Tree|Glorify|Hallow|Bible Gateway|Logos|Pray\.com|Abide|Dwell|Blue Letter|Bible\.is|Abbey|Fighter Verses|competitors?|Quran ?Wall|Note ?Wall)\b/i;
+
+// facts.json counts: a "<N> translations" / "<N> languages" claim about FaithWall must match.
+const COUNT_CLAIMS = [
+  ['translations', /(?<![\d,.])(\d{1,3})\+?\s+(?:Bible\s+)?translations\b/gi, facts.translationCount],
+  ['languages', /(?<![\d,.])(\d{1,3})\+?\s+(?:interface\s+|app\s+|display\s+)?languages\b/gi, facts.uiLanguageCount],
+];
+
+// true while linting a file that is wholly about FaithWall (public/*.txt|md), where bullets need no brand name
+let FW_DOC = false;
 
 /** Lint one piece of text. Pushes { id, s } into `out`. */
 function lintText(text, out) {
@@ -71,6 +90,20 @@ function lintText(text, out) {
       if (allow && allow.test(s)) continue;
       if (NEG.test(s)) continue;
       out.push({ id, s: s.replace(/\s+/g, ' ').slice(0, 190) });
+    }
+    // facts.json counts
+    const aboutFw = /Faith ?Wall/i.test(s) || FW_DOC;
+    if (aboutFw && !OTHER_APPS.test(s) && !NEG.test(s) && !/\bone of\s+\d/i.test(s)) {
+      for (const [what, re, want] of COUNT_CLAIMS) {
+        if (want === undefined) continue;
+        for (const m of s.matchAll(re)) {
+          if (Number(m[1]) !== want) out.push({ id: 'count-mismatch', s: `${m[0]} (facts.json ${what === 'translations' ? 'translationCount' : 'uiLanguageCount'} is ${want}): ${s.replace(/\s+/g, ' ').slice(0, 150)}` });
+        }
+      }
+    }
+    // widget rotation default
+    if (aboutFw && !(aboutOtherApp && !FW_DOC) && !OTHER_APPS.test(s) && !/\?\s*["']?\s*$/.test(s) && !/\b(?:another|other) apps?\b/i.test(s) && WIDGET_ROTATION.test(s) && !ROTATION_OPT_IN.test(s)) {
+      out.push({ id: 'widget-rotation-default', soft: true, s: s.replace(/\s+/g, ' ').slice(0, 190) });
     }
   }
 }
@@ -107,6 +140,7 @@ function walkJson(node, loc, file, out) {
 function lintFile(abs) {
   const txt = readFileSync(abs, 'utf8');
   const hits = [];
+  FW_DOC = /^public\/[^/]+\.(txt|md)$/.test(rel(abs));
   if (abs.endsWith('.json')) {
     let data;
     try { data = JSON.parse(txt); } catch (e) {
@@ -251,7 +285,9 @@ function runText(files, rangesByFile) {
         const inAdded = h.lines === null || h.lines.some((l) => ranges.some(([a, b]) => l >= a && l <= b));
         if (!inAdded) continue;
       }
-      fail(h.id, `${r} ${h.loc}`, h.s);
+      // soft rules: WARN in --all, FAIL on added lines in --diff
+      if (h.soft && !ranges) warn(h.id, `${r} ${h.loc}`, h.s);
+      else fail(h.id, `${r} ${h.loc}`, h.s);
     }
   }
 }
@@ -261,6 +297,7 @@ function runPrompts(files) {
     const abs = f.startsWith('/') ? f : join(process.cwd(), f);
     if (!existsSync(abs)) { fail('prompt-missing', f, 'file not found'); continue; }
     const txt = readFileSync(abs, 'utf8');
+    FW_DOC = false;
     txt.split('\n').forEach((ln, i) => {
       const found = [];
       lintText(ln, found);
@@ -407,9 +444,70 @@ function runDist() {
   console.log(`dist: ${htmlFiles.length} html files, ${linkCount} App Store links, ${apps.length} app node(s), ${held.length} held pages checked`);
 }
 
+// ---------------------------------------------------------------- self-test
+
+/** Each case: [text, ruleId, shouldHit, fwDoc?]. Exits 0 when every case behaves, 1 otherwise. */
+function selfTest() {
+  const cases = [
+    // bible-reader-denial
+    ['FaithWall is not a Bible reader.', 'bible-reader-denial', true],
+    ["It isn't a Bible reader, so it complements either one.", 'bible-reader-denial', true],
+    ['- Not a Bible reader', 'bible-reader-denial', true],
+    ['No (not a Bible reader)', 'bible-reader-denial', true],
+    ['The app is not a Bible-reading app.', 'bible-reader-denial', true],
+    ['FaithWall has a built-in Bible browser (all books and chapters), but it is not a study app.', 'bible-reader-denial', false],
+    ["FaithWall doesn't try to be a Bible-reading app, a journal, or a community.", 'bible-reader-denial', false],
+    ['- **Pray.com** isn\'t a Bible reader.', 'bible-reader-denial', false],
+    ['Free to download; a subscription unlocks it. Not a Bible-reading app — a verse you pick', 'bible-reader-denial', true],
+    ['FaithWall is not a Bible app.', 'bible-reader-denial', true],
+    ['FaithWall is not really a Bible reader.', 'bible-reader-denial', true],
+    ["FaithWall isn't a Bible app for reading.", 'bible-reader-denial', true],
+    ['FaithWall is no Bible reader.', 'bible-reader-denial', true],
+    // count-mismatch
+    ['FaithWall offers 40 translations of the Bible.', 'count-mismatch', true],
+    ['The FaithWall interface comes in 12 languages.', 'count-mismatch', true],
+    ['- Pick your own verse in 20 translations', 'count-mismatch', true, true],
+    ['FaithWall offers 24 translations and a 10-language interface in 10 languages.', 'count-mismatch', false],
+    ['YouVersion has 2,000 translations; FaithWall has 24 translations.', 'count-mismatch', false],
+    ['The Bible has been translated into 3,000 languages.', 'count-mismatch', false],
+    ['FaithWall quotes the KJV, one of 500 translations of the Bible.', 'count-mismatch', false],
+    ['- App interface in 10 languages', 'count-mismatch', false, true],
+    // widget-rotation-default (soft)
+    ['FaithWall has a widget that starts with your verse and then shows random verses.', 'widget-rotation-default', true],
+    ['FaithWall\'s lock-screen widget rotates fresh verses every hour.', 'widget-rotation-default', true],
+    ['- **Widget**: a lock-screen widget that rotates random verses.', 'widget-rotation-default', true, true],
+    ['FaithWall\'s widget shows the verse you picked; an optional setting (off by default) shows random verses instead.', 'widget-rotation-default', false],
+    ['If you turn on rotation, the FaithWall widget shows random verses.', 'widget-rotation-default', false],
+    ['YouVersion has a widget that rotates a new verse every day.', 'widget-rotation-default', false],
+    ['- **Fighter Verses** has a widget that rotates random verses.', 'widget-rotation-default', false, true],
+    ['FaithWall shows the verse you picked in a lock-screen widget.', 'widget-rotation-default', false],
+    ["FaithWall's widget will change to a different verse each hour.", 'widget-rotation-default', true],
+    ['Does the FaithWall widget rotate verses?', 'widget-rotation-default', false],
+    ['FaithWall pairs well with a rotating-verse widget from another app.', 'widget-rotation-default', false],
+  ];
+  let bad = 0;
+  for (const [text, id, want, doc] of cases) {
+    FW_DOC = !!doc;
+    const found = [];
+    lintText(text, found);
+    const got = found.some((h) => h.id === id);
+    if (got !== want) { bad++; console.log(`SELF-TEST FAIL [${id}] expected ${want ? 'hit' : 'no hit'}: ${text}`); }
+  }
+  // soft hits must be WARN in --all (no ranges) and FAIL in --diff (ranges)
+  FW_DOC = false;
+  const soft = []; lintText('FaithWall has a widget that shows random verses.', soft);
+  if (!soft.some((h) => h.id === 'widget-rotation-default' && h.soft === true)) { bad++; console.log('SELF-TEST FAIL widget-rotation-default is not soft'); }
+  const hard = []; lintText('FaithWall is not a Bible reader.', hard);
+  if (hard.some((h) => h.soft)) { bad++; console.log('SELF-TEST FAIL bible-reader-denial must not be soft'); }
+  console.log(`lint-facts self-test: ${cases.length + 2} checks, ${bad} failed`);
+  process.exit(bad ? 1 : 0);
+}
+
 // ---------------------------------------------------------------- main
 
 const argv = process.argv.slice(2);
+if (argv.includes('--self-test')) selfTest();
+
 if (argv.length === 0 || argv.includes('--help') || argv.includes('-h')) {
   console.log('Usage: node scripts/lint-facts.mjs [--all] [--diff <base> [--worktree]] [--dist] [--prompts <files...>]');
   process.exit(argv.length === 0 ? 1 : 0);
