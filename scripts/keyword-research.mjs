@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Keyword engine 1.0.0: first-party keyword analysis + a lint for the public keyword files.
+ * Keyword engine 1.1.0: first-party keyword analysis + a lint for the public keyword files.
  *
  * It never produces or invents a search volume. It reads Search Console (your own data), Google
  * Autocomplete (a few requests a day, hard capped) and your own robots.txt, writes everything to a
@@ -50,7 +50,7 @@
  *                          catches "searched" ("searched 300 times").
  *   geo-probe              fetch the live robots.txt, evaluate it per bot (RFC 9309) and send one
  *                          request per bot user agent; exit 4 if a search bot is blocked.
- *   bing | volumes | serp  stubs in 1.0.0 (no credentials, nothing is read or sent).
+ *   bing | volumes | serp  stubs in 1.1.0 (no credentials, nothing is read or sent).
  *   help                   this text
  *
  * Global: --version, --config <path>.
@@ -64,7 +64,11 @@
  *
  * Config notes: intent_rules patterns run on the NORMALISED query (lowercase, punctuation stripped,
  * so "?" never matches) and are compiled with the u flag. JavaScript's \b is ASCII-only: for words
- * that start or end in a non-ASCII letter use (?<![\p{L}\p{N}])word(?![\p{L}\p{N}]) instead.
+ * that start or end in a non-ASCII letter use (?<![\p{L}\p{N}])word(?![\p{L}\p{N}]) instead. That
+ * lookaround form is for intent_rules ONLY. gsc.regex_families are sent to Search Console as RE2, which has
+ * no lookarounds: use (?:^|[^\p{L}\p{N}])word there, with a trailing boundary only for languages that do not
+ * suffix words (Turkish needs the leading boundary only: ayetler and ayeti are real forms). doctor warns
+ * about a family pattern with \b next to a non-ASCII letter.
  * Optional config key tool_pages: array of site paths (each starting with /) that are tool pages, default
  * []. A cluster whose target is one gets content_type tool-page. Page kinds for the prune-merge test: tool
  * page, home page (/), blog post (/blog/...), any other page; only two pages of the same kind that share a
@@ -100,7 +104,7 @@ import { fileURLToPath } from 'node:url';
 
 // ---------------------------------------------------------------- constants
 
-export const ENGINE_VERSION = '1.0.0';
+export const ENGINE_VERSION = '1.1.0';
 const HARD_CAP = 15; // autocomplete requests per site per UTC day, whatever the config says
 const MIN_DAYS = 28; // days with impressions needed before "no demand" conclusions are allowed
 const ROW_LIMIT = 25000; // Search Console page size
@@ -110,6 +114,7 @@ const STRIKE_MIN = 4;
 const STRIKE_MAX = 20;
 const GAP_POSITION = 20;
 const CANNIBAL_SHARE = 0.2;
+const ASO_PAGE_MAX = 20; // an app-install cluster is flagged aso_handoff only while no page of ours shows at this position or better
 const CANNIBAL_MIN_IMPR = 5;
 const JACCARD = 0.5; // leader clustering threshold
 const NEAR_GSC = 0.5; // expand: token Jaccard for the private near_gsc hint
@@ -531,6 +536,7 @@ export function validateConfig(c) {
           ids.add(f.id);
           const e = checkRe2(f.pattern);
           if (e) problems.push(`gsc.regex_families[${i}].pattern: ${e}`);
+          else if (/\\b[^\x00-\x7F]|[^\x00-\x7F]\\b/.test(f.pattern)) warnings.push(`gsc.regex_families[${i}].pattern: \\b is ASCII-only and will not match next to a non-ASCII letter; families run as RE2 (no lookarounds), so use (?:^|[^\\p{L}\\p{N}])word`);
         });
       }
     }
@@ -578,6 +584,7 @@ export function validateConfig(c) {
     for (const k of ['paths', 'search_bots', 'training_bots']) if (!Array.isArray(c.geo[k]) || !c.geo[k].every(isStr)) problems.push(`geo.${k}: array of strings required`);
     if (Array.isArray(c.geo.paths) && !c.geo.paths.every((p) => typeof p === 'string' && p.startsWith('/'))) problems.push('geo.paths: every path must start with /');
     if (!isObj(c.geo.user_agents) || !Object.values(c.geo.user_agents).every(isStr)) problems.push('geo.user_agents: object of strings required');
+    if (c.geo.bot_settings_hint !== undefined && !isStr(c.geo.bot_settings_hint)) problems.push('geo.bot_settings_hint: must be a non-empty string');
   }
 
   if (c.seeds !== undefined) {
@@ -653,6 +660,28 @@ export function extractPaths(text) {
   // The homepage: "/" as the first token of the text, or wrapped as (/) or `/`. A "/" used as a
   // separator ("title / meta only") must not hold the homepage.
   if (/^\s*[`(]?\/[`)]?(?=$|[\s,;:.])/.test(s) || /\(\/\)|`\/`/.test(s)) out.add('/');
+  // Companion slugs: "/blog/x (+ y)", "/blog/x (+ y, z and w)", "/blog/x + y". They live in the directory
+  // of the first non-root path. A "(...)" group that does not start with "+" is a note. A token counts
+  // only if it is a bare hyphenated slug, so "none", "outreach/" and "audit only" stay out.
+  const first = [...out].find((p) => p !== '/');
+  if (first) {
+    const base = first.slice(0, first.lastIndexOf('/'));
+    const groups = [];
+    const outside = s.replace(/\(([^)]*)\)/g, (_m, inner) => {
+      const g = inner.trim();
+      if (g.startsWith('+')) groups.push(g.slice(1));
+      return ' ';
+    });
+    // Only the documented syntaxes: every token of a "(+ ...)" group, and the first word after a bare " + "
+    // outside brackets. Free text ("/blog/a, follow-up") is never scanned. Trailing . , ; : are trimmed.
+    const cands = [];
+    for (const g of groups) cands.push(...g.split(/\s*[,;+]\s*|\s+and\s+/i));
+    outside.split('+').slice(1).forEach((seg) => cands.push(seg.trim().split(/\s+/)[0] ?? ''));
+    for (const tok of cands) {
+      const slug = tok.trim().replace(/[.,;:]+$/, '');
+      if (/^[a-z0-9]+(?:-[a-z0-9]+)+$/.test(slug)) out.add(normPath(`${base}/${slug}`));
+    }
+  }
   return [...out];
 }
 
@@ -667,7 +696,7 @@ export function detectHolds(config, priorities, today) {
     }
   }
   for (const item of priorities?.queue ?? []) {
-    if (item?.status !== 'pending' || !item.not_before || !(String(item.not_before) > today)) continue;
+    if ((item?.status !== 'pending' && item?.status !== 'gated') || !item.not_before || !(String(item.not_before) > today)) continue;
     for (const p of extractPaths(item.target_url)) {
       if (!map.has(p)) map.set(p, { reason: `queued as ${item.id} until ${item.not_before}`, until: String(item.not_before), source: 'queue' });
     }
@@ -1526,7 +1555,7 @@ export function suggestDecision(c, holds = new Map(), config = {}) {
     if (main.position <= 10) return { decision: 'ctr-fix' };
     if (main.position <= 20) return { decision: 'refresh' };
   }
-  if (c.intent === 'app-install' && !pages.some((p) => p.position <= 20)) return { decision: 'aso-handoff' };
+  if (c.intent === 'app-install' && !pages.some((p) => p.position <= ASO_PAGE_MAX)) return { decision: 'aso-handoff' };
   if (c.intent === 'question' && wordCount(c.head) <= 6 && main) return { decision: 'faq-add' };
   if (c.intent === 'tool') return { decision: 'new-tool' };
   if (c.intent === 'compare') return { decision: 'compare' };
@@ -1715,7 +1744,7 @@ export function analyse(input, config, holds = new Map()) {
       suggested_decision: sug.decision,
       hold_reason: sug.hold_reason ?? null,
       held_until: sug.held_until ?? null,
-      aso_handoff: intent === 'app-install',
+      aso_handoff: intent === 'app-install' && !pages.some((p) => p.position <= ASO_PAGE_MAX),
     };
   });
 
@@ -1839,7 +1868,7 @@ export function buildDraft(a, { config, today, end, existing = null }) {
       rec.hold_reason = holdReason || 'held';
       if (heldUntil && validDate(heldUntil)) rec.held_until = heldUntil;
     }
-    if (c.aso_handoff) rec.aso_handoff = true;
+    if (reuse ? reuse.aso_handoff === true : c.aso_handoff) rec.aso_handoff = true;
     rec.evidence = [{ type: 'gsc', fetched: end, note: 'Search Console queries' }];
     if (reuse && isStr(reuse.notes) && reuse.notes.length <= 300) rec.notes = reuse.notes;
     if (reuse && typeof reuse.queue_id === 'string' && /^p\d+$/.test(reuse.queue_id)) rec.queue_id = reuse.queue_id;
@@ -2364,7 +2393,7 @@ export async function runGeoProbe(ctx) {
   log(`bot | kind | rules (${config.geo.paths.join(' ')}) | live status`);
   for (const b of bots) log(`${b.bot} | ${b.kind} | ${config.geo.paths.map((p) => (b.rules[p] ? 'allow' : 'BLOCK')).join(' ')} | ${b.status === undefined ? 'no probe' : b.status ?? `error`}`);
   log(`llms.txt: ${llms ?? 'error'}`);
-  log('rules-only proof: a spoofed user agent is not the real bot; Cloudflare verifies real bots by IP. The real check is the Cloudflare dashboard.');
+  log(`rules-only proof: a spoofed user agent is not the real bot; real bots are verified by IP. The real check is ${config.geo.bot_settings_hint ?? "your host's or CDN's bot-protection settings"}.`);
 
   const badStatus = (s) => s === 401 || s === 403 || s === 429 || (typeof s === 'number' && s >= 500);
   const regressions = bots.filter((b) => b.kind === 'search' && (b.rules['/'] === false || badStatus(b.status))).map((b) => b.bot);
@@ -2462,7 +2491,7 @@ export async function main(argv = process.argv.slice(2), env = process.env, cwd 
     const privateDir = resolvePrivateDir(config, root);
     // The stubs run after config validation like every command, but touch nothing and never read a key file.
     if (command === 'bing') {
-      console.log(bingKeyPathPresent(env) ? 'bing: key present; API calls not built in 1.0.0 (needs the 3-call spike, see TODO-KAROL)' : 'skipped: no credentials');
+      console.log(bingKeyPathPresent(env) ? 'bing: key present; API calls not built in 1.1.0 (needs the 3-call spike, see TODO-KAROL)' : 'skipped: no credentials');
       return EXIT.OK;
     }
     if (command === 'volumes' || command === 'serp') {
@@ -3076,6 +3105,19 @@ export async function runSelfTest(log = (s) => console.log(s)) {
     c.gsc.regex_families = [{ id: 'bad', pattern: 'a(?=b)' }];
     ok(validateConfig(c).problems.some((p) => p.includes('lookaround')), 'config accepted a lookahead family');
   });
+  t('config validation: a family pattern with \\b next to a non-ASCII letter is a WARN, the RE2 boundary form is clean', () => {
+    const c = baseConfig('x');
+    c.gsc.regex_families = [{ id: 'tr', pattern: '\\b\u00e7ay\u0131\\b' }];
+    const v = validateConfig(c);
+    eq(v.problems, []);
+    ok(v.warnings.some((w) => w.includes('gsc.regex_families[0]') && w.includes('\\b')), 'no warning for \\b next to a non-ASCII letter');
+    const good = '(?:^|[^\\p{L}\\p{N}])\u00e7ay\u0131(?:[^\\p{L}\\p{N}]|$)';
+    eq(checkRe2(good), null, 'the advised form must pass RE2');
+    ok(new RegExp(good, 'iu').test('bir \u00e7ay\u0131 i\u00e7ti') && !new RegExp(good, 'iu').test('bol\u00e7ay\u0131x'), 'advised form matches whole words only');
+    c.gsc.regex_families = [{ id: 'tr', pattern: good }, { id: 'en', pattern: '\\bverse\\b' }];
+    const v2 = validateConfig(c);
+    eq([v2.problems, v2.warnings.filter((w) => w.includes('regex_families'))], [[], []]);
+  });
   t('config validation: caps sum, unknown market, bad intent, unknown key is a warning only', () => {
     const c = baseConfig('x');
     eq(validateConfig(c).problems, []);
@@ -3154,7 +3196,7 @@ export async function runSelfTest(log = (s) => console.log(s)) {
     let ctx = mk({ origin: base });
     let code = await runGeoProbe(ctx);
     eq(code, 4);
-    ok(lines.some((l) => l.startsWith('rules-only proof: a spoofed user agent is not the real bot; Cloudflare verifies real bots by IP. The real check is the Cloudflare dashboard.')), 'footer missing');
+    ok(lines.some((l) => l === "rules-only proof: a spoofed user agent is not the real bot; real bots are verified by IP. The real check is your host's or CDN's bot-protection settings."), 'default footer missing');
     ok(lines.some((l) => l.includes('identical')), 'repo compare line missing');
     ok(lines.some((l) => l.startsWith('Trainy | training') && l.includes('BLOCK')), 'training row missing');
     mock.blockUa = '';
@@ -3165,6 +3207,21 @@ export async function runSelfTest(log = (s) => console.log(s)) {
     mock.robots = 'User-agent: Searchy\nDisallow: /\n';
     code = await runGeoProbe(mk({ origin: base }));
     eq(code, 4, 'rules block of a search bot');
+  });
+  t('geo-probe: geo.bot_settings_hint replaces the default footer wording; a non-string hint is a problem', async () => {
+    mock.robots = ROBOTS;
+    mock.blockUa = '';
+    fs.writeFileSync(path.join(repo, 'public', 'robots.txt'), mock.robots);
+    const priv = newPriv();
+    const config = baseConfig(priv);
+    config.geo.bot_settings_hint = 'the Example dashboard (Security, Bots)';
+    eq(validateConfig(config).problems, []);
+    await runGeoProbe(mk({ origin: base, config, priv }));
+    ok(lines.some((l) => l === 'rules-only proof: a spoofed user agent is not the real bot; real bots are verified by IP. The real check is the Example dashboard (Security, Bots).'), 'custom hint footer missing');
+    ok(!lines.some((l) => l.includes("your host's or CDN's")), 'default wording still printed');
+    const bad = baseConfig('x');
+    bad.geo.bot_settings_hint = 5;
+    ok(validateConfig(bad).problems.some((x) => x.includes('geo.bot_settings_hint')), 'non-string hint accepted');
   });
 
   // ---------------------------------------------------------------- gsc pipeline against the mock
@@ -3528,6 +3585,51 @@ export async function runSelfTest(log = (s) => console.log(s)) {
     eq(extractPaths('/').sort(), ['/']);
     eq(extractPaths('(/) and /blog/x').sort(), ['/', '/blog/x']);
     eq(extractPaths('`/` homepage').sort(), ['/']);
+  });
+  t('hold detection: companion slugs in queue targets (three syntaxes, notes, non-slugs, root, gated)', () => {
+    eq(extractPaths('/blog/a (+ b-c)').sort(), ['/blog/a', '/blog/b-c']);
+    eq(extractPaths('/blog/a (+ b-c, d-e and f-g)').sort(), ['/blog/a', '/blog/b-c', '/blog/d-e', '/blog/f-g']);
+    eq(extractPaths('/blog/a + b-c').sort(), ['/blog/a', '/blog/b-c']);
+    eq(extractPaths('/blog/a (+ B-c/)').sort(), ['/blog/a']); // not a bare lowercase slug
+    eq(extractPaths('/blog/a (absorbs b-c)').sort(), ['/blog/a']); // a group without a leading + is a note
+    eq(extractPaths('/blog/a (audit only) + /blog/b').sort(), ['/blog/a', '/blog/b']);
+    eq(extractPaths('/blog/a (+ none, outreach/, vercel.json, single)').sort(), ['/blog/a']); // not hyphenated slugs
+    eq(extractPaths('/blog/a (+ b-c) and audit only').sort(), ['/blog/a', '/blog/b-c']);
+    eq(extractPaths('/blog/a, follow-up').sort(), ['/blog/a']); // free text is not scanned
+    eq(extractPaths('/blog/a and non-english').sort(), ['/blog/a']);
+    eq(extractPaths('/blog/a (+ b-c.)').sort(), ['/blog/a', '/blog/b-c']); // trailing punctuation trimmed
+    eq(extractPaths('/blog/a + new-post, more-x').sort(), ['/blog/a', '/blog/new-post']);
+    eq(extractPaths('/ (home) + about-us').sort(), ['/']); // no non-root path, no base directory
+    eq(extractPaths('/guide/x-y (+ z-w)').sort(), ['/guide/x-y', '/guide/z-w']); // base is the first non-root path's directory
+    eq(extractPaths('/faq (+ ask-us)').sort(), ['/ask-us', '/faq']);
+    const pr = { queue: [{ id: 'p1', status: 'gated', not_before: '2026-12-01', target_url: '/blog/a (+ b-c)' }, { id: 'p2', status: 'pending', not_before: '2026-12-01', target_url: '/blog/d + e-f' }, { id: 'p3', status: 'retired', not_before: '2026-12-01', target_url: '/blog/g (+ h-i)' }, { id: 'p4', status: 'done', not_before: '2026-12-01', target_url: '/blog/j' }] };
+    eq([...detectHolds({}, pr, today).keys()].sort(), ['/blog/a', '/blog/b-c', '/blog/d', '/blog/e-f']);
+  });
+  t('aso flag: set only while no page of ours shows within position 20', () => {
+    const run = (position) => {
+      const cfg = baseConfig('x');
+      const a = analyse({ queryRows: [{ keys: ['bible app for iphone'], impressions: 60, clicks: 0, position }], pageQueryRows: [{ keys: ['https://example.test/blog/p', 'bible app for iphone'], impressions: 60, clicks: 0, position }] }, cfg);
+      const c = a.clusters.find((x) => x.head === 'bible app for iphone');
+      return [c.intent, c.aso_handoff];
+    };
+    eq(run(8), ['app-install', false]);
+    eq(run(21), ['app-install', true]);
+    const none = analyse({ queryRows: [{ keys: ['bible app for iphone'], impressions: 60, clicks: 0, position: 30 }], pageQueryRows: [] }, baseConfig('x'));
+    eq(none.clusters[0].aso_handoff, true, 'no page at all');
+    const other = analyse({ queryRows: [{ keys: ['gadget'], impressions: 60, clicks: 0, position: 30 }], pageQueryRows: [] }, baseConfig('x'));
+    eq(other.clusters[0].aso_handoff, false, 'not app-install');
+  });
+  t('draft: aso_handoff follows the curated record', () => {
+    const cl = (head, aso) => ({ id: head.replace(/ /g, '-'), head, members: [{ query: head, impressions: 30, clicks: 0, position: 30, unsafe: false }], impressions: 30, intent: 'app-install', pages: [], main_page: null, suggested_decision: 'aso-handoff', hold_reason: null, held_until: null, aso_handoff: aso });
+    const rec = (head, extra) => ({ id: head.replace(/ /g, '-'), name: head, head_keyword: head, members: [head], intent: 'app-install', content_type: 'aso-handoff', target_url: null, decision: 'aso-handoff', evidence: [{ type: 'autocomplete', fetched: today, note: 'demand: autocomplete shows the phrase' }], ...extra });
+    const a = { clusters: [cl('cleared one', true), cl('kept two', false), cl('fresh three', true), cl('fresh four', false)] };
+    const existing = { clusters: [rec('cleared one', {}), rec('kept two', { aso_handoff: true })] };
+    const d = buildDraft(a, { config: baseConfig('x'), today, end: '2026-11-13', existing });
+    const by = (h) => d.clusters.find((x) => x.head_keyword === h);
+    eq(by('cleared one').aso_handoff, undefined, 'curator cleared the flag');
+    eq(by('kept two').aso_handoff, true, 'curator set the flag');
+    eq(by('fresh three').aso_handoff, true, 'new cluster takes the engine flag');
+    eq(by('fresh four').aso_handoff, undefined, 'new cluster without the flag');
   });
   t('robots: CR-only line endings, percent-encoding and non-ASCII paths follow RFC 9309', () => {
     eq(robotsAllows(parseRobots('User-agent: *\rDisallow: /'), 'Bot', '/x'), false, 'CR only');

@@ -87,6 +87,7 @@
   ],
   "geo": {
     "paths": ["/", "/blog/", "/llms.txt"],
+    "bot_settings_hint": "the Cloudflare dashboard (Security, Bots)",
     "search_bots": ["OAI-SearchBot", "ChatGPT-User", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User", "Bingbot", "Googlebot"],
     "training_bots": ["GPTBot", "ClaudeBot", "Google-Extended", "CCBot", "Applebot-Extended", "Bytespider", "meta-externalagent", "Amazonbot"],
     "user_agents": {
