@@ -16,6 +16,10 @@ import { PHONE_SAFE_BOTTOM, PHONE_SAFE_TOP } from '../lib/wallpaper';
 
 export type DeviceKind = 'iphone' | 'android' | 'desktop';
 export type UiTone = 'light' | 'dark';
+/** 'maker' = the wallpaper maker's preview (default). 'showcase' = the homepage mockups: no verse guide line, system clock font, short date. */
+export type MockupVariant = 'maker' | 'showcase';
+/** 'lock' = status icons, date, clock, flashlight, camera, home indicator (default). 'home' = status bar with the time, home indicator. */
+export type MockupUi = 'lock' | 'home';
 
 interface DeviceMockupProps {
   device: DeviceKind;
@@ -32,9 +36,14 @@ interface DeviceMockupProps {
   screenProps?: HTMLAttributes<HTMLDivElement> & { 'data-testid'?: string };
   /** Applied to the screen element, e.g. cursor and touch-action while dragging a photo. */
   screenStyle?: CSSProperties;
+  /** Optional, default 'maker' (today's markup). */
+  variant?: MockupVariant;
+  /** Optional, default 'lock' (today's markup). iPhone and Android only. */
+  ui?: MockupUi;
 }
 
 const ROUNDED_FONT = 'ui-rounded, "SF Pro Rounded", "DM Sans", system-ui, -apple-system, sans-serif';
+export const SYSTEM_FONT = "system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
 // Chrome 139+ draws iPhone-style continuous (squircle) corners; other browsers ignore it.
 const squircle = { cornerShape: 'squircle' } as CSSProperties;
 
@@ -80,11 +89,14 @@ function PhoneLockUi({
   kind,
   tone,
   dateLabel,
+  variant,
 }: {
   kind: 'iphone' | 'android';
   tone: UiTone;
   dateLabel: string;
+  variant: MockupVariant;
 }) {
+  const showcase = variant === 'showcase';
   const ink = tone === 'light' ? '#ffffff' : '#101010';
   const soft = tone === 'light' ? 'rgba(255,255,255,0.88)' : 'rgba(16,16,16,0.82)';
   const glassBg = tone === 'light' ? 'rgba(40,40,44,0.5)' : 'rgba(255,255,255,0.55)';
@@ -118,7 +130,7 @@ function PhoneLockUi({
           top: android ? '9%' : `${(PHONE_SAFE_TOP * 100 * 0.3).toFixed(2)}%`,
           color: soft,
           textShadow: shadow,
-          fontFamily: ROUNDED_FONT,
+          fontFamily: showcase ? SYSTEM_FONT : ROUNDED_FONT,
         }}
       >
         <p
@@ -149,14 +161,16 @@ function PhoneLockUi({
         </p>
       </div>
 
-      {/* Where the verse starts */}
-      <div
-        className="absolute inset-x-0"
-        style={{
-          top: `${PHONE_SAFE_TOP * 100}%`,
-          borderTop: `0.35cqw dashed ${tone === 'light' ? 'rgba(255,255,255,0.28)' : 'rgba(0,0,0,0.25)'}`,
-        }}
-      />
+      {/* Where the verse starts (the maker's guide, not part of the homepage mockups) */}
+      {!showcase && (
+        <div
+          className="absolute inset-x-0"
+          style={{
+            top: `${PHONE_SAFE_TOP * 100}%`,
+            borderTop: `0.35cqw dashed ${tone === 'light' ? 'rgba(255,255,255,0.28)' : 'rgba(0,0,0,0.25)'}`,
+          }}
+        />
+      )}
 
       {/* Flashlight and camera */}
       {[
@@ -191,6 +205,40 @@ function PhoneLockUi({
           background: ink,
           opacity: 0.85,
         }}
+      />
+    </div>
+  );
+}
+
+/** Home Screen chrome: the 9:41 time on the left of the Dynamic Island, signal and battery on the right, home indicator. */
+function PhoneHomeUi({ tone }: { tone: UiTone }) {
+  const ink = tone === 'light' ? '#ffffff' : '#101010';
+  return (
+    <div className="pointer-events-none absolute inset-0 select-none" aria-hidden="true">
+      <div
+        className="absolute flex items-center justify-between"
+        style={{ top: '3.4cqw', height: '8.2cqw', left: '9cqw', right: '8cqw', color: ink, fontFamily: SYSTEM_FONT }}
+      >
+        <span style={{ fontSize: '4.3cqw', fontWeight: 600, lineHeight: 1, letterSpacing: '-0.01em', fontVariantNumeric: 'tabular-nums' }}>
+          9:41
+        </span>
+        <span className="flex items-center" style={{ gap: '1.4cqw' }}>
+          <svg viewBox="0 0 18 12" style={{ width: '4.6cqw', height: '3cqw' }} fill="currentColor">
+            <rect x="0" y="8" width="3" height="4" rx="0.8" />
+            <rect x="5" y="5.5" width="3" height="6.5" rx="0.8" />
+            <rect x="10" y="3" width="3" height="9" rx="0.8" />
+            <rect x="15" y="0" width="3" height="12" rx="0.8" />
+          </svg>
+          <svg viewBox="0 0 26 12" style={{ width: '7cqw', height: '3.2cqw' }} fill="none">
+            <rect x="0.5" y="0.5" width="21" height="11" rx="3.4" stroke="currentColor" opacity="0.5" />
+            <rect x="2" y="2" width="15" height="8" rx="2.2" fill="currentColor" />
+            <rect x="23" y="4" width="2" height="4" rx="1" fill="currentColor" opacity="0.5" />
+          </svg>
+        </span>
+      </div>
+      <span
+        className="absolute left-1/2 -translate-x-1/2 rounded-full"
+        style={{ bottom: '1.9cqw', width: '34cqw', height: '1.3cqw', background: ink, opacity: 0.85 }}
       />
     </div>
   );
@@ -247,6 +295,8 @@ export default function DeviceMockup({
   children,
   screenProps,
   screenStyle,
+  variant = 'maker',
+  ui = 'lock',
 }: DeviceMockupProps) {
   const { className: screenClass = '', style: extraStyle, ...restScreen } = screenProps ?? {};
   const aspect = `${width} / ${height}`;
@@ -359,7 +409,10 @@ export default function DeviceMockup({
               }}
             >
               {children}
-              {showUi && <PhoneLockUi kind={iphone ? 'iphone' : 'android'} tone={uiTone} dateLabel={dateLabel} />}
+              {showUi && ui === 'home' && <PhoneHomeUi tone={uiTone} />}
+              {showUi && ui !== 'home' && (
+                <PhoneLockUi kind={iphone ? 'iphone' : 'android'} tone={uiTone} dateLabel={dateLabel} variant={variant} />
+              )}
               {/* Dynamic Island / punch-hole camera (always visible, like the real hardware) */}
               {iphone ? (
                 <span

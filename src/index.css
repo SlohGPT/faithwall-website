@@ -71,6 +71,19 @@
   unicode-range: U+0020-007E, U+00A0-00FF, U+0152-0153, U+2010-2015, U+2018-201F, U+2026, U+2212;
 }
 
+/* "FW Verse Serif": Lora SemiBold (SIL OFL 1.1), the serif the FaithWall app bundles, for the app-look Lock Screen verse in
+   the homepage mockups (AppLockVerse). One static wght=600 instance, Latin subset, same range as Gelasio. Lora's licence
+   reserves the name "Lora", so this modified copy carries its own name; glyphs are unchanged.
+   Rebuild: python3 scripts/fonts/build-verse-serif.py (source and licence in scripts/fonts/). */
+@font-face {
+  font-family: 'FW Verse Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/lora-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0152-0153, U+2010-2015, U+2018-201F, U+2026, U+2212;
+}
+
 @layer base {
   html {
     /* Hash-target offset: fixed navigation is ~76px tall, give breathing room

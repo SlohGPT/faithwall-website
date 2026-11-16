@@ -1,232 +1,229 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import AppStoreButton from './AppStoreButton';
 import { RatingLine } from './AppNudge';
 import { appStoreUrl } from '../lib/appStore';
 import facts from '../data/facts.json';
+import { SHOWCASE_VERSES } from '../data/showcaseVerses';
+import AppLockScreen from './showcase/AppLockScreen';
+import HomeScreenPhone from './showcase/HomeScreen';
+import { useMediaQuery, usePageVisible, usePrefersReducedMotion } from './showcase/utils';
+import CrossPattern from './ui/CrossPattern';
 
-const slides = [1, 2, 3, 4, 5];
-const images = slides.map(i => `/assets/slideshow/slide${i}.webp`);
-const avifImages = slides.map(i => `/assets/slideshow/slide${i}.avif`);
-const mobileWebp = slides.map(i => `/assets/slideshow/slide${i}-mobile.webp`);
-const mobileAvif = slides.map(i => `/assets/slideshow/slide${i}-mobile.avif`);
+/*
+ * Layout. Two modes, chosen in CSS only (no JS, so the prerendered HTML is the final layout):
+ *
+ *  - "wide" (>= 1024px wide AND landscape-ish, aspect >= 1.1): text left, phones right, the hero is exactly one
+ *    viewport tall (svh) with the content centred in the space under the fixed nav. The stage height --H comes
+ *    from the viewport height (and is width-limited so the text column is never squeezed), so the whole front
+ *    phone is always visible.
+ *  - "stacked" (phones, portrait tablets, narrow windows): text first, phones underneath. The stage takes the
+ *    rest of the first screen (flex:1) and clips the phone at its bottom edge with a fade, so the top of the
+ *    phone peeks in under the CTA (or shows whole when the screen is tall enough).
+ *
+ * Everything in the stage is sized from --H (stage height): front phone width .412 H (height .86 H, from
+ * DeviceMockup's real aspect: screen 93.2 cqw wide x 202.0 tall + 6.8 frame = W/H 0.479), back phone .36 H.
+ * Nav bottom edge measured in the browser (see report): 68px below 768px, 80px at md, 92px from 1024px,
+ * plus env(safe-area-inset-top) and the browser URL-bar inset.
+ */
+const HERO_CSS = `
+.hero{--svh:1vh;--inset:calc(env(safe-area-inset-top,0px) + var(--browser-top-inset,0px));--nav:calc(4.25rem + var(--inset));--gap:clamp(.875rem,calc(var(--svh)*2.4),1.25rem)}
+@supports (height:1svh){.hero{--svh:1svh}}
+@media (min-width:768px){.hero{--nav:calc(5rem + var(--inset));--gap:clamp(1rem,calc(var(--svh)*2.4),1.5rem)}}
+@media (min-width:1024px){.hero{--nav:calc(5.75rem + var(--inset))}}
 
-// Smooth spring transition for card stack (only motion.div used in Hero —
-// entrance animations are CSS to stay SSR-safe).
-const cardTransition = {
-  type: "spring" as const,
-  stiffness: 200,
-  damping: 30,
-  mass: 1,
-};
+.hero-fold{display:flex;flex-direction:column;min-height:calc(var(--svh)*100);padding-top:calc(var(--nav) + .75rem)}
+.hero-text{text-align:center}
+.hero-text > * + *{margin-top:var(--gap)}
+.hero-h1{font-size:clamp(1.9rem,8vw,2.75rem);line-height:1.1}
+.hero-sub{font-size:1rem;line-height:1.55;margin-inline:auto}
+.hero-ctas{justify-content:center}
+.hero-rating{justify-content:center}
 
-export default function Hero() {
+.hero-stage{--H:calc(clamp(14rem,66vw,18rem)/.412);position:relative;flex:1 1 0;min-height:9rem;margin-top:var(--gap);overflow:hidden;container-type:size}
+.hero-comp{position:absolute;top:0;left:50%;width:calc(var(--H)*.412);height:var(--H);transform:translateX(-50%)}
+.hero-front{position:absolute;z-index:20;right:0;top:calc(var(--H)*.03);width:calc(var(--H)*.412)}
+.hero-back{position:absolute;z-index:10;left:0;top:calc(var(--H)*.14);width:calc(var(--H)*.36);transform:rotate(-6deg);display:none}
+.hero-back-dim{filter:brightness(.86)}
+.hero-label{display:none;position:absolute;z-index:30;font-size:clamp(.625rem,calc(var(--H)*.0185),.8125rem);line-height:1.3;white-space:nowrap;padding:.5em .85em;border-radius:.9em;border:1px solid rgba(255,255,255,.12);background:rgba(20,20,28,.88);box-shadow:0 12px 30px -10px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06)}
+.hero-label-widget{left:0;top:0}
+.hero-label-lock{right:calc(var(--H)*.206);top:0;transform:translateX(50%)}
+.hero-fade{position:absolute;z-index:25;inset-inline:0;bottom:0;height:4.5rem;pointer-events:none}
+
+@media (min-width:768px){
+  .hero-text{padding-inline:1rem}
+  .hero-h1{font-size:clamp(2.75rem,1.4rem + 3.4vw,3.5rem)}
+  .hero-sub{font-size:1.125rem}
+  .hero-stage{--H:clamp(34rem,calc(100cqh - .5rem),50rem);min-height:18rem}
+  .hero-comp{width:calc(var(--H)*.75)}
+  .hero-front{top:calc(var(--H)*.09)}
+  .hero-back{display:block}
+  .hero-label{display:block}
+}
+
+@media (min-width:1024px) and (min-aspect-ratio:11/10){
+  .hero-fold{flex-direction:row;align-items:center;justify-content:space-between;gap:clamp(2rem,3.5vw,4rem);padding-top:calc(var(--nav) + 1rem);padding-bottom:1.5rem}
+  .hero-text{flex:1 1 0;min-width:0;padding-inline:0;text-align:left;container-type:inline-size}
+  .hero-h1{font-size:max(2.25rem,min(8.4cqw,calc(var(--svh)*6.4),4.5rem))}
+  .hero-sub{font-size:clamp(1rem,calc(.55rem + .55vw + var(--svh)*.4),1.3rem);margin-inline:0}
+  .hero-ctas,.hero-rating{justify-content:flex-start}
+  .hero-stage{--H:clamp(30rem,min(calc(var(--svh)*100 - var(--nav) - 2.5rem),calc(min(100vw,1600px)*.52)),46rem);flex:none;width:calc(var(--H)*.75);height:var(--H);min-height:0;margin-top:0;overflow:visible;container-type:normal}
+  .hero-comp{inset:0;left:0;width:100%;height:100%;transform:none}
+  .hero-fade{display:none}
+}
+`;
+
+// Widget demo loop: the Home Screen widget starts with the user's verse (Day 1 = the Lock Screen verse), then shows
+// the next verses one at a time. First render (server and client) is day 1, verse 0.
+const LOOP_MS = 4000;
+
+function useWidgetLoop() {
+  const reduced = usePrefersReducedMotion();
+  const backShown = useMediaQuery('(min-width: 768px)');
+  const visible = usePageVisible();
+  const [paused, setPaused] = useState(false);
   const [index, setIndex] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setInterval>>();
-  const shouldReduceMotion = useReducedMotion();
 
-  const resetTimer = useCallback(() => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    if (shouldReduceMotion) return;
-    timerRef.current = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
-  }, [shouldReduceMotion]);
+  const running = backShown && visible && !reduced && !paused;
 
-  // Auto-play logic — also pause when the tab is hidden so we don't burn CPU.
   useEffect(() => {
-    resetTimer();
-    const onVisibility = () => {
-      if (document.hidden) {
-        if (timerRef.current) clearInterval(timerRef.current);
-      } else {
-        resetTimer();
-      }
-    };
-    document.addEventListener('visibilitychange', onVisibility);
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-      document.removeEventListener('visibilitychange', onVisibility);
-    };
-  }, [resetTimer]);
+    if (!running) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % SHOWCASE_VERSES.length), LOOP_MS);
+    return () => clearInterval(id);
+  }, [running]);
 
-  const nextSlide = useCallback(() => {
-    setIndex((prev) => (prev + 1) % images.length);
-    resetTimer();
-  }, [resetTimer]);
+  // Reduced motion: back to the static first state.
+  useEffect(() => {
+    if (reduced) setIndex(0);
+  }, [reduced]);
 
-  const prevSlide = useCallback(() => {
-    setIndex((prev) => (prev - 1 + images.length) % images.length);
-    resetTimer();
-  }, [resetTimer]);
+  return { index, setPaused };
+}
 
-  const goToSlide = useCallback((i: number) => {
-    setIndex(i);
-    resetTimer();
-  }, [resetTimer]);
+function DayCounter({ index }: { index: number }) {
+  return (
+    <span className="grid" aria-hidden="true">
+      {SHOWCASE_VERSES.map((_, i) => (
+        <span
+          key={i}
+          className="col-start-1 row-start-1 text-brand transition-opacity duration-500"
+          style={{ opacity: i === index ? 1 : 0 }}
+        >
+          {`Day ${i + 1} · ${i === 0 ? 'your verse' : 'fresh verse'}`}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+function PhoneStage() {
+  const { index, setPaused } = useWidgetLoop();
+  const lockVerse = SHOWCASE_VERSES[0];
 
   return (
-    <section className="relative min-h-screen bg-surface overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Static ambient glow - no GPU-heavy animations */}
-        <div className="hidden md:block">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[100px] animate-[pulse_20s_ease-in-out_infinite]" />
-          <div className="absolute bottom-1/3 right-1/3 w-[500px] h-[500px] bg-brand/3 rounded-full blur-[100px] animate-[pulse_15s_ease-in-out_infinite_2s]" />
+    <div
+      role="img"
+      aria-label="FaithWall example: an iPhone Lock Screen with a chosen Bible verse, and a Home Screen widget that shows a fresh verse every day"
+      className="hero-stage animate-fade-in-slide"
+      onPointerEnter={(e) => e.pointerType === 'mouse' && setPaused(true)}
+      onPointerLeave={(e) => e.pointerType === 'mouse' && setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+    >
+      <div className="hero-comp">
+        {/* soft brand glow behind the phones */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[115%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{ background: 'radial-gradient(closest-side,rgba(217,123,59,0.22),rgba(217,123,59,0.07) 58%,transparent)' }}
+        />
+
+        {/* back phone: Home Screen with the medium widget (tablet width and up) */}
+        <div className="hero-back" data-hero-back>
+          <div className="hero-back-dim">
+            <HomeScreenPhone verse={SHOWCASE_VERSES[index]} wallpaper="dawn" />
+          </div>
         </div>
-        <div className="md:hidden absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-[400px] bg-brand/5 rounded-full blur-[80px]" />
+
+        {/* front phone: Lock Screen. The wallpaper is one verse the user picks, so it never changes here. */}
+        <div className="hero-front" data-hero-front>
+          <AppLockScreen verse={lockVerse} wallpaper="dawn" />
+        </div>
+
+        <div aria-hidden="true" className="hero-label hero-label-widget text-white/90">
+          <div>
+            <span className="font-semibold text-white">Widget</span>
+            <span className="text-white/40">{' · '}</span>
+            <span className="text-white/70">a fresh verse every day</span>
+          </div>
+          <DayCounter index={index} />
+        </div>
+        <div aria-hidden="true" className="hero-label hero-label-lock text-white/90">
+          <span className="font-semibold text-white">Lock Screen</span>
+          <span className="text-white/40">{' · '}</span>
+          <span className="text-white/70">the verse you pick</span>
+        </div>
       </div>
 
-      <div className="container-main relative pt-32 md:pt-40 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          <div className="text-center lg:text-left lg:-translate-y-32">
-            <div className="inline-flex items-center px-5 py-3 rounded-full bg-surface-card border-2 border-brand/30 mb-8 animate-fade-up-d1">
-              <span className="text-base text-white/70 font-medium">Used by 1,000+ people</span>
+      {/* stacked layouts: the phone melts into the page where the first screen ends */}
+      <div aria-hidden="true" className="hero-fade bg-gradient-to-t from-surface to-transparent" />
+    </div>
+  );
+}
+
+export default function Hero() {
+  return (
+    <section data-hero className="hero relative overflow-hidden bg-surface">
+      <style dangerouslySetInnerHTML={{ __html: HERO_CSS }} />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        {/* Static ambient glow - no GPU-heavy animations */}
+        <div className="hidden md:block">
+          <div className="absolute left-1/4 top-1/4 h-[600px] w-[600px] rounded-full bg-brand/5 blur-[100px] animate-[pulse_20s_ease-in-out_infinite]" />
+          <div className="absolute bottom-1/3 right-1/3 h-[500px] w-[500px] rounded-full bg-brand/[0.03] blur-[100px] animate-[pulse_15s_ease-in-out_infinite_2s]" />
+        </div>
+        <div className="absolute left-1/2 top-1/4 h-[400px] w-full -translate-x-1/2 rounded-full bg-brand/5 blur-[80px] md:hidden" />
+        <CrossPattern focus="75% 45%" />
+      </div>
+
+      <div className="container-main relative">
+        <div className="hero-fold">
+          <div className="hero-text">
+            <div className="inline-flex items-center rounded-full border-2 border-brand/30 bg-surface-card px-4 py-2 animate-fade-up-d1 sm:px-5 sm:py-3">
+              <span className="text-base font-medium text-white/70">Used by 1,000+ people</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6 animate-fade-up-d2">
+            <h1 className="hero-h1 font-bold tracking-tight text-white animate-fade-up-d2">
               Daily Scripture
               <br />
               <span className="text-white/40">On Your Lock Screen</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-white/60 leading-relaxed mb-6 lg:mb-10 max-w-lg mx-auto lg:mx-0 animate-fade-up-d3">
+            <p className="hero-sub max-w-lg text-white/60 animate-fade-up-d3">
               Meet FaithWall, the app that transforms your iPhone lock screen into a daily moment with God.
             </p>
 
-            {/* Phones: install row above the slideshow so it sits in the first screen. */}
-            <div className="lg:hidden animate-fade-up-d4">
-              <div className="flex items-center justify-center gap-3">
-                <img
-                  src="/icon-app-180.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 shrink-0 rounded-[10px]"
-                  decoding="async"
-                />
+            <div className="animate-fade-up-d4">
+              <div data-hero-cta className="hero-ctas flex flex-row flex-wrap items-center gap-3">
                 <AppStoreButton href={appStoreUrl('web-home-hero')} />
+                <a
+                  href={appStoreUrl('web-home-hero')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap rounded-xl bg-brand px-6 text-base font-bold text-surface shadow-[0_10px_30px_-6px_rgba(217,123,59,0.5)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-light hover:shadow-[0_14px_36px_-6px_rgba(217,123,59,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface sm:px-7"
+                >
+                  Get FaithWall
+                </a>
               </div>
-              <RatingLine className="mt-3 justify-center text-sm text-white/60" />
-              <p className="mt-1.5 text-sm text-white/50">
-                Listed on the App Store as {facts.storeName}
-              </p>
-            </div>
-
-            {/* Desktop: badge with the rating under it. No QR handoff here: it made the column taller and pushed the pill under the nav at 1440x900. */}
-            <div className="hidden lg:block animate-fade-up-d4">
-              <AppStoreButton href={appStoreUrl('web-home-hero')} />
-              <RatingLine className="mt-3 text-sm text-white/60" />
-              <p className="mt-1.5 text-sm text-white/50">
-                Listed on the App Store as {facts.storeName}
-              </p>
+              <RatingLine className="hero-rating mt-3 text-sm text-white/60" />
+              <p className="mt-1.5 text-sm text-white/50">Listed on the App Store as {facts.storeName}</p>
             </div>
           </div>
 
-          <div className="relative flex flex-col items-center justify-center lg:items-end animate-fade-in-slide">
-            <div className="w-full max-w-[500px] flex flex-col items-center gap-8">
-              <div className="relative w-full flex items-center justify-center">
-
-                {/* Left Arrow */}
-                <button
-                  onClick={prevSlide}
-                  className="absolute left-0 z-30 p-2 rounded-full bg-surface-card/90 border border-white/10 hover:bg-surface-card transition-colors text-white/80 hover:text-white"
-                  aria-label="Previous slide"
-                >
-                  <ChevronLeft size={24} />
-                </button>
-
-                <div className="relative w-[280px] sm:w-[320px] aspect-[9/19] flex items-center justify-center pointer-events-none">
-                  <div className="absolute -inset-12 bg-gradient-to-br from-brand/8 via-brand/3 to-transparent rounded-full blur-[100px]" />
-
-                  {/* Slideshow */}
-                  {images.map((src, i) => {
-                    const diff = (i - index + images.length) % images.length;
-                    const altTexts = [
-                      'FaithWall lock screen showing Deuteronomy 31:6 scripture on iPhone',
-                      'FaithWall widget and wallpaper setup options on iPhone',
-                      'FaithWall user reviews and testimonials from believers',
-                      'FaithWall Bible verse explorer with Old and New Testament books',
-                      'FaithWall customization with fonts and color options',
-                    ];
-
-                    let style: any = {};
-                    if (diff === 0) {
-                      style = { scale: 1, rotate: 0, opacity: 1, x: 0, zIndex: 10 };
-                    } else if (diff === 1) {
-                      style = { scale: 0.93, rotate: 5, opacity: 0.7, x: 28, zIndex: 5 };
-                    } else if (diff === 2) {
-                      style = { scale: 0.86, rotate: -5, opacity: 0.4, x: -28, zIndex: 3 };
-                    } else {
-                      style = { scale: 0.8, rotate: 0, opacity: 0, x: 0, zIndex: 1 };
-                    }
-
-                    return (
-                      <motion.div
-                        key={i}
-                        className="absolute w-full h-full rounded-[2.5rem] border-4 border-surface-card shadow-2xl overflow-hidden"
-                        style={{ willChange: 'transform, opacity' }}
-                        initial={false}
-                        animate={style}
-                        transition={cardTransition}
-                      >
-                        <picture>
-                          <source
-                            type="image/avif"
-                            srcSet={`${mobileAvif[i]} 640w, ${avifImages[i]} 1284w`}
-                            sizes="(max-width: 768px) 320px, 500px"
-                          />
-                          <source
-                            type="image/webp"
-                            srcSet={`${mobileWebp[i]} 640w, ${src} 1284w`}
-                            sizes="(max-width: 768px) 320px, 500px"
-                          />
-                          <img
-                            src={mobileWebp[i]}
-                            srcSet={`${mobileWebp[i]} 640w, ${src} 1284w`}
-                            sizes="(max-width: 768px) 320px, 500px"
-                            alt={altTexts[i]}
-                            width={1284}
-                            height={2778}
-                            className="w-full h-full object-cover"
-                            loading={i === 0 ? "eager" : "lazy"}
-                            decoding="async"
-                            {...(i === 0 ? { fetchpriority: "high" as const } : {})}
-                          />
-                        </picture>
-                      </motion.div>
-                    );
-                  })}
-                </div>
-
-                {/* Right Arrow */}
-                <button
-                  onClick={nextSlide}
-                  className="absolute right-0 z-30 p-2 rounded-full bg-surface-card/90 border border-white/10 hover:bg-surface-card transition-colors text-white/80 hover:text-white"
-                  aria-label="Next slide"
-                >
-                  <ChevronRight size={24} />
-                </button>
-              </div>
-
-              {/* Dots */}
-              <div className="flex gap-2 z-30">
-                {images.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => goToSlide(i)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === index
-                      ? 'bg-brand w-8'
-                      : 'bg-white/20 hover:bg-white/40'
-                      }`}
-                    aria-label={`Go to slide ${i + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
+          <PhoneStage />
         </div>
       </div>
+
+      {/* soft seam into the next section */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand/25 to-transparent" />
     </section>
   );
 }

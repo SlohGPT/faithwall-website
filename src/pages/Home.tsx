@@ -57,6 +57,11 @@ const faqSchema = {
   })),
 };
 
+// A hairline that fades out at both ends, so neighbouring sections meet softly instead of at a hard edge.
+function Seam() {
+    return <div aria-hidden="true" className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />;
+}
+
 export default function Home() {
     return (
         <div className="min-h-screen">
@@ -64,6 +69,7 @@ export default function Home() {
                 <title>{HOME_TITLE}</title>
                 <meta name="description" content={HOME_DESC} />
                 <link rel="canonical" href="https://faithwall.app/" />
+                <link rel="preload" as="font" type="font/woff2" href="/fonts/lora-semibold-latin.woff2" crossOrigin="anonymous" />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://faithwall.app/" />
                 <meta property="og:title" content={HOME_TITLE} />
@@ -82,9 +88,13 @@ export default function Home() {
             <Navigation />
             <Hero />
             <SocialProof />
+            <Seam />
             <Features />
+            <Seam />
             <HowItWorksAndPreview />
+            <Seam />
             <TestimonialsAndFAQ />
+            <Seam />
             <FinalCTA />
             <Footer />
         </div>
