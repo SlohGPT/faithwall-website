@@ -109,3 +109,31 @@ Listing claims the page leaves out because the site can't back them yet: "set in
 4. **No testimonials.** The homepage has none; the component's name is older than its content. Adding any needs real ones.
 5. **A layout option.** In the final CTA the desktop QR handoff sits in the button row; it could move under it.
 6. **Numbering.** If main gets its own entry 40 before this merges, this entry takes the next free number at merge, and the hub's status bullet may need a hand merge.
+
+## Later the same day: the phones now look like iPhones
+
+**Asked.** Karol looked at the branch in his Chrome and rejected the phone mockups: they "must actually look like an iPhone, nicely and smoothly", not like an Android.
+
+**Found.** The device frame used CSS `corner-shape: squircle`. Chrome (since 139) draws it as a near-square superellipse, so the large corner radius looked like a Samsung. Safari ignores the property, which is why it never showed on an iPhone. The frames also missed the details that say "iPhone" at a glance: no status bar icons, a short date ("Mon Nov 16"), flat app icons with a labelled dock, and phone-shaped cards instead of phones in some tiles.
+
+**Built** (homepage only, the `showcase` variant of `DeviceMockup`):
+- Plain round corners, a polished metal edge and shadow, the Dynamic Island, the iOS status bar (signal, Wi-Fi and battery beside the island; 9:41 on the Home Screen), the side buttons and the Camera Control.
+- The Lock Screen date in iOS form, "Monday, November 16". It is still the visitor's own date, filled in after load.
+- Home Screen: iOS-coloured icons with iOS corner rounding, the Search pill instead of page dots, a frosted dock without labels. The FaithWall icon and widget are unchanged.
+- Features: the wallpapers tile fans out three real Lock Screen phones, the reminder tile is a framed phone with the notification, and the widget tile shows a Home Screen phone and a Lock Screen phone with their captions above. How it works step 03's live preview is a real Lock Screen phone.
+- The default `maker` variant is untouched: the wallpaper maker and the blog's Lock Screen figures render as on main.
+
+No new claims: the text on the phones is the same verses, labels and notification copy as before.
+
+Commit: 34a6acd (site). Not pushed.
+
+**Verified** on a fresh production build:
+- Typecheck: the same 6 pre-existing errors (`Navigation.tsx` 1, `entry-server.tsx` 5).
+- Build: 57 of 57 routes. The sitemap is untouched.
+- `lint-facts --all`, `--dist` and `--diff main --worktree`: 0 FAIL, 0 WARN. One app node, on `/` only.
+- 0 NUL bytes. All 57 other pages are identical to the main baseline.
+- Hero check at 12 sizes, with and without motion: all pass. The features section at 11 sizes: no sideways scroll, console clean.
+- Checked by eye in Karol's Chrome at desktop size: hero, all five tiles, How it works and the final CTA. Phone size checked on headless captures.
+
+**Still open, added:**
+7. **The live squircle frames.** The wallpaper maker page and the blog's Lock Screen figures (`LockScreenVerse` through `BlogRenderer`) still use the squircle frame, so they look boxy in Chrome on the live site. The fix is the same corner change for the `maker` variant, but it changes live pages: do it after the 12-02 read-out, or with an `annotations.csv` row.
