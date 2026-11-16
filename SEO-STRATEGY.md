@@ -1,10 +1,12 @@
-# FaithWall SEO Strategy — v2 (2026-08-22), v3 re-aim 2026-11-16 (data notes through 2026-11-16; §10 install-first plan added 2026-10-02)
+# FaithWall SEO Strategy — v2 (2026-08-22), v3 re-aim 2026-11-16, v3.1 conversion layer 2026-11-16 (data notes through 2026-11-16; §10 install-first plan added 2026-10-02; §11 added 2026-11-16)
 
 **Who reads this:** the autonomous daily content agent and Karol. This file sets direction; `src/data/seo-priorities.json` sets the day-to-day work order. This repo is public — describe search performance qualitatively and never paste raw Search Console clicks, impressions, or CTR numbers into this file, commit messages, or post content.
 
 **What changed in v2 (2026-08-22):** the on-page/AEO program from v1 executed well and is near its ceiling — the money pages hold upper page 1 and further on-page work there has visibly diminishing returns. The binding constraint is now **site-level authority and brand recognition**, which v1 had no lever for. v2 adds an off-site/brand layer the agent can execute (research, drafting, monitoring — never sending), shifts content work from proliferation to depth and consolidation, and adds an explicit scaled-content risk posture. Grounded in an August 2026 sweep of practitioner positions (Ray, Solis, Shepard, Gübür, King, Indig, Fishkin, Hudgens, Allsopp, Diggity) and primary-source landscape research; the load-bearing findings are cited inline where they change a rule.
 
 **What changed in v3 (2026-11-16):** Karol ruled out backlinks and outreach entirely: no pitches, no directory submissions, no link building. In the three months since v2 added the off-site layer, no pitch was ever sent, so it produced no placements. Authority can't be bought or earned through outreach, so it is accepted as fixed, not treated as a lever. Play 4 and §8 are RETIRED, together with the `outreach-prep` and `citation-audit` item types and the daily "§8 monitoring pass" fallback. The brand KPI (the one-word "faithwall" query trend) stays as measurement only, in the weekly refresh. The remaining levers are all on-site: new posts on demand no page of ours holds, depth on underperforming pages, CTR on the generator, and internal links. The new-URL hold is lifted (§6 rule 1, §9 rule 6) and replaced by a demand test for new posts (§5), day-one in-body links (§4 rule 8) and an indexing brake (§6 rule 1). The classic fallback post is retired as well: when no queue item is eligible, the daily run does nothing. Where an older section or a dated update below says otherwise, v3 wins.
+
+**What changed in v3.1 (2026-11-16, evening):** v3 settled where traffic comes from. v3.1 is about what the site does with it, because without backlinks the visits we already earn are the main lever left. Built in b73c084 and live the same evening: one facts file with lint gates, Apple's official badge, a fixed list of 12 campaign tokens, install cards with a desktop QR handoff, a phone install bar and real 404s, plus a control group held back until p72 (not before 12-02). §11 has the rules. QuranWall and NoteWall received the same layer as build briefs.
 
 ---
 
@@ -171,7 +173,7 @@ We run an autonomous daily agent in the exact period Google is enforcing against
 - On the App Store side, App Store search/browse delivers most downloads. **ChatGPT referrals are the clear second source**, larger than all web referrals. AI answers are an install channel, not a vanity metric.
 
 **Measurement (live since 2026-10-02).**
-- Every App Store link carries an Apple campaign: `ct` = `web-*`, `blog-<slug>` or `pillar-<slug>` (see `src/lib/appStore.ts`). Downloads per campaign appear in App Store Connect under Sources → Campaigns.
+- Every App Store link carries an Apple campaign from a fixed list of 12 `web-*` tokens (v3.1, 2026-11-16; the list and its rules are in §11, the code in `src/lib/appStore.ts`). The per-page `blog-<slug>` and `pillar-<slug>` tokens are retired, and their history stays in App Store Connect. Downloads per campaign appear under Acquisition → Campaigns, and only once a campaign has 5 or more first-time downloads in the date range.
 - The weekly refresh cannot read App Store Connect. Karol, or a manual session with the App Store Connect connector, reviews campaigns monthly, starting mid-October, and re-ranks the queue from them:
   - pages that produce installs get refresh and authority effort;
   - pages that produce clicks but no installs get conversion work, or nothing.
@@ -199,3 +201,44 @@ We run an autonomous daily agent in the exact period Google is enforcing against
 - Never reintroduce "free app"/free-tier claims, prices, verse packs or Focus-mode integration. The app has none of these (verified in code 2026-10-02); see the Product facts rule in `.claude/skills/faithwall-blog/SKILL.md`.
 - When a competitor's brand query shows up, handle it inside the existing roundup (p49), not with a per-competitor page (§9).
 
+## 11. Conversion and measurement layer (v3.1, 2026-11-16)
+
+Built in b73c084 (journal 39, evening update). Without backlinks, Search sends what it sends. This layer makes those visits count and makes the result measurable. Code enforces each rule where it can.
+
+**One facts file.** `src/data/facts.json` holds the product facts: store name, app id, provider token, minimum iOS (15.0; the widget needs iOS 16), the install and subscription lines, and the rating. Components, the home schema and the lint read it, and no product fact is typed into a component. `scripts/check-facts.mjs` runs weekly in the refresh. It compares the file with Apple's lookup and may rewrite `rating.*` only. The site shows a rating only when Apple's live value is at least 4.5 with at least 20 ratings. The script exits 2 when the store title or the minimum iOS changes, because copy depends on them, and exits 1 when the lookup has no rating.
+
+**Gates.** `npm run lint:facts` (`scripts/lint-facts.mjs`) runs on the diff while writing and on `dist/` after a build. It fails on:
+- banned claims: a free app, prices or trials, iOS 16 as the minimum, the app picking verses for you, a rotating wallpaper, a widget that rotates your own set, unverified features (packs, offline, ad-free and the like), and "no account";
+- an App Store link without `pt` and a listed `ct`;
+- more than one MobileApplication node, a node outside `/`, or any aggregateRating;
+- NUL bytes, a 404 page without noindex, a sitemap URL without a built file, and a mid card on a held page.
+
+FAIL blocks a merge. A list item that starts with another app's bold name and never names FaithWall is exempt from the bare-phrase rules.
+
+**Campaign tokens.** A fixed list of 12, never per page: `web-home-hero`, `web-site`, `web-blog-body`, `web-blog-mid`, `web-blog-end`, `web-blog-sticky`, `web-pillar`, `web-cmp`, `web-maker`, `web-random`, `web-smart-banner`, `web-handoff`. `ct` is at most 30 characters, Apple's limit, and `appStoreUrl()` throws on a longer token at build time. Adding a token is a strategy change: add it here and in `src/lib/appStore.ts` together.
+
+**Placement.**
+- Mid card: at most one per treated post. It goes before the first H2, from the third one on, that is at least 3 sections after an illustration, not right after an image, more than 3 sections from any CTA block, and below at least 30% of the article's text. If no H2 qualifies, there is no mid card.
+- End card: every treated post, built from the post's own CTA copy plus the facts lines.
+- The random-verse tool shows a card after the first draw.
+- Cards carry `data-nosnippet` (never article text) and contain no headings. On Android they show the badge plus "FaithWall is made for iPhone." On desktop they add a QR code and Copy link (`web-handoff`).
+- Phones get a sticky "Get the app" bar after one screen of scrolling. It hides over cards, held CTAs and the footer, and never shows on Android.
+
+**Control group (the hold).** `src/data/conversionHold.ts` lists the hub, six control posts, the five pillars and the three compare pages. Until p72 runs (not before 2026-12-02, and only after the private read-out exists) they get fact corrections, badge artwork, tokens and chrome, but no new in-content card and no restyle. Membership never changes before p72. Until then, every other change to a treated or held page gets a row in the private `annotations.csv`, so the read-out can drop that page. The read-out compares treated and held pages in Search Console before and after 11-16, privately. The conversion read is Karol's monthly App Store Connect campaigns read.
+
+**After every deploy that changes pages (the pinging checklist).**
+1. Wait until the new build is live. Check that the changed URLs answer 200 and an unknown URL answers 404 with noindex.
+2. Run `node scripts/submit-indexnow.mjs --changed <base>`; a site-wide file prints "run --all". IndexNow reaches Bing (which feeds ChatGPT search and Copilot), Yandex, Seznam, Naver and Yep.
+3. Google: nothing automatic. The sitemap ping is retired, and the Indexing API is only for job postings and livestreams. Google reads the sitemap's `lastmod`, so it must stay truthful. For a new URL, Karol clicks Request indexing in Search Console once.
+4. Mondays: `node scripts/inspect-urls.mjs` (URL Inspection API). Its output stays in the private folder, never in the repo.
+
+**GEO (AI answers).** ChatGPT search leans on Bing's index, so IndexNow plus a truthful sitemap is the main lever. Also:
+- keep self-contained, quotable facts near the top of the money pages;
+- keep one app node, with no copied rating;
+- keep `data-nosnippet` on cards only, so answers quote the article and never a CTA.
+
+OAI-SearchBot and PerplexityBot are allowed. Cloudflare's managed block stops GPTBot and ClaudeBot (training crawlers), and that is Karol's call (TODO-KAROL). No llms.txt investment beyond keeping its facts true (§7).
+
+**Languages.** English only for now. The large majority of clicks come from English-speaking countries, the listing is English, and a translated page that lands on an English listing converts poorly. Portuguese (Brazil) is the first candidate and Spanish the second. p77 reads the data from 12-07 and makes the go/no-go call. Any go starts with Karol localizing the listing, before any page. QuranWall's Turkish and NoteWall's listing-only localization are decided in their own repos.
+
+**Sister sites.** QuranWall and NoteWall run the same layer with their own facts files, `qw-web-*` and `nw-web-*` tokens and lint lists (briefs sent 11-16). Each site links only to its own app. Three sites with one owner cross-linking their apps would read as a link network, blur each site's topic, and muddy attribution, since the three apps share one provider token.
