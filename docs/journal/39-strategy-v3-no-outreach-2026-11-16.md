@@ -462,3 +462,19 @@ Karol's late-night request still stands: one keyword system on all three sites, 
 - **QuranWall:** its session is closed. Its findings and the 1.1.0 port wait for a new QuranWall session.
 - **Engine 1.2.0:** URL paths in the key-shaped-string rule.
 - Still unanswered from the late-night update: the cluster-map line for the cloud autopilot prompt.
+
+## Update, 2026-11-16, after the deploy: the parked homepage branch
+
+### What was checked
+
+The homepage redesign waits on the local branch `claude/laughing-lamport-805274` (head a9af949, with its own entry 40 on that branch). Karol approved its iPhone frames. After the deploy, the branch was test-merged onto afcc138 in a scratch clone, and `lint:facts` ran on the lines it adds. Nothing on the branch was changed: it belongs to the redesign session.
+
+### Found
+
+- **One merge conflict:** `docs/README.md`. Both sides changed the hub status, so it needs a hand merge. `homeFaq.ts`, changed on main in 8e53929, merges cleanly.
+- **One fact failure:** the hero image's `aria-label` in `src/components/Hero.tsx` says the Home Screen widget "shows a fresh verse every day". In the app the widget shows the verse you picked; random verses come only with the optional "Auto-rotate verses" setting, which is off by default. The merge gate fails that line, so the branch can't merge until the label changes, for example to "a Home Screen widget that shows your verse (it can rotate fresh verses if you turn that on)".
+- **"Home Screen" is right.** The app's verse widget comes in small and medium Home Screen sizes, and on iOS 16 and later also in two Lock Screen sizes (`FaithWallWidget.swift` in the app).
+
+### Still open
+
+- Before the branch merges: rebase onto main, fix that label, and re-run every gate (only the fact lint ran here). Karol still decides the pricing lines and the timing (after 12-02).
