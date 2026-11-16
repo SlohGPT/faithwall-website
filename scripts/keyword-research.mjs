@@ -922,20 +922,38 @@ const B6_PREFIX = [
 const B6_RUN_STOP = /[\s"'`<>()\[\]{}]/;
 const B6_RUN_MAX = 2048; // longer than any URL we meet; a longer run loses its scheme, so it is not skipped (fails safe)
 const B6_URL = /^[a-z][a-z0-9+.-]*:\/\//i;
-const B6_CRED_PARAM = /[?&;][a-z0-9_.\-]*(?:key|token|secret|sig|password|passwd|pwd|pass|auth|cred|bearer|jwt|session|sid|code|nonce|ticket|otp|private|licen[sc]e|hash|digest)[a-z0-9_.\-]*=$/i;
-const B6_PARAM_NAME = /^[A-Za-z][A-Za-z0-9_.\-]{0,31}=/;
+const B6_CRED_PARAM = /[?&;][a-z0-9_.\-]*(?:key|token|tok|secret|sig|password|passwd|pwd|pw|pass|pat|auth|cred|bearer|jwt|session|sess|sid|code|nonce|ticket|otp|private|licen[sc]e|hash|hmac|mac|digest|sas|secure|cookie|pk|psk|kid|salt)[a-z0-9_.\-]*=$/i;
+// 1.2.0: a parameter value is skipped only when its name is on this short allow-list of display params. The deny-list above stays as a second
+// guard, but it cannot be complete (t, k, s, p, u, data, state, id ... are all credential-like in someone's API), so unknown names are checked.
+// s= stays out: imgix and Cloudinary use it as a signature.
+const B6_BENIGN_PARAM = /^(?:utm_[a-z]+|ixid|ixlib|w|h|q|fit|crop|auto|fm|dpr|cs|v|family|display)$/i;
+// 1.2.0: "password: <value>", "secret=<value>" ... right before the token: never a URL part, whatever the value looks like.
+const B6_CRED_CONTEXT = /(?:pass(?:word|phrase)?|pwd|secret|token|key|auth|cred)["']?\s*[:=]\s*["']?$/i;
 const B6_SEG = /^(?:[A-Za-z]{1,20}\d{0,4}|\d{1,4})$/;
 function b6IsUrlPart(text, index, tok) {
   let start = index;
   while (start > 0 && index - start < B6_RUN_MAX && !B6_RUN_STOP.test(text[start - 1])) start--;
   const run = text.slice(start, index);
   const isUrl = B6_URL.test(run);
+  if (B6_CRED_CONTEXT.test(text.slice(Math.max(0, index - 60), index))) return false;
+  if (isUrl && /\/\/[^/?#@]*:$/.test(run)) return false; // userinfo: scheme://user:SECRET@host
   const eq = tok.indexOf('=');
-  // "ixid=..." : the token swallowed the parameter name and the "=". The name must be short and plain, so "?<random>==" is not a parameter.
-  if (eq > 0 && /[?&;]/.test(text[index - 1] ?? '') && isUrl) return B6_PARAM_NAME.test(tok) && !B6_CRED_PARAM.test(run + tok.slice(0, eq + 1));
-  if (isUrl && /[?&][^=?&#]*=$/.test(run)) return !B6_CRED_PARAM.test(run); // a value that starts after the "="
+  // "ixid=..." : the token swallowed the parameter name and the "=". The name must be on the allow-list, and the value must not hold a second
+  // "=" (a nested "x-token=VALUE" is a credential parameter inside a plain one); padding "=" at the very end is fine.
+  if (eq > 0 && /[?&;]/.test(text[index - 1] ?? '') && isUrl) {
+    const rest = tok.slice(eq + 1);
+    if (/=[^=]/.test(rest) || /==.*=/.test(rest)) return false;
+    return B6_BENIGN_PARAM.test(tok.slice(0, eq)) && !B6_CRED_PARAM.test(run + tok.slice(0, eq + 1));
+  }
+  if (isUrl) {
+    const m = /[?&;]([^=?&#;]*)=$/.exec(run); // a value that starts after the "="
+    if (m) return B6_BENIGN_PARAM.test(m[1]) && !B6_CRED_PARAM.test(run);
+  }
+  // Word-like slug or file path. Only when path-shaped (a URL, a "/" or a file extension), so a dashed passphrase outside a path is still seen.
+  const pathShaped = isUrl || tok.includes('/') || run.includes('/') || /^\.[A-Za-z0-9]{1,5}(?![A-Za-z0-9])/.test(text.slice(index + tok.length));
+  if (!pathShaped) return false;
   const parts = tok.split(/[\/_\-]/).filter(Boolean);
-  if (parts.length >= 3 && parts.slice(0, -1).every((x) => B6_SEG.test(x)) && (B6_SEG.test(parts.at(-1)) || /^[A-Za-z0-9]{6,12}$/.test(parts.at(-1)))) return !/\/\/[^/?#@]*:$/.test(run);
+  if (parts.length >= 3 && parts.slice(0, -1).every((x) => B6_SEG.test(x)) && (B6_SEG.test(parts.at(-1)) || /^[A-Za-z0-9]{6,12}$/.test(parts.at(-1)))) return true;
   return false;
 }
 const B7_CELL = /^\s*[~≈]?\d[\d,.]*\s*[k%]?\s*$/;
@@ -2767,6 +2785,17 @@ export async function runSelfTest(log = (s) => console.log(s)) {
       'oauth fragment token': 'https://example.com/cb#access.token=' + gen(48),
       '32 hex chars': 'sha ' + gen(32, '0123456789abcdef'),
     };
+    // 1.2.0 review fixes: unknown parameter names, passphrases outside a path, a credential parameter nested in a plain one.
+    for (const name of ['t', 'k', 's', 'pw', 'pat', 'hmac', 'mac', 'tok', 'sas', 'secure', 'cookie', 'pk', 'psk', 'kid', 'salt', 'p', 'u', 'sess', 'x', 'd', 'data', 'state', 'id', 'ref', 'link', 'sv', 'seed', 'apiid']) must['param ' + name + '='] = 'https://api.example.com/v1/data?' + name + '=' + gen(43, URLSAFE, 8);
+    must['json string, unknown param'] = '{"url":"https://api.example.com/v1/data?t=' + gen(43, URLSAFE, 9) + '"}';
+    const words = ['Correct', 'Horse', 'Battery', 'Staple', 'Tiger', 'Blue', 'Apple7'];
+    must['passphrase after password:'] = 'password: ' + words.join('-');
+    must['passphrase after secret=, underscores'] = 'secret=' + words.join('_');
+    must['dashed passphrase, no path, no context'] = 'note ' + words.join('-');
+    must['six-letter groups'] = ['aaaaaa', 'bbbbbb', 'cccccc', 'dddddd', 'eeeeee', 'Ffffff9'].join('_');
+    must['nested token= in a plain param'] = 'https://e.com/?a=b-token=' + gen(43, URLSAFE, 10);
+    must['nested sig= in a plain param'] = 'https://e.com/?a=x_sig=' + gen(43, URLSAFE, 11);
+    must['nested token= in a benign param'] = 'https://e.com/?utm_source=x-token=' + gen(43, URLSAFE, 12);
     const missed = Object.entries(must).filter(([, v]) => b6(v) < 1).map(([k]) => k);
     ok(!missed.length, `B6 missed: ${missed.join('; ')}`);
     for (const n of [35, 45, 50, 64, 72]) ok(mixed(gen(n)), `generator output ${n} is not mixed`);
