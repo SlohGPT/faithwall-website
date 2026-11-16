@@ -54,13 +54,15 @@ const rules = [
   ['bible-reader-denial', /\b(?:Faith ?Wall|it|this app|the app)\s+(?:is(?:n'?t|\s+not|\s+no)|was(?:n'?t|\s+not)|(?:is\s+)?not|can'?t\s+be\s+used\s+as)\s+(?:really\s+|actually\s+)?(?:a|an)?\s*(?:full\s+|real\s+|proper\s+)?Bible(?:[- ]read(?:er|ing(?:\s+app)?)|\s+app)\b|(?:^|[-*(:;.—–]\s*|\bNo \()\s*not a (?:full\s+)?Bible(?:[- ]read(?:er|ing app)|\s+app)\b/i, null],
   // wrong, brandless (CTA titles, headings): a lock screen or wallpaper that refreshes/changes itself, or on a timer
   ['wallpaper-automatic', /\b(?:lock[- ]?screen|wallpaper)s?\b[^.;]{0,30}\b(?:refresh|update|change|renew|rotate)(?:s|es|d)?\s+(?:itself|by itself|on its own)\b|\b(?:lock[- ]?screen|wallpaper)s?\s+(?:that|which)\s+(?:refreshes|updates|changes|renews|rotates)\s+(?:automatically|daily|every\s+(?:day|morning|night|hour)|each\s+(?:day|morning|night)|overnight)\b|\bself-(?:updating|refreshing|changing)\s+(?:lock[- ]?screen|wallpaper)\b/i, null, OTHER_APPS_RE],
+  // wrong: the app has no 'Set Lock Screen' button in normal use (it runs the Shortcut itself after a pick or edit)
+  ['no-set-lockscreen-button', /\b(?:tap|press|hit|click|choose|select)\s+(?:the\s+)?["“'*]*Set Lock Screen\b/i, null],
   ['no-account-bare', /\bno (?:user )?accounts?\b[^.]{0,30}\b(?:required|needed|necessary)\b|\bwithout (?:creating |signing up for |making )?an account\b/i, null],
 ];
 
 // A sentence that states the ban itself ("never write ...") is not a violation.
 // "cannot/can't/won't + a change verb" states a limit ("cannot change your wallpaper while the app is closed"); a bare
 // "won't need to open the app" is not a negation of the claim, so the modal must be followed by a change verb.
-const NEG = /\b(?:never|don'?t|do not|doesn'?t|does not|banned|avoid|no claim)\b|\bnothing\s+runs\b|\b(?:cannot|can['’]?t|can not|won['’]?t|will not)\s+(?:(?:\w+\s+){0,2}?)(?:change|update|refresh|swap|rotate|replace|apply|re-?apply|set|put|show|run|work)\b/i;
+const NEG = /\b(?:never(?!\s+(?:gets?|goes|grows?|becomes?)\s+(?:stale|old|boring))|don'?t|do not|doesn'?t|does not|banned|avoid|no claim)\b|\bnothing\s+runs\b|\b(?:cannot|can['’]?t|can not|won['’]?t|will not)\s+(?:(?:\w+\s+){0,2}?)(?:change|update|refresh|swap|rotate|replace|apply|re-?apply|set|put|show|run|work)\b/i;
 
 // JSON keys that hold identifiers, not prose.
 const SKIPKEYS = new Set(['keywords', 'slug', 'image', 'url', 'href', 'id', 'imageAlt', 'alternateName', 'related', 'featured', 'members']);
@@ -90,14 +92,30 @@ const AUTO_STRONG = /\btoday['’]s verse\b|\bnothing to (?:tap|open)\b|\bno ope
 // Time phrases that make an update claim ("every morning", "once a day", "at night", "every 30 minutes", "while you sleep").
 const TIME_S = String.raw`(?:every|each)\s+(?:day|morning|night|evening|hour|few\s+(?:hours|minutes)|\d+\s*(?:minutes?|mins?|hours?|hrs?))\b|\bdaily\b|\bonce\s+(?:a|per)\s+day\b|\bat\s+night\b|\bovernight\b|\bnightly\b|\bhourly\b|\bwhile\s+you(?:['’]re|\s+are)?\s+(?:sleep\w*|asleep)\b|\bwhile\s+(?:your|the)\s+(?:phone|iPhone)\s+is\s+locked\b`;
 const TIME = new RegExp(String.raw`\b(?:${TIME_S})`, 'i');
-const AUTO_WEAK = new RegExp(String.raw`\bautomatic(?:ally)?\b|\bautomated\b|\bautopilot\b|\bauto-pilot\b|\bset[- ]and[- ]forget\b|\bset it and forget it\b|\bhands[- ](?:free|off)\b|\bby itself\b|\bon its own\b(?!\s+(?:lock|home)[- ]screen)|\bon a schedule\b|\b(?:wallpaper|lock[- ]screen|verse)\b[^.;]{0,50}\b(?:changes?|updates?|refreshes|swaps?|rotates?|renews?|replaces?)\b[^.;]{0,30}\b(?:${TIME_S})|\b(?:changes?|updates?|refreshes|swaps?|rotates?|renews?|replaces?)\b[^.;]{0,50}\b(?:wallpaper|lock[- ]screen|verse)s?\b[^.;]{0,40}\b(?:${TIME_S})|\b(?:${TIME_S})[^.;]{0,60}\b(?:changes?|updates?|refreshes|swaps?|rotates?|renews?|replaces?)\b[^.;]{0,40}\b(?:wallpaper|lock[- ]screen|verse)|\b(?:updates?|changes?|refreshes|swaps?|rotates?|renews?)\s+itself\b|\bkeeps?\b[^.;]{0,40}\b(?:wallpaper|lock[- ]screen|verse)s?\b[^.;]{0,30}\bfresh\b|\bwhile\s+(?:you(?:['’]re|\s+are)?\s+(?:sleep\w*|asleep)|(?:your|the)\s+(?:phone|iPhone)\s+is\s+locked)\b`, 'i');
+const AUTO_WEAK = new RegExp(String.raw`\bautomatic(?:ally)?\b|\bautomated\b|\bautopilot\b|\bauto-pilot\b|\bset[- ]and[- ]forget\b|\bset it and forget it\b|\bhands[- ](?:free|off)\b|\bby itself\b|\bon its own\b(?!\s+(?:lock|home)[- ]screen)|\bon a schedule\b|\b(?:wallpaper|lock[- ]screen|verse)\b[^.;]{0,50}\b(?:changes?|updates?|refreshes|swaps?|rotates?|renews?|replaces?|shuffles?|cycles?|switch(?:es)?)\b[^.;]{0,30}\b(?:${TIME_S})|\b(?:changes?|updates?|refreshes|swaps?|rotates?|renews?|replaces?|shuffles?|cycles?|switch(?:es)?)\b[^.;]{0,50}\b(?:wallpaper|lock[- ]screen|verse)s?\b[^.;]{0,40}\b(?:${TIME_S})|\b(?:${TIME_S})[^.;]{0,60}\b(?:changes?|updates?|refreshes|swaps?|rotates?|renews?|replaces?|shuffles?|cycles?|switch(?:es)?)\b[^.;]{0,40}\b(?:wallpaper|lock[- ]screen|verse)|\b(?:updates?|changes?|refreshes|swaps?|rotates?|renews?)\s+itself\b|\bkeeps?\b[^.;]{0,40}\b(?:wallpaper|lock[- ]screen|verse)s?\b[^.;]{0,30}\bfresh\b|\bwhile\s+(?:you(?:['’]re|\s+are)?\s+(?:sleep\w*|asleep)|(?:your|the)\s+(?:phone|iPhone)\s+is\s+locked)\b|\bwhenever\s+(?:your|the)\s+(?:phone|iPhone)\s+(?:is\s+)?(?:locked|unlocked)\b|\b(?:each|every)\s+unlock\b[^.;]{0,30}\b(?:new|different|fresh)\b|\bnever\s+(?:gets?|goes|grows?|becomes?)\s+(?:stale|old|boring)\b|\bstays\s+fresh\b|\bkeeps?\s+(?:rotating|changing|updating|refreshing|cycling|shuffling|swapping)\b|\b(?:cycles?|shuffles?)\s+through\b[^.;]{0,30}\b(?:verses|passages|scriptures)\b|\bkeeps?\b[^.;]{0,40}\b(?:wallpaper|lock[- ]screen|verse)s?\b[^.;]{0,30}\b(?:current|up[- ]to[- ]date)\b|\bwithout\s+(?:you\s+)?lifting a finger\b|\bno\s+(?:taps?|tapping|opening|clicks?)\s+(?:needed|required)\b|\bschedul(?:e|es|ed|ing)\b[^.;]{0,60}\b(?:switch|change|swap|rotat|updat|refresh)\w*|\bauto-?(?:activat|switch|updat|refresh)\w*|\b(?:delivers?|sends?|pushes|serves?|drops?|puts?|places?)\s+(?:you\s+)?(?:a|an|the|one)?\s*(?:\w+\s+){0,2}?(?:verses?|passages?|scriptures?)\s+(?:to|on|onto|in)\s+your\s+(?:lock[- ]?screen|wallpaper)\b[^.;]{0,15}\b(?:${TIME_S})`, 'i');
 // Delivery and passive phrasings that need a time phrase to be a claim ("Every morning FaithWall puts a new verse on your
 // lock screen", "a new verse appears on your lock screen every morning", "your wallpaper is refreshed each day").
-const NEW_V = String.raw`(?:new|fresh|different|next)\s+(?:Bible\s+)?(?:verse|scripture|wallpaper)`;
+const NEW_V = String.raw`(?:brand[- ]new|new|fresh|different|next)\s+(?:(?:lock[- ]?screen|wallpaper|Bible)\s+)*(?:verse|scripture|passage|wallpaper)`;
 const TIMED_CLAIM = new RegExp(String.raw`\b${NEW_V}s?\b|\b(?:puts?|shows?|brings?|delivers?|sends?|gives?|places?|serves?|drops?|sets?)\s+(?:you\s+)?(?:a\s+|an\s+|the\s+)?${NEW_V}|\b${NEW_V}s?\b[^.;]{0,40}\b(?:appears?|shows?\s+up|arrives?|lands?|replaces|is\s+\w+ed|gets\s+\w+)\b|\b(?:wallpaper|lock[- ]screen|verse)\b[^.;]{0,30}\b(?:is|are|was|gets?|got)\s+(?:automatically\s+)?(?:updated|refreshed|changed|swapped|replaced|renewed|rotated)\b`, 'i');
 // The user acts first ("when you pick", "you can change"): the time phrase is about the user, not the app.
-const USER_ACTS = /\b(?:when|after|once|whenever|until|if)\s+you\b|\byou\s+(?:can\s+|could\s+|may\s+)?(?:pick|choose|select|edit|tap|open|change|switch|update|set)\b/i;
+const USER_ACTS = /\b(?:when|after|once|whenever|until|if)\s+you\b|\byou\s+(?:(?:can|could|may|might|should|would|will|must|need\s+to|want\s+to)\s+|['’]ll\s+)?(?:pick|choose|select|edit|tap|open|change|switch|update|set)\b|\byou['’]ll\s+(?:pick|choose|select|edit|tap|open|change|switch|update|set)\b/i;
 const timedClaim = (c) => TIME.test(c) && TIMED_CLAIM.test(c) && !USER_ACTS.test(c);
+// "automatically" after a user action is true ("Edit the verse and FaithWall re-applies it automatically": the app runs the
+// Shortcut itself after a pick or edit). Negated "not hands-free" / "isn't automatic" states the limit. Neither is a claim.
+const USER_LEAD = /\b(?:after|when|once|whenever|if)\s+you\b|^\W*(?:pick|edit|choose|select|save|change|tap)\b|\b(?:pick|edit|choose|select|save)s?\s+(?:a|an|the|your|another|new|that|it)\b[^.;]{0,40}\b(?:and|then)\b|\byou\s+(?:might\s+|may\s+|can\s+)?(?:pick|edit|choose|select|save)\b/i;
+const NEGATED_AUTO = /\b(?:is\s+not|isn['’]t|not|never|far\s+from)\s+(?:fully\s+|completely\s+|totally\s+)?(?:hands[- ](?:free|off)|automatic(?:ally)?|automated|set[- ]and[- ]forget)\b/gi;
+const weakAuto = (c) => {
+  let t = c.replace(NEGATED_AUTO, ' ');
+  if (USER_LEAD.test(t)) t = t.replace(/\bautomatic(?:ally)?\b/gi, ' ');
+  return AUTO_WEAK.test(t);
+};
+// Brandless claims (CTA titles, "the app", "your lock screen"): the lock screen or wallpaper verse is the subject of a change
+// verb with a time phrase, or gets a new verse on a timer. Skipped when the user acts first, an opt-in is stated, or another app is named.
+const WP_SUBJ = String.raw`(?:lock[- ]?screen|wallpaper)(?:\s+verses?)?`;
+const CHG_V = String.raw`(?:changes?|updates?|shuffles?|cycles?|rotates?|refreshes|switches|swaps?|renews?|replaces?)`;
+const BARE_TIMED = new RegExp(String.raw`\b(?:the\s+)?verse\s+on\s+(?:your|the)\s+${WP_SUBJ}\s+(?:is|gets)\s+(?:automatically\s+)?(?:updated|refreshed|changed|swapped|replaced|renewed|rotated)\b[^.;]{0,30}\b(?:${TIME_S})|\b${WP_SUBJ}\s+(?:(?:is|gets?)\s+(?:automatically\s+)?)?(?:${CHG_V}|updated|refreshed|changed|swapped|replaced|renewed|rotated)\b[^.;]{0,40}\b(?:${TIME_S})|\b(?:${CHG_V})\s+(?:your|the)\s+${WP_SUBJ}\b[^.;]{0,40}\b(?:${TIME_S})|\b(?:${TIME_S})[^.;]{0,50}\b${WP_SUBJ}\s+(?:is|looks|feels)\s+(?:different|new|fresh)\b|\b${WP_SUBJ}\s+(?:gets?|receives?)\s+(?:a\s+|an\s+)?${NEW_V}s?\b[^.;]{0,30}\b(?:${TIME_S})`, 'i');
+const bareTimed = (s) => BARE_TIMED.test(s) && !USER_ACTS.test(s) && !USER_LEAD.test(s) && !/\b(?:lets?|allows?|helps?)\s+you\b/i.test(s) && !hasOptIn(s) && !OTHER_APPS_RE.test(s) && !/\bwidgets?\b/i.test(s);
+const NEG_ROT = /\b(?:cannot|can['’]?t|can not|won['’]?t|will not|doesn['’]?t|does not|never)\s+(?:\w+\s+){0,2}?(?:rotat\w*|cycle\w*|change|swap|bring|deliver|push)\b/i;
 const AUTO_SKIP = /\b(?:renew\w*\b(?!\s+(?:your|the|a)\s+(?:\w+\s+)?(?:wallpaper|lock|verse))|subscri\w+|billed|billing|cancel\w*|trial|sync\w*|iCloud|backup|terminat\w*|licen[sc]e\w*)\b/i;
 // wallpaper-widget-combo: a FaithWall sentence recommending a wallpaper plus a rotating or daily widget in one setup.
 // The setups are alternatives (Settings > Change Setup Mode switches between them).
@@ -123,6 +141,9 @@ function lintText(text, out) {
       if (NEG.test(s)) continue;
       out.push({ id, s: s.replace(/\s+/g, ' ').slice(0, 190) });
     }
+    if (!aboutOtherApp && !/\?\s*["']?\s*$/.test(s) && !NEG.test(s) && bareTimed(s) && !out.some((h) => h.id === 'wallpaper-automatic' && h.s === s.replace(/\s+/g, ' ').slice(0, 190))) {
+      out.push({ id: 'wallpaper-automatic', s: s.replace(/\s+/g, ' ').slice(0, 190) });
+    }
     // facts.json counts
     const aboutFw = /Faith ?Wall/i.test(s) || FW_DOC;
     if (aboutFw && !OTHER_APPS.test(s) && !NEG.test(s) && !/\bone of\s+\d/i.test(s)) {
@@ -141,7 +162,7 @@ function lintText(text, out) {
         // A widget clause is exempt from the weak phrases only when it is a genuine opt-in sentence or does not
         // talk about the wallpaper ("FaithWall updates your wallpaper every morning, and the widget is nice" is not exempt).
         const widgetClause = /\bwidgets?\b/i.test(c) && (hasOptIn(c) || !/\bwallpapers?\b/i.test(c));
-        if (AUTO_STRONG.test(c) || (!widgetClause && (AUTO_WEAK.test(c) || timedClaim(c)))) {
+        if (AUTO_STRONG.test(c) || (!widgetClause && (weakAuto(c) || timedClaim(c)))) {
           const hs = s.replace(/\s+/g, ' ').slice(0, 190);
           if (!out.some((h) => h.id === 'wallpaper-automatic' && h.s === hs)) out.push({ id: 'wallpaper-automatic', s: hs });
           break;
@@ -154,7 +175,7 @@ function lintText(text, out) {
       }
     }
     // widget rotation default
-    if (aboutFw && !(aboutOtherApp && !FW_DOC) && !OTHER_APPS.test(s) && !/\?\s*["']?\s*$/.test(s) && !/\b(?:another|other) apps?\b/i.test(s) && WIDGET_ROTATION.test(s) && !hasOptIn(s)) {
+    if (aboutFw && !(aboutOtherApp && !FW_DOC) && !OTHER_APPS.test(s) && !/\?\s*["']?\s*$/.test(s) && !/\b(?:another|other) apps?\b/i.test(s) && WIDGET_ROTATION.test(s) && !hasOptIn(s) && !NEG_ROT.test(s)) {
       out.push({ id: 'widget-rotation-default', soft: true, s: s.replace(/\s+/g, ' ').slice(0, 190) });
     }
   }
@@ -679,6 +700,34 @@ function selfTest() {
     ['FaithWall shows the verse you picked on a lock screen you check 186 times a day.', 'wallpaper-automatic', false],
     ['You can change your FaithWall verse whenever you like.', 'wallpaper-automatic', false],
     ['FaithWall\'s Update Wallpaper Now button applies your new colours.', 'wallpaper-automatic', false],
+    // round 8: subject-first change verbs, brandless, invented style, trailing hands-off
+    ['Your wallpaper verse changes every day.', 'wallpaper-automatic', true],
+    ['Your lock screen verse changes every day automatically.', 'wallpaper-automatic', true],
+    ['FaithWall shuffles your lock screen verse daily.', 'wallpaper-automatic', true],
+    ['The app updates your lock screen every 24 hours with a new passage.', 'wallpaper-automatic', true],
+    ['The verse on your wallpaper is updated daily by the app.', 'wallpaper-automatic', true],
+    ['FaithWall cycles through your verses so your wallpaper never gets stale.', 'wallpaper-automatic', true],
+    ['FaithWall refreshes the wallpaper verse whenever your phone is locked.', 'wallpaper-automatic', true],
+    ['You will get a new lock screen verse each day from FaithWall.', 'wallpaper-automatic', true],
+    ['FaithWall lets you schedule your wallpaper to switch verses overnight.', 'wallpaper-automatic', true],
+    ['FaithWall lock screen verse: new one every morning, no taps needed.', 'wallpaper-automatic', true],
+    ['An app that changes your lock screen verse every day automatically.', 'wallpaper-automatic', true],
+    ['Your lock screen gets a brand new Bible verse each day, hands-off.', 'wallpaper-automatic', true],
+    ['FaithWall keeps rotating the wallpaper so each unlock shows a new verse.', 'wallpaper-automatic', true],
+    ['Every morning your lock screen is different thanks to FaithWall.', 'wallpaper-automatic', true],
+    ['FaithWall keeps your lock screen verse current without you lifting a finger.', 'wallpaper-automatic', true],
+    ['FaithWall delivers a verse to your lock screen daily.', 'wallpaper-automatic', true],
+    ['Every morning FaithWall puts a new passage on your lock screen.', 'wallpaper-automatic', true],
+    ["Schedule it 6:30-7:00am, silence notifications, and let FaithWall's contemplative style auto-activate.", 'wallpaper-automatic', true],
+    ['Tap Set Lock Screen in FaithWall.', 'no-set-lockscreen-button', true],
+    ['Edit the verse and FaithWall re-applies the wallpaper automatically.', 'wallpaper-automatic', false],
+    ['Once a day you might pick a new verse, and FaithWall applies it right away.', 'wallpaper-automatic', false],
+    ['FaithWall is not hands-free: you pick the verse yourself.', 'wallpaper-automatic', false],
+    ["FaithWall can't rotate the lock screen verse automatically, but you can swap it any time.", 'widget-rotation-default', false],
+    ['Your wallpaper verse changes when you pick another one.', 'wallpaper-automatic', false],
+    ['The verse stays until you change it.', 'wallpaper-automatic', false],
+    ['Hallow lets you schedule a lock screen that changes every day.', 'wallpaper-automatic', false],
+    ['Give that Focus its own lock screen in iOS, and your lock screen switches when the Focus starts.', 'wallpaper-automatic', false],
   ];
   let bad = 0;
   for (const [text, id, want, doc] of cases) {
