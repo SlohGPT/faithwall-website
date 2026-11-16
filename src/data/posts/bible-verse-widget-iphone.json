@@ -163,7 +163,7 @@
     },
     {
       "type": "paragraph",
-      "text": "A wallpaper is the full background image, set once until you change it. A widget is a small live tile layered on top that can update on its own — most setups support both, and most people run a wallpaper for one anchor verse plus a widget for daily rotation."
+      "text": "A wallpaper is the full background image, set once until you change it. A widget is a small live tile layered on top that can update on its own — FaithWall offers them as two separate setups: a wallpaper for one anchor verse, or a widget for a verse in a small tile (the optional Auto-rotate verses setting adds rotation)."
     },
     {
       "type": "cta",

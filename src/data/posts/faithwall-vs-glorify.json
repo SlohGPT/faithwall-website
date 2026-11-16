@@ -88,7 +88,7 @@
     {
       "type": "steps",
       "items": [
-        "Install **FaithWall** first — pick a verse and tap Set Lock Screen.",
+        "Install **FaithWall** first and pick a verse; it applies it through an Apple Shortcut.",
         "Let the widget rotate a fresh verse onto your lock screen automatically; that's your all-day baseline.",
         "Add Glorify if you want a guided morning devotional and worship for sit-down time.",
         "Pair both with a **Quiet Time** Focus mode (iOS 16+) so the devotional block stays interruption-free."

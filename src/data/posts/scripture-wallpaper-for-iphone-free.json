@@ -22,7 +22,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "The fastest **scripture wallpaper for iPhone free** is FaithWall: install it (free to download; a subscription unlocks it), pick a verse, and tap **Set Lock Screen** — done in about 60 seconds. FaithWall's widget can rotate fresh verses hourly, every 8 hours or daily, so it never goes stale the way a single saved image does."
+      "content": "The fastest **scripture wallpaper for iPhone free** is FaithWall: install it (free to download; a subscription unlocks it), pick a verse, and FaithWall hands it to an Apple Shortcut that applies it as your wallpaper — done in about 60 seconds. FaithWall's separate widget setup can show fresh verses hourly, every 8 hours or daily if you turn on the optional Auto-rotate verses setting, so it need not go stale the way a single saved image does."
     },
     {
       "type": "paragraph",
@@ -65,7 +65,7 @@
         "Download **FaithWall** from the App Store — free to download.",
         "Open it and pick your verse: search, or browse by book, chapter and verse.",
         "Choose a style — minimalist text, photo-backed, or a soft gradient.",
-        "Tap **Set Lock Screen**. iOS asks once to allow the wallpaper; tap allow.",
+        "FaithWall hands your verse to an Apple Shortcut that applies it as your lock-screen wallpaper. The first time, the Shortcuts app asks for a few permissions; tap Allow on each one.",
         "Long-press your lock screen any time to switch lock screens."
       ]
     },
@@ -145,7 +145,7 @@
     {
       "type": "cta",
       "title": "Stop re-downloading wallpapers — let FaithWall rotate verses for you",
-      "description": "Free to download, 60-second setup. A verse for your season, chosen by you, on your lock screen as a wallpaper, plus a widget that rotates fresh verses.",
+      "description": "Free to download, 60-second setup. A verse for your season, chosen by you, on your lock screen as a wallpaper, or in a widget with optional Auto-rotate verses.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

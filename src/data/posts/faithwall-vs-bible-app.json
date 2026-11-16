@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "FaithWall vs Bible App: One You Open, One That Comes to You",
-    "description": "FaithWall vs Bible App (YouVersion) — one is where you go to read, the other puts today's verse on your lock screen automatically. Which to pick, and why both fit.",
+    "description": "FaithWall vs Bible App (YouVersion) — one is where you go to read, the other puts the verse you picked on your lock screen and keeps it there. Which to pick, and why both fit.",
     "date": "June 20, 2026",
     "datePublished": "2026-06-20T09:00:00.000Z",
     "dateModified": "2026-11-16T09:00:00.000Z",
@@ -16,7 +16,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "**FaithWall vs the Bible App** isn't really a contest — they do different jobs. The Bible App (YouVersion) is where you *go* to read: full Bibles, reading plans, audio, and a Verse of the Day you have to open the app to see. FaithWall is the layer that comes *to you* — it puts today's verse on your lock screen automatically, with nothing to open. Keep the Bible App for reading. Add FaithWall for the 186 daily glances the Bible App never reaches."
+      "content": "**FaithWall vs the Bible App** isn't really a contest — they do different jobs. The Bible App (YouVersion) is where you *go* to read: full Bibles, reading plans, audio, and a Verse of the Day you have to open the app to see. FaithWall is the layer that comes *to you* — it puts the verse you picked on your lock screen and keeps it there until you pick another. Keep the Bible App for reading. Add FaithWall for the 186 daily glances the Bible App never reaches."
     },
     {
       "type": "paragraph",
@@ -29,7 +29,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The Bible App — YouVersion's — is a reading destination. Dozens of translations, hundreds of reading plans, audio Bibles, a Verse of the Day, and a community feed. You open it, you read, you close it. It's the best free reading app there is, and nothing here is a knock on it. **FaithWall** is a different shape entirely: there's almost nothing to *do*. You pick a verse, and it sits on your lock screen as a wallpaper applied by a Shortcut, with a widget that rotates fresh verses, without you opening the app again. The Bible App is for *reading*. FaithWall is for *seeing*."
+      "text": "The Bible App — YouVersion's — is a reading destination. Dozens of translations, hundreds of reading plans, audio Bibles, a Verse of the Day, and a community feed. You open it, you read, you close it. It's the best free reading app there is, and nothing here is a knock on it. **FaithWall** is a different shape entirely: there's almost nothing to *do*. You pick a verse, and it sits on your lock screen as a wallpaper applied by a Shortcut, with no need to open the app again until you want a new verse. There is also a separate widget setup: the widget shows the verse you picked; if you turn on the optional Auto-rotate verses setting, it then shows random Bible verses every hour, every 8 hours or once a day. The Bible App is for *reading*. FaithWall is for *seeing*."
     },
     {
       "type": "verse",
@@ -81,8 +81,8 @@
     {
       "type": "list",
       "items": [
-        "**What it does:** The Bible App is full-text reading, plans, and audio. FaithWall is today's verse on the lock screen.",
-        "**How you use it:** The Bible App is a session you open. FaithWall runs in the background — nothing to open.",
+        "**What it does:** The Bible App is full-text reading, plans, and audio. FaithWall is the verse you picked, on your lock screen.",
+        "**How you use it:** The Bible App is a session you open. FaithWall keeps the verse you picked on your lock screen until you pick another.",
         "**The Verse of the Day:** The Bible App's lives inside the app or a widget you tune out. FaithWall's is the wallpaper you can't miss.",
         "**Curation:** The Bible App hands you one daily verse. FaithWall lets you pick the verse for the season you're in.",
         "**iOS integration:** The Bible App sends notifications. FaithWall applies the wallpaper through an Apple Shortcut."
@@ -95,11 +95,11 @@
     },
     {
       "type": "paragraph",
-      "text": "The obvious DIY move is to screenshot the Bible App's Verse of the Day and set it as your wallpaper yourself. It works for about a week. Then the manual swap becomes a chore, the screenshot looks wrong on the lock-screen surface — the clock overlapping the text, dark words on a dark photo — and the rotation just stops. Manual wallpaper-changing is a habit, and habits without a system die by week two. A reading app was never built to live on your lock screen, and a screenshot was never designed for it. Closing that gap — automatic, designed for the surface, zero discipline required — is the entire reason **FaithWall** exists."
+      "text": "The obvious DIY move is to screenshot the Bible App's Verse of the Day and set it as your wallpaper yourself. It works for about a week. Then the manual swap becomes a chore, the screenshot looks wrong on the lock-screen surface — the clock overlapping the text, dark words on a dark photo — and the rotation just stops. Manual wallpaper-changing is a habit, and habits without a system die by week two. A reading app was never built to live on your lock screen, and a screenshot was never designed for it. Closing that gap — a verse you pick once, designed for the surface, zero discipline required — is the entire reason **FaithWall** exists."
     },
     {
       "type": "tip",
-      "content": "If you can only commit to one new behavior this week, pick the one that doesn't depend on willpower. The Bible App asks you to remember to open it. FaithWall asks for 60 seconds once, then works on its own."
+      "content": "If you can only commit to one new behavior this week, pick the one that doesn't depend on willpower. The Bible App asks you to remember to open it. FaithWall asks for 60 seconds once, then keeps the verse you picked on your lock screen until you pick another."
     },
     {
       "type": "heading",
@@ -121,7 +121,7 @@
     {
       "type": "cta",
       "title": "Add the layer the Bible App can't reach",
-      "description": "FaithWall puts today's verse on the lock screen you already check 186 times a day. Verses you choose, 60-second setup.",
+      "description": "FaithWall puts the verse you picked on the lock screen you already check 186 times a day. Verses you choose, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

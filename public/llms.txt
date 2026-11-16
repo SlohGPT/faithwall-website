@@ -32,6 +32,8 @@ The app interface is available in 10 languages. FaithWall is built for the lock 
 
 - **Single-purpose**: Most Christian apps try to do everything. FaithWall does one thing — your chosen Scripture on the lock screen.
 - **Your verse**: You pick the verse for your wallpaper and the verse your widget shows. The wallpaper never changes by itself.
+- **Changing the wallpaper**: To change it later, pick a new verse in the app (or tap Update Wallpaper Now in Settings after changing the text style). The app runs the Shortcut for you. It never changes in the background.
+- **Two separate setups**: The wallpaper setup and the widget setup are separate setups you switch between in Settings. Auto-rotate verses exists only in the widget setup.
 
 ## Topic clusters / pillar guides
 

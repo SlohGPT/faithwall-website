@@ -28,7 +28,7 @@ export const homeFaq: HomeFaqItem[] = [
   },
   {
     q: 'Can I get a random Bible verse without downloading anything?',
-    a: "Yes — try our free random Bible verse generator for an instant verse with nothing to download. FaithWall is what you'd set up next if you want a fresh verse to appear automatically.",
+    a: "Yes — try our free random Bible verse generator for an instant verse with nothing to download. FaithWall is what you'd set up next if you want a verse you chose on your lock screen.",
     link: { to: '/random-bible-verse', text: 'Try the random Bible verse generator' },
   },
 ];

@@ -20,7 +20,7 @@
     },
     {
       "type": "highlight",
-      "content": "**FaithWall** is our app, so weigh that against everything below — here's the honest case anyway. It doesn't compete with Hallow or Abide's guided sessions; it does the one thing neither app does, which is put today's verse on your lock screen automatically, no session required."
+      "content": "**FaithWall** is our app, so weigh that against everything below — here's the honest case anyway. It doesn't compete with Hallow or Abide's guided sessions; it does the one thing neither app does, which is put a verse you picked on your lock screen, no session required."
     },
     {
       "type": "paragraph",
@@ -56,7 +56,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Both apps solve the same problem the same way: you open them, sit through a session, close them, and the rest of the day looks the same as before. That's not a flaw — it's the format. A guided session needs your attention, so it can only happen once or twice a day. **FaithWall** covers the other twenty-three hours. Instead of a session, it puts a verse you chose on your lock screen — about anxiety, strength, gratitude, grief or anything else — and its widget rotates fresh verses, so Scripture shows up every time you glance at your phone, not just during the ten minutes you set aside for Hallow or Abide."
+      "text": "Both apps solve the same problem the same way: you open them, sit through a session, close them, and the rest of the day looks the same as before. That's not a flaw — it's the format. A guided session needs your attention, so it can only happen once or twice a day. **FaithWall** covers the other twenty-three hours. Instead of a session, it puts a verse you chose on your lock screen — about anxiety, strength, gratitude, grief or anything else — and, in the separate widget setup, the widget can rotate fresh verses if you turn on the optional Auto-rotate verses setting, so Scripture shows up every time you glance at your phone, not just during the ten minutes you set aside for Hallow or Abide."
     },
     {
       "type": "stat",
@@ -107,7 +107,7 @@
     {
       "type": "cta",
       "title": "Add the layer neither one covers",
-      "description": "FaithWall keeps today's verse on your lock screen whether or not you opened Hallow or Abide today. Free to download, 60-second setup — the piece your prayer app stack is missing after the session ends.",
+      "description": "FaithWall keeps the verse you picked on your lock screen whether or not you opened Hallow or Abide today. Free to download, 60-second setup — the piece your prayer app stack is missing after the session ends.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }
