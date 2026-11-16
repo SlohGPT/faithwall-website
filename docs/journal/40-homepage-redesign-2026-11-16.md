@@ -137,3 +137,5 @@ Commit: 34a6acd (site). Not pushed.
 
 **Still open, added:**
 7. **The live squircle frames.** The wallpaper maker page and the blog's Lock Screen figures (`LockScreenVerse` through `BlogRenderer`) still use the squircle frame, so they look boxy in Chrome on the live site. The fix is the same corner change for the `maker` variant, but it changes live pages: do it after the 12-02 read-out, or with an `annotations.csv` row.
+
+**Approved.** Karol looked at the new phones and approved them: "Looks right". The pricing lines and the merge timing (items 1 and 2) are still his to decide.
