@@ -44,7 +44,7 @@
       { "feature": "Lock-screen format", "faithwall": "Wallpaper (Apple Shortcut) or widget", "competitor": "—" },
       { "feature": "Guided audio sessions", "faithwall": "No", "competitor": "Yes (rosaries, novenas, meditations)" },
       { "feature": "Sleep/calm content", "faithwall": "No", "competitor": "Yes (significant catalog)" },
-      { "feature": "Bible verses", "faithwall": "One verse you pick, as your wallpaper or in a lock-screen widget that starts with it and then shows random verses (24 translations)", "competitor": "Embedded in prayers" },
+      { "feature": "Bible verses", "faithwall": "One verse you pick, as your wallpaper or in a lock-screen widget; an optional Auto-rotate verses setting makes the widget show random verses (24 translations)", "competitor": "Embedded in prayers" },
       { "feature": "Pricing model", "faithwall": "Free download + subscription", "competitor": "Limited daily content; premium ~$70/yr" },
       { "feature": "Minimum iOS", "faithwall": "iOS 15.0+ (lock-screen widget: iOS 16+)", "competitor": "iOS 16.4+" }
     ],
