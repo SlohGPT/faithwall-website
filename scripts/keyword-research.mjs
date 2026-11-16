@@ -906,13 +906,18 @@ const B6 = [
   /[0-9a-f]{32,}/gi,
 ];
 const B6_TOKEN = /[A-Za-z0-9_\-+/=]{40,}/g;
-// 1.2.0: vendor prefixes that are a secret at any length (the 40-char floor below would miss them). The lookbehind is a letter or digit,
-// not \b, so STRIPE_sk_live_... is still seen.
+// 1.2.0: vendor prefixes that are a secret at any length (the 40-char floor below would miss them): Stripe live keys, GitHub tokens, JWTs,
+// AWS access key ids, Google OAuth client secrets, npm tokens and Slack tokens. The lookbehind is a letter or digit, not \b, so
+// STRIPE_sk_live_... and AWS_ACCESS_KEY_ID=AKIA... are still seen. Bare words (AKIA, npm_config_registry, xoxo-love) are not matched.
 const B6_PREFIX = [
   /(?<![A-Za-z0-9])[rs]k_live_[0-9A-Za-z]{16,}/g,
   /(?<![A-Za-z0-9])gh[pousr]_[0-9A-Za-z]{30,}/g,
   /(?<![A-Za-z0-9])github_pat_[0-9A-Za-z_]{40,}/g,
   /(?<![A-Za-z0-9])eyJ[0-9A-Za-z_\-]{8,}\.eyJ[0-9A-Za-z_\-]{8,}\.[0-9A-Za-z_\-]{8,}/g,
+  /(?<![A-Za-z0-9])(?:AKIA|ASIA)[0-9A-Z]{16}(?![0-9A-Za-z])/g,
+  /(?<![A-Za-z0-9])GOCSPX-[0-9A-Za-z_-]{20,}/g,
+  /(?<![A-Za-z0-9])npm_[0-9A-Za-z]{36}(?![0-9A-Za-z])/g,
+  /(?<![A-Za-z0-9])xox[abprs]-[0-9A-Za-z-]{10,}/g,
 ];
 // 1.2.0: a 40+ char run that is only a URL component is not a key. Two kinds are skipped, nothing else:
 //  (a) the value of a query parameter whose name is not credential-like (ixid, ixlib, utm_*, w, q);
@@ -2666,7 +2671,7 @@ export async function runSelfTest(log = (s) => console.log(s)) {
       if (u.pathname === '/token') return send(200, 'application/json', JSON.stringify({ access_token: 'mock-access', expires_in: 3600 }));
       if (u.pathname.startsWith('/webmasters/v3/sites') && !u.pathname.endsWith('/query')) return send(200, 'application/json', JSON.stringify({ siteEntry: [{ siteUrl: 'sc-domain:example.test', permissionLevel: 'siteOwner' }] }));
       if (u.pathname.endsWith('/searchAnalytics/query')) {
-        if (mock.gscFail) return send(mock.gscFail, 'application/json', JSON.stringify({ error: { message: 'denied for key=SECRETVALUE123 Bearer abcdefabcdefabcdefabcdef' } }));
+        if (mock.gscFail) return send(mock.gscFail, 'application/json', JSON.stringify({ error: { message: 'denied for key=SECRETVALUE123 ' + 'Bear' + 'er ' + 'abcdef'.repeat(4) } }));
         const b = JSON.parse(body || '{}');
         const dims = (b.dimensions ?? []).join(',');
         const rows = mock.gsc?.[dims] ?? [];
@@ -2697,7 +2702,7 @@ export async function runSelfTest(log = (s) => console.log(s)) {
     B3: ['a 50% jump', 'ctr of 12.5 %', 'up 5 per cent', '20 percent more'],
     B4: ['costs $9 a month', 'pay 5 eur', '€ 20 budget'],
     B5: ['see ~/.claude/secrets/x', 'file /Users/someone/x', 'service-account-key.json', 'budget.json holds it', 'in faithwall-gsc/kw', 'file /users/someone/x', 'in C:\\Users\\someone\\x', 'see %2FUsers%2Fsomeone', 'see %2fusers%2fsomeone'],
-    B6: ['-----BEGIN ' + 'PRIVATE KEY-----', '-----begin ' + 'private key-----', '"private_key": "abc"', 'AIza' + key35, 'ya29.a0AfH6SMBxxxx', 'Bearer ' + 'a'.repeat(24), 'api_key=abc', 'deadbeef'.repeat(4), 'Ab1' + 'x'.repeat(40)],
+    B6: ['-----BEGIN ' + 'PRIVATE KEY-----', '-----begin ' + 'private key-----', '"private_key": "abc"', 'AIza' + key35, 'ya29' + '.a0AfH6SMBxxxx', 'Bearer ' + 'a'.repeat(24), 'api_key=abc', 'deadbeef'.repeat(4), 'Ab1' + 'x'.repeat(40)],
     B7: ['| widget | ~340 |', '| 1,200 | x |', '| a | 5k |'],
     B8: ['Example is free to use', 'example app is totally free'],
   };
@@ -2806,6 +2811,57 @@ export async function runSelfTest(log = (s) => console.log(s)) {
     ok(b6(blob) >= 1, 'long blob not flagged');
     ok(Date.now() - t0 < 5000, 'B6 scan of a 400k run is slow');
   });
+  // 1.2.0 extras: AWS access key ids, Google OAuth client secrets, npm tokens, Slack tokens. Values are built at run time, never written out.
+  t('ban rule B6 (1.2.0 extras): AWS, Google OAuth, npm and Slack token prefixes fail in prose, in a JSON string and after NAME=', () => {
+    const URLSAFE = ALNUM + '_-';
+    const D10 = '0123456789';
+    const vals = {
+      'AWS AKIA': 'AK' + 'IA' + gen(16, UPPER + D10),
+      'AWS ASIA': 'AS' + 'IA' + gen(16, UPPER + D10, 2),
+      'Google OAuth GOCSPX-, 20 chars': 'GOC' + 'SPX-' + gen(20, URLSAFE, 1),
+      'Google OAuth GOCSPX-, 28 chars': 'GOC' + 'SPX-' + gen(28, URLSAFE, 3),
+      'npm token': 'npm' + '_' + gen(36),
+      'Slack xoxb': 'xo' + 'xb-' + gen(12, D10) + '-' + gen(12, D10, 1) + '-' + gen(24),
+      'Slack xoxa': 'xo' + 'xa-' + gen(10, D10),
+      'Slack xoxp': 'xo' + 'xp-' + gen(10, D10, 1),
+      'Slack xoxr': 'xo' + 'xr-' + gen(10, D10, 2),
+      'Slack xoxs': 'xo' + 'xs-' + gen(10, D10, 3),
+    };
+    const envName = { 'AWS AKIA': 'AWS_ACCESS_KEY_ID', 'AWS ASIA': 'AWS_ACCESS_KEY_ID', 'npm token': 'NPM_TOKEN' };
+    const missed = [];
+    for (const [k, v] of Object.entries(vals)) {
+      const forms = {
+        prose: 'the value ' + v + ' was pasted here',
+        'line start': v,
+        env: (envName[k] ?? 'SOME_SECRET') + '=' + v,
+      };
+      for (const [f, text] of Object.entries(forms)) if (b6(text) < 1) missed.push(`${k} (${f}, markdown)`);
+      for (const kind of ['other', 'clusters', 'config']) {
+        const doc = JSON.stringify({ notes: 'x ' + v + ' y', env: (envName[k] ?? 'SOME_SECRET') + '=' + v });
+        if (!scanJsonText(doc, kind, []).some((h) => h.rule === 'B6')) missed.push(`${k} (JSON ${kind})`);
+      }
+      const hit = scanMarkdown('prose ' + v, []).find((h) => h.rule === 'B6');
+      if (!hit || 'snippet' in hit) missed.push(`${k} (hit missing or carries a snippet)`);
+    }
+    ok(!missed.length, `B6 missed: ${missed.join('; ')}`);
+  });
+  t('ban rule B6 (1.2.0 extras): bare prefix words, env names and near-misses are not keys', () => {
+    const must = {
+      'bare words in prose': 'The words AKIA, ASIA, GOCSPX, npm_ and xoxb are only prefixes.',
+      'npm env names': 'set npm_config_registry and read npm_package_version and npm_lifecycle_event',
+      'xoxo love': 'xoxo-love, said the card',
+      'capitalised Xoxb-': 'Xoxb-',
+      'capitalised Xoxb- with a tail': 'Xoxb-' + gen(12, '0123456789'),
+      'AKIA then 16 chars with a lowercase letter': 'AK' + 'IA' + 'ABCDEFGH' + 'a' + 'BCDEFGH',
+      'AKIA then 15 chars': 'AK' + 'IA' + 'ABCDEFGH' + 'BCDEFGH',
+      'GOCSPX- then 19 chars': 'GOC' + 'SPX-' + 'abcdefghijklmnopqrs',
+      'npm_ then 35 chars': 'npm' + '_' + 'abcdefghijklmnopqrstuvwxyzabcdefghi',
+      'xoxb- then 9 chars': 'xo' + 'xb-' + '123456789',
+      'xoxz- is not a Slack prefix': 'xo' + 'xz-' + '1234567890123',
+    };
+    const wrong = Object.entries(must).filter(([, v]) => b6(v) !== 0).map(([k]) => k);
+    ok(!wrong.length, `B6 flagged: ${wrong.join('; ')}`);
+  });
   t('ban rules: volume_band is exempt from B1, B3, B7 only; members skip B8, prose does not', () => {
     eq(jsonScanOpts('clusters', 'clusters[0].volume_band', phrases).skip, ['B1', 'B3', 'B7']);
     ok(!jsonScanOpts('clusters', 'clusters[0].members[1]', phrases).prose, 'member treated as prose');
@@ -2874,8 +2930,10 @@ export async function runSelfTest(log = (s) => console.log(s)) {
   t('redact: key=, Bearer, PEM, private_key, client_email, home path', () => {
     const home = os.homedir();
     const pem = '-----BEGIN ' + 'PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASC\n-----END ' + 'PRIVATE KEY-----';
-    const s = redact(`GET https://x.test/a?q=1&key=SECRETKEY123&z=2 Bearer abcdefghij.klmnop-qrstuv ya29.a0AbCdEf ${pem} {"private_key": "SECRETPK", "client_email": "sa@proj.iam.test"} ${home}/file access_token=TOK123`);
-    for (const bad2 of ['SECRETKEY123', 'abcdefghij.klmnop', 'ya29.a0AbCdEf', 'MIIEvQIBADANBg', 'SECRETPK', 'sa@proj.iam.test', 'TOK123']) ok(!s.includes(bad2), `leaked ${bad2.slice(0, 6)}`);
+    const bearer = 'Bear' + 'er ' + 'abcdefghij.klmnop-qrstuv';
+    const ya29 = 'ya29' + '.a0AbCdEf';
+    const s = redact(`GET https://x.test/a?q=1&key=SECRETKEY123&z=2 ${bearer} ${ya29} ${pem} {"private_key": "SECRETPK", "client_email": "sa@proj.iam.test"} ${home}/file access_token=TOK123`);
+    for (const bad2 of ['SECRETKEY123', 'abcdefghij.klmnop', ya29, 'MIIEvQIBADANBg', 'SECRETPK', 'sa@proj.iam.test', 'TOK123']) ok(!s.includes(bad2), `leaked ${bad2.slice(0, 6)}`);
     if (home.length > 1) ok(!s.includes(home) && s.includes('~/file'), 'home path not replaced');
     ok(redact(new Error('boom key=ABC')).includes('boom'), 'Error message dropped');
   });
@@ -3801,14 +3859,16 @@ export async function runSelfTest(log = (s) => console.log(s)) {
   });
   t('redact: encoded and single-quoted secrets, colon forms, JWTs, Basic credentials, upper-case home path', () => {
     const home = os.homedir();
-    const jwt = 'eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ4In0.c2lnbmF0dXJl';
+    // Built at run time so no JWT literal sits in this file.
+    const jwt = [JSON.stringify({ alg: 'RS256' }), JSON.stringify({ iss: 'x' }), 'signature'].map((x) => Buffer.from(x).toString('base64url')).join('.');
+    ok(jwt.length === 49 && jwt.split('.').map((x) => x.length).join() === '20,15,12' && jwt.endsWith('.' + Buffer.from('signature').toString('base64url')), 'redact test jwt not rebuilt as expected');
     const out = redact(`key%3DSECRETKEYABC access_token: abc123tok {'access_token': 'abc456tok'} id_token=abc789 refresh_token%3Dabc000 authorization: Basic dXNlcjpwYXNz assertion=${jwt} ${encodeURIComponent(home)}/x ${home.toUpperCase()}/y`);
     for (const leak of ['SECRETKEYABC', 'abc123tok', 'abc456tok', 'abc789', 'abc000', 'dXNlcjpwYXNz', 'eyJhbGci']) ok(!out.includes(leak), `leaked ${leak}`);
     if (home.length > 1) ok(!out.toLowerCase().includes(home.toLowerCase()) && !out.includes(encodeURIComponent(home)), 'home path kept');
   });
   t('check: unknown JSON keys that look like secrets are not echoed and are B6-flagged', () => {
     const secretKey = 'AIza' + 'Q'.repeat(35);
-    const doc = { ...validDoc(), clusters: [{ ...validDoc().clusters[0], ['ya29.SECRETTOKENVALUE123']: 1, [secretKey]: 2 }] };
+    const doc = { ...validDoc(), clusters: [{ ...validDoc().clusters[0], ['ya29' + '.SECRETTOKENVALUE123']: 1, [secretKey]: 2 }] };
     const r = schema(doc);
     const text = JSON.stringify(r.fails);
     ok(r.fails.length >= 2 && !text.includes('SECRETTOKEN') && !text.includes('QQQQ'), text);
@@ -3816,7 +3876,7 @@ export async function runSelfTest(log = (s) => console.log(s)) {
     ok(h.some((x) => x.rule === 'B6') && !JSON.stringify(h).includes('QQQQ') && !JSON.stringify(h).includes('SECRETTOKEN'), 'key not B6-scanned or echoed');
   });
   t('check: a long absolute private_dir in the config is not a key-shaped token; real keys still are', () => {
-    const cfg = baseConfig('/Users/someone/Library/Application Support/Some-Long-Folder/AbC123dEf456GhI789JkL/kw');
+    const cfg = baseConfig('/Users/someone/Library/Application Support/Some-Long-Folder/' + 'AbC123dEf' + '456GhI789JkL' + '/kw');
     eq(scanJsonText(JSON.stringify(cfg), 'config', []), []);
     const c2 = { ...cfg, private_dir: 'AIza' + 'Z'.repeat(35) };
     ok(scanJsonText(JSON.stringify(c2), 'config', []).some((h) => h.rule === 'B6'), 'key in private_dir not caught');
