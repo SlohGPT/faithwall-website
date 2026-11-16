@@ -36,6 +36,8 @@ const CAMPAIGN_TOKENS = [
 
 // ---------------------------------------------------------------- text rules
 
+const OTHER_APPS_RE = /\b(?:YouVersion|Olive Tree|Glorify|Hallow|Bible Gateway|Logos|Pray\.com|Abide|Dwell|Blue Letter|Bible\.is|Abbey|Fighter Verses|competitors?|Quran ?Wall|Note ?Wall)\b/i;
+
 const rules = [
   // wrong: rotation of the user's own set
   ['rotate-own-set', /\brotat\w*\s+(?:through\s+)?(?:all\s+)?(?:your|the|these|those)\s+(?:(?:saved|chosen|picked|own|favou?rite|selected|bookmarked)\s+)*(?:bible\s+)?(?:verses|scriptures|passages|favou?rites)\b|\brotat\w*\s+(?:the\s+)?verses\s+(?:that\s+)?you\s+(?:pick|choose|chose|save|saved)\b|\brotates?\s+(?:fresh\s+|random\s+)?verses\s+through\b/i, null],
@@ -50,19 +52,23 @@ const rules = [
   // bare (no brand needed): "No accounts required" / "without creating an account" is an unverified feature claim
   // wrong: FaithWall has a Bible browser with full chapter text (BibleExplorerView / VerseListView), so it is not "not a Bible reader"
   ['bible-reader-denial', /\b(?:Faith ?Wall|it|this app|the app)\s+(?:is(?:n'?t|\s+not|\s+no)|was(?:n'?t|\s+not)|(?:is\s+)?not|can'?t\s+be\s+used\s+as)\s+(?:really\s+|actually\s+)?(?:a|an)?\s*(?:full\s+|real\s+|proper\s+)?Bible(?:[- ]read(?:er|ing(?:\s+app)?)|\s+app)\b|(?:^|[-*(:;.—–]\s*|\bNo \()\s*not a (?:full\s+)?Bible(?:[- ]read(?:er|ing app)|\s+app)\b/i, null],
+  // wrong, brandless (CTA titles, headings): a lock screen or wallpaper that refreshes/changes itself, or on a timer
+  ['wallpaper-automatic', /\b(?:lock[- ]?screen|wallpaper)s?\b[^.;]{0,30}\b(?:refresh|update|change|renew|rotate)(?:s|es|d)?\s+(?:itself|by itself|on its own)\b|\b(?:lock[- ]?screen|wallpaper)s?\s+(?:that|which)\s+(?:refreshes|updates|changes|renews|rotates)\s+(?:automatically|daily|every\s+(?:day|morning|night|hour)|each\s+(?:day|morning|night)|overnight)\b|\bself-(?:updating|refreshing|changing)\s+(?:lock[- ]?screen|wallpaper)\b/i, null, OTHER_APPS_RE],
   ['no-account-bare', /\bno (?:user )?accounts?\b[^.]{0,30}\b(?:required|needed|necessary)\b|\bwithout (?:creating |signing up for |making )?an account\b/i, null],
 ];
 
 // A sentence that states the ban itself ("never write ...") is not a violation.
-const NEG = /\b(?:never|don'?t|do not|doesn'?t|does not|banned|avoid|no claim)\b/i;
+// "cannot/can't/won't + a change verb" states a limit ("cannot change your wallpaper while the app is closed"); a bare
+// "won't need to open the app" is not a negation of the claim, so the modal must be followed by a change verb.
+const NEG = /\b(?:never|don'?t|do not|doesn'?t|does not|banned|avoid|no claim)\b|\bnothing\s+runs\b|\b(?:cannot|can['’]?t|can not|won['’]?t|will not)\s+(?:(?:\w+\s+){0,2}?)(?:change|update|refresh|swap|rotate|replace|apply|re-?apply|set|put|show|run|work)\b/i;
 
 // JSON keys that hold identifiers, not prose.
-const SKIPKEYS = new Set(['keywords', 'slug', 'image', 'url', 'href', 'id', 'imageAlt', 'alternateName', 'related', 'featured']);
+const SKIPKEYS = new Set(['keywords', 'slug', 'image', 'url', 'href', 'id', 'imageAlt', 'alternateName', 'related', 'featured', 'members']);
 
 // A list item about another app ("**Fighter Verses** — ... verses chosen for you") that never names
 // FaithWall can't make a FaithWall claim through a bare phrase, so the bare-phrase rules skip it.
 const OTHER_APP_ITEM = /^\s*(?:[-*]\s+)?\*\*(?!Faith ?Wall\b)[^*]{2,60}\*\*/;
-const BARE_RULES = new Set(['picks-for-you', 'rotate-own-set', 'no-account-bare', 'bible-reader-denial']);
+const BARE_RULES = new Set(['picks-for-you', 'rotate-own-set', 'no-account-bare', 'bible-reader-denial', 'wallpaper-automatic']);
 
 // Widget rotation is an optional setting, off by default (SettingsView widgetRotationEnabled = false).
 // A sentence about FaithWall's widget that says it rotates or shows random/fresh verses needs an opt-in
@@ -72,7 +78,7 @@ const ROTATION_OPT_IN = /\b(?:turn(?:s|ed)?\s+on|turning\s+on|switch(?:es|ed)?\s
 // A bare "if you" or "setting" is not an opt-in; "by default" without "off" and "optional?" (a rhetorical denial) cancel one.
 const NOT_OPT_IN = /\b(?<!off )by default\b|\boptional\?/i;
 const hasOptIn = (t) => ROTATION_OPT_IN.test(t) && !NOT_OPT_IN.test(t);
-const OTHER_APPS = /\b(?:YouVersion|Olive Tree|Glorify|Hallow|Bible Gateway|Logos|Pray\.com|Abide|Dwell|Blue Letter|Bible\.is|Abbey|Fighter Verses|competitors?|Quran ?Wall|Note ?Wall)\b/i;
+const OTHER_APPS = OTHER_APPS_RE;
 
 // How the wallpaper updates (app truth): the user picks a verse, the app itself launches an Apple Shortcut that
 // applies it, and it stays until the user picks another. Nothing runs in the background or on a schedule, a
@@ -81,8 +87,18 @@ const OTHER_APPS = /\b(?:YouVersion|Olive Tree|Glorify|Hallow|Bible Gateway|Logo
 // STRONG phrases are wrong in any FaithWall sentence; WEAK ones are skipped when the sentence is about the widget
 // (widget rotation has its own soft rule above).
 const AUTO_STRONG = /\btoday['’]s verse\b|\bnothing to (?:tap|open)\b|\bno opening required\b|\b(?:runs?|works?|updates?|changes?|refreshes|rotates?|applies|sets?|swaps?)\b[^.;]{0,50}\b(?:in the background|behind the scenes)\b|\bin the background\b|\bbehind the scenes\b|\bwhile the app is closed\b|\bShortcuts?\s+(?:you can\s+)?automat\w+|\bautomat\w*\s+Shortcuts?\b|\bShortcuts?\s+automations?\b[^.;]{0,60}\b(?:change|swap|update|new verse|different verse|rotat)/i;
-const AUTO_WEAK = /\bautomatic(?:ally)?\b|\bby itself\b|\bon its own\b(?!\s+(?:lock|home)[- ]screen)|\bon a schedule\b|\b(?:wallpaper|lock[- ]screen|verse)\b[^.;]{0,50}\b(?:changes?|updates?|refreshes|swaps?|rotates?)\b[^.;]{0,30}\b(?:every day|daily|each (?:morning|day)|every morning|overnight)\b|\b(?:changes?|updates?|refreshes|swaps?|rotates?)\b[^.;]{0,50}\b(?:wallpaper|lock[- ]screen|verse)s?\b[^.;]{0,40}\b(?:every day|daily|each (?:morning|day)|every morning|overnight)\b|\b(?:updates?|changes?|refreshes|swaps?|rotates?)\s+itself\b|\bkeeps?\b[^.;]{0,40}\b(?:wallpaper|lock[- ]screen|verse)s?\b[^.;]{0,30}\bfresh\b|\b(?:new|fresh|different)\s+(?:verse|wallpaper)\b[^.;]{0,30}\b(?:every day|each (?:morning|day)|every morning|daily)\b/i;
-const AUTO_SKIP = /\b(?:renew\w*|subscri\w+|billed|billing|cancel\w*|trial|sync\w*|iCloud|backup|terminat\w*|licen[sc]e\w*)\b/i;
+// Time phrases that make an update claim ("every morning", "once a day", "at night", "every 30 minutes", "while you sleep").
+const TIME_S = String.raw`(?:every|each)\s+(?:day|morning|night|evening|hour|few\s+(?:hours|minutes)|\d+\s*(?:minutes?|mins?|hours?|hrs?))\b|\bdaily\b|\bonce\s+(?:a|per)\s+day\b|\bat\s+night\b|\bovernight\b|\bnightly\b|\bhourly\b|\bwhile\s+you(?:['’]re|\s+are)?\s+(?:sleep\w*|asleep)\b|\bwhile\s+(?:your|the)\s+(?:phone|iPhone)\s+is\s+locked\b`;
+const TIME = new RegExp(String.raw`\b(?:${TIME_S})`, 'i');
+const AUTO_WEAK = new RegExp(String.raw`\bautomatic(?:ally)?\b|\bautomated\b|\bautopilot\b|\bauto-pilot\b|\bset[- ]and[- ]forget\b|\bset it and forget it\b|\bhands[- ](?:free|off)\b|\bby itself\b|\bon its own\b(?!\s+(?:lock|home)[- ]screen)|\bon a schedule\b|\b(?:wallpaper|lock[- ]screen|verse)\b[^.;]{0,50}\b(?:changes?|updates?|refreshes|swaps?|rotates?|renews?|replaces?)\b[^.;]{0,30}\b(?:${TIME_S})|\b(?:changes?|updates?|refreshes|swaps?|rotates?|renews?|replaces?)\b[^.;]{0,50}\b(?:wallpaper|lock[- ]screen|verse)s?\b[^.;]{0,40}\b(?:${TIME_S})|\b(?:${TIME_S})[^.;]{0,60}\b(?:changes?|updates?|refreshes|swaps?|rotates?|renews?|replaces?)\b[^.;]{0,40}\b(?:wallpaper|lock[- ]screen|verse)|\b(?:updates?|changes?|refreshes|swaps?|rotates?|renews?)\s+itself\b|\bkeeps?\b[^.;]{0,40}\b(?:wallpaper|lock[- ]screen|verse)s?\b[^.;]{0,30}\bfresh\b|\bwhile\s+(?:you(?:['’]re|\s+are)?\s+(?:sleep\w*|asleep)|(?:your|the)\s+(?:phone|iPhone)\s+is\s+locked)\b`, 'i');
+// Delivery and passive phrasings that need a time phrase to be a claim ("Every morning FaithWall puts a new verse on your
+// lock screen", "a new verse appears on your lock screen every morning", "your wallpaper is refreshed each day").
+const NEW_V = String.raw`(?:new|fresh|different|next)\s+(?:Bible\s+)?(?:verse|scripture|wallpaper)`;
+const TIMED_CLAIM = new RegExp(String.raw`\b${NEW_V}s?\b|\b(?:puts?|shows?|brings?|delivers?|sends?|gives?|places?|serves?|drops?|sets?)\s+(?:you\s+)?(?:a\s+|an\s+|the\s+)?${NEW_V}|\b${NEW_V}s?\b[^.;]{0,40}\b(?:appears?|shows?\s+up|arrives?|lands?|replaces|is\s+\w+ed|gets\s+\w+)\b|\b(?:wallpaper|lock[- ]screen|verse)\b[^.;]{0,30}\b(?:is|are|was|gets?|got)\s+(?:automatically\s+)?(?:updated|refreshed|changed|swapped|replaced|renewed|rotated)\b`, 'i');
+// The user acts first ("when you pick", "you can change"): the time phrase is about the user, not the app.
+const USER_ACTS = /\b(?:when|after|once|whenever|until|if)\s+you\b|\byou\s+(?:can\s+|could\s+|may\s+)?(?:pick|choose|select|edit|tap|open|change|switch|update|set)\b/i;
+const timedClaim = (c) => TIME.test(c) && TIMED_CLAIM.test(c) && !USER_ACTS.test(c);
+const AUTO_SKIP = /\b(?:renew\w*\b(?!\s+(?:your|the|a)\s+(?:\w+\s+)?(?:wallpaper|lock|verse))|subscri\w+|billed|billing|cancel\w*|trial|sync\w*|iCloud|backup|terminat\w*|licen[sc]e\w*)\b/i;
 // wallpaper-widget-combo: a FaithWall sentence recommending a wallpaper plus a rotating or daily widget in one setup.
 // The setups are alternatives (Settings > Change Setup Mode switches between them).
 const WP_WIDGET_COMBO = /\b(?:run|runs|running|use|using|pair|combine|stack|layer)\s+both\b|\b(?:wallpaper|widget)s?\b[^.;]{0,30}\b(?:and|with|alongside)\b[^.;]{0,20}\b(?:widget|wallpaper)s?\b[^.;]{0,40}\b(?:together|at the same time|side by side|both|simultaneously)\b|\balongside\s+(?:its|the|a|your)\s+(?:widget|wallpaper)\b|\bpairs?\s+(?:a|the|your)\s+wallpaper\s+with\s+(?:a|the|its)\s+widget\b|\bboth together\b|\b(?:widget|wallpaper)\s*\+\s*(?:widget|wallpaper)\b|\bcombo\b[^.;]{0,40}\b(?:wallpaper|widget)s?\b|\b(?:wallpaper|widget)s?\b[^.;]{0,40}\bcombo\b|\bwallpaper\b[^.;]{0,100}\b(?:plus|with|and|alongside|together with|as well as)\s+(?:a\s+|an\s+|its\s+|the\s+)?(?:small\s+|lock[- ]screen\s+|rotating\s+|daily\s+)*widget\b[^.;]{0,50}\b(?:rotat\w*|daily|fresh|random|new verses?|different verses?|every day)\b|\banchor\b[^.;]{0,60}\bwallpaper\b[^.;]{0,80}\b(?:daily|rotat\w*|fresh|random)\b[^.;]{0,50}\bwidget\b|\bwidget\b[^.;]{0,60}\b(?:on top of|above|over)\s+(?:the\s+|your\s+)?(?:wallpaper|anchor)\b|\bwidgets?\b[^.;]{0,60}\b(?:rotat\w*|fresh|daily|random)\b[^.;]{0,60},?\s+(?:and|plus|with)\s+(?:a\s+|an\s+|the\s+)?(?:Shortcuts?[- ](?:applied|based)\s+)?wallpaper\b/i;
@@ -122,9 +138,12 @@ function lintText(text, out) {
       for (const c of s.split(/;\s+/)) {
         const fwClause = /Faith ?Wall/i.test(c) || FW_DOC;
         if (!fwClause || (OTHER_APPS.test(c) && !/Faith ?Wall/i.test(c)) || AUTO_SKIP.test(c)) continue;
-        const widgetClause = /\bwidgets?\b/i.test(c);
-        if (AUTO_STRONG.test(c) || (!widgetClause && AUTO_WEAK.test(c))) {
-          out.push({ id: 'wallpaper-automatic', s: s.replace(/\s+/g, ' ').slice(0, 190) });
+        // A widget clause is exempt from the weak phrases only when it is a genuine opt-in sentence or does not
+        // talk about the wallpaper ("FaithWall updates your wallpaper every morning, and the widget is nice" is not exempt).
+        const widgetClause = /\bwidgets?\b/i.test(c) && (hasOptIn(c) || !/\bwallpapers?\b/i.test(c));
+        if (AUTO_STRONG.test(c) || (!widgetClause && (AUTO_WEAK.test(c) || timedClaim(c)))) {
+          const hs = s.replace(/\s+/g, ' ').slice(0, 190);
+          if (!out.some((h) => h.id === 'wallpaper-automatic' && h.s === hs)) out.push({ id: 'wallpaper-automatic', s: hs });
           break;
         }
       }
@@ -580,6 +599,86 @@ function selfTest() {
     ['FaithWall puts it on your lock screen as a wallpaper, or shows it in a widget with an optional Auto-rotate verses setting.', 'wallpaper-widget-combo', false],
     ['YouVersion offers a widget and a wallpaper with fresh verses daily.', 'wallpaper-widget-combo', false],
     ['- Wallpaper and widget are separate setups; you switch between them in Settings.', 'wallpaper-widget-combo', false, true],
+    // round 7 probe battery (see probe-final.txt): timing, passive, hands-off, brandless, negated modals
+    ['Every morning FaithWall puts a new verse on your lock screen.', 'wallpaper-automatic', true],
+    ['Get a lock screen that refreshes itself daily', 'wallpaper-automatic', true],
+    ['A lock screen that updates itself every morning.', 'wallpaper-automatic', true],
+    ['FaithWall gives you a wallpaper that changes itself each night.', 'wallpaper-automatic', true],
+    ['FaithWall changes your wallpaper every few hours.', 'wallpaper-automatic', true],
+    ['FaithWall updates your lock screen once a day.', 'wallpaper-automatic', true],
+    ['FaithWall swaps the verse at night.', 'wallpaper-automatic', true],
+    ['FaithWall refreshes your wallpaper overnight.', 'wallpaper-automatic', true],
+    ['FaithWall changes your verse every 30 minutes.', 'wallpaper-automatic', true],
+    ['FaithWall updates your lock screen while your phone is locked.', 'wallpaper-automatic', true],
+    ['FaithWall changes your wallpaper while you sleep.', 'wallpaper-automatic', true],
+    ['A new verse appears on your FaithWall lock screen every morning.', 'wallpaper-automatic', true],
+    ['With FaithWall, your wallpaper is refreshed each day.', 'wallpaper-automatic', true],
+    ['A fresh verse shows up on your lock screen with FaithWall every day.', 'wallpaper-automatic', true],
+    ['Your FaithWall wallpaper gets updated every night.', 'wallpaper-automatic', true],
+    ['FaithWall is fully automated: the verse on your lock screen changes without you.', 'wallpaper-automatic', true],
+    ['FaithWall runs your lock screen on autopilot.', 'wallpaper-automatic', true],
+    ['FaithWall is set and forget: your wallpaper keeps changing.', 'wallpaper-automatic', true],
+    ['Set it and forget it: FaithWall handles your lock screen verse.', 'wallpaper-automatic', true],
+    ['FaithWall is hands-free, so your wallpaper updates itself.', 'wallpaper-automatic', true],
+    ['Each morning, FaithWall delivers a different verse to your lock screen.', 'wallpaper-automatic', true],
+    ['FaithWall brings you a new verse on your lock screen daily.', 'wallpaper-automatic', true],
+    ['At night FaithWall swaps in a new wallpaper verse.', 'wallpaper-automatic', true],
+    ['Every hour FaithWall refreshes the verse on your wallpaper.', 'wallpaper-automatic', true],
+    ['Every evening FaithWall sends a new verse to your lock screen.', 'wallpaper-automatic', true],
+    ['FaithWall automatically updates your lock screen verse.', 'wallpaper-automatic', true],
+    ['Your FaithWall verse updates by itself.', 'wallpaper-automatic', true],
+    ['FaithWall rotates your wallpaper nightly.', 'wallpaper-automatic', true],
+    ['FaithWall keeps your lock screen fresh every day.', 'wallpaper-automatic', true],
+    ['FaithWall puts a different verse on your wallpaper each morning.', 'wallpaper-automatic', true],
+    ['FaithWall renews your wallpaper verse every day.', 'wallpaper-automatic', true],
+    ['The FaithWall wallpaper replaces the verse every 8 hours.', 'wallpaper-automatic', true],
+    ['You won\'t need to open anything: FaithWall changes your wallpaper every morning.', 'wallpaper-automatic', true],
+    ['FaithWall works in the background to change your verse daily.', 'wallpaper-automatic', true],
+    ['FaithWall runs behind the scenes so your verse is always new.', 'wallpaper-automatic', true],
+    ['FaithWall\'s Shortcuts automation swaps the verse for you each day.', 'wallpaper-automatic', true],
+    ['FaithWall changes your lock screen verse even when the app is closed, while you sleep.', 'wallpaper-automatic', true],
+    ['FaithWall\'s wallpaper updates every day, plus a widget for quick access.', 'wallpaper-automatic', true],
+    ['Your lock screen verse is replaced every morning by FaithWall.', 'wallpaper-automatic', true],
+    ['FaithWall makes your wallpaper a self-updating lock screen.', 'wallpaper-automatic', true],
+    ['Wake up to a new verse on your FaithWall lock screen every day.', 'wallpaper-automatic', true],
+    ['FaithWall sets a new wallpaper verse every night while you sleep.', 'wallpaper-automatic', true],
+    ['Choose your verse once, and FaithWall refreshes it daily.', 'wallpaper-automatic', true],
+    ['Get a wallpaper that changes itself every morning.', 'wallpaper-automatic', true],
+    ['Looking for a lock screen that updates itself?', 'wallpaper-automatic', true],
+    ['The FaithWall widget rotates random verses.', 'widget-rotation-default', true],
+    ['FaithWall puts a widget and a rotating wallpaper on your lock screen at the same time.', 'wallpaper-widget-combo', true],
+    ['FaithWall is hands off: it changes the wallpaper for you every day.', 'wallpaper-automatic', true],
+    ['FaithWall cannot change your wallpaper while the app is closed.', 'wallpaper-automatic', false],
+    ['FaithWall can\'t update the wallpaper by itself; you pick a verse and it runs the Shortcut.', 'wallpaper-automatic', false],
+    ['Pick a new verse and FaithWall runs the Shortcut for you.', 'wallpaper-automatic', false],
+    ['Edit your verse and the app re-applies it.', 'wallpaper-automatic', false],
+    ['The wallpaper stays until you pick another verse.', 'wallpaper-automatic', false],
+    ['Style changes need Update Wallpaper Now.', 'wallpaper-automatic', false],
+    ['A Shortcuts automation can only re-apply the last image; it cannot change the verse.', 'wallpaper-automatic', false],
+    ['FaithWall will not change your wallpaper on its own.', 'wallpaper-automatic', false],
+    ['FaithWall puts the verse you picked on your lock screen.', 'wallpaper-automatic', false],
+    ['If you turn on Auto-rotate verses, the FaithWall widget shows a random verse every hour.', 'wallpaper-automatic', false],
+    ['The FaithWall widget shows your verse; the optional Auto-rotate verses setting then shows random Bible verses every 8 hours or once a day.', 'wallpaper-automatic', false],
+    ['FaithWall\'s widget can rotate verses every day if you enable Auto-rotate verses.', 'wallpaper-automatic', false],
+    ['Every morning you can pick a new verse and FaithWall puts it on your lock screen.', 'wallpaper-automatic', false],
+    ['When you pick a new verse, FaithWall applies it to your wallpaper within seconds.', 'wallpaper-automatic', false],
+    ['FaithWall keeps the verse you picked on your lock screen until you pick another.', 'wallpaper-automatic', false],
+    ['Setup takes 60 seconds, and the wallpaper stays until you change it.', 'wallpaper-automatic', false],
+    ['Nothing runs in the background: FaithWall only changes the wallpaper when you pick a verse.', 'wallpaper-automatic', false],
+    ['FaithWall does not update your wallpaper overnight.', 'wallpaper-automatic', false],
+    ['Deleting the verse blanks the wallpaper.', 'wallpaper-automatic', false],
+    ['Settings > Change Setup Mode switches between the wallpaper setup and the widget setup.', 'wallpaper-automatic', false],
+    ['FaithWall has two setups: the wallpaper setup and the widget setup.', 'wallpaper-automatic', false],
+    ['You won\'t need to open the Shortcuts app to set the wallpaper.', 'wallpaper-automatic', false],
+    ['Does FaithWall change your wallpaper every morning?', 'wallpaper-automatic', false],
+    ['Hallow sends a new verse every morning; FaithWall keeps the verse you picked.', 'wallpaper-automatic', false],
+    ['YouVersion has a lock screen that refreshes itself daily.', 'wallpaper-automatic', false],
+    ['Read the verse you picked every day on your FaithWall lock screen.', 'wallpaper-automatic', false],
+    ['FaithWall renews automatically unless you cancel in Settings.', 'wallpaper-automatic', false],
+    ['Free to download; a subscription unlocks FaithWall.', 'wallpaper-automatic', false],
+    ['FaithWall shows the verse you picked on a lock screen you check 186 times a day.', 'wallpaper-automatic', false],
+    ['You can change your FaithWall verse whenever you like.', 'wallpaper-automatic', false],
+    ['FaithWall\'s Update Wallpaper Now button applies your new colours.', 'wallpaper-automatic', false],
   ];
   let bad = 0;
   for (const [text, id, want, doc] of cases) {
@@ -607,6 +706,25 @@ function selfTest() {
 
 const argv = process.argv.slice(2);
 if (argv.includes('--self-test')) selfTest();
+
+// --probe <file>: lines "FALSE<TAB>sentence" (must be flagged) or "TRUE<TAB>sentence" (must pass); prints the misses.
+if (argv.includes('--probe')) {
+  const f = argv[argv.indexOf('--probe') + 1];
+  let caught = 0, missed = 0, flagged = 0, okTrue = 0;
+  for (const ln of readFileSync(f, 'utf8').split('\n')) {
+    const m = /^(FALSE|TRUE)\t(.+)$/.exec(ln);
+    if (!m) continue;
+    FW_DOC = false;
+    const found = [];
+    lintText(m[2], found);
+    const hit = found.length > 0;
+    if (process.env.PROBE_IDS) console.log(`${m[1]}\t${[...new Set(found.map((h) => h.id))].join(',')}\t${m[2]}`);
+    if (m[1] === 'FALSE') { if (hit) caught++; else { missed++; console.log(`MISSED false: ${m[2]}`); } }
+    else if (hit) { flagged++; console.log(`FLAGGED true: ${m[2]}  [${found.map((h) => h.id).join(',')}]`); } else okTrue++;
+  }
+  console.log(`probe: false caught ${caught}, false missed ${missed}, true flagged ${flagged}, true passed ${okTrue}`);
+  process.exit(missed || flagged ? 1 : 0);
+}
 
 if (argv.length === 0 || argv.includes('--help') || argv.includes('-h')) {
   console.log('Usage: node scripts/lint-facts.mjs [--all] [--diff <base> [--worktree]] [--dist] [--prompts <files...>]');
