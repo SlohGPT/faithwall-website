@@ -545,3 +545,10 @@ On the final tree, before the push:
 - **The parked homepage branch** must also pass the new hard rules before it merges (`Hero.tsx` and `Features.tsx`).
 - **NoteWall:** the round-7 fixes and the 1.2.0 port, in one push. The round-7 results were sent to NoteWall's session before the cut. The port brief is `docs/keyword-research/notewall-port-1.2.0.md`; a new NoteWall session starts from it, because the old one ran on the other Claude account.
 - **QuranWall:** its brief now carries the update-flow lesson and engine 1.2.0. It still waits for Karol's yes to a new session. It still names the old FaithWall session (on the other account) as the one to report back to; fix that line when the session starts.
+
+### After the deploy (2026-11-17, morning)
+
+- **The cut.** The session that did this work hit the weekly usage limit at 00:00:47, after its last checks and before the push. A new session on Karol's other Claude account resumed it from the transcript and the scratch clone. origin/main had not moved (f57a34f), so nothing was rebased. The resumed session filled in the commit and check lines above, re-ran every check on the final tree (same numbers) and pushed f57a34f..8bc870d as SlohGPT.
+- **Port brief.** The NoteWall 1.2.0 brief went into the repo (`docs/keyword-research/notewall-port-1.2.0.md`) instead of a message, because NoteWall's earlier session ran on the other account. It gives NoteWall paths relative to its own checkout: `check --staged` fails B5 on absolute local paths and on the private archive path in a tracked doc.
+- **Live.** The new CTA title on rotating-bible-verse-wallpaper-iphone was live about 40 s after the push. All 57 sitemap URLs return 200. A text sweep of every live page finds no "nothing to tap" and no "Set Lock Screen". The four remaining hits for "today's verse" or a daily change are true: a generic widget explainer, other apps' flaw, and the pillar FAQ whose answer names the widget opt-in (its heading is TODO-KAROL item 3).
+- **Still open, added:** the private QuranWall brief names the old FaithWall session (other account) as its report-back target. Fix that line when Karol starts a QW session.
