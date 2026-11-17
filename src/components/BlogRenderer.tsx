@@ -243,7 +243,7 @@ function EndCta({ section, campaign }: { section: Extract<BlogSection, { type: '
         {isAndroid && <p>FaithWall is made for iPhone.</p>}
       </div>
       <div className="flex justify-center">
-        <AppStoreButton href={href} theme="light" />
+        <AppStoreButton size="cta" href={href} theme="light" />
       </div>
       <InstallHandoff className="mx-auto mt-6" />
     </div>
@@ -427,7 +427,7 @@ export default function BlogRenderer({ sections, slug, title, pageType }: Props)
                   <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{section.title}</h3>
                   <p className="text-white/80 mb-6 max-w-[32rem] mx-auto">{section.description}</p>
                   <div className="flex justify-center">
-                    <AppStoreButton href={tagAppStoreHref(section.buttonUrl, endCampaign)} theme="light" />
+                    <AppStoreButton size="cta" href={tagAppStoreHref(section.buttonUrl, endCampaign)} theme="light" />
                   </div>
                 </div>
               );

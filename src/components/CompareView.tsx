@@ -371,7 +371,7 @@ export default function CompareView({ config }: { config: CompareConfig }) {
             <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{config.ctaTitle}</h3>
             <p className="text-white/80 mb-6 max-w-xl mx-auto">{config.ctaDescription}</p>
             <div className="flex justify-center">
-              <AppStoreButton href={appStoreUrl('web-cmp')} theme="light" />
+              <AppStoreButton size="cta" href={appStoreUrl('web-cmp')} theme="light" />
             </div>
           </div>
         </div>
