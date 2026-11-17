@@ -746,3 +746,50 @@ On the final tree, before the push:
 - **FaithWall pillar visuals** (redesign parts B and C), after this lands.
 - **Karol:** the NoteWall and QuranWall homepage captures.
 - Send the link-graph 1.1.0 sha to the sister sessions.
+
+### After the deploy (2026-11-17, afternoon)
+
+- **The push:** 0c765cf..a389105 as SlohGPT, after the fork's "ok". The deploy was live within about 2 minutes.
+- **Checks on the live site:**
+  - IndexNow `--all` returned 200.
+  - `link-graph --live https://faithwall.app` exits 0. It finds 58 pages, a max depth of 2, a median of 7 contextual links in, and nothing broken.
+  - Its WARNs:
+    - 25 titles over 65 characters, held until 12-02;
+    - 10 pages whose title doesn't match the H1, a new 1.1.0 check, all on held compare and pillar pages;
+    - the site card shared by 16 pages, which is expected.
+- **Live JS:** 110 KB gzip on `/`, `/blog` and posts, down from 182 KB (343 KB to parse, down from 569).
+- **Visual and DOM QA, live, 390×844 (CDP emulation) and 1440×900:** captures are in the side-session notes, `blog-cwv/live-2026-11-17/`. There were no must-fixes. All of these pass:
+  - no horizontal overflow;
+  - no blank images;
+  - nothing invisible after 3 s, apart from closed menus and accordions and the inactive demo frames;
+  - one H1 per page;
+  - `og-card.jpg` on non-post pages and covers on posts, with sizes;
+  - the Guides menu is server-rendered `<a href>`, works with a click and Escape, and has 44–48 px rows;
+  - the Contents rail and progress bar work;
+  - the post column is 640 px (40rem) at 19/31 px on desktop and 18/30.6 px on phones;
+  - every footer link returns 200, except the Cloudflare email-protection link, which scripts rewrite;
+  - there is no price wording about FaithWall.
+- **QA notes left as they are:**
+  - **"Free to download." prints twice on the Christmas post** (the mid card and the end card). Both are download points, so it stays within the rule.
+  - **"free web wallpaper maker"** is in that post's prose. It is about the web tool, which the rule allows.
+  - **Titles containing "Free"** are frozen.
+  - **Compare-page body text** is 16 px.
+- **Lighthouse, live, one run per page:**
+  - The Mac's load average was 20 during the runs, so the mobile numbers are inflated. Home TBT was 599 ms, against 46 ms in the local r4 run.
+
+  | Page | Mobile perf / LCP | Desktop perf |
+  |---|---|---|
+  | `/` | 78 / 2.78 s (TBT 599 ms) | 100 |
+  | `/blog` | 99 / 1.57 s | 99 |
+  | `/blog/best-free-bible-app-iphone` | 97 / 2.45 s | 99 |
+  | `/blog/christmas-bible-verse-lock-screen-iphone` | 88 / 3.43 s | 100 |
+  | `/daily-scripture-lock-screen` | 97 / 2.37 s | 100 (CLS 0.04) |
+  | `/faithwall-vs-youversion` | 97 / 2.36 s | 100 |
+
+  - CLS is 0 everywhere except that pillar. Accessibility is 100 everywhere except the Christmas post (96).
+  - SEO scores 92 everywhere, because Cloudflare's managed robots.txt adds a `Content-Signal` line ("Unknown directive"). Karol's Cloudflare unblock fixes that too.
+  - The hero heading's fade-up is transform-only, so it hides nothing. A re-measure of `/` and the Christmas post waits for a quiet machine or a PageSpeed API key (Karol's).
+- **299b80d:** the lock-screen figure reference colour goes from #b4561f to #8f4416 on the cream and sand palettes. Contrast goes from 4.12:1 to 5.88:1 on cream and from 3.38:1 to 4.82:1 on sand. The live failure was `cite.lockfig-ref` on the Christmas post. The fork carries it in its visuals push.
+- **The sister sites:**
+  - NoteWall redesign push 1 verified live (f309b0d on origin/main, scenes rendering; the one price word is a competitor fact). Its homepage waits for Karol's "Ship?".
+  - link-graph 1.1.0 (9772194f53db) was sent to both sister sessions, to ride along with their next pushes.
