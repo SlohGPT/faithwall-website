@@ -150,6 +150,14 @@ The daily agent works `src/data/seo-priorities.json` top-to-bottom. Contract:
 - **(2026-10-19) Never write passages for the search engine.** No lists of query variants in quotes, no sentences about which searches a page turns up for, and no question headings a reader would never ask. Passage coverage (§5 AEO) answers the reader's question in plain language. Keyword stuffing is a named Google spam policy. The one passage like this on the site went live five days before the money page's 2026-09-30 drop (§3 Play 2, p53).
 - **(v3, 2026-11-16) No outreach, pitches, directory submissions or link building (Karol, 2026-11-16).** Do not queue, draft, research targets for or run any of it, and do not run a §8 monitoring pass.
 - **(v3, 2026-11-16) No fallback posts and no new post without the §5 demand test.** A day with no eligible queue item is a day with nothing to do.
+- **(2026-11-17) Myths we do not act on** (checked against primary sources, journal 39):
+  - **llms.txt raises AI citations.** Google doesn't use it, and almost no crawler fetches it (Ahrefs, June 2026).
+  - **Special schema or chunking gets a page into AI Overviews.** Google: no special schema.org markup, no need to chunk, no ideal length (AI-optimization guide).
+  - **A self-written aggregateRating or review markup.** Self-serving reviews are not eligible, and the risk is a manual action; none of our sites carries one.
+  - **A 2,000-word target.** Length follows the query (§5 Length); padding is the scaled-content signal.
+  - **Mass dateModified bumps.** Dates move only on substantive edits (§6 `refresh`).
+  - **More "best apps" listicles for reach.** New roundups extend the existing pages (above); no new self-ranking URL.
+  - **Before/after reads during a core update.** The November 2026 core update started 2026-11-10 (Google Search Status Dashboard, up to 2 weeks) and overlaps the 12-02 read-out: annotate it and compare treated vs control pages, not before vs after.
 
 ## 8. Off-Site & Brand Layer (RETIRED 2026-11-16)
 
@@ -250,7 +258,7 @@ FAIL blocks a merge. A list item that starts with another app's bold name and ne
 - keep one app node, with no copied rating;
 - keep `data-nosnippet` on cards only, so answers quote the article and never a CTA.
 
-OAI-SearchBot and PerplexityBot are allowed. Cloudflare's managed block stops GPTBot and ClaudeBot (training crawlers), and that is Karol's call (TODO-KAROL). No llms.txt investment beyond keeping its facts true (§7).
+OAI-SearchBot, ChatGPT-User, Perplexity-User and Claude-SearchBot get 200. Cloudflare's managed block stops GPTBot, ClaudeBot and, since at least 2026-11-17, PerplexityBot (Perplexity's index crawler, not only a training crawler) with 403, and that is Karol's call (TODO-KAROL). No llms.txt investment beyond keeping its facts true (§7).
 
 **Languages (decided 2026-11-16 night, entry 39).** English only, Portuguese (Brazil) included, until a trigger below fires.
 - **Why.** The ASO revenue audit (ASO repo, `docs/journal/04-audit-record/07-country-value-for-web-languages.md`) found that a new customer from Brazil is worth a small fraction of a US one, mostly because of local App Store prices. No other language has a measured money case. So a Portuguese page would need many times the clicks of a US-audience English page to repay its translation and review, and fewer of those clicks come from iPhones. Google barely shows this site in Brazil. The App Store already reaches Brazil through the live Portuguese (Brazil) listing; the listing is also localized for France and Italy.
