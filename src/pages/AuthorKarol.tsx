@@ -1,9 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Link2, PenLine, User } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Breadcrumbs from '../components/Breadcrumbs';
+import SectionIcon from '../components/visual-pages/SectionIcon';
+import { AuthorHeaderVisual } from '../components/visual-pages/AuthorHeaderScene';
 
 const NAME = 'Karol Billik';
 const URL = 'https://faithwall.app/about/karol-billik';
@@ -88,8 +90,13 @@ export default function AuthorKarol() {
             </div>
           </header>
 
-          <section className="prose prose-invert max-w-none">
-            <h2>About</h2>
+          <AuthorHeaderVisual />
+
+          <section className="prose prose-invert max-w-none [&_p]:mt-4 [&_p]:leading-relaxed [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-6 [&_p]:text-white/85 [&_ul]:text-white/85 [&_a]:text-brand [&_a]:underline [&_a]:underline-offset-2">
+            <h2 className="mt-10 flex items-center gap-3 text-2xl font-bold tracking-tight text-white first:mt-0">
+              <SectionIcon icon={User} />
+              About
+            </h2>
             <p>
               I&apos;m Karol — an indie iOS builder based in Slovakia. I started FaithWall after
               years of trying to make my own quiet time stick. The pattern that finally worked
@@ -104,7 +111,10 @@ export default function AuthorKarol() {
               moves that compound into a centered life.
             </p>
 
-            <h2>What I write about</h2>
+            <h2 className="mt-10 flex items-center gap-3 text-2xl font-bold tracking-tight text-white first:mt-0">
+              <SectionIcon icon={PenLine} />
+              What I write about
+            </h2>
             <ul>
               <li>Putting Scripture on the iPhone lock screen — wallpapers, widgets, Focus modes.</li>
               <li>Building a prayer life that survives a busy week — alarms, anchors, voice memos.</li>
@@ -112,7 +122,10 @@ export default function AuthorKarol() {
               <li>Honest comparisons of Christian apps — what each one is actually good for.</li>
             </ul>
 
-            <h2>Elsewhere</h2>
+            <h2 className="mt-10 flex items-center gap-3 text-2xl font-bold tracking-tight text-white first:mt-0">
+              <SectionIcon icon={Link2} />
+              Elsewhere
+            </h2>
             <ul>
               <li>
                 I also run{' '}

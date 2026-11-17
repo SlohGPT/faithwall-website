@@ -1,0 +1,178 @@
+/*
+ * Motion for the page visuals (compare, about, maker, and the homepage FAQ).
+ * Generic classes only; the components decide where they go.
+ *
+ * Rules (visual redesign brief 11-17):
+ *  - transform and opacity only, no JS per animation, one shared IntersectionObserver hook (see Live.tsx).
+ *  - Entrances (.vp-e) last at most 1.1 s in total and play once. They only start hidden when Live has armed
+ *    them, which it does after mount and only for visuals that are below the fold. The server HTML, no-JS,
+ *    print and reduced-motion always show the end state. Above the fold nothing starts invisible.
+ *  - Loops (.vp-loop) are 5 s or slower, subtle, and run only while the visual is on screen (.vp-live).
+ *  - prefers-reduced-motion: no animation at all, end state shown.
+ */
+.vp {
+  position: relative;
+}
+
+/* ---- entrance ---------------------------------------------------------- */
+.vp-armed .vp-e {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.vp-armed .vp-grow {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.vp-go .vp-e {
+  animation: vp-in 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0s);
+}
+.vp-go .vp-grow {
+  animation: vp-grow 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0s);
+}
+.vp-grow {
+  transform-box: fill-box;
+  transform-origin: left center;
+}
+@keyframes vp-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes vp-grow {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- loops: paused until the visual is on screen ------------------------- */
+.vp-loop {
+  animation-duration: var(--t, 6s);
+  animation-delay: var(--d, 0s);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-play-state: paused;
+  animation-fill-mode: backwards;
+  transform-box: fill-box;
+}
+.vp-live .vp-loop {
+  animation-play-state: running;
+}
+.vp-pulse {
+  animation-name: vp-pulse;
+}
+.vp-bob {
+  animation-name: vp-bob;
+}
+.vp-twinkle {
+  animation-name: vp-twinkle;
+  transform-origin: center;
+}
+.vp-rise {
+  animation-name: vp-rise;
+}
+.vp-sweep {
+  animation-name: vp-sweep;
+}
+.vp-travel {
+  animation-name: vp-travel;
+  animation-timing-function: linear;
+}
+@keyframes vp-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes vp-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes vp-twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.7);
+  }
+}
+@keyframes vp-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  40% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+@keyframes vp-sweep {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(var(--sy, 60px));
+  }
+}
+@keyframes vp-travel {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  15%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(var(--dx, 24px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vp *,
+  .vp-armed .vp-e,
+  .vp-armed .vp-grow {
+    animation: none !important;
+  }
+  .vp-armed .vp-e,
+  .vp-armed .vp-grow {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  /* A travelling dot has no resting place: hide it instead of freezing it mid-way. */
+  .vp .vp-travel {
+    opacity: 0 !important;
+  }
+}

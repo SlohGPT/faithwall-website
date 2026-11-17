@@ -9,6 +9,9 @@ import StickyInstallBar from './StickyInstallBar';
 import Breadcrumbs from './Breadcrumbs';
 import AppStoreButton from './AppStoreButton';
 import { appStoreUrl } from '../lib/appStore';
+import { BookOpen, Compass, Copy, HelpCircle, Layers, ListChecks, MessageCircleQuestion, Smartphone } from 'lucide-react';
+import SectionIcon from './visual-pages/SectionIcon';
+import { CompareHeaderVisual } from './visual-pages/CompareHeaderScene';
 
 export interface CompareRow {
   feature: string;
@@ -192,7 +195,8 @@ export default function CompareView({ config }: { config: CompareConfig }) {
             />
           </div>
 
-          <header className="mb-10">
+          <header className="mb-10 md:grid md:grid-cols-[minmax(0,1fr)_15rem] md:items-center md:gap-8">
+            <div>
             <p className="text-brand text-sm font-semibold uppercase tracking-widest mb-3">Comparison</p>
             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
               {config.title}
@@ -203,6 +207,9 @@ export default function CompareView({ config }: { config: CompareConfig }) {
               </span>
               <span>By Karol Billik</span>
             </div>
+            </div>
+            {/* Phones get the scene after the Quick Answer (answer first); md+ keeps it beside the H1. */}
+            <div className="hidden md:block"><CompareHeaderVisual /></div>
           </header>
 
           {/* Quick Answer */}
@@ -220,10 +227,12 @@ export default function CompareView({ config }: { config: CompareConfig }) {
               )}
             </div>
           </div>
+          <div className="md:hidden"><CompareHeaderVisual /></div>
 
           {config.leadQuestion && (
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4 flex items-start gap-3">
+                <SectionIcon icon={HelpCircle} />
                 {config.leadQuestion.question}
               </h2>
               <div className="text-white/85 leading-relaxed text-lg space-y-4">
@@ -251,7 +260,10 @@ export default function CompareView({ config }: { config: CompareConfig }) {
           </div>
 
           {/* Comparison table */}
-          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-12 mb-5">At a glance</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-12 mb-5 flex items-start gap-3">
+            <SectionIcon icon={ListChecks} />
+            At a glance
+          </h2>
           <div className="overflow-x-auto rounded-2xl border border-surface-border">
             <table className="w-full text-left text-sm">
               <thead className="bg-surface-elevated">
@@ -277,21 +289,24 @@ export default function CompareView({ config }: { config: CompareConfig }) {
             </table>
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-12 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-12 mb-4 flex items-start gap-3">
+            <SectionIcon icon={Smartphone} />
             When to choose FaithWall
           </h2>
           <div className="text-white/85 leading-relaxed text-lg">
             <Inline text={config.whenToChooseUs} />
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4 flex items-start gap-3">
+            <SectionIcon icon={Compass} />
             When to choose {config.competitorName}
           </h2>
           <div className="text-white/85 leading-relaxed text-lg">
             <Inline text={config.whenToChooseThem} />
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4 flex items-start gap-3">
+            <SectionIcon icon={Layers} />
             Or use both
           </h2>
           <div className="text-white/85 leading-relaxed text-lg">
@@ -302,7 +317,8 @@ export default function CompareView({ config }: { config: CompareConfig }) {
             <>
               {config.descriptiveCoverage.map((item, i) => (
                 <div key={i}>
-                  <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4">
+                  <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4 flex items-start gap-3">
+                    <SectionIcon icon={HelpCircle} />
                     {item.question}
                   </h2>
                   <div className="text-white/85 leading-relaxed text-lg space-y-4">
@@ -315,7 +331,8 @@ export default function CompareView({ config }: { config: CompareConfig }) {
 
           {config.copycatSection && (
             <>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-10 mb-4 flex items-start gap-3">
+                <SectionIcon icon={Copy} />
                 {config.copycatSection.heading}
               </h2>
               <div className="text-white/85 leading-relaxed text-lg mb-6">
@@ -336,7 +353,8 @@ export default function CompareView({ config }: { config: CompareConfig }) {
 
           {config.faq && config.faq.length > 0 && (
             <>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-12 mb-5">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-12 mb-5 flex items-start gap-3">
+                <SectionIcon icon={MessageCircleQuestion} />
                 Frequently asked questions
               </h2>
               <div className="space-y-4">
@@ -353,7 +371,8 @@ export default function CompareView({ config }: { config: CompareConfig }) {
           )}
 
           {/* Keep reading */}
-          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-12 mb-5">
+          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mt-12 mb-5 flex items-start gap-3">
+            <SectionIcon icon={BookOpen} />
             Keep reading
           </h2>
           <div className="grid sm:grid-cols-2 gap-3 mb-10">

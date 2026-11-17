@@ -28,6 +28,9 @@ import AuthorBio from '../components/AuthorBio';
 import WallpaperGallery from '../components/WallpaperGallery';
 import DeviceMockup, { type DeviceKind } from '../components/DeviceMockup';
 import MiniPreview from '../components/MiniPreview';
+import SectionIcon from '../components/visual-pages/SectionIcon';
+import { MakerHeaderVisual } from '../components/visual-pages/MakerHeaderScene';
+import { MakerIcons, MakerMakeSteps, MakerSetSteps } from '../components/visual-pages/MakerTextVisuals';
 import { loadPhotoFile, type LoadedPhoto } from '../lib/photo';
 import verses from '../data/randomVerses.json';
 import {
@@ -1171,8 +1174,10 @@ export default function WallpaperMaker() {
           <WallpaperGallery />
 
           <div className="max-w-3xl mt-14 space-y-12">
+            <MakerHeaderVisual />
             <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4 flex items-start gap-3">
+                <SectionIcon icon={MakerIcons.make} />
                 How do I make a Bible verse wallpaper for iPhone?
               </h2>
               <p className="text-white/80 leading-relaxed mb-4">
@@ -1180,6 +1185,7 @@ export default function WallpaperMaker() {
                 image. The maker above draws it on a canvas in your browser, keeps the words out of the
                 clock area, and exports a PNG you can set as your lock screen from Photos in a few taps.
               </p>
+              <MakerMakeSteps />
               <ol className="list-decimal pl-6 space-y-2 text-white/75 leading-relaxed">
                 <li>
                   Enter the verse, or tap Random verse or a quick pick. The reference goes on its own line
@@ -1195,7 +1201,8 @@ export default function WallpaperMaker() {
             </section>
 
             <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4 flex items-start gap-3">
+                <SectionIcon icon={MakerIcons.size} />
                 What size should an iPhone lock screen wallpaper be?
               </h2>
               <p className="text-white/80 leading-relaxed mb-4">
@@ -1213,7 +1220,8 @@ export default function WallpaperMaker() {
             </section>
 
             <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4 flex items-start gap-3">
+                <SectionIcon icon={MakerIcons.zones} />
                 Where should I put the text so the clock doesn't cover it?
               </h2>
               <p className="text-white/80 leading-relaxed mb-4">
@@ -1230,7 +1238,8 @@ export default function WallpaperMaker() {
             </section>
 
             <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4 flex items-start gap-3">
+                <SectionIcon icon={MakerIcons.set} />
                 How do I set a Bible verse image as my lock screen?
               </h2>
               <p className="text-white/80 leading-relaxed mb-4">
@@ -1238,6 +1247,7 @@ export default function WallpaperMaker() {
                 also go to Settings, Wallpaper, Add New Wallpaper, then Photos. On Android, open the image
                 in your gallery, tap the menu, choose Set as wallpaper, and pick Lock screen.
               </p>
+              <MakerSetSteps />
               <p className="text-white/75 leading-relaxed">
                 iOS also lets you choose whether the same image appears on your Home Screen. A fuller
                 walkthrough, including the free ways to find verse images, is in our guide to a{' '}
@@ -1252,7 +1262,8 @@ export default function WallpaperMaker() {
             </section>
 
             <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4 flex items-start gap-3">
+                <SectionIcon icon={MakerIcons.desktop} />
                 Can I make a Bible verse wallpaper for desktop, laptop or Android?
               </h2>
               <p className="text-white/80 leading-relaxed mb-4">
@@ -1264,7 +1275,8 @@ export default function WallpaperMaker() {
             </section>
 
             <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4 flex items-start gap-3">
+                <SectionIcon icon={MakerIcons.daily} />
                 How can I get a new Bible verse every day without remaking the wallpaper?
               </h2>
               <p className="text-white/80 leading-relaxed mb-4">
@@ -1311,7 +1323,8 @@ export default function WallpaperMaker() {
             <FaithWallCta />
 
             <section className="mt-4">
-              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-5">
+              <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-5 flex items-start gap-3">
+                <SectionIcon icon={MakerIcons.faq} />
                 Frequently asked questions
               </h2>
               <div className="space-y-4">
