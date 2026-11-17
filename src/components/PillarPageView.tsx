@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom';
 import BlogRenderer from './BlogRenderer';
 import BlogCard from './BlogCard';
 import Breadcrumbs from './Breadcrumbs';
-import type { PillarConfig, BlogPostListing } from '../types/blog';
+import PillarHeaderVisual from './visual-pages/PillarHeaderScene';
+import PillarClusterMap from './visual-pages/PillarClusterMap';
+import type { PillarConfig, BlogPostListing, BlogCluster } from '../types/blog';
 
 interface Props {
   pillar: PillarConfig;
@@ -43,8 +45,12 @@ export default function PillarPageView({ pillar, featured, allPosts = [] }: Prop
           )}
         </header>
 
+        <PillarHeaderVisual cluster={pillar.slug as BlogCluster} />
+
         <BlogRenderer sections={pillar.sections} slug={pillar.slug} title={pillar.title} pageType="pillar" inlineContents />
       </div>
+
+      <PillarClusterMap cluster={pillar.slug as BlogCluster} posts={allPosts} />
 
       {featured.length > 0 && (
         <div className="max-w-6xl mx-auto mt-20">

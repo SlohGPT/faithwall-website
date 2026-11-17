@@ -1,0 +1,318 @@
+/*
+ * Pillar pages: the illustrated header and the cluster map (visual redesign part C, 11-17).
+ * Own file on purpose; it only relies on the state classes that Live.tsx puts on its wrapper:
+ *   vp-live   on screen (loops run, they pause off-screen)
+ *   vp-armed  below the fold after mount and motion allowed (entrances start hidden)
+ *   vp-go     first time it scrolls into view (entrances play once)
+ * Rules: transform and opacity only, entrances 1.1 s or less in total and played once, loops 6 s or slower,
+ * the header scene is above the fold and is never armed (it renders in its end state), reduced motion = end state.
+ */
+
+/* ---- header scene: its box rules (.pv-head) live in visual-pages.css, which is in the eager bundle, so the
+   prerendered HTML inlines them and the box does not shift when this lazy chunk arrives. */
+
+/* ---- loops (header scenes and the map hub) ------------------------------------- */
+.pv-loop {
+  animation-duration: var(--t, 7s);
+  animation-delay: var(--d, 0s);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-play-state: paused;
+  animation-fill-mode: backwards;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.vp-live .pv-loop {
+  animation-play-state: running;
+}
+.pv-pulse {
+  animation-name: pv-pulse;
+}
+.pv-bob {
+  animation-name: pv-bob;
+}
+.pv-twinkle {
+  animation-name: pv-twinkle;
+}
+.pv-flicker {
+  animation-name: pv-flicker;
+  transform-origin: 50% 100%;
+}
+.pv-sway {
+  animation-name: pv-sway;
+  transform-origin: 50% 100%;
+}
+.pv-travel {
+  animation-name: pv-travel;
+  animation-timing-function: linear;
+}
+@keyframes pv-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes pv-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+@keyframes pv-twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.75);
+  }
+}
+@keyframes pv-flicker {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  40% {
+    transform: scale(0.92, 1.06);
+  }
+  70% {
+    transform: scale(1.05, 0.95);
+  }
+}
+@keyframes pv-sway {
+  0%,
+  100% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.5deg);
+  }
+}
+@keyframes pv-travel {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  20%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(var(--dx, 36px));
+  }
+}
+
+/* ---- cluster map ------------------------------------------------------------------ */
+.pv-map {
+  --rail: 22px;
+  --line: rgba(217, 123, 59, 0.45);
+}
+.pv-tree {
+  position: relative;
+}
+.pv-list {
+  list-style: none;
+  margin: 0;
+  padding: 16px 0 0;
+  position: relative;
+}
+.pv-hub {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(217, 123, 59, 0.5);
+  background: rgba(217, 123, 59, 0.1);
+  color: #fff;
+}
+.pv-hub svg {
+  flex: none;
+  width: 56px;
+  height: 56px;
+}
+.pv-hub-label {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.pv-hub-sub {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.7);
+}
+/* Phones: a vertical rail. The hub on top, one connector per post. */
+.pv-hub::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: calc(var(--rail) - 2px); /* 1px less than the items: the hub has a 1px border */
+  width: 2px;
+  height: 16px;
+  background: var(--line);
+}
+.pv-item {
+  position: relative;
+  padding: 5px 0 5px calc(var(--rail) + 22px);
+}
+.pv-item::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--rail) - 1px);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--line);
+}
+.pv-item:last-child::before {
+  bottom: 50%;
+}
+.pv-item::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--rail) - 1px);
+  top: 50%;
+  width: 21px;
+  height: 2px;
+  background: var(--line);
+}
+.pv-node {
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-wrap: balance;
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+}
+.pv-node:hover {
+  border-color: rgba(217, 123, 59, 0.7);
+  background: rgba(217, 123, 59, 0.1);
+  color: #fff;
+}
+.pv-node:focus-visible {
+  outline: 2px solid #e9a06a;
+  outline-offset: 2px;
+}
+
+/* Wider screens: the hub in the middle, posts on both sides. */
+@media (min-width: 768px) {
+  .pv-tree {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 176px minmax(0, 1fr);
+    grid-template-rows: repeat(var(--rows, 1), auto);
+    row-gap: 14px;
+  }
+  .pv-tree::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    margin-left: -1px;
+    background: var(--line);
+  }
+  .pv-list {
+    display: contents;
+  }
+  .pv-hub {
+    grid-column: 2;
+    grid-row: 1 / span var(--rows, 1);
+    align-self: center;
+    justify-self: center;
+    width: 148px;
+    z-index: 1;
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+    padding: 16px 12px;
+    background: #1c1410;
+  }
+  .pv-hub::after {
+    display: none;
+  }
+  .pv-hub svg {
+    width: 64px;
+    height: 64px;
+  }
+  .pv-item {
+    padding: 0;
+  }
+  .pv-item::before {
+    display: none;
+  }
+  .pv-item::after {
+    top: 50%;
+    height: 2px;
+    width: 88px;
+  }
+  .pv-item[data-side='l'] {
+    grid-column: 1;
+  }
+  .pv-item[data-side='l']::after {
+    left: 100%;
+  }
+  .pv-item[data-side='r'] {
+    grid-column: 3;
+  }
+  .pv-item[data-side='r']::after {
+    left: -88px;
+  }
+  .pv-node {
+    height: 100%;
+  }
+}
+
+/* ---- map entrance: below the fold only, plays once ------------------------------ */
+.vp-armed .pv-e {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.vp-go .pv-e {
+  animation: pv-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0s);
+}
+@keyframes pv-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-loop,
+  .vp-go .pv-e {
+    animation: none !important;
+  }
+  .vp-armed .pv-e {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .pv-travel {
+    opacity: 0 !important;
+  }
+}
