@@ -86,7 +86,7 @@ const HERO_CSS = `
 // the next verses one at a time. First render (server and client) is day 1, verse 0.
 const LOOP_MS = 4000;
 
-const AVATARS = ['/assets/avatars/avatar-1.jpg', '/assets/avatars/avatar-2.jpg', '/assets/avatars/avatar-3.jpg'];
+const AVATARS = ['/assets/avatars/avatar-1-72.webp', '/assets/avatars/avatar-2-72.webp', '/assets/avatars/avatar-3-72.webp'];
 
 function useWidgetLoop() {
   const reduced = usePrefersReducedMotion();

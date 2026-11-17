@@ -59,7 +59,23 @@ function helmetToString(helmet) {
 }
 
 async function prerender() {
-  const template = readFileSync(join(distDir, 'index.html'), 'utf-8');
+  let template = readFileSync(join(distDir, 'index.html'), 'utf-8');
+
+  // Inline the built stylesheet (about 12 KB gzip) in place of the render-blocking <link>, so first paint does not wait
+  // for a second request. Done once on the template, so every route and 404.html get it. Fonts use absolute /fonts/ urls,
+  // so the CSS is path-independent. Falls back to the plain <link> if the file or the tag is not found.
+  template = template.replace(
+    /<link rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/,
+    (tag, href) => {
+      try {
+        const css = readFileSync(join(distDir, href), 'utf-8').trim();
+        if (css.includes('</style')) return tag;
+        return `<style>${css}</style>`;
+      } catch {
+        return tag;
+      }
+    },
+  );
   const { render } = await import(pathToFileURL(ssrEntry).href);
 
   let succeeded = 0;

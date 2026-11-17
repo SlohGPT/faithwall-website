@@ -52,6 +52,17 @@
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+/* Metrics-matched local fallback for DM Sans (Arial/Liberation Sans scaled to DM Sans's average advance and vertical
+   metrics, measured with fontTools), so the swap to the real file does not move the nav text or reflow headings. */
+@font-face {
+  font-family: 'DM Sans Fallback';
+  src: local('Arial'), local('Liberation Sans'), local('Helvetica');
+  size-adjust: 104.2%;
+  ascent-override: 95.2%;
+  descent-override: 29.8%;
+  line-gap-override: 0%;
+}
+
 /* Gelasio (OFL), the serif the lock-screen covers use. Latin subset of scripts/fonts. Only fetched on pages that show a verse figure. */
 @font-face {
   font-family: 'Gelasio';
@@ -234,15 +245,15 @@
   }
 
   /* SSR-safe entrance animations: element renders visible in HTML, animation
-     enhances on client. Avoids the blank-until-hydrate problem framer-motion's
+     enhances on client (transform only, see below). Avoids the blank-until-hydrate problem framer-motion's
      `initial` causes when prerendered. */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { transform: translateY(14px); }
+    to { transform: translateY(0); }
   }
   @keyframes fadeInSlide {
-    from { opacity: 0; transform: translateX(20px) scale(0.95); }
-    to { opacity: 1; transform: translateX(0) scale(1); }
+    from { transform: translateX(20px) scale(0.97); }
+    to { transform: translateX(0) scale(1); }
   }
   .animate-fade-up { animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
   .animate-fade-up-d1 { animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
@@ -251,6 +262,12 @@
   .animate-fade-up-d4 { animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both; }
   .animate-fade-up-d6 { animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both; }
   .animate-fade-in-slide { animation: fadeInSlide 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
+  /* Above-the-fold reveals are transform-only (no opacity-0 start), so text and the LCP candidate are visible and
+     paintable from the first frame. Reduced motion: no movement at all. */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up, .animate-fade-up-d1, .animate-fade-up-d2, .animate-fade-up-d3, .animate-fade-up-d4,
+    .animate-fade-up-d6, .animate-fade-in-slide { animation: none; }
+  }
 
   /* Layered top padding for the fixed nav:
        - base 1.25rem (mobile) / 1.5rem (desktop) — the design spec

@@ -69,7 +69,9 @@ export default function Home() {
                 <title>{HOME_TITLE}</title>
                 <meta name="description" content={HOME_DESC} />
                 <link rel="canonical" href="https://faithwall.app/" />
-                <link rel="preload" as="font" type="font/woff2" href="/fonts/lora-semibold-latin.woff2" crossOrigin="anonymous" />
+                {/* Lora subset: the Lock Screen verse in the hero phone is only in the first viewport on wide screens, so the
+                    preload is wide-only and low priority; on phones the font loads when the verse is laid out. */}
+                <link rel="preload" as="font" type="font/woff2" href="/fonts/lora-semibold-latin.woff2" crossOrigin="anonymous" media="(min-width: 768px)" {...{ fetchpriority: 'low' }} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://faithwall.app/" />
                 <meta property="og:title" content={HOME_TITLE} />
