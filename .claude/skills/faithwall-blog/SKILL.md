@@ -289,6 +289,14 @@ Then generate the cover (local runs only; needs Google Chrome, no npm installs).
 node scripts/build-blog-thumbnails.mjs {slug}
 ```
 
+Then build the responsive AVIF/WebP variants for the new cover (local runs; needs `sharp`, a devDependency, so `npm install` once). It is idempotent, never touches the jpg, writes `public/blog-thumbnails/{cover}-{240,480,640,960,1280}.avif|webp` and updates `src/data/coverVariants.json`, which the hero and the cards read. Run it after every new or regenerated cover (`{cover}` = the jpg file name without `.jpg`):
+
+```bash
+node scripts/build-blog-image-variants.mjs {cover}
+```
+
+A cover without variants still renders (plain jpg, no preload), so if sharp is not available (cloud run) skip this and say in the commit body that the cover needs `node scripts/build-blog-image-variants.mjs {cover}`. A post that reuses an existing cover needs nothing. Never run this inside `npm run build`.
+
 ### Step 7 — Update the pillar's `featured` list
 
 Read `src/data/pillars.json`. Find the pillar whose key matches `meta.cluster`. Prepend the new slug to `featured`. If `featured.length` > 6 after prepending, drop the last item. Write the file back.
@@ -304,7 +312,7 @@ node scripts/lint-facts.mjs --diff origin/main --worktree
 Then run these in order:
 
 ```bash
-git add src/data/posts/{slug}.json src/data/blogPosts.json src/data/blogCovers.json src/data/pillars.json public/sitemap.xml public/blog-thumbnails
+git add src/data/posts/{slug}.json src/data/blogPosts.json src/data/blogCovers.json src/data/coverVariants.json src/data/pillars.json public/sitemap.xml public/blog-thumbnails
 git commit -m "$(cat <<'EOF'
 blog: {title}
 

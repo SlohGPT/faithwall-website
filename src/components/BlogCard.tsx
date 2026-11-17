@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import CoverPicture from './CoverPicture';
+import { CARD_WIDTHS } from '../lib/covers';
 import type { BlogPostListing } from '../types/blog';
 
 const CLUSTER_LABEL: Record<string, string> = {
@@ -16,13 +18,11 @@ export default function BlogCard({ post }: { post: BlogPostListing }) {
       className="group block rounded-2xl overflow-hidden bg-surface-card border border-surface-border hover:border-brand/40 transition-all duration-300 hover:-translate-y-1"
     >
       <div className="aspect-[16/9] overflow-hidden bg-surface-elevated">
-        <img
+        <CoverPicture
           src={post.thumbnail}
           alt={post.thumbnailAlt ?? post.title}
-          width={1600}
-          height={900}
-          loading="lazy"
-          decoding="async"
+          widths={CARD_WIDTHS}
+          sizes="(min-width: 1024px) 384px, (min-width: 768px) 33vw, 100vw"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>

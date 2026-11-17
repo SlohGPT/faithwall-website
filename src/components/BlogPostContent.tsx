@@ -3,6 +3,8 @@ import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import BlogRenderer from './BlogRenderer';
 import AuthorBio from './AuthorBio';
 import BlogCard from './BlogCard';
+import CoverPicture from './CoverPicture';
+import { HERO_WIDTHS, HERO_SIZES } from '../lib/covers';
 import Breadcrumbs from './Breadcrumbs';
 import type { BlogPost, BlogPostListing } from '../types/blog';
 
@@ -51,16 +53,14 @@ export default function BlogPostContent({ post, slug, related }: Props) {
 
         {meta.image && (
           <figure className="mb-10 rounded-2xl overflow-hidden">
-            <img
+            <CoverPicture
               src={meta.image}
               alt={meta.imageAlt ?? meta.title}
-              width={1600}
-              height={900}
+              widths={HERO_WIDTHS}
+              sizes={HERO_SIZES}
               className="w-full aspect-[16/9] object-cover"
               loading="eager"
-              decoding="async"
-              // React 18 only knows the lowercase attribute (same workaround as the Hero image).
-              {...{ fetchpriority: 'high' }}
+              priority
             />
             {meta.imageAttribution && (
               <figcaption className="mt-2 text-sm text-white/60 text-right">
