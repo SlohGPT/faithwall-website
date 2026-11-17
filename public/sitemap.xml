@@ -92,7 +92,7 @@
   </url>
   <url>
     <loc>https://faithwall.app/blog</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -167,6 +167,12 @@
     <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://faithwall.app/blog/christmas-bible-verse-lock-screen-iphone</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://faithwall.app/blog/lock-screen-verse-for-grief</loc>

@@ -2,6 +2,11 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-17 (autopilot: p67, the Christmas verses post)
+
+- **Request indexing once the merge gate has deployed it (1 minute).** The new URL is `/blog/christmas-bible-verse-lock-screen-iphone`. In Search Console → URL Inspection, click **Request indexing** once. It is one of the two posts the indexing brake watches (with p68), and Advent starts on 11-29.
+- **If you merge or retire any of the five daily-change posts (item 1 below), keep the Christmas link.** `best-christian-wallpaper-app-iphone` and `scripture-wallpaper-for-iphone-free` now carry the new post's day-one links. Whichever page absorbs either of them should keep a link to `/blog/christmas-bible-verse-lock-screen-iphone`.
+
 ## 2026-11-17 (how the wallpaper really updates)
 
 I checked the site against the app's source code. The site said the lock-screen verse changes by itself or every day. In the app it changes only when you pick or edit a verse (the app runs the Shortcut), and a style change needs Update Wallpaper Now. Nothing runs in the background. The site, the blog skill and the autopilot prompts now say so, and the lint fails the old claims.
