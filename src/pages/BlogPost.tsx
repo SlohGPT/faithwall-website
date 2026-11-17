@@ -5,11 +5,12 @@ import Footer from '../components/Footer';
 import StickyInstallBar from '../components/StickyInstallBar';
 import BlogPostContent from '../components/BlogPostContent';
 import NotFound from './NotFound';
-import { getPost, getListing, getRelated } from '../lib/posts';
+import { usePost, getListing, getRelated } from '../lib/posts';
+import { coverSources, HERO_WIDTHS, HERO_SIZES } from '../lib/covers';
 
 export default function BlogPost() {
   const { slug = '' } = useParams<{ slug: string }>();
-  const post = getPost(slug);
+  const post = usePost(slug);
   const listing = getListing(slug);
 
   if (!post || !listing) return <NotFound />;
@@ -19,6 +20,7 @@ export default function BlogPost() {
   const imageUrl = post.meta.image.startsWith('http')
     ? post.meta.image
     : `https://faithwall.app${post.meta.image}`;
+  const heroPreload = coverSources(post.meta.image, HERO_WIDTHS);
   const dateModified = post.meta.dateModified || post.meta.datePublished;
   // Google appends the site name itself when the document title is long;
   // keep the post title as-is to avoid SERP truncation when titles run past ~55 chars.
@@ -89,6 +91,17 @@ export default function BlogPost() {
         <title>{docTitle}</title>
         <meta name="description" content={post.meta.description} />
         <link rel="canonical" href={url} />
+        {heroPreload && (
+          // LCP image discovery: in the prerendered <head>, same srcset and sizes as the hero <picture>.
+          // Lowercase attributes (react-helmet-async writes them as given); href keeps helmet from deduping it away.
+          <link
+            rel="preload"
+            as="image"
+            type="image/avif"
+            href={heroPreload.preloadHref}
+            {...{ imagesrcset: heroPreload.avifSrcSet, imagesizes: HERO_SIZES, fetchpriority: 'high' }}
+          />
+        )}
         <meta property="og:title" content={post.meta.title} />
         <meta property="og:description" content={post.meta.description} />
         <meta property="og:url" content={url} />

@@ -1,21 +1,11 @@
 import postsRegistry from '../data/blogPosts.json';
 import pillarsData from '../data/pillars.json';
-import type { BlogPost, BlogPostListing, PillarConfig, BlogCluster } from '../types/blog';
+import type { BlogPostListing, PillarConfig, BlogCluster } from '../types/blog';
 
-const postModules = import.meta.glob<{ default: BlogPost }>('../data/posts/*.json', { eager: true });
-
-const postsBySlug: Record<string, BlogPost> = {};
-for (const [path, mod] of Object.entries(postModules)) {
-  const slug = path.replace('../data/posts/', '').replace('.json', '');
-  postsBySlug[slug] = (mod as { default: BlogPost }).default ?? (mod as unknown as BlogPost);
-}
+export { preloadPost, usePost } from './postLoader';
 
 export const allListings: BlogPostListing[] = (postsRegistry as BlogPostListing[])
   .filter((p) => p.isPublished !== false);
-
-export function getPost(slug: string): BlogPost | null {
-  return postsBySlug[slug] ?? null;
-}
 
 export function getListing(slug: string): BlogPostListing | null {
   return allListings.find((p) => p.slug === slug) ?? null;
