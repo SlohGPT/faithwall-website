@@ -122,3 +122,153 @@ This session worked on all three sites from the FaithWall checkout. QuranWall (Q
 - **lint-facts.** The original session is not editing `lint-facts.mjs`: the #11 lints went into link-graph 1.1.0 and a new `lint-originality.mjs`. Its stage A rewrites `SocialProof.tsx`, and its rebase keeps the two `facts.*` values from 9437b4b.
 - **Cloudflare.** Karol's unblock decision is in its TODO-KAROL item 4 and in SEO-STRATEGY, on its branch (c7386df).
 - **NoteWall.** NoteWall was told that its broken post covers (`/_next/image` 400s, from this audit) and item 5 of the original session's NoteWall CWV brief are one image-config fix, in one commit reported against both.
+
+## No subscription or price mention on the site (Karol, 11-17 evening)
+
+### Asked
+
+- Karol, relayed by the original session: "I wouldn't mention neither of this until people actually click in the app or like in the app store… when we will warn them that a subscription is required, they will not click… So not mention it. in neither of the 3 apps." This covers blog posts too. Legal pages stay as they are.
+- His second message set the "free" line: "free to download" or "download for free" is fine where people download the app, but "don't say explicitly that it is for free, because we don't want to lie to our customers."
+- The original session agreed that "free" can stay on the web Wallpaper Maker, under three conditions:
+  1. the sentence is clearly about the web tool;
+  2. nothing slides from the tool's freeness to the app;
+  3. the lint exemption covers only the tool's wording.
+
+### Built: 81f4eac, one commit with 61 files
+
+The first version was committed locally as 9abd4b8, then tightened and amended before the push, so 9abd4b8 never reached GitHub.
+
+- **`facts.json`:** `installLine` is now "Free to download." and `subscriptionLine` is gone. Every blog end card prints `installLine`, and so does the held-page CTA card, which had no install line before. The CTA sections' own titles and descriptions no longer say it, so it appears once per card.
+- **Home:** the meta description and the MobileApplication schema lost the subscription sentence. The Offer keeps price "0" with "Free to download.", which is the download price.
+- **How it works:** step 1 lost its pricing sentence.
+- **Home FAQ:**
+  - "Is FaithWall free?" is deleted.
+  - "Is my data private?" is deleted too, because its whole answer was about the subscription payment.
+- **`llms.txt`:** the Pricing section and the subscription line are gone. `public/pricing.md` is deleted; nothing linked to it.
+- **Posts (46 files over both passes), `blogPosts.json`, `pillars.json` and `comparisons.json`:**
+  - Our subscription, price and trial lines are cut.
+  - Table rows and columns that only compared price are removed for every app. Otherwise our blank cell next to competitor prices would read as "free".
+  - Sentences saying or implying that FaithWall is free to use are removed, including counts of "free apps" that silently included it.
+  - Price contrasts next to FaithWall are removed, such as "Hallow is a paid…" and "YouVersion is free, and FaithWall is free to download".
+  - Competitor price facts stay.
+- **Web maker:** "free" stays only where the sentence is clearly about the web maker: its title, its FAQ question, the "Free Tool" label, its quick answer, and one Christmas-post sentence ("The free web wallpaper maker on this site…"). For the wallpaper gallery and the random verse generator, "free" was removed rather than stretching the exception.
+- **`lint-facts.mjs`:**
+  - New `subscription-mention`, `free-use-claim` and `prose-download-line` rules, with the maker exemption scoped to the tool's wording.
+  - 271 self-tests.
+  - "Use FaithWall for free", "all features for free" and "FaithWall is a free app" fail. "Free to download.", "Download for free" and "Download FaithWall for free" pass.
+  - Competitor sentences don't fire.
+- **Product-facts lines:**
+  - the blog skill;
+  - SEO-STRATEGY;
+  - the six local routine prompts (autopilot, refresh and merge-bot, two of each);
+  - the notes of pending queue items p68, p69 and p71, which had told future posts to write "a subscription unlocks it".
+- **Not changed:** titles, slugs and `dateModified`. One annotations row is written for the sitewide change, which comes from Karol's order.
+
+### Tightened before the push (the original session, 11-17 late evening)
+
+The original session withdrew the brief's allowance for a post's own closing "free to download" sentence. Its rules:
+
+- Post, pillar and compare prose never says "free" about FaithWall, "free to download" included.
+- The wording stays only at real download points: the end and install cards the renderer draws, App Store buttons, the homepage hero and final CTA, and the compare pages' CTA box.
+- On the four free-topic posts, FaithWall must not read as one of the free picks.
+- The pages stay as they are, with no redirect or noindex.
+
+**What changed:**
+
+- About 50 body occurrences were cut from paragraphs, lists, tables, quick answers and verdicts, and the rest of each sentence was kept.
+- The download phrase was cut from every post CTA title and description, because the card now adds it.
+  - "Free to download, 60-second setup." became "60-second setup.", moved to the end of the description.
+  - "Get FaithWall — free to download, 60 seconds" became "Get FaithWall — set up in 60 seconds".
+- Two leftovers were cut:
+  - "Both are free to download" (YouVersion and Olive Tree, next to FaithWall copy);
+  - the wallpaper gallery's "free to download" in `daily-scripture-wallpaper-iphone`.
+- CTA lines touched in this pass that implied default widget rotation now name the optional Auto-rotate verses setting:
+  - in `bible-verse-widget-iphone` and `best-bible-study-app-iphone-2026`;
+  - the `scripture-wallpaper-for-iphone-free` CTA title, now "let FaithWall hold your verse";
+  - that post's meta description, now "a widget with optional Auto-rotate verses".
+- **Free-topic posts, reworded sentences:**
+  - **`best-free-bible-app-iphone`:**
+    - #1 description: "Free to download. It has a built-in Bible browser…" → "The companion to pair with the reading apps below. It has a built-in Bible browser…"
+    - 2026 list: "FaithWall — free to download, and still the gap every other 2026 pick leaves open" → "FaithWall — still the gap every other 2026 pick leaves open"
+    - Its description: "No 2026 change needed: free to download." → "No 2026 change needed: the companion to pair with the reading apps below."
+  - **`free-christian-apps-iphone-comparison`:**
+    - Quick answer: "a four-app stack: YouVersion…, Lectio 365…, Bible Recap…, and FaithWall for the lock-screen Scripture layer" → "a three-app free stack: YouVersion…, Lectio 365… and Bible Recap…, paired with FaithWall as the lock-screen Scripture layer"
+    - "FaithWall adds the lock-screen layer… the four-app combo" → "FaithWall is the lock-screen layer you pair with them… the combo"
+    - Heading: "The four-app stack, set up" → "The free stack plus the lock-screen layer, set up"
+    - "used these four for at least two months" → "used these for at least two months"
+    - Highlight: "a four-app Christian iPhone stack — YouVersion, Lectio 365, Bible Recap (in YouVersion), and FaithWall (free to download)" → "a Christian iPhone stack of three free apps — YouVersion, Lectio 365 and Bible Recap (in YouVersion) — with FaithWall as the lock-screen layer"
+    - "The four-app stack here covers…" → "The three free apps plus the lock-screen layer here cover…"
+    - "The honest stack is short — four apps, four jobs." → "The honest stack is short — three free apps for three jobs, plus FaithWall as the lock-screen layer."
+  - **`best-prayer-app-for-iphone` and `scripture-wallpaper-for-iphone-free`:** their bodies already framed FaithWall as the daily trigger. Only the download phrase and the rotation line above changed.
+- **Lint, `prose-download-line`:**
+  - It FAILs "free to download", "download it/FaithWall for free" and "free download" in the body text of `posts/*.json`, `pillars.json`, `comparisons.json` and `blogPosts.json` when the sentence is about FaithWall.
+  - It skips `cta` sections and the compare `ctaTitle` and `ctaDescription`.
+  - It checks the FaithWall column of compare rows.
+  - A sentence naming only a competitor passes. A mixed sentence fails, so split it.
+
+### How it was done and verified
+
+- Workflows:
+  - **Subscription and price wording:** 4 implementers, a gate, 3 reviewers and a fixer.
+  - **The "free" line:** 3 implementers, a gate, 2 reviewers and a fixer.
+  - **A fresh-eyes check:** a gate runner, a content skeptic, and a dist scan of text, JSON-LD and meta. It found no must-fix items, and its 15 price-contrast points were fixed by hand.
+  - **The tightening:** 4 implementers on disjoint files, a gate with a DOM-classified dist audit, a content skeptic, a rules skeptic and a fixer. It had 16 findings: 3 must-fix (all fixed), and the rest fixed or noted below.
+- **Final tree (81f4eac):**
+  - typecheck: 6 errors (baseline).
+  - build: 58/58.
+  - `lint-facts`: `--self-test` 271/0. `--all` 0 FAIL with 21 WARN (main has 29, all widget-rotation on untouched lines). `--diff`, `--dist` and `--prompts` (all 8 files) 0.
+  - `keyword-research check`: clean.
+  - No NUL bytes.
+  - `link-graph --dist`: exit 0.
+- **Dist audit of "free to download":** 93 hits in 50 pages, every one at an allowed place:
+  - 35 mid install cards and 35 end cards;
+  - 15 held CTA cards (blog and pillar);
+  - 2 compare CTA boxes;
+  - the PrayerMate competitor sentence;
+  - the homepage (meta, og and twitter descriptions, FAQ and its JSON-LD, app schema, the Offer, How it works step 1).
+  - No card prints it twice, and no FaithWall prose carries it.
+- **The dist grep for subscription, trial or price** still matches 18 files, and none is about FaithWall:
+  - competitor facts on post and compare pages, for example ESV's and YouVersion's optional subscriptions;
+  - the JS bundles carrying the same text;
+  - the legal pages' text inside the main bundle;
+  - a framer-motion identifier.
+
+### After deploy (81f4eac, 11-17)
+
+- **Live crawl:** all 58 sitemap URLs return 200. There are 93 "free to download" hits outside the legal pages: 82 in install, end and held cards, 2 in compare CTA boxes, 8 on the homepage and 1 in the PrayerMate sentence. None is in FaithWall prose.
+- **Price words:** subscription, trial and price words in a sentence that names FaithWall come up on 3 pages. All three are competitor facts beside a FaithWall sentence: Amen.'s subscription, Hallow's, and YouVersion's optional Bible Plus.
+- IndexNow `--all` returned 200.
+- `link-graph --live` exits 0: 58 pages, max depth 2, median 6 contextual links in, 0 orphans. It also warns about 25 titles over 65 characters (held, unchanged).
+
+### Decided (the original session, 11-17)
+
+- The four free-topic pages stay, with no redirect or noindex, now that FaithWall reads as the companion there.
+- The privacy FAQ gap and the Offer price "0" stay as left; the original session tells Karol about the FAQ.
+
+### Open
+
+- **Homepage, outside this pass:** the FAQ answer and the matching meta description open with "FaithWall is an iPhone app, free to download, that puts…", and How it works step 1 says "Download FaithWall from the App Store (free to download)." Both are download-adjacent home copy. Change them only if Karol wants the phrase on the hero and final CTA alone.
+- **Frozen title:** `free-christian-apps-iphone-comparison` keeps the title "The Honest Four-App Stack". The body now has three free apps plus FaithWall, still four apps, so it holds. Rewording the title would need a title exception.
+- **Leftover CTA mismatch:** the `daily-scripture-wallpaper-iphone` CTA description opens "The piece every Bible study stack is missing", copied from another post. It was left because it is outside the free rule.
+- **Lint gaps:**
+  - `prose-download-line` runs on source only. `--dist` can't tell prose from a held or compare CTA card, because those carry no marker, so the dist audit above is the check.
+  - Bare "free", "(free)" or "free app" about FaithWall falls to `free-use-claim`, not this rule.
+  - A pronoun-only sentence of its own ("It's free.") is not caught.
+- **Cloud routine:** RemoteTrigger lists none from this account, so no cloud prompt was checked.
+
+### NoteWall audit fixes verified (11-17)
+
+- The NoteWall session reported merge 68eb3e0 (covers and image config 241d850, og and share cards 2d124b5) and journal 35 (2fea8af).
+- A read-only check confirmed that every commit is on NoteWall's origin/main. It covered the repo review, a live crawl and a skeptic:
+  - all 112 pages and all 1,823 optimizer URLs return 200, and no notewall.info absolute URL goes to the optimizer;
+  - the og image is byte-identical to the repo's;
+  - the "free" build guard works both ways;
+  - og:url matches the canonical everywhere.
+- Sent back to that session, its call:
+  - BlogCard bypasses `localImagePath` (safe today);
+  - the App Store badge is also preloaded on every post;
+  - 20 heroless posts, not 18;
+  - 6 pillars plus /blog, not 7;
+  - the CWV figures aren't in its journal;
+  - the retina cap at 1,200 px;
+  - the terms page's share text repeats "subscriptions". That is a legal page, so it is optional.
