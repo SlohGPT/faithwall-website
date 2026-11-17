@@ -441,3 +441,47 @@ The original session withdrew the brief's allowance for a post's own closing "fr
     - The live FAQPage JSON-LD matches the build: 4 questions.
     - ct tokens are unchanged: web-home-hero, web-site and web-smart-banner. No price words.
     - One mobile Lighthouse run: performance 97, LCP 2.5 s, CLS 0, TBT 60 ms, accessibility 100.
+
+## Cloudflare AI crawlers unblocked (11-17, afternoon)
+
+- **The ask:** Karol, about the "For you: Cloudflare" item: "do this yourself, everything yourself." He then switched Chrome's Cloudflare login himself to the account that holds faithwall.app. That account shows only faithwall.app, because quranwall.com and notewall.info use Porkbun DNS, not Cloudflare.
+- **Where it lives now:** the faithwall.app zone → Security → Settings → "AI Crawler and Agent access policies". AI Crawl Control → Security shows the matching per-crawler switches.
+- **Changed:**
+  - Training: Disallow → Allow (do not block);
+  - Enable Bot Preference Sync (the managed robots.txt): on → off.
+- **Left as they were:** Search Allow, Agents "Block on pages with ads", Personal Agents Allow, Bot fight mode off, AI Labyrinth off. No team-level setting was touched.
+- **Verified:**
+  - the live robots.txt is identical to `public/robots.txt`, with no Content-Signal lines;
+  - GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, ChatGPT-User, Claude-SearchBot and Googlebot each get 200;
+  - `npm run kw -- geo-probe` exits 0.
+- **Effect:** TODO-KAROL item 4 (research check, 11-17) is done. Any return of the block is now a regression to flag, not a question for Karol.
+
+## Pillar page visuals, visual redesign part C (11-17)
+
+- **The ask:** part C of the visual-redesign brief (Karol: the pages are "too text heavy… no visuals"). The pillars get an illustrated header and a visual map of their posts. Template only: no post or pillar JSON and no dates changed, so the control-group hold is untouched. The implementer's notes were drafted as a separate entry 43; they are folded in here because this session owns entry 42.
+- **Built (a5a74dd):**
+  - `PillarHeaderScene.tsx`: one aria-hidden inline SVG per pillar (640×240, 3.2–4.5 KB in the HTML), drawn from the illustration primitives:
+    - daily scripture: three verse cards, the picked one ticked → lock screen → the widget starting with that verse;
+    - prayer: lock screen, candle and notebook;
+    - productivity: lock screen, a to-do list, mug and plant;
+    - Bible study: lock screen beside an open book;
+    - comparisons: two generic, unnamed app screens beside the FaithWall lock screen.
+    - The only product claim drawn is "pick a verse, it becomes the wallpaper, the widget starts with it". No numbers, ratings or prices.
+  - `PillarClusterMap.tsx`: the hub (the cluster label and "N guides") with every `getPillarAll` post as a real `<a href="/blog/<slug>">` carrying its own title.
+    - Phones get a vertical rail: nodes at least 52 px tall, 15 px type.
+    - From 768 px the hub sits in the middle with posts on both sides.
+    - The heading is "Guide map".
+  - `pillar-visuals.css`:
+    - loops of 6 s or slower, paused off-screen;
+    - map entrances only below the fold, 1.1 s in total, played once;
+    - reduced motion shows the end state.
+    - It relies only on the `vp-live`/`vp-armed`/`vp-go` classes from `Live.tsx`. The peer's smooth-load change to `Live.tsx` keeps those names, so the map gets the earlier trigger too.
+- **Decided:** the map stays after the pillar body, just before "Featured articles". Moving it up would mean rendering BlogRenderer in two slices, which breaks its contents box and block numbering. Content comes first.
+- **Links:** raw `/blog/` anchors on the five pillars went 22→33, 20→29, 13→17, 20→29 and 20→29. Unique targets are unchanged, because "All guides" already linked every post.
+- **Review:** an adversarial workflow ran three lenses (SSR/accessibility, iPhone Safari motion/performance, facts/SEO/scope), with a skeptic per finding. Two minor findings were confirmed and fixed in the same commit:
+  - The `.pv-head` box rules sat in the lazy Pillar CSS chunk, so the prerendered HTML painted the above-the-fold box unstyled and then shifted about 25 px. They moved to `visual-pages.css`, which is in the eager bundle the prerender inlines.
+  - No `@media print` rule existed, so an armed entrance that hadn't been scrolled to printed blank. One print rule now shows the end state for `.vp-e`, `.vp-grow` and `.pv-e`. That also fixes the compare, about and maker pages, whose docblock already promised it.
+  - One finding (the `display: contents` list) was refuted: the `ul` already has `role="list"`, and current Safari keeps the semantics.
+- **Gates:** on a5a74dd: typecheck 0; build 58/58; NUL 0; lint-facts `--all` 0 FAIL (21 WARN, none in these files) and `--dist` 0 FAIL; kw check 0 fail; `link-graph --dist` exit 0 (only the known og-card WARN). Each pillar's inlined `<style>` now contains the `.pv-head` rules and the print rule.
+- **Lighthouse:** the implementer ran 3 runs per cell while the load average was 550–1,020 from other projects' video renders. LCP swung between about 1 s and 3.5 s in both states, and the best single runs scored 100 before and 100 after. These numbers are noise and need a rerun on a quiet machine.
+- **Captures:** side-session notes `visual-redesign/faithwall/pillar-<slug>-m.png` and `-d.png` (mobile at 390 via CDP, desktop at 1440). Nothing overflows at 390.
