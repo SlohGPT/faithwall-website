@@ -165,7 +165,7 @@ export default function StickyInstallBar({ kind }: { kind: InstallBarKind }) {
         role="complementary"
         aria-label="Install FaithWall"
         aria-hidden={covered ? true : undefined}
-        className={`fixed inset-x-0 bottom-0 z-30 md:hidden border-t border-white/10 bg-surface-elevated/95 backdrop-blur-md shadow-[0_-8px_24px_rgba(0,0,0,0.45)] transition-[transform,visibility] duration-300 ease-out ${
+        className={`fixed inset-x-0 bottom-0 z-30 md:hidden border-t border-white/10 bg-surface-elevated/[0.97] shadow-[0_-8px_24px_rgba(0,0,0,0.45)] transition-[transform,visibility] duration-300 ease-out ${
           entered && !covered ? 'visible translate-y-0' : 'invisible translate-y-full'
         }`}
         style={{ height: BAR_HEIGHT, paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}

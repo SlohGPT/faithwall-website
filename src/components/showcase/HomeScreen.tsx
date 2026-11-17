@@ -156,7 +156,7 @@ export function SearchPill({ bottom = '31.5cqw' }: { bottom?: string }) {
   return (
     <div className="absolute inset-x-0 flex justify-center" style={{ bottom }} aria-hidden="true">
       <span
-        className="flex items-center"
+        className="fw-bdf flex items-center"
         style={{
           gap: '1.2cqw',
           height: '6.8cqw',
@@ -182,7 +182,7 @@ export function SearchPill({ bottom = '31.5cqw' }: { bottom?: string }) {
 export function Dock() {
   return (
     <div
-      className="absolute flex items-center justify-around"
+      className="fw-bdf absolute flex items-center justify-around"
       style={{
         left: '4cqw',
         right: '4cqw',
@@ -211,7 +211,7 @@ export function HomeScreen({
   wallpaper?: WallpaperVariant;
 }) {
   return (
-    <div className="absolute inset-0 overflow-hidden text-white" style={{ fontFamily: SYSTEM_FONT }}>
+    <div className="absolute inset-0 overflow-hidden text-white" style={{ fontFamily: SYSTEM_FONT, borderRadius: 'inherit' }}>
       {/* the wallpaper, blurred and dimmed like a Home Screen */}
       <div className="absolute" style={{ inset: '-6cqw', filter: 'blur(1.6cqw) saturate(1.05)' }}>
         <Wallpaper variant={wallpaper} />

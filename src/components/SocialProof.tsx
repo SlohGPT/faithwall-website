@@ -1,7 +1,9 @@
-import { useRef, useEffect, useState, type RefObject } from 'react';
+import { useRef, useEffect, useState } from 'react';
+import { armOnApproach, belowTheFold, neverHide } from '../lib/revealObserver';
 import facts from '../data/facts.json';
 import GlassCard from './ui/GlassCard';
 import Reveal from './ui/Reveal';
+import GlowDisc from './ui/GlowDisc';
 
 // Every stat here must be verifiable and comes from facts.json: userFloor is the
 // 1,000+ users floor the hero and FinalCTA also show (RevenueCat new customers,
@@ -15,9 +17,11 @@ const stats: { value: number; label: string; suffix?: string; decimals?: number 
   ...(facts.rating.show ? [{ value: Number(facts.rating.value), label: 'US App Store rating', decimals: 1 }] : []),
 ];
 
+const DURATION_MS = 1000;
+
 function formatCount(n: number, decimals: number, suffix: string) {
-  if (decimals === 0 && n >= 1000) {
-    return Math.floor(n).toLocaleString('en-US') + suffix;
+  if (decimals === 0) {
+    return Math.floor(n).toLocaleString('en-US') + suffix; // floor, so a count in progress never rounds up past the final value
   }
   return n.toFixed(decimals) + suffix;
 }
@@ -35,64 +39,43 @@ function easeOut(t: number): number {
   return at(y1, y2, u);
 }
 
-// True once the element has been at least half visible (one-time).
-function useInViewOnce(ref: RefObject<Element>): boolean {
-  const [seen, setSeen] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || seen) return;
-    if (typeof IntersectionObserver === 'undefined') {
-      setSeen(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setSeen(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.5 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [ref, seen]);
-  return seen;
-}
-
-function Counter({ value, suffix = '', decimals = 0 }: { value: number; suffix?: string; decimals?: number }) {
+function Counter({ value, suffix = '', decimals = 0, className = '' }: { value: number; suffix?: string; decimals?: number; className?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInViewOnce(ref);
-  // SSR renders the FINAL value, so crawlers, link previews and no-JS readers
-  // see real numbers (it used to ship "0+" and "0%"). After hydration, a counter
-  // that is still below the fold resets to 0 and counts up when scrolled to.
-  const [display, setDisplay] = useState(() => formatCount(value, decimals, suffix));
-  const armed = useRef(false);
+  const final = formatCount(value, decimals, suffix);
+  // SSR renders the FINAL value, so crawlers, link previews and no-JS readers see real numbers (it used to ship
+  // "0+" and "0%"). After hydration only a counter that is still below the fold resets to 0; it then counts up as it
+  // nears the viewport (15% early, see lib/revealObserver). A counter already visible at hydration, or any counter
+  // with reduced motion, a #hash or a back/forward load, keeps its final value: no flash to 0.
+  const [display, setDisplay] = useState(final);
 
   useEffect(() => {
     const el = ref.current;
-    if (el && el.getBoundingClientRect().top > window.innerHeight) {
-      armed.current = true;
-      setDisplay(formatCount(0, decimals, suffix));
-    }
-  }, [decimals, suffix]);
-
-  useEffect(() => {
-    if (!isInView || !armed.current) return;
-    const DURATION = 1600;
+    if (!el || neverHide() || !belowTheFold(el)) return;
     let raf = 0;
-    let start = 0;
-    const tick = (now: number) => {
-      if (!start) start = now;
-      const t = Math.min(1, (now - start) / DURATION);
-      setDisplay(formatCount(t >= 1 ? value : value * easeOut(t), decimals, suffix));
-      if (t < 1) raf = requestAnimationFrame(tick);
+    setDisplay(formatCount(0, decimals, suffix));
+    const disarm = armOnApproach(el, () => {
+      let start = 0;
+      const tick = (now: number) => {
+        if (!start) start = now;
+        const t = Math.min(1, (now - start) / DURATION_MS);
+        setDisplay(formatCount(t >= 1 ? value : value * easeOut(t), decimals, suffix));
+        if (t < 1) raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
+    });
+    return () => {
+      disarm();
+      cancelAnimationFrame(raf);
+      setDisplay(final);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [isInView, value, decimals, suffix]);
+  }, [value, suffix, decimals, final]);
 
-  return <span ref={ref}>{display}</span>;
+  // fw-count: tabular figures, and the final value reserved as width (::after from data-final), so the line never jitters.
+  return (
+    <span ref={ref} className={`fw-count ${className}`} data-final={final}>
+      {display}
+    </span>
+  );
 }
 
 export default function SocialProof() {
@@ -101,20 +84,20 @@ export default function SocialProof() {
       <div className="container-main">
         <div className={`grid gap-4 sm:gap-5 ${stats.length === 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}`}>
           {stats.map((stat, i) => (
-            <Reveal key={stat.label} delay={i * 0.08} y={14}>
+            <Reveal key={stat.label} delay={i * 0.06} y={14}>
               <GlassCard className="relative h-full overflow-hidden px-6 py-9 text-center sm:py-12">
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent"
                 />
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -top-16 left-1/2 h-32 w-48 -translate-x-1/2 rounded-full bg-brand/10 blur-3xl"
-                />
+                <GlowDisc className="-top-16 left-1/2 h-32 w-48 -translate-x-1/2" rx={96} ry={64} sigma={64} alpha={0.1} />
                 <div className="relative text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
-                  <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
-                    <Counter value={stat.value} suffix={stat.suffix} decimals={stat.decimals} />
-                  </span>
+                  <Counter
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    decimals={stat.decimals}
+                    className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent"
+                  />
                 </div>
                 <p className="relative mt-3 text-sm font-medium text-white/60 sm:text-base">{stat.label}</p>
               </GlassCard>

@@ -10,7 +10,7 @@ const TEXTS = TEXT_IDS.map((id) => APP_TEXT_COLORS.find((c) => c.id === id)!);
 
 const BUTTON =
   'grid h-11 w-11 place-items-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-[#101016] sm:h-9 sm:w-9';
-const DOT = 'block h-7 w-7 rounded-full border border-white/25 transition-shadow sm:h-6 sm:w-6';
+const DOT = 'block h-7 w-7 rounded-full border border-white/25 sm:h-6 sm:w-6';
 
 /** A small working version of the wallpaper maker: pick a background and a text colour, the preview follows. */
 export default function Customiser() {

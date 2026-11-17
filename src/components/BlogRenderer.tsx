@@ -393,7 +393,7 @@ export default function BlogRenderer({ sections, slug, title, pageType, inlineCo
                     height={section.height}
                     loading="lazy"
                     decoding="async"
-                    className={`mx-auto h-auto rounded-2xl border border-white/10 ${section.height > section.width ? 'max-w-[280px] w-full' : 'w-full'}`}
+                    className={`mx-auto h-auto rounded-2xl border border-white/10 bg-surface-elevated ${section.height > section.width ? 'max-w-[280px] w-full' : 'w-full'}`}
                   />
                   {(section.caption || section.href) && (
                     <figcaption className="mt-3 text-center text-white/65 text-sm">

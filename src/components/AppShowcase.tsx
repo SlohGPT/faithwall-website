@@ -41,16 +41,23 @@ export default function AppShowcase() {
             <div className="relative w-[240px] sm:w-[280px]">
               <div className="bg-surface rounded-[2.5rem] p-2 border-2 border-brand/20">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-surface rounded-b-2xl z-10" />
-                <div className="relative rounded-[2rem] overflow-hidden aspect-[9/19.5]">
+                <div
+                  data-phone-screen=""
+                  className="relative rounded-[2rem] overflow-hidden aspect-[9/19.5] bg-black"
+                  style={{ clipPath: 'inset(0 round 2rem)', isolation: 'isolate' }}
+                >
                   <img
                     src={screenshots[activeIndex].image}
                     alt={screenshots[activeIndex].title}
-                    className="w-full h-full object-cover transition-all duration-500"
+                    width={400}
+                    height={866}
+                    decoding="async"
+                    className="w-full h-full object-cover transition-opacity duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
                   <div className="absolute inset-0 flex items-center justify-center p-6">
                     <div className="text-center">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
+                      <div className="bg-white/20 md:backdrop-blur-sm rounded-2xl p-4 border border-white/10">
                         <p className="text-white text-sm leading-relaxed">
                           "Trust in the Lord with all your heart and lean not on your own understanding."
                         </p>
@@ -70,7 +77,7 @@ export default function AppShowcase() {
               <button
                 key={screenshot.id}
                 onClick={() => setActiveIndex(index)}
-                className={`w-14 h-14 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                className={`w-14 h-14 rounded-xl overflow-hidden border-2 transition-[transform,opacity,border-color] duration-300 ${
                   index === activeIndex
                     ? 'border-brand scale-110'
                     : 'border-transparent opacity-50 hover:opacity-80'
@@ -79,7 +86,11 @@ export default function AppShowcase() {
                 <img
                   src={screenshot.image}
                   alt={screenshot.title}
-                  className="w-full h-full object-cover"
+                  width={56}
+                  height={56}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover bg-surface"
                 />
               </button>
             ))}

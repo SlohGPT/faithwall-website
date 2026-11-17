@@ -9,6 +9,7 @@ import AppLockScreen from './showcase/AppLockScreen';
 import HomeScreenPhone from './showcase/HomeScreen';
 import { useMediaQuery, usePageVisible, usePrefersReducedMotion } from './showcase/utils';
 import CrossPattern from './ui/CrossPattern';
+import GlowDisc from './ui/GlowDisc';
 
 /*
  * Layout. Two modes, chosen in CSS only (no JS, so the prerendered HTML is the final layout):
@@ -204,10 +205,10 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         {/* Static ambient glow - no GPU-heavy animations */}
         <div className="hidden md:block">
-          <div className="absolute left-1/4 top-1/4 h-[600px] w-[600px] rounded-full bg-brand/5 blur-[100px] animate-[pulse_20s_ease-in-out_infinite]" />
-          <div className="absolute bottom-1/3 right-1/3 h-[500px] w-[500px] rounded-full bg-brand/[0.03] blur-[100px] animate-[pulse_15s_ease-in-out_infinite_2s]" />
+          <GlowDisc className="left-1/4 top-1/4 h-[600px] w-[600px] animate-[pulse_20s_ease-in-out_infinite]" rx={300} sigma={100} alpha={0.05} />
+          <GlowDisc className="bottom-1/3 right-1/3 h-[500px] w-[500px] animate-[pulse_15s_ease-in-out_infinite_2s]" rx={250} sigma={100} alpha={0.03} />
         </div>
-        <div className="absolute left-1/2 top-1/4 h-[400px] w-full -translate-x-1/2 rounded-full bg-brand/5 blur-[80px] md:hidden" />
+        <GlowDisc className="left-1/2 top-1/4 h-[400px] w-full -translate-x-1/2 md:hidden" rx={195} ry={200} sigma={80} alpha={0.05} />
         <CrossPattern focus="75% 45%" />
       </div>
 

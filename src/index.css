@@ -144,6 +144,9 @@
     align-items: center;
     padding-bottom: calc(var(--u) * 300);
     border-radius: calc(var(--u) * 108) calc(var(--u) * 108) 0 0;
+    /* WebKit leaks composited children past overflow+radius: clip with the same radius, in its own stacking context. */
+    clip-path: inset(0 round calc(var(--u) * 108) calc(var(--u) * 108) 0 0);
+    isolation: isolate;
     overflow: hidden;
     font-family: 'DM Sans', system-ui, sans-serif;
     text-align: center;
@@ -211,7 +214,7 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand text-white font-semibold rounded-2xl hover:bg-brand-light transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand text-white font-semibold rounded-2xl hover:bg-brand-light transition-colors duration-200;
   }
 
   .text-muted {
@@ -605,3 +608,28 @@
   outline-offset: 2px;
 }
 /* === end Nav, footer, a11y and home pass === */
+
+/* Scroll cost on phones: backdrop-filter on repeated glass (mockup widgets, dock, search pill) is expensive in WebKit.
+   At 768px and below the translucent background alone is shown (the wallpaper behind is already soft). Inline
+   styles set the filter, so this needs !important. */
+@media (max-width: 768px) {
+  .fw-bdf {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+/* Stat counters: tabular figures, and the final value reserved as width (data-final is the same text) so the
+   number never changes the line's width while it counts. */
+.fw-count {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+.fw-count::after {
+  content: attr(data-final);
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+}

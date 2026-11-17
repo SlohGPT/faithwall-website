@@ -82,8 +82,9 @@ export default function Footer() {
                 alt=""
                 width={80}
                 height={80}
-                className="w-10 h-10 rounded-xl"
+                className="w-10 h-10 rounded-xl bg-surface-card"
                 loading="lazy"
+                decoding="async"
               />
               <span className="text-xl font-semibold text-white tracking-tight">
                 FaithWall
@@ -215,7 +216,7 @@ export default function Footer() {
           <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
             <div
               onClick={() => setShowModal(false)}
-              className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-200 motion-reduce:transition-none ${modalEntered ? 'opacity-100' : 'opacity-0'}`}
+              className={`absolute inset-0 bg-black/70 md:bg-black/60 md:backdrop-blur-sm transition-opacity duration-200 motion-reduce:transition-none ${modalEntered ? 'opacity-100' : 'opacity-0'}`}
             />
 
             <div

@@ -30,7 +30,7 @@ export default function LockScreenVerse({ text, reference }: { text: string; ref
   return (
     <figure className="lockfig">
       <div className="lockfig-phone">
-        <div className="lockfig-screen" style={screenStyle}>
+        <div className="lockfig-screen" data-phone-screen="" style={screenStyle}>
           <span className="lockfig-island" aria-hidden="true" />
           <span className="lockfig-date" aria-hidden="true" />
           <span className="lockfig-time" aria-hidden="true" />

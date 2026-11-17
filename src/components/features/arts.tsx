@@ -35,7 +35,7 @@ const WIDGET_LOOP_MS = 4500;
 /** A Home Screen with the small widget (2 x 2 cells) and its neighbouring app tiles. Fills a DeviceMockup screen. */
 function SmallWidgetHome({ verse }: { verse: ShowcaseVerse }) {
   return (
-    <div className="absolute inset-0 overflow-hidden text-white" style={{ fontFamily: SYSTEM_FONT }}>
+    <div className="absolute inset-0 overflow-hidden text-white" style={{ fontFamily: SYSTEM_FONT, borderRadius: 'inherit' }}>
       <div className="absolute" style={{ inset: '-6cqw', filter: 'blur(1.4cqw) saturate(1.05)' }}>
         <Wallpaper variant="dawn" />
       </div>
@@ -118,7 +118,7 @@ export function ReminderArt() {
           <Wallpaper variant="hills" />
           <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.3)' }} />
           <div
-            className="absolute flex text-white"
+            className="fw-bdf absolute flex text-white"
             style={{
               left: '4cqw',
               right: '4cqw',
@@ -138,6 +138,7 @@ export function ReminderArt() {
               alt=""
               width={180}
               height={180}
+              loading="lazy"
               decoding="async"
               style={{ width: '11cqw', height: '11cqw', borderRadius: '2.6cqw', flex: 'none' }}
             />

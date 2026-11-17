@@ -132,7 +132,7 @@ export function Phone({ id, x, y, w, rot = 0, bg, children, o = 1, lite = false 
       </g>
       )}
       <rect x="1.5" y="1.5" width={w - 3} height={d.h - 3} rx={d.r} fill={C.body} stroke={C.edge} />
-      <g transform={`translate(${d.b} ${d.b})`} clipPath={`url(#${id})`}>
+      <g transform={`translate(${d.b} ${d.b})`} clipPath={`url(#${id})`} data-phone-screen="">
         <clipPath id={id}>
           <rect width={d.sw} height={d.sh} rx={d.sr} />
         </clipPath>

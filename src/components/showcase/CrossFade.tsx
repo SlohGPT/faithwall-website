@@ -27,6 +27,7 @@ function FadeLayer({
     <div
       className={`absolute inset-0 ${className ?? ''}`}
       style={{
+        borderRadius: 'inherit', // full-bleed layer: follows the phone screen's rounded clip
         opacity: active && entered ? 1 : 0,
         transition: `opacity ${duration}ms ease-in-out`,
         ...style,

@@ -44,9 +44,17 @@ interface DeviceMockupProps {
 
 const ROUNDED_FONT = 'ui-rounded, "SF Pro Rounded", "DM Sans", system-ui, -apple-system, sans-serif';
 export const SYSTEM_FONT = "system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
-// The wallpaper maker keeps its squircle corners (Chrome 139+; other browsers ignore it). The homepage mockups
-// (variant 'showcase') use plain circular corners: Chrome's squircle is far squarer than an iPhone's.
-const squircle = { cornerShape: 'squircle' } as CSSProperties;
+// Corners are plain circular border-radius on every variant (no corner-shape: Chrome's squircle reads as a near-square,
+// an iPhone's corners are round).
+
+/**
+ * Clips a phone/desktop screen box the way WebKit respects: overflow hidden + border-radius alone lets composited
+ * children (transforms, animations, opacity transitions) leak square corners on iOS, so clip-path with the SAME radius
+ * and an isolated stacking context are added. `radius` must equal the box's border-radius (one value drives both).
+ */
+export function screenClip(radius: string): CSSProperties {
+  return { borderRadius: radius, clipPath: `inset(0 round ${radius})`, isolation: 'isolate' };
+}
 
 const MAKER_FRAME_SHADOW =
   'inset 0 0 0 0.18cqw rgba(255,255,255,0.22), inset 0 0.3cqw 0.6cqw rgba(255,255,255,0.12), 0 3cqw 6cqw rgba(0,0,0,0.55), 0 0 10cqw rgba(217,123,59,0.1)';
@@ -289,7 +297,7 @@ function PhoneLockUi({
       ].map(({ side, Icon }) => (
         <span
           key={side}
-          className="absolute flex items-center justify-center rounded-full"
+          className="fw-bdf absolute flex items-center justify-center rounded-full"
           style={{
             bottom: `${(PHONE_SAFE_BOTTOM * 100 * 0.38).toFixed(2)}%`,
             [side]: '10.5cqw',
@@ -379,7 +387,7 @@ function DesktopUi({ tone }: { tone: UiTone }) {
         </span>
       </div>
       <div
-        className="absolute left-1/2 flex items-center -translate-x-1/2"
+        className="fw-bdf absolute left-1/2 flex items-center -translate-x-1/2"
         style={{
           bottom: '1.2cqw',
           gap: '0.9cqw',
@@ -431,13 +439,14 @@ export default function DeviceMockup({
           <div style={{ borderRadius: '0.9cqw', background: '#000', padding: '0.35cqw' }}>
             <div
               {...restScreen}
+              data-phone-screen=""
               className={`relative overflow-hidden bg-black ${screenClass}`}
               style={{
                 aspectRatio: aspect,
-                borderRadius: '0.6cqw',
                 containerType: 'inline-size',
                 ...screenStyle,
                 ...extraStyle,
+                ...screenClip('0.6cqw'),
               }}
             >
               {children}
@@ -469,8 +478,6 @@ export default function DeviceMockup({
 
   const iphone = device === 'iphone';
   const showcase = variant === 'showcase';
-  // Maker: squircle corners. Showcase: none (plain circular border-radius).
-  const corner = showcase ? undefined : squircle;
   // Frame, black bezel, screen radius (all in cqw of the whole device width).
   const frameGap = iphone ? 1.1 : 0.9;
   const bezel = iphone ? 2.3 : 1.7;
@@ -501,7 +508,6 @@ export default function DeviceMockup({
             borderRadius: `${frameRadius}cqw`,
             background: iphone ? TITANIUM : GRAPHITE,
             boxShadow: showcase ? SHOWCASE_FRAME_SHADOW : MAKER_FRAME_SHADOW,
-            ...corner,
           }}
         >
           <div
@@ -512,19 +518,18 @@ export default function DeviceMockup({
               boxShadow: showcase
                 ? '0 0 0 0.2cqw rgba(0,0,0,0.9), inset 0 0 0 0.2cqw rgba(255,255,255,0.05)'
                 : 'inset 0 0 0 0.2cqw rgba(255,255,255,0.05)',
-              ...corner,
             }}
           >
             <div
               {...restScreen}
+              data-phone-screen=""
               className={`relative overflow-hidden bg-black ${screenClass}`}
               style={{
                 aspectRatio: aspect,
-                borderRadius: `${screenRadius}cqw`,
                 containerType: 'inline-size',
-                ...corner,
                 ...screenStyle,
                 ...extraStyle,
+                ...screenClip(`${screenRadius}cqw`),
               }}
             >
               {children}

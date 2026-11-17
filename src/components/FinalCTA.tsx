@@ -5,6 +5,7 @@ import facts from '../data/facts.json';
 import { SHOWCASE_VERSES } from '../data/showcaseVerses';
 import AppLockScreen from './showcase/AppLockScreen';
 import CrossPattern from './ui/CrossPattern';
+import GlowDisc from './ui/GlowDisc';
 import Reveal from './ui/Reveal';
 
 export default function FinalCTA() {
@@ -16,7 +17,7 @@ export default function FinalCTA() {
             {/* coded backdrop: brand glow, faint crosses, a Lock Screen on the right */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
               <div className="absolute inset-0 bg-gradient-to-br from-brand/20 via-surface-card to-surface-elevated" />
-              <div className="absolute -right-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-brand/25 blur-[110px]" />
+              <GlowDisc className="-right-24 top-1/2 h-[520px] w-[520px] -translate-y-1/2" rx={260} sigma={110} alpha={0.25} />
               <CrossPattern focus="80% 50%" opacity={0.07} />
               <div className="absolute inset-0 bg-gradient-to-r from-surface/90 via-surface/55 to-transparent" />
             </div>

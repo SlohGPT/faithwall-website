@@ -1,6 +1,7 @@
 import type { ReactNode, Ref } from 'react';
 import GlassCard from './ui/GlassCard';
 import Reveal from './ui/Reveal';
+import GlowDisc from './ui/GlowDisc';
 import SectionHeading from './ui/SectionHeading';
 import CrossPattern from './ui/CrossPattern';
 import { ChooseVerseScreen, DownloadScreen, ReviewScreen } from './howitworks/AppScreens';
@@ -36,7 +37,7 @@ function StepCard({
 }) {
     const step = STEPS[index];
     return (
-        <Reveal delay={index * 0.1} className="h-full">
+        <Reveal delay={index * 0.06} className="h-full">
             <GlassCard as="article" className="flex h-full flex-col overflow-hidden">
                 <div className="p-6 pb-6 sm:p-7 sm:pb-6 md:p-5 md:pb-6 lg:p-8 lg:pb-6">
                     <div className="mb-4 flex items-center gap-3">
@@ -72,7 +73,7 @@ export default function HowItWorksAndPreview() {
     return (
         <section id="how-it-works" className="section-space relative overflow-hidden bg-surface-elevated">
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-                <div className="absolute -left-40 top-1/3 h-[600px] w-[600px] rounded-full bg-brand/5 blur-[90px]" />
+                <GlowDisc className="-left-40 top-1/3 h-[600px] w-[600px]" rx={300} sigma={90} alpha={0.05} />
                 <CrossPattern focus="50% 20%" />
             </div>
             {/* soft seams into the neighbouring sections */}

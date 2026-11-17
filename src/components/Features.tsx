@@ -39,7 +39,7 @@ export default function Features() {
             title="A Widget That Starts With Your Verse"
             art={<WidgetsArt />}
             artClassName={ROW1_ART}
-            delay={0.08}
+            delay={0.06}
           >
             <p>
               On iOS 16 or later, add a Home Screen or Lock Screen widget. Turn on rotation and it starts with your verse,
@@ -51,7 +51,7 @@ export default function Features() {
             <p>Daily verse reminders that call you back to Him.</p>
           </FeatureTile>
 
-          <FeatureTile title="Faith Wallpapers" art={<WallpapersArt />} artClassName={ROW2_ART} delay={0.08}>
+          <FeatureTile title="Faith Wallpapers" art={<WallpapersArt />} artClassName={ROW2_ART} delay={0.06}>
             <p>Cinematic, Scripture-inspired backgrounds. Choose from curated wallpapers or use your own photos.</p>
           </FeatureTile>
 
@@ -60,7 +60,7 @@ export default function Features() {
             art={<Customiser />}
             artClassName={ROW2_ART}
             fade={false}
-            delay={0.16}
+            delay={0.12}
           >
             <p>Preview any wallpaper live before you set it.</p>
             <p>

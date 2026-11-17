@@ -56,7 +56,7 @@ export default function MiniPreview({ previewRef, areaRef, downloadRef }: MiniPr
       onClick={scrollBack}
       tabIndex={show ? 0 : -1}
       aria-hidden={show ? undefined : true}
-      className={`fixed right-3 z-40 lg:hidden inline-flex h-11 items-center gap-1.5 rounded-full border border-white/25 bg-surface-elevated/95 px-4 text-sm font-semibold text-white shadow-xl shadow-black/60 backdrop-blur-md transition duration-200 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${
+      className={`fixed right-3 z-40 lg:hidden inline-flex h-11 items-center gap-1.5 rounded-full border border-white/25 bg-surface-elevated/95 px-4 text-sm font-semibold text-white shadow-xl shadow-black/60 md:backdrop-blur-md transition duration-200 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${
         show ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0 motion-reduce:translate-y-0'
       }`}
       style={{ bottom: 'calc(var(--install-bar-h, env(safe-area-inset-bottom, 0px)) + 12px)' }}

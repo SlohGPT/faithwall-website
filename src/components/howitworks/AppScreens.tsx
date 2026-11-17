@@ -31,7 +31,7 @@ function Phone({ children, tone = 'dark' }: { children: ReactNode; tone?: 'light
 
 function Sheet({ children }: { children: ReactNode }) {
   return (
-    <div className="absolute inset-0 overflow-hidden" style={{ background: SHEET_BG, color: INK, fontFamily: SYSTEM_FONT }}>
+    <div className="absolute inset-0 overflow-hidden" style={{ background: SHEET_BG, color: INK, fontFamily: SYSTEM_FONT, borderRadius: 'inherit' }}>
       {children}
     </div>
   );

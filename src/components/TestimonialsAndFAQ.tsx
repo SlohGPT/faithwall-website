@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { homeFaq } from '../data/homeFaq';
 import CrossPattern from './ui/CrossPattern';
+import GlowDisc from './ui/GlowDisc';
 import GlassCard from './ui/GlassCard';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
@@ -13,7 +14,7 @@ export default function TestimonialsAndFAQ() {
     return (
         <section id="testimonials-faq" className="section-space relative overflow-hidden bg-surface">
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-                <div className="absolute -right-40 top-1/4 h-[520px] w-[520px] rounded-full bg-brand/[0.04] blur-[100px]" />
+                <GlowDisc className="-right-40 top-1/4 h-[520px] w-[520px]" rx={260} sigma={100} alpha={0.04} />
                 <CrossPattern focus="50% 10%" opacity={0.04} />
             </div>
 
@@ -26,7 +27,7 @@ export default function TestimonialsAndFAQ() {
                         {homeFaq.map((faq, index) => {
                             const open = openIndex === index;
                             return (
-                                <Reveal key={index} delay={Math.min(index, 4) * 0.05} y={10}>
+                                <Reveal key={index} delay={Math.min(index, 3) * 0.06} y={12}>
                                     <GlassCard
                                         className={`overflow-hidden !rounded-2xl transition-colors duration-300 ${
                                             open ? '!border-brand/40 !bg-white/[0.05]' : 'hover:!border-white/15'
@@ -45,7 +46,7 @@ export default function TestimonialsAndFAQ() {
                                             </span>
                                             <span
                                                 aria-hidden="true"
-                                                className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full transition-all duration-300 motion-reduce:transition-none ${
+                                                className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full transition-[transform,background-color,color] duration-300 motion-reduce:transition-none ${
                                                     open ? 'rotate-45 bg-brand text-surface' : 'bg-white/[0.06] text-white/50 group-hover:bg-white/10 group-hover:text-white'
                                                 }`}
                                             >

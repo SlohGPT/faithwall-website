@@ -364,7 +364,7 @@ export default function Navigation() {
                   href={appStoreUrl('web-site')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hidden lg:inline-flex items-center justify-center px-7 py-3 bg-white text-surface text-xl font-semibold rounded-full hover:bg-white/90 transition-all duration-300"
+                  className="hidden lg:inline-flex items-center justify-center px-7 py-3 bg-white text-surface text-xl font-semibold rounded-full hover:bg-white/90 transition-colors duration-300"
                 >
                   Get the app
                 </a>
