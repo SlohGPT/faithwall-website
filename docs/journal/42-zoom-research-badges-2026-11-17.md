@@ -401,3 +401,28 @@ The original session withdrew the brief's allowance for a post's own closing "fr
   - after deploy: one live Lighthouse run per page and a fresh compare-page capture on phones;
   - Karol's yes or no on the homepage FAQ;
   - QuranWall push-2 items (journal entry above).
+- **After deploy (cfb0b3d live by 14:05):**
+  - All 5 pages return 200 and carry the new markup.
+  - CTA and ct tokens look the same as before: one web-cmp or web-maker install card where there was one, 4 web-site and 1 web-smart-banner.
+  - No price wording about FaithWall. On the maker page, "Free Tool" and "Is this … free? Yes" are about the web tool itself, which the earlier session decided to keep.
+  - `link-graph --live` exit 0. Its WARNs are the old title/H1 mismatches and og-card.jpg shared by 16 pages, which is expected after the peer's og commit.
+  - One live Lighthouse run per page, mobile:
+
+    | Page | Performance | LCP | Notes |
+    |---|---|---|---|
+    | youversion compare | 98 | 2.1 s | |
+    | hallow compare | 96 | 2.4 s | the first run gave 91 / 3.1 s on a loaded Mac |
+    | best-apps | 97 | 2.2 s | |
+    | about | 99 | 2.0 s | |
+    | maker | 96 | 2.4 s | the first run gave 95 / 2.6 s |
+
+    CLS was 0 and accessibility 100 on all of them. Every LCP element is text.
+  - The live phone capture shows the compare scene after the Quick Answer.
+  - Captures: `visual-redesign/faithwall/*-live.png`.
+- **Typecheck baseline:** the code has 0 errors from a389105 on. The main checkout counts 5, all in `entry-server.tsx`, because its node_modules lacks `@types/node`; the peer's worktree has it. So 5 is the baseline here, and it comes from the environment, not the code.
+- **The held homepage FAQ** is rebased onto aa1f284 as `claude/fw-home-faq-visuals` 21a5d49 and not pushed.
+  - Build 58/58; lint-facts `--dist` and `--all` 0 FAIL.
+  - Its FAQPage JSON-LD is identical to the live one.
+  - Nothing overflows at 390 or 1440.
+  - Its captures (`home-faq-m.png`, `home-faq-d.png`, `home-faq-m-closed.png`) go to Karol with "Ship?".
+- **Carried for the peer in this push:** 8484607 (its 299b80d: the lock-screen figure ref colour #b4561f → #8f4416 on the cream and sand palettes, contrast 4.12/3.38 → 5.88/4.82; used only by LockScreenVerse, so the maker downloads don't change) and 005068c (its 439b863, journal 39 note).
