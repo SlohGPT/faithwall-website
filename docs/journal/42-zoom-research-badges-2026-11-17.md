@@ -110,3 +110,15 @@ This session worked on all three sites from the FaithWall checkout. QuranWall (Q
 - **`/blog`:** keeps its footer badge.
 - **`link-graph --live https://faithwall.app`:** exit 0.
 - **IndexNow:** submitted only `/`, because that is the only page whose HTML changed; 200 OK.
+
+## Coordination with the original session (11-17, after the push)
+
+- **Footer link.** The original session first objected to the footer badge-to-text-link on `/`, on the grounds that it changed an App Store CTA during the hold and that its stage C restructures `Footer.tsx`. It then withdrew the objection itself:
+  - the URL and `ct=web-site` are unchanged;
+  - the change applies on `/` only;
+  - the home page already took template-level CTA changes during the hold today, with annotations.
+  - The change stays live. Its rebase keeps the link when it restructures the footer.
+- **Push order.** Its messages reached this session after the push. This session had announced the push and then pushed without waiting for a reply. From now on it waits for the reply.
+- **lint-facts.** The original session is not editing `lint-facts.mjs`: the #11 lints went into link-graph 1.1.0 and a new `lint-originality.mjs`. Its stage A rewrites `SocialProof.tsx`, and its rebase keeps the two `facts.*` values from 9437b4b.
+- **Cloudflare.** Karol's unblock decision is in its TODO-KAROL item 4 and in SEO-STRATEGY, on its branch (c7386df).
+- **NoteWall.** NoteWall was told that its broken post covers (`/_next/image` 400s, from this audit) and item 5 of the original session's NoteWall CWV brief are one image-config fix, in one commit reported against both.
