@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BookOpen, ChevronRight, Languages, Smartphone } from 'lucide-react';
 import AppStoreButton, { CTA_BUTTON_CLASS } from './AppStoreButton';
 import { RatingLine } from './AppNudge';
 import { appStoreUrl } from '../lib/appStore';
@@ -47,12 +48,10 @@ const HERO_CSS = `
 .hero-label{display:none;position:absolute;z-index:30;font-size:clamp(.625rem,calc(var(--H)*.0185),.8125rem);line-height:1.3;white-space:nowrap;padding:.5em .85em;border-radius:.9em;border:1px solid rgba(255,255,255,.12);background:rgba(20,20,28,.88);box-shadow:0 12px 30px -10px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06)}
 .hero-label-widget{left:0;top:0}
 .hero-label-lock{right:calc(var(--H)*.206);top:0;transform:translateX(50%)}
-.hero-chip{display:none;position:absolute;z-index:30;align-items:center;gap:.5em;font-size:clamp(.6875rem,calc(var(--H)*.0205),.9rem);font-weight:600;line-height:1;white-space:nowrap;color:rgba(255,255,255,.92);padding:.65em 1em;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(20,20,28,.9);box-shadow:0 12px 30px -10px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.07)}
-.hero-chip-num{display:inline-flex;align-items:center;justify-content:center;width:1.55em;height:1.55em;border-radius:999px;background:#d97b3b;color:#1a1208;font-weight:800;font-size:.95em}
-.hero-chip-step{right:calc(var(--H)*-.035);top:calc(var(--H)*.285)}
-.hero-chip-tr{right:calc(var(--H)*-.035);top:calc(var(--H)*.60)}
-.hero-chip-lang{left:calc(var(--H)*.02);bottom:calc(var(--H)*-.01)}
-.hero-chip-mode{right:calc(var(--H)*-.03);bottom:calc(var(--H)*-.01)}
+.hero-chips{display:none}
+.hero-chip{display:inline-flex;align-items:center;gap:.55em;font-size:clamp(.75rem,calc(var(--H)*.0195),.9rem);font-weight:600;line-height:1;white-space:nowrap;color:rgba(255,255,255,.92);padding:.45em 1.05em .45em .5em;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(20,20,28,.9);box-shadow:0 12px 30px -10px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.07)}
+.hero-chip-ico{display:inline-flex;align-items:center;justify-content:center;width:1.8em;height:1.8em;border-radius:999px;background:rgba(217,123,59,.2);color:#eea36b}
+.hero-chip-ico svg{width:1em;height:1em}
 .hero-fade{position:absolute;z-index:25;inset-inline:0;bottom:0;height:4.5rem;pointer-events:none}
 
 @media (min-width:768px){
@@ -64,7 +63,6 @@ const HERO_CSS = `
   .hero-front{top:calc(var(--H)*.09)}
   .hero-back{display:block}
   .hero-label{display:block}
-  .hero-chip{display:inline-flex}
 }
 
 @media (min-width:1024px) and (min-aspect-ratio:11/10){
@@ -73,9 +71,14 @@ const HERO_CSS = `
   .hero-h1{font-size:max(2.25rem,min(8.4cqw,calc(var(--svh)*6.4),4.5rem))}
   .hero-sub{font-size:clamp(1rem,calc(.55rem + .55vw + var(--svh)*.4),1.3rem);margin-inline:0}
   .hero-ctas,.hero-rating{justify-content:flex-start}
-  .hero-stage{--H:clamp(30rem,min(calc(var(--svh)*100 - var(--nav) - 2.5rem),calc(min(100vw,1600px)*.52)),46rem);flex:none;width:calc(var(--H)*.75);height:var(--H);min-height:0;margin-top:0;overflow:visible;container-type:normal}
+  .hero-stage{--H:clamp(30rem,min(calc(var(--svh)*100 - var(--nav) - 2.5rem),calc(min(100vw,1600px)*.52)),49rem);flex:none;width:calc(var(--H)*.75);height:var(--H);min-height:0;margin-top:0;overflow:visible;container-type:normal}
   .hero-comp{inset:0;left:0;width:100%;height:100%;transform:none}
   .hero-fade{display:none}
+}
+
+/* the chip row needs room under the phones: tall enough viewports only */
+@media (min-width:1024px) and (min-aspect-ratio:11/10) and (min-height:781px){
+  .hero-chips{display:flex;position:absolute;z-index:30;left:0;right:0;bottom:calc(var(--H)*-.025);justify-content:space-between;gap:.5rem}
 }
 `;
 
@@ -171,14 +174,21 @@ function PhoneStage() {
           <span className="text-white/40">{' · '}</span>
           <span className="text-white/70">the verse you pick</span>
         </div>
-        {/* feature chips: true facts from facts.json, tablet width and up (they are hidden on phones) */}
-        <div aria-hidden="true" className="hero-chip hero-chip-step">
-          <span className="hero-chip-num">1</span>
-          <span>Pick a verse</span>
+        {/* feature chips: true facts from facts.json, in a row under the phones (wide layout only), never on a screen */}
+        <div aria-hidden="true" className="hero-chips">
+          <div className="hero-chip">
+            <span className="hero-chip-ico"><BookOpen /></span>
+            {facts.translationCount} translations
+          </div>
+          <div className="hero-chip">
+            <span className="hero-chip-ico"><Languages /></span>
+            {facts.uiLanguageCount} app languages
+          </div>
+          <div className="hero-chip">
+            <span className="hero-chip-ico"><Smartphone /></span>
+            Lock Screen or widget
+          </div>
         </div>
-        <div aria-hidden="true" className="hero-chip hero-chip-tr">{facts.translationCount} translations</div>
-        <div aria-hidden="true" className="hero-chip hero-chip-lang">{facts.uiLanguageCount} app languages</div>
-        <div aria-hidden="true" className="hero-chip hero-chip-mode">Lock Screen or widget</div>
       </div>
 
       {/* stacked layouts: the phone melts into the page where the first screen ends */}
@@ -242,6 +252,7 @@ export default function Hero() {
                   className={CTA_BUTTON_CLASS}
                 >
                   Get FaithWall
+                  <ChevronRight className="ml-1.5 hidden h-5 w-5 sm:block lg:h-6 lg:w-6" aria-hidden="true" />
                 </a>
               </div>
               <RatingLine className="hero-rating mt-3 text-sm text-white/60" />
