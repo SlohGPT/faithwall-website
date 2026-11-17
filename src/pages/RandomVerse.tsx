@@ -103,12 +103,12 @@ const faqs = [
   {
     question: 'Can I set one of these verses as my lock screen?',
     answer:
-      'Yes. Under any verse, "Make it a lock-screen wallpaper" opens our wallpaper maker with that verse filled in. For verses on your lock screen on an ongoing basis, FaithWall is an iPhone app where you pick a verse and it shows it as a Shortcut-applied wallpaper or a lock-screen widget that starts with that verse and then shows random verses.',
+      'Yes. Under any verse, "Make it a lock-screen wallpaper" opens our wallpaper maker with that verse filled in. For verses on your lock screen on an ongoing basis, FaithWall is an iPhone app where you pick a verse and it shows it as a Shortcut-applied wallpaper or a lock-screen widget that shows that verse (an optional setting, off by default, makes the widget show random verses instead).',
   },
   {
     question: 'Is this the same verse list FaithWall uses?',
     answer:
-      "No. This page draws from the full KJV plus a curated topic set. In FaithWall you choose which verses appear on your lock screen. FaithWall isn't a Bible reader, so for reading whole chapters, this page's chapter mode or a dedicated Bible app is the better fit.",
+      "No. This page draws from the full KJV plus a curated topic set. In FaithWall you pick the verse for your wallpaper. FaithWall has a built-in Bible browser for finding it, but it is built for the lock screen, so for sitting down to read, this page's chapter mode or a dedicated Bible app is the better fit.",
   },
   {
     question: 'Does this generator track or store anything?',
@@ -666,8 +666,10 @@ export default function RandomVerse() {
             <p>
               The easiest way is an app that keeps Scripture on your iPhone lock screen, so you never
               have to open a page and tap. FaithWall does this with a verse you pick yourself, shown as
-              a wallpaper applied through an iOS Shortcut or as a lock-screen widget that starts with
-              that verse and then shows random verses. It is not a Bible reader.
+              a wallpaper applied through an iOS Shortcut or as a lock-screen widget that shows that
+              verse (an optional setting, off by default, makes the widget show random verses
+              instead). It has a built-in Bible browser for finding your verse, but it is built for
+              the lock screen, not for study.
             </p>
             <p>
               <Link to="/best-bible-verse-lock-screen-apps">

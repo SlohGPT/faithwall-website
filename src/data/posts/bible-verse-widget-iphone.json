@@ -20,7 +20,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Widgets solved the open-the-app problem for weather, calendars, and reminders years ago. A **bible verse widget iphone** setup finally does the same for Scripture — instead of opening an app to check today's verse, it just sits there, on the lock screen or the home screen, always current. FaithWall is the app built specifically for that job: a fresh verse rotates in on its own, starting with the one you chose, no daily swap, no screenshot-and-crop routine."
+      "text": "Widgets solved the open-the-app problem for weather, calendars, and reminders years ago. A **bible verse widget iphone** setup finally does the same for Scripture — instead of opening an app to check today's verse, it just sits there, on the lock screen or the home screen, always current. FaithWall is the app built specifically for that job: the widget starts with the verse you chose, and with the optional Auto-rotate verses setting turned on it can show a fresh verse on a schedule, no daily swap, no screenshot-and-crop routine."
     },
     {
       "type": "paragraph",
@@ -163,7 +163,7 @@
     },
     {
       "type": "paragraph",
-      "text": "A wallpaper is the full background image, set once until you change it. A widget is a small live tile layered on top that can update on its own — most setups support both, and most people run a wallpaper for one anchor verse plus a widget for daily rotation."
+      "text": "A wallpaper is the full background image, set once until you change it. A widget is a small live tile layered on top that can update on its own — FaithWall offers them as two separate setups: a wallpaper for one anchor verse, or a widget for a verse in a small tile (the optional Auto-rotate verses setting adds rotation)."
     },
     {
       "type": "cta",

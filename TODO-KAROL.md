@@ -2,6 +2,77 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-17 (how the wallpaper really updates)
+
+I checked the site against the app's source code. The site said the lock-screen verse changes by itself or every day. In the app it changes only when you pick or edit a verse (the app runs the Shortcut), and a style change needs Update Wallpaper Now. Nothing runs in the background. The site, the blog skill and the autopilot prompts now say so, and the lint fails the old claims.
+
+- **1. Five posts built on a daily change (10 minutes).** The posts are verse-of-the-day-lock-screen-iphone, rotating-bible-verse-wallpaper-iphone, daily-scripture-wallpaper-iphone, best-christian-wallpaper-app-iphone and scripture-wallpaper-for-iphone-free.
+  - Their false sentences are fixed, but each topic still promises a verse that changes daily.
+  - The honest framing: you pick a new verse when you want one, or turn on the widget's optional Auto-rotate verses.
+  - Should they keep their topics with that framing, or should some be merged or retired? Until you answer, they keep their topics.
+- **2. Two app issues for the developer (the app, not the site).**
+  - An unused onboarding card, "Pro tip: make it automatic" (`overviewAutomationCard`, OnboardingView.swift ~8182), suggests an automation that would change the verse. Nothing shows it today, but if it's ever wired in, its text is false. Delete it or reword it.
+  - Settings > Change Setup Mode doesn't turn Auto-rotate verses off (SettingsView.swift ~1865-1893 never calls `WidgetRotationManager.disable()`). The flag is saved, and the app rebuilds the rotation queue at launch. So someone who goes from widget to wallpaper and back may find rotation still on.
+- **3. One heading on the daily-scripture pillar (1 minute, after 12-02).** The FAQ asks "Can I get a new Bible verse every day automatically?" The answer under it is now true (only in the widget setup, with Auto-rotate on). The pillar is in the control group, so the heading stays as it is until p72. Should it keep the question or get a new one?
+- Still waiting from the last update: item 2, the legal pages' widget line. The same goes for "a fresh verse every day" in the App Store listing (the ASO session).
+
+## 2026-11-16, last update (what the app really does)
+
+Checked against the app's source code: two answers to the evening list's item 3, and three short questions.
+
+- **Answered by the app's code** (evening item 3, bullets 1 and 3):
+  - **Bible browser.** The app has one, with every book and chapter, so the site no longer says "not a Bible reader". It now says FaithWall "has a built-in Bible browser for finding your verse, but it is built for the lock screen, not for study."
+  - **Widget.** The widget shows the verse you picked. It shows random verses only when "Auto-rotate verses" is on in Settings, and that is off by default.
+    - The site now says so in the AI files, the home FAQ, the hub and a few pages. The other pages follow in p78, after 12-02.
+    - The listing's "a fresh verse every day" is true only with that setting on. That's for the ASO session at the next listing update.
+- **1. Free exports (2 minutes).** The site says "there is no free tier" (llms.txt, pricing.md and the prayer-app roundup).
+  - The app's code gives new users 3 free wallpaper exports, and your Terms say so too.
+  - But the paywall has no close button.
+  - What does a new user actually get today? Until you answer, the site keeps "no free tier".
+- **2. Legal pages (5 minutes).** The Privacy Policy and the Terms of Use say FaithWall works through "a rotating lock-screen widget". Rotation is an option, off by default.
+  - Suggested wording: "or a lock-screen widget (with an optional auto-rotate setting)".
+  - It's legal text, so it's your call. Tell the next session.
+- **3. Two phrases to confirm (1 minute).** The site says FaithWall is "not a study app" and has "no reading plans", because the source has neither feature.
+  - If either is wrong, say so.
+  - If both are right, the next session also adjusts one FAQ answer on /best-bible-verse-lock-screen-apps. It says lock-screen apps lack translations and search, but FaithWall has both, for picking a verse.
+- Nothing to do: /blog/best-free-all-time had links pointing at it but no page. It now redirects to the free Bible apps roundup.
+
+## 2026-11-16 late night (keyword research tool)
+
+The App Store agreement at the top of the next section still comes first.
+
+- **New: a free keyword research tool, the same on all three sites.** You asked for a free keyword researcher we could use through MCP or an API. No free tool gives real search volumes. The open-source "keyword researchers" either scrape Google, which breaks Google's terms, or resell Keyword Planner data. No MCP server offers keyword ideas either, Google's own Ads MCP server included. So this session built a small script, `scripts/keyword-research.mjs`, that uses only free, allowed sources:
+  - Search Console: what people already find us for.
+  - Google autocomplete: a small daily allowance per site. It proves a phrase is searched, never how often.
+  - Bing, once you create a key (item 2).
+
+  The script groups searches into clusters and suggests one move per cluster: a refresh, an FAQ answer, a tool, a comparison or a new post. Nothing was bought. The how-to is in `docs/keyword-research/README.md`. QuranWall and NoteWall get the same script with their own keywords. If you'd rather skip Bing entirely, say so.
+- **1. Which analytics tool does each site use, and is it behind Cloudflare? (5 minutes)** Counting visits from ChatGPT, Perplexity, Claude, Gemini and Copilot waits on this. So does the Cloudflare check in item 4 for QuranWall and NoteWall. Only FaithWall is known to be on Cloudflare.
+- **2. Bing Webmaster Tools API key (about 20 minutes, only you can).**
+  1. Sign in to Bing Webmaster Tools.
+  2. Import the three sites from Search Console.
+  3. Go to Settings → API Access and generate an API key.
+  4. Save the key to a file outside every repo: `~/.claude/secrets/bing-wmt.key`, readable only by you (`chmod 600`). Don't paste it into chat.
+
+  The next session then makes three test calls to see what the real responses look like, and only then wires Bing into the tool. Bing's AI Performance report, in the same dashboard, shows how often Copilot cites each site. It has no API yet, so glance at it once a month.
+- **3. Search Console's AI report (5 minutes).** Google now reports how often each page shows in its AI features (AI Overviews and AI Mode). It shows impressions only: no queries, no clicks. Open each of the three properties and tell the next session whether the report appears. An empty report is normal at our size.
+- **4. Cloudflare AI Crawl Control: keep AI search allowed (10 minutes per Cloudflare site).** This updates the Cloudflare part of item 8 in the evening list.
+  - **Why it matters now:** the ASO session found that ChatGPT's iPhone app is the biggest single referrer of App Store downloads for all three apps. For FaithWall and QuranWall it brings more than all websites together. App Store search is still much bigger.
+  - **What must never be blocked:** ChatGPT's search crawler (OAI-SearchBot), which finds pages, and ChatGPT-User, which fetches a page when someone asks about it.
+  - **What to check:** in Cloudflare → AI Crawl Control, the Search policy is Allow and Agent is not Block.
+  - **Your decision:** whether to block the training crawlers (GPTBot, ClaudeBot).
+
+  From now on, the weekly refresh runs the tool's `geo-probe`, which reads the live robots rules and each bot's response, and puts a blocked search bot on this list.
+- **5. Optional (5 minutes): apply for the Google Trends API alpha.** It gives relative interest over time, not volumes. It's a small pilot, so don't wait for it. Scraping Trends (pytrends) is off-limits.
+- **6. Later, not now: paid search volumes.** If the free data can't decide between topics after about 4 weeks, there are two options:
+  - DataForSEO: you create the account and top up a $50 minimum, which doesn't expire. That is roughly a few dollars a month at our use.
+  - Google Ads' Keyword Planner API: 45 to 90 minutes of setup, plus Google's approval wait.
+
+  Keywords Everywhere, about $7 a month, is the small alternative.
+- **7. Later, after a 3-month review: an AI answer tracker.** Each month, it would ask ChatGPT, Gemini and Claude about 30 fixed questions per site through their official APIs, to see whether each site gets cited. The cap would be about $15 a month. It needs your OK and keys you create. Not now.
+- **8. Optional (1 minute): make the Search Console key file readable only by you.** The tool's check shows it is readable by other accounts on this Mac. It is not in git (checked). Run `chmod 600` on `scripts/service-account-key.json` in the karchi folder.
+- **QuranWall's list gets one item from this work:** before any QuranWall tool or mood page, name a Quran translation whose licence allows commercial website use (or choose Arabic only with a link out), and name a reviewer for meanings. Its session adds this to its own TODO-KAROL.md.
+
 ## 2026-11-16 night (the first item blocks the campaign read)
 
 - **First: accept Apple's updated agreement in App Store Connect (2 minutes, only you can).** Since about 11-11 Apple's analytics API answers every request with `REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED`, so the App Store data our sessions read stops at 11-11. Only the Account Holder can fix it: App Store Connect → Business (Agreements, Tax, and Banking) → review and accept the pending agreement. Until then the 12-15 campaign read (item 1 below), the control-group read-out and the other-language decision all work from data frozen at 11-11. It covers all three apps, because they share one developer account.

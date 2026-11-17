@@ -23,7 +23,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "FaithWall is the easiest way to keep scripture-based prayer prompts where you'll actually use them: you choose a verse, and it puts it on your iPhone lock screen as a wallpaper, or starts a widget that rotates fresh verses on its own. The 12 prompts below each pair one verse with one question. The verse gives you the words, and the question tells you where to take them."
+      "content": "FaithWall is the easiest way to keep scripture-based prayer prompts where you'll actually use them: you choose a verse, and it puts it on your iPhone lock screen as a wallpaper, or shows it in a widget (the optional Auto-rotate verses setting then shows random Bible verses). The 12 prompts below each pair one verse with one question. The verse gives you the words, and the question tells you where to take them."
     },
     {
       "type": "paragraph",
@@ -179,11 +179,11 @@
     },
     {
       "type": "paragraph",
-      "text": "The prompts aren't the hard part. Keeping them in front of you is. Most people who try **Scripture-based prayer prompts** write them on an index card or in the Notes app, use them for a week, and then the card ends up in a drawer. Rotation dies next. You meant to move to a new verse every few days, and by week two you've looked at the same one so long that your eyes skip it. FaithWall handles both problems. The verses sit on the lock screen instead of behind an app icon, and the widget moves to a new verse on its timer, so the prompt changes before you stop seeing it."
+      "text": "The prompts aren't the hard part. Keeping them in front of you is. Most people who try **Scripture-based prayer prompts** write them on an index card or in the Notes app, use them for a week, and then the card ends up in a drawer. Rotation dies next. You meant to move to a new verse every few days, and by week two you've looked at the same one so long that your eyes skip it. FaithWall handles both problems. The verse you picked sits on the lock screen instead of behind an app icon, and in the widget setup you can turn on Auto-rotate verses so the verse changes on a timer before you stop seeing it."
     },
     {
       "type": "important",
-      "content": "**The lock screen shows the verse, not the question.** The app displays the verse you picked, and its widget then brings random Bible verses. It doesn't write prompts, which is why the three questions above matter: they work on whichever verse comes up."
+      "content": "**The lock screen shows the verse, not the question.** The app displays the verse you picked, and in the widget setup the optional Auto-rotate verses setting can bring random Bible verses. It doesn't write prompts, which is why the three questions above matter: they work on whichever verse comes up."
     },
     {
       "type": "heading",

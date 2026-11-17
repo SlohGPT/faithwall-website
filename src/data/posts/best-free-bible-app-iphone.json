@@ -10,7 +10,7 @@
     "imageAttribution": {
       "photographer": "Pisit Heng",
       "photographerUrl": "https://unsplash.com/@pisitheng?utm_source=faithwall&utm_medium=referral",
-      "unsplashUrl": "https://unsplash.com/photos/opened-book-on-brown-table-FQvadXmA524?utm_source=faithwall&utm_medium=referral"
+      "unsplashUrl": "https://unsplash.com/photos/FQvadXmA524?utm_source=faithwall&utm_medium=referral"
     },
     "keywords": ["best free bible app iphone", "best bible app for iphone", "best bible apps 2026", "free bible app ios", "youversion vs olive tree", "bible gateway iphone", "faithwall"],
     "cluster": "bible-study-tools-ios"
@@ -53,7 +53,7 @@
       "items": [
         {
           "name": "FaithWall — the daily-exposure layer",
-          "description": "Free to download; a subscription unlocks it. Not a Bible-reading app — a verse you pick, on your lock screen as a wallpaper, or a widget that starts with that verse and then rotates fresh verses on its own. Ranked first here because it's our app and this is the category it owns; for sit-down reading, see #2 below."
+          "description": "Free to download; a subscription unlocks it. It has a built-in Bible browser for finding your verse, but it is built for the lock screen, not for study: a verse you pick, on your lock screen as a wallpaper, or a widget that shows that verse (an optional setting, off by default, makes it show random verses instead). Ranked first here because it's our app and this is the category it owns; for sit-down reading, see #2 below."
         },
         {
           "name": "YouVersion (Bible.com) — best free reading app",
@@ -209,7 +209,7 @@
     },
     {
       "type": "paragraph",
-      "text": "YouVersion ships a Verse of the Day home-screen and lock-screen widget, refreshed once daily from inside the app's own widget gallery — the only app on this list with a comparable feature, and still limited to one verse per day with no theming. Olive Tree, Bible Gateway, Hosanna, Dwell, Blue Letter Bible, ESV Bible App, and Logos ship no lock-screen or widget presence at all as of September 2026; closing any of them ends the exposure until you reopen the app. FaithWall exists specifically to fill that gap for any reading app on this list — it isn't a competitor to YouVersion's reading features, it's the layer that keeps a verse visible between the times you have one of these apps open, with a verse you pick yourself, and an optional widget mode that starts with that verse and then rotates fresh verses on its own as often as hourly, which YouVersion's single daily widget doesn't attempt. For the full comparison of lock-screen-specific apps, including three near-identical copycats worth telling apart, see our [ranked lock-screen app comparison](/best-bible-verse-lock-screen-apps)."
+      "text": "YouVersion ships a Verse of the Day home-screen and lock-screen widget, refreshed once daily from inside the app's own widget gallery — the only app on this list with a comparable feature, and still limited to one verse per day with no theming. Olive Tree, Bible Gateway, Hosanna, Dwell, Blue Letter Bible, ESV Bible App, and Logos ship no lock-screen or widget presence at all as of September 2026; closing any of them ends the exposure until you reopen the app. FaithWall exists specifically to fill that gap for any reading app on this list — it isn't a competitor to YouVersion's reading features, it's the layer that keeps a verse visible between the times you have one of these apps open, with a verse you pick yourself, and a separate widget setup that shows that verse and, if you turn on the optional Auto-rotate verses setting, can rotate random verses as often as hourly, which YouVersion's single daily widget doesn't attempt. For the full comparison of lock-screen-specific apps, including three near-identical copycats worth telling apart, see our [ranked lock-screen app comparison](/best-bible-verse-lock-screen-apps)."
     },
     {
       "type": "heading",
@@ -256,7 +256,7 @@
     },
     {
       "type": "paragraph",
-      "text": "This is where a Bible *reader* app and a Bible *exposure* app are two different products, doing two different jobs. YouVersion — or Olive Tree, or Bible Gateway — is for sit-down reading. **FaithWall is the lock-screen layer that keeps the day's verse in front of you between readings** — sets up in about 60 seconds: the wallpaper is one verse you pick, and the optional widget starts with that verse and then rotates fresh verses on its own. Free to download; a subscription unlocks it. Most thoughtful Christian phone setups end up running both."
+      "text": "This is where a Bible *reader* app and a Bible *exposure* app are two different products, doing two different jobs. YouVersion — or Olive Tree, or Bible Gateway — is for sit-down reading. **FaithWall is the lock-screen layer that keeps the day's verse in front of you between readings** — sets up in about 60 seconds: in the wallpaper setup you pick one verse and it stays until you pick another; in the separate widget setup the widget shows that verse, and if you turn on Auto-rotate verses it then shows random Bible verses. Free to download; a subscription unlocks it. Most thoughtful Christian phone setups end up running both."
     },
     {
       "type": "paragraph",

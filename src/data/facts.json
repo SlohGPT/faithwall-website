@@ -8,6 +8,8 @@
   "minIOS": "15.0",
   "minIOSText": "iOS 15.0 or later",
   "widgetMinIOS": "16.0",
+  "translationCount": 24,
+  "uiLanguageCount": 10,
   "installLine": "Free to download; a subscription unlocks it.",
   "subscriptionLine": "A subscription unlocks it.",
   "rating": {

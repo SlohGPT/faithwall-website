@@ -1,0 +1,106 @@
+{
+  "engine_min_version": "1.0.0",
+  "site": "faithwall.app",
+  "origin": "https://faithwall.app",
+  "private_dir": "~/.claude/faithwall-gsc/kw",
+  "clusters_file": "src/data/keyword-clusters.json",
+  "public_docs_dir": "docs/keyword-research",
+  "extra_public_files": ["docs/aso-handoff.md"],
+  "sitemap_path": "public/sitemap.xml",
+  "repo_robots_path": "public/robots.txt",
+  "priorities_file": "src/data/seo-priorities.json",
+  "readonly_json": ["src/data/seo-keywords.json", "src/data/seo-priorities.json"],
+  "tool_pages": ["/random-bible-verse", "/bible-verse-wallpaper-maker"],
+  "gsc": {
+    "property": "sc-domain:faithwall.app",
+    "regex_families": [
+      { "id": "lock-screen", "pattern": "lock ?screen|lockscreen" },
+      { "id": "widget", "pattern": "widget" },
+      { "id": "wallpaper", "pattern": "wallpaper|background" },
+      { "id": "random-generator", "pattern": "random|generator|randomi[sz]er|picker|wheel" },
+      { "id": "mood", "pattern": "for (anxiety|anxious|fear|stress|grief|depress|lonel|sad|anger|hope|strength|peace|sleep|healing|comfort|worry)|when (you|i) (feel|are)" },
+      { "id": "compare", "pattern": " vs |versus|alternative|best .*app|apps? like" },
+      { "id": "daily-verse", "pattern": "daily|of the day|every day|each day|today" },
+      { "id": "prayer", "pattern": "pray" }
+    ]
+  },
+  "autocomplete": {
+    "daily_cap": 15,
+    "markets": [{ "id": "us", "hl": "en", "gl": "us", "cap": 15 }],
+    "modifiers": ["for", "app", "kjv", "iphone"]
+  },
+  "seeds": [
+    { "seed": "bible verses for anxiety" },
+    { "seed": "bible verse for when you feel" },
+    { "seed": "bible verse lock screen" },
+    { "seed": "bible verse widget" },
+    { "seed": "bible verse wallpaper" },
+    { "seed": "daily bible verse app" },
+    { "seed": "bible randomizer" },
+    { "seed": "bible chapter generator" },
+    { "seed": "bible verse generator" },
+    { "seed": "best christian apps" },
+    { "seed": "best prayer app" },
+    { "seed": "scripture memory app" },
+    { "seed": "verse of the day app" },
+    { "seed": "christian lock screen" },
+    { "seed": "bible verses for strength" },
+    { "seed": "bible verse for sleep" },
+    { "seed": "short bible verses" },
+    { "seed": "lock screen bible verse" }
+  ],
+  "intent_rules": [
+    { "intent": "navigational", "pattern": "\\bfaith ?wall\\b" },
+    { "intent": "how-to", "pattern": "^how (to|do i|do you|can i)\\b|\\b(set ?up|add|put|change)\\b.*\\b(lock ?screen|home ?screen|widget|wallpaper)\\b" },
+    { "intent": "question", "pattern": "^(what|why|when|where|which|who|can|could|does|do|did|is|are|was|were|should|will|would)\\b" },
+    { "intent": "compare", "pattern": "\\b(vs|versus|alternatives?|compared?|comparison|best|top)\\b|\\bapps? like\\b" },
+    { "intent": "tool", "pattern": "\\b(generator|maker|picker|wheel|randomi[sz]er|random|creator|builder|spinner)\\b" },
+    { "intent": "mood", "pattern": "\\bfor (anxiety|anxious|fear|stress|grief|depression|loneliness|lonely|sadness|sad|anger|hope|strength|peace|sleep|healing|comfort|worry)\\b|\\bwhen (you|i|we) (feel|are)\\b" },
+    { "intent": "app-install", "pattern": "\\b(apps?|widgets?|lock ?screens?|lockscreen|wallpapers?|iphone|ios|download)\\b" }
+  ],
+  "modifiers": ["kjv", "niv", "esv", "nlt", "nkjv", "csb", "nasb", "msg", "amp"],
+  "hold_lists": [
+    {
+      "until": "2026-12-02",
+      "reason": "p72 control group (conversion-layer read-out)",
+      "urls": [
+        "/blog/best-free-bible-app-iphone",
+        "/blog/hallow-vs-abide",
+        "/blog/best-bible-study-app-iphone-2026",
+        "/blog/faithwall-vs-pray-com",
+        "/blog/bible-verse-widget-iphone",
+        "/blog/sermon-notes-iphone-app",
+        "/blog/prayer-journal-app-iphone-2026",
+        "/daily-scripture-lock-screen",
+        "/prayer-life-iphone",
+        "/faith-based-productivity",
+        "/bible-study-tools-ios",
+        "/christian-app-comparisons",
+        "/faithwall-vs-youversion",
+        "/faithwall-vs-hallow",
+        "/best-bible-verse-lock-screen-apps"
+      ]
+    }
+  ],
+  "public_ban_phrases": [
+    "\\bfaith ?wall( app)? is (totally |completely )?free\\b"
+  ],
+  "geo": {
+    "paths": ["/", "/blog/", "/llms.txt"],
+    "bot_settings_hint": "the Cloudflare dashboard (Security, Bots)",
+    "search_bots": ["OAI-SearchBot", "ChatGPT-User", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User", "Bingbot", "Googlebot"],
+    "training_bots": ["GPTBot", "ClaudeBot", "Google-Extended", "CCBot", "Applebot-Extended", "Bytespider", "meta-externalagent", "Amazonbot"],
+    "user_agents": {
+      "OAI-SearchBot": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot",
+      "ChatGPT-User": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot",
+      "Claude-SearchBot": "Mozilla/5.0 (compatible; Claude-SearchBot/1.0)",
+      "Claude-User": "Mozilla/5.0 (compatible; Claude-User/1.0)",
+      "PerplexityBot": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)",
+      "Perplexity-User": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)",
+      "Bingbot": "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)",
+      "Googlebot": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+      "GPTBot": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)",
+      "ClaudeBot": "Mozilla/5.0 (compatible; ClaudeBot/1.0)"
+    }
+  }
+}

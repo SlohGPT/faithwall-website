@@ -10,9 +10,9 @@ The price, billing period and any trial offer are shown in the App Store before 
 ## What you get
 
 - Pick your own verse by book, chapter and verse or by search, in 24 translations
-- Show it as a full-screen lock-screen wallpaper (applied by an Apple Shortcut) or as a compact lock-screen widget that starts with the verse you picked and then shows random verses, updated every hour, 8 hours or day
+- Show it as a full-screen lock-screen wallpaper (applied by an Apple Shortcut) or as a compact lock-screen widget that shows the verse you picked (an optional "Auto-rotate verses" setting (off by default) makes it show random verses instead, changing every hour, every 8 hours or once a day)
 - App interface in 10 languages
-- Not a Bible reader
+- Built-in Bible browser (all books and chapters) for finding your verse; built for the lock screen, not a study app
 
 ## Platforms
 

@@ -16,7 +16,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "To set a **bible verse lock screen on iPhone**, install FaithWall (free to download), pick a verse, and tap **Set Lock Screen** — done in under 60 seconds. A widget can rotate fresh verses automatically, starting with your chosen one. Wallpaper for a single anchor verse; widget for a daily rotation."
+      "content": "To set a **bible verse lock screen on iPhone**, install FaithWall (free to download) and pick a verse. FaithWall hands it to an Apple Shortcut that sets it as your lock-screen wallpaper — done in under 60 seconds. The widget setup is separate: the widget shows the verse you picked; if you turn on the optional Auto-rotate verses setting, it then shows random Bible verses every hour, every 8 hours or once a day. Wallpaper setup for one verse that stays until you pick another; widget setup for a verse in a small widget."
     },
     {
       "type": "paragraph",
@@ -50,14 +50,14 @@
     },
     {
       "type": "paragraph",
-      "text": "Pick wallpaper for one anchor verse you want to live with for a season, and a widget for a fresh verse every day — or run both together for the strongest setup. Want a fresh verse daily by default? See our [verse of the day lock screen setup](/blog/verse-of-the-day-lock-screen-iphone). Prefer a verse that changes on its own instead? The [rotating Bible verse wallpaper guide](/blog/rotating-bible-verse-wallpaper-iphone) covers the widget that does that."
+      "text": "FaithWall has two separate setups, and you pick one in the app. Pick the wallpaper setup for one anchor verse you want to live with for a season, or the widget setup for a verse in a small widget; you can switch in Settings. Want a verse that changes? See our [verse of the day lock screen setup](/blog/verse-of-the-day-lock-screen-iphone). The [rotating Bible verse wallpaper guide](/blog/rotating-bible-verse-wallpaper-iphone) covers the widget setting that does that."
     },
     {
       "type": "list",
       "items": [
         "**Wallpaper** — best when you want to live with one anchor verse for a season. Think Philippians 4:13 for a hard month, or Psalm 23 during grief.",
         "**Widget** — best when you want a fresh verse every day. FaithWall's widget starts with your chosen verse, then rotates random Bible verses on the schedule you set — hourly, every 8 hours, or daily.",
-        "**Both** — power move. Anchor verse as the wallpaper, daily rotation in a small widget above the time."
+        "**Switching** — the wallpaper setup and the widget setup are separate. You pick one, and you can change it in Settings (switching clears the saved verse, so pick a verse again)."
       ]
     },
     {
@@ -67,7 +67,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Setting a Bible verse lock screen takes five taps: download FaithWall, pick a verse, choose a style, tap Set Lock Screen, and adjust anytime by long-pressing your lock screen."
+      "text": "Setting a Bible verse lock screen takes a few steps: download FaithWall, pick a verse, choose a style, let FaithWall run the Shortcut that applies it, and adjust anytime by long-pressing your lock screen."
     },
     {
       "type": "steps",
@@ -75,7 +75,7 @@
         "Download **FaithWall** from the App Store — free to download.",
         "Open the app. Pick your verse: search for it, or browse by book, chapter and verse.",
         "Choose a style — minimalist text, photo-backed, or color gradient.",
-        "Tap **Set Lock Screen**. iOS prompts you once to allow the wallpaper; tap allow.",
+        "FaithWall hands your verse to an Apple Shortcut that applies it as your lock-screen wallpaper. The first time, the Shortcuts app asks for a few permissions; tap Allow on each one.",
         "Long-press your lock screen any time to switch to a different lock screen or style."
       ]
     },
@@ -140,7 +140,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Install FaithWall, pick a verse, choose a style, and tap Set Lock Screen. FaithWall applies the wallpaper through an Apple Shortcut, so it takes under 60 seconds and needs no screenshots or Camera Roll juggling."
+      "text": "Install FaithWall, pick a verse and choose a style. FaithWall applies the wallpaper through an Apple Shortcut, so it takes under 60 seconds and needs no screenshots or Camera Roll juggling."
     },
     {
       "type": "heading",
@@ -167,7 +167,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Weekly is the sweet spot for most people — long enough for a verse to sink in, short enough that it doesn't fade into the background. If you'd rather not think about it at all, FaithWall's widget brings a fresh verse on its own, hourly, every 8 hours or daily."
+      "text": "Weekly is the sweet spot for most people — long enough for a verse to sink in, short enough that it doesn't fade into the background. If you'd rather not think about it at all, FaithWall's widget can bring a fresh verse hourly, every 8 hours or daily if you turn on the optional Auto-rotate verses setting."
     },
     {
       "type": "cta",

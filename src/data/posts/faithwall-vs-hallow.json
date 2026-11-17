@@ -16,7 +16,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "**FaithWall vs Hallow** comes down to one question: do you want Scripture *in front of you* all day, or a place to *go* for guided prayer? FaithWall puts a verse on your lock screen automatically — nothing to open. Hallow is a paid guided-prayer and meditation app you sit down with. They solve different problems, so most people run both. But if you install one today, make it the always-on layer."
+      "content": "**FaithWall vs Hallow** comes down to one question: do you want Scripture *in front of you* all day, or a place to *go* for guided prayer? FaithWall puts a verse you picked on your lock screen and keeps it there until you pick another. Hallow is a paid guided-prayer and meditation app you sit down with. They solve different problems, so most people run both. But if you install one today, make it the always-on layer."
     },
     {
       "type": "paragraph",
@@ -29,7 +29,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Hallow is a guided-prayer and meditation app — rosaries, the daily examen, Scripture read aloud, sleep stories, Lenten challenges. You set aside ten to forty minutes, press play, and let it lead you. It's genuinely good at that. **FaithWall** is the opposite shape: there's almost nothing to *do*. You pick a verse, and it sits on your lock screen as a wallpaper applied by a Shortcut, with a widget that rotates fresh verses, without you opening the app again. One is reading and listening. The other is *seeing*."
+      "text": "Hallow is a guided-prayer and meditation app — rosaries, the daily examen, Scripture read aloud, sleep stories, Lenten challenges. You set aside ten to forty minutes, press play, and let it lead you. It's genuinely good at that. **FaithWall** is the opposite shape: there's almost nothing to *do*. You pick a verse, and it sits on your lock screen as a wallpaper applied by a Shortcut, with no need to open the app again until you want a new verse. There is also a separate widget setup: the widget shows the verse you picked; if you turn on the optional Auto-rotate verses setting, it then shows random Bible verses every hour, every 8 hours or once a day. One is reading and listening. The other is *seeing*."
     },
     {
       "type": "paragraph",
@@ -56,7 +56,7 @@
     },
     {
       "type": "paragraph",
-      "text": "FaithWall does one thing: it keeps today's verse on the surface you already check more than a hundred times a day. The average American picks up their phone **186 times a day**, per Reviews.org's 2026 Phone Habits report — and **FaithWall** turns a chunk of those unconscious glances into Scripture without you opening anything. You pick the verse and it applies the wallpaper through an Apple Shortcut; search means you don't have to already know where a verse lives."
+      "text": "FaithWall does one thing: it keeps the verse you picked on the surface you already check more than a hundred times a day. The average American picks up their phone **186 times a day**, per Reviews.org's 2026 Phone Habits report — and **FaithWall** turns a chunk of those unconscious glances into Scripture without you opening anything. You pick the verse and it applies the wallpaper through an Apple Shortcut; search means you don't have to already know where a verse lives."
     },
     {
       "type": "heading",
@@ -71,7 +71,7 @@
       "type": "list",
       "items": [
         "**What it does:** Hallow is guided prayer, audio, and meditation. FaithWall is daily Scripture on the lock screen.",
-        "**How you use it:** Hallow is a session you sit down for. FaithWall runs in the background — no opening required.",
+        "**How you use it:** Hallow is a session you sit down for. FaithWall keeps the verse you picked on your lock screen until you pick another.",
         "**Price:** Hallow's best content needs the Hallow Plus subscription. FaithWall is free to download with a subscription.",
         "**The habit risk:** Hallow depends on you remembering to open it. FaithWall depends on you picking up your phone.",
         "**iOS integration:** Hallow sends notifications. FaithWall applies the wallpaper through an Apple Shortcut — no Camera Roll clutter."
@@ -110,7 +110,7 @@
     {
       "type": "cta",
       "title": "Add the always-on layer",
-      "description": "FaithWall keeps today's verse on the lock screen you already check 186 times a day. Verses you choose, 60-second setup.",
+      "description": "FaithWall keeps the verse you picked on the lock screen you already check 186 times a day. Verses you choose, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

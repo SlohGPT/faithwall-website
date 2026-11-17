@@ -12,6 +12,8 @@
     "lint:facts:all": "node scripts/lint-facts.mjs --all",
     "check:facts": "node scripts/check-facts.mjs",
     "inspect:urls": "node scripts/inspect-urls.mjs",
+    "kw": "node scripts/keyword-research.mjs",
+    "kw:check": "node scripts/keyword-research.mjs check",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"

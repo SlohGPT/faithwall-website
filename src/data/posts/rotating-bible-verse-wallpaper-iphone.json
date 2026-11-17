@@ -39,7 +39,7 @@
     },
     {
       "type": "paragraph",
-      "text": "You check your phone roughly **186 times a day**. A static verse gets 186 looks on day one and roughly zero conscious looks by day twelve. Rotation flips the math. A wallpaper that changes daily resets habituation each morning — your brain notices it again, the verse gets read again, and the practice stays alive."
+      "text": "You check your phone roughly **186 times a day**. A static verse gets 186 looks on day one and roughly zero conscious looks by day twelve. Rotation flips the math. A verse that changes (a widget with Auto-rotate verses turned on) resets habituation — your brain notices it again, the verse gets read again, and the practice stays alive."
     },
     {
       "type": "heading",
@@ -53,7 +53,7 @@
     {
       "type": "list",
       "items": [
-        "**Change the verse on a schedule** without you opening Settings every morning.",
+        "**Change the verse on a schedule** (widget setup with Auto-rotate verses on), without you opening the app.",
         "**Start from a verse you choose**, so the first thing on your screen is one that matters to you.",
         "**Sit clear of the clock and widgets** — designed for the lock-screen surface, not adapted from a desktop crop.",
         "**Work alongside iOS lock screens** so it can pair with a Quiet Time or Sabbath Focus you set up yourself, without overwriting your regular wallpaper."
@@ -74,7 +74,7 @@
         "**Save 30 verse images, rotate manually each morning.** Works for week one. Dies by week three — the manual step is the friction that kills it.",
         "**iOS Photos shuffle on a Focus mode.** Free, native, but you still have to find, save, and crop 30 lock-screen-friendly images. The curation work is the whole job.",
         "**A static gallery app.** You pick one image at install and never change it. Same habituation problem as a Pinterest save — just inside an app.",
-        "**FaithWall.** A verse you choose, a lock-screen widget that rotates fresh verses hourly, every 8 hours or daily, and a Shortcuts-applied wallpaper. The rotation is the product, not an afterthought."
+        "**FaithWall.** A verse you choose, applied as a Shortcuts wallpaper that stays until you pick another, or shown in a lock-screen widget with an optional Auto-rotate verses setting (hourly, every 8 hours or daily). Rotation is a widget setting you turn on, not part of the wallpaper."
       ]
     },
     {
@@ -102,7 +102,7 @@
     {
       "type": "heading",
       "level": 2,
-      "text": "Set up daily rotation in 60 seconds"
+      "text": "Set up verse rotation in 60 seconds (widget setup)"
     },
     {
       "type": "steps",
@@ -110,13 +110,13 @@
         "Download FaithWall (free to download) from the App Store.",
         "Pick a verse matched to your season — strength, gratitude, anxiety, Psalms, promises — by search or by book, chapter and verse.",
         "Choose a wallpaper style (the type is sized for the lock-screen surface — clock and widgets won't crash the verse).",
-        "Tap **Set Lock Screen**. FaithWall applies the wallpaper through an Apple Shortcut, and the widget starts with your verse and then rotates random Bible verses on the schedule you set.",
-        "Long-press your lock screen anytime to swap lock screens or styles. Rotation runs on the schedule you set, without further input."
+        "FaithWall applies the wallpaper through an Apple Shortcut it launches for you. Or switch to the widget setup: it starts with your verse, and if you turn on the optional Auto-rotate verses setting it then rotates random Bible verses on the schedule you set.",
+        "To change the verse or style later, pick a new verse in the app or tap Update Wallpaper Now in Settings. With the widget setup and Auto-rotate verses turned on, the widget rotates on the schedule you set."
       ]
     },
     {
       "type": "highlight",
-      "content": "**The whole point of rotation:** the lock screen stays *seen*. At the daily setting, a new verse lands each morning — your brain notices it, you read it, and the daily exposure compounds. Over a year that's a verse you actually saw almost every morning, not one verse you stopped seeing in March."
+      "content": "**The whole point of rotation:** the lock screen stays *seen*. With Auto-rotate verses on at the daily setting, the widget shows a new verse each day — your brain notices it, you read it, and the daily exposure compounds. Over a year that's a verse you actually saw almost every morning, not one verse you stopped seeing in March."
     },
     {
       "type": "heading",
@@ -147,8 +147,8 @@
     },
     {
       "type": "cta",
-      "title": "Get a lock screen that refreshes itself daily",
-      "description": "FaithWall puts the verse you choose on your iPhone lock screen — designed for the surface, applied with an Apple Shortcut, with a widget that rotates fresh verses so it never goes stale. Free to download, 60-second setup.",
+      "title": "Put the verse you picked on your lock screen",
+      "description": "FaithWall puts the verse you choose on your iPhone lock screen — designed for the surface, applied with an Apple Shortcut, or shown in a widget with an optional Auto-rotate verses setting. Free to download, 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

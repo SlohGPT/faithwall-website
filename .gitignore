@@ -28,3 +28,7 @@ dist-ssr
 # GSC data dumps (local only — never commit search metrics to the public repo)
 gsc-data*.json
 scripts/gsc-data*.json
+
+# keyword engine (private data never lives in the repo)
+*.key
+kw-private/

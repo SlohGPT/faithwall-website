@@ -1,0 +1,852 @@
+{
+  "engine_version": "1.0.0",
+  "site": "faithwall.app",
+  "updated": "2026-11-16",
+  "clusters": [
+    {
+      "id": "random-bible-verse-generator",
+      "name": "Random Bible verse generator",
+      "head_keyword": "random bible verse generator",
+      "members": [
+        "random bible verse generator",
+        "random bible verse",
+        "bible verse generator",
+        "give me a random bible verse",
+        "random verse generator",
+        "random verse",
+        "truly random bible verse generator",
+        "random bible verses",
+        "random bible verse kjv",
+        "bible verse randomizer",
+        "bible randomizer",
+        "randomizer bible verse",
+        "random scripture generator",
+        "random scripture",
+        "scripture generator",
+        "random psalm generator",
+        "random gospel generator",
+        "bible quote generator",
+        "give me a random bible quote",
+        "random bible quote",
+        "bible verse picker",
+        "random verse picker",
+        "pick a bible verse",
+        "generate a bible verse",
+        "bible verse roulette",
+        "bible verse shuffle",
+        "random kjv verse",
+        "kjv verse generator",
+        "random verse of the day",
+        "random memory verse",
+        "random new testament verse",
+        "bible verse generator random",
+        "bible verse generator kjv",
+        "bible quote randomizer",
+        "bible scripture randomizer",
+        "scripture randomizer",
+        "bible verse generator wheel",
+        "bible randomizer wheel",
+        "bible verse generator for birthday",
+        "random biblical verse"
+      ],
+      "intent": "tool",
+      "content_type": "tool-page",
+      "target_url": "/random-bible-verse",
+      "decision": "hold",
+      "hold_reason": "queued as p70 (title and description only) until 2026-12-02",
+      "held_until": "2026-12-02",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "The largest query family on the site by far, almost all of it on this tool page and just short of the clicks"
+        },
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "Autocomplete adds randomizer, wheel, birthday and translation phrasings to the generator seeds"
+        }
+      ],
+      "queue_id": "p70",
+      "notes": "Misspelt and joined-up forms (bibleizer, randombibleverse and others) land here too. NIV, ESV and NKJV are link-only, never embedded. Wheel and birthday ideas wait for after p70 and Karol's copy review."
+    },
+    {
+      "id": "random-bible-chapter",
+      "name": "Random Bible chapter, book or passage",
+      "head_keyword": "random bible chapter",
+      "members": [
+        "random bible chapter",
+        "bible chapter generator",
+        "random bible chapter generator",
+        "random bible passage",
+        "random bible chapter kjv",
+        "random chapter of the bible",
+        "bible chapter randomizer",
+        "bible randomizer chapter",
+        "random new testament chapter",
+        "pick a random book of the bible",
+        "pick a random book in the bible",
+        "choose a random book in the bible",
+        "name a random book in the bible",
+        "random book of the bible wheel",
+        "bible book generator",
+        "book of the bible generator",
+        "books of the bible generator",
+        "bible book randomizer",
+        "randomizer bible book",
+        "random bible book generator new testament",
+        "give me a random bible book",
+        "give me a random bible passage",
+        "give me a random passage from the bible",
+        "give me a random bible passage to read",
+        "bible passage generator",
+        "bible story randomizer",
+        "bible study randomizer"
+      ],
+      "intent": "tool",
+      "content_type": "tool-page",
+      "target_url": "/random-bible-verse",
+      "decision": "hold",
+      "hold_reason": "the tool page is queued as p70 until 2026-12-02",
+      "held_until": "2026-12-02",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "A steady sub-intent of the generator family: people want a whole chapter, a book or a passage, not one verse"
+        },
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The randomizer and chapter generator seeds return chapter, book, story and study phrasings"
+        }
+      ],
+      "queue_id": "p70",
+      "notes": "After p70: serve chapter, book and passage picks as a mode on the same tool page, not as a new page."
+    },
+    {
+      "id": "bible-verse-lock-screen-app",
+      "name": "An app that puts Bible verses on the lock screen",
+      "head_keyword": "best bible verse lock screen app",
+      "members": [
+        "best bible verse lock screen app",
+        "app that puts bible verses on lock screen",
+        "app that puts bible verses on lock screen free",
+        "what app puts bible verses on your lock screen",
+        "bible app that puts verses on lock screen",
+        "best app for bible verses on lock screen",
+        "free bible verse app for lock screen",
+        "lockscreen bible verse app",
+        "bible verse lockscreen app",
+        "bible verse lock screen app",
+        "bible verse lock screen app free",
+        "bible verse screensaver app",
+        "app that shows bible verse on lock screen every hour",
+        "bible app that shows on lock screen",
+        "daily bible verse app for lock screen",
+        "daily bible verse apps"
+      ],
+      "intent": "app-install",
+      "content_type": "money-page",
+      "target_url": "/best-bible-verse-lock-screen-apps",
+      "decision": "hold",
+      "hold_reason": "p72 control group until 2026-12-02 (conversion-layer read-out)",
+      "held_until": "2026-12-02",
+      "aso_handoff": true,
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "App-shaped lock screen queries land on this roundup; a few go to the pillar instead"
+        },
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The lock screen seed returns app, free and widget phrasings"
+        }
+      ],
+      "notes": "Matches the App Store title, Lock Screen Bible Verse, so the ASO work shares it. Free is recorded as demand only: free to download is the only allowed phrase about FaithWall."
+    },
+    {
+      "id": "bible-verse-on-lock-screen",
+      "name": "How to put a Bible verse on the iPhone lock screen",
+      "head_keyword": "bible verse lock screen",
+      "members": [
+        "bible verse lock screen",
+        "lock screen bible verse",
+        "bible verses for lock screen",
+        "bible verse for lock screen",
+        "daily bible verse on lock screen",
+        "daily bible verse lock screen",
+        "how to get bible verse on lock screen iphone",
+        "how to put bible verse on lock screen iphone",
+        "how to put verse of the day on lock screen",
+        "how to put daily verse on lock screen",
+        "how to add verse of the day to lock screen",
+        "how to put scripture on my lock screen",
+        "scripture lock screen",
+        "lock screen scripture",
+        "bible verse lock screen iphone",
+        "bible verse lock screen wallpaper",
+        "bible verse lock screen free"
+      ],
+      "intent": "how-to",
+      "content_type": "pillar",
+      "target_url": "/daily-scripture-lock-screen",
+      "decision": "hold",
+      "hold_reason": "p72 control group until 2026-12-02 (conversion-layer read-out)",
+      "held_until": "2026-12-02",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "The pillar owns the how-to and daily verse lock screen phrasings"
+        },
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The lock screen seed confirms iPhone, wallpaper and free phrasings"
+        }
+      ],
+      "notes": "Android and laptop phrasings from autocomplete are out of scope: the app is iPhone only."
+    },
+    {
+      "id": "short-bible-verses-for-lock-screen",
+      "name": "Short Bible verses for the lock screen",
+      "head_keyword": "short bible verses for lock screen",
+      "members": [
+        "short bible verses for lock screen"
+      ],
+      "intent": "informational",
+      "content_type": "blog",
+      "target_url": "/blog/short-bible-verses-for-lock-screen",
+      "decision": "hold",
+      "hold_reason": "queued as p63 (consolidation audit) until 2026-12-02",
+      "held_until": "2026-12-02",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "Real demand, but Google shows the pillar for this phrase, not the post"
+        }
+      ],
+      "queue_id": "p63",
+      "notes": "The §5 lesson case. p63 decides whether the post merges into the pillar."
+    },
+    {
+      "id": "christian-lock-screen-for-men",
+      "name": "Christian lock screens for men",
+      "head_keyword": "bible verse wallpaper for men",
+      "members": [
+        "bible verse wallpaper for men",
+        "christian lock screens for men",
+        "christian lock screen wallpaper for men"
+      ],
+      "intent": "informational",
+      "content_type": "blog",
+      "target_url": "/blog/christian-lock-screen-for-men",
+      "decision": "new-post",
+      "evidence": [
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "Both the christian lock screen and the bible verse wallpaper seeds return men's phrasings"
+        }
+      ],
+      "queue_id": "p68",
+      "notes": "Cover all three phrasings naturally. KJV text only."
+    },
+    {
+      "id": "christian-lock-screen",
+      "name": "Christian lock screen",
+      "head_keyword": "christian lock screen",
+      "members": [
+        "christian lock screen",
+        "christian lock screen wallpaper",
+        "christian lock screen iphone",
+        "christian lock screen aesthetic",
+        "christian lock screen widget",
+        "christian lock screen wallpaper for iphone",
+        "christian lock screen wallpaper for phone"
+      ],
+      "intent": "informational",
+      "content_type": "none",
+      "target_url": null,
+      "decision": "monitor",
+      "evidence": [
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The seed returns wallpaper, iPhone, widget and aesthetic phrasings; no page of ours shows for it yet"
+        }
+      ],
+      "notes": "No new URL: the pillar /daily-scripture-lock-screen is the natural owner after the read-out, and p68 covers the men's variant. Laptop phrasings are out of scope."
+    },
+    {
+      "id": "bible-verse-widget",
+      "name": "Bible verse widget on iPhone",
+      "head_keyword": "bible verse widget",
+      "members": [
+        "bible verse widget",
+        "bible verse widget iphone",
+        "bible verse widget app",
+        "bible verse widget on lock screen",
+        "bible verse widget free",
+        "bible verse widget iphone free",
+        "bible verse lock screen widget",
+        "verse of the day widget app",
+        "daily bible verse app widget"
+      ],
+      "intent": "app-install",
+      "content_type": "blog",
+      "target_url": "/blog/bible-verse-widget-iphone",
+      "decision": "hold",
+      "hold_reason": "p72 control group until 2026-12-02 (conversion-layer read-out)",
+      "held_until": "2026-12-02",
+      "aso_handoff": true,
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "A small widget family in Search Console, still short of clicks"
+        },
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The widget seed returns iPhone, app, free and lock screen phrasings"
+        }
+      ],
+      "notes": "Widget fact: it shows the picked verse, then random verses. Mac, Android and Notion phrasings are out of scope."
+    },
+    {
+      "id": "bible-verse-wallpaper-maker",
+      "name": "Bible verse wallpaper maker and wallpapers",
+      "head_keyword": "bible verse wallpaper maker",
+      "members": [
+        "bible verse wallpaper maker",
+        "bible verse wallpaper generator",
+        "how to make bible verse wallpaper",
+        "bible quote maker",
+        "bible quotes for wallpaper",
+        "bible wallpaper",
+        "bible verse wallpaper",
+        "bible verse wallpaper iphone",
+        "bible verse iphone wallpaper",
+        "bible verse iphone wallpapers",
+        "bible verses iphone wallpaper",
+        "iphone bible verse wallpaper",
+        "bible verse for iphone wallpaper",
+        "free bible verse wallpaper iphone",
+        "bible verse wallpaper iphone free",
+        "scripture wallpaper iphone",
+        "bible verse wallpaper for phone",
+        "bible verse wallpaper 4k",
+        "bible verse wallpaper 4k phone",
+        "bible verse wallpaper 4k black iphone",
+        "bible verse wallpaper black",
+        "aesthetic bible verses wallpaper",
+        "bible verses aesthetic wallpaper",
+        "bible verse wallpaper images"
+      ],
+      "intent": "tool",
+      "content_type": "tool-page",
+      "target_url": "/bible-verse-wallpaper-maker",
+      "decision": "depth-pass",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "The maker owns the maker and generator phrasings; free iPhone wallpaper phrasings also reach a blog post"
+        },
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The wallpaper seed returns phone, black, aesthetic and image-quality phrasings"
+        }
+      ],
+      "notes": "After the read-out: style presets people ask for (black, aesthetic) and a short how-to. Check overlap with /blog/scripture-wallpaper-for-iphone-free first. Laptop and desktop phrasings are out of scope."
+    },
+    {
+      "id": "christian-wallpaper-app",
+      "name": "Christian and Bible verse wallpaper apps",
+      "head_keyword": "christian wallpaper app",
+      "members": [
+        "christian wallpaper app",
+        "bible verse wallpaper app",
+        "bible verse wallpaper apps",
+        "bible wallpaper app",
+        "daily bible verse wallpaper app",
+        "bible verse of the day wallpaper app",
+        "changing bible verse wallpaper",
+        "bible verse wallpaper that changes every day",
+        "what is holy finger wallpaper app",
+        "holy finger wallpaper app"
+      ],
+      "intent": "compare",
+      "content_type": "blog",
+      "target_url": "/blog/best-christian-wallpaper-app-iphone",
+      "decision": "depth-pass",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "The roundup owns the app phrasings; the maker and the pillar share some of them, which is fine for different intents"
+        }
+      ],
+      "notes": "After the read-out: answer the changes-every-day question honestly (the wallpaper shows one picked verse; the widget changes) and Holy Finger only after checking it exists. Link to the maker; don't merge."
+    },
+    {
+      "id": "best-bible-app-for-iphone",
+      "name": "Best Bible app for iPhone",
+      "head_keyword": "best bible app for iphone",
+      "members": [
+        "best bible app for iphone",
+        "best free bible app for iphone",
+        "free bible apps for iphone",
+        "best bible apps for iphone",
+        "best free bible app",
+        "free bible app for iphone",
+        "what is the best bible app for iphone",
+        "bible app for iphone",
+        "free bible study apps for iphone",
+        "best audio bible app for iphone",
+        "what is the best free bible app for iphone",
+        "bible apps for iphone",
+        "best free audio bible app for iphone",
+        "best free bible apps for iphone",
+        "bible app iphone",
+        "free bible app",
+        "bible free app",
+        "bible app for ios",
+        "bible apps free",
+        "bible app free",
+        "free bible apps",
+        "bible app ios",
+        "list of bible apps",
+        "good bible apps free",
+        "ios bible app",
+        "good bible apps",
+        "ipad bible app",
+        "best free bible app for different version",
+        "which bible apps are free and what features do they include compared to paid versions",
+        "free bible"
+      ],
+      "intent": "compare",
+      "content_type": "compare",
+      "target_url": "/blog/best-free-bible-app-iphone",
+      "decision": "hold",
+      "hold_reason": "p72 control group until 2026-12-02 (conversion-layer read-out); p66, a factual row swap from 2026-11-25, is the only queued change",
+      "held_until": "2026-12-02",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "The hub's family; the plain free bible app phrasings sit far down the results"
+        }
+      ],
+      "queue_id": "p66",
+      "notes": "Free is recorded as demand only, never as a claim about FaithWall."
+    },
+    {
+      "id": "best-christian-app",
+      "name": "Best Christian apps",
+      "head_keyword": "best christian apps",
+      "members": [
+        "best christian apps",
+        "best christian app",
+        "christian apps",
+        "christian app",
+        "christian app reviews",
+        "best jesus apps",
+        "cool christian apps",
+        "best apps for christians",
+        "best christian apps 2026",
+        "best free christian apps",
+        "best christian apps free",
+        "best christian apps for kids",
+        "best christian apps for young adults",
+        "best christian apps for bible study",
+        "best christian apps for women",
+        "best christian apps for men",
+        "best christian apps for iphone",
+        "christian news apps for iphone",
+        "christianity app"
+      ],
+      "intent": "compare",
+      "content_type": "compare",
+      "target_url": "/christian-app-comparisons",
+      "decision": "hold",
+      "hold_reason": "p72 control group until 2026-12-02 (conversion-layer read-out)",
+      "held_until": "2026-12-02",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "The comparison page owns the best christian app phrasings; christian news apps is split with a blog roundup"
+        },
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The seed returns audience phrasings: kids, young adults, women, men and bible study"
+        }
+      ],
+      "notes": "Audience phrasings are ideas for sections after the read-out. Android and Reddit variants are out of scope."
+    },
+    {
+      "id": "christian-app-questions",
+      "name": "Questions about Christian apps",
+      "head_keyword": "best scripture apps",
+      "members": [
+        "best scripture apps",
+        "what apps can help me build a daily prayer or scripture habit",
+        "what are the best christian prayer apps with scripture-based guidance",
+        "is the best daily christian app free",
+        "best christian app for an uplifting daily feed",
+        "best christian app for daily prayer scripture and gratitude"
+      ],
+      "intent": "question",
+      "content_type": "blog",
+      "target_url": "/blog/best-christian-app-for-iphone-2026",
+      "decision": "monitor",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "Long questions in the AI Mode style reach this dated roundup"
+        }
+      ],
+      "notes": "This roundup and /christian-app-comparisons serve the same intent: a consolidation question for the prune-merge audit after the read-out."
+    },
+    {
+      "id": "best-prayer-app",
+      "name": "Best prayer app for iPhone",
+      "head_keyword": "best prayer app",
+      "members": [
+        "best prayer app",
+        "best prayer apps",
+        "what is the best prayer app",
+        "best prayer app free",
+        "best free prayer app",
+        "best free prayer apps",
+        "best prayer app for iphone",
+        "best prayer app christian",
+        "best prayer app for catholics",
+        "what is a good prayer app",
+        "is there a prayer app",
+        "daily prayer app iphone",
+        "free daily prayer app for iphone",
+        "prayer app",
+        "prayer app iphone",
+        "free prayer apps for iphone",
+        "free prayer app for iphone",
+        "daily prayer app free",
+        "free daily devotional app for iphone",
+        "best prayer apps 2020",
+        "hallow pick"
+      ],
+      "intent": "compare",
+      "content_type": "blog",
+      "target_url": "/blog/best-prayer-app-for-iphone",
+      "decision": "ctr-fix",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "The roundup owns these, and daily prayer app iphone shows often but gets few clicks"
+        },
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The seed adds catholic, christian and what-is-a-good-prayer-app phrasings"
+        }
+      ],
+      "notes": "After the read-out: the title and description name daily prayer on iPhone, and a short answer covers what makes a good prayer app. Islam and Muslim prayer app phrasings are out of scope."
+    },
+    {
+      "id": "prayer-app-alternatives",
+      "name": "Alternatives to named prayer apps",
+      "head_keyword": "what are the best alternatives to prayerbuilt",
+      "members": [
+        "what are the best alternatives to prayerbuilt",
+        "what are some alternatives to echo prayer for guided audio prayers and worship",
+        "what are some alternatives to prayermate for guided audio prayers and worship"
+      ],
+      "intent": "question",
+      "content_type": "faq",
+      "target_url": "/blog/best-prayer-app-for-iphone",
+      "decision": "monitor",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "AI Mode style questions where the prayer roundup already shows near the top"
+        }
+      ],
+      "notes": "Keep each named app's facts current from its own App Store listing. Answers already exist; nothing to add now."
+    },
+    {
+      "id": "hallow-vs-abide",
+      "name": "Hallow comparisons",
+      "head_keyword": "hallow vs abide",
+      "members": [
+        "hallow vs abide",
+        "still vs hallow",
+        "hallow alternative",
+        "hallow lifetime subscription",
+        "is abide app catholic",
+        "hallow free vs paid"
+      ],
+      "intent": "compare",
+      "content_type": "blog",
+      "target_url": "/blog/hallow-vs-abide",
+      "decision": "hold",
+      "hold_reason": "p72 control group until 2026-12-02 (conversion-layer read-out)",
+      "held_until": "2026-12-02",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "Hallow vs Abide is split between this post and /faithwall-vs-hallow, both held"
+        }
+      ],
+      "notes": "After the read-out, decide which page owns head-to-head Hallow queries."
+    },
+    {
+      "id": "faithwall-brand",
+      "name": "FaithWall brand",
+      "head_keyword": "faithwall",
+      "members": [
+        "faithwall",
+        "faith wall",
+        "faith walls",
+        "faith lock"
+      ],
+      "intent": "navigational",
+      "content_type": "money-page",
+      "target_url": "/",
+      "decision": "monitor",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "Brand queries reach the homepage, the about page and the blog"
+        }
+      ],
+      "notes": "Another, unrelated FaithWall exists. Brand queries are monitored, never answered with a new page."
+    },
+    {
+      "id": "daily-bible-verse-app",
+      "name": "Daily Bible verse and verse of the day apps",
+      "head_keyword": "daily bible verse app",
+      "members": [
+        "daily bible verse app",
+        "daily bible verse app free",
+        "verse of the day app",
+        "verse of the day app free",
+        "verse of the day app iphone",
+        "bible verse of the day app",
+        "scripture of the day app",
+        "daily bible apps",
+        "daily bible reading app"
+      ],
+      "intent": "app-install",
+      "content_type": "aso-handoff",
+      "target_url": null,
+      "decision": "aso-handoff",
+      "aso_handoff": true,
+      "evidence": [
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The daily verse app and verse of the day seeds return phrasings that are new to us on the web"
+        }
+      ],
+      "notes": "Phrased like App Store searches, so the ASO work gets them first. The roundup may name them after the read-out. Android, Windows, kids and Apple Watch phrasings are out of scope."
+    },
+    {
+      "id": "bible-memory-app",
+      "name": "Bible and scripture memory apps",
+      "head_keyword": "bible memory app",
+      "members": [
+        "bible memory app",
+        "scripture memory app",
+        "scripture memory app free",
+        "scripture memory app iphone",
+        "scripture memorization app",
+        "bible memory app free",
+        "bible memory app review",
+        "verse memory app",
+        "bible verse memorization app",
+        "app for memorizing scripture",
+        "best bible memorization app",
+        "best bible memory app free",
+        "bible memorizing app",
+        "scripture memory app for kids"
+      ],
+      "intent": "app-install",
+      "content_type": "blog",
+      "target_url": "/blog/bible-memorization-apps-iphone",
+      "decision": "hold",
+      "hold_reason": "queued as p71 (depth-pass) until 2026-12-02",
+      "held_until": "2026-12-02",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "The post shows for the memorization family but sits far down the results"
+        },
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The scripture memory seed returns free, iPhone, review and kids phrasings"
+        }
+      ],
+      "queue_id": "p71",
+      "notes": "p71 answers each sub-question in its own passage."
+    },
+    {
+      "id": "bible-verses-for-anxiety",
+      "name": "Bible verses for anxiety",
+      "head_keyword": "bible verses for anxiety",
+      "members": [
+        "bible verses for anxiety",
+        "bible verses for anxiety and overthinking",
+        "bible verses for anxiety and fear",
+        "bible verses for anxiety and depression",
+        "bible verses for anxiety and worry",
+        "bible verses for anxiety and panic attacks",
+        "bible verses for anxiety and stress",
+        "bible verses for anxiety attacks",
+        "bible verses for anxiety kjv",
+        "bible verses for anxiety and overthinking kjv",
+        "bible verse for when you feel anxious"
+      ],
+      "intent": "mood",
+      "content_type": "blog",
+      "target_url": "/blog/lock-screen-verses-for-anxiety",
+      "decision": "depth-pass",
+      "evidence": [
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The anxiety seed returns overthinking, fear, worry, panic and stress phrasings"
+        },
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "No anxiety query reaches the site yet"
+        }
+      ],
+      "notes": "Large Bible sites own the head term; our angle is the lock screen. After the read-out, a depth pass covers the overthinking, panic and worry phrasings. KJV text only."
+    },
+    {
+      "id": "verses-by-feeling",
+      "name": "Bible verses for how you feel",
+      "head_keyword": "bible verse for when you feel overwhelmed",
+      "members": [
+        "bible verse for when you feel overwhelmed",
+        "bible verse for when you feel like giving up",
+        "bible verse for when you feel defeated",
+        "bible verse for when you feel alone",
+        "bible verse for when you feel lost",
+        "bible verse for when you feel lonely",
+        "bible verse for when you feel sad",
+        "bible verse for when you feel like a failure",
+        "bible verse for when you feel stuck",
+        "bible verses for strength",
+        "bible verses for strength and healing",
+        "bible verses for strength and courage",
+        "bible verses for strength and encouragement",
+        "bible verses for strength and guidance",
+        "bible verses for strength in hard times",
+        "bible verses for strength and courage in difficult times",
+        "bible verses for strength and comfort",
+        "bible verses for strength during difficult times",
+        "bible verses for strength and protection"
+      ],
+      "intent": "mood",
+      "content_type": "tool-page",
+      "target_url": null,
+      "decision": "new-tool",
+      "evidence": [
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-16",
+          "note": "The when-you-feel and strength seeds return a wide spread of feelings; no page of ours covers them"
+        }
+      ],
+      "notes": "Candidate free tool: pick a feeling, get a KJV verse, set it as a lock screen. Before building: the same demand in a later run, the §5 product-fit line and Karol's copy review."
+    },
+    {
+      "id": "ai-mode-follow-ups",
+      "name": "Follow-ups typed inside AI conversations",
+      "head_keyword": "are these free",
+      "members": [
+        "are these free",
+        "are they free",
+        "is it free",
+        "free",
+        "for free",
+        "completely free",
+        "which one is free",
+        "free alternatives",
+        "yes",
+        "yes please",
+        "iphone",
+        "for iphone",
+        "on iphone",
+        "on my iphone",
+        "i use an iphone",
+        "ios",
+        "for ios",
+        "ios app",
+        "on ios",
+        "app",
+        "apps",
+        "what app",
+        "give me an app",
+        "give me apps",
+        "i want it as an app",
+        "phone app",
+        "alternative",
+        "another",
+        "another one",
+        "give me another",
+        "another verse",
+        "give me a verse"
+      ],
+      "intent": "informational",
+      "content_type": "none",
+      "target_url": null,
+      "decision": "monitor",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "Short follow-ups that look typed inside AI Mode conversations; they reach the free bible app hub, the random verse tool and the homepage"
+        }
+      ],
+      "notes": "Not keywords to target. They show which pages AI search already uses. Free questions get facts.json wording only."
+    },
+    {
+      "id": "spanish-lock-screen-verses",
+      "name": "Spanish lock screen verses",
+      "head_keyword": "versiculos para pantalla de bloqueo",
+      "members": [
+        "versiculos para pantalla de bloqueo"
+      ],
+      "intent": "informational",
+      "content_type": "none",
+      "target_url": null,
+      "decision": "monitor",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-13",
+          "note": "A Spanish phrasing reaches the pillar and the lock screen roundup"
+        }
+      ],
+      "notes": "The site stays English only (languages decision of 2026-11-16)."
+    }
+  ]
+}
