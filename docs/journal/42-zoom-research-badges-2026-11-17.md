@@ -22,7 +22,7 @@ This session worked on all three sites from the FaithWall checkout. QuranWall (Q
 - **9437b4b facts: users floor.**
   - `facts.json` gains `userFloor` (1000), `userFloorText` ("1,000+") and `userFloorSource`. Karol confirmed the claim on 11-17; it comes from RevenueCat new customers, and the repo stores only the floor.
   - Hero, FinalCTA and SocialProof read the floor from the facts file. SocialProof also reads `translationCount`.
-  - `lint-facts` gains a `users` count rule: "<N>+ people/users/believers/downloads…" or "over <N> …" in a FaithWall sentence must equal the floor.
+  - `lint-facts` gains a `users` count rule: "<N>+ people, users, believers, downloads…" or "over <N> …" in a FaithWall sentence must equal the floor.
   - Rendered HTML is byte-identical on all 59 pages, so there is no annotations row.
 
 ## Research (summary)
