@@ -1,6 +1,6 @@
 ---
 name: faithwall-blog
-description: Write one full SEO blog post for faithwall.app end-to-end. Use this skill when the user says "make a blog", "today's blog", "new faithwall blog", "create today's blog post", "make a faithwall blog", or any variation asking for a new daily FaithWall blog post. Picks an unused long-tail keyword from src/data/seo-keywords.json, gives it a generated lock-screen cover (a KJV verse on an iPhone lock screen), writes the post in Karol's voice following the strict section template, validates it, and registers it in src/data/blogPosts.json.
+description: Write one full SEO blog post for faithwall.app end-to-end. Use this skill when the user says "make a blog", "today's blog", "new faithwall blog", "create today's blog post", "make a faithwall blog", or any variation asking for a new daily FaithWall blog post. Picks the queued keyword (or one that passes the SEO-STRATEGY §5 demand test), gives it a generated lock-screen cover (a KJV verse on an iPhone lock screen), writes the post in Karol's voice following the strict section template, validates it, and registers it in src/data/blogPosts.json.
 ---
 
 # FaithWall Daily Blog Skill
@@ -41,12 +41,14 @@ Read both files:
 - `src/data/seo-keywords.json` — the keyword bank (`[{keyword, cluster}, ...]`).
 - `src/data/blogPosts.json` — what already exists.
 
-If the user gave you a keyword in their message (e.g. "make a blog about prayer reminders"), use that and find the closest matching cluster.
+If the user gave you a keyword in their message (e.g. "make a blog about prayer reminders"), use that and find the closest matching cluster. It still has to pass the keyword gate below.
 
-Otherwise — **first check `src/data/seo-priorities.json`**: if it exists and has a `pending` item of type `new-post`, that item's keyword wins over free selection (execution contracts in `SEO-STRATEGY.md` §6). If no pending new-post item:
+Otherwise — **first check `src/data/seo-priorities.json`**: if it exists and has a `pending` item of type `new-post`, that item's keyword wins over free selection (execution contracts in `SEO-STRATEGY.md` §6). If no pending new-post item, a bank keyword may be used only if it passes the keyword gate below:
 1. Filter out any keyword whose slug already exists in the registry (compute slug = `keyword.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')`), and any keyword with `"blocked": true` (cannibalization landmines — see `SEO-STRATEGY.md` §7; never write these).
 2. Count how many posts exist per cluster. Prefer a keyword whose cluster currently has the **fewest** published posts among clusters the strategy allows (no new `faith-based-productivity` posts while `SEO-STRATEGY.md` §2 lists it as harvest-only).
 3. Inside the chosen cluster, pick the most evergreen / highest intent keyword first (e.g. "how to..." or "best X 2026" beats "X comparison").
+
+**Keyword gate (2026-11-17, hard rule).** A keyword may be used only if (a) it is the queued `new-post` item, or (b) it passes `SEO-STRATEGY.md` §5's demand test: evidence of demand, product fit, and the "no page of ours already ranks for it" check (`blogPosts.json`, root pages, `pillars.json`). Being listed in `seo-keywords.json` is not evidence of demand. A new post must not target a near-duplicate variant of a query an existing post already targets (reordered words, plural, synonym, year swap). [Google's spam policies: the scaled-content rule applies however the content is made.]
 
 Generate the slug from the keyword. Confirm it doesn't already exist in `src/data/posts/`.
 
@@ -72,6 +74,7 @@ Covers are generated, not stock photos: an iPhone lock screen showing one KJV ve
 1. Pick ONE short verse (ideally under ~20 words, a single verse) that fits the post's topic, preferably one the post itself quotes. Its reference must not already be used in `src/data/blogCovers.json` (each cover file is named after its verse).
 2. Append `{ "slug": "{slug}", "ref": "Psalm 23:1", "palette": "..." }` to `covers` in `src/data/blogCovers.json`. `palette` is any key of `PALETTES` in the script; choose one different from the previous two entries so the grid varies. Never type the verse text: the script reads it from `public/bible/kjv`.
 3. The image itself is generated at the end of Step 6, once the post and its registry entry exist.
+4. **Image rules (2026-11-17).** Cover and og images must be at least 1200 px wide and over 300,000 px in total (the current 1600x1067 covers pass). No text-heavy covers: the verse on the phone is the only text. `max-image-preview:large` stays on every page (it is in `index.html`; don't remove it). [Google Discover docs: recommendations, not hard rules.]
 
 **Cloud / no Chrome:** the cloud sandbox has no Chrome, so skip the generation in Step 6: keep the `blogCovers.json` entry, and until a local run reuse an existing generated cover (any `/blog-thumbnails/*-bible-verse-iphone-lock-screen.jpg`) as `meta.image` and `thumbnail`, with no `imageAttribution`. Note in the commit body that the cover needs `node scripts/build-blog-thumbnails.mjs {slug}`. Never remove or restyle the cover of `/blog/best-free-bible-app-iphone` (ranking measurement until 2026-11-09).
 
@@ -170,6 +173,10 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
 - **800–1100 words total** across all `paragraph` and list `text` content.
 - **Exact-match keyword** appears in: `meta.title`, the first `paragraph` section (within first 100 words), and bolded with `**...**` 3–5 times in the body.
 - **First content section MUST be**: `{ "type": "callout", "icon": "zap", "title": "Quick Answer", "content": "..." }` — a 1–3 sentence direct answer to the search query. **Sentence 1 names FaithWall** as the solution (see Lead with FaithWall above). This is snippet bait AND the conversion hook.
+- **Answer first (2026-11-17).** The first paragraph under the H1 answers the title's question directly within its first 100 words, and the exact keyword appears in it. [Surfer, a vendor study scraped June 2026: 38% of AI Overview citations come from a page's first 100 words. Vendor study, not Google guidance.] Each H2 also opens with a 40-60 word direct answer [SEO-STRATEGY.md §5 AEO].
+- **Effort signals (SEO-STRATEGY.md §5).** At least two things a scraper cannot fake: a measured first-party fact, a version-specific setting path, an original screenshot that already exists in the repo, or a named-author judgment call with reasoning. A device-less (cloud) run never writes a first-person testing claim ("we tested", "we timed", observed timings): it ships with one signal plus a dated line in `TODO-KAROL.md` for the device test. Whenever the post gives Settings steps, name the iOS version they were written for.
+- **Day-one in-links (SEO-STRATEGY.md §4 rule 8, §5).** In the same commit that publishes the post, at least two already-indexed pages that rank (the pillar, a money page or a ranking sibling) get an in-body link to it, within the 5-link cap and its replacement rule. Stage every file you edit for this.
+- **Structured data (2026-11-17).** New posts add neither FAQPage nor HowTo JSON-LD. FAQ rich results stopped showing on 2026-05-07 [Google changelog notice dated 2026-05-08; docs removed 2026-06-15], and HowTo has been deprecated since 2023-09-14. Visible FAQ blocks stay. Existing markup stays because it is harmless (`src/pages/Pillar.tsx` still emits HowTo on 4 pillars, and that is fine). Google says no special schema is needed for its AI features [developers.google.com/search/docs/fundamentals/ai-optimization-guide].
 - **One cited statistic** — real, attributable, with the source name in-text, in the form *"<number> <what>, per <source>'s <year> <report name>."* Open the source page and copy the number from it in this run: never from memory, from another post or from this file. Use 2026 stats. Don't fabricate. Don't use the phone-checks figure (Reviews.org's 2026 report: 186 checks a day; 144 is its 2023 figure), because most posts already carry it.
 - **One `verse` block** — a relevant Scripture pull-quote. Use ESV or KJV. Format:
   ```json
@@ -181,6 +188,7 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
 - **`meta.date`** = today's date as "Month DD, YYYY" (e.g. "May 19, 2026").
 - **`meta.datePublished`** = ISO 8601 UTC for today at 09:00 (e.g. "2026-05-19T09:00:00.000Z").
 - **`meta.readTime`** = `Math.ceil(wordCount / 200) + " min read"` (e.g. "6 min read").
+- **Refreshing an existing post (2026-11-17).** Bump the visible "Updated" date and `dateModified` only on a substantive edit: new or changed facts, a new section, a changed recommendation or ranking, or re-tested steps. Never bump them for cosmetic edits: typos, links, image swaps, template or design changes. [Google's guidance on dates; Ahrefs, July 2025: AI assistants prefer fresher pages, so fake freshness is the risk to avoid.]
 
 #### Voice rules
 
@@ -191,7 +199,15 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
 - It's OK to be slightly dry or have a point of view — that's what makes it read like a human wrote it.
 - Use **bold** sparingly (8–12 times across the post) and only for things worth emphasizing.
 - **Never** include placeholders like `[link]` or `TODO`.
-- **Never** mention years 2024 or 2025. Today is 2026.
+- **Years (2026-11-17).** Use today's date, and never present an earlier year as current. A year goes in a title only for year-bound queries (a "best X <year>" ranked list, a seasonal post), and the year in the title must equal the year of the visible "Updated" date. Dated titles roll forward each January (`SEO-STRATEGY.md` §5 Freshness).
+
+#### Title rules (2026-11-17)
+
+- Aim for 60 characters or fewer; 65 is the hard maximum (`scripts/link-graph.mjs` warns above 65).
+- The H1 uses the same wording as the title, minus the brand suffix, and `og:title` equals the title.
+- The brand name appears at most once.
+- No boilerplate prefixes, and no half-empty or obsolete titles: Google rewrites those. [Google title-link docs: half-empty, obsolete, inaccurate, micro-boilerplate, repeated site name.]
+- No year unless the query is year-bound (see Years above).
 
 #### Title patterns to AVOID (notewall over-used these)
 
@@ -202,7 +218,8 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
 
 #### Title patterns that work
 
-- "Bible Verse Lock Screen on iPhone: The 2026 Setup Guide" (specific + dated)
+- "Bible Verse Lock Screen on iPhone: A Step-by-Step Setup" (specific, no year: a how-to is not year-bound)
+- "Best Bible Study Apps for iPhone in 2026, Ranked" (year-bound ranked list; the visible Updated year must be 2026)
 - "How to Build a 7am Prayer Habit That Actually Sticks"
 - "The Quiet Time Focus Mode (iPhone Setup, Step by Step)"
 - "Hallow vs. Lectio 365: Which Prayer App is Worth Your Year?"
@@ -212,16 +229,23 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
 
 Run through this checklist on your generated JSON **before** writing it:
 - [ ] JSON parses (mentally check every `,`, `"`, `}`).
-- [ ] No `2024` or `2025` strings anywhere.
+- [ ] No earlier year presented as current. A year in the title only for a year-bound query, equal to the year of the visible "Updated" date.
 - [ ] No `[link]`, `TODO`, `lorem`, `...`, or other placeholders.
 - [ ] Exact keyword in title + first paragraph + 3–5 bolds.
+- [ ] **Answer first:** the first paragraph under the H1 answers the title's question within its first 100 words, with the exact keyword in it. Each H2 opens with a 40–60 word direct answer.
+- [ ] **Keyword gate:** the keyword is the queued item or passed SEO-STRATEGY §5's demand test (including "no page of ours already ranks"), and is not a near-duplicate variant of an existing post's query.
+- [ ] **Title:** 60 characters or fewer (65 hard maximum); H1 and `og:title` match it; brand at most once; no boilerplate prefix.
+- [ ] **Effort signals:** at least two (or one plus a dated `TODO-KAROL.md` line from a device-less run); no first-person testing claims without a device; the iOS version is named wherever Settings steps appear.
+- [ ] **Day-one in-links:** at least two already-indexed ranking pages link in-body to this post in the same commit (5-link cap respected).
+- [ ] **Structured data:** no new FAQPage or HowTo JSON-LD (a visible FAQ block is fine).
 - [ ] First section is the Quick Answer callout.
 - [ ] Last section is the App Store CTA with the right URL.
 - [ ] At least one `verse` block.
 - [ ] At least one cited statistic with the source name.
 - [ ] Word count is 800–1100.
 - [ ] 2–3 internal links + 1 pillar link.
-- [ ] `meta.image` + `meta.imageAlt` point at the generated cover (or the cloud fallback above); no `imageAttribution`.
+- [ ] `meta.image` + `meta.imageAlt` point at the generated cover (or the cloud fallback above); no `imageAttribution`. Cover at least 1200 px wide and over 300,000 px in total; no text-heavy cover.
+- [ ] On a refresh: the "Updated" date and `dateModified` are bumped only for a substantive edit, never for typos, links, image swaps or template changes.
 - [ ] `meta.cluster` exactly matches one of the 5 cluster slugs.
 - [ ] **Conversion checks:**
   - [ ] Sales temperature matches the keyword's intent (informational vs comparison vs FaithWall-native).
