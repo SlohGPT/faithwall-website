@@ -307,3 +307,43 @@ The original session withdrew the brief's allowance for a post's own closing "fr
     - 13 more evasion phrases pass, such as bare "trial", "one-time purchase" and "lifetime";
     - no recorded IndexNow ping for /support.
 - **Karol approved QuranWall's parked instruction edits on 11-17** ("Approve them"). They cover its CLAUDE.md, SEO-STRATEGY (the stale L240/36/16 included) and blog skill. The approval went to the QuranWall session. Its scheduled-task prompts are not covered: they are already stricter than the rule.
+- **Correction to the line above:** one sentence in QuranWall's scheduled-task prompts is stale. It still names `public/pricing.md`, and it says `llms.txt` keeps an install line, which is no longer true. QuranWall asked Karol before it edits them. 251df06 holds the approved edits (docs and instructions only, `lint-facts --prompts` 0 FAIL).
+
+### QuranWall redesign push 1 reviewed (11-17)
+
+- **What was reviewed:** QuranWall's local, unpushed branch `claude/qw-no-price`. It has four commits on top of origin/main:
+  - 6507fbd: post block visuals and nine arch-framed inline SVG scenes;
+  - 88b8681: the /blog cluster map and the /support visuals;
+  - 59879f8: the verse-card comma fix;
+  - 251df06: the no-price instruction wording.
+- **How:** 20 captures, a read-only diff, and a workflow of four reviewers (posts on mobile, posts on desktop, /blog and /support, code) plus an adversarial skeptic. I also looked at the verse card myself.
+- **The hard rules hold:**
+  - no post-data or homepage change;
+  - no squircle;
+  - no price or "free" wording about QuranWall;
+  - the FAQ answers and the FAQPage JSON-LD are still in the DOM;
+  - reduced motion is covered;
+  - every cluster-map node is a real link;
+  - the scenes come after the answer and are never the LCP;
+  - the CLS fix reserves the map box;
+  - the /support four-step flow matches the "How does QuranWall work?" answer.
+- **Verdict sent: OK to push after three fixes.**
+  1. **The verse card breaks Karol's iPhone rule.** It is content-height, so a short verse gives a landscape box with the Dynamic Island on the long edge. The fix is a portrait lock-screen ratio and a re-capture.
+  2. **The stat figure SVG is announced twice** by screen readers. The fix is to mark it aria-hidden.
+  3. **The cluster map needs captures at 1024 and 1100 px,** because the nodes have only about 8 px of gap there.
+- **Checks to run live after the push:**
+  - the comma is gone;
+  - the lazy images load (they were blank in the full-page captures);
+  - a capture with the FAQ flow open;
+  - a fresh CLS measurement on /blog;
+  - `link-graph --live`;
+  - IndexNow;
+  - a row in QuranWall's own annotations file.
+- **Left for push 2:**
+  - the scene stack on the best-app post;
+  - table semantics on phones;
+  - the stat regex, the ring transform and the stagger time;
+  - the SVG ids, the duplicate useInView name, and the FAQ region roles;
+  - a distinct subject for each scene;
+  - the stale lines in QuranWall's TODO-KAROL.md.
+- **Refuted:** the blank icons and thumbnails are lazy-load capture artifacts. Post 1 has no Quick Answer because its data has none, and the text must not change. The scene repetition is a taste call, not a blocker.
