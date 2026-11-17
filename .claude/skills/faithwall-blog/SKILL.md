@@ -5,24 +5,24 @@ description: Write one full SEO blog post for faithwall.app end-to-end. Use this
 
 # FaithWall Daily Blog Skill
 
-You are writing ONE blog post for faithwall.app. The site is a Vite + React SPA promoting an iOS app (free to download, subscription required) that puts the user's chosen Scripture on the iPhone lock screen. Read this whole file before starting. Run every step in order — do not skip.
+You are writing ONE blog post for faithwall.app. The site is a Vite + React SPA promoting an iOS app that puts the user's chosen Scripture on the iPhone lock screen. Read this whole file before starting. Run every step in order — do not skip.
 
 ## Product facts (hard rule — added 2026-10-02)
 
-Since app v2.3 (live 2026-08-26) FaithWall has a hard paywall. A subscription is required to use it: there is no free tier and no trial on the main paywall (a 3-day trial is offered only to trial-eligible Apple IDs when they try to dismiss it). Write only from these facts:
+Price rule (Karol, 2026-11-17): never mention the subscription, paywall, trial, in-app purchase or price on the site, in posts, FAQ entries, comparison tables, titles or meta descriptions (the legal pages are the only exception). Write only from these facts:
 
-- FaithWall is an iPhone app that is **free to download** from the App Store. Using it requires a FaithWall subscription. Price, billing period and any trial offer are shown in the App Store before paying.
-- **Never describe FaithWall as free. "Free to download" is the only allowed phrasing.** No "free app", "free tier", "free version", "completely free", "no paywall", "no cost", "costs nothing". In comparison tables use "Free download + subscription".
-- **Never state a price or the trial length.** Say the App Store shows them before paying.
+- FaithWall is an iPhone app from the App Store. Prose rule (Karol 2026-11-17: "in the blogs, we should not mention that explicitly"): in post, pillar and compare prose never write "free" about FaithWall, "free to download" included; "Free to download." appears only at download points (the end card the renderer draws from facts.json, App Store buttons, homepage hero and final CTA, compare CTA box), so a cta section's title and description carry no download phrase; competitors may still be called free; the web wallpaper maker's own "free" lines stay. Lint rule `prose-download-line` fails it.
+- **Never describe FaithWall as free, and never write "free app", "free tier", "free version", "completely free", "no paywall", "no subscription", "no cost" or "costs nothing".** In comparison tables never add a price, cost, payment, trial or subscription row or column.
+- **Never state or hint at a price, a trial, a paywall or what paying involves, and never write "see price in app" or "the App Store shows the price".** Competitor facts ("Hallow is a subscription app") may stay.
 - The user picks their own verses (by book/chapter/verse or search, 24 translations). Never say it picks verses for you.
-- Two ways to show them, chosen after subscribing: (1) a full-screen lock-screen wallpaper applied by an Apple Shortcut, or (2) a compact lock-screen widget. The wallpaper shows the one verse the user picked and changes only when they pick a new verse; it does not rotate. The widget shows the user's chosen verse; an optional "Auto-rotate verses" setting (off by default; hourly, every 8 hours or daily) makes it show random Bible verses from their translation instead (a queue of about 90, so no repeats for roughly 90 days at the daily setting). The user does not pick the rotated verses, and there are no verse sets, packs, themes or categories.
-- The two setups are alternatives, not a combination: the wallpaper setup or the widget setup, chosen after subscribing. Settings > Change Setup Mode switches between them and clears the saved verse. Never recommend running a wallpaper and a rotating widget together; "Auto-rotate verses" exists only in the widget setup.
+- Two ways to show them, chosen in the app: (1) a full-screen lock-screen wallpaper applied by an Apple Shortcut, or (2) a compact lock-screen widget. The wallpaper shows the one verse the user picked and changes only when they pick a new verse; it does not rotate. The widget shows the user's chosen verse; an optional "Auto-rotate verses" setting (off by default; hourly, every 8 hours or daily) makes it show random Bible verses from their translation instead (a queue of about 90, so no repeats for roughly 90 days at the daily setting). The user does not pick the rotated verses, and there are no verse sets, packs, themes or categories.
+- The two setups are alternatives, not a combination: the wallpaper setup or the widget setup, chosen in the app. Settings > Change Setup Mode switches between them and clears the saved verse. Never recommend running a wallpaper and a rotating widget together; "Auto-rotate verses" exists only in the widget setup.
 - How the wallpaper updates: the user picks a verse (or edits it), then the app itself launches an Apple Shortcut that applies it; iOS shows Shortcuts for a moment. The wallpaper stays until the user picks another verse. To change the text style, colour or background, the user taps Update Wallpaper Now in Settings. Nothing runs in the background or on a schedule, and the app cannot change the wallpaper while it is closed. A Shortcuts automation can only re-apply the last generated image, so it cannot change the verse. Deleting the verse blanks the wallpaper. There is no "Set Lock Screen" button in normal use (that wording appears only in the Shortcut install troubleshooting), and verse rows have no done/undone control.
 - Widget details: the optional "Want a fresh verse?" prompt in the widget setup (or Settings later) is the opt-in for Auto-rotate verses. Sizes: Home Screen small and medium; on iOS 16+ Lock Screen rectangular and inline.
 - Never write that the wallpaper or "today's verse" appears, changes or updates "automatically", "by itself", "on its own", "every day", "in the background" or "while the app is closed"; never write "nothing to tap", "nothing to open" or "a Shortcut you can automate"; never tell readers to "tap Set Lock Screen". scripts/lint-facts.mjs fails the merge on these (wallpaper-automatic, wallpaper-widget-combo).
 - It has a built-in Bible browser (all books and chapters) for finding the verse, but it is built for the lock screen, not for study. The app UI is in 10 languages.
 - Never mention "Focus modes" as the mechanism. Never claim "no account required", "verse packs", or that verses "stay on-device" (unverified).
-- Statements that OTHER apps are free, that the website's tools are free, or that KJV is public domain are fine.
+- Statements that OTHER apps are free, that the web Wallpaper Maker or generator on this site is free (only that tool, never in a sentence that also calls the app free), or that KJV is public domain are fine.
 
 ## What success looks like
 
@@ -138,11 +138,11 @@ FaithWall isn't "another Bible app" — its product wedge is specific. Use the f
 
 The final CTA block matters. Vary the title + description by post type. Examples:
 
-- **High-intent post:** title `"Get FaithWall — free to download, 60 seconds"` / description `"The piece every Bible study stack is missing: daily Scripture on the lock screen you see every time you pick up your phone."`
-- **How-to post:** title `"Skip the setup — let FaithWall do it"` / description `"Free to download. Puts your chosen verse on the lock screen as a wallpaper, with an optional widget. No screenshots to crop."`
+- **High-intent post:** title `"Get FaithWall — 60-second setup"` / description `"The piece every Bible study stack is missing: daily Scripture on the lock screen you see every time you pick up your phone."`
+- **How-to post:** title `"Skip the setup — let FaithWall do it"` / description `"Puts your chosen verse on the lock screen as a wallpaper, with an optional widget. No screenshots to crop."`
 - **Friction-resolution post:** title `"Put the verse where you'll see it"` / description `"Pick the verse for the season you're in — anxiety, strength, gratitude — and FaithWall puts it on your lock screen."`
 
-Never use a generic "Download FaithWall" title alone. The site renders this block as the install card and adds the facts itself (free to download with a subscription, iPhone and the minimum iOS, the App Store rating, the official badge and a QR code on desktop), so the description should carry the post's reason to install, not repeat those facts. Never put a campaign token in `buttonUrl`; the site adds the right one.
+Never use a generic "Download FaithWall" title alone. The site renders this block as the install card and adds the facts itself ("Free to download.", iPhone and the minimum iOS, the App Store rating, the official badge and a QR code on desktop), so the description should carry the post's reason to install, not repeat those facts, and never says "free to download" itself (the card prints it once). Never put a campaign token in `buttonUrl`; the site adds the right one.
 
 #### Structure
 

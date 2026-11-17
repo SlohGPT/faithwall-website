@@ -10,7 +10,7 @@ interface AppNudgeProps {
   campaign: string;
   /**
    * 'card' = compact card with an App Store button; 'inline' = one small text line with a link;
-   * 'install' = the InstallCard (icon, one-line pitch, price line, requirements, rating, badge, QR on desktop).
+   * 'install' = the InstallCard (icon, one-line pitch, install line, requirements, rating, badge, QR on desktop).
    */
   variant?: 'card' | 'inline' | 'install';
   /** InstallCard only: where the card sits, written to data-install-card. */

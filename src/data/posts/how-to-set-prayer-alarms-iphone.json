@@ -48,7 +48,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Three alarms cover the day's three pressure points: 7am for thanksgiving, noon for confession, and 9pm for examen. If you haven't settled on a prayer app to pair them with, our [best prayer app for iPhone](/blog/best-prayer-app-for-iphone) roundup ranks the free options first, and the [prayer reminders on iPhone guide](/blog/prayer-reminders-on-iphone) covers the wider widget-and-journaling rhythm this fits into."
+      "text": "Three alarms cover the day's three pressure points: 7am for thanksgiving, noon for confession, and 9pm for examen. If you haven't settled on a prayer app to pair them with, our [best prayer app for iPhone](/blog/best-prayer-app-for-iphone) roundup ranks the options, and the [prayer reminders on iPhone guide](/blog/prayer-reminders-on-iphone) covers the wider widget-and-journaling rhythm this fits into."
     },
     {
       "type": "list",
@@ -183,7 +183,7 @@
     {
       "type": "cta",
       "title": "Skip the wallpaper setup — let FaithWall do it",
-      "description": "Free to download. Puts the verse you choose on your lock screen — gratitude for morning, confession for midday, Psalms for evening — as a wallpaper applied with an Apple Shortcut, or adds a widget that rotates fresh verses. No screenshots to crop.",
+      "description": "Puts the verse you choose on your lock screen — gratitude for morning, confession for midday, Psalms for evening — as a wallpaper applied with an Apple Shortcut, or adds a widget (the optional Auto-rotate verses setting adds fresh verses). No screenshots to crop.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

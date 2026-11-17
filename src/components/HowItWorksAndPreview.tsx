@@ -6,12 +6,12 @@ import CrossPattern from './ui/CrossPattern';
 import { ChooseVerseScreen, DownloadScreen, ReviewScreen } from './howitworks/AppScreens';
 import { useOnScreen } from './howitworks/useOnScreen';
 
-// The step copy is the site's wording (the first step keeps the pricing sentence exactly).
+// The step copy is the site's wording (the first step keeps its sentence exactly).
 const STEPS = [
     {
         number: '01',
         title: 'Download',
-        description: 'Download FaithWall from the App Store (free to download). A subscription unlocks the app; the price is shown before you pay.',
+        description: 'Download FaithWall from the App Store (free to download).',
     },
     {
         number: '02',

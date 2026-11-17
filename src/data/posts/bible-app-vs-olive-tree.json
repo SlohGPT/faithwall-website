@@ -23,7 +23,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "Put **FaithWall** on your lock screen whichever reader you choose, then settle **Bible App vs Olive Tree** by how you read: YouVersion's Bible App wins for free, plan-driven daily reading, and Olive Tree wins for offline study with commentaries and Greek and Hebrew tools. The lock-screen layer is free to download and sets up in about a minute."
+      "content": "Put **FaithWall** on your lock screen whichever reader you choose, then settle **Bible App vs Olive Tree** by how you read: YouVersion's Bible App wins for free, plan-driven daily reading, and Olive Tree wins for offline study with commentaries and Greek and Hebrew tools. The lock-screen layer sets up in about a minute."
     },
     {
       "type": "highlight",
@@ -31,7 +31,7 @@
     },
     {
       "type": "paragraph",
-      "text": "If you're weighing the **Bible App vs Olive Tree**, you're choosing between two ideas of what a Bible app is for. YouVersion's Bible App is built to get you reading every day: plans, friends, verse images. Olive Tree is built to help you understand what you read: commentary that follows your place in the text, parallel translations, original-language tools. Both are free to download, both rate 4.8 or higher on the App Store, and both shipped an update in the first week of October 2026. Neither keeps the verses you chose in view once it's closed, which is where FaithWall fits."
+      "text": "If you're weighing the **Bible App vs Olive Tree**, you're choosing between two ideas of what a Bible app is for. YouVersion's Bible App is built to get you reading every day: plans, friends, verse images. Olive Tree is built to help you understand what you read: commentary that follows your place in the text, parallel translations, original-language tools. Both rate 4.8 or higher on the App Store, and both shipped an update in the first week of October 2026. Neither keeps the verses you chose in view once it's closed, which is where FaithWall fits."
     },
     {
       "type": "heading",
@@ -140,7 +140,7 @@
     {
       "type": "cta",
       "title": "Keep this week's passage in view",
-      "description": "Read in YouVersion, study in Olive Tree, and let FaithWall put the verse you chose on your lock screen. Free to download; the App Store shows subscription details before you pay.",
+      "description": "Read in YouVersion, study in Olive Tree, and let FaithWall put the verse you chose on your lock screen.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

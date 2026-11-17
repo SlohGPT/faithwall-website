@@ -16,7 +16,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "To run an **audio bible app in the background** on iPhone, open YouVersion or Dwell, start the audio player, then leave the app — playback continues while you drive, cook, or work. Pair it with FaithWall so the passage you're hearing stays on your lock screen after the audio stops. Free to download, 60-second setup."
+      "content": "To run an **audio bible app in the background** on iPhone, open YouVersion or Dwell, start the audio player, then leave the app — playback continues while you drive, cook, or work. Pair it with FaithWall so the passage you're hearing stays on your lock screen after the audio stops. 60-second setup."
     },
     {
       "type": "paragraph",
@@ -59,7 +59,7 @@
     {
       "type": "steps",
       "items": [
-        "Download **FaithWall** from the App Store — free to download.",
+        "Download **FaithWall** from the App Store.",
         "Pick a verse that matches what you're listening through (a Psalm, a Gospel passage, or a theme like strength or peace), by book, chapter and verse or by search.",
         "FaithWall applies the wallpaper through an Apple Shortcut it launches for you.",
         "Start your audio bible app and swipe home; the verse on your screen now matches what you're hearing all week."
@@ -163,7 +163,7 @@
     {
       "type": "cta",
       "title": "Let the verse you're hearing stay in view",
-      "description": "FaithWall keeps this week's passage on your lock screen — free to download, no screenshots to crop.",
+      "description": "FaithWall keeps this week's passage on your lock screen — no screenshots to crop.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

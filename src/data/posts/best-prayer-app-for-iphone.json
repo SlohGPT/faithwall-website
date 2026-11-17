@@ -16,7 +16,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "The **best prayer app for iPhone** depends on what you want: Hallow for guided Catholic prayer, Lectio 365 for a free daily office, Echo for organized prayer lists. But every one shares the same flaw — you have to remember to open it. The fix is a lock-screen trigger like FaithWall (free to download) that cues prayer dozens of times a day without you tapping anything. Pick a prayer app for the sessions; pair it with a trigger so the sessions actually happen."
+      "content": "The **best prayer app for iPhone** depends on what you want: Hallow for guided Catholic prayer, Lectio 365 for a free daily office, Echo for organized prayer lists. But every one shares the same flaw — you have to remember to open it. The fix is a lock-screen trigger like FaithWall that cues prayer dozens of times a day without you tapping anything. Pick a prayer app for the sessions; pair it with a trigger so the sessions actually happen."
     },
     {
       "type": "highlight",
@@ -80,7 +80,7 @@
     {
       "type": "steps",
       "items": [
-        "Install **FaithWall** (free to download) and pick verses that prompt prayer, such as passages on gratitude, strength, or anxiety.",
+        "Install **FaithWall** and pick verses that prompt prayer, such as passages on gratitude, strength, or anxiety.",
         "Set it as your lock screen. Now a verse meets you every time you check your phone — a built-in call to a 10-second prayer.",
         "Add one prayer app for the longer sessions: Lectio 365 for a daily office, Echo for your prayer list.",
         "Pair both with a single alarm labeled with what you'll pray (\"Examen,\" \"Thanks\"). One swipe, not a search.",
@@ -98,7 +98,7 @@
     },
     {
       "type": "paragraph",
-      "text": "So the real answer to \"**best prayer app for iphone**\" is a pair, not a winner: a lock-screen trigger plus one session app. Start with **FaithWall** for the daily cue — free to download, and it works whether or not you feel motivated — then add Lectio 365 or Hallow for the structured time. For the wider rhythm of alarms, Focus modes, and widgets, our [prayer reminders on iPhone](/blog/prayer-reminders-on-iphone) guide and the [pillar guide to building a prayer life on iPhone](/prayer-life-iphone) walk through the whole setup."
+      "text": "So the real answer to \"**best prayer app for iphone**\" is a pair, not a winner: a lock-screen trigger plus one session app. Start with **FaithWall** for the daily cue — it works whether or not you feel motivated — then add Lectio 365 or Hallow for the structured time. For the wider rhythm of alarms, Focus modes, and widgets, our [prayer reminders on iPhone](/blog/prayer-reminders-on-iphone) guide and the [pillar guide to building a prayer life on iPhone](/prayer-life-iphone) walk through the whole setup."
     },
     {
       "type": "important",
@@ -111,15 +111,15 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's the direct answer: for a truly free guided session, Lectio 365 costs nothing; FaithWall, the daily trigger, is free to download but requires a subscription to use. Every app below is currently live on the App Store, checked against its real pricing rather than an old listicle's guess."
+      "text": "Here's the direct answer: for a truly free guided session, Lectio 365 costs nothing. FaithWall is the daily trigger that gets you back into it. Every app below is currently live on the App Store, checked rather than guessed from an old listicle."
     },
     {
       "type": "paragraph",
-      "text": "| App | Best for | Free tier | What costs money |\n|---|---|---|---|\n| FaithWall | The daily lock-screen trigger | Free to download; no free tier | A subscription is required to use the app |\n| Hallow | Deep guided Catholic prayer, audio-led | A limited library of sessions | A Hallow subscription unlocks the full library |\n| Lectio 365 | A free structured daily office | The full morning, midday and night office, no paywall | Nothing required; optional donations |\n| Abide | Guided meditation and sleep prayer | A handful of free sessions | Subscription for the full library |\n| Echo Prayer | Organizing an intercession list | Unlimited prayer lists and reminders | Optional Echo Plus for extra features |\n| PrayerMate | Rotating through prayer categories and feeds | Full prayer-list organizing, 500+ prayer feeds | Optional Patron subscription to support the app; a few paid prayer guides |"
+      "text": "| App | Best for |\n|---|---|\n| FaithWall | The daily lock-screen trigger |\n| Hallow | Deep guided Catholic prayer, audio-led |\n| Lectio 365 | A free structured daily office |\n| Abide | Guided meditation and sleep prayer |\n| Echo Prayer | Organizing an intercession list |\n| PrayerMate | Rotating through prayer categories and feeds |"
     },
     {
       "type": "paragraph",
-      "text": "Notice the pattern: Lectio 365 is the one with nothing gated at all; FaithWall, the trigger, is free to download but needs a subscription to use. Hallow and Abide both hold their deepest content behind a subscription, which is fine if audio-led, produced prayer is worth paying for to you. Echo Prayer and PrayerMate are both genuinely free list-and-reminder tools, with optional paid tiers that add convenience rather than core function."
+      "text": "Notice the pattern: Lectio 365 has nothing gated at all. Hallow and Abide both hold their deepest content behind a subscription, which is fine if audio-led, produced prayer is worth paying for to you. Echo Prayer and PrayerMate are both genuinely free list-and-reminder tools, with optional paid tiers that add convenience rather than core function."
     },
     {
       "type": "heading",
@@ -155,7 +155,7 @@
     },
     {
       "type": "paragraph",
-      "text": "For a structured daily session with nothing gated, Lectio 365 is the best free prayer app for iPhone — a full morning, midday and night office with no paywall. For the daily trigger that gets you back into that session, FaithWall is free to download and puts a verse on your lock screen as the cue. Most people get more out of pairing the two than picking just one."
+      "text": "For a structured daily session with nothing gated, Lectio 365 is the best free prayer app for iPhone — a full morning, midday and night office with no paywall. For the daily trigger that gets you back into that session, FaithWall puts a verse on your lock screen as the cue. Most people get more out of pairing the two than picking just one."
     },
     {
       "type": "heading",
@@ -187,7 +187,7 @@
     {
       "type": "cta",
       "title": "Make your prayer app impossible to forget",
-      "description": "FaithWall puts a verse on your lock screen that cues prayer 186 times a day — free to download, 60-second setup.",
+      "description": "FaithWall puts a verse on your lock screen that cues prayer 186 times a day — 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

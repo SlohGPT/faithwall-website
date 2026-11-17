@@ -51,7 +51,7 @@
     {
       "type": "steps",
       "items": [
-        "**Download FaithWall.** Free to download, set up in under a minute.",
+        "**Download FaithWall.** Set up in under a minute.",
         "**Reread Sunday's notes once, Monday or Tuesday.** Pick the single line that actually changed something.",
         "**Type that line in** as your verse or takeaway for the week.",
         "**Leave it on your lock screen.** You'll see it more in one day than you'd have seen the original note in a month."
@@ -145,7 +145,7 @@
     {
       "type": "cta",
       "title": "Keep one line from Sunday in front of you all week",
-      "description": "Free to download. FaithWall turns the sermon takeaway you actually want to remember into a lock-screen verse — free to download.",
+      "description": "FaithWall turns the sermon takeaway you actually want to remember into a lock-screen verse.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

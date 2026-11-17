@@ -16,7 +16,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "A **verse of the day lock screen iphone** setup puts a verse directly on your wallpaper — not inside an app you have to open. The fix: install FaithWall and pick a verse; it stays on your lock screen until you pick another. In the separate widget setup, the widget shows the verse you picked; if you turn on the optional Auto-rotate verses setting, it then shows random Bible verses every hour, every 8 hours or once a day. 60-second setup. FaithWall is free to download, with a subscription."
+      "content": "A **verse of the day lock screen iphone** setup puts a verse directly on your wallpaper — not inside an app you have to open. The fix: install FaithWall and pick a verse; it stays on your lock screen until you pick another. In the separate widget setup, the widget shows the verse you picked; if you turn on the optional Auto-rotate verses setting, it then shows random Bible verses every hour, every 8 hours or once a day. 60-second setup."
     },
     {
       "type": "paragraph",
@@ -106,7 +106,7 @@
     {
       "type": "steps",
       "items": [
-        "Download FaithWall (free to download) from the App Store.",
+        "Download FaithWall from the App Store.",
         "Pick a verse — on strength, gratitude, anxiety, Psalms or promises. Your chosen verse is your VOTD for the season, and the widget brings fresh ones after it.",
         "Choose a wallpaper style — the typography is sized clear of the clock and widgets.",
         "FaithWall applies it through an Apple Shortcut it launches for you — no Camera Roll wallpaper-juggling.",
@@ -192,7 +192,7 @@
     {
       "type": "cta",
       "title": "Put your verse where you'll actually see it",
-      "description": "FaithWall puts the verse you choose on your iPhone lock screen — designed for the surface, free to download. The VOTD experience the way it was meant to work.",
+      "description": "FaithWall puts the verse you choose on your iPhone lock screen — designed for the surface. The VOTD experience the way it was meant to work.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

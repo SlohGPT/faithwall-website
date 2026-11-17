@@ -39,7 +39,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Every verse below runs 12 words or fewer, counted from the KJV text behind this site's verse tools. Psalm 46:10 runs 22 words in full; Isaiah 41:10 runs 37. Both are worth memorizing. Neither reads in a glance. It's also why our free iPhone gallery wallpapers (1179 × 2556 pixels) set every verse below the clock."
+      "text": "Every verse below runs 12 words or fewer, counted from the KJV text behind this site's verse tools. Psalm 46:10 runs 22 words in full; Isaiah 41:10 runs 37. Both are worth memorizing. Neither reads in a glance. It's also why our iPhone gallery wallpapers (1179 × 2556 pixels) set every verse below the clock."
     },
     {
       "type": "stat",
@@ -54,12 +54,12 @@
     },
     {
       "type": "paragraph",
-      "text": "Two ways. FaithWall keeps a verse you picked on the lock screen, and its widget rotates fresh verses for you; our free maker makes one fixed image you set by hand. Short verses suit both, and the widget most, since a lock-screen widget is a small space."
+      "text": "Two ways. FaithWall keeps a verse you picked on the lock screen, and its widget rotates fresh verses only if you turn on Auto-rotate verses; the web wallpaper maker on this site makes one fixed image you set by hand. Short verses suit both, and the widget most, since a lock-screen widget is a small space."
     },
     {
       "type": "steps",
       "items": [
-        "Download FaithWall. It is free to download; a subscription unlocks it, and the App Store shows the price before you pay.",
+        "Download FaithWall.",
         "Pick your verse by reference or search, in any of 24 translations. Choose one from the list below.",
         "Choose a full-screen wallpaper applied by an Apple Shortcut, or a lock-screen widget that starts with your verse and then rotates random Bible verses every hour, every 8 hours or once a day.",
         "For the widget, press and hold your lock screen, tap **Customize**, choose the lock screen, then tap the widget row under the clock and pick the app's widget."
@@ -67,7 +67,7 @@
     },
     {
       "type": "tip",
-      "content": "**Free option:** the [Bible verse wallpaper maker](/bible-verse-wallpaper-maker) lets you type any verse, pick a style or your own photo, and download the image with the text clear of the clock. It stays that one verse until you make another."
+      "content": "**No-install option:** the [Bible verse wallpaper maker](/bible-verse-wallpaper-maker) lets you type any verse, pick a style or your own photo, and download the image with the text clear of the clock. It stays that one verse until you make another."
     },
     {
       "type": "paragraph",
@@ -213,7 +213,7 @@
     {
       "type": "cta",
       "title": "Keep your short verses moving",
-      "description": "Choose a verse from this list, and FaithWall puts it on your lock screen as a wallpaper, or shows it in a widget (the optional Auto-rotate verses setting then shows random Bible verses). Free to download; a subscription unlocks it.",
+      "description": "Choose a verse from this list, and FaithWall puts it on your lock screen as a wallpaper, or shows it in a widget (the optional Auto-rotate verses setting then shows random Bible verses).",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

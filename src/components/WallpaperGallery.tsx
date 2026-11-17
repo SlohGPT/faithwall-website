@@ -111,7 +111,7 @@ export default function WallpaperGallery() {
         Ready-made Bible verse wallpapers
       </h2>
       <p className="max-w-3xl text-white/75 leading-relaxed mb-6">
-        Free to download and use. Each one is a full-size image: iPhone wallpapers are 1179 by 2556
+        Each one is a full-size image: iPhone wallpapers are 1179 by 2556
         and the desktop ones are 4K. To use one on an iPhone, save it to Photos (open the image,
         touch and hold, then choose Add to Photos), open it in Photos, tap Share, then Use as
         Wallpaper. The verse sits lower than the middle on purpose, because the lock screen draws

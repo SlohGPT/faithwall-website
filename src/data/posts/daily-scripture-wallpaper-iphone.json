@@ -59,7 +59,7 @@
     {
       "type": "steps",
       "items": [
-        "Download **FaithWall** from the App Store — free to download.",
+        "Download **FaithWall** from the App Store.",
         "Open the app and pick your verse: search, or browse by book, chapter and verse.",
         "Choose a wallpaper style — minimalist text, photo-backed, or soft gradient.",
         "FaithWall hands your verse to an Apple Shortcut that applies it as your lock-screen wallpaper. The first time, the Shortcuts app asks for a few permissions; tap Allow on each one.",
@@ -72,7 +72,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Long-press your lock screen any time to switch to a different lock screen, or try a different visual style. A good rhythm is one verse per season — an anxiety passage through a job transition, a gratitude psalm through ordinary weeks, a strength verse when life gets heavy — and letting the rotating widget bring fresh verses in between. To see how different styles carry a verse before you commit, the [ready-made wallpaper gallery](/bible-verse-wallpaper-maker#wallpaper-gallery) shows each style on a real verse — free to download, though each one is a single static image."
+      "text": "Long-press your lock screen any time to switch to a different lock screen, or try a different visual style. A good rhythm is one verse per season — an anxiety passage through a job transition, a gratitude psalm through ordinary weeks, a strength verse when life gets heavy — and letting the rotating widget bring fresh verses in between. To see how different styles carry a verse before you commit, the [ready-made wallpaper gallery](/bible-verse-wallpaper-maker#wallpaper-gallery) shows each style on a real verse — though each one is a single static image."
     },
     {
       "type": "image",
@@ -153,11 +153,11 @@
     },
     {
       "type": "paragraph",
-      "text": "For the widget-vs-wallpaper debate, the [verse of the day lock screen](/blog/verse-of-the-day-lock-screen-iphone) post walks through why wallpaper beats an app you have to open. The full cluster guide lives at [/daily-scripture-lock-screen](/daily-scripture-lock-screen). If you're still weighing which app to install, we compared [best Bible verse lock screen apps](/best-bible-verse-lock-screen-apps) across price, format, and rotation quality."
+      "text": "For the widget-vs-wallpaper debate, the [verse of the day lock screen](/blog/verse-of-the-day-lock-screen-iphone) post walks through why wallpaper beats an app you have to open. The full cluster guide lives at [/daily-scripture-lock-screen](/daily-scripture-lock-screen). If you're still weighing which app to install, we compared [best Bible verse lock screen apps](/best-bible-verse-lock-screen-apps) across format and rotation quality."
     },
     {
       "type": "cta",
-      "title": "Get FaithWall — free to download, 60 seconds",
+      "title": "Get FaithWall — set up in 60 seconds",
       "description": "The piece every Bible study stack is missing: daily Scripture on the lock screen you already check 186 times a day.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"

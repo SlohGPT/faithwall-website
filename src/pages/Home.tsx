@@ -12,7 +12,7 @@ import { homeFaq } from '../data/homeFaq';
 
 const HOME_TITLE = 'FaithWall — Daily Bible Verse Lock Screen App for iPhone';
 const HOME_DESC =
-  "FaithWall (Faith Wall) is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen. A subscription unlocks it. See how it works and which translations it supports.";
+  "FaithWall (Faith Wall) is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen. See how it works and which translations it supports.";
 
 const mobileApplicationSchema = {
   '@context': 'https://schema.org',
@@ -22,7 +22,7 @@ const mobileApplicationSchema = {
   operatingSystem: facts.minIOSText,
   applicationCategory: 'LifestyleApplication',
   description:
-    'FaithWall is an iOS app that displays daily Bible verses on the iPhone lock screen using wallpapers and widgets. Pick your own verse and see Scripture every time you check your phone. Free to download; a subscription unlocks it.',
+    'FaithWall is an iOS app that displays daily Bible verses on the iPhone lock screen using wallpapers and widgets. Pick your own verse and see Scripture every time you check your phone. Free to download.',
   url: 'https://faithwall.app/',
   downloadUrl: facts.storeUrl,
   installUrl: facts.storeUrl,
@@ -31,7 +31,7 @@ const mobileApplicationSchema = {
     price: '0',
     priceCurrency: 'USD',
     description:
-      'Free to download; using the app requires a subscription. Price, billing period and any trial offer are shown in the App Store before purchase.',
+      'Free to download.',
   },
   screenshot: [
     'https://faithwall.app/assets/slideshow/slide1.webp',

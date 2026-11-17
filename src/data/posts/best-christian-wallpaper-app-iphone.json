@@ -26,7 +26,7 @@
     },
     {
       "type": "highlight",
-      "content": "**FaithWall is our app** — this comparison reflects that. We're not pretending Pinterest or Canva are bad options; they're free and fine if you're happy resetting your wallpaper by hand. Here's our honest case for FaithWall anyway: it's built to solve the one problem static wallpapers can't — staying seen."
+      "content": "**FaithWall is our app** — this comparison reflects that. We're not pretending Pinterest or Canva are bad options; they're free and fine if you're happy resetting your wallpaper by hand. Here's our honest case for FaithWall: it's built to solve the one problem static wallpapers can't — staying seen."
     },
     {
       "type": "paragraph",
@@ -52,7 +52,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Here's the direct answer: your real options split into free-but-static (Pinterest, Canva), paid-but-still-static (gallery apps), and a verse you pick yourself (FaithWall) — and only that option is still working for you by week three."
+      "text": "Here's the direct answer: your real options split into static (Pinterest, Canva, gallery apps) and a verse you pick yourself (FaithWall) — and only that option is still working for you by week three."
     },
     {
       "type": "list",
@@ -78,7 +78,7 @@
     },
     {
       "type": "paragraph",
-      "text": "| Option | Best for | Rotates automatically | Cost |\n|---|---|---|---|\n| Pinterest / Google Images | One wallpaper you're happy to set by hand | No — manual reset every time | Free |\n| Static gallery apps | Browsing a big library of pre-made verse images | No — you pick and set each one | Free, with paid packs in some apps |\n| Canva / DIY | Designing your own verse image | No — you design and reset it yourself | Free tier; paid tier for premium elements |\n| FaithWall | A Scripture wallpaper, or a widget setup that can bring fresh verses | Widget setup only, and only if you turn on Auto-rotate verses (hourly, every 8 hours or daily); the wallpaper stays until you pick a new verse | Free download + subscription |"
+      "text": "| Option | Best for | Rotates automatically |\n|---|---|---|\n| Pinterest / Google Images | One wallpaper you're happy to set by hand | No — manual reset every time |\n| Static gallery apps | Browsing a big library of pre-made verse images | No — you pick and set each one |\n| Canva / DIY | Designing your own verse image | No — you design and reset it yourself |\n| FaithWall | A Scripture wallpaper, or a widget setup that can bring fresh verses | Widget setup only, and only if you turn on Auto-rotate verses (hourly, every 8 hours or daily); the wallpaper stays until you pick a new verse |"
     },
     {
       "type": "paragraph",
@@ -91,7 +91,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Setting a Christian wallpaper is easy. Keeping it meaningful is the hard part. **A static verse wallpaper stops working the moment it becomes familiar** — by week two it's just the background, as unnoticed as your battery icon. And the DIY route has a quieter problem: an image designed in Canva or saved from Pinterest wasn't built for the lock-screen surface. The clock crashes into the text, a widget covers the verse, the crop is wrong. It looks great in the editor and broken on your actual screen. If you do go the DIY route, start from our [free ready-made verse wallpapers](/bible-verse-wallpaper-maker#wallpaper-gallery): each comes from a maker built for the lock screen, so the verse stays out of the clock zone, and you can customize any of them."
+      "text": "Setting a Christian wallpaper is easy. Keeping it meaningful is the hard part. **A static verse wallpaper stops working the moment it becomes familiar** — by week two it's just the background, as unnoticed as your battery icon. And the DIY route has a quieter problem: an image designed in Canva or saved from Pinterest wasn't built for the lock-screen surface. The clock crashes into the text, a widget covers the verse, the crop is wrong. It looks great in the editor and broken on your actual screen. If you do go the DIY route, start from our [ready-made verse wallpapers](/bible-verse-wallpaper-maker#wallpaper-gallery): each comes from a maker built for the lock screen, so the verse stays out of the clock zone, and you can customize any of them."
     },
     {
       "type": "image",
@@ -138,7 +138,7 @@
     {
       "type": "steps",
       "items": [
-        "Download FaithWall (free to download) from the App Store.",
+        "Download FaithWall from the App Store.",
         "Pick the verse that fits your season, by book, chapter and verse or by search.",
         "Choose a wallpaper style — designed to sit clear of the clock and widgets.",
         "FaithWall applies it through an Apple Shortcut it launches for you — no manual saving.",
@@ -174,11 +174,11 @@
     {
       "type": "heading",
       "level": 3,
-      "text": "What's the best free Christian wallpaper app for iPhone?"
+      "text": "What's the best Christian wallpaper app for iPhone?"
     },
     {
       "type": "paragraph",
-      "text": "FaithWall is the best Christian wallpaper app for iPhone if you want a widget that brings a fresh verse automatically — it's free to download, but using it requires a subscription (the price is shown in the App Store before you pay). If you want a fully free option and you're fine choosing and setting a new image by hand each week, free static galleries and Pinterest work too; you'll just be doing the rotation yourself."
+      "text": "FaithWall is the best Christian wallpaper app for iPhone if you want a widget that can bring fresh verses (the optional Auto-rotate verses setting adds them). If you'd rather choose and set a new image by hand each week, static galleries and Pinterest work too; you'll just be doing the rotation yourself."
     },
     {
       "type": "heading",
@@ -210,7 +210,7 @@
     {
       "type": "cta",
       "title": "Get a wallpaper that preaches back",
-      "description": "FaithWall puts Scripture on your lock screen — designed for the surface, applied with an Apple Shortcut or shown in a widget that rotates fresh verses. Free to download, 60-second setup.",
+      "description": "FaithWall puts Scripture on your lock screen — designed for the surface, applied with an Apple Shortcut or shown in a widget (the optional Auto-rotate verses setting adds fresh verses). 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

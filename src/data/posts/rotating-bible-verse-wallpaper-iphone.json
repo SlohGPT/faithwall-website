@@ -107,7 +107,7 @@
     {
       "type": "steps",
       "items": [
-        "Download FaithWall (free to download) from the App Store.",
+        "Download FaithWall from the App Store.",
         "Pick a verse matched to your season — strength, gratitude, anxiety, Psalms, promises — by search or by book, chapter and verse.",
         "Choose a wallpaper style (the type is sized for the lock-screen surface — clock and widgets won't crash the verse).",
         "FaithWall applies the wallpaper through an Apple Shortcut it launches for you. Or switch to the widget setup: it starts with your verse, and if you turn on the optional Auto-rotate verses setting it then rotates random Bible verses on the schedule you set.",
@@ -148,7 +148,7 @@
     {
       "type": "cta",
       "title": "Put the verse you picked on your lock screen",
-      "description": "FaithWall puts the verse you choose on your iPhone lock screen — designed for the surface, applied with an Apple Shortcut, or shown in a widget with an optional Auto-rotate verses setting. Free to download, 60-second setup.",
+      "description": "FaithWall puts the verse you choose on your iPhone lock screen — designed for the surface, applied with an Apple Shortcut, or shown in a widget with an optional Auto-rotate verses setting.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

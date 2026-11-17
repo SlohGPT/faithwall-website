@@ -58,7 +58,7 @@
     {
       "type": "steps",
       "items": [
-        "**Download FaithWall.** It's free to download; using it requires a subscription, and the App Store shows the price before you pay.",
+        "**Download FaithWall.**",
         "Find the reference the leader posted. Search by book, chapter and verse in any of the 24 translations, so a group that reads different translations still carries the same verse.",
         "Choose how it shows: a full-screen wallpaper applied through an Apple Shortcut, or a compact lock-screen widget.",
         "Pick a new verse each week. The wallpaper stays on the current one until you change it, and the widget starts with your verse and then rotates random Bible verses every hour, every 8 hours or once a day."
@@ -138,7 +138,7 @@
     {
       "type": "cta",
       "title": "Give your group one verse to carry",
-      "description": "Set the week's memory verse in FaithWall and keep it on your lock screen as a wallpaper or a rotating widget. Free to download, subscription required.",
+      "description": "Set the week's memory verse in FaithWall and keep it on your lock screen as a wallpaper or a widget.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

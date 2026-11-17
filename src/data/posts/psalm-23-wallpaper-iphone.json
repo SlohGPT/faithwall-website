@@ -22,7 +22,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "A **Psalm 23 wallpaper iPhone** setup is quick: install FaithWall (free to download), search for Psalm 23, and FaithWall hands the verse to an Apple Shortcut that applies it as your wallpaper — done in about 60 seconds. Because the whole psalm won't fit one screen, FaithWall lets you pick the line that speaks to you today and swap it whenever you like — *\"The Lord is my shepherd,\" \"He maketh me to lie down in green pastures,\" \"Though I walk through the valley\"* — so you live through the psalm a line at a time instead of staring at one frozen graphic."
+      "content": "A **Psalm 23 wallpaper iPhone** setup is quick: install FaithWall, search for Psalm 23, and FaithWall hands the verse to an Apple Shortcut that applies it as your wallpaper — done in about 60 seconds. Because the whole psalm won't fit one screen, FaithWall lets you pick the line that speaks to you today and swap it whenever you like — *\"The Lord is my shepherd,\" \"He maketh me to lie down in green pastures,\" \"Though I walk through the valley\"* — so you live through the psalm a line at a time instead of staring at one frozen graphic."
     },
     {
       "type": "paragraph",
@@ -80,7 +80,7 @@
     {
       "type": "steps",
       "items": [
-        "Download **FaithWall** from the App Store — free to download.",
+        "Download **FaithWall** from the App Store.",
         "Search for **Psalm 23** (or browse the Psalms by chapter) and pick the line you want.",
         "Pick a style — minimalist text, photo-backed pastures, or a soft gradient.",
         "FaithWall hands your verse to an Apple Shortcut that applies it as your lock-screen wallpaper. The first time, the Shortcuts app asks for a few permissions; tap Allow on each one.",
@@ -94,7 +94,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The DIY route is a screenshot of the whole psalm saved from Pinterest, set as a static wallpaper. Two things break it. First, **legibility** — the full six verses shrink to a wall of tiny text the clock cuts straight through, and a graphic built for a feed was never designed for the lock-screen surface. Second, **staleness** — one frozen image stops registering after about a week. Your brain files it under furniture and reads right past the comfort you put there on purpose. If you still want one well-built image, start from the [free verse wallpaper gallery](/bible-verse-wallpaper-maker#wallpaper-gallery) rather than a Pinterest screenshot: its iPhone designs keep the line below the clock, and any design there — including the Psalm 23:1 one above — opens in the maker so you can change its style or size."
+      "text": "The DIY route is a screenshot of the whole psalm saved from Pinterest, set as a static wallpaper. Two things break it. First, **legibility** — the full six verses shrink to a wall of tiny text the clock cuts straight through, and a graphic built for a feed was never designed for the lock-screen surface. Second, **staleness** — one frozen image stops registering after about a week. Your brain files it under furniture and reads right past the comfort you put there on purpose. If you still want one well-built image, start from the [verse wallpaper gallery](/bible-verse-wallpaper-maker#wallpaper-gallery) rather than a Pinterest screenshot: its iPhone designs keep the line below the clock, and any design there — including the Psalm 23:1 one above — opens in the maker so you can change its style or size."
     },
     {
       "type": "paragraph",
@@ -125,7 +125,7 @@
     {
       "type": "cta",
       "title": "Put Psalm 23 where you'll actually see it",
-      "description": "Free to download, 60-second setup. FaithWall keeps Psalm 23 on your lock screen — readable, in the line you choose. No screenshots, no clutter.",
+      "description": "FaithWall keeps Psalm 23 on your lock screen — readable, in the line you choose. No screenshots, no clutter. 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

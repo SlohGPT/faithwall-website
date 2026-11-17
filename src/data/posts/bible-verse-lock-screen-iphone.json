@@ -16,7 +16,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "To set a **bible verse lock screen on iPhone**, install FaithWall (free to download) and pick a verse. FaithWall hands it to an Apple Shortcut that sets it as your lock-screen wallpaper — done in under 60 seconds. The widget setup is separate: the widget shows the verse you picked; if you turn on the optional Auto-rotate verses setting, it then shows random Bible verses every hour, every 8 hours or once a day. Wallpaper setup for one verse that stays until you pick another; widget setup for a verse in a small widget."
+      "content": "To set a **bible verse lock screen on iPhone**, install FaithWall and pick a verse. FaithWall hands it to an Apple Shortcut that sets it as your lock-screen wallpaper — done in under 60 seconds. The widget setup is separate: the widget shows the verse you picked; if you turn on the optional Auto-rotate verses setting, it then shows random Bible verses every hour, every 8 hours or once a day. Wallpaper setup for one verse that stays until you pick another; widget setup for a verse in a small widget."
     },
     {
       "type": "paragraph",
@@ -72,7 +72,7 @@
     {
       "type": "steps",
       "items": [
-        "Download **FaithWall** from the App Store — free to download.",
+        "Download **FaithWall** from the App Store.",
         "Open the app. Pick your verse: search for it, or browse by book, chapter and verse.",
         "Choose a style — minimalist text, photo-backed, or color gradient.",
         "FaithWall hands your verse to an Apple Shortcut that applies it as your lock-screen wallpaper. The first time, the Shortcuts app asks for a few permissions; tap Allow on each one.",
@@ -172,7 +172,7 @@
     {
       "type": "cta",
       "title": "Get FaithWall on the App Store",
-      "description": "Daily Scripture on your iPhone lock screen in under 60 seconds. Free to download.",
+      "description": "Daily Scripture on your iPhone lock screen in under 60 seconds.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

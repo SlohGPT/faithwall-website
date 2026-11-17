@@ -16,7 +16,7 @@
       "type": "callout",
       "icon": "zap",
       "title": "Quick Answer",
-      "content": "The best **bible verse widget iphone** setup is FaithWall's: install the app (free to download), pick a verse, and add the widget — it starts with your verse, then rotates random Bible verses automatically, on the lock screen or the home screen, in under 60 seconds. No manual swapping."
+      "content": "The best **bible verse widget iphone** setup is FaithWall's: install the app, pick a verse, and add the widget — it shows your verse, and the optional Auto-rotate verses setting (off by default) adds random Bible verses, on the lock screen or the home screen, in under 60 seconds."
     },
     {
       "type": "paragraph",
@@ -55,7 +55,7 @@
     {
       "type": "steps",
       "items": [
-        "Download **FaithWall** from the App Store — free to download.",
+        "Download **FaithWall** from the App Store.",
         "Open the app and pick your verse: search, or browse by book, chapter and verse.",
         "Choose the lock screen widget for daily rotation above the clock, or the home screen widget for a bigger tile.",
         "Long-press the screen, tap **+**, search for it, and drop the widget where you'll actually see it.",
@@ -167,8 +167,8 @@
     },
     {
       "type": "cta",
-      "title": "Get the widget that actually rotates",
-      "description": "Free to download, 60-second setup. FaithWall's widget cycles a fresh verse onto your lock screen or home screen automatically — no manual swapping, ever.",
+      "title": "Get the widget with optional rotation",
+      "description": "FaithWall's widget shows the verse you picked on your lock screen or home screen, and cycles fresh verses if you turn on the optional Auto-rotate verses setting (off by default). 60-second setup.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

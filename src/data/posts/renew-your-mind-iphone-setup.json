@@ -127,7 +127,7 @@
     {
       "type": "cta",
       "title": "Put Scripture in the slot your mind keeps returning to",
-      "description": "FaithWall puts a verse you choose, matched to the season your mind is fighting, on your lock screen, and its widget can rotate fresh verses hourly, every 8 hours or daily. Free to download, 60-second setup.",
+      "description": "FaithWall puts a verse you choose, matched to the season your mind is fighting, on your lock screen, and its widget shows that verse, with random verses hourly, every 8 hours or daily only if you turn on the optional Auto-rotate verses setting (off by default).",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

@@ -68,7 +68,7 @@
     {
       "type": "steps",
       "items": [
-        "Download **FaithWall** from the App Store. It's free to download, a subscription unlocks it, and the App Store shows the price before you pay.",
+        "Download **FaithWall** from the App Store.",
         "Search or browse to one of the verses below, or your own, and pick it. You choose the starting verse, in any of 24 translations.",
         "Pick the lock-screen widget and set it to rotate every hour, every 8 hours or once a day.",
         "Press and hold your lock screen, tap **Customize**, choose the lock screen, then tap the widget row under the clock and pick the app's widget."
@@ -220,7 +220,7 @@
     {
       "type": "cta",
       "title": "Pray from the verse you already see",
-      "description": "Pick the verse for your prompt, and FaithWall shows it as a wallpaper, or starts a widget that rotates fresh verses on your lock screen. Free to download; a subscription unlocks it.",
+      "description": "Pick the verse for your prompt, and FaithWall shows it as a wallpaper, or in a widget on your lock screen.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

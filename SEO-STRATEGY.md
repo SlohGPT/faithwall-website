@@ -99,8 +99,8 @@ The homepage title/meta and rich-results work shipped and the brand-query findin
 - **Length:** standard posts 800–1,100 words. Comparison-intent spokes to ~1,400 when coverage requires. Money pages and the hub are exempt upward — their `depth-pass` target is genuine comprehensiveness (2,500+ words with tables, FAQ, per-app detail), because depth correlates directly with AI citation rates. Never pad: depth = more sub-questions fully answered.
 - **Freshness:** money pages get a materially-true visible update monthly; other roundups quarterly; dated titles roll forward each January. Freshness is now also the cheapest AI-citation lever (Allsopp: cited lists skew heavily recently-updated).
 - **AEO (passage-level, per King):** one quotable self-contained positioning sentence in the first two paragraphs; open each H2 with a direct answer in the first 40–60 words; keep key passages self-contained at ~130–170 words; name entities (apps, features, iOS versions) explicitly — retrieval is passage-level and rank-independent, so every section is its own citation candidate. Question-phrased H2/H3s where natural.
-- **Comparisons:** FaithWall ranks first wherever it competes (house rule, with disclosure). Third-party head-to-heads answer honestly and position FaithWall as the lock-screen layer (free to download, subscription required) to add to either.
-- **Product facts (2026-10-02, mandatory):** since v2.3 FaithWall has a hard paywall — a subscription is required to use it. Never describe FaithWall as free; "free to download" is the only allowed phrasing. Never state a price or trial length (the App Store shows them before paying); never say it picks verses for you; never cite Focus modes as the mechanism. Full list: `.claude/skills/faithwall-blog/SKILL.md` → Product facts.
+- **Comparisons:** FaithWall ranks first wherever it competes (house rule, with disclosure). Third-party head-to-heads answer honestly and position FaithWall as the lock-screen layer to add to either.
+- **Product facts (2026-10-02, mandatory):** never mention the subscription, paywall, trial, in-app purchase or price on the site (legal pages only; Karol's order 2026-11-17). Prose rule (Karol 2026-11-17): in post, pillar and compare prose never write "free" about FaithWall, "free to download" included; "Free to download." appears only at download points (the end card the renderer draws from facts.json, App Store buttons, homepage hero and final CTA, compare CTA box), so a cta section's title and description carry no download phrase; competitors may still be called free; the web wallpaper maker's own "free" lines stay. Never say it picks verses for you; never cite Focus modes as the mechanism. Full list: `.claude/skills/faithwall-blog/SKILL.md` → Product facts.
 - **Honesty:** only apps verified to exist; real prices, sizes, tested behavior; never fabricate. One real cited statistic with a named source per post.
 - **Anti-template variety (mandatory):** never reuse a cited statistic from the last 10 posts; vary Quick Answer structure, H2 phrasing patterns, FaithWall's body-mention placement, and section-type mix between consecutive posts.
 - **Schema:** posts emit Article (full Person author block) + Breadcrumb; listicles also ItemList; homepage SoftwareApplication/WebSite. FAQ rich results retired 2026-05-07 (confirmed) — existing FAQPage markup stays (harmless, plausibly still read by AI systems) but new FAQPage/HowTo markup buys nothing; visible FAQ content blocks remain mandatory. Schema is hygiene, not a citation lever — markup alone demonstrably does not buy AI citations for low-authority sites.
@@ -183,7 +183,7 @@ We run an autonomous daily agent in the exact period Google is enforcing against
 1. **Convert the traffic we already have.** Done 2026-10-02 (p43–p45):
    - install nudges on both tools;
    - the wallpaper gallery;
-   - a site-wide accuracy pass, after which the site no longer promises a free app that then paywalls;
+   - a site-wide accuracy pass, after which the site no longer overpromises on what the app includes;
    - the maker's v2 preview and own-photo mode.
 
    Next: after the first campaign review, keep the nudge placements that convert and remove the ones that don't.
@@ -206,10 +206,10 @@ We run an autonomous daily agent in the exact period Google is enforcing against
 
 Built in b73c084 (journal 39, evening update). Without backlinks, Search sends what it sends. This layer makes those visits count and makes the result measurable. Code enforces each rule where it can.
 
-**One facts file.** `src/data/facts.json` holds the product facts: store name, app id, provider token, minimum iOS (15.0; the widget needs iOS 16), the install and subscription lines, and the rating. Components, the home schema and the lint read it, and no product fact is typed into a component. `scripts/check-facts.mjs` runs weekly in the refresh. It compares the file with Apple's lookup and may rewrite `rating.*` only. The site shows a rating only when Apple's live value is at least 4.5 with at least 20 ratings. The script exits 2 when the store title or the minimum iOS changes, because copy depends on them, and exits 1 when the lookup has no rating.
+**One facts file.** `src/data/facts.json` holds the product facts: store name, app id, provider token, minimum iOS (15.0; the widget needs iOS 16), the install line, and the rating. Components, the home schema and the lint read it, and no product fact is typed into a component. `scripts/check-facts.mjs` runs weekly in the refresh. It compares the file with Apple's lookup and may rewrite `rating.*` only. The site shows a rating only when Apple's live value is at least 4.5 with at least 20 ratings. The script exits 2 when the store title or the minimum iOS changes, because copy depends on them, and exits 1 when the lookup has no rating.
 
 **Gates.** `npm run lint:facts` (`scripts/lint-facts.mjs`) runs on the diff while writing and on `dist/` after a build. It fails on:
-- banned claims: a free app, prices or trials, iOS 16 as the minimum, the app picking verses for you, a rotating wallpaper, a widget that rotates your own set, unverified features (packs, offline, ad-free and the like), and "no account";
+- banned claims: a free app, any price, subscription, trial or paywall wording, iOS 16 as the minimum, the app picking verses for you, a rotating wallpaper, a widget that rotates your own set, unverified features (packs, offline, ad-free and the like), and "no account";
 - an App Store link without `pt` and a listed `ct`;
 - more than one MobileApplication node, a node outside `/`, or any aggregateRating;
 - NUL bytes, a 404 page without noindex, a sitemap URL without a built file, and a mid card on a held page.
@@ -252,7 +252,7 @@ OAI-SearchBot and PerplexityBot are allowed. Cloudflare's managed block stops GP
 - **Why.** The ASO revenue audit (ASO repo, `docs/journal/04-audit-record/07-country-value-for-web-languages.md`) found that a new customer from Brazil is worth a small fraction of a US one, mostly because of local App Store prices. No other language has a measured money case. So a Portuguese page would need many times the clicks of a US-audience English page to repay its translation and review, and fewer of those clicks come from iPhones. Google barely shows this site in Brazil. The App Store already reaches Brazil through the live Portuguese (Brazil) listing; the listing is also localized for France and Italy.
 - **What helps Brazil instead.** Two App Store moves, planned in the ASO repo with Karol's OK, both in TODO-KAROL:
   - the Portuguese (Brazil) keyword refresh after the US metadata hold ends on 12-14;
-  - a check of the Brazil price tier and paywall offer.
+  - a check of the Brazil App Store listing.
 - **Re-open triggers.** p77 checks them from 2027-01-15. Either one is enough:
   - (a) the ASO table shows a Brazilian customer worth at least about a quarter of a US one;
   - (b) App Store keyword data shows Portuguese demand large enough to clear the audit's click break-even.

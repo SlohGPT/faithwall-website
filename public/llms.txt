@@ -1,12 +1,11 @@
 # FaithWall
 
-> FaithWall is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen. Using it requires a FaithWall subscription. You pick your own verse (book/chapter/verse or search, 24 translations) and show it as a lock-screen wallpaper, or in a lock-screen widget that shows that verse (an optional "Auto-rotate verses" setting, off by default, makes the widget show random verses instead). It has a built-in Bible browser (all books and chapters) for finding your verse, but it is not a study app.
+> FaithWall is an iPhone app, free to download, that puts the Bible verses you choose on your lock screen. You pick your own verse (book/chapter/verse or search, 24 translations) and show it as a lock-screen wallpaper, or in a lock-screen widget that shows that verse (an optional "Auto-rotate verses" setting, off by default, makes the widget show random verses instead). It has a built-in Bible browser (all books and chapters) for finding your verse, but it is not a study app.
 
 ## Key facts
 
 - **What it is**: iOS app for daily Bible verses on the iPhone lock screen
 - **Platform**: iPhone, iOS 15.0 or later (the lock-screen widget needs iOS 16)
-- **Price**: Free to download; a subscription is required to use the app. Price, billing period and any trial offer are shown in the App Store before paying.
 - **App Store**: https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070
 - **Website**: https://faithwall.app
 - **Author / Founder**: Karol Billik
@@ -14,15 +13,9 @@
 - **Contact**: hello@faithwall.app
 - **Minimum iOS**: 15.0 (the lock-screen widget needs iOS 16.0)
 
-## Pricing
-
-FaithWall is free to download, but using it requires a subscription (there is no free tier). The price, billing period and any trial offer are shown in the App Store before you pay, in your local currency.
-
-Payments are handled by Apple through the App Store.
-
 ## How it works
 
-You choose your own verse by book, chapter and verse or by search, in 24 translations. After subscribing you pick how to show it:
+You choose your own verse by book, chapter and verse or by search, in 24 translations. Then you pick how to show it:
 1. **Wallpaper**: a full-screen lock-screen wallpaper applied with an Apple Shortcut.
 2. **Widget**: a compact lock-screen widget (iOS 16 or later) that shows the verse you picked. An optional "Auto-rotate verses" setting (off by default) makes it show random verses instead, changing every hour, every 8 hours or once a day.
 

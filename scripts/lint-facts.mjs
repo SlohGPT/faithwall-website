@@ -9,7 +9,9 @@
  *   --diff <base>          lint whole changed files, report only hits that overlap lines added in
  *                          `git diff <base>...HEAD -U0` (add --worktree to include uncommitted and
  *                          untracked changes too)
- *   --dist                 check the built site in dist/ (links, JSON-LD, NUL bytes, 404, sitemap, held pages)
+ *   --dist                 check the built site in dist/ (links, JSON-LD, NUL bytes, 404, sitemap, held pages,
+ *                          and the subscription-mention rule over visible text, meta and JSON-LD; the source-only
+ *                          prose-download-line rule is NOT checked here, use --all or --diff)
  *   --prompts <files...>   lint scheduled-task prompt files with the same text rules
  *   --self-test            run the built-in true-positive / negative checks of the text rules
  *
@@ -38,13 +40,35 @@ const CAMPAIGN_TOKENS = [
 
 const OTHER_APPS_RE = /\b(?:YouVersion|Olive Tree|Glorify|Hallow|Bible Gateway|Logos|Pray\.com|Abide|Dwell|Blue Letter|Bible\.is|Abbey|Fighter Verses|competitors?|Quran ?Wall|Note ?Wall)\b/i;
 
+const FWA = String.raw`(?:Faith ?Wall|the app|our app|this app)`;
 const rules = [
   // wrong: rotation of the user's own set
   ['rotate-own-set', /\brotat\w*\s+(?:through\s+)?(?:all\s+)?(?:your|the|these|those)\s+(?:(?:saved|chosen|picked|own|favou?rite|selected|bookmarked)\s+)*(?:bible\s+)?(?:verses|scriptures|passages|favou?rites)\b|\brotat\w*\s+(?:the\s+)?verses\s+(?:that\s+)?you\s+(?:pick|choose|chose|save|saved)\b|\brotates?\s+(?:fresh\s+|random\s+)?verses\s+through\b/i, null],
   // wrong: the wallpaper itself rotates (needs FaithWall + wallpaper as subject, not "rotating wallpaper" keyword/titles)
   ['wallpaper-rotates', /\b(?:FaithWall|Faith ?Wall)'?s?\b[^.,;]{0,60}\bwallpaper\b[^.,;]{0,30}\b(?:rotates|cycles|changes (?:itself|by itself|automatically|every)|auto-?rotates)\b/i, null],
   // free about FaithWall (copula or adjective on the brand); allow "free to download|install", questions
-  ['free-claim', /\bFaith ?Wall\b(?:'s)?\s+(?:is|are|was|stays|remains)\s+(?:a\s+|an\s+)?(?:completely\s+|totally\s+|100%\s+|truly\s+|also\s+)?free\b(?!\s+to\s+(?:download|install|get))|\bfree\s+(?:app|Bible app)\b[^.]{0,20}\bFaith ?Wall\b|\bFaith ?Wall\b[^.?]{0,40}\b(?:for free|free of charge|at no cost|free forever|free tier|free version|free plan|no paywall)\b|\bFaith ?Wall\b[^.?]{0,40}\bcosts? nothing\b|\bno cost\b[^.]{0,30}\bFaith ?Wall\b/i, null, /\bno free tier\b|there is no free\b|has no free\b|not free\b|isn'?t free\b/i],
+  ['free-claim', /\bFaith ?Wall\b(?:'s)?\s+(?:is|are|was|stays|remains)\s+(?:a\s+|an\s+)?(?:completely\s+|totally\s+|100%\s+|truly\s+|also\s+)?free\b(?!\s+to\s+(?:download|install|get))|\bfree\s+(?:app|Bible app)\b[^.]{0,20}\bFaith ?Wall\b|\bFaith ?Wall\b[^.?]{0,40}\b(?:for free|free of charge|at no cost|free forever|free tier|free version|free plan|no paywall)\b|\bFaith ?Wall\b[^.?]{0,40}\bcosts? nothing\b|\bno cost\b[^.]{0,30}\bFaith ?Wall\b/i, null, /\bno free tier\b|there is no free\b|has no free\b|not free\b|isn'?t free\b|\b(?:download|install)\w*\b[^.?]{0,40}\bfor free\b(?![^.]*\b(?:access|all (?:the )?features)\b)/i],
+  // free-use-claim (2026-11-17, Karol): the app is never called free to USE. Download points ("free to download", "download for free")
+  // and competitor facts are fine. Web Wallpaper Maker wording ("this free web maker", "exports from this page are free") never matches because every
+  // pattern is anchored to the app (FaithWall / the app / our app / this app), a feature-bundle phrase, or a definite "the free app|version|tier|plan";
+  // a maker sentence that calls the app free therefore still fails. Competitor-only sentences and legal pages are skipped in lintText.
+  ['free-use-claim', new RegExp([
+    String.raw`\b${FWA}(?:['’]s)?\s+(?:is|are|was|stays|remains|will\s+(?:stay|remain|be))\s+(?:(?:a|an)\s+)?(?:(?:completely|totally|100%|truly|also|entirely|always|still)\s+)*free\b(?!\s+to\s+(?:download|install|get))`,
+    String.raw`\b${FWA}['’]s\s+(?:own\s+)?free\b`,
+    String.raw`\b${FWA}\s+(?:has|offers|includes|gives(?:\s+you)?|provides|comes\s+with)\s+(?:a\s+|an\s+)?(?:\w+\s+){0,2}?free\b(?!\s+to\s+(?:download|install))`,
+    String.raw`\b${FWA}\b[^.?]{0,40}\b(?:for free|free of charge|at no cost|free forever|no paywall|costs? nothing)\b`,
+    String.raw`\bfree\s+(?:version|tier|plan|trial)\s+(?:of|for|in|from|with|on)\s+${FWA}\b`,
+    String.raw`\b(?:try|get|download|install|grab|use|have)\s+${FWA}\s+(?:for\s+)?free\b(?!\s+to\s+(?:download|install|get))`,
+    String.raw`\b(?:the|this)\s+free\s+(?:Faith ?Wall\s+)?app\b|\bfree\s+Faith ?Wall\b|\bFaith ?Wall\s*\(free\)|\bFaith ?Wall\s*[:|-]\s*free\b(?!\s+to\s+(?:download|install))`,
+    String.raw`\b${FWA}\b[^.?]{0,40}\b(?:no[- ]cost|no charge|gratis|pay nothing|(?:doesn['’]t|won['’]t|does not|will not)\s+cost)\b`,
+    String.raw`^(?![\s\S]*\b(?:maker|generator|this page|web tool|this site)\b)[\s\S]*\bfree\s+to\s+use\b`,
+    String.raw`\|\s*Faith ?Wall\s*\|[^\n]*\|\s*Free\s*(?:\||$)|\b(?:price|cost|pricing)\s*[:|]\s*free\b`,
+    String.raw`\b${FWA}\b[^.?]{0,60}\bfree\s+(?:version|tier|plan|trial|features?|widgets?|themes?)\b`,
+    String.raw`\ball\s+(?:the\s+)?(?:features|tools|themes|widgets|verses)\b[^.?]{0,30}\b(?:for free|free of charge|at no cost)\b`,
+    String.raw`\b(?:for free|free of charge)\b[^.?]{0,40}\ball\s+(?:the\s+)?features\b`,
+    String.raw`\bfree\s+access\s+to\s+all\b`,
+    String.raw`\b(?:get|download|install|grab|try|use)\s+(?:the|our|this)\s+free\s+(?:app|version|tier|plan)\b|\bour\s+free\s+(?:app|version|tier|plan|trial)\b`,
+  ].join('|'), 'i'), null, /\b(?:download|install)\w*\b[^.?]{0,40}\bfor free\b(?![^.]*\b(?:access|all (?:the )?features|use)\b)|\bno free tier\b|there is no free\b|has no free\b|not free\b|isn'?t free\b/i],
   ['price-or-trial', /\bFaith ?Wall\b[^.]{0,120}(?:\$\s?\d|€\s?\d|£\s?\d|\b\d+[- ]days?\s+(?:free\s+)?trial|\bfree trial\b|\b\d+\s+days?\s+free\b|\bper (?:week|month|year)\b|\/(?:wk|week|mo|month|yr|year)\b)/i, null],
   ['ios16-as-min', /\b(?:Faith ?Wall|the app)\b[^.]{0,100}\biOS\s?16(?:\.0)?(?:\+|\s+or\s+(?:later|newer|higher)|\s+and\s+(?:later|newer|up))|\b(?:requires?|needs?|minimum|min\.?)\s+(?:iOS\s*)?16(?:\.0)?\b|Platform\W{1,8}iOS 16|Minimum iOS\W{1,8}16|operatingSystem"?\W{1,6}iOS 16|^[-*\s]*iOS 16(?:\.0)?(?:\+|\s+or later|\s+and later)?\s*$/i, null, /widget|Glorify|Hallow|Focus|competitor/i],
   ['picks-for-you', /\b(?:Faith ?Wall|the app|it)\b[^.]{0,40}\b(?:picks|chooses|selects|curates|recommends|suggests|finds|matches)\b[^.]{0,25}\b(?:verses?|scriptures?|passages?)\b[^.]{0,15}\bfor you\b|\bverses?\s+(?:picked|chosen|selected|curated)\s+for\s+you\b|\bpersonali[sz]ed\s+(?:verses?|scripture)\b/i, null],
@@ -81,6 +105,9 @@ const ROTATION_OPT_IN = /\b(?:turn(?:s|ed)?\s+on|turning\s+on|switch(?:es|ed)?\s
 const NOT_OPT_IN = /\b(?<!off )by default\b|\boptional\?/i;
 const hasOptIn = (t) => ROTATION_OPT_IN.test(t) && !NOT_OPT_IN.test(t);
 const OTHER_APPS = OTHER_APPS_RE;
+// Narrow negation for the free rules only: a rule sentence ("never call the app free") is skipped, but a claim that merely sits beside
+// a negated clause ("FaithWall is free and never shows ads") is not.
+const NEG_FREE = /\b(?:never|don'?t|do not|doesn'?t|does not|must not|should not)\b[^.?]{0,30}\b(?:call|calls|say|says|claim|claims|write|mention|describe|promise|state|imply|label|use the word|put)\b|\bnot\s+(?:call|say|write|claim)\b|\bbanned\b|\bavoid\b|\bno claim\b/i;
 
 // How the wallpaper updates (app truth): the user picks a verse, the app itself launches an Apple Shortcut that
 // applies it, and it stays until the user picks another. Nothing runs in the background or on a schedule, a
@@ -130,6 +157,62 @@ const COUNT_CLAIMS = [
 ];
 const COUNT_KEY = { translations: 'translationCount', languages: 'uiLanguageCount', users: 'userFloor' };
 
+// subscription-mention (2026-11-17, Karol): the site never says FaithWall needs a subscription, costs money, has a trial,
+// an in-app purchase or a paywall. HARD rule in --all, --diff, --dist and --prompts. Brand or no brand.
+// Exempt: (a) a sentence that names a competitor and not FaithWall, (b) NEG sentences ("never mention the subscription"),
+// (c) the legal pages (LEGAL_PAGES below), which must keep Apple's subscription text.
+// Brand-agnostic patterns: these are the install-line and fine-print shapes ("a subscription is required", "see price in app"),
+// so they FAIL even when no app is named. Generic words (subscription, paywall, $ amounts, per month ...) fail only when the
+// sentence names FaithWall, because competitor facts are allowed to keep them (the tree has many, and --dist must stay at 0).
+const SUBSCRIPTION_MENTION_ANY = new RegExp([
+  String.raw`\bsubscri\w*\s+(?:is\s+|are\s+)?(?:required|needed|necessary)\b`,
+  String.raw`\bsubscription\s+unlocks?\s+(?:it|the\s+app|Faith ?Wall|everything)\b`,
+  String.raw`\bwith\s+an?\s+(?:in-?app\s+)?subscription\b`,
+  String.raw`\bsee\s+(?:the\s+|today['’]s\s+)?pric(?:e|es|ing)\s+in\s+(?:the\s+)?(?:app|App Store)\b`,
+  String.raw`\bshows?\s+(?:you\s+)?(?:the\s+)?pric(?:e|es|ing)\b`,
+  String.raw`\btoday['’]s\s+terms\b`,
+].join('|'), 'i');
+// Patterns that fail only in a sentence that names FaithWall.
+const SUBSCRIPTION_MENTION_FW = new RegExp([
+  String.raw`\bsubscri\w+`,
+  String.raw`\bin-?app\s+purchases?\b`,
+  String.raw`\bfree[- ]trials?\b`,
+  String.raw`\b\d+[- ]days?\s+(?:free\s+)?trial\b`,
+  String.raw`\bauto-?renew\w*`,
+  String.raw`\bpaywalls?\b`,
+  String.raw`\bpremium\b`,
+  String.raw`\bFaith ?Wall\s+(?:is\s+(?:a\s+)?paid|costs?\b)`,
+  String.raw`\bcosts?\s+money\b`,
+  String.raw`\b(?:pay|paid|paying|payment|purchase|upgrade)\w*\b[^.]{0,40}\bunlock\w*`,
+  String.raw`\bunlock\w*\s+(?:it|Faith ?Wall|everything)\b[^.]{0,40}\b(?:pay|paid|payment|purchase)\w*`,
+  String.raw`\b(?:costs?|prices?|priced|pricing|billed|billing|charged?|pay|pays|paid|paying)\b[^.]{0,40}\bper\s+(?:week|month|year)\b`,
+  String.raw`[$€£]\s?\d`,
+].join('|'), 'i');
+const subscriptionHit = (s, fwDoc) => SUBSCRIPTION_MENTION_ANY.test(s) || ((/Faith ?Wall/i.test(s) || fwDoc) && SUBSCRIPTION_MENTION_FW.test(s));
+
+// Legal pages keep their subscription, billing and auto-renew text (Apple requires it). The rule skips them.
+const LEGAL_PAGES = [
+  'src/pages/TermsOfUse.tsx', 'src/pages/PrivacyPolicy.tsx', 'src/pages/EULA.tsx',   // source modes
+  'dist/terms-of-use/', 'dist/privacy-policy/', 'dist/eula/',                         // --dist mode
+];
+const isLegalPage = (relPath) => LEGAL_PAGES.some((p) => relPath === p || (p.endsWith('/') && relPath.startsWith(p)));
+
+// true while linting a legal page (set by lintFile / runDist from the path; subscription-mention is skipped then)
+let LEGAL_PAGE = false;
+
+// prose-download-line (2026-11-17, Karol: "in the blogs, we should not mention that explicitly"): post, pillar and compare PROSE never
+// says "free to download" (or "free download", "download it for free"). The download wording lives only at the download point: the end card
+// the renderer draws (facts.installLine), a section of type "cta" and the compare CTA box (ctaTitle/ctaDescription). Those are exempt.
+// SOURCE modes only (--all, --diff): the prerendered pages mix the install cards into the visible text and the held-page and compare CTA
+// boxes carry no marker, so --dist cannot tell prose from download point without markup changes. Competitor-only sentences are skipped.
+const PROSE_DL = /\bfree\s+to\s+(?:download|install|get)\b|\bfree\s+download\b|\bdownload(?:ing)?\s+(?:it|Faith ?Wall|the app)\s+(?:for\s+)?free\b|\bFaith ?Wall\b[^.?]{0,40}\bdownload(?:s|ed)?\s+for\s+free\b/i;
+const PROSE_DL_FILE = /^src\/data\/(?:posts\/[^/]+\.json|pillars\.json|comparisons\.json|blogPosts\.json)$/;
+// A sentence that names some other app (a capitalised name that is not a sentence opener) and not FaithWall is a competitor fact; the web wallpaper maker keeps its own wording.
+const OTHER_NAMED = /(?<=[a-z,;:)]\s)(?:[A-Z][\w.&-]+)(?:\s+[A-Z][\w.&-]+)*[^.]{0,80}\bfree\s+(?:to\s+download|download)\b|^\W*(?!(?:It|It's|The|This|That|Both|Download|Install|Get|Free|Faith)\b)[A-Z][\w.&-]+(?:\s+[A-Z][\w.&-]+)*(?:,[^.]{0,80},)?\s+(?:is|are)\s+free\b|\*\*Freemium\*\*/;
+const WEB_TOOL = /\b(?:wallpaper gallery|wallpaper maker|web maker)\b/i;
+let PROSE_DL_ON = false;   // set by lintFile for the files above
+let PROSE_DL_EXEMPT = false; // set by walkJson inside cta sections and ctaTitle/ctaDescription
+
 // true while linting a file that is wholly about FaithWall (public/*.txt|md), where bullets need no brand name
 let FW_DOC = false;
 
@@ -137,11 +220,19 @@ let FW_DOC = false;
 function lintText(text, out) {
   const aboutOtherApp = OTHER_APP_ITEM.test(text) && !/Faith ?Wall/i.test(text);
   for (const s of text.split(/(?<=[.!?])["']?\s+/)) {
+    if (!LEGAL_PAGE && subscriptionHit(s, FW_DOC) && !NEG.test(s) && !(OTHER_APPS_RE.test(s) && !/Faith ?Wall/i.test(s))) {
+      out.push({ id: 'subscription-mention', s: s.replace(/\s+/g, ' ').slice(0, 190) });
+    }
+    if (PROSE_DL_ON && !PROSE_DL_EXEMPT && PROSE_DL.test(s) && !(OTHER_APPS_RE.test(s) && !/Faith ?Wall/i.test(s)) && !(!/Faith ?Wall/i.test(s) && OTHER_NAMED.test(s)) && !WEB_TOOL.test(s)) {
+      out.push({ id: 'prose-download-line', s: s.replace(/\s+/g, ' ').slice(0, 190) });
+    }
     for (const [id, re, , allow] of rules) {
       if (aboutOtherApp && BARE_RULES.has(id)) continue;
+      if (LEGAL_PAGE && (id === 'free-claim' || id === 'free-use-claim')) continue;
+      if (id === 'free-use-claim' && ((OTHER_APPS_RE.test(s) && !/Faith ?Wall/i.test(s)) || (!/Faith ?Wall|\bour app\b/i.test(s) && /\b(?:the listing|listing says|seller|developer|the other app|that app)\b/i.test(s)))) continue;
       if (!re.test(s)) continue;
       if (allow && allow.test(s)) continue;
-      if (NEG.test(s)) continue;
+      if ((id === 'free-claim' || id === 'free-use-claim' ? NEG_FREE : NEG).test(s)) continue;
       out.push({ id, s: s.replace(/\s+/g, ' ').slice(0, 190) });
     }
     if (!aboutOtherApp && !/\?\s*["']?\s*$/.test(s) && !NEG.test(s) && bareTimed(s) && !out.some((h) => h.id === 'wallpaper-automatic' && h.s === s.replace(/\s+/g, ' ').slice(0, 190))) {
@@ -203,11 +294,15 @@ function walkJson(node, loc, file, out) {
       !/^(Pricing model|Lock-screen format|Wallpaper)/.test(node.feature);
     // seo-priorities.json: only pending items are future copy; done/closed items are history.
     if (file.endsWith('seo-priorities.json') && 'status' in node && node.status !== 'pending') return;
+    const ctaNode = node.type === 'cta';
     for (const k of Object.keys(node)) {
       if (k.startsWith('_')) continue;
       if (SKIPKEYS.has(k)) continue;
-      if (compRow && k === 'faithwall') continue;
+      if (compRow && k === 'faithwall' && !PROSE_DL_ON) continue;
+      const prev = PROSE_DL_EXEMPT;
+      if (ctaNode || k === 'ctaTitle' || k === 'ctaDescription') PROSE_DL_EXEMPT = true;
       walkJson(node[k], `${loc}.${k}`, file, out);
+      PROSE_DL_EXEMPT = prev;
     }
   }
 }
@@ -217,6 +312,10 @@ function lintFile(abs) {
   const txt = readFileSync(abs, 'utf8');
   const hits = [];
   FW_DOC = /^public\/[^/]+\.(txt|md)$/.test(rel(abs));
+  LEGAL_PAGE = isLegalPage(rel(abs));
+  PROSE_DL_ON = PROSE_DL_FILE.test(rel(abs));
+  PROSE_DL_EXEMPT = false;
+  try {
   if (abs.endsWith('.json')) {
     let data;
     try { data = JSON.parse(txt); } catch (e) {
@@ -232,6 +331,7 @@ function lintFile(abs) {
       for (const h of found) hits.push({ ...h, loc: `L${i + 1}`, lines: [i + 1] });
     });
   }
+  } finally { PROSE_DL_ON = false; PROSE_DL_EXEMPT = false; }
   return hits;
 }
 
@@ -374,6 +474,7 @@ function runPrompts(files) {
     if (!existsSync(abs)) { fail('prompt-missing', f, 'file not found'); continue; }
     const txt = readFileSync(abs, 'utf8');
     FW_DOC = false;
+    LEGAL_PAGE = false;
     txt.split('\n').forEach((ln, i) => {
       const found = [];
       lintText(ln, found);
@@ -438,6 +539,24 @@ function runDist() {
       const pt = /(?:^|[?&,\s=])pt=([^&,\s]+)/.exec(content)?.[1];
       if (pt !== PT) fail('dist-link-pt', r, `apple-itunes-app pt != ${PT}: ${content}`);
       if (!ct || !CAMPAIGN_TOKENS.includes(ct)) fail('dist-link-ct', r, `apple-itunes-app ct "${ct}" is not one of the 12 tokens`);
+    }
+
+    // (7) subscription-mention over the visible text, meta content and JSON-LD strings (legal pages exempt)
+    {
+      const decode = (t) => t.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+      const metas = [...html.matchAll(/<meta\b[^>]*\bcontent="([^"]*)"[^>]*>/gi)].map((m) => decode(m[1]));
+      const ld = [];
+      for (const m of html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)) {
+        try { for (const n of walkJsonLdNodes(JSON.parse(m[1]))) for (const v of Object.values(n)) if (typeof v === 'string') ld.push(v); } catch { /* reported below */ }
+      }
+      const visible = decode(html.replace(/<script\b[\s\S]*?<\/script>/gi, ' ').replace(/<style\b[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ');
+      LEGAL_PAGE = isLegalPage(r);
+      FW_DOC = false;
+      const found = [];
+      for (const t of [visible, ...metas, ...ld]) lintText(t, found);
+      LEGAL_PAGE = false;
+      const seen = new Set();
+      for (const h of found) if (h.id === 'subscription-mention' && !seen.has(h.s)) { seen.add(h.s); fail(h.id, r, h.s); }
     }
 
     // (2) JSON-LD
@@ -534,7 +653,7 @@ function selfTest() {
     ['FaithWall has a built-in Bible browser (all books and chapters), but it is not a study app.', 'bible-reader-denial', false],
     ["FaithWall doesn't try to be a Bible-reading app, a journal, or a community.", 'bible-reader-denial', false],
     ['- **Pray.com** isn\'t a Bible reader.', 'bible-reader-denial', false],
-    ['Free to download; a subscription unlocks it. Not a Bible-reading app — a verse you pick', 'bible-reader-denial', true],
+    ['Free to download. Not a Bible-reading app — a verse you pick', 'bible-reader-denial', true],
     ['FaithWall is not a Bible app.', 'bible-reader-denial', true],
     ['FaithWall is not really a Bible reader.', 'bible-reader-denial', true],
     ["FaithWall isn't a Bible app for reading.", 'bible-reader-denial', true],
@@ -564,7 +683,7 @@ function selfTest() {
     ['FaithWall brings a fresh verse on its own.', 'widget-rotation-default', true],
     ['FaithWall cycles a fresh verse onto your lock screen automatically.', 'widget-rotation-default', true],
     ['The direct answer: FaithWall is the only option here that rotates itself.', 'widget-rotation-default', true],
-    ['| FaithWall | Wallpaper plus widget | Rotates automatically | Free download + subscription |', 'widget-rotation-default', true],
+    ['| FaithWall | Wallpaper plus widget | Rotates automatically | Free download |', 'widget-rotation-default', true],
     ["FaithWall's widget brings a fresh verse on its own, hourly, every 8 hours or daily.", 'widget-rotation-default', true],
     ['FaithWall rotates verses only if you turn on the optional Auto-rotate verses setting.', 'widget-rotation-default', false],
     ['Auto-rotate verses exists only in the widget setup.', 'widget-rotation-default', false, true],
@@ -701,7 +820,56 @@ function selfTest() {
     ['YouVersion has a lock screen that refreshes itself daily.', 'wallpaper-automatic', false],
     ['Read the verse you picked every day on your FaithWall lock screen.', 'wallpaper-automatic', false],
     ['FaithWall renews automatically unless you cancel in Settings.', 'wallpaper-automatic', false],
-    ['Free to download; a subscription unlocks FaithWall.', 'wallpaper-automatic', false],
+    ['Free to download.', 'wallpaper-automatic', false],
+    // free-use-claim (2026-11-17): the app is never called free to use; download points, competitors, the web maker tool and legal text are fine
+    ['Use FaithWall for free.', 'free-any', true],
+    ['You can use FaithWall for free to get access to all the features.', 'free-any', true],
+    ['All features for free.', 'free-any', true],
+    ['FaithWall is a free app.', 'free-any', true],
+    ['FaithWall is free.', 'free-any', true],
+    ["FaithWall's free version shows one verse.", 'free-any', true],
+    ['The free tier of FaithWall includes widgets.', 'free-any', true],
+    ['FaithWall costs nothing.', 'free-any', true],
+    ['Try FaithWall at no cost.', 'free-any', true],
+    ['FaithWall has a free trial.', 'free-any', true],
+    ["Get FaithWall's free widgets.", 'free-any', true],
+    ['The app is free to use.', 'free-any', true],
+    ['Make a free wallpaper here and get the free app.', 'free-any', true],
+    ['FaithWall is free and never shows ads.', 'free-any', true],
+    ['Try FaithWall free.', 'free-any', true],
+    ['Get the free FaithWall app.', 'free-any', true],
+    ['FaithWall (free) shows the verse.', 'free-any', true],
+    ['FaithWall is gratis for everyone.', 'free-any', true],
+    ["FaithWall doesn't cost anything.", 'free-any', true],
+    ['Free to use, no sign-up.', 'free-any', true],
+    ['| FaithWall | Lock screen | Free |', 'free-any', true],
+    ['This free web maker exports PNGs, and FaithWall is free.', 'free-any', true],
+    ['Olive Tree has a free version and FaithWall has a lock screen.', 'free-any', false],
+    ['Make a free wallpaper here, then get the app.', 'free-any', false],
+    ['Use this free maker, then download FaithWall.', 'free-any', false],
+    ['The free wallpaper maker on faithwall.app is free to use in your browser.', 'free-any', false],
+    ['Free to download.', 'free-any', false],
+    ['Download for free', 'free-any', false],
+    ['Download FaithWall for free', 'free-any', false],
+    ['FaithWall is free to download.', 'free-any', false],
+    ['Free download on the App Store', 'free-any', false],
+    ['YouVersion is free with no ads.', 'free-any', false],
+    ['YouVersion is completely free.', 'free-any', false],
+    ['Hallow offers a free trial before the subscription starts.', 'free-any', false],
+    ['Design it in this free web maker, then set it as your wallpaper.', 'free-any', false],
+    ['Exports from this page are free.', 'free-any', false],
+    ['This free Bible verse wallpaper maker turns any verse into an image in your browser.', 'free-any', false],
+    ['Never call the app free.', 'free-any', false],
+    // subscription-mention (hard rule, 2026-11-17): our subscription, price, trial and paywall are never mentioned
+    ['A subscription is required to use FaithWall.', 'subscription-mention', true],
+    ['Free to download; a subscription unlocks it.', 'subscription-mention', true],
+    ['See price in app.', 'subscription-mention', true],
+    ["Prices and terms: see today's terms in the App Store.", 'subscription-mention', true],
+    ['FaithWall is free to download, with an in-app subscription.', 'subscription-mention', true],
+    ['Start a 7-day free trial of FaithWall Premium.', 'subscription-mention', true],
+    ['Hallow is a subscription app with a free trial.', 'subscription-mention', false],
+    ['Free to download.', 'subscription-mention', false],
+    ['Never mention the subscription or the price on the site.', 'subscription-mention', false],
     ['FaithWall shows the verse you picked on a lock screen you check 186 times a day.', 'wallpaper-automatic', false],
     ['You can change your FaithWall verse whenever you like.', 'wallpaper-automatic', false],
     ['FaithWall\'s Update Wallpaper Now button applies your new colours.', 'wallpaper-automatic', false],
@@ -739,7 +907,7 @@ function selfTest() {
     FW_DOC = !!doc;
     const found = [];
     lintText(text, found);
-    const got = found.some((h) => h.id === id);
+    const got = id === 'free-any' ? found.some((h) => ['free-claim', 'free-use-claim', 'price-or-trial', 'subscription-mention'].includes(h.id)) : found.some((h) => h.id === id);
     if (got !== want) { bad++; console.log(`SELF-TEST FAIL [${id}] expected ${want ? 'hit' : 'no hit'}: ${text}`); }
   }
   // soft hits must be WARN in --all (no ranges) and FAIL in --diff (ranges)
@@ -752,7 +920,35 @@ function selfTest() {
     const h = []; lintText(txt, h);
     if (!h.some((x) => x.id === id) || h.some((x) => x.id === id && x.soft)) { bad++; console.log(`SELF-TEST FAIL ${id} must be a hard rule`); }
   }
-  console.log(`lint-facts self-test: ${cases.length + 4} checks, ${bad} failed`);
+  // subscription-mention is skipped on the legal pages (path exemption), and only there
+  for (const [path, want] of [['src/pages/TermsOfUse.tsx', false], ['src/pages/PrivacyPolicy.tsx', false], ['src/pages/EULA.tsx', false], ['dist/terms-of-use/index.html', false], ['dist/eula/index.html', false], ['src/pages/Home.tsx', true], ['dist/blog/x/index.html', true]]) {
+    LEGAL_PAGE = isLegalPage(path);
+    const h = []; lintText('FaithWall subscriptions auto-renew unless cancelled.', h);
+    if (h.some((x) => x.id === 'subscription-mention') !== want) { bad++; console.log(`SELF-TEST FAIL legal-page exemption for ${path} expected ${want ? 'hit' : 'no hit'}`); }
+  }
+  // legal pages keep their free-trial sentence (Apple requires it); free-use-claim skips them
+  LEGAL_PAGE = true;
+  { const h = []; lintText('Any unused portion of a free trial is forfeited when you buy a FaithWall subscription, and the app is free of charge to try.', h); if (h.length) { bad++; console.log('SELF-TEST FAIL legal-page sentence hit: ' + h.map((x) => x.id).join(',')); } }
+  LEGAL_PAGE = false;
+  // prose-download-line: prose fails, the cta section / compare CTA box / competitor sentences / other file kinds pass
+  const proseCases = [
+    [{ sections: [{ type: 'paragraph', text: 'Install FaithWall (free to download) and pick a verse.' }] }, true, 1],
+    [{ sections: [{ type: 'list', items: ['FaithWall — free to download, keeps your verse on the lock screen'] }] }, true, 1],
+    [{ sections: [{ type: 'cta', title: 'Get FaithWall', description: 'Install FaithWall (free to download) and pick a verse.' }] }, false, 0],
+    [{ ctaTitle: 'Get FaithWall', ctaDescription: 'Free to download. Scripture on the lock screen.', quickAnswer: 'Use both.' }, false, 0],
+    [{ ctaDescription: 'Free to download.', quickAnswer: 'FaithWall is free to download.' }, true, 1],
+    [{ sections: [{ type: 'paragraph', text: 'Glorify is free to download but locks guided audio behind Glorify+.' }] }, false, 0],
+  ];
+  for (const [node, want, n] of proseCases) {
+    for (const on of [true, false]) {
+      PROSE_DL_ON = on; PROSE_DL_EXEMPT = false; LEGAL_PAGE = false; FW_DOC = false;
+      const o = []; walkJson(node, '', 'src/data/x.json', o);
+      const got = o.filter((h) => h.id === 'prose-download-line').length;
+      if (got !== (on ? n : 0)) { bad++; console.log(`SELF-TEST FAIL prose-download-line (${on ? 'source file' : 'other file'}) expected ${on ? n : 0}, got ${got}: ${JSON.stringify(node).slice(0, 100)}`); }
+    }
+  }
+  PROSE_DL_ON = false; PROSE_DL_EXEMPT = false;
+  console.log(`lint-facts self-test: ${cases.length + 4 + 7 + 1 + proseCases.length * 2} checks, ${bad} failed`);
   process.exit(bad ? 1 : 0);
 }
 

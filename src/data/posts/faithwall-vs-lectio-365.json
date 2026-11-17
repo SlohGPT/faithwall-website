@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "FaithWall vs Lectio 365: The Daily Office vs. the Always-On Layer",
-    "description": "FaithWall vs Lectio 365 — one is free guided prayer at morning, midday and night, the other keeps Scripture on your lock screen all day. How they fit together.",
+    "description": "FaithWall vs Lectio 365 — one is guided prayer at morning, midday and night, the other keeps Scripture on your lock screen all day. How they fit together.",
     "date": "July 2, 2026",
     "datePublished": "2026-07-02T09:00:00.000Z",
     "dateModified": "2026-11-16T09:00:00.000Z",
@@ -68,7 +68,6 @@
       "items": [
         "**What it does:** Lectio 365 is a guided morning, midday and night prayer office. FaithWall is daily Scripture on the lock screen.",
         "**How you use it:** Lectio 365 is three short prayer times you stop for, spread across the day. FaithWall keeps the verse you picked on your lock screen until you pick another.",
-        "**Price:** Lectio 365 is free with no paywall. FaithWall is free to download, but using it requires a subscription.",
         "**The habit risk:** Lectio 365 depends on you remembering three times a day. FaithWall depends on you picking up your phone, which you already do.",
         "**iOS integration:** Lectio 365 sends a notification reminding you to open it. FaithWall runs an Apple Shortcut for you after you pick a verse, and the wallpaper stays until you pick another — nothing to remember."
       ]
@@ -106,7 +105,7 @@
     {
       "type": "cta",
       "title": "Add the always-on layer",
-      "description": "FaithWall keeps the verse you picked on the lock screen you already check 186 times a day. Free to download, 60-second setup — the piece your Lectio 365 rhythm is missing after the session ends.",
+      "description": "FaithWall keeps the verse you picked on the lock screen you already check 186 times a day. 60-second setup — the piece your Lectio 365 rhythm is missing after the session ends.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }

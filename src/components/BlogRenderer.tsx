@@ -222,12 +222,10 @@ function midCardIndex(sections: BlogSection[], h2Indexes: number[], illustration
   return -1;
 }
 
-/** The post's own closing block on pages that are not held back: title and description, price line, requirements, rating, badge, QR on desktop. */
+/** The post's own closing block on pages that are not held back: title and description, install line, requirements, rating, badge, QR on desktop. */
 function EndCta({ section, campaign }: { section: Extract<BlogSection, { type: 'cta' }>; campaign: string }) {
   const href = tagAppStoreHref(section.buttonUrl, campaign);
   const isAndroid = useIsAndroid();
-  // Most posts' own closing copy already says "free to download"; then the card adds only the subscription half.
-  const saysFree = /free to download/i.test(`${section.title} ${section.description}`);
   return (
     <div
       data-install-card="end"
@@ -237,7 +235,7 @@ function EndCta({ section, campaign }: { section: Extract<BlogSection, { type: '
       <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{section.title}</h3>
       <p className="text-white/80 mb-4 max-w-[32rem] mx-auto">{section.description}</p>
       <div className="mb-6 space-y-1 text-[15px] leading-snug text-white/70">
-        <p>{saysFree ? facts.subscriptionLine : facts.installLine}</p>
+        <p>{facts.installLine}</p>
         <p>{`iPhone · ${facts.minIOSText}`}</p>
         <RatingLine className="justify-center" />
         {isAndroid && <p>FaithWall is made for iPhone.</p>}
@@ -425,7 +423,8 @@ export default function BlogRenderer({ sections, slug, title, pageType }: Props)
               return (
                 <div data-hides-sticky className="my-10 p-8 rounded-3xl bg-gradient-to-br from-brand/20 to-brand-dark/10 border border-brand/30 text-center">
                   <h3 className="text-2xl md:text-3xl font-black text-white mb-3">{section.title}</h3>
-                  <p className="text-white/80 mb-6 max-w-[32rem] mx-auto">{section.description}</p>
+                  <p className="text-white/80 mb-4 max-w-[32rem] mx-auto">{section.description}</p>
+                  <p className="mb-6 text-[15px] leading-snug text-white/70">{facts.installLine}</p>
                   <div className="flex justify-center">
                     <AppStoreButton size="cta" href={tagAppStoreHref(section.buttonUrl, endCampaign)} theme="light" />
                   </div>

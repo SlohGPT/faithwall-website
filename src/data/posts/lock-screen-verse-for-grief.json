@@ -54,7 +54,7 @@
     {
       "type": "steps",
       "items": [
-        "Download FaithWall. It's free to download; a subscription unlocks it, and the App Store shows the price before you pay.",
+        "Download FaithWall.",
         "Save two or three verses from one season below, by reference or search, in any of 24 translations.",
         "Choose the lock-screen widget to keep your current wallpaper, and set it to change once a day; the other options are every hour or every 8 hours.",
         "Press and hold your lock screen, tap **Customize**, pick the lock screen, then tap the widget row under the clock and add the widget."
@@ -66,7 +66,7 @@
     },
     {
       "type": "tip",
-      "content": "**Free option:** the [Bible verse wallpaper maker](/bible-verse-wallpaper-maker) can lay a verse over your own photo, including one of them, and the photo is processed in your browser rather than uploaded. You download the image and set it by hand, and it stays that one verse until you make another."
+      "content": "**No-install option:** the [Bible verse wallpaper maker](/bible-verse-wallpaper-maker) can lay a verse over your own photo, including one of them, and the photo is processed in your browser rather than uploaded. You download the image and set it by hand, and it stays that one verse until you make another."
     },
     {
       "type": "heading",
@@ -194,7 +194,7 @@
     {
       "type": "cta",
       "title": "Keep the right verse in view this season",
-      "description": "Choose the verse that fits where you are, and FaithWall keeps it on your lock screen as a wallpaper, or as a widget that leaves their photo in place. Free to download; a subscription unlocks it.",
+      "description": "Choose the verse that fits where you are, and FaithWall keeps it on your lock screen as a wallpaper, or as a widget that leaves their photo in place.",
       "buttonText": "Download FaithWall",
       "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070"
     }
