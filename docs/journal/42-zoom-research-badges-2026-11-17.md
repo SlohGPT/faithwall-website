@@ -426,3 +426,14 @@ The original session withdrew the brief's allowance for a post's own closing "fr
   - Nothing overflows at 390 or 1440.
   - Its captures (`home-faq-m.png`, `home-faq-d.png`, `home-faq-m-closed.png`) go to Karol with "Ship?".
 - **Carried for the peer in this push:** 8484607 (its 299b80d: the lock-screen figure ref colour #b4561f → #8f4416 on the cream and sand palettes, contrast 4.12/3.38 → 5.88/4.82; used only by LockScreenVerse, so the maker downloads don't change) and 005068c (its 439b863, journal 39 note).
+- **Homepage FAQ visuals shipped (11-17, after Karol's "Ship it" on the captures):**
+  - The branch `claude/fw-home-faq-visuals` was rebased onto 8536e5d and became b611a40 on main. The only change besides the commit message is a code comment ("held for approval" → approved).
+  - What it adds:
+    - a small icon on each FAQ question;
+    - a header scene above the FAQ heading;
+    - a 3-step diagram (Pick your verse, Choose how to show it, Wallpaper or widget) inside the "How does … work" answer.
+  - Everything added is aria-hidden and its motion is CSS-only. The FAQ text and the FAQPage JSON-LD are unchanged: the JSON-LD from the local build matched live exactly, 4 questions.
+  - Gates: build 58/58; lint-facts `--self-test`, `--all`, `--diff` and `--dist` 0 FAIL; prompts 0 FAIL; NUL 0; link-graph exit 0; ours-phrases 2 (the two known competitor sentences). Typecheck 5 is the main checkout's environment baseline.
+  - Size: homepage HTML plus its JS and CSS is +7.4 KB gzip versus live (budget 30 KB). Only `Home.tsx` renders the component.
+  - Adversarial review: 3 lenses (accessibility/SSR, facts/copy, layout/motion), 0 findings.
+  - Annotations row added. This is a homepage change during the control-group hold; Karol approved it.
