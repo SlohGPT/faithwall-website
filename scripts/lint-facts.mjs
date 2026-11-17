@@ -492,6 +492,13 @@ function readHeldSlugs() {
   return [...block[1].replace(/\/\/.*$/gm, '').matchAll(/'([^']+)'|"([^"]+)"/g)].map((m) => m[1] || m[2]);
 }
 
+/** HOLD_ALL_PILLARS / HOLD_ALL_COMPARE from conversionHold.ts (true unless the file sets the flag to false). */
+function readHoldFlag(name) {
+  const src = readFileSync(join(ROOT, 'src/data/conversionHold.ts'), 'utf8');
+  const m = new RegExp(`export const ${name}\\s*=\\s*(true|false)`).exec(src);
+  return m ? m[1] === 'true' : true;
+}
+
 function* walkJsonLdNodes(v) {
   if (Array.isArray(v)) { for (const x of v) yield* walkJsonLdNodes(x); return; }
   if (v && typeof v === 'object') {
@@ -627,9 +634,9 @@ function runDist() {
   const held = [];
   for (const slug of readHeldSlugs()) held.push(`dist/blog/${slug}/index.html`);
   const pillars = JSON.parse(readFileSync(join(ROOT, 'src/data/pillars.json'), 'utf8'));
-  for (const slug of Object.keys(pillars)) held.push(`dist/${slug}/index.html`);
+  if (readHoldFlag('HOLD_ALL_PILLARS')) for (const slug of Object.keys(pillars)) held.push(`dist/${slug}/index.html`);
   const comps = JSON.parse(readFileSync(join(ROOT, 'src/data/comparisons.json'), 'utf8'));
-  for (const c of Object.values(comps)) held.push(`dist/${c.slug}/index.html`);
+  if (readHoldFlag('HOLD_ALL_COMPARE')) for (const c of Object.values(comps)) held.push(`dist/${c.slug}/index.html`);
   for (const f of held) {
     if (!mid.has(f)) { fail('dist-held', f, 'held page not found in dist'); continue; }
     if (mid.get(f) > 0) fail('dist-held', f, 'held page carries a mid install card');
