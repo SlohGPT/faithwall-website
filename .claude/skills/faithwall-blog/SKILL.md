@@ -289,13 +289,14 @@ Then generate the cover (local runs only; needs Google Chrome, no npm installs).
 node scripts/build-blog-thumbnails.mjs {slug}
 ```
 
-Then build the responsive AVIF/WebP variants for the new cover (local runs; needs `sharp`, a devDependency, so `npm install` once). It is idempotent, never touches the jpg, writes `public/blog-thumbnails/{cover}-{240,480,640,960,1280}.avif|webp` and updates `src/data/coverVariants.json`, which the hero and the cards read. Run it after every new or regenerated cover (`{cover}` = the jpg file name without `.jpg`):
+Then build the responsive AVIF/WebP variants for the new cover (local runs). `sharp` is deliberately not a dependency of the repo (37ae978): install it outside the tree and point `SHARP_DIR` at it, as below. Never add it to package.json. It is idempotent, never touches the jpg, writes `public/blog-thumbnails/{cover}-{240,480,640,960,1280}.avif|webp` and updates `src/data/coverVariants.json`, which the hero and the cards read. Run it after every new or regenerated cover (`{cover}` = the jpg file name without `.jpg`):
 
 ```bash
-node scripts/build-blog-image-variants.mjs {cover}
+[ -d /tmp/fw-sharp/node_modules/sharp ] || npm i --prefix /tmp/fw-sharp sharp --no-save --silent
+SHARP_DIR=/tmp/fw-sharp node scripts/build-blog-image-variants.mjs {cover}
 ```
 
-A cover without variants still renders (plain jpg, no preload), so if sharp is not available (cloud run) skip this and say in the commit body that the cover needs `node scripts/build-blog-image-variants.mjs {cover}`. A post that reuses an existing cover needs nothing. Never run this inside `npm run build`.
+A cover without variants still renders (plain jpg, no preload), so if sharp cannot be installed or the script fails (offline, cloud run), this step never fails the item: skip it and say in the commit body that the cover needs `node scripts/build-blog-image-variants.mjs {cover}`. A post that reuses an existing cover needs nothing. Never run this inside `npm run build`.
 
 ### Step 7 — Update the pillar's `featured` list
 
