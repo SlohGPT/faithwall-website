@@ -371,3 +371,33 @@ The original session withdrew the brief's allowance for a post's own closing "fr
     - capture hygiene: one mis-stitched full-page shot, and re-captures taken just before the commit;
     - the Offer price "0" in JSON-LD stays, as on FaithWall.
   - **Process:** QuranWall's implementer once ran `pkill -f lighthouse`, which is against the kill-by-PID rule. I asked it to put that rule in every brief.
+
+## FaithWall visual layer on compare, about and maker pages (11-17)
+
+- **The ask:** the FaithWall peer session asked for it on 11-17, to save time while its blog branch lands. It is FaithWall's part of the visual-redesign brief (Karol: the pages are "too text heavy… no visuals"). The scope was the homepage FAQ, the compare pages, the about page and the maker page's text, each getting icons, small step diagrams and one illustrated header. The peer's files were off limits.
+- **Built:** one implementer pass, in cfb0b3d, rebased onto the peer's a389105.
+  - New components live in `src/components/visual-pages/`. They reuse the illustrations primitives, including the round-corner iPhone with a Dynamic Island, and the shared `useInView` hook. The CSS sits in its own file, because `index.css` belongs to the peer.
+  - **Compare pages:** a header scene (FaithWall lock screen next to a plain app screen) and an icon on every H2. From md up the scene sits beside the H1. On phones it sits after the Quick Answer, which I changed after the review so the answer stays first.
+  - **About page:** a desk scene and section icons. It also gets heading, paragraph and link styling, because the Typography plugin isn't installed and `prose` did nothing.
+  - **Maker page:** the text part gets a header scene, 7 icons and two step diagrams (Verse → Style → Size → Save, and Photos → Share → Use as Wallpaper). The tool itself is untouched.
+- **Rules held:**
+  - motion is CSS only: entrances of 0.6 s or less play once, loops run 5–8 s and pause off-screen, reduced motion shows the end state, and nothing above the fold starts hidden;
+  - every visual is aria-hidden, and every label comes from the page's own text;
+  - no text, install card, CTA or ct token changed;
+  - no price wording.
+- **Budgets:** +5.6 to +9.6 KB gzip per page, against a 30 KB limit, and every SVG is under 5 KB.
+- **Review:** a code reviewer and a visual reviewer found no must-fixes. Each file's diff stays off the peer's changed lines, and the rebase was clean.
+- **Gates on the rebased tree:**
+  - typecheck: 5 errors, all in `entry-server.tsx` (no Node types) and not from this change;
+  - build: 58/58;
+  - lint-facts: self-test 271/271; `--all`, `--diff`, `--dist` and `--prompts` all 0 FAIL;
+  - kw check: 0 fail;
+  - NUL: 0;
+  - `link-graph --dist`: exit 0.
+  - The two "ours-phrases" hits in dist are competitor sentences (the ESV and YouVersion subscriptions) in best-free-bible-app-iphone. They are allowed.
+- **Annotations:** one row (template change during the hold).
+- **Held, not pushed: the homepage FAQ visuals.** They are on local branch `claude/fw-home-faq-visuals` (2db13d1, based on the pre-rebase main). They add an icon per question, a 3-step setup diagram and a header scene. Brief §F says Karol approves homepage changes from captures before they go live, and the peer confirmed it has no OK from him. Captures: `visual-redesign/faithwall/home-faq-{m,d}.png`.
+- **Open:**
+  - after deploy: one live Lighthouse run per page and a fresh compare-page capture on phones;
+  - Karol's yes or no on the homepage FAQ;
+  - QuranWall push-2 items (journal entry above).
