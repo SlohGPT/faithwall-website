@@ -555,6 +555,49 @@ His screenshot shows How it works step 01 with a square, darker-purple screen co
   The "after" runs on live follow below.
 - **Annotations:** one row for 9d1fa20, a sitewide template change.
 
+**Live after the push (9d1fa20 and docs 1ac2a14, deployed about 16:10).**
+- **Deploy checks:** IndexNow `--all` returned 200 OK. `node scripts/link-graph.mjs --live https://faithwall.app` exited 0. The form `--live --base …` exits 64 (a usage error).
+- **iOS simulator on live** (iPhone 17 Pro, iOS 26.5, swipe-scrolled so Reveal runs): three phones checked, all with round screen corners and no purple past the bezel:
+  - How it works step 01;
+  - the final CTA phone;
+  - the LockScreenVerse figure in `/blog/5-minute-daily-prayer-iphone`.
+
+  Fast flicks down to the footer left nothing blank. Crops: `smooth-load/faithwall/live-sim-step01-corners.png`, `live-sim-cta-corners.png` and `live-sim-post-figure-corners.png`.
+- **Scroll test on live:** 0 stuck on all 8 page/engine pairs. Counters on `/` (first seen → 300 ms later):
+
+  | Counter | Live before (WebKit) | Live after (WebKit) | Live after (Chromium) |
+  |---|---|---|---|
+  | 1,000+ | 0+ → 861+ | 345+ → 961+ | already final |
+  | 24 | 0 → 21 | 9 → 23 | 9 → 22 |
+  | 4.7 | sat at 0.0 for 300 ms in one run | 0.5 → 4.3 | 1.6 → 4.4 |
+
+- **Corner test on live (Playwright WebKit):**
+  - DeviceMockup and LockScreenVerse screens: 0 leaks.
+  - The harness flags 10 corners, all on the small SVG Phone illustration (blog post, bible-study pillar, compare page). A contact sheet of the 10 crops shows the screen inside its arc and the flag coming from the light edge stroke, the same artefact as on the local build.
+- **Captures:** the harness overwrote the local `after-howitworks.png` and `after-stats.png` in `smooth-load/faithwall/` with the live captures.
+- **Lighthouse after, live, mobile:**
+
+  | Page | Run | Performance | LCP | CLS | TBT |
+  |---|---|---|---|---|---|
+  | home | 1 | 62 | 3.13 s | 0.002 | 1,910 ms |
+  | home | 2 | 92 | 2.97 s | 0.002 | 94 ms |
+  | home | 3 | 92 | 2.93 s | 0.002 | 104 ms |
+  | home | 4 | 94 | 2.87 s | 0.002 | 10 ms |
+  | post | 1 | 87 | 3.49 s | 0 | 5 ms |
+  | post | 2 | 96 | 2.59 s | 0 | 0 ms |
+
+  Accessibility is 100 in every run.
+  - **Home run 1 is a host stall, not the page.** All of its 1.9 s TBT is one 2.8 s "Unattributable / Other" task at 1.1 s. Its script evaluation and style/layout times match run 2. The Mac's load average was 45 (96 over 15 min), so two more home runs were added: 92 and 94.
+  - **The after runs had a slower host,** with Lighthouse's benchmark index at about 1,700–1,800 against about 3,500 for the before runs. That explains the higher script-evaluation time (364–423 ms against 200–331 ms). Run 4, at a before-like benchmark of 3,439, scored 94 with 10 ms TBT.
+  - **Bytes are flat:** JS is +1.0 KB transferred on home and on the post, and the home HTML is +0.5 KB.
+  - **Home LCP is the same element before and after:** the server-rendered hero h1, which 9d1fa20 didn't touch. Its time is almost all render delay (2.07–2.51 s), and after (2.87–2.97 s) is inside the before range (2.55–2.95 s).
+- **Not fixed / known:**
+  - Playwright can't measure the How it works art-box corners, because the art box crops them; the iOS simulator covers them.
+  - The SVG Phone artefact stays in the harness.
+  - There's about 3 px more gap under each stat number (reserved width, tabular figures).
+  - The main CTA's hover shadow now switches instantly.
+  - The hero h1's render delay (above) is a possible LCP gain for a later homepage pass. It's untested whether the fade-up animation or hydration causes it, and homepage changes still need Karol's OK on captures.
+
 ## Pillar visuals: live check after the push (a5a74dd, 11-17)
 
 - **Live check (after the push):**
