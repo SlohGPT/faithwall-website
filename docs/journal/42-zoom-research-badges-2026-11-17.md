@@ -485,3 +485,72 @@ The original session withdrew the brief's allowance for a post's own closing "fr
 - **Gates:** on a5a74dd: typecheck 0; build 58/58; NUL 0; lint-facts `--all` 0 FAIL (21 WARN, none in these files) and `--dist` 0 FAIL; kw check 0 fail; `link-graph --dist` exit 0 (only the known og-card WARN). Each pillar's inlined `<style>` now contains the `.pv-head` rules and the print rule.
 - **Lighthouse:** the implementer ran 3 runs per cell while the load average was 550–1,020 from other projects' video renders. LCP swung between about 1 s and 3.5 s in both states, and the best single runs scored 100 before and 100 after. These numbers are noise and need a rerun on a quiet machine.
 - **Captures:** side-session notes `visual-redesign/faithwall/pillar-<slug>-m.png` and `-d.png` (mobile at 390 via CDP, desktop at 1440). Nothing overflows at 390.
+
+## FaithWall smooth load and phone corners (11-17)
+
+**The ask.** Karol, from his iPhone, via the peer FaithWall session and its brief (`side-session-notes/…/smooth-load/brief.md`):
+- "make sure that everything, like all websites, will load really smooth with smooth animations"
+- the numbers ("1,000 plus people") and some sections don't load smoothly while scrolling
+- phone-mockup corners: "the corner is more visible than the phone mockup itself"
+- "do this yourself, everything yourself", so no captures went to him for approval.
+
+His screenshot shows How it works step 01 with a square, darker-purple screen corner over the black bezel.
+
+**Found.**
+- **The corner leak happens in Mobile Safari only.** iOS Safari does not clip a composited child (the wallpaper and HomeScreen layers, and anything under a transform or opacity transition such as Reveal) to `overflow: hidden` plus `border-radius`.
+  - Reproduced on live in an iPhone 17 Pro simulator (iOS 26.5): both top corners of the step 01 screen are square.
+  - Playwright WebKit (macOS build) draws it rounded, so it can't verify this fix.
+- **Counters** started at 50 % visibility and counted from 0 over 1.6 s, so "0+" sat on screen while scrolling.
+- **Reveals** fired only 8 % inside the viewport and then ran a 600 ms fade plus stagger, so blocks sat blank in view. A fast flick could outrun the observer.
+- **Scrolling cost:** large `blur()` glows and `backdrop-filter` on repeated cards are expensive in WebKit while scrolling.
+
+**Built (9d1fa20, 26 files, one commit).**
+- **Phone corners:**
+  - Every phone screen clips with `screenClip(R)`, which applies `border-radius`, `clip-path: inset(0 round R)` and `isolation: isolate` from one value. That covers DeviceMockup in all variants, LockScreenVerse (`.lockfig-screen`) and AppShowcase.
+  - Full-bleed inner layers use `border-radius: inherit`.
+  - The SVG Phone already clips with an SVG clipPath, so it only got the test attribute.
+  - Every screen carries `data-phone-screen`.
+  - `corner-shape: squircle` is gone from the maker variant: the maker preview and the blog's lock-screen figures now have plain round iPhone corners (see the phone-mockup decision of 11-16).
+- **Reveals:**
+  - New `src/lib/revealObserver.ts` holds one shared IntersectionObserver (`0px 0px 15% 0px`, threshold 0), with a `scrollend` fallback, or 150 ms after the last scroll event where `scrollend` is missing.
+  - Nothing is armed when it's in view at mount, under reduced motion, on a back/forward restore, or when the page opens at a #hash.
+  - `Reveal` runs 500 ms ease-out, rises 12–16 px and clamps the stagger to 180 ms. It renders visible on the server as before.
+  - `useInView` (both copies) and the visual-layer `Live` trigger early too.
+- **Counters:**
+  - They start on approach and count with a 1.0 s ease-out.
+  - The numbers use tabular figures, and the final width is reserved (`.fw-count`, `data-final`).
+  - The server HTML keeps 1,000+ / 24 / 4.7. A counter that is visible at hydration stays final.
+- **Scroll cost:**
+  - Blur glows become `GlowDisc` radial gradients.
+  - No `backdrop-filter` on repeated cards at ≤768 px, via `.fw-bdf`; the nav keeps its blur.
+  - No box-shadow or filter transitions. The one visible change: the main CTA's hover shadow now switches instantly; the lift and colour still animate.
+  - Below-the-fold images are lazy and async, with a placeholder background.
+
+**Verified.**
+- **Gates:** typecheck 5 (this checkout's baseline), build 58/58, lint-facts `--self-test`, `--all`, `--diff` and `--dist` 0 FAIL, prompts 0 FAIL, kw check 0 fail, NUL 0, link-graph exit 0, no dateModified change, ours-phrases 2 (baseline). The one `corner-shape` hit left is a code comment.
+- **Adversarial review:** 3 lenses (corners, reveal/counter, perf/parity) raised 3 minor findings, and all 3 were refuted on verification.
+- **Scroll test** (Playwright WebKit iPhone 15 and Chromium Pixel 7; `/`, `/blog/5-minute-daily-prayer-iphone`, `/bible-study-tools-ios`, `/faithwall-vs-youversion`):
+  - Live before: noisy. Runs caught 1–2 stuck elements on `/` and 1 on the compare page, and the last run was clean.
+  - Local after: 0 stuck on all 8 page/engine pairs, on the first run.
+- **Counters on `/`, WebKit** (first seen → 300 ms later):
+
+  | Counter | Live before | Local after |
+  |---|---|---|
+  | 1,000+ | 0+ → 861+ | 348+ → 935+ |
+  | 4.7 | sat at 0.0 for 300 ms in one run | 0.0 → 3.7, moving |
+
+- **Corner test:**
+  - Playwright WebKit: 0 leaks before and after. The 8 "fails" after are the tiny SVG phone's light edge stroke, confirmed by eye; the screen stays inside its arc.
+  - iOS simulator, local build: both step 01 top corners are round with no purple. Crops are in `smooth-load/faithwall/before-after-sim-step01-corners.png`.
+- **Captures** (390×844 WebKit, before and after: How it works and stats) are in `smooth-load/faithwall/`. They look the same, except about 3 px more space under each stat number.
+- **Lighthouse before, live, mobile, 2 runs each:**
+
+  | Page | Run | Performance | LCP | CLS | TBT |
+  |---|---|---|---|---|---|
+  | home | 1 | 96 | 2.55 s | 0 | 24 ms |
+  | home | 2 | 92 | 2.95 s | 0.002 | 117 ms |
+  | post | 1 | 86 | 3.59 s | 0 | 28 ms |
+  | post | 2 | 94 | 2.76 s | 0 | 14 ms |
+
+  The "after" runs on live follow below.
+- **Annotations:** one row for 9d1fa20, a sitewide template change.
