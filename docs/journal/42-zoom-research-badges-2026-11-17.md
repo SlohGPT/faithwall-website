@@ -437,3 +437,7 @@ The original session withdrew the brief's allowance for a post's own closing "fr
   - Size: homepage HTML plus its JS and CSS is +7.4 KB gzip versus live (budget 30 KB). Only `Home.tsx` renders the component.
   - Adversarial review: 3 lenses (accessibility/SSR, facts/copy, layout/motion), 0 findings.
   - Annotations row added. This is a homepage change during the control-group hold; Karol approved it.
+  - **Live check:** the new markup was served about 30 s after the push.
+    - The live FAQPage JSON-LD matches the build: 4 questions.
+    - ct tokens are unchanged: web-home-hero, web-site and web-smart-banner. No price words.
+    - One mobile Lighthouse run: performance 97, LCP 2.5 s, CLS 0, TBT 60 ms, accessibility 100.
