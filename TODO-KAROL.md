@@ -9,12 +9,12 @@ Items the SEO autopilot can't do itself. Newest first. Resolved items are delete
 
 ## 2026-11-17 (research check: owner items)
 
-Checked against primary sources on 2026-11-17. Four small items, only you can do them.
+Checked against primary sources on 2026-11-17. Four small items, only you can do them (item 4 decided the same day).
 
 - **1. Bing Webmaster Tools (10 minutes, then monthly).** Verify faithwall.app if it isn't verified yet. Then open AI Performance (public preview since 2026-02-10: citations, cited pages and sample grounding queries) and note the citations once a month.
 - **2. Search Console's Generative AI performance report: export it by hand once a month (5 minutes).** It is in the UI only (rolled out to all sites as of 2026-08-31) and has no API: we tested the service account, and every AI `searchType`/`type` value returns HTTP 400. Save each export into the private faithwall-gsc folder.
 - **3. App Store Connect idea, after the 12-02 read-out: custom product pages.** Different App Store page versions for different traffic sources. Don't start before the read-out.
-- **4. Cloudflare now blocks Perplexity's crawler too (5 minutes).** Re-checked 2026-11-17: PerplexityBot gets 403 on faithwall.app, alongside GPTBot and ClaudeBot. PerplexityBot builds Perplexity's search index, so this costs citations there. ChatGPT's search crawler (OAI-SearchBot), ChatGPT-User, Perplexity-User and Claude-SearchBot still get 200. QuranWall and NoteWall return 200 to all of them. Fix: Cloudflare dashboard → AI Crawl Control, allow these crawlers, and turn off the managed robots.txt. This is the same decision as the open Cloudflare item further down; it now costs more.
+- **4. Cloudflare: unblock GPTBot, ClaudeBot and PerplexityBot (decided 2026-11-17, your click, 5 minutes).** You chose "Unblock all three". Re-checked 2026-11-17 before the change: all three get 403 on faithwall.app, while OAI-SearchBot, ChatGPT-User, Perplexity-User and Claude-SearchBot get 200 (QuranWall and NoteWall return 200 to all). Steps: Cloudflare dashboard → faithwall.app → AI Crawl Control, set GPTBot, ClaudeBot and PerplexityBot to Allow, and turn off the managed robots.txt (its `Content-Signal` line is also why Lighthouse SEO is 92 instead of 100). Afterwards we verify with `npm run kw -- geo-probe` or a curl per bot user agent. This replaces the open Cloudflare questions in the sections below (the 11-16 item 8 and the weekly-refresh note): the decision is made.
 
 ## 2026-11-17 (how the wallpaper really updates)
 
