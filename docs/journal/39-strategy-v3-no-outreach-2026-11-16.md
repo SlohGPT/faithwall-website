@@ -622,3 +622,11 @@ On the final tree, before the push:
   - the Cloudflare AI-crawler unblock;
   - whether the back phone's caption stays "Widget · Auto-rotate verses on" or becomes "shows the verse you pick".
 - **After 12-02:** titles over 65 characters (24 on FaithWall, 89 on NoteWall) and in-body links on held pages.
+
+### After the deploy (2026-11-17, mid-morning)
+
+- **The push:** d942c07..cd1dca5 as SlohGPT. The new hero (avatars) and the generated `llms.txt` section were live about 30 s after the push.
+- **Live checks:**
+  - `link-graph --live https://faithwall.app` exits 0. It finds 57 pages, max depth 2, median 6 contextual links in, no page with fewer than 3, and nothing broken. The only WARN is the 24 held titles.
+  - `/assets/avatars/avatar-1..3.jpg` return 200.
+- **IndexNow:** `--all` submitted all 57 URLs and got 200 OK.
