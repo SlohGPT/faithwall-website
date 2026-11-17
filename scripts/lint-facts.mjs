@@ -125,7 +125,10 @@ const WP_WIDGET_COMBO = /\b(?:run|runs|running|use|using|pair|combine|stack|laye
 const COUNT_CLAIMS = [
   ['translations', /(?<![\d,.])(\d{1,3})\+?\s+(?:Bible\s+)?translations\b/gi, facts.translationCount],
   ['languages', /(?<![\d,.])(\d{1,3})\+?\s+(?:interface\s+|app\s+|display\s+)?languages\b/gi, facts.uiLanguageCount],
+  // users floor (2026-11-17): "<N>+ people/users/…" or "over <N> people" about FaithWall must equal facts.userFloor
+  ['users', /(?:\b(?:over|more than)\s+(\d{1,3}(?:,\d{3})+|\d+)|(?<![\d,.])(\d{1,3}(?:,\d{3})+|\d+)\+)\s+(?:\w+\s+)?(?:people|users|believers|Christians|downloads|installs|customers)\b/gi, facts.userFloor],
 ];
+const COUNT_KEY = { translations: 'translationCount', languages: 'uiLanguageCount', users: 'userFloor' };
 
 // true while linting a file that is wholly about FaithWall (public/*.txt|md), where bullets need no brand name
 let FW_DOC = false;
@@ -150,7 +153,7 @@ function lintText(text, out) {
       for (const [what, re, want] of COUNT_CLAIMS) {
         if (want === undefined) continue;
         for (const m of s.matchAll(re)) {
-          if (Number(m[1]) !== want) out.push({ id: 'count-mismatch', s: `${m[0]} (facts.json ${what === 'translations' ? 'translationCount' : 'uiLanguageCount'} is ${want}): ${s.replace(/\s+/g, ' ').slice(0, 150)}` });
+          if (Number((m[1] ?? m[2]).replace(/,/g, '')) !== want) out.push({ id: 'count-mismatch', s: `${m[0]} (facts.json ${COUNT_KEY[what]} is ${want}): ${s.replace(/\s+/g, ' ').slice(0, 150)}` });
         }
       }
     }

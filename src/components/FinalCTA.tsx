@@ -1,6 +1,7 @@
 import AppStoreButton, { CTA_BUTTON_CLASS } from './AppStoreButton';
 import InstallHandoff from './InstallHandoff';
 import { appStoreUrl } from '../lib/appStore';
+import facts from '../data/facts.json';
 import { SHOWCASE_VERSES } from '../data/showcaseVerses';
 import AppLockScreen from './showcase/AppLockScreen';
 import CrossPattern from './ui/CrossPattern';
@@ -47,7 +48,7 @@ export default function FinalCTA() {
                 </div>
 
                 <p className="mt-8 text-sm text-white/60">
-                  Used by <span className="font-semibold text-white">1,000+</span> people
+                  Used by <span className="font-semibold text-white">{facts.userFloorText}</span> people
                 </p>
               </div>
 

@@ -10,6 +10,9 @@
   "widgetMinIOS": "16.0",
   "translationCount": 24,
   "uiLanguageCount": 10,
+  "userFloor": 1000,
+  "userFloorText": "1,000+",
+  "userFloorSource": "RevenueCat new customers; Karol confirmed the 1,000+ floor on 2026-11-17. Public repo: floor only, no raw figures.",
   "installLine": "Free to download; a subscription unlocks it.",
   "subscriptionLine": "A subscription unlocks it.",
   "rating": {

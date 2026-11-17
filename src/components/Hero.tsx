@@ -229,7 +229,7 @@ export default function Hero() {
                   />
                 ))}
               </div>
-              <span className="text-base font-medium text-white/70">Used by 1,000+ people</span>
+              <span className="text-base font-medium text-white/70">{`Used by ${facts.userFloorText} people`}</span>
             </div>
 
             <h1 className="hero-h1 font-bold tracking-tight text-white animate-fade-up-d2">

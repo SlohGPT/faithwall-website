@@ -4,14 +4,15 @@ import facts from '../data/facts.json';
 import GlassCard from './ui/GlassCard';
 import Reveal from './ui/Reveal';
 
-// Every stat here must be verifiable: 1,000+ matches the hero's "Used by 1,000+
-// people" (RevenueCat's new-customer count backs it; this repo is public, so no
-// raw figures here), 24 = translations in the verse picker, and the rating is
-// the US App Store value from facts.json, shown only while facts.rating.show is
-// true (scripts/check-facts.mjs keeps it current). No survey percentages without a source.
+// Every stat here must be verifiable and comes from facts.json: userFloor is the
+// 1,000+ users floor the hero and FinalCTA also show (RevenueCat new customers,
+// confirmed by Karol 2026-11-17; this repo is public, so no raw figures here),
+// translationCount = translations in the verse picker, and the rating is the US
+// App Store value, shown only while facts.rating.show is true
+// (scripts/check-facts.mjs keeps it current). No survey percentages without a source.
 const stats: { value: number; label: string; suffix?: string; decimals?: number }[] = [
-  { value: 1000, label: 'People have installed FaithWall', suffix: '+' },
-  { value: 24, label: 'Bible translations to pick from' },
+  { value: facts.userFloor, label: 'People have installed FaithWall', suffix: '+' },
+  { value: facts.translationCount, label: 'Bible translations to pick from' },
   ...(facts.rating.show ? [{ value: Number(facts.rating.value), label: 'US App Store rating', decimals: 1 }] : []),
 ];
 
