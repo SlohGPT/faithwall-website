@@ -306,3 +306,4 @@ The original session withdrew the brief's allowance for a post's own closing "fr
   - Sent back as small items for its first redesign push:
     - 13 more evasion phrases pass, such as bare "trial", "one-time purchase" and "lifetime";
     - no recorded IndexNow ping for /support.
+- **Karol approved QuranWall's parked instruction edits on 11-17** ("Approve them"). They cover its CLAUDE.md, SEO-STRATEGY (the stale L240/36/16 included) and blog skill. The approval went to the QuranWall session. Its scheduled-task prompts are not covered: they are already stricter than the rule.
