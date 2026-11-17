@@ -276,3 +276,26 @@ The original session withdrew the brief's allowance for a post's own closing "fr
   - the CWV figures aren't in its journal;
   - the retina cap at 1,200 px;
   - the terms page's share text repeats "subscriptions". That is a legal page, so it is optional.
+
+### QuranWall CWV and no-price pass verified (11-17)
+
+- QuranWall reported 8ce9cc1 live, covering the blog/CWV pass (99b0f6e) and the no-price commit, with journal 05 at 4e0aba6.
+- A read-only check confirmed:
+  - all three commits are on origin/main;
+  - /pricing and /pricing.md return 404, and the qw-web-pricing token is gone; the other ct tokens are intact;
+  - llms.txt is clean;
+  - lint self-test 255/255 and `--all` 0 FAIL;
+  - the 8 posts are clean, with only the Athan competitor called free;
+  - `link-graph --live` exits 0.
+- The check covered an export of origin/main, a live crawl, an independent Lighthouse 12.8.2 run (3 mobile runs per page) and a skeptic.
+- Lighthouse agrees with the reported "after" numbers: mobile 98–99 with LCP 1.8–2.0 s, desktop 100, accessibility 100 and CLS 0 on all runs.
+- Sent back to that session:
+  - **must-fix:** live /support still says "billing" in its card text and in its meta, og and twitter descriptions, and the lint only catches "monthly/weekly billing";
+  - **should-fix, annotations:** no annotations file or rows exist for its two commits;
+  - **should-fix, lint holes:** "Download it free", "Free forever", "Cancel anytime", "Subscribe" and similar pass;
+  - **should-fix, competitor false positives:** "Athan is free to download" FAILs;
+  - **wording:** installLine is unused, so no page shows "Free to download.";
+  - **wording:** the cover photo and the TOC come before the Quick Answer, which the answer-first rule says should sit right under the H1;
+  - the Vercel WARN it quoted belongs to the billik team, not to QuranWall.
+- **Its next step,** the visual redesign, got a go after the /support fix and the lint fixes, following the brief. The renderer, FAQ and pillar parts ship after the top session reviews the captures. The homepage waits for Karol.
+- **Its parked instruction edits** (CLAUDE.md, SEO-STRATEGY, skill) wait for Karol's OK.
