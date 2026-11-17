@@ -2,12 +2,15 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { appStoreUrl } from '../lib/appStore';
+import { useStaticBars } from '../lib/useVisualZoom';
 
 export default function Navigation() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [isMobileView, setIsMobileView] = useState(false);
+  // Pinch-zoomed or short viewport: the bar sits at the top of the document instead of floating over the page.
+  const barStatic = useStaticBars();
   const containerRef = useRef<HTMLDivElement>(null);
   // Refs for direct DOM mutation of the SVG progress ring. Updating
   // strokeDashoffset via ref every animation frame is dramatically smoother
@@ -87,7 +90,9 @@ export default function Navigation() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  const showIndicator = hasScrolled;
+  // No scrolled pill (glass, shadow, progress ring) while the bar is not fixed.
+  const pill = hasScrolled && !barStatic;
+  const showIndicator = pill;
   const borderRadius = isMobileView ? 16 : 40;
   const strokeWidth = 2;
   const { width, height } = containerSize;
@@ -124,7 +129,7 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 nav-safe-pt"
+        className={`${barStatic ? 'absolute' : 'fixed [@media(max-height:480px)]:absolute'} top-0 left-0 right-0 z-50 px-4 md:px-6 nav-safe-pt`}
         style={{ willChange: 'transform' }}
       >
         <div className="relative mx-auto max-w-6xl">
@@ -134,12 +139,12 @@ export default function Navigation() {
             style={{
               // Mobile Safari composites multiple backdrop-filter layers slowly.
               // Use a solid translucent background on mobile, keep the glass look on desktop.
-              background: hasScrolled
+              background: pill
                 ? (isMobileView ? 'rgba(10, 10, 12, 0.92)' : 'rgba(0, 0, 0, 0.25)')
                 : 'transparent',
-              backdropFilter: hasScrolled && !isMobileView ? 'blur(24px)' : 'none',
-              WebkitBackdropFilter: hasScrolled && !isMobileView ? 'blur(24px)' : 'none',
-              boxShadow: hasScrolled
+              backdropFilter: pill && !isMobileView ? 'blur(24px)' : 'none',
+              WebkitBackdropFilter: pill && !isMobileView ? 'blur(24px)' : 'none',
+              boxShadow: pill
                 ? '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset'
                 : 'none',
               transition: 'background 0.6s cubic-bezier(0.22, 1, 0.36, 1), backdrop-filter 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1)',

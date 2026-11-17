@@ -1,5 +1,6 @@
 import { useEffect, useState, type RefObject } from 'react';
 import { Eye } from 'lucide-react';
+import { useStaticBars } from '../lib/useVisualZoom';
 
 interface MiniPreviewProps {
   /** The full preview. The pill only shows while this is off-screen. */
@@ -20,6 +21,8 @@ export default function MiniPreview({ previewRef, areaRef, downloadRef }: MiniPr
   const [previewInView, setPreviewInView] = useState(true);
   const [areaInView, setAreaInView] = useState(false);
   const [downloadInView, setDownloadInView] = useState(false);
+  // Pinch-zoomed or short viewport: a fixed pill would be magnified or eat the screen, so it is not shown.
+  const barStatic = useStaticBars();
 
   useEffect(() => {
     if (typeof IntersectionObserver === 'undefined') return;
@@ -43,6 +46,8 @@ export default function MiniPreview({ previewRef, areaRef, downloadRef }: MiniPr
     const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     previewRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
   }
+
+  if (barStatic) return null;
 
   return (
     <button

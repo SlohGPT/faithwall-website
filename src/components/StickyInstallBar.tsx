@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import { appStoreUrl } from '../lib/appStore';
 import { useIsAndroid } from '../hooks/useIsAndroid';
+import { useStaticBars } from '../lib/useVisualZoom';
 
 export type InstallBarKind = 'blog' | 'pillar' | 'compare' | 'maker' | 'random';
 
@@ -44,6 +45,8 @@ export default function StickyInstallBar({ kind }: { kind: InstallBarKind }) {
   const [entered, setEntered] = useState(false);
   const [covered, setCovered] = useState(false);
   const isAndroid = useIsAndroid();
+  // Pinch-zoomed or short viewport: a fixed bar would be magnified or eat the screen, so it is not shown (spacer included).
+  const barStatic = useStaticBars();
 
   useEffect(() => {
     setMounted(true);
@@ -120,7 +123,7 @@ export default function StickyInstallBar({ kind }: { kind: InstallBarKind }) {
     };
   }, [active]);
 
-  const shown = active && !covered;
+  const shown = active && !covered && !barStatic;
 
   useEffect(() => {
     if (!active) {
@@ -143,7 +146,7 @@ export default function StickyInstallBar({ kind }: { kind: InstallBarKind }) {
     };
   }, [shown]);
 
-  if (!active) return null;
+  if (!active || barStatic) return null;
 
   function dismiss() {
     setDismissed(true);
