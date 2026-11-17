@@ -299,3 +299,10 @@ The original session withdrew the brief's allowance for a post's own closing "fr
   - the Vercel WARN it quoted belongs to the billik team, not to QuranWall.
 - **Its next step,** the visual redesign, got a go after the /support fix and the lint fixes, following the brief. The renderer, FAQ and pillar parts ship after the top session reviews the captures. The homepage waits for Karol.
 - **Its parked instruction edits** (CLAUDE.md, SEO-STRATEGY, skill) wait for Karol's OK.
+- **QuranWall follow-up, 08778e8 (code ff1a0b0), verified:**
+  - Live /support has no "billing" anymore, and the whole live site is clean of price wording outside the legal pages.
+  - Lint self-test 292/292; every phrase we listed now FAILs, and competitor sentences and Quran references pass.
+  - Its annotations rows had gone into the FaithWall file by mistake. They now live in their own QuranWall file, and the FaithWall file checked intact: 19 rows ending 81f4eac.
+  - Sent back as small items for its first redesign push:
+    - 13 more evasion phrases pass, such as bare "trial", "one-time purchase" and "lifetime";
+    - no recorded IndexNow ping for /support.
