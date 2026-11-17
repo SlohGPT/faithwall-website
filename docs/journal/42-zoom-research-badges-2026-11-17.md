@@ -347,3 +347,27 @@ The original session withdrew the brief's allowance for a post's own closing "fr
   - a distinct subject for each scene;
   - the stale lines in QuranWall's TODO-KAROL.md.
 - **Refuted:** the blank icons and thumbnails are lazy-load capture artifacts. Post 1 has no Quick Answer because its data has none, and the text must not change. The scene repetition is a taste call, not a blocker.
+- **QuranWall push 1 is live as 96fd64a and verified (11-17).**
+  - **What I checked:**
+    - a code read of 251df06..origin/main: only AppNudge, ClusterMap and blocks.tsx changed, with no post-data or homepage change;
+    - a live crawl of 16 sitemap URLs, all 200;
+    - `link-graph --live`, exit 0;
+    - the re-captures;
+    - an independent Lighthouse 12.8.2 run, mobile, 3 runs per page;
+    - a skeptic.
+  - **Results:**
+    - the verse card is now a 9:19.5 portrait iPhone and shows no stray comma;
+    - the stat SVG is aria-hidden;
+    - the map nodes are sized by a container query;
+    - "Free to download." appears twice per post, in the mid and end cards only.
+  - **Lighthouse medians:**
+    - /blog: performance 99, LCP 1.83 s;
+    - the dhikr post: 98, LCP 2.14 s;
+    - the best-islamic post: 96, LCP 2.43 s;
+    - /support: 99, LCP 1.83 s;
+    - TBT 0, CLS 0 and accessibility 100 on all four.
+  - **Optional follow-ups, sent back:**
+    - `label-content-name-mismatch` on the posts (WCAG 2.5.3);
+    - capture hygiene: one mis-stitched full-page shot, and re-captures taken just before the commit;
+    - the Offer price "0" in JSON-LD stays, as on FaithWall.
+  - **Process:** QuranWall's implementer once ran `pkill -f lighthouse`, which is against the kill-by-PID rule. I asked it to put that rule in every brief.
