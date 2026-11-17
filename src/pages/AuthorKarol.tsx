@@ -51,10 +51,12 @@ export default function AuthorKarol() {
         <meta property="og:title" content="Karol Billik — Founder of FaithWall" />
         <meta property="og:description" content={DESC} />
         <meta property="og:url" content={URL} />
-        <meta property="og:image" content="https://faithwall.app/og-image.png" />
+        <meta property="og:image" content="https://faithwall.app/og-card.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:title" content="Karol Billik — Founder of FaithWall" />
         <meta name="twitter:description" content={DESC} />
-        <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
+        <meta name="twitter:image" content="https://faithwall.app/og-card.jpg" />
         <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>

@@ -585,10 +585,12 @@ export default function WallpaperMaker() {
         <meta property="og:url" content={PAGE_URL} />
         <meta property="og:title" content={TITLE} />
         <meta property="og:description" content={DESC} />
-        <meta property="og:image" content="https://faithwall.app/og-image.png" />
+        <meta property="og:image" content="https://faithwall.app/og-card.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:title" content={TITLE} />
         <meta name="twitter:description" content={DESC} />
-        <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
+        <meta name="twitter:image" content="https://faithwall.app/og-card.jpg" />
         <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>

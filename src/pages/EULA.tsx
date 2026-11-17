@@ -13,10 +13,10 @@ export default function EULA() {
                 <meta property="og:title" content="EULA | FaithWall" />
                 <meta property="og:description" content="FaithWall's End-User License Agreement. Read the terms under which FaithWall is licensed to you." />
                 <meta property="og:url" content="https://faithwall.app/eula" />
-                <meta property="og:image" content="https://faithwall.app/og-image.png" />
+                <meta property="og:image" content="https://faithwall.app/og-card.jpg" />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
-                <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
+                <meta name="twitter:image" content="https://faithwall.app/og-card.jpg" />
             </Helmet>
             <Navigation />
             <main className="container-main pt-32 pb-16">

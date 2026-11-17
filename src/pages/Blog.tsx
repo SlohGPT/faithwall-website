@@ -31,10 +31,10 @@ export default function Blog() {
         />
         <meta property="og:url" content="https://faithwall.app/blog" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://faithwall.app/og-image.png" />
+        <meta property="og:image" content="https://faithwall.app/og-card.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
+        <meta name="twitter:image" content="https://faithwall.app/og-card.jpg" />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
       <Navigation />

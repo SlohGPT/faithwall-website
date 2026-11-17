@@ -166,10 +166,12 @@ export default function CompareView({ config }: { config: CompareConfig }) {
         <meta property="og:title" content={config.metaTitle} />
         <meta property="og:description" content={config.metaDescription} />
         <meta property="og:url" content={url} />
-        <meta property="og:image" content="https://faithwall.app/og-image.png" />
+        <meta property="og:image" content="https://faithwall.app/og-card.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:title" content={config.metaTitle} />
         <meta name="twitter:description" content={config.metaDescription} />
-        <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
+        <meta name="twitter:image" content="https://faithwall.app/og-card.jpg" />
         <meta property="article:published_time" content={config.datePublished} />
         <meta property="article:modified_time" content={config.dateModified || config.datePublished} />
         <meta property="article:author" content="Karol Billik" />

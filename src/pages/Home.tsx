@@ -76,13 +76,13 @@ export default function Home() {
                 <meta property="og:url" content="https://faithwall.app/" />
                 <meta property="og:title" content={HOME_TITLE} />
                 <meta property="og:description" content={HOME_DESC} />
-                <meta property="og:image" content="https://faithwall.app/og-image.png" />
+                <meta property="og:image" content="https://faithwall.app/og-card.jpg" />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
                 <meta property="og:image:alt" content="FaithWall — Daily Bible Verses on Your iPhone Lock Screen" />
                 <meta name="twitter:title" content={HOME_TITLE} />
                 <meta name="twitter:description" content={HOME_DESC} />
-                <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
+                <meta name="twitter:image" content="https://faithwall.app/og-card.jpg" />
                 <meta name="twitter:image:alt" content="FaithWall — Daily Bible Verses on Your iPhone Lock Screen" />
                 <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
                 <script type="application/ld+json">{JSON.stringify(mobileApplicationSchema)}</script>
