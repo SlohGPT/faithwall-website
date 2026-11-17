@@ -1,45 +1,50 @@
 import { Link } from 'react-router-dom';
 import CoverPicture from './CoverPicture';
 import { CARD_WIDTHS } from '../lib/covers';
+import { clusterLabel } from '../lib/posts';
 import type { BlogPostListing } from '../types/blog';
 
-const CLUSTER_LABEL: Record<string, string> = {
-  'daily-scripture-lock-screen': 'Daily Scripture',
-  'prayer-life-iphone': 'Prayer Life',
-  'faith-based-productivity': 'Productivity',
-  'bible-study-tools-ios': 'Bible Study',
-  'christian-app-comparisons': 'App Comparisons',
-};
+interface Props {
+  post: BlogPostListing;
+  /** Position on the page: the first three cards load their image eagerly, the rest lazily. */
+  index?: number;
+  /** Excerpt on tablet and desktop (never on phones). Related rows leave it out. */
+  showExcerpt?: boolean;
+}
 
-export default function BlogCard({ post }: { post: BlogPostListing }) {
+/**
+ * One post card. Phones: compact horizontal row (112 x 75 thumbnail, topic as plain text, title up to 3 lines,
+ * no excerpt). Tablet and desktop: vertical card (3:2 image, title, excerpt). The whole card is one link.
+ */
+export default function BlogCard({ post, index = 99, showExcerpt = true }: Props) {
   return (
     <Link
       to={`/blog/${post.slug}`}
-      className="group block rounded-2xl overflow-hidden bg-surface-card border border-surface-border hover:border-brand/40 transition-all duration-300 hover:-translate-y-1"
+      className="blog-card group flex items-start gap-3 rounded-2xl border border-surface-border bg-surface-card p-3 transition-colors hover:border-brand/40 md:block md:overflow-hidden md:p-0"
     >
-      <div className="aspect-[16/9] overflow-hidden bg-surface-elevated">
+      <div className="blog-card-img h-[75px] w-28 shrink-0 overflow-hidden rounded-[10px] bg-surface-elevated md:aspect-[3/2] md:h-auto md:w-full md:rounded-none">
         <CoverPicture
           src={post.thumbnail}
           alt={post.thumbnailAlt ?? post.title}
           widths={CARD_WIDTHS}
-          sizes="(min-width: 1024px) 384px, (min-width: 768px) 33vw, 100vw"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          sizes="(min-width: 1180px) 360px, (min-width: 768px) 50vw, 112px"
+          className="h-full w-full object-cover md:transition-transform md:duration-500 md:group-hover:scale-105"
+          loading={index < 3 ? 'eager' : 'lazy'}
         />
       </div>
-      <div className="p-5">
-        <div className="flex items-center gap-3 text-xs text-white/50 mb-3">
-          <span className="px-2.5 py-1 rounded-full bg-brand/15 text-brand font-semibold tracking-wide">
-            {CLUSTER_LABEL[post.cluster] || post.cluster}
-          </span>
-          <span>{post.readTime}</span>
-        </div>
-        <h3 className="text-lg md:text-xl font-bold text-white leading-tight group-hover:text-brand transition-colors line-clamp-2">
+      <div className="min-w-0 flex-1 md:p-4">
+        <p className="mb-1 text-[13px] font-semibold leading-snug text-brand md:mb-2 md:inline-block md:rounded-full md:bg-brand/15 md:px-2.5 md:py-0.5">
+          {clusterLabel(post.cluster)}
+        </p>
+        <h3 className="line-clamp-3 text-[17px] font-bold leading-[1.3] text-white transition-colors group-hover:text-brand md:text-[20px] md:leading-[1.3]">
           {post.title}
         </h3>
-        <p className="mt-2 text-white/60 text-sm leading-relaxed line-clamp-2">
-          {post.description}
+        {showExcerpt && (
+          <p className="mt-1.5 line-clamp-2 text-[15px] leading-normal text-white/70 max-md:hidden">{post.description}</p>
+        )}
+        <p className="mt-1.5 text-[13px] leading-snug text-white/65 md:mt-3">
+          {post.readTime} · {post.date}
         </p>
-        <p className="mt-4 text-xs text-white/40">{post.date}</p>
       </div>
     </Link>
   );

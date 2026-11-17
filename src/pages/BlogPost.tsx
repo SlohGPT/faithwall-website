@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import StickyInstallBar from '../components/StickyInstallBar';
 import BlogPostContent from '../components/BlogPostContent';
 import NotFound from './NotFound';
-import { usePost, getListing, getRelated } from '../lib/posts';
+import { usePost, getListing, getRelated, clusterLabel } from '../lib/posts';
 import { coverSources, HERO_WIDTHS, HERO_SIZES } from '../lib/covers';
 
 export default function BlogPost() {
@@ -65,7 +65,8 @@ export default function BlogPost() {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://faithwall.app/' },
       { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://faithwall.app/blog' },
-      { '@type': 'ListItem', position: 3, name: post.meta.title, item: url },
+      { '@type': 'ListItem', position: 3, name: clusterLabel(post.meta.cluster), item: `https://faithwall.app/${post.meta.cluster}` },
+      { '@type': 'ListItem', position: 4, name: post.meta.title, item: url },
     ],
   };
 

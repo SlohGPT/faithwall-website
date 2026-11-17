@@ -1,42 +1,51 @@
-import { Fragment } from 'react';
+import { Children, Fragment, isValidElement } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
-import { Zap, Lightbulb, AlertCircle, Sparkles, Check, X, ChevronDown } from 'lucide-react';
+import { Zap, Lightbulb, AlertCircle, Sparkles, Check, X } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
 import AppNudge, { RatingLine } from './AppNudge';
 import InstallHandoff from './InstallHandoff';
 import LockScreenVerse from './LockScreenVerse';
 import StatBlock from './StatBlock';
+import PostContents from './PostContents';
 import PostIllustration from './illustrations';
 import { appStoreUrl } from '../lib/appStore';
 import { isConversionHeld } from '../data/conversionHold';
 import { useIsAndroid } from '../hooks/useIsAndroid';
 import facts from '../data/facts.json';
+import { headingIds, contentsItems } from '../lib/postHeadings';
 import type { BlogSection } from '../types/blog';
 
-/** Text blocks stop at about 65-72 characters per line on desktop (measured at 1280px); images, tables and the CTA use the full column. */
-const MEASURE = 'md:max-w-[34rem]';
+/*
+ * Post typography (blog design pass, 2026-11-17). One body token for every running text: `.post-text`
+ * (18 / 1.7 below 1180 px, 19 / 1.65 from 1180 px, white/80; src/index.css). The measure is set on the column
+ * (40rem, `.post-layout`), not per block; figures, tables, verse figures and install blocks break out to 768 px in CSS.
+ */
+const BODY = 'post-text';
 
-/** Quiet panel shared by tip, important, highlight and callout. Content size matches the 11-04 readability pass. */
-const PANEL = `my-6 flex gap-3.5 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 ${MEASURE}`;
-const PANEL_TEXT = 'text-white/85 text-[17px] md:text-base';
+/** Quiet panel shared by tip, important, highlight and callout: 16 px padding on phones, 24 px from 768 px. */
+const PANEL = 'post-callout grid grid-cols-[20px_minmax(0,1fr)] items-start gap-x-2.5 gap-y-2 rounded-xl border border-white/10 bg-white/[0.03] p-4 md:gap-x-3.5 md:p-5';
+const PANEL_TEXT = BODY;
 
-const slugify = (text: string) =>
-  text.toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+const LINK = 'text-brand-light hover:text-white underline underline-offset-[3px] decoration-1';
 
-/** Stable, unique id per H2 (heading text; "-2", "-3" on repeats), keyed by section index. */
-function headingIds(sections: BlogSection[]): Map<number, { id: string; text: string }> {
-  const out = new Map<number, { id: string; text: string }>();
-  const seen = new Map<string, number>();
-  sections.forEach((sec, i) => {
-    if (sec.type !== 'heading' || sec.level !== 2) return;
-    const base = slugify(sec.text) || `section-${out.size + 1}`;
-    const n = (seen.get(base) ?? 0) + 1;
-    seen.set(base, n);
-    out.set(i, { id: n === 1 ? base : `${base}-${n}`, text: sec.text });
-  });
-  return out;
+/** All text inside a React-markdown node. */
+function allText(node: React.ReactNode): string {
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(allText).join('');
+  if (isValidElement(node)) return allText((node.props as { children?: React.ReactNode }).children);
+  return '';
+}
+
+/** "Table: A / B / C" from the header row, so the scroll region has a name that says what it holds. */
+function tableLabel(children: React.ReactNode): string {
+  const head = Children.toArray(children)[0];
+  const tr = isValidElement(head) ? Children.toArray((head.props as { children?: React.ReactNode }).children)[0] : null;
+  const cells = isValidElement(tr)
+    ? Children.toArray((tr.props as { children?: React.ReactNode }).children).map((c) => allText(c).trim()).filter(Boolean)
+    : [];
+  return cells.length ? `Table: ${cells.slice(0, 5).join(' / ')}` : 'Comparison table';
 }
 
 /** First plain text inside a React-markdown cell, through <strong>/<em> wrappers. */
@@ -73,39 +82,38 @@ function Markdown({ text, campaign }: { text: string; campaign: string }) {
             : href;
           if (isInternal) {
             return (
-              <Link to={internalPath} className="text-brand-light hover:text-white underline underline-offset-2">
+              <Link to={internalPath} className={LINK}>
                 {children}
               </Link>
             );
           }
           return (
-            <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand-light hover:text-white underline underline-offset-2">
+            <a href={href} target="_blank" rel="noopener noreferrer" className={LINK}>
               {children}
             </a>
           );
         },
         strong: ({ children }) => <strong className="font-bold text-white">{children}</strong>,
-        p: ({ children }) => <p className={`text-white/80 leading-[1.7] md:leading-relaxed ${MEASURE}`}>{children}</p>,
-        // Wide GFM tables scroll inside their own container instead of being clipped by the page.
+        p: ({ children }) => <p>{children}</p>,
+        // Wide GFM tables scroll inside their own container instead of being clipped by the page. Phones get a right-edge
+        // fade and a "Swipe to compare" hint (CSS, under 640 px); the first column stays put while the rest scrolls.
         table: ({ children }) => (
-          <div
-            className="my-2 overflow-x-auto overscroll-x-contain rounded-xl border border-white/10"
-            role="region"
-            aria-label="Comparison table, scrolls sideways"
-            tabIndex={0}
-          >
-            <table className="w-full min-w-[32rem] md:min-w-0 border-collapse text-left text-base leading-relaxed">{children}</table>
+          <div className="post-table">
+            <div className="post-table-scroll" role="region" aria-label={tableLabel(children)} tabIndex={0}>
+              <table className="post-table-el">{children}</table>
+            </div>
+            <div className="post-table-hint" aria-hidden="true">Swipe to compare</div>
           </div>
         ),
-        thead: ({ children }) => <thead className="bg-surface-card">{children}</thead>,
-        th: ({ children }) => <th className="px-4 py-3 font-bold text-white align-top">{children}</th>,
+        thead: ({ children }) => <thead>{children}</thead>,
+        th: ({ children }) => <th>{children}</th>,
         td: ({ children }) => {
           // "Yes ..." / "No ..." cells get a check or cross before the kept text.
           const yn = firstText(children).trim().match(/^(yes|no)(?![\w-])/i)?.[1].toLowerCase();
           return (
-            <td className="px-4 py-3 border-t border-white/10 align-top">
+            <td>
               {yn === 'yes' && <Check aria-hidden="true" className="inline-block w-4 h-4 mr-1.5 -mt-0.5 text-brand-light" />}
-              {yn === 'no' && <X aria-hidden="true" className="inline-block w-4 h-4 mr-1.5 -mt-0.5 text-white/45" />}
+              {yn === 'no' && <X aria-hidden="true" className="inline-block w-4 h-4 mr-1.5 -mt-0.5 text-white/65" />}
               {children}
             </td>
           );
@@ -131,39 +139,24 @@ function Callout({
   title?: string;
   children: React.ReactNode;
 }) {
+  const hasHead = Boolean(label || title);
+  // Phones: the icon sits left of the label or title, the text runs the full column below it (a callout with no
+  // label stacks the icon above the text). From 768 px: icon column on the left, label and text beside it.
   return (
     <div className={PANEL}>
-      <Icon className={`w-5 h-5 shrink-0 mt-[3px] ${tone}`} aria-hidden="true" />
-      <div className="min-w-0 flex-1">
-        {label && <p className={`text-sm font-semibold mb-1.5 ${tone}`}>{label}</p>}
-        {title && <p className="font-bold text-white text-lg mb-2">{title}</p>}
-        <div className={PANEL_TEXT}>{children}</div>
+      <Icon className={`col-start-1 row-start-1 mt-[2px] h-5 w-5 shrink-0 ${tone}`} aria-hidden="true" />
+      {hasHead && (
+        <div className="col-start-2 row-start-1 min-w-0">
+          {label && <p className={`text-sm font-semibold ${tone}`}>{label}</p>}
+          {title && <p className="font-bold text-white text-lg md:text-xl leading-snug">{title}</p>}
+        </div>
+      )}
+      <div
+        className={`${PANEL_TEXT} col-span-2 row-start-2 min-w-0 md:col-span-1 md:col-start-2 ${hasHead ? '' : 'md:row-start-1'}`}
+      >
+        {children}
       </div>
     </div>
-  );
-}
-
-/** "On this page": native details, closed, after the intro and before the first H2. */
-function Contents({ items }: { items: { id: string; text: string }[] }) {
-  return (
-    <details className={`group my-8 rounded-xl border border-white/10 ${MEASURE}`}>
-      <summary className="flex min-h-[3rem] cursor-pointer list-none items-center justify-between gap-4 px-5 py-3 [&::-webkit-details-marker]:hidden">
-        <span className="font-semibold text-white">On this page</span>
-        <span className="flex items-center gap-2 text-sm text-white/50">
-          {items.length} sections
-          <ChevronDown className="w-4 h-4 transition-transform group-open:rotate-180" aria-hidden="true" />
-        </span>
-      </summary>
-      <ul className="border-t border-white/10 px-5 py-2">
-        {items.map((it) => (
-          <li key={it.id}>
-            <a href={`#${it.id}`} className="block py-2 text-[17px] md:text-base leading-snug text-white/75 hover:text-white">
-              {it.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </details>
   );
 }
 
@@ -255,12 +248,14 @@ interface Props {
   title: string;
   /** Picks the App Store campaign tokens and whether the hold applies. */
   pageType: 'blog' | 'pillar';
+  /** Render the "On this page" list inside the body, before the first H2 (pillar pages). Posts lift it into their layout rail. */
+  inlineContents?: boolean;
 }
 
-export default function BlogRenderer({ sections, slug, title, pageType }: Props) {
+export default function BlogRenderer({ sections, slug, title, pageType, inlineContents = false }: Props) {
   const h2 = headingIds(sections);
   const h2Indexes = [...h2.keys()];
-  const showContents = h2Indexes.length >= 4;
+  const contents = inlineContents ? contentsItems(sections) : [];
   // The illustration sits before the second H2, or before the first when the page has fewer than three.
   const illustrationAt = h2Indexes.length >= 3 ? h2Indexes[1] : h2Indexes[0];
 
@@ -273,20 +268,18 @@ export default function BlogRenderer({ sections, slug, title, pageType }: Props)
   const midAt = held ? -1 : midCardIndex(sections, h2Indexes, illustrationAt);
 
   return (
-    <div className="space-y-7 md:space-y-6">
+    <div id="post-body" data-post-body className="post-prose">
       {sections.map((section, i) => {
         const block = (() => {
           switch (section.type) {
             case 'heading': {
               const Tag = section.level === 2 ? 'h2' : 'h3';
-              // space-y-* outranks plain mt-*; the !important margin gives headings real room above on phones.
-              const size = section.level === 2 ? 'text-2xl md:text-3xl mt-10 max-md:!mt-14' : 'text-xl md:text-2xl mt-6 max-md:!mt-10';
+              // Sizes and the 56 / 16 (H2) and 36 / 8 (H3) rhythm live in .post-prose (src/index.css); html already has
+              // scroll-padding-top: 100px, so the 12px scroll-margin lands a jumped-to heading about 112px down.
               return (
-                // scroll-mt: the fixed nav's bottom edge is 92px (desktop) / 68px (phone) and html already has
-                // scroll-padding-top: 100px, so 12px more lands the heading ~110px down with clear air below the nav.
                 <Tag
                   id={h2.get(i)?.id}
-                  className={`${size} ${section.level === 2 ? 'scroll-mt-3 ' : ''}font-bold text-white tracking-tight`}
+                  className={`${section.level === 2 ? 'post-h2 scroll-mt-3' : 'post-h3'} font-bold text-white`}
                 >
                   {section.text}
                 </Tag>
@@ -295,7 +288,7 @@ export default function BlogRenderer({ sections, slug, title, pageType }: Props)
 
             case 'paragraph':
               return (
-                <div className="text-white/80 leading-[1.7] md:leading-relaxed text-[17px] md:text-lg">
+                <div className={BODY}>
                   <Markdown campaign={campaign} text={section.text} />
                 </div>
               );
@@ -340,16 +333,16 @@ export default function BlogRenderer({ sections, slug, title, pageType }: Props)
 
             case 'steps':
               return (
-                <ol className={`my-4 list-none pl-0 ${MEASURE}`}>
+                <ol className="post-steps list-none pl-0">
                   {section.items.map((item, idx) => (
-                    <li key={idx} className="relative pl-12 pb-6 md:pb-5 last:pb-0">
+                    <li key={idx} className="relative pl-12 pb-6 last:pb-0">
                       {idx < section.items.length - 1 && (
                         <span aria-hidden="true" className="absolute left-4 top-8 bottom-0 w-px -translate-x-1/2 bg-white/15" />
                       )}
                       <span className="absolute left-0 top-0 w-8 h-8 rounded-full border border-brand/60 bg-surface text-brand font-bold flex items-center justify-center text-sm">
                         {idx + 1}
                       </span>
-                      <div className="text-white/85 leading-[1.7] md:leading-relaxed text-[17px] md:text-base pt-0.5 md:pt-1">
+                      <div className={BODY}>
                         <Markdown campaign={campaign} text={item} />
                       </div>
                     </li>
@@ -359,9 +352,9 @@ export default function BlogRenderer({ sections, slug, title, pageType }: Props)
 
             case 'list':
               return (
-                <ul className={`my-4 space-y-3 md:space-y-2 list-disc list-outside pl-6 marker:text-brand ${MEASURE}`}>
+                <ul className="post-list list-disc list-outside space-y-2 pl-6 marker:text-brand">
                   {section.items.map((item, idx) => (
-                    <li key={idx} className="text-white/85 leading-[1.7] md:leading-relaxed text-[17px] md:text-base pl-1">
+                    <li key={idx} className={`${BODY} pl-1`}>
                       <Markdown campaign={campaign} text={item} />
                     </li>
                   ))}
@@ -370,15 +363,15 @@ export default function BlogRenderer({ sections, slug, title, pageType }: Props)
 
             case 'ranked-list':
               return (
-                <ol className={`my-4 space-y-4 list-none pl-0 ${MEASURE}`}>
+                <ol className="post-ranked space-y-4 list-none pl-0">
                   {section.items.map((item, idx) => (
                     <li key={idx} className="flex gap-4 items-start p-4 rounded-xl bg-surface-card border border-surface-border">
                       <span className="shrink-0 w-8 h-8 rounded-full bg-brand text-white font-bold flex items-center justify-center text-sm">
                         {idx + 1}
                       </span>
                       <div className="flex-1">
-                        <p className="font-bold text-white text-[17px] md:text-base">{item.name}</p>
-                        <div className="text-white/80 leading-[1.7] md:leading-relaxed text-[17px] md:text-base mt-1">
+                        <p className={`${BODY} !text-white font-bold`}>{item.name}</p>
+                        <div className={`${BODY} mt-1`}>
                           <Markdown campaign={campaign} text={item.description} />
                         </div>
                       </div>
@@ -392,7 +385,7 @@ export default function BlogRenderer({ sections, slug, title, pageType }: Props)
 
             case 'image':
               return (
-                <figure className="my-8">
+                <figure className="post-figure">
                   <img
                     src={section.src}
                     alt={section.alt}
@@ -403,7 +396,7 @@ export default function BlogRenderer({ sections, slug, title, pageType }: Props)
                     className={`mx-auto h-auto rounded-2xl border border-white/10 ${section.height > section.width ? 'max-w-[280px] w-full' : 'w-full'}`}
                   />
                   {(section.caption || section.href) && (
-                    <figcaption className="mt-3 text-center text-white/60 text-sm">
+                    <figcaption className="mt-3 text-center text-white/65 text-sm">
                       {section.caption}
                       {section.href && (
                         <>
@@ -438,7 +431,7 @@ export default function BlogRenderer({ sections, slug, title, pageType }: Props)
 
         return (
           <Fragment key={i}>
-            {showContents && i === h2Indexes[0] && <Contents items={[...h2.values()]} />}
+            {contents.length > 0 && i === h2Indexes[0] && <PostContents items={contents} variant="inline" />}
             {i === illustrationAt && <PostIllustration slug={slug} title={title} />}
             {i === midAt && <AppNudge variant="install" placement="mid" campaign={midCampaign} className="!mt-10 mb-10" />}
             {block}

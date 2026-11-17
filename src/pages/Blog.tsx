@@ -1,10 +1,9 @@
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import BlogListing from '../components/BlogListing';
 import Breadcrumbs from '../components/Breadcrumbs';
-import { allListings, PILLAR_SLUGS, getPillar } from '../lib/posts';
+import { allListings } from '../lib/posts';
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -39,44 +38,21 @@ export default function Blog() {
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
       <Navigation />
-      <main className="container-main pt-28 md:pt-32 pb-20">
-        <div className="mb-8">
+      <main className="blog-page container-main !overflow-clip pt-[80px] pb-20 md:pt-[108px]">
+        <div className="mb-3 md:mb-4">
           <Breadcrumbs crumbs={[{ label: 'Home', to: '/' }, { label: 'Blog' }]} />
         </div>
-        <header className="mb-12 max-w-3xl">
-          <p className="text-brand text-sm font-semibold uppercase tracking-widest mb-3">The FaithWall Blog</p>
-          <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">
+        <header className="mb-4 max-w-3xl md:mb-6">
+          <p className="mb-1.5 text-[13px] font-semibold uppercase tracking-widest text-brand md:text-sm">The FaithWall Blog</p>
+          <h1 className="text-balance text-[32px] font-extrabold leading-[1.15] tracking-tight text-white md:text-[44px]">
             Faith, prayer, and Scripture — on your iPhone.
           </h1>
-          <p className="mt-5 text-lg text-white/70 leading-relaxed">
+          <p className="mt-2 line-clamp-2 text-[18px] leading-snug text-white/75 md:mt-3 md:line-clamp-none md:leading-relaxed">
             Practical guides for using your phone as a tool for spiritual growth instead of a thief of it. New posts often.
           </p>
         </header>
 
-        <section className="mb-14">
-          <h2 className="text-2xl font-bold text-white mb-5">Explore by topic</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {PILLAR_SLUGS.map((s) => {
-              const p = getPillar(s);
-              if (!p) return null;
-              return (
-                <Link
-                  key={s}
-                  to={`/${s}`}
-                  className="group p-5 rounded-2xl bg-surface-card border border-surface-border hover:border-brand/40 transition-colors"
-                >
-                  <p className="font-bold text-white group-hover:text-brand transition-colors">{p.title}</p>
-                  <p className="mt-1 text-sm text-white/60 line-clamp-2">{p.description}</p>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-bold text-white mb-5">Latest posts</h2>
-          <BlogListing posts={allListings} />
-        </section>
+        <BlogListing posts={allListings} />
       </main>
       <Footer />
     </div>

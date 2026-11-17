@@ -1,4 +1,3 @@
-import { Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import BlogRenderer from './BlogRenderer';
 import BlogCard from './BlogCard';
@@ -21,9 +20,9 @@ function formatDate(iso: string): string {
 export default function PillarPageView({ pillar, featured, allPosts = [] }: Props) {
   const updated = pillar.dateModified || pillar.datePublished;
   return (
-    <div className="container-main pt-28 md:pt-32 pb-20">
-      <div className="max-w-3xl mx-auto">
-        <div className="mb-8">
+    <div className="container-main !overflow-clip pt-[76px] pb-20 md:pt-[104px]">
+      <div className="post-layout">
+        <div className="post-crumbs">
           <Breadcrumbs
             crumbs={[
               { label: 'Home', to: '/' },
@@ -33,23 +32,18 @@ export default function PillarPageView({ pillar, featured, allPosts = [] }: Prop
           />
         </div>
 
-        <header className="mb-10">
-          <p className="text-brand text-sm font-semibold uppercase tracking-widest mb-3">Pillar Guide</p>
-          <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
-            {pillar.title}
-          </h1>
-          <p className="mt-5 text-lg text-white/70 leading-[1.7] md:leading-relaxed md:max-w-[34rem]">{pillar.intro}</p>
+        <header className="post-head">
+          <p className="mb-3 text-[13px] font-semibold uppercase tracking-widest text-brand">Pillar Guide</p>
+          <h1 className="post-h1 text-balance font-extrabold text-white">{pillar.title}</h1>
+          <p className="post-dek">{pillar.intro}</p>
           {updated && (
-            <div className="mt-6 flex items-center gap-5 text-sm text-white/50">
-              <span className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4" /> Last updated {formatDate(updated)}
-              </span>
-              <span>By Karol Billik</span>
-            </div>
+            <p className="post-byline">
+              Last updated {formatDate(updated)} · By Karol Billik
+            </p>
           )}
         </header>
 
-        <BlogRenderer sections={pillar.sections} slug={pillar.slug} title={pillar.title} pageType="pillar" />
+        <BlogRenderer sections={pillar.sections} slug={pillar.slug} title={pillar.title} pageType="pillar" inlineContents />
       </div>
 
       {featured.length > 0 && (

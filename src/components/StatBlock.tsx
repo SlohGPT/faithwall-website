@@ -88,11 +88,11 @@ export default function StatBlock({ value, label, description }: { value?: strin
   if (!value) return null;
   const pic = statPicture(value);
   return (
-    <div className="my-8 py-6 border-y border-white/10 flex items-center justify-between gap-6 md:gap-10 md:max-w-[34rem]">
+    <div className="post-stat py-6 border-y border-white/10 flex items-center justify-between gap-6 md:gap-10">
       <div className="min-w-0">
         <p className="text-4xl md:text-5xl font-black text-brand tracking-tight">{value}</p>
         <p className="text-white font-semibold mt-2">{label}</p>
-        {description && <p className="text-white/60 text-sm mt-2 leading-relaxed max-w-[28rem]">{description}</p>}
+        {description && <p className="text-white/65 text-sm mt-2 leading-relaxed max-w-[28rem]">{description}</p>}
       </div>
       {pic.kind === 'dots' && <DotField count={pic.count} />}
       {pic.kind === 'ring' && <Ring percent={pic.percent} />}

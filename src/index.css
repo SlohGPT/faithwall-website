@@ -124,8 +124,8 @@
     align-items: center;
   }
   @media (min-width: 768px) {
-    /* Centred over the text column (same 34rem measure as the paragraphs). */
-    .lockfig { --w: 290px; width: 100%; max-width: 34rem; margin-left: 0; margin-right: auto; }
+    /* The post column sets the width now (the verse figure breaks out with the other figures, see the blog design pass at the end). */
+    .lockfig { --w: 290px; }
   }
   .lockfig-phone {
     box-sizing: border-box;
@@ -296,3 +296,293 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* === Blog design pass (2026-11-17) ===
+   Template-only: post typography tokens, the 640 px text column with 768 px break-outs, the post header and ending, the
+   Contents rail, tables, and the /blog topic chips. Breakpoints: phone under 768, tablet 768-1179, desktop 1180 and up.
+   Secondary text is white/65 or lighter-on-dark only (never white/30, /40, /50). The pinch-zoom / short-viewport behaviour of
+   the header and the sticky bar is in their components and is not touched here; the chip row and the reading bar follow it. */
+
+/* ---- Layout: text column 40rem, wide blocks break out to 768 ---- */
+.post-layout {
+  /* --bo: how far a wide block reaches past the text column on each side (64 px, less when the viewport is narrow). */
+  --page-pad: 16px;
+  --bo: clamp(0px, calc((100vw - 640px - 2 * var(--page-pad)) / 2), 64px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+}
+@media (min-width: 640px) { .post-layout { --page-pad: 24px; } }
+@media (min-width: 1024px) { .post-layout { --page-pad: 48px; } }
+@media (min-width: 1180px) {
+  /* Posts with 3+ H2: two columns, the Contents is the sticky right rail (same list as the phone details, moved by CSS). */
+  .post-layout--rail {
+    max-width: none;
+    grid-template-columns: 640px 220px;
+    column-gap: 96px;
+    justify-content: center;
+  }
+  .post-layout--rail > * { grid-column: 1; }
+  .post-layout--rail > .post-toc { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; }
+}
+
+.post-head { min-width: 0; }
+.post-crumbs { margin-bottom: 6px; }
+.post-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 12px;
+  border-radius: 9999px;
+  background: rgba(217, 123, 59, 0.15);
+  color: #E9A06A;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.post-chip:hover { color: #fff; }
+.post-h1 { margin-top: 6px; font-size: 28px; line-height: 1.2; letter-spacing: -0.01em; }
+.post-dek { margin-top: 8px; font-size: 20px; line-height: 1.45; color: rgba(255, 255, 255, 0.85); }
+.post-byline { margin-top: 8px; font-size: 14px; line-height: 1.5; color: rgba(255, 255, 255, 0.65); }
+.post-byline-link { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.post-byline-link:hover { color: #fff; }
+@media (min-width: 768px) {
+  .post-crumbs { margin-bottom: 10px; }
+  .post-h1 { margin-top: 8px; font-size: 36px; line-height: 1.15; }
+  .post-dek { margin-top: 10px; }
+  .post-byline { margin-top: 12px; }
+  .post-dek { font-size: 21px; }
+  .post-byline { font-size: 15px; }
+}
+@media (min-width: 1180px) {
+  .post-h1 { font-size: 44px; line-height: 1.12; }
+  .post-dek { font-size: 22px; }
+}
+
+/* Hero: 3:2 on phones (the files' own ratio, nothing cropped), 16:9 from 768 px (set in BlogPostContent). Breaks out to 768. */
+.post-hero { margin: 12px calc(-1 * var(--bo)) 0; }
+.post-toc { margin-top: 8px; }
+.post-layout > .post-prose { margin-top: 12px; }
+@media (min-width: 768px) {
+  .post-hero { margin-top: 16px; }
+  .post-toc { margin-top: 16px; }
+  .post-layout > .post-prose { margin-top: 16px; }
+}
+
+/* ---- Post body: one text token, one rhythm ---- */
+.post-prose {
+  --post-fs: 18px;
+  --post-lh: 1.7;
+  --post-gap: 22px;
+  --cell-fs: 16px;
+  min-width: 0;
+}
+@media (min-width: 768px) {
+  .post-prose { --post-fs: 19px; --post-lh: 1.65; --post-gap: 24px; --cell-fs: 17px; }
+}
+.post-text { font-size: var(--post-fs, 18px); line-height: var(--post-lh, 1.7); color: rgba(255, 255, 255, 0.8); }
+.post-text > p + p { margin-top: 0.75em; }
+.post-text :is(ul, ol) { margin-top: 0.5em; padding-left: 24px; }
+.post-text ul { list-style: disc; }
+.post-text ol { list-style: decimal; }
+.post-text li + li { margin-top: 6px; }
+.post-text li::marker { color: #D97B3B; }
+/* Quotes and inline code in post text: a future post must not render them unstyled. */
+.post-text blockquote {
+  margin: 0.75em 0;
+  padding-left: 20px;
+  border-left: 4px solid #D97B3B;
+  font-family: 'FW Verse Serif', Georgia, serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+.post-text blockquote :is(footer, cite) { display: block; margin-top: 6px; font: 15px/1.4 'DM Sans', system-ui, sans-serif; font-style: normal; color: rgba(255, 255, 255, 0.7); }
+.post-text :not(pre) > code {
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  font: 15px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (min-width: 768px) { .post-text blockquote { font-size: 22px; } }
+
+.post-prose > * { margin-block: 0; }
+.post-prose > * + * { margin-top: var(--post-gap); }
+/* Figures, tables, verse figures, stat cards and install blocks get more air and break out of the text column. */
+.post-prose > :is(.post-figure, .post-table, .lockfig, .post-stat, [role='presentation'], [data-install-card], [data-hides-sticky]) {
+  margin-top: 32px;
+  margin-inline: calc(-1 * var(--bo));
+}
+.post-prose > :is(.post-figure, .post-table, .lockfig, .post-stat, [role='presentation'], [data-install-card], [data-hides-sticky]) + * { margin-top: 32px; }
+.post-prose > .post-callout { margin-top: 28px; }
+.post-prose > .post-callout + * { margin-top: 28px; }
+.post-prose > :is(.post-list, .post-steps, .post-ranked) { margin-top: var(--post-gap); }
+.post-list > li + li { margin-top: 8px; }
+.post-prose > details { margin-top: 24px; }
+
+/* Headings: 56 px above and 16 px below an H2, 36 / 8 for an H3, at every width (the first block hugs its heading). */
+.post-prose > .post-h3 { margin-top: 36px; font-size: 21px; line-height: 1.3; }
+.post-prose > .post-h2 { margin-top: 56px; font-size: 26px; line-height: 1.25; letter-spacing: -0.01em; text-wrap: balance; }
+.post-prose > .post-h3 + * { margin-top: 8px; }
+.post-prose > .post-h2 + * { margin-top: 16px; }
+.post-prose > .post-h2 + .post-h3 { margin-top: 16px; }
+@media (min-width: 768px) {
+  .post-prose > .post-h2 { font-size: 29px; line-height: 1.2; }
+  .post-prose > .post-h3 { font-size: 22px; }
+}
+@media (min-width: 1180px) {
+  .post-prose > .post-h2 { font-size: 32px; }
+  .post-prose > .post-h3 { font-size: 23px; }
+}
+
+/* The body starts right under the hero / Contents; its own top margin comes from the layout. */
+.post-prose > :first-child { margin-top: 0; }
+
+/* Callouts: on phones the icon sits left of the label or title and the text runs the full column below (BlogRenderer grid). */
+.post-callout .post-text > p + p { margin-top: 0.6em; }
+
+/* Steps: numbers stay 32 px circles; the text keeps the body token. */
+.post-steps .post-text { padding-top: 1px; }
+
+/* Tables: scroll inside their own region, first column sticky, right-edge fade and "Swipe to compare" under 640 px. */
+.post-table { position: relative; }
+.post-table-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+.post-table-el { width: 100%; min-width: 32rem; border-collapse: separate; border-spacing: 0; text-align: left; font-size: var(--cell-fs, 16px); line-height: 1.5; }
+.post-table-el :is(th, td) { padding: 12px 14px; vertical-align: top; }
+.post-table-el th { background: #1A1A24; color: #fff; font-weight: 600; }
+.post-table-el td { border-top: 1px solid rgba(255, 255, 255, 0.1); background: #0A0A0F; color: rgba(255, 255, 255, 0.8); }
+.post-table-el tbody tr:nth-child(even) td { background: #111116; }
+.post-table-el :is(th, td):first-child { position: sticky; left: 0; z-index: 1; min-width: 7rem; max-width: 10rem; }
+.post-table-el td:first-child { color: #fff; font-weight: 600; }
+.post-table-hint { display: none; }
+@media (max-width: 639px) {
+  .post-table::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 29px;
+    width: 24px;
+    border-radius: 0 11px 11px 0;
+    background: linear-gradient(to right, rgba(10, 10, 15, 0), #0A0A0F);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .post-table-hint { display: block; margin-top: 4px; height: 24px; font-size: 13px; line-height: 24px; text-align: right; color: rgba(255, 255, 255, 0.65); }
+}
+
+/* Contents ("On this page"): details under 1180 px, the sticky right rail from 1180 px. */
+.post-contents { border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; }
+.post-contents-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 48px;
+  padding: 0 16px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+.post-contents-summary::-webkit-details-marker { display: none; }
+.post-contents-list { border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 4px 8px 8px; }
+.post-contents-link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.8);
+}
+.post-contents-link:hover { color: #fff; }
+.post-contents-link[aria-current='location'] { background: rgba(217, 123, 59, 0.12); color: #E9A06A; }
+@media (min-width: 1180px) {
+  .post-contents--rail {
+    position: sticky;
+    top: 88px;
+    max-height: calc(100vh - 120px);
+    overflow: auto;
+    border-width: 0 0 0 1px;
+    border-radius: 0;
+  }
+  .post-contents--rail .post-contents-summary { pointer-events: none; min-height: 32px; padding: 0 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.65); }
+  .post-contents--rail .post-contents-chev { display: none; }
+  .post-contents--rail .post-contents-list { border-top: 0; padding: 0 0 0 8px; }
+  .post-contents--rail .post-contents-link { min-height: 0; padding: 6px 8px; font-size: 14px; }
+  /* Show the list even before the effect has opened the details (browsers with ::details-content). */
+  .post-contents--rail::details-content { content-visibility: visible; display: block; }
+}
+
+/* Post ending: author bio, "Part of" line, previous / next, back link. */
+.post-end { margin-top: 48px; }
+.post-end > aside { margin-top: 0; }
+.post-pillar { margin-top: 24px; font-size: 16px; line-height: 1.5; color: rgba(255, 255, 255, 0.8); }
+.post-pillar-link { color: #E9A06A; font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.post-pillar-link:hover { color: #fff; }
+.post-prevnext { display: grid; gap: 8px; margin-top: 16px; }
+@media (min-width: 768px) { .post-prevnext { grid-template-columns: 1fr 1fr; gap: 16px; } }
+.post-prevnext-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 56px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: border-color 0.2s;
+}
+.post-prevnext-link:hover { border-color: rgba(217, 123, 59, 0.4); }
+.post-prevnext-dir { font-size: 13px; line-height: 1.4; color: rgba(255, 255, 255, 0.65); }
+.post-prevnext-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: 16px; font-weight: 600; line-height: 1.35; color: #fff; }
+
+/* ---- /blog: sticky topic chips and the topic sections ---- */
+.blog-chips { position: sticky; top: 64px; }
+@media (min-width: 768px) { .blog-chips { top: 96px; } }
+.blog-chips.is-static { position: static; }
+@media (max-height: 480px) { .blog-chips { position: static; } }
+.blog-chips-row { scroll-snap-type: x proximity; scrollbar-width: none; }
+.blog-chips-row::-webkit-scrollbar { display: none; }
+.blog-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.85);
+  scroll-snap-align: start;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.blog-chip:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(217, 123, 59, 0.4); color: #fff; }
+.blog-chip-count { font-weight: 500; color: rgba(255, 255, 255, 0.65); }
+.blog-topics { padding-top: 12px; }
+@media (min-width: 768px) { .blog-topics { padding-top: 20px; } }
+.blog-topic { padding: 4px; margin-inline: -4px; content-visibility: auto; contain-intrinsic-size: auto 900px; }
+.blog-topic + .blog-topic { margin-top: 40px; }
+.blog-topic-h { scroll-margin-top: 56px; }
+.blog-more[open] .blog-more-chev { display: none; }
+.blog-more-summary::after { content: none; }
+
+/* Keyboard focus: a 2 px brand ring, 2 px off the element, on every new interactive piece. */
+.blog-chip:focus-visible, .blog-link:focus-visible, .blog-card:focus-visible, .blog-more-summary:focus-visible,
+.post-chip:focus-visible, .post-byline-link:focus-visible, .post-pillar-link:focus-visible, .post-prevnext-link:focus-visible,
+.post-contents-link:focus-visible, .post-contents-summary:focus-visible, .post-table-scroll:focus-visible {
+  outline: 2px solid #D97B3B;
+  outline-offset: 2px;
+}
+/* === end Blog design pass === */
