@@ -1,13 +1,15 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfUse from './pages/TermsOfUse';
-import EULA from './pages/EULA';
-import AuthorKarol from './pages/AuthorKarol';
 import NotFound from './pages/NotFound';
 import ScrollManager from './components/ScrollManager';
 
+// Long legal pages and the author page are about 30 KB gzip together and almost nobody lands on them first:
+// keep them out of the entry chunk every page pays for.
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfUse = lazy(() => import('./pages/TermsOfUse'));
+const EULA = lazy(() => import('./pages/EULA'));
+const AuthorKarol = lazy(() => import('./pages/AuthorKarol'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const Pillar = lazy(() => import('./pages/Pillar'));
@@ -23,10 +25,38 @@ export default function App() {
       <ScrollManager />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-of-use" element={<TermsOfUse />} />
-        <Route path="/eula" element={<EULA />} />
-        <Route path="/about/karol-billik" element={<AuthorKarol />} />
+        <Route
+          path="/privacy-policy"
+          element={
+            <Suspense fallback={blogFallback}>
+              <PrivacyPolicy />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/terms-of-use"
+          element={
+            <Suspense fallback={blogFallback}>
+              <TermsOfUse />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/eula"
+          element={
+            <Suspense fallback={blogFallback}>
+              <EULA />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/about/karol-billik"
+          element={
+            <Suspense fallback={blogFallback}>
+              <AuthorKarol />
+            </Suspense>
+          }
+        />
         <Route
           path="/blog"
           element={

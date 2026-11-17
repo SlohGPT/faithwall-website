@@ -79,8 +79,14 @@ export default function PostContents({ items, variant = 'rail' }: { items: Conte
     };
     start();
     mq.addEventListener('change', start);
+    // Back at the very top nothing is current, even if the observer has not reported the last exit yet.
+    const onScroll = () => {
+      if (window.scrollY < 40) setActive(null);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
       mq.removeEventListener('change', start);
+      window.removeEventListener('scroll', onScroll);
       io?.disconnect();
     };
   }, [items, rail]);

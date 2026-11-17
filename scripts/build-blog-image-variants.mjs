@@ -25,7 +25,21 @@
 import { existsSync, readdirSync, statSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import sharp from 'sharp';
+import { createRequire } from 'module';
+
+// sharp is deliberately NOT a dependency of the repo. Install it outside the tree and point
+// SHARP_DIR at that prefix:  npm i --prefix /tmp/sharp sharp && SHARP_DIR=/tmp/sharp node scripts/...
+// (--manifest does not need sharp.)
+let sharp;
+if (!process.argv.includes('--manifest')) {
+  const req = createRequire(join(process.env.SHARP_DIR || process.cwd(), 'noop.js'));
+  try {
+    sharp = req('sharp');
+  } catch {
+    console.error('sharp not found. Install it outside the repo (npm i --prefix <dir> sharp) and set SHARP_DIR=<dir>.');
+    process.exit(1);
+  }
+}
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dir = join(root, 'public/blog-thumbnails');

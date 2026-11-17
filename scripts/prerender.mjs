@@ -58,6 +58,23 @@ function helmetToString(helmet) {
     .join('\n');
 }
 
+// The inlined stylesheet is about 70 KB, so Helmet's tags (which land right before </head>) would sit that far into the
+// document. Image preloads (the post hero) must be discovered by the preload scanner as early as possible: pull them out
+// of the Helmet output and put them straight after the viewport meta, ahead of the <style>.
+function hoistImagePreloads(helmetTags) {
+  const hoisted = [];
+  const rest = helmetTags.replace(/<link\b[^>]*\brel="preload"[^>]*\bas="image"[^>]*>/gi, (tag) => {
+    hoisted.push(tag);
+    return '';
+  });
+  return { hoisted: hoisted.join('\n'), rest };
+}
+
+function injectEarly(html, tags) {
+  if (!tags) return html;
+  return html.replace(/(<meta\s+name="viewport"[^>]*>)/i, `$1\n${tags}`);
+}
+
 async function prerender() {
   let template = readFileSync(join(distDir, 'index.html'), 'utf-8');
 
@@ -84,12 +101,12 @@ async function prerender() {
   for (const route of routes) {
     try {
       const { html: appHtml, helmet } = await render(route);
-      const helmetTags = helmetToString(helmet);
+      const { hoisted, rest: helmetTags } = hoistImagePreloads(helmetToString(helmet));
 
       // React 18.3.1's stream writer can flush its whole 2048-byte buffer when a
       // multi-byte char (e.g. an em dash) doesn't fit, emitting 1-2 unused zero
       // bytes. Real content never contains NUL, so strip them.
-      const finalHtml = template
+      const finalHtml = injectEarly(template, hoisted)
         .replace('</head>', `${helmetTags}\n</head>`)
         .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
         .replace(/\0/g, '');
