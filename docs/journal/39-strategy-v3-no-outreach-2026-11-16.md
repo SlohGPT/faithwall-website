@@ -552,3 +552,73 @@ On the final tree, before the push:
 - **Port brief.** The NoteWall 1.2.0 brief went into the repo (`docs/keyword-research/notewall-port-1.2.0.md`) instead of a message, because NoteWall's earlier session ran on the other account. It gives NoteWall paths relative to its own checkout: `check --staged` fails B5 on absolute local paths and on the private archive path in a tracked doc.
 - **Live.** The new CTA title on rotating-bible-verse-wallpaper-iphone was live about 40 s after the push. All 57 sitemap URLs return 200. A text sweep of every live page finds no "nothing to tap" and no "Set Lock Screen". The four remaining hits for "today's verse" or a daily change are true: a generic widget explainer, other apps' flaw, and the pillar FAQ whose answer names the widget opt-in (its heading is TODO-KAROL item 3).
 - **Still open, added:** the private QuranWall brief names the old FaithWall session (other account) as its report-back target. Fix that line when Karol starts a QW session.
+
+## Update, 2026-11-17, morning: homepage v2 shipped, internal-link pass on all three sites
+
+### What was asked
+
+- **Karol, with screenshots of all three sites on a 14" MacBook.**
+  - The App Store badge looks too small next to the Get Started button.
+  - The rebuilt FaithWall homepage isn't live.
+  - Bring back the avatars of the 1,000+ people.
+  - Redo the hero "more like Quran wall … you can do way better job".
+  - His answers to the follow-up questions: bring back the stock photos, and ship now after a preview. He approved the preview with "Ship it".
+- **Karol:** "you should do everything that you need to do to actually really maximize the GEO and SEO impact of these websites": more links between existing pages, more blog links in the navigation, on all three sites.
+- **Karol asked whether DataForSEO's $50 is worth it.**
+
+### What was decided and why
+
+- **DataForSEO: not now.** Search Console, autocomplete and the keyword engine cover today's decisions, and the cohort read-out on 12-02 comes first. TODO-KAROL item 6 stands as the trigger: about 4 weeks of free data that can't separate two topics.
+- **Template-level link changes during the control-group hold.** Related posts, breadcrumbs, the blog index and `llms.txt` change held and treated pages alike, so they are allowed. Each push gets an annotations row. In-body links and title rewrites on held pages wait for 12-02.
+- **One CTA size on all three sites.** The badge and the button are 56 px tall from the lg breakpoint up and 48 px on phones.
+- **The Cloudflare AI-crawler block.** The recommendation to Karol is now to unblock. GPTBot and ClaudeBot still get a 403 on faithwall.app only, while QuranWall and NoteWall return 200. It is his dashboard click.
+
+### What was built
+
+- **6a38294:** `scripts/link-graph.mjs` 1.0.0, with sha256 prefix ba7513f71128.
+  - It audits internal links (orphans, click depth, contextual links in, broken links) and page signals (canonical, noindex, titles, BreadcrumbList, Article and dateModified, llms.txt coverage).
+  - The shared brief for all three sites is `docs/seo-geo-pass-2026-11.md`, with the 11-17 baseline table.
+- **c17d152:**
+  - `getRelated` returns the next 3 posts in the cluster, wrapping around, instead of the first 3 of the cluster.
+  - `/about/karol-billik` gets BreadcrumbList.
+  - `scripts/build-llms.mjs` appends a generated list of guides and articles to `dist/llms.txt` at build time.
+- **Homepage v2 (entry 40), merged in 403eb52:**
+  - a hero in QuranWall's style, with the chips kept off the phone screens;
+  - the avatars restored from `b73c084^`;
+  - an `AppStoreButton` `size="cta"` paired with "Get FaithWall" at 56/48 px.
+- **The sister sites:**
+  - **QuranWall:** badge 745260b. Engine 1.2.0 in eeba4a2, 1eaad62 and 35e4b4a.
+  - **NoteWall:** badge 13ed44a, merged in 82fe072, journal in e1e1a0b. Engine 1.2.0 in 1b1869f and cafaafd.
+  - Both are running the link pass from the brief, on their own branches: QuranWall on `claude/qw-seo-geo-pass`, NoteWall on `seo-links-1117`.
+
+### How it was verified
+
+- **Gates on the merged tree (403eb52):**
+  - typecheck: 6 errors, against a baseline of 7;
+  - build: 57 of 57 routes;
+  - `lint-facts`: `--all` 0 FAIL with 29 WARN (the same as before), `--dist` 0, `--diff origin/main` 0, `--self-test` 204 checks with 0 failed;
+  - no NUL bytes in dist;
+  - keyword engine check: 0 fail.
+- **`link-graph --dist` on FaithWall, before → after:**
+  - exit 1 → 0;
+  - pages with fewer than 3 contextual links in: 1 → 0 (`/blog/faithwall-vs-glorify`);
+  - BreadcrumbList WARN: 1 → 0;
+  - llms.txt WARN: 47 → 0 (6 guides and 41 articles listed);
+  - titles over 65 characters: 24 → 24, held until 12-02.
+  - The median of contextual links in moved from 7 to 6. Related links now spread over every post instead of piling on the first three of each cluster.
+- **Dist against the d942c07 build:**
+  - From the link pass: 31 posts differ only in the "Keep reading" block, the about page only in its JSON-LD, plus `llms.txt`.
+  - From homepage v2: the homepage, plus the larger badge on 50 pages.
+
+### Lesson
+
+- A helper agent's cleanup ran `pkill -f chrome-headless-shell`. That matches every headless Chrome on the Mac, including another project's Remotion render. Agent briefs now say to kill only their own PIDs.
+
+### Still open
+
+- The live check after this push (below).
+- Verify the NoteWall and QuranWall link-pass commits, and their `link-graph --live` results.
+- **Karol:**
+  - the Cloudflare AI-crawler unblock;
+  - whether the back phone's caption stays "Widget · Auto-rotate verses on" or becomes "shows the verse you pick".
+- **After 12-02:** titles over 65 characters (24 on FaithWall, 89 on NoteWall) and in-body links on held pages.

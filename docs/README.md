@@ -4,7 +4,10 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 
 ## Status (2026-11-17)
 
-- **Homepage redesign waiting on a branch (entry 40, not live).** Branch `claude/laughing-lamport-805274` rebuilds `/` in QuranWall's v2 style with FaithWall's facts: a coded hero phone with the app's real Lock Screen and a widget that starts with your verse, a features bento of live mini-mockups, How it works with coded app screens, and no Pexels photos or non-KJV quotes. After Karol's review the phones are drawn as real iPhones (round corners instead of Chrome's boxy squircle), and he approved them. All gates pass and every other page builds identical to main. Nothing is pushed. Karol decides the pricing lines and when to merge (after the 12-02 read-out, or earlier with an annotations row).
+- **Homepage v2 live, internal-link pass on all three sites (entries 39 and 40, 2026-11-17 morning).**
+  - **Homepage.** The hero now follows QuranWall's, the avatars are back, and the badge and "Get FaithWall" are both 56 px on laptops and 48 px on phones, the same as the sister sites. Merged in 403eb52.
+  - **Links.** `scripts/link-graph.mjs` 1.0.0 audits internal links and page signals. The shared brief is `docs/seo-geo-pass-2026-11.md`. On FaithWall: related posts are spread evenly, the about page has BreadcrumbList, and the build generates a list of every guide into `llms.txt`. NoteWall and QuranWall are running the same pass.
+  - **For Karol:** the Cloudflare AI-crawler unblock.
 - **How the wallpaper really updates, engine 1.2.0 (entry 39, 11-17 update).**
   - **App facts.** In the wallpaper setup the app applies a verse when the user picks or edits it. Style changes need Update Wallpaper Now, and nothing runs in the background. The wallpaper setup and the widget setup are alternatives, not one setup. The site's sentences about an automatic or daily change, "today's verse", "nothing to tap", "Set Lock Screen" and a combined setup are fixed, held pages included as one-sentence fact fixes.
   - **Lint.** `wallpaper-automatic` and `wallpaper-widget-combo` are hard failures, so the old claims can't come back. The blog skill and both local autopilot prompts carry the same facts.
