@@ -1,8 +1,99 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { appStoreUrl } from '../lib/appStore';
 import { useStaticBars } from '../lib/useVisualZoom';
+import { COMPARE_LINKS, GUIDE_LINKS, TOOL_LINKS, type SiteLink } from '../lib/siteLinks';
+
+const NAV_LINK = 'text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-3 xl:px-4 py-3 rounded-lg';
+const GROUP_LABEL = 'px-3 pt-2 pb-1 text-[13px] font-semibold uppercase tracking-wider text-white/65';
+const PANEL_LINK = 'block rounded-lg px-3 py-2.5 text-base font-semibold text-white/85 hover:bg-white/5 hover:text-white transition-colors';
+const MOBILE_ROW = 'flex min-h-[48px] items-center rounded-lg px-4 text-lg font-semibold text-white/85 hover:bg-white/5 hover:text-white transition-colors';
+const MOBILE_TOP_ROW = 'flex min-h-[52px] items-center rounded-lg px-4 text-xl font-semibold text-white/85 hover:bg-white/5 hover:text-white transition-colors';
+
+function LinkGroup({ label, links, onNavigate }: { label: string; links: SiteLink[]; onNavigate: () => void }) {
+  return (
+    <div>
+      <p className={GROUP_LABEL}>{label}</p>
+      <ul>
+        {links.map((l) => (
+          <li key={l.href}>
+            <Link to={l.href} className={PANEL_LINK} onClick={onNavigate}>
+              {l.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/**
+ * Desktop "Guides" disclosure: a button with aria-expanded / aria-controls. The panel is always in the DOM (and in the
+ * prerendered HTML); closed it is only hidden with CSS (visibility), so its links are crawlable and never focusable.
+ * Enter/Space toggle (native button), Escape closes and returns focus to the button, a click or focus outside closes.
+ */
+function GuidesMenu() {
+  const [open, setOpen] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointer = (e: PointerEvent) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onFocusIn = (e: FocusEvent) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('pointerdown', onPointer);
+    document.addEventListener('focusin', onFocusIn);
+    return () => {
+      document.removeEventListener('pointerdown', onPointer);
+      document.removeEventListener('focusin', onFocusIn);
+    };
+  }, [open]);
+
+  return (
+    <div
+      ref={wrapRef}
+      className="relative"
+      onKeyDown={(e) => {
+        if (e.key === 'Escape' && open) {
+          e.stopPropagation();
+          setOpen(false);
+          buttonRef.current?.focus();
+        }
+      }}
+    >
+      <button
+        ref={buttonRef}
+        type="button"
+        className={`${NAV_LINK} inline-flex items-center gap-1.5`}
+        aria-expanded={open}
+        aria-controls="guides-menu-panel"
+        onClick={() => setOpen((v) => !v)}
+      >
+        Guides
+        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} aria-hidden="true" />
+      </button>
+      <div
+        id="guides-menu-panel"
+        className={`absolute left-0 top-full mt-3 w-[34rem] max-w-[calc(100vw-3rem)] rounded-2xl border border-surface-border bg-surface-elevated p-3 shadow-2xl transition-[opacity,transform,visibility] duration-200 ease-out motion-reduce:transition-none ${
+          open ? 'visible translate-y-0 opacity-100' : 'invisible pointer-events-none -translate-y-2 opacity-0'
+        }`}
+      >
+        <div className="grid grid-cols-2 gap-x-4">
+          <LinkGroup label="Guides" links={GUIDE_LINKS} onNavigate={() => setOpen(false)} />
+          <div className="space-y-2">
+            <LinkGroup label="Compare" links={COMPARE_LINKS} onNavigate={() => setOpen(false)} />
+            <LinkGroup label="Free tools" links={TOOL_LINKS} onNavigate={() => setOpen(false)} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Navigation() {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -89,6 +180,21 @@ export default function Navigation() {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
+
+  const closeMobile = useCallback(() => setIsMobileMenuOpen(false), []);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  // Escape closes the mobile menu and returns focus to its toggle button.
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [isMobileMenuOpen]);
 
   // No scrolled pill (glass, shadow, progress ring) while the bar is not fixed.
   const pill = hasScrolled && !barStatic;
@@ -238,29 +344,18 @@ export default function Navigation() {
               </Link>
 
               <div className="flex items-center gap-6 ml-auto">
-                <div className="hidden lg:flex items-center gap-2">
-                  <Link
-                    to="/#features"
-                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
-                  >
-                    Features
-                  </Link>
-                  <Link
-                    to="/#how-it-works"
-                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
-                  >
-                    How it works
-                  </Link>
-                  <Link
-                    to="/blog"
-                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
-                  >
+                <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+                  <GuidesMenu />
+                  <Link to="/blog" className={NAV_LINK}>
                     Blog
                   </Link>
-                  <Link
-                    to="/#faq"
-                    className="text-lg font-semibold text-white hover:text-white/70 transition-colors duration-300 px-4 py-3"
-                  >
+                  <Link to="/#features" className={NAV_LINK}>
+                    Features
+                  </Link>
+                  <Link to="/#how-it-works" className={NAV_LINK}>
+                    How it works
+                  </Link>
+                  <Link to="/#faq" className={NAV_LINK}>
                     FAQ
                   </Link>
                 </div>
@@ -275,10 +370,12 @@ export default function Navigation() {
                 </a>
 
                 <button
+                  ref={menuButtonRef}
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   className="lg:hidden p-2 text-white hover:text-white/70 transition-colors duration-300"
                   aria-label="Toggle menu"
                   aria-expanded={isMobileMenuOpen}
+                  aria-controls="mobile-menu-panel"
                 >
                   {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </button>
@@ -297,50 +394,78 @@ export default function Navigation() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
         <div
-          className={`absolute left-4 right-4 bg-surface-elevated rounded-2xl shadow-2xl transition-[transform,opacity] duration-200 ease-out ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
+          id="mobile-menu-panel"
+          className={`absolute left-4 right-4 flex flex-col bg-surface-elevated rounded-2xl shadow-2xl transition-[transform,opacity] duration-200 ease-out ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
             }`}
-          style={{ top: 'calc(5rem + env(safe-area-inset-top, 0px) + var(--browser-top-inset, 0px))' }}
+          style={{
+            top: 'calc(5rem + env(safe-area-inset-top, 0px) + var(--browser-top-inset, 0px))',
+            maxHeight: 'calc(100dvh - 6rem - env(safe-area-inset-top, 0px) - var(--browser-top-inset, 0px))',
+          }}
         >
-          <div className="flex flex-col p-3 gap-2">
-            <Link
-              to="/#features"
-              className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
+          <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain p-3 pb-1">
+            <p className={GROUP_LABEL}>Guides</p>
+            <ul>
+              {GUIDE_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link to={l.href} className={MOBILE_ROW} onClick={closeMobile}>
+                    {l.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className={`${GROUP_LABEL} mt-2`}>Compare</p>
+            <ul>
+              {COMPARE_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link to={l.href} className={MOBILE_ROW} onClick={closeMobile}>
+                    {l.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className={`${GROUP_LABEL} mt-2`}>Free tools</p>
+            <ul>
+              {TOOL_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link to={l.href} className={MOBILE_ROW} onClick={closeMobile}>
+                    {l.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <ul className="mt-2 pt-2 border-t border-surface-border">
+              <li>
+                <Link to="/blog" className={MOBILE_TOP_ROW} onClick={closeMobile}>
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/#features" className={MOBILE_TOP_ROW} onClick={closeMobile}>
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link to="/#how-it-works" className={MOBILE_TOP_ROW} onClick={closeMobile}>
+                  How it works
+                </Link>
+              </li>
+              <li>
+                <Link to="/#faq" className={MOBILE_TOP_ROW} onClick={closeMobile}>
+                  FAQ
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="shrink-0 p-3 pt-2 border-t border-surface-border">
+            <a
+              href={appStoreUrl('web-site')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-full px-8 py-3.5 bg-white text-surface text-xl font-semibold rounded-full transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Features
-            </Link>
-            <Link
-              to="/#how-it-works"
-              className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              How it works
-            </Link>
-            <Link
-              to="/blog"
-              className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Blog
-            </Link>
-            <Link
-              to="/#faq"
-              className="px-6 py-5 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all text-xl font-semibold"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              FAQ
-            </Link>
-            <div className="pt-2 mt-2 border-t border-surface-border">
-              <a
-                href={appStoreUrl('web-site')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-full px-8 py-3.5 bg-white text-surface text-xl font-semibold rounded-full transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Get the app
-              </a>
-            </div>
+              Get the app
+            </a>
           </div>
         </div>
       </div>

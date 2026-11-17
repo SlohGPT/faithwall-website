@@ -102,7 +102,7 @@ function GroupHeading({ n, id, title }: { n: number; id: string; title: string }
     <p id={id} className="flex items-center gap-3 text-lg font-bold text-white">
       <span
         aria-hidden="true"
-        className="flex h-7 w-7 items-center justify-center rounded-full bg-brand text-sm font-black text-white"
+        className="flex h-7 w-7 items-center justify-center rounded-full bg-brand text-sm font-black text-surface"
       >
         {n}
       </span>
@@ -138,7 +138,7 @@ function RangeField({
         <label htmlFor={id} className="font-semibold text-white">
           {label}
         </label>
-        <span className="text-xs tabular-nums text-white/50">{display}</span>
+        <span className="text-xs tabular-nums text-white/65">{display}</span>
       </div>
       <input
         id={id}
@@ -567,7 +567,7 @@ export default function WallpaperMaker() {
 
   const pill = (active: boolean) =>
     `px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${focusRing} ${
-      active ? 'bg-brand text-white' : 'bg-surface-elevated text-white/60 hover:text-white'
+      active ? 'bg-brand text-surface' : 'bg-surface-elevated text-white/60 hover:text-white'
     }`;
 
   // Phones: as wide as the viewport height allows so the sticky preview never runs off-screen.
@@ -658,7 +658,7 @@ export default function WallpaperMaker() {
                   />
                 </DeviceMockup>
               </div>
-              <p className="mt-4 text-center text-xs text-white/50">
+              <p className="mt-4 text-center text-xs text-white/65">
                 Preview at {size.width}×{size.height}px, drawn exactly like the download
                 {showGuide ? '. The frame and lock-screen UI are shown only here' : ''}
               </p>
@@ -699,7 +699,7 @@ export default function WallpaperMaker() {
                     className={`${fieldClass} px-4 py-3 leading-relaxed`}
                     placeholder="Type or paste a verse"
                   />
-                  <div className="mt-1 text-right text-xs text-white/40">
+                  <div className="mt-1 text-right text-xs text-white/65">
                     {text.length}/{MAX_TEXT}
                   </div>
                 </div>
@@ -757,7 +757,7 @@ export default function WallpaperMaker() {
                       </button>
                     ))}
                   </div>
-                  <p className="mt-2 text-xs text-white/40">
+                  <p className="mt-2 text-xs text-white/65">
                     Random and quick picks use public-domain KJV text.
                   </p>
                 </div>
@@ -780,7 +780,6 @@ export default function WallpaperMaker() {
                             setBgMode('style');
                           }}
                           aria-pressed={active}
-                          aria-label={s.label}
                           className={`group rounded-2xl p-1.5 text-center transition-colors ${focusRing} ${
                             active ? 'bg-brand/15 ring-2 ring-brand' : 'hover:bg-white/5'
                           }`}
@@ -879,7 +878,7 @@ export default function WallpaperMaker() {
                           <span className="block font-semibold">
                             {photoLoading ? 'Opening photo...' : photo ? 'Choose a different photo' : 'Choose a photo'}
                           </span>
-                          <span className="block truncate text-xs text-white/50">
+                          <span className="block truncate text-xs text-white/65">
                             {photo ? photo.name : 'JPG, PNG or WebP from your device'}
                           </span>
                         </span>
@@ -1046,7 +1045,7 @@ export default function WallpaperMaker() {
                           <Icon className={`h-5 w-5 shrink-0 ${active ? 'text-brand' : 'text-white/40'}`} aria-hidden="true" />
                           <span className="min-w-0">
                             <span className="block text-sm font-semibold leading-tight">{s.label}</span>
-                            <span className="block text-xs opacity-60">
+                            <span className="block text-xs opacity-75">
                               {s.width}×{s.height}
                             </span>
                           </span>
@@ -1085,12 +1084,12 @@ export default function WallpaperMaker() {
                   type="button"
                   onClick={() => handleExport('download')}
                   disabled={!hasText || busy}
-                  className={`inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-brand px-8 py-4 text-lg font-black text-white shadow-lg shadow-brand/25 transition-colors hover:bg-brand-light disabled:cursor-not-allowed disabled:opacity-50 ${focusRing}`}
+                  className={`inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-brand px-8 py-4 text-lg font-black text-surface shadow-lg shadow-brand/25 transition-colors hover:bg-brand-light disabled:cursor-not-allowed disabled:opacity-50 ${focusRing}`}
                 >
                   <Download className="w-5 h-5" aria-hidden="true" />
                   {busy ? 'Rendering...' : 'Download PNG'}
                 </button>
-                <p className="-mt-1 text-center text-xs text-white/50">
+                <p className="-mt-1 text-center text-xs text-white/65">
                   {size.width}×{size.height}px, no watermark, nothing uploaded
                 </p>
                 <button
@@ -1147,7 +1146,7 @@ export default function WallpaperMaker() {
                   </ol>
                 </div>
               </div>
-              <p className="mt-5 text-xs text-white/50">
+              <p className="mt-5 text-xs text-white/65">
                 Need the file again?{' '}
                 <a
                   href={exported.url}

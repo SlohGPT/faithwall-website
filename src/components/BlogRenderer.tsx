@@ -366,7 +366,7 @@ export default function BlogRenderer({ sections, slug, title, pageType, inlineCo
                 <ol className="post-ranked space-y-4 list-none pl-0">
                   {section.items.map((item, idx) => (
                     <li key={idx} className="flex gap-4 items-start p-4 rounded-xl bg-surface-card border border-surface-border">
-                      <span className="shrink-0 w-8 h-8 rounded-full bg-brand text-white font-bold flex items-center justify-center text-sm">
+                      <span className="shrink-0 w-8 h-8 rounded-full bg-brand text-surface font-bold flex items-center justify-center text-sm">
                         {idx + 1}
                       </span>
                       <div className="flex-1">

@@ -86,7 +86,7 @@ const FALLBACK_NOTE =
 
 const pillClass = (active: boolean) =>
   `px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
-    active ? 'bg-brand text-white' : 'bg-surface-elevated text-white/60 hover:text-white'
+    active ? 'bg-brand text-surface' : 'bg-surface-elevated text-white/60 hover:text-white'
   }`;
 
 const faqs = [
@@ -328,7 +328,7 @@ export default function RandomVerse() {
   const translationToggle =
     translations.length > 1 ? (
       <div className="mt-6 flex flex-wrap items-center justify-center gap-2" role="group" aria-label="Translation">
-        <span className="text-xs font-semibold uppercase tracking-widest text-white/50">Translation</span>
+        <span className="text-xs font-semibold uppercase tracking-widest text-white/65">Translation</span>
         {translations.map((t) => (
           <button
             key={t.id}
@@ -354,7 +354,7 @@ export default function RandomVerse() {
 
   const modeButtonClass = (active: boolean) =>
     `px-4 py-2 rounded-xl text-sm font-bold transition-colors ${
-      active ? 'bg-brand text-white' : 'bg-surface-elevated text-white/60 hover:text-white'
+      active ? 'bg-brand text-surface' : 'bg-surface-elevated text-white/60 hover:text-white'
     }`;
   const secondaryButtonClass =
     'inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-elevated text-white font-semibold border border-surface-border hover:border-brand/50 transition-colors';
@@ -431,14 +431,14 @@ export default function RandomVerse() {
                   — {shown.reference} ({shown.translation})
                 </footer>
               </blockquote>
-              {note && <p className="mt-4 text-xs text-white/50">{note}</p>}
+              {note && <p className="mt-4 text-xs text-white/65">{note}</p>}
 
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 <button
                   type="button"
                   onClick={handleNewVerse}
                   disabled={loading}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand text-white font-bold hover:bg-brand-light transition-colors disabled:opacity-70"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand text-surface font-bold hover:bg-brand-light transition-colors disabled:opacity-70"
                 >
                   <Shuffle className="w-4 h-4" aria-hidden="true" />
                   {loading ? 'Loading…' : 'New verse'}
@@ -485,7 +485,7 @@ export default function RandomVerse() {
 
               {source === 'bible' ? (
                 <>
-                  <p className="mt-3 text-xs text-white/50">
+                  <p className="mt-3 text-xs text-white/65">
                     Picked uniformly from all 31,102 verses of the KJV.
                   </p>
                   {translationToggle}
@@ -525,7 +525,7 @@ export default function RandomVerse() {
               </p>
               <p className="text-white text-3xl sm:text-4xl font-black tracking-tight">
                 {referenceBookName(chapter.book)} {chapter.chapter}{' '}
-                <span className="text-white/50 text-lg font-semibold">({translationLabel})</span>
+                <span className="text-white/65 text-lg font-semibold">({translationLabel})</span>
               </p>
               <p className="mt-3 text-white/60 text-sm">
                 Chosen uniformly at random from {booksForMode(chapterFilter).reduce(
@@ -546,7 +546,7 @@ export default function RandomVerse() {
                     ))}
                   </div>
                 ) : chapterText.status === 'loading' ? (
-                  <p className="text-sm text-white/50">Loading chapter text…</p>
+                  <p className="text-sm text-white/65">Loading chapter text…</p>
                 ) : (
                   <p className="text-sm text-white/60">
                     Couldn't load the chapter text just now. You can read it on BibleGateway with the
@@ -559,7 +559,7 @@ export default function RandomVerse() {
                 <button
                   type="button"
                   onClick={() => setChapter(pickRandomChapter(chapterFilter))}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand text-white font-bold hover:bg-brand-light transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand text-surface font-bold hover:bg-brand-light transition-colors"
                 >
                   <Shuffle className="w-4 h-4" aria-hidden="true" />
                   New chapter

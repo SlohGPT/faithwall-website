@@ -195,7 +195,7 @@ export default function CompareView({ config }: { config: CompareConfig }) {
             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
               {config.title}
             </h1>
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/50">
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/65">
               <span className="flex items-center gap-1.5">
                 <Calendar className="w-4 h-4" /> Last updated {formatDate(config.dateModified || config.datePublished)}
               </span>
@@ -212,7 +212,7 @@ export default function CompareView({ config }: { config: CompareConfig }) {
                 <Inline text={config.quickAnswer} />
               </div>
               {config.biasDisclosure && (
-                <p className="mt-3 text-sm text-white/50 italic leading-relaxed">
+                <p className="mt-3 text-sm text-white/65 italic leading-relaxed">
                   {config.biasDisclosure}
                 </p>
               )}
@@ -237,14 +237,14 @@ export default function CompareView({ config }: { config: CompareConfig }) {
                 F
               </div>
               <p className="font-bold text-white">FaithWall</p>
-              <p className="text-xs text-white/50 mt-1">Lock-Screen Scripture</p>
+              <p className="text-xs text-white/65 mt-1">Lock-Screen Scripture</p>
             </div>
             <div className="rounded-2xl p-5 bg-surface-card border border-surface-border text-center">
               <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-surface-elevated flex items-center justify-center text-white/80 font-bold text-xl">
                 {config.competitorIcon}
               </div>
               <p className="font-bold text-white">{config.competitorName}</p>
-              <p className="text-xs text-white/50 mt-1">{config.competitorTagline}</p>
+              <p className="text-xs text-white/65 mt-1">{config.competitorTagline}</p>
             </div>
           </div>
 
@@ -392,7 +392,7 @@ function RowCell({ value }: { value: string }) {
   }
   if (value === 'No') {
     return (
-      <span className="inline-flex items-center gap-1.5 text-white/40">
+      <span className="inline-flex items-center gap-1.5 text-white/65">
         <XIcon className="w-4 h-4" /> No
       </span>
     );

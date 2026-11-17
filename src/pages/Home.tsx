@@ -91,11 +91,13 @@ export default function Home() {
             <Hero />
             <SocialProof />
             <Seam />
-            <Features />
+            {/* Below the fold: skipped by the renderer until near the viewport (hash jumps to #features, #how-it-works and
+                #faq still render their target). Never on SocialProof (near the fold) or FinalCTA (holds the install card). */}
+            <div className="cv-section cv-features"><Features /></div>
             <Seam />
-            <HowItWorksAndPreview />
+            <div className="cv-section cv-how"><HowItWorksAndPreview /></div>
             <Seam />
-            <TestimonialsAndFAQ />
+            <div className="cv-section cv-faq"><TestimonialsAndFAQ /></div>
             <Seam />
             <FinalCTA />
             <Footer />

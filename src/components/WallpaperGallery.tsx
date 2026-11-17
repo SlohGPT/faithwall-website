@@ -36,14 +36,14 @@ function Tile({ item }: { item: Item }) {
       />
       <figcaption className="p-3">
         <p className="text-sm font-semibold text-white">
-          {item.ref} <span className="text-white/50 font-normal">{item.translation}</span>
+          {item.ref} <span className="text-white/65 font-normal">{item.translation}</span>
         </p>
-        <p className="text-xs text-white/50 mb-3">{label(item.theme)}</p>
+        <p className="text-xs text-white/65 mb-3">{label(item.theme)}</p>
         <div className="grid grid-cols-2 gap-2">
           <a
             href={item.file}
             download
-            className="inline-flex items-center justify-center gap-1 rounded-full bg-brand px-2 py-1.5 text-xs font-semibold text-white hover:bg-brand-dark transition-colors"
+            className="inline-flex items-center justify-center gap-1 rounded-full bg-brand px-2 py-1.5 text-xs font-semibold text-surface hover:bg-brand-dark transition-colors"
           >
             <Download className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
             Download
@@ -99,7 +99,7 @@ export default function WallpaperGallery() {
 
   const pill = (active: boolean) =>
     `px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
-      active ? 'bg-brand text-white' : 'bg-surface-elevated text-white/60 hover:text-white'
+      active ? 'bg-brand text-surface' : 'bg-surface-elevated text-white/60 hover:text-white'
     }`;
 
   return (
@@ -150,7 +150,7 @@ export default function WallpaperGallery() {
           </div>
         </>
       )}
-      <p className="mt-6 text-xs text-white/50">
+      <p className="mt-6 text-xs text-white/65">
         Verse text is the King James Version, which is in the public domain.
       </p>
     </section>

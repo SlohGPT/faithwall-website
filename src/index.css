@@ -586,3 +586,22 @@
   outline-offset: 2px;
 }
 /* === end Blog design pass === */
+
+/* === Nav, footer, a11y and home pass (2026-11-17) === */
+/* Home sections below the fold: the renderer skips them until they are near the viewport. Sizes are the measured heights
+   (auto remembers the real size after the first render). Not used on the hero, SocialProof, FinalCTA or anything holding an install card. */
+.cv-section { content-visibility: auto; }
+.cv-features { contain-intrinsic-size: auto 1470px; }
+.cv-how { contain-intrinsic-size: auto 1080px; }
+.cv-faq { contain-intrinsic-size: auto 1080px; }
+@media (max-width: 767px) {
+  .cv-features { contain-intrinsic-size: auto 2500px; }
+  .cv-how { contain-intrinsic-size: auto 2110px; }
+  .cv-faq { contain-intrinsic-size: auto 1100px; }
+}
+/* Keyboard focus ring on the new nav and footer controls. */
+#guides-menu-panel a:focus-visible, nav button:focus-visible, footer a:focus-visible, footer button:focus-visible {
+  outline: 2px solid #D97B3B;
+  outline-offset: 2px;
+}
+/* === end Nav, footer, a11y and home pass === */
