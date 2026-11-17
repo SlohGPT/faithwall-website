@@ -5,6 +5,7 @@ import CrossPattern from './ui/CrossPattern';
 import GlassCard from './ui/GlassCard';
 import Reveal from './ui/Reveal';
 import SectionHeading from './ui/SectionHeading';
+import { FaqHeaderVisual, FaqIcon, HomeFaqSetupDiagram, isSetupQuestion } from './visual-pages/HomeFaqVisuals';
 
 export default function TestimonialsAndFAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -18,6 +19,7 @@ export default function TestimonialsAndFAQ() {
 
             <div className="container-main relative">
                 <div id="faq" className="mx-auto max-w-3xl">
+                    <FaqHeaderVisual />
                     <SectionHeading eyebrow="FAQ" title="Common questions" align="center" className="mb-12" />
 
                     <div className="space-y-3">
@@ -37,7 +39,8 @@ export default function TestimonialsAndFAQ() {
                                             aria-expanded={open}
                                             aria-controls={`faq-answer-${index}`}
                                         >
-                                            <span className={`font-medium transition-colors ${open ? 'text-white' : 'text-white/80 group-hover:text-white'}`}>
+                                            <span className={`flex items-center gap-3 font-medium transition-colors ${open ? 'text-white' : 'text-white/80 group-hover:text-white'}`}>
+                                                <FaqIcon index={index} />
                                                 {faq.q}
                                             </span>
                                             <span
@@ -74,6 +77,7 @@ export default function TestimonialsAndFAQ() {
                                                         </>
                                                     )}
                                                 </p>
+                                                {isSetupQuestion(faq.q) && <HomeFaqSetupDiagram />}
                                             </div>
                                         </div>
                                     </GlassCard>
