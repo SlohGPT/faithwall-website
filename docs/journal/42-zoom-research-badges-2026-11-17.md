@@ -682,3 +682,52 @@ His screenshot shows How it works step 01 with a square, darker-purple screen co
   - Three rows in the private `annotations.csv` (902577b, c17d152, d4f8894) still say "not pushed yet".
   - Mobile Lighthouse for FaithWall needs a rerun on a quiet machine.
   - **Rule:** a session left mid-edit in a main checkout between 07:30 and 11:15 costs that site two content days. Work in worktrees.
+
+## Autopilot readiness: review rounds and final check (11-17 night)
+
+Karol: "once you fix everything here that you should fix, and once all of these sessions … will finish, I need you to check everything once again, write everything down … and then archive all sessions … and make sure everything is working in the future as well, fully automatically, autonomously."
+
+**What was done.** The evening audit's fixes went through three more rounds of adversarial review: each round simulated the gate, autopilot and refresh prompts day by day from 11-18 to 12-15, and a second agent then tried to refute each finding. Everything that survived was fixed. Round 4 came back dry (one finding about p79's wording, refuted by both verifiers). The prompt files live outside the repo (both account copies, kept identical); the repo part is 22976ff.
+
+- **Merge gate** (`faithwall-merge-bot-work-2` and `faithwall-merge-bot-work`):
+  - **Step 1** no longer STOPs on the untracked `.agents/` skill install or `.claude/worktrees/`. Any other untracked file or tracked change still STOPs it.
+  - **Step 1b (new)** re-checks an open "DEPLOY UNCONFIRMED (merge gate" line once a day, with no polling. A pass writes "DEPLOY CHECKED" and runs IndexNow then; a failure is reported, never reverted.
+  - **Step 4** covers every merge that changes a public file, not only vercel.json:
+    - (A) waits up to ~5 minutes for the changed URLs, or for the item's `POST-DEPLOY CHECK:` line, or for the `/assets/` script name to change;
+    - (B) checks that every sitemap URL answers 200 with no redirect and that the 404 page keeps noindex;
+    - a failing check reverts the whole range from BASE in one commit and pauses the item;
+    - when nothing shows within the wait, it writes "DEPLOY UNCONFIRMED", commits and pushes it, and runs no IndexNow.
+  - Transient curl errors (000 or 5xx) get three retries. They count as "cannot check", never as a revert.
+  - After a revert the gate waits at most ~10 minutes for the old answers. It then reports and goes on.
+  - The Request-indexing TODO line is committed and pushed before the report, so the next day's step 1 finds a clean tree.
+  - BASE is recorded once per run.
+  - A TODO-KAROL.md conflict is resolved inside the conflict hunks only. A SKIPPED runtime line from a branch goes at the end of main's notes.
+- **Autopilot** (`faithwall-seo-autopilot-local-2` and `-local`): **runtime skip.** An item it cannot run today (for example p72 before the readout) stays pending with a "SKIPPED YYYY-MM-DD (runtime): reason" line. It is passed over for 3 days, and the autopilot takes the next eligible item. The gate's liveness check does not count such an item for 7 days.
+- **Weekly refresh** (`faithwall-seo-refresh-2` and `-refresh`): every run writes an INDEX STATE line for the four p63 posts until p79 is done. p79 acts only on a line at most 7 days old. The cohort readout list is created when it is absent.
+- **Queue (22976ff):**
+  - **p63:** the consolidation now lives in p79 with its own 308 deploy signal, and p63 keeps the four-post audit. If p63 publishes `bible-study-group-iphone-tools`, it must first fix the post's stale widget lines (56, 64 and 141). Those lines are brandless, so the lint cannot see them.
+  - **p68 (due 11-18) and p69:** the day-one links go on the three non-held posts, never on the held pillar, until p72. Their product facts now match the opt-in Auto-rotate rule and the no-"free"-in-prose rule.
+  - **p72:**
+    - its gate reads the readout list's latest entry;
+    - it empties every hold list and flag;
+    - its `POST-DEPLOY CHECK` names `/daily-scripture-lock-screen`, the only formerly held page that gets a mid card.
+- **lint-facts (22976ff):** held pillars and compare pages now follow `HOLD_ALL_PILLARS` and `HOLD_ALL_COMPARE` in `conversionHold.ts` instead of being hard-coded. Before, lifting the hold in p72 would have failed every pillar and compare page.
+
+**Verified tonight:**
+- lint-facts `--prompts` reports 0 FAIL, 0 WARN on all six prompt files and the blog skill. `--all` reports 0 FAIL (21 known WARN), and `--dist` reports 0 FAIL.
+- The queue round-trips through Python's `json.dumps`.
+- Each pair of account copies is identical once the "-2" names are mapped.
+- On origin/main, `take both links from the three posts` occurs twice and `readHoldFlag` three times.
+- All three main checkouts are clean on main, apart from FaithWall's benign `.agents/`, and no `claude/*` branch is unmerged.
+- `/`, robots.txt, sitemap.xml and llms.txt answer 200 on all three sites.
+- All nine site tasks are enabled with tomorrow's runs due:
+  - QuranWall autopilot 07:43, FaithWall 08:10, NoteWall 08:32;
+  - gates at 10:00, 10:58 and 11:24;
+  - Monday refreshes.
+- A one-time read-only check (`app-sites-pipeline-check-1118`, 11-18 13:00) reports whether day one ran cleanly on all three sites.
+
+**Still open:**
+- The cloud routine in Karol's other account is not visible from here.
+- Three private `annotations.csv` rows (902577b, c17d152, d4f8894) still say "not pushed yet".
+- The old worktrees (`laughing-lamport-805274`, `fw-blog-cwv`) can be removed when Karol wants.
+- The `bible-study-group-iphone-tools` post facts wait for p63 or p78.
