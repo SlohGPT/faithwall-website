@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
@@ -38,6 +38,10 @@ const footerLinks = {
 
 export default function Footer() {
   const [showModal, setShowModal] = useState(false);
+  // Apple allows one App Store badge per layout. On the home page FinalCTA already
+  // shows it, so the footer falls back to a text link there.
+  const { pathname } = useLocation();
+  const isHome = (pathname.replace(/\/+$/, '') || '/') === '/';
 
   return (
     <footer data-site-footer className="bg-surface border-t border-surface-border relative">
@@ -60,7 +64,18 @@ export default function Footer() {
             </p>
 
             <div className="mt-6">
-              <AppStoreButton href={appStoreUrl('web-site')} />
+              {isHome ? (
+                <a
+                  href={appStoreUrl('web-site')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-white transition-colors text-sm underline underline-offset-4"
+                >
+                  Download FaithWall on the App Store
+                </a>
+              ) : (
+                <AppStoreButton href={appStoreUrl('web-site')} />
+              )}
             </div>
           </div>
 

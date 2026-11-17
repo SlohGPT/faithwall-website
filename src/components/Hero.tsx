@@ -243,7 +243,7 @@ export default function Hero() {
             </p>
 
             <div className="animate-fade-up-d4">
-              <div data-hero-cta className="hero-ctas flex flex-row flex-wrap items-center gap-3">
+              <div data-hero-cta className="hero-ctas flex flex-row flex-wrap items-center gap-x-4 gap-y-3">
                 <AppStoreButton size="cta" href={appStoreUrl('web-home-hero')} />
                 <a
                   href={appStoreUrl('web-home-hero')}
