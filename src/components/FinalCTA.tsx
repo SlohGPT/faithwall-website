@@ -1,4 +1,4 @@
-import AppStoreButton from './AppStoreButton';
+import AppStoreButton, { CTA_BUTTON_CLASS } from './AppStoreButton';
 import InstallHandoff from './InstallHandoff';
 import { appStoreUrl } from '../lib/appStore';
 import { SHOWCASE_VERSES } from '../data/showcaseVerses';
@@ -31,14 +31,14 @@ export default function FinalCTA() {
                   Pick a Bible verse and put it on your lock screen, where you will see it every time you pick up your phone.
                 </p>
 
-                <div className="flex flex-col gap-6 xl:flex-row xl:items-center xl:gap-8">
+                <div className="flex flex-col gap-6 2xl:flex-row 2xl:items-center 2xl:gap-8">
                   <div className="flex flex-row flex-wrap items-center gap-3">
-                    <AppStoreButton href={appStoreUrl('web-site')} />
+                    <AppStoreButton size="cta" href={appStoreUrl('web-site')} />
                     <a
                       href={appStoreUrl('web-site')}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap rounded-xl bg-brand px-6 text-base font-bold text-surface shadow-[0_10px_30px_-6px_rgba(217,123,59,0.5)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-light hover:shadow-[0_14px_36px_-6px_rgba(217,123,59,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface sm:px-7"
+                      className={CTA_BUTTON_CLASS}
                     >
                       Get FaithWall
                     </a>

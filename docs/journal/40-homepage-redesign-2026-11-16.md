@@ -139,3 +139,20 @@ Commit: 34a6acd (site). Not pushed.
 7. **The live squircle frames.** The wallpaper maker page and the blog's Lock Screen figures (`LockScreenVerse` through `BlogRenderer`) still use the squircle frame, so they look boxy in Chrome on the live site. The fix is the same corner change for the `maker` variant, but it changes live pages: do it after the 12-02 read-out, or with an `annotations.csv` row.
 
 **Approved.** Karol looked at the new phones and approved them: "Looks right". The pricing lines and the merge timing (items 1 and 2) are still his to decide.
+
+## 2026-11-17 update: merged with main, finished for shipping
+
+**What Karol asked (17 Nov):** finish the homepage so it is ready to ship. Bring the stock photos back in the social-proof pill. Make the App Store badge and the "Get FaithWall" button the same height (on his 14-inch MacBook the badge looked too small and did not match the button). Move the hero copy closer to QuranWall's hero: a concrete sub line and small floating chips around the phones.
+
+**What changed:**
+- **Merge.** `main` (d942c07) merged into the branch. The only conflict was the hub (`docs/README.md`), merged by hand with both sides kept. Journal 40 keeps its number.
+- **Lint.** The old PhoneStage `aria-label` ("a widget that shows a fresh verse every day") now says the widget shows your verse and can rotate if you turn on Auto-rotate verses. The widget label on the phones had the same claim ("a fresh verse every day"); it now reads "Auto-rotate verses on", and the counter says "next verse". `lint-facts` passes on the merged tree.
+- **Pill.** `avatar-1..3.jpg` restored from `b73c084^` (only those three). The hero pill has an overlapping stack of three 36 px round photos (`alt=""`, width and height set, lazy) before "Used by 1,000+ people", which is unchanged.
+- **CTA sizing.** `AppStoreButton` has a `size="cta"` option: 48 px tall on phones, 58 px from lg up, scaled by height with the aspect ratio kept (the default 44 px size is unchanged, used by the footer). `CTA_BUTTON_CLASS` gives "Get FaithWall" the same heights, with larger text and padding. Used in the hero and the final CTA. `size="cta"` is also set where the badge stands alone in a CTA block: end-of-post and compare CTAs, the wallpaper maker CTA and the install card. The footer badge and the compact inline nudge keep 44 px. The final CTA card now puts the QR block under the buttons until 2xl, so the larger pair does not wrap.
+- **Hero copy.** The headline stays "Daily Scripture / On Your Lock Screen". The sub is now "Pick any verse in 24 translations, and FaithWall sets it as your iPhone Lock Screen wallpaper. Change it whenever you like." (24 comes from `facts.json`). Four chips float around the phones from tablet width up, hidden on phones: "1 Pick a verse", "24 translations", "10 app languages" (both counts from `facts.json`) and "Lock Screen or widget". The brief's "Lock Screen + widget" became "or" because the two setups are alternatives (rule `wallpaper-widget-combo`). "6 fonts & custom colors" was not used: no source for the number in `facts.json` or the repo.
+
+**Gates (fresh build):** typecheck 6 errors (main: 7); build exit 0, 57 of 57 routes; `lint-facts` `--all` 0 FAIL (29 WARN, as before), `--dist` 0, `--self-test` 204 checks 0 failed, `--diff main --worktree` 0; 0 NUL bytes in dist; keyword-research `check --staged` 0 FAIL. Against a main build, every page except the homepage differs only by the larger badge markup (50 pages that render the cta-size badge); the other 57 pages are otherwise byte-identical.
+
+**Measured (rendered):** at 1512 x 982 the badge is 58 x 174 px and the button 58 x 203 px; at iPhone 390 x 844 both are 48 px tall (badge 144 wide, button 159). 375 wide: same, no sideways overflow.
+
+**Decision note:** the homepage and 50 other pages' badge size changed before the 12-02 read-out, so the control-group hold no longer covers the homepage. An `annotations.csv` row (2026-11-17, "homepage v2 hero redesign") records it. Still not pushed or merged: Karol decides the merge timing.

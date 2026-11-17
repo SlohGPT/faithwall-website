@@ -243,7 +243,7 @@ function FaithWallCta() {
         black or gray.
       </p>
       <div className="flex justify-center">
-        <AppStoreButton href={APP_STORE_URL} theme="light" />
+        <AppStoreButton size="cta" href={APP_STORE_URL} theme="light" />
       </div>
     </div>
   );

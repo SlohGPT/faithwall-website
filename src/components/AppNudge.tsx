@@ -107,7 +107,7 @@ export default function AppNudge({
           </div>
           {/* Apple's badge rules: clear space of at least a quarter of its height (11 px) on every side. */}
           <div className="mt-5">
-            <AppStoreButton href={href} theme="light" />
+            <AppStoreButton size="cta" href={href} theme="light" />
           </div>
         </div>
         <InstallHandoff />

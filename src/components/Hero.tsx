@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import AppStoreButton from './AppStoreButton';
+import AppStoreButton, { CTA_BUTTON_CLASS } from './AppStoreButton';
 import { RatingLine } from './AppNudge';
 import { appStoreUrl } from '../lib/appStore';
 import facts from '../data/facts.json';
@@ -47,6 +47,12 @@ const HERO_CSS = `
 .hero-label{display:none;position:absolute;z-index:30;font-size:clamp(.625rem,calc(var(--H)*.0185),.8125rem);line-height:1.3;white-space:nowrap;padding:.5em .85em;border-radius:.9em;border:1px solid rgba(255,255,255,.12);background:rgba(20,20,28,.88);box-shadow:0 12px 30px -10px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06)}
 .hero-label-widget{left:0;top:0}
 .hero-label-lock{right:calc(var(--H)*.206);top:0;transform:translateX(50%)}
+.hero-chip{display:none;position:absolute;z-index:30;align-items:center;gap:.5em;font-size:clamp(.6875rem,calc(var(--H)*.0205),.9rem);font-weight:600;line-height:1;white-space:nowrap;color:rgba(255,255,255,.92);padding:.65em 1em;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(20,20,28,.9);box-shadow:0 12px 30px -10px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.07)}
+.hero-chip-num{display:inline-flex;align-items:center;justify-content:center;width:1.55em;height:1.55em;border-radius:999px;background:#d97b3b;color:#1a1208;font-weight:800;font-size:.95em}
+.hero-chip-step{right:calc(var(--H)*-.035);top:calc(var(--H)*.285)}
+.hero-chip-tr{right:calc(var(--H)*-.035);top:calc(var(--H)*.60)}
+.hero-chip-lang{left:calc(var(--H)*.02);bottom:calc(var(--H)*-.01)}
+.hero-chip-mode{right:calc(var(--H)*-.03);bottom:calc(var(--H)*-.01)}
 .hero-fade{position:absolute;z-index:25;inset-inline:0;bottom:0;height:4.5rem;pointer-events:none}
 
 @media (min-width:768px){
@@ -58,6 +64,7 @@ const HERO_CSS = `
   .hero-front{top:calc(var(--H)*.09)}
   .hero-back{display:block}
   .hero-label{display:block}
+  .hero-chip{display:inline-flex}
 }
 
 @media (min-width:1024px) and (min-aspect-ratio:11/10){
@@ -75,6 +82,8 @@ const HERO_CSS = `
 // Widget demo loop: the Home Screen widget starts with the user's verse (Day 1 = the Lock Screen verse), then shows
 // the next verses one at a time. First render (server and client) is day 1, verse 0.
 const LOOP_MS = 4000;
+
+const AVATARS = ['/assets/avatars/avatar-1.jpg', '/assets/avatars/avatar-2.jpg', '/assets/avatars/avatar-3.jpg'];
 
 function useWidgetLoop() {
   const reduced = usePrefersReducedMotion();
@@ -108,7 +117,7 @@ function DayCounter({ index }: { index: number }) {
           className="col-start-1 row-start-1 text-brand transition-opacity duration-500"
           style={{ opacity: i === index ? 1 : 0 }}
         >
-          {`Day ${i + 1} · ${i === 0 ? 'your verse' : 'fresh verse'}`}
+          {`Day ${i + 1} · ${i === 0 ? 'your verse' : 'next verse'}`}
         </span>
       ))}
     </span>
@@ -122,7 +131,7 @@ function PhoneStage() {
   return (
     <div
       role="img"
-      aria-label="FaithWall example: an iPhone Lock Screen with a chosen Bible verse, and a Home Screen widget that shows a fresh verse every day"
+      aria-label="FaithWall example: an iPhone Lock Screen with a chosen Bible verse, and a Home Screen widget that shows your verse (it can rotate fresh verses if you turn on Auto-rotate verses)"
       className="hero-stage animate-fade-in-slide"
       onPointerEnter={(e) => e.pointerType === 'mouse' && setPaused(true)}
       onPointerLeave={(e) => e.pointerType === 'mouse' && setPaused(false)}
@@ -153,7 +162,7 @@ function PhoneStage() {
           <div>
             <span className="font-semibold text-white">Widget</span>
             <span className="text-white/40">{' · '}</span>
-            <span className="text-white/70">a fresh verse every day</span>
+            <span className="text-white/70">Auto-rotate verses on</span>
           </div>
           <DayCounter index={index} />
         </div>
@@ -162,6 +171,14 @@ function PhoneStage() {
           <span className="text-white/40">{' · '}</span>
           <span className="text-white/70">the verse you pick</span>
         </div>
+        {/* feature chips: true facts from facts.json, tablet width and up (they are hidden on phones) */}
+        <div aria-hidden="true" className="hero-chip hero-chip-step">
+          <span className="hero-chip-num">1</span>
+          <span>Pick a verse</span>
+        </div>
+        <div aria-hidden="true" className="hero-chip hero-chip-tr">{facts.translationCount} translations</div>
+        <div aria-hidden="true" className="hero-chip hero-chip-lang">{facts.uiLanguageCount} app languages</div>
+        <div aria-hidden="true" className="hero-chip hero-chip-mode">Lock Screen or widget</div>
       </div>
 
       {/* stacked layouts: the phone melts into the page where the first screen ends */}
@@ -187,7 +204,21 @@ export default function Hero() {
       <div className="container-main relative">
         <div className="hero-fold">
           <div className="hero-text">
-            <div className="inline-flex items-center rounded-full border-2 border-brand/30 bg-surface-card px-4 py-2 animate-fade-up-d1 sm:px-5 sm:py-3">
+            <div className="inline-flex items-center gap-3 rounded-full border-2 border-brand/30 bg-surface-card py-2 pl-3 pr-4 animate-fade-up-d1 sm:gap-4 sm:py-2.5 sm:pl-4 sm:pr-5">
+              <div className="flex -space-x-2.5">
+                {AVATARS.map((src) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt=""
+                    width={36}
+                    height={36}
+                    className="h-9 w-9 rounded-full object-cover ring-2 ring-surface-card"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ))}
+              </div>
               <span className="text-base font-medium text-white/70">Used by 1,000+ people</span>
             </div>
 
@@ -197,18 +228,18 @@ export default function Hero() {
               <span className="text-white/40">On Your Lock Screen</span>
             </h1>
 
-            <p className="hero-sub max-w-lg text-white/60 animate-fade-up-d3">
-              Meet FaithWall, the app that transforms your iPhone lock screen into a daily moment with God.
+            <p className="hero-sub max-w-xl text-balance text-white/60 animate-fade-up-d3">
+              {`Pick any verse in ${facts.translationCount} translations, and FaithWall sets it as your iPhone Lock Screen wallpaper. Change it whenever you like.`}
             </p>
 
             <div className="animate-fade-up-d4">
               <div data-hero-cta className="hero-ctas flex flex-row flex-wrap items-center gap-3">
-                <AppStoreButton href={appStoreUrl('web-home-hero')} />
+                <AppStoreButton size="cta" href={appStoreUrl('web-home-hero')} />
                 <a
                   href={appStoreUrl('web-home-hero')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-11 shrink-0 items-center justify-center whitespace-nowrap rounded-xl bg-brand px-6 text-base font-bold text-surface shadow-[0_10px_30px_-6px_rgba(217,123,59,0.5)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-light hover:shadow-[0_14px_36px_-6px_rgba(217,123,59,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface sm:px-7"
+                  className={CTA_BUTTON_CLASS}
                 >
                   Get FaithWall
                 </a>
