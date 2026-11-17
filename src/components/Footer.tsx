@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import AppStoreButton from './AppStoreButton';
 import { appStoreUrl } from '../lib/appStore';
@@ -36,12 +35,31 @@ const footerLinks = {
   ],
 };
 
+// Mount/unmount with a CSS transition (replaces framer-motion's AnimatePresence): `mounted` keeps the modal in the
+// tree while it fades out, `entered` drives the transition classes.
+function useModalTransition(open: boolean, exitMs = 200) {
+  const [mounted, setMounted] = useState(false);
+  const [entered, setEntered] = useState(false);
+  useEffect(() => {
+    if (open) {
+      setMounted(true);
+      const raf = requestAnimationFrame(() => requestAnimationFrame(() => setEntered(true)));
+      return () => cancelAnimationFrame(raf);
+    }
+    setEntered(false);
+    const t = setTimeout(() => setMounted(false), exitMs);
+    return () => clearTimeout(t);
+  }, [open, exitMs]);
+  return { mounted, entered };
+}
+
 export default function Footer() {
   const [showModal, setShowModal] = useState(false);
   // Apple allows one App Store badge per layout. On the home page FinalCTA already
   // shows it, so the footer falls back to a text link there.
   const { pathname } = useLocation();
   const isHome = (pathname.replace(/\/+$/, '') || '/') === '/';
+  const { mounted: modalMounted, entered: modalEntered } = useModalTransition(showModal);
 
   return (
     <footer data-site-footer className="bg-surface border-t border-surface-border relative">
@@ -50,8 +68,10 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
               <img
-                src="/icon-app-180.png"
-                alt="FaithWall"
+                src="/icon-app-80.webp"
+                alt=""
+                width={80}
+                height={80}
                 className="w-10 h-10 rounded-xl"
                 loading="lazy"
               />
@@ -193,22 +213,15 @@ export default function Footer() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {showModal && (
+      {modalMounted && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+            <div
               onClick={() => setShowModal(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-200 motion-reduce:transition-none ${modalEntered ? 'opacity-100' : 'opacity-0'}`}
             />
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-sm bg-surface-card border border-white/10 p-8 rounded-3xl shadow-2xl text-center"
+            <div
+              className={`relative w-full max-w-sm bg-surface-card border border-white/10 p-8 rounded-3xl shadow-2xl text-center transition-[opacity,transform] duration-200 ease-out motion-reduce:transition-none ${modalEntered ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-5'}`}
             >
               <button
                 onClick={() => setShowModal(false)}
@@ -234,10 +247,9 @@ export default function Footer() {
               >
                 Got it
               </button>
-            </motion.div>
+            </div>
           </div>
-        )}
-      </AnimatePresence>
+      )}
     </footer>
   );
 }

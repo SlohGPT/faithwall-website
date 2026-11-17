@@ -1,5 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
-import { useInView, animate } from 'framer-motion';
+import { useRef, useEffect, useState, type RefObject } from 'react';
 import facts from '../data/facts.json';
 import GlassCard from './ui/GlassCard';
 import Reveal from './ui/Reveal';
@@ -23,9 +22,47 @@ function formatCount(n: number, decimals: number, suffix: string) {
   return n.toFixed(decimals) + suffix;
 }
 
+// cubic-bezier(0.22, 1, 0.36, 1), the same ease the old framer-motion tween used.
+function easeOut(t: number): number {
+  const x1 = 0.22, y1 = 1, x2 = 0.36, y2 = 1;
+  const at = (a: number, b: number, u: number) => 3 * a * (1 - u) * (1 - u) * u + 3 * b * (1 - u) * u * u + u * u * u;
+  let lo = 0, hi = 1, u = t;
+  for (let i = 0; i < 20; i++) {
+    u = (lo + hi) / 2;
+    if (at(x1, x2, u) < t) lo = u;
+    else hi = u;
+  }
+  return at(y1, y2, u);
+}
+
+// True once the element has been at least half visible (one-time).
+function useInViewOnce(ref: RefObject<Element>): boolean {
+  const [seen, setSeen] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || seen) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setSeen(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setSeen(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.5 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [ref, seen]);
+  return seen;
+}
+
 function Counter({ value, suffix = '', decimals = 0 }: { value: number; suffix?: string; decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const isInView = useInViewOnce(ref);
   // SSR renders the FINAL value, so crawlers, link previews and no-JS readers
   // see real numbers (it used to ship "0+" and "0%"). After hydration, a counter
   // that is still below the fold resets to 0 and counts up when scrolled to.
@@ -42,14 +79,17 @@ function Counter({ value, suffix = '', decimals = 0 }: { value: number; suffix?:
 
   useEffect(() => {
     if (!isInView || !armed.current) return;
-    const controls = animate(0, value, {
-      duration: 1.6,
-      ease: [0.22, 1, 0.36, 1],
-      onUpdate(latest) {
-        setDisplay(formatCount(latest, decimals, suffix));
-      },
-    });
-    return () => controls.stop();
+    const DURATION = 1600;
+    let raf = 0;
+    let start = 0;
+    const tick = (now: number) => {
+      if (!start) start = now;
+      const t = Math.min(1, (now - start) / DURATION);
+      setDisplay(formatCount(t >= 1 ? value : value * easeOut(t), decimals, suffix));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   }, [isInView, value, decimals, suffix]);
 
   return <span ref={ref}>{display}</span>;
