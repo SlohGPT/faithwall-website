@@ -2,6 +2,20 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-17 (how the wallpaper really updates)
+
+I checked the site against the app's source code. The site said the lock-screen verse changes by itself or every day. In the app it changes only when you pick or edit a verse (the app runs the Shortcut), and a style change needs Update Wallpaper Now. Nothing runs in the background. The site, the blog skill and the autopilot prompts now say so, and the lint fails the old claims.
+
+- **1. Five posts built on a daily change (10 minutes).** The posts are verse-of-the-day-lock-screen-iphone, rotating-bible-verse-wallpaper-iphone, daily-scripture-wallpaper-iphone, best-christian-wallpaper-app-iphone and scripture-wallpaper-for-iphone-free.
+  - Their false sentences are fixed, but each topic still promises a verse that changes daily.
+  - The honest framing: you pick a new verse when you want one, or turn on the widget's optional Auto-rotate verses.
+  - Should they keep their topics with that framing, or should some be merged or retired? Until you answer, they keep their topics.
+- **2. Two app issues for the developer (the app, not the site).**
+  - An unused onboarding card, "Pro tip: make it automatic" (`overviewAutomationCard`, OnboardingView.swift ~8182), suggests an automation that would change the verse. Nothing shows it today, but if it's ever wired in, its text is false. Delete it or reword it.
+  - Settings > Change Setup Mode doesn't turn Auto-rotate verses off (SettingsView.swift ~1865-1893 never calls `WidgetRotationManager.disable()`). The flag is saved, and the app rebuilds the rotation queue at launch. So someone who goes from widget to wallpaper and back may find rotation still on.
+- **3. One heading on the daily-scripture pillar (1 minute, after 12-02).** The FAQ asks "Can I get a new Bible verse every day automatically?" The answer under it is now true (only in the widget setup, with Auto-rotate on). The pillar is in the control group, so the heading stays as it is until p72. Should it keep the question or get a new one?
+- Still waiting from the last update: item 2, the legal pages' widget line. The same goes for "a fresh verse every day" in the App Store listing (the ASO session).
+
 ## 2026-11-16, last update (what the app really does)
 
 Checked against the app's source code: two answers to the evening list's item 3, and three short questions.

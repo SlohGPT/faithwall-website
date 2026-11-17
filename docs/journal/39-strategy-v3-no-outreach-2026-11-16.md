@@ -478,3 +478,70 @@ The homepage redesign waits on the local branch `claude/laughing-lamport-805274`
 ### Still open
 
 - Before the branch merges: rebase onto main, fix that label, and re-run every gate (only the fact lint ran here). Karol still decides the pricing lines and the timing (after 12-02).
+
+## Update, 2026-11-17, after midnight: how the wallpaper really updates, engine 1.2.0, NoteWall rounds 6 and 7
+
+### What was asked
+
+No new request from Karol: this update finishes the late-night work. NoteWall's session sent its round 6 on 11-16 with two asks: cover `ixid=` image links in engine 1.2.0, and "If FaithWall's app has a similar trigger, its facts line may need the same caveat". Its round 7 followed after midnight. This update answers both asks, checks both rounds, and fixes what the check found on this site.
+
+### What was found
+
+- **When FaithWall's wallpaper really changes** (iOS source, read-only):
+  - The app runs the Apple Shortcut itself when the user picks or edits a verse (`ContentView.swift` ~814-821). The wallpaper keeps that verse until the user picks another.
+  - Style changes (text, colour, background) need Settings > Update Wallpaper Now.
+  - Nothing runs in the background or on a schedule, and the app can't change the wallpaper while it's closed. A Shortcuts automation only re-applies the last image, so it can't change the verse. Deleting the verse blanks the wallpaper.
+  - In normal use there is no "Set Lock Screen" button (only in troubleshooting). Verse rows have no done control: `toggleCompletion` exists, but nothing calls it.
+  - The wallpaper setup and the widget setup are alternatives, not one setup. Settings > Change Setup Mode switches between them and clears the saved verse. Auto-rotate verses exists only in the widget setup.
+- **What the site said instead:** the verse changes "automatically" or "every day", "today's verse", "nothing to tap", "tap Set Lock Screen", and a wallpaper plus a rotating widget run together as one setup. That was about a hundred sentences in some forty files, held pages included.
+- **NoteWall differs.** There, marking a note done or deleting one re-applies the wallpaper. My round-5 brief wrongly told NoteWall that only the button does, and they reverted that in round 6. The lesson: before stating when an app updates the lock screen, grep every caller of its update function, drop dead code, and never carry one app's trigger over to another.
+- **Engine.** The key-shaped-string rule (B6) flagged image links with `ixid=` and long slug paths on all three sites, which were false positives. It also missed some real key formats.
+- **NoteWall round 6 (dd32811)** was verified and answered.
+- **NoteWall round 7 (aac0dac, merged in a1abb53).** Its gates and its notifications fact hold. The check found four problems:
+  - reversed swipe directions on its FAQ and two posts;
+  - one live page saying wallpaper changes can run on a schedule;
+  - a homepage card promising reminders and habits the app doesn't have;
+  - several lint gaps.
+  They were sent back with fixes.
+- **Where the facts live.** The cloud routine's prompt carries no product facts: it reads the blog skill, so fixing the skill fixes the routine. The two local autopilot prompts carry their own facts line.
+
+### What was decided and why
+
+- **What gets fixed now:** every sentence that is false with every setting on (an automatic or daily wallpaper change, "today's verse", "nothing to tap", "Set Lock Screen", a combined setup).
+  - This includes held pages, as one-sentence fact fixes with dateModified unchanged.
+  - Sentences that only lack the widget opt-in stay with p78 after 12-02, because those pages are the control group. p78's notes now list the lines the lint can't see, held ones included.
+- **The lint now refuses the false forms** (`wallpaper-automatic` and `wallpaper-widget-combo` are hard failures), so new copy can't bring them back. The rules allow negated sentences and widget sentences that name the opt-in.
+- **Engine 1.2.0.**
+  - B6 skips only URL query values under an allow-list of plain parameter names, and slugs only when they are path-shaped.
+  - It adds prefix rules for live keys (Stripe, GitHub, AWS, Google OAuth, npm, Slack, JWT).
+  - Docs and journals give a 12-character sha256 prefix, never the full hash, because B6 flags 32+ hex characters.
+- **Karol decides** the angle of five posts written around a daily-change premise (TODO-KAROL).
+
+### What was built
+
+Pushed to main in one push, on top of f57a34f:
+
+- **Engine 1.2.0:** bb64fd0 (B6 skips URL parts, prefix rules for live keys), 4810908 (review fixes: allow-listed parameters, path-shaped slugs, nested parameters), a5f886d (AWS, Google OAuth, npm and Slack prefixes; no JWT literal in the source), 9702a2e (Slack tokens need a digit, ASIA note). The script's sha256 starts with `77ac7c15b5d1`.
+- **Update-flow facts:** 55f43ad (the false sentences, lint rules, p78 list), 76bd968 (review fixes), af69e91 (CTA title, two lines, negation and timing patterns), df27e24 (round 8: the invented "contemplative style", brandless and subject-first lint rules), 5b1bd82 (the lint matches "on autopilot" only, so the routines' own names stop failing it).
+- **Docs:** this update, the hub, TODO-KAROL and `docs/keyword-research/notewall-port-1.2.0.md`, the port brief for NoteWall.
+- **Outside the repo:** the blog skill's facts went in with the site commits; both local autopilot prompts (line 42) and the private QuranWall brief were updated before the push.
+
+### How it was verified
+
+On the final tree, before the push:
+
+- `npm run build`: exit 0, prerender 57 of 57 routes.
+- `npm run lint:facts`: 0 FAIL, 0 WARN. `--all`: 0 FAIL, 29 WARN, all `widget-rotation-default`, which is p78's list after 12-02. `--dist`: 0 FAIL. `--self-test`: 204 checks, 0 failed.
+- `--prompts` over the nine routine prompts and the blog skill: 0 update-flow FAILs. The 3 `price-or-trial` FAILs are the sale-price line in the us-rank-recovery-check routines, which is about the app sale, not product copy.
+- `npm run typecheck`: 7 errors, the main baseline.
+- No NUL bytes in dist text files. Keyword engine self-test 108/108.
+- Two skeptic rounds checked the copy; their blocking findings were fixed in 76bd968, af69e91 and df27e24, and a recheck passed.
+- The live site was checked after the deploy (below).
+
+### Still open
+
+- **p78 (from 12-02):** the widget sentences without the opt-in, and the lines listed in its notes.
+- **Karol:** the five posts' angle, two app-side issues for the developer, the legal pages' widget line and the pillar's FAQ heading.
+- **The parked homepage branch** must also pass the new hard rules before it merges (`Hero.tsx` and `Features.tsx`).
+- **NoteWall:** the round-7 fixes and the 1.2.0 port, in one push. The round-7 results were sent to NoteWall's session before the cut. The port brief is `docs/keyword-research/notewall-port-1.2.0.md`; a new NoteWall session starts from it, because the old one ran on the other Claude account.
+- **QuranWall:** its brief now carries the update-flow lesson and engine 1.2.0. It still waits for Karol's yes to a new session. It still names the old FaithWall session (on the other account) as the one to report back to; fix that line when the session starts.
