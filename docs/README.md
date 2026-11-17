@@ -10,7 +10,8 @@ Session journal for this repo. One entry per session, append-only, numbered in o
   - The four free-topic posts present FaithWall as the companion to the free apps, and they stay indexed.
   - The web maker keeps "free" only about itself.
   - `lint-facts` enforces all of it, the prose rule on source only.
-  - **Open:** the homepage FAQ, meta and How it works still say "free to download" (Karol's call); one frozen title, "Four-App Stack".
+  - The homepage keeps "free to download" in its FAQ, meta and How it works, because it is the download page.
+  - **Open:** one frozen title, "Four-App Stack".
 - **Zoom fix, research, badge rules, users floor (entry 42, 2026-11-17).**
   - **Live.**
     - Under pinch zoom or short viewports (browser zoom of 200% and more), the header scrolls with the page and the phone bars hide, on all three sites (902577b).

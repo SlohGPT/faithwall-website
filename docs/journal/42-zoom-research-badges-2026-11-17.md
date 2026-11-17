@@ -244,10 +244,14 @@ The original session withdrew the brief's allowance for a post's own closing "fr
 
 - The four free-topic pages stay, with no redirect or noindex, now that FaithWall reads as the companion there.
 - The privacy FAQ gap and the Offer price "0" stay as left; the original session tells Karol about the FAQ.
+- **Homepage keeps "free to download" in three places,** decided by the original session after its live check. Karol's prose rule was about the blogs, and the homepage is the download page, where he wants the phrase to drive installs. The three places:
+  - the FAQ answer "FaithWall is an iPhone app, free to download, that puts…";
+  - the matching meta and og description;
+  - How it works step 1, "(free to download)".
+- **The original session's live check:** 81f4eac and b2eb7fc are on origin/main, and `/pricing.md` returns 404. On the four free-topic posts and the homepage, the subscription and trial hits are all competitor facts (Dwell, ESV, YouVersion, PrayerMate), and "Free to download." appears only on the cards.
 
 ### Open
 
-- **Homepage, outside this pass:** the FAQ answer and the matching meta description open with "FaithWall is an iPhone app, free to download, that puts…", and How it works step 1 says "Download FaithWall from the App Store (free to download)." Both are download-adjacent home copy. Change them only if Karol wants the phrase on the hero and final CTA alone.
 - **Frozen title:** `free-christian-apps-iphone-comparison` keeps the title "The Honest Four-App Stack". The body now has three free apps plus FaithWall, still four apps, so it holds. Rewording the title would need a title exception.
 - **Leftover CTA mismatch:** the `daily-scripture-wallpaper-iphone` CTA description opens "The piece every Bible study stack is missing", copied from another post. It was left because it is outside the free rule.
 - **Lint gaps:**
