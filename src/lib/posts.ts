@@ -21,10 +21,18 @@ export function getListing(slug: string): BlogPostListing | null {
   return allListings.find((p) => p.slug === slug) ?? null;
 }
 
+// Related posts: the next `limit` posts after this one in the cluster's stable
+// (registry) order, wrapping around. Every post then gets about `limit` related
+// links in, instead of the first three posts of a cluster collecting all of them.
 export function getRelated(slug: string, cluster: BlogCluster, limit = 3): BlogPostListing[] {
-  return allListings
-    .filter((p) => p.slug !== slug && p.cluster === cluster)
-    .slice(0, limit);
+  const inCluster = allListings.filter((p) => p.cluster === cluster);
+  const idx = inCluster.findIndex((p) => p.slug === slug);
+  if (idx === -1) return inCluster.slice(0, limit);
+  const others = inCluster.length - 1;
+  const count = Math.min(limit, others);
+  const out: BlogPostListing[] = [];
+  for (let i = 1; i <= count; i++) out.push(inCluster[(idx + i) % inCluster.length]);
+  return out;
 }
 
 export function getPillar(slug: string): PillarConfig | null {

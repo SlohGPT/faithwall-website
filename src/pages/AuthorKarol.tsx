@@ -31,6 +31,15 @@ const personSchema = {
   sameAs: ['https://www.karchi.xyz/'],
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://faithwall.app/' },
+    { '@type': 'ListItem', position: 2, name: NAME, item: URL },
+  ],
+};
+
 export default function AuthorKarol() {
   return (
     <div className="min-h-screen bg-surface">
@@ -47,6 +56,7 @@ export default function AuthorKarol() {
         <meta name="twitter:description" content={DESC} />
         <meta name="twitter:image" content="https://faithwall.app/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
       <Navigation />
       <main className="container-main pt-28 md:pt-32 pb-20">
