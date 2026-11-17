@@ -554,3 +554,88 @@ His screenshot shows How it works step 01 with a square, darker-purple screen co
 
   The "after" runs on live follow below.
 - **Annotations:** one row for 9d1fa20, a sitewide template change.
+
+## Pillar visuals: live check after the push (a5a74dd, 11-17)
+
+- **Live check (after the push):**
+  - All five pillars return 200.
+  - `pv-head` shows on 4 of the pillars; "Guide map" shows on the one where it should.
+  - Raw `/blog/` links: 33, 29, 17, 29 and 29.
+  - The inline style carries `.pv-head` on the 3 pillars sampled.
+  - ct tokens: web-pillar 1, web-site 4, web-smart-banner 1.
+  - Price words: 0.
+  - IndexNow returned 200.
+  - `link-graph --live` exits 0. It warns only about known items: 25 titles over 65 characters, 10 title/H1 mismatches and the shared og-card.
+
+## Smooth loading across the three sites: cross-site measurements (11-17 evening)
+
+- **The ask:** Karol, with two iPhone screenshots: "make sure everything will load smoothly, fast, with cool animations… and this corner radius thing… All of them." On scroll, the numbers ("1,000 plus") and some sections "don't load really smoothly". On the phone mockups, the photo's corners showed past the phone's rounded frame. He followed up with "So optimize everything, so everything will be smooth on all of the websites."
+- **Who did what:**
+  - Each site's own session built its fix: QuranWall bf929e9, NoteWall 612704b + f2bd384 (merge f715205), FaithWall 9d1fa20 (its section above has the build and its own tests).
+  - This session measured each site before and after, independently, and found the corner bug's real cause.
+- **How it was measured:** a Playwright 1.56.1 WebKit checker with the iPhone 15 profile, run against the live sites.
+  - Slow pass: 150 px every 100 ms. Flick pass: 1400 px every 60 ms.
+  - "Late" means an element sat in view below 0.3 opacity for more than 650 ms.
+  - Counters are recorded at the first value seen in view.
+  - The load average was 140–620 throughout because of other projects' video renders, so absolute times are inflated. Before and after ran under similar load.
+- **Before → after:**
+
+| Page | slow late | flick late | counters first seen |
+|---|---|---|---|
+| faithwall.app/ (9d1fa20) | 0 → **0** | 7 (0.7–2.1 s) → **1** (one small SVG at 1.1 s) | "220+" for 1,000+, "4" for 24, "0.9" for 4.7 → "832+", "15", "4.2" |
+| quranwall.com/ (bf929e9) | 5 (the "No ads. Offline browsing." card) → **0** | 0 → 0 | "22%" for 92%, "190+" → "47%", "550+" (starts earlier, visibly counting) |
+| notewall.info/ (f715205) | 0 → 0 | 0 → 0 (2 phone screens, 0 leaky) | none |
+| posts and pillars on all three | 0 → 0 | 0 → 0 | static numbers |
+
+- **Corner leak:** the cause and the fix (`clip-path: inset(0 round R)` plus `isolation: isolate`) are in the FaithWall section above; this session found the cause and sent the fix to all three sessions.
+  - Playwright WebKit cannot reproduce the bug.
+  - On FaithWall it flags 5 of 12 screens after the fix. All 5 crops are false positives: the bezel's light edge stroke, or text that the screen detector picked up. Every screen is round inside its bezel.
+  - **Rule from now on:** verify mockup corners in the iOS Simulator's Mobile Safari.
+- **QuranWall Lighthouse (its session's report):** mobile `/` scores 96, and TBT went from 222 to 71 ms. That closes the earlier TBT recheck.
+- **Side effect:** installing Playwright WebKit pruned the orphaned `chromium-1234` and `chromium_headless_shell-1234` from `~/Library/Caches/ms-playwright`. No project linked to them; the e2e suites use 1243 and 1255.
+- **Still open:** mobile Lighthouse for FaithWall `/`, the christmas post and the pillars needs a rerun on a quiet machine. Every run today was taken at a load average of 140–1,020.
+
+## Autopilot readiness audit (Karol's question, 11-17 evening)
+
+- **The ask:** after today's design, block-architecture and speed changes, Karol asked: "if everything from now on will run smoothly and autonomously in all three folders of all three apps?"
+- **How it was checked:**
+  - A 9-agent audit workflow read the nine enabled scheduled-task prompts (autopilot, merge gate and weekly refresh for each site), each repo's queue, skills and gates, and today's commits, then had every finding checked by a skeptic.
+  - A second workflow reviewed the fixes. Its five findings are folded in below.
+- **Schedule (local, this account):**
+  - Autopilots: QuranWall 07:30, FaithWall 08:00, NoteWall 08:30.
+  - Merge gates: FaithWall 10:00, NoteWall 10:45, QuranWall 11:15.
+  - Weekly refreshes: Mondays.
+  - The Mac wakes at 07:05. Copies in the other account are identical apart from their names; their STEP 0 guards make a second run a no-op.
+- **Found and fixed, NoteWall:**
+  - **Blocker:** the p45 branch (Apple Community links, before the 11-20 closure) conflicted with main in TODO-KAROL.md. The gate aborted every day, and every autopilot run then guard-exited on the unmerged branch.
+  - The NoteWall session merged it by hand (5d46827). It is live: both thread links now point to web.archive.org copies.
+  - Its main checkout had an untracked `.claude/worktrees/`, which is enough to stop the gate. That folder is now in `.git/info/exclude`.
+  - The TODO-KAROL.md clash would come back. On Karol's yes in that session, all three NoteWall gate copies now merge a TODO-KAROL.md conflict instead of aborting (website-notewall journal 40, 7a974e0).
+- **Found and fixed, QuranWall:** the QuranWall session fixed stale gate facts and the pending items that carried retired claims (c3565fe). Verified: the autopilot's empty-queue step reads "queue empty, nothing to do", and the old wording survives only in done or retired items.
+- **Found and fixed, FaithWall** (this repo plus the four local prompt files; lint-facts `--prompts` reports 0 FAIL, 0 WARN on all of them):
+  - **Blog skill step 6** still assumed `sharp` in package.json, which 37ae978 removed. It now installs sharp outside the tree (`SHARP_DIR`). A cover-variant failure never fails the item.
+  - **p74 and p76** were already done by hand today (80433ae + 37ae978, 3e0f288). They are closed so the autopilot does not redo them.
+  - **p75** (vercel.json `trailingSlash`) can only be judged after the deploy. The gate's step 4 now does this for any merge that touches vercel.json, all before IndexNow:
+    - it waits for a deploy signal (for p75, `/blog/` answering 308), giving up after about 10 minutes;
+    - it checks that every sitemap URL answers 200 with no redirect and that the 404 page still carries noindex;
+    - if a check fails, it reverses the whole merge range from BASE in one commit and pauses the item with a "PAUSED (merge gate revert …)" line the autopilot skips;
+    - it writes a TODO-KAROL line and submits no IndexNow.
+    - The first draft of this rule reverted only one commit and re-queued the item for a daily rebuild loop. The review caught both.
+  - **p63** part (a) would add a section to a pillar under the control-group hold. It is split into **p79**, gated on p72. p63 keeps the four-post audit (b).
+  - **Gate annotations:** the step now writes `annotations.csv` in its real 5-column order.
+  - **Gate liveness check:** items gated by a future `not_before`, an unmet `Gate:`, `PAUSED` or `Blocked until` no longer count as eligible. From 12-02, p72, p73, p78 and p79 would otherwise have faked a "blocked routine" alarm.
+  - **Autopilot step 2:** it skips items with an unmet `Gate:` or `Blocked until` condition, and any "PAUSED (merge gate revert" line. Before, it skipped only the new-post indexing brake.
+  - **Gate TODO-KAROL.md conflicts:** FaithWall's gate had the same gap as NoteWall's and would abort on a TODO-KAROL.md conflict. Sessions edit that file on main most days (four commits on 11-17). Step 3e2 now merges it: main's file, plus the branch's new dated sections on top, minus only the lines the branch resolved. QuranWall's gate already did this (union).
+  - Both account copies of the gate and the autopilot were patched identically.
+- **Main checkouts:** the FaithWall gate stops on any dirty file. The peer session's uncommitted smooth-load work in the main checkout became 9d1fa20 (pushed with its journal section 1ac2a14; live, checked above). All three main checkouts are clean on main tonight.
+- **Confirmed fine:**
+  - lint-facts and `keyword-research check` report 0 FAIL in all three repos.
+  - The keyword engine (sha 77ac7c15b5d1) and link-graph 1.1.0 (sha 9772194f53db) are byte-identical on all three sites.
+  - robots.txt and llms.txt allow the AI crawlers and list every post.
+  - The janitor never touches scheduled runs.
+  - The typecheck gate diffs against main, so the known baseline cannot block a merge.
+- **Still open:**
+  - The cloud routine in Karol's other Claude account is not visible from this one. The local autopilots run the same playbooks either way.
+  - Three rows in the private `annotations.csv` (902577b, c17d152, d4f8894) still say "not pushed yet".
+  - Mobile Lighthouse for FaithWall needs a rerun on a quiet machine.
+  - **Rule:** a session left mid-edit in a main checkout between 07:30 and 11:15 costs that site two content days. Work in worktrees.

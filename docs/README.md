@@ -4,6 +4,17 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 
 ## Status (2026-11-17)
 
+- **Autopilot readiness audit (entry 42, 2026-11-17 evening, Karol's question).** The autopilots, merge gates and weekly refreshes of all three sites were checked against today's redesign.
+  - NoteWall's stuck p45 branch is merged and live (5d46827).
+  - QuranWall's stale queue and gate facts are fixed (c3565fe).
+  - FaithWall (e06f8ef plus the local prompt files):
+    - the blog skill installs sharp outside the tree;
+    - p74 and p76 are closed;
+    - the gate checks vercel.json merges after deploy and reverts and pauses on failure (p75);
+    - p63 (a) is split into p79, gated on p72;
+    - gated items no longer fake a liveness alarm or get picked by the autopilot.
+  - **Rule:** main checkouts stay clean on main; sessions work in worktrees.
+- **Smooth loading and phone corners on all three sites (entry 42, 2026-11-17).** FaithWall 9d1fa20, QuranWall bf929e9, NoteWall f715205, each measured live before and after. Verify mockup corners in the iOS Simulator, not Playwright WebKit.
 - **Pillar visuals and the AI-crawler unblock (entry 42, 2026-11-17 afternoon).**
   - Each of the 5 pillars has an illustrated header scene and a "Guide map" (hub plus every post as a real link), template only (a5a74dd). The map sits after the body, before "Featured articles".
   - Cloudflare: Training set to Allow and Bot Preference Sync turned off by the agent at Karol's request. robots.txt matches the repo, every AI bot gets 200, geo-probe exit 0. TODO-KAROL item 4 is done.
