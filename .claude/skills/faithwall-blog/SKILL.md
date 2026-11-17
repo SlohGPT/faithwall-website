@@ -238,6 +238,7 @@ Run through this checklist on your generated JSON **before** writing it:
 - [ ] **Effort signals:** at least two (or one plus a dated `TODO-KAROL.md` line from a device-less run); no first-person testing claims without a device; the iOS version is named wherever Settings steps appear.
 - [ ] **Day-one in-links:** at least two already-indexed ranking pages link in-body to this post in the same commit (5-link cap respected).
 - [ ] **Structured data:** no new FAQPage or HowTo JSON-LD (a visible FAQ block is fine).
+- [ ] **Originality:** run `node scripts/lint-originality.mjs --slug <slug>` and fix any WARN (same first six words, same H2 set, a repeated cited statistic) unless there is a reason. It guards against templated posts; it is not a quota.
 - [ ] First section is the Quick Answer callout.
 - [ ] Last section is the App Store CTA with the right URL.
 - [ ] At least one `verse` block.

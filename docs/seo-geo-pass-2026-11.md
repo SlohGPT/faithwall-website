@@ -97,6 +97,26 @@ node scripts/link-graph.mjs --dist dist --base https://<site>     # same checks 
 - **Question-shaped H2s** that match real queries (the keyword engine's `gsc` and `suggest` output), and dated facts with a named source.
 - **Never write content for AI Mode follow-up rows** ("yes please", "are these free"). Monitor them only.
 
+## link-graph 1.1.0 (WARN-only page-signal checks)
+
+Same file, same flags, same exit code as 1.0.0 (the new keys never fail a run). New keys in `warn` (printed with up to 10 offenders, complete in `--json`), checked on indexable pages only (status 200, no `noindex`):
+
+- `title vs H1 mismatch`: the normalised title minus the brand suffix must contain the H1 or be contained in it; also `(no h1)` and `(multiple h1)`. The home page is skipped.
+- `year in title differs from updated year`: a year in the title or H1 must equal the year of the visible "Updated" date, else JSON-LD `dateModified`. It lists both when they disagree and says `(no updated date)` when there is no reference. The fix is a human decision, never a date edit.
+- `og:image missing`, `og:image not absolute https URL`, `og:image under 1200 px wide`, `og:image under 300,000 px total`: sizes come from a ranged GET of the image header in `--live` mode and from the file in the build folder in `--dist` mode (`(not in dist)` when absent; `(svg, ...)` and `(dimensions unreadable)` are reported under the width key).
+- `og:image is the site logo or app icon`: matches JSON-LD logos, the home `SoftwareApplication` image, `<link>` icons, manifest icons, or an icon/logo/favicon file name.
+- `og:image shared by 3 or more pages`.
+- `robots meta lacks max-image-preview:large`: `robots` and `googlebot` metas, plus the `X-Robots-Tag` header in `--live` mode.
+
+Sisters copy it byte for byte from the commit named in FaithWall's journal, then check the digest against it (no site constants in the file; the brand comes from `og:site_name`):
+
+```
+git -C ../faithwall-website-main show <commit>:scripts/link-graph.mjs > scripts/link-graph.mjs
+shasum -a 256 scripts/link-graph.mjs     # must match the prefix in the journal
+```
+
+FaithWall's `scripts/lint-originality.mjs` (first six words, H2 set Jaccard, repeated statistic; WARN-only) is FaithWall-only and not part of this copy.
+
 ## Rules for all three sites
 
 - **Facts:** facts come only from the site's facts source, and the site's facts lint must pass on the diff and on the build.
