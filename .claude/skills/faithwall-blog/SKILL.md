@@ -173,7 +173,7 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
 - **800–1100 words total** across all `paragraph` and list `text` content.
 - **Exact-match keyword** appears in: `meta.title`, the first `paragraph` section (within first 100 words), and bolded with `**...**` 3–5 times in the body.
 - **First content section MUST be**: `{ "type": "callout", "icon": "zap", "title": "Quick Answer", "content": "..." }` — a 1–3 sentence direct answer to the search query. **Sentence 1 names FaithWall** as the solution (see Lead with FaithWall above). This is snippet bait AND the conversion hook.
-- **Answer first (2026-11-17).** The first paragraph under the H1 answers the title's question directly within its first 100 words, and the exact keyword appears in it. [Surfer, a vendor study scraped June 2026: 38% of AI Overview citations come from a page's first 100 words. Vendor study, not Google guidance.] Each H2 also opens with a 40-60 word direct answer [SEO-STRATEGY.md §5 AEO].
+- **Answer first (2026-11-17).** The first 100 words of the body answer the title's question directly: the Quick Answer callout gives the answer, and the first `paragraph` right after it restates it with the exact keyword. Nothing else (intro story, definitions, an image) comes before them. [Surfer, a vendor study scraped June 2026: 38% of AI Overview citations come from a page's first 100 words. Vendor study, not Google guidance.] Each H2 also opens with a 40-60 word direct answer [SEO-STRATEGY.md §5 AEO].
 - **Effort signals (SEO-STRATEGY.md §5).** At least two things a scraper cannot fake: a measured first-party fact, a version-specific setting path, an original screenshot that already exists in the repo, or a named-author judgment call with reasoning. A device-less (cloud) run never writes a first-person testing claim ("we tested", "we timed", observed timings): it ships with one signal plus a dated line in `TODO-KAROL.md` for the device test. Whenever the post gives Settings steps, name the iOS version they were written for.
 - **Day-one in-links (SEO-STRATEGY.md §4 rule 8, §5).** In the same commit that publishes the post, at least two already-indexed pages that rank (the pillar, a money page or a ranking sibling) get an in-body link to it, within the 5-link cap and its replacement rule. Stage every file you edit for this.
 - **Structured data (2026-11-17).** New posts add neither FAQPage nor HowTo JSON-LD. FAQ rich results stopped showing on 2026-05-07 [Google changelog notice dated 2026-05-08; docs removed 2026-06-15], and HowTo has been deprecated since 2023-09-14. Visible FAQ blocks stay. Existing markup stays because it is harmless (`src/pages/Pillar.tsx` still emits HowTo on 4 pillars, and that is fine). Google says no special schema is needed for its AI features [developers.google.com/search/docs/fundamentals/ai-optimization-guide].
@@ -221,7 +221,7 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
 - "Bible Verse Lock Screen on iPhone: A Step-by-Step Setup" (specific, no year: a how-to is not year-bound)
 - "Best Bible Study Apps for iPhone in 2026, Ranked" (year-bound ranked list; the visible Updated year must be 2026)
 - "How to Build a 7am Prayer Habit That Actually Sticks"
-- "The Quiet Time Focus Mode (iPhone Setup, Step by Step)"
+- "A Morning Verse on Your Lock Screen (iPhone Setup, Step by Step)"
 - "Hallow vs. Lectio 365: Which Prayer App is Worth Your Year?"
 - "Three Scripture Memorization Apps Worth the Install"
 
