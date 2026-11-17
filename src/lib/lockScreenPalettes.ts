@@ -50,14 +50,14 @@ export const LOCK_PALETTES: Record<string, LockPalette> = {
   plum: own('linear-gradient(180deg, #140a1f 0%, #3b1646 50%, #8a3a55 80%, #e08a5a 100%)', { ref: '#ffd9bf', italic: true }),
   cream: {
     bg: '#f3ebd8',
-    text: '#2b2118', ref: '#b4561f', time: '#2b2118', serif: true, weight: 400, italic: false, upper: false,
+    text: '#2b2118', ref: '#8f4416', time: '#2b2118', serif: true, weight: 400, italic: false, upper: false,
   },
   'charcoal-orange': {
     bg: 'linear-gradient(160deg, #0a0a0f 55%, #2a170b 100%)',
     text: WHITE, ref: '#D97B3B', time: WHITE, serif: false, weight: 700, italic: false, upper: true,
   },
   dusk: own('linear-gradient(180deg, #0b1424 0%, #1d2f52 48%, #5b5a8a 78%, #e9a06a 100%)', { ref: '#ffe6cf', serif: false, weight: 500 }),
-  sand: own('linear-gradient(180deg, #f6ead7 0%, #ecd3ae 100%)', { text: '#2b2118', ref: '#b4561f', time: '#2b2118' }),
+  sand: own('linear-gradient(180deg, #f6ead7 0%, #ecd3ae 100%)', { text: '#2b2118', ref: '#8f4416', time: '#2b2118' }),
 };
 
 const PALETTE_ORDER = Object.keys(LOCK_PALETTES);
