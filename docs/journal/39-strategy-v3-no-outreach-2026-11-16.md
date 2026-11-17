@@ -630,3 +630,119 @@ On the final tree, before the push:
   - `link-graph --live https://faithwall.app` exits 0. It finds 57 pages, max depth 2, median 6 contextual links in, no page with fewer than 3, and nothing broken. The only WARN is the 24 held titles.
   - `/assets/avatars/avatar-1..3.jpg` return 200.
 - **IndexNow:** `--all` submitted all 57 URLs and got 200 OK.
+
+## Update, 2026-11-17, afternoon: blog design and Core Web Vitals, no price on the sites, visual redesign, Next.js question
+
+### What was asked
+
+- **Karol, blog and speed:** "design… the blog page better… more readable… add in some links or some whatever sub pages to the navigation bar… optimize it for the LCPs… Web Core Vitals… optimized for mobile, for PC… delegate everything to all of the apps."
+- **Karol, no price wording:** "I wouldn't mention neither of this until people actually click in the app or like in the app store… not mention it. in neither of the 3 apps." This covers blog posts too.
+  - The free wording, his second message: "free to download" is fine at download points. Blogs never say it is free: "just say something like, you can use NoteWall to do this… because we don't want to lie to our customers."
+- **Karol, visual redesign:** the sites are "too text heavy… no vector things… vector graphics with some cool animations… applies to all of the three apps".
+- **Karol, other answers:**
+  - QuranWall's support email iosnotewall@gmail.com: "Keep it as is".
+  - "speed those sessions up… they've been running from the morning".
+  - Fast mode: "No, keep as is".
+- **Karol, after opening FaithWall and QuranWall on his phone:** "it fucking loaded way too slow… Why not switch it to Next.js if it can be better for SEO and faster?" Then: "if it's gonna help the SEO, why not port to Next.js?… it's not that hard."
+
+### What was found
+
+- **Lighthouse, mobile, local build:** medians of 3 runs, before against the last full run (r4) of the branch.
+  - The same protocol was used for both. The absolute numbers are inflated by CPU load from other projects' renders on this Mac.
+
+  | Page | Perf before → after | LCP before → after | Page KB before → after |
+  |---|---|---|---|
+  | `/` | 92 → 96 | 3.08 s → 2.52 s | 337 → 271 |
+  | `/blog` | 74 → 98 | 6.02 s → 2.23 s | 1185 → 261 |
+  | `/blog/best-free-bible-app-iphone` | 75 → 97 | 5.42 s → 2.29 s | 752 → 320 |
+  | `/bible-verse-wallpaper-maker` | 87 → 95 | 3.58 s → 2.74 s | 372 → 242 |
+  | `/blog/christmas-bible-verse-lock-screen-iphone` | 77 → 96 | 4.90 s → 2.36 s | 671 → 311 |
+
+  - Accessibility went from 94–96 to 100 (one post at 96).
+  - CLS stays at or under 0.002. TBT stays at or under 46 ms.
+  - Desktop scores 100 on every page.
+- **The Next.js question, measured live with an iPhone user agent (11-17 afternoon):**
+
+  | Site | Server reply | Text in the server HTML | JS gzip / to parse |
+  |---|---|---|---|
+  | FaithWall live (Vite + React, prerendered) | 0.13 s | full (9,700 chars on `/`) | 182 KB / 569 KB |
+  | FaithWall, this branch | same | same | 105 KB / 342 KB (`/` and posts) |
+  | QuranWall (Vite + React, prerendered) | 0.10 s | full (12,500 chars) | 97 KB / 304 KB |
+  | NoteWall (Next.js) | 0.15 s | full | 165 KB / 517 KB |
+
+  - All three serve finished HTML, which is what crawlers read, so a Next.js port adds no SEO.
+  - NoteWall on Next.js ships about as much JS as live FaithWall, so the framework isn't the slow part. The phone-side JS and image weight is, and this branch cuts it.
+  - The 11 `opacity:0` items on each homepage are the rotating demo frames and closed FAQ answers, not content hidden until JS runs.
+- **QuranWall Vercel checkpoint (403):**
+  - It was a project-level challenge set off by our own automated traffic.
+  - It cleared once QuranWall stopped that traffic.
+  - No team or project setting was touched.
+- **The PageSpeed Insights API without a key** returns 429 (quota). A key would be Karol's.
+
+### What was decided and why
+
+- **No subscription, paywall, trial or price wording on any of the three sites** (Karol's order). Legal pages are kept.
+  - "Free to download" appears only at download points: install cards, App Store buttons, and the hero and final CTA. Prose never says it.
+  - On "free" listicles, our app is the companion to the free picks, never one of them.
+  - The FaithWall homepage keeps its "free to download" lines, because it is the download page.
+  - The brief is in the side-session notes, `no-price-mention/brief.md`.
+- **No Next.js port now.**
+  - It gains neither SEO nor speed (the table above).
+  - It would rewrite every page's HTML while the core update rolls and the control group is held until 12-02.
+  - If Karol wants one stack for all three sites for easier upkeep, that's a valid reason, and it goes after the 12-02 read-out.
+- **Session speed rules, sent to all sessions:**
+  - no local Lighthouse during template pushes;
+  - static budgets before a push, then one live run per page after it;
+  - a standing OK for template pushes once the gates pass;
+  - homepage captures go straight to Karol;
+  - one adversarial review round;
+  - docs ride along with the next push.
+- **Visual redesign:** one brief for all three sites (side-session notes, `visual-redesign/brief.md`).
+  - It uses CSS and SVG only.
+  - Above the fold, nothing starts invisible.
+  - Each inline SVG is at most 8 KB, and a page adds at most 30 KB gzip.
+  - Phone mockups look like an iPhone.
+  - Each site ships in two pushes. The homepage needs Karol's OK.
+
+### What was built
+
+- **This branch (`claude/fw-blog-cwv`), rebased on 0c765cf.** Every change is template-level, so held pages change the same way as treated ones. There are no post-body, title, slug or `dateModified` changes.
+  - e8c2a9b, 7327382, d12753c, a8bbfd9: writing rules from the verified 2026 research. SEO-STRATEGY keeps the no-price Product-facts line from main.
+  - 4ea12de: link-graph 1.1.0 (title against H1, year in title against updated date, og:image and robots WARNs) and lint-originality. sha256 prefix 9772194f53db; the sisters are still on 1.0.0 (ba7513f71128).
+  - 80433ae: AVIF/WebP cover variants and `<picture>`.
+  - 3e0f288: post bodies load as lazy chunks; hero preload.
+  - 682bc4c: framer-motion dropped. The counter uses an IntersectionObserver and the modal a CSS transition. The footer keeps main's home-page text link.
+  - fb8a9f6: inline stylesheet, small icons and avatars, font fallback metrics.
+  - 959c428: blog design. Index chips and grouped cards, a 40rem post column, Contents rail, reading progress, post ending.
+  - 7bf78d1: Guides menu, grouped footer, contrast and label fixes.
+  - 37ae978: hero preload order; legal and author pages lazy.
+  - 5ac5cd9: `og-card.jpg` (1200×630, "FaithWall — Bible verses on your iPhone lock screen") on every non-post page, sizes on all pages, and the pillar Article `image`. `og-image.png` stays for cached shares.
+- **No price wording, live on all three:**
+  - FaithWall 81f4eac (the fork; docs b2eb7fc);
+  - NoteWall 3f5ab1d;
+  - QuranWall in redesign push 1 (96fd64a).
+- **Visual redesign:**
+  - QuranWall push 1 is live (96fd64a); its homepage (push 2) waits for Karol's OK on the captures.
+  - NoteWall push 1 is live; its homepage is next.
+  - FaithWall's FAQ, compare, about and maker visuals are with the fork.
+
+### How it was verified
+
+- **Gates on 5ac5cd9:**
+  - `tsc` 0 errors (baseline 6);
+  - build 58 of 58 routes;
+  - `lint-facts`: `--all` and `--dist` 0 FAIL, `--self-test` 271 of 271;
+  - `--prompts` on the content prompts (the blog skill, SEO-STRATEGY, the autopilot, refresh and merge-bot prompts) is clean apart from "CLAUDE.md file not found", which main shows too. The rank-recovery check prompts FAIL on the business-sale price. Those are internal reports, not site copy;
+  - keyword engine check 0 fail;
+  - `link-graph --dist` exits 0, with one WARN: `og-card.jpg` is shared by many pages, which is expected for a site card;
+  - no NUL bytes in dist.
+- **Proof grep:** the remaining price-word hits in dist are competitor facts in posts, the same set as live after 81f4eac.
+- **Annotations row:** one row for 5ac5cd9.
+- The `vercel-usage` script printed nothing for the app sites, which aren't in the billik report. This push adds no Vercel project, cron or build setting.
+
+### Still open
+
+- The push (waiting for the fork's handshake reply), then the live checks: 200s, IndexNow, `link-graph --live` and one live Lighthouse run per page.
+- **FaithWall pillar visuals** (redesign parts B and C), after this lands.
+- **Karol:** the NoteWall and QuranWall homepage captures.
+- Send the link-graph 1.1.0 sha to the sister sessions.
