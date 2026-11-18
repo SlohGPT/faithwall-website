@@ -320,15 +320,21 @@
 @media (min-width: 640px) { .post-layout { --page-pad: 24px; } }
 @media (min-width: 1024px) { .post-layout { --page-pad: 48px; } }
 @media (min-width: 1180px) {
-  /* Posts with 3+ H2: two columns, the Contents is the sticky right rail (same list as the phone details, moved by CSS). */
+  /* Posts with 3+ H2 (2026-11-18 layout): the header and the cover run across both columns; below them the text column
+     and the Contents rail start on the same line, and the rail's grid area runs to the end of the post, so the sticky
+     list stays in view for the whole read (it used to span only the header rows and scrolled away with the cover). */
   .post-layout--rail {
     max-width: none;
-    grid-template-columns: 640px 220px;
-    column-gap: 96px;
+    grid-template-columns: 640px 240px;
+    column-gap: 80px;
     justify-content: center;
   }
   .post-layout--rail > * { grid-column: 1; }
-  .post-layout--rail > .post-toc { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; }
+  .post-layout--rail > .post-head { grid-column: 1 / -1; grid-row: 1; max-width: 880px; }
+  .post-layout--rail > .post-hero { grid-column: 1 / -1; grid-row: 2; margin-inline: 0; }
+  .post-layout--rail > .post-prose { grid-row: 3; }
+  .post-layout--rail > .post-end { grid-row: 4; }
+  .post-layout--rail > .post-toc { grid-column: 2; grid-row: 3 / span 2; margin-top: 16px; }
 }
 
 .post-head { min-width: 0; }
@@ -513,8 +519,9 @@
 @media (min-width: 1180px) {
   .post-contents--rail {
     position: sticky;
-    top: 88px;
-    max-height: calc(100vh - 120px);
+    /* Clear of the floating header (its pill ends about 92 px down). */
+    top: 120px;
+    max-height: calc(100vh - 152px);
     overflow: auto;
     border-width: 0 0 0 1px;
     border-radius: 0;
@@ -549,11 +556,9 @@
 .post-prevnext-dir { font-size: 13px; line-height: 1.4; color: rgba(255, 255, 255, 0.65); }
 .post-prevnext-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: 16px; font-weight: 600; line-height: 1.35; color: #fff; }
 
-/* ---- /blog: sticky topic chips and the topic sections ---- */
-.blog-chips { position: sticky; top: 64px; }
-@media (min-width: 768px) { .blog-chips { top: 96px; } }
-.blog-chips.is-static { position: static; }
-@media (max-height: 480px) { .blog-chips { position: static; } }
+/* ---- /blog: topic chips and the topic sections ---- */
+/* 2026-11-18 (Karol): the chip row scrolls away with the page. It is not sticky at any size. */
+.blog-chips { position: static; }
 .blog-chips-row { scroll-snap-type: x proximity; scrollbar-width: none; }
 .blog-chips-row::-webkit-scrollbar { display: none; }
 .blog-chip {
@@ -577,7 +582,7 @@
 @media (min-width: 768px) { .blog-topics { padding-top: 20px; } }
 .blog-topic { padding: 4px; margin-inline: -4px; content-visibility: auto; contain-intrinsic-size: auto 900px; }
 .blog-topic + .blog-topic { margin-top: 40px; }
-.blog-topic-h { scroll-margin-top: 56px; }
+.blog-topic-h { scroll-margin-top: 12px; }
 .blog-more[open] .blog-more-chev { display: none; }
 .blog-more-summary::after { content: none; }
 
@@ -587,6 +592,45 @@
 .post-contents-link:focus-visible, .post-contents-summary:focus-visible, .post-table-scroll:focus-visible {
   outline: 2px solid #D97B3B;
   outline-offset: 2px;
+}
+/* 2026-11-18 design pass. Sections: every H2 gets a hairline above it and its number (01, 02 ...) as a small brand label;
+   the number is a CSS counter, so it is not in the heading text, the Contents list or the anchors. */
+.post-prose { counter-reset: post-sec; }
+.post-prose > .post-h2 { counter-increment: post-sec; padding-top: 28px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.post-prose > .post-h2::before {
+  content: counter(post-sec, decimal-leading-zero);
+  display: block;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  color: #D97B3B;
+  font-variant-numeric: tabular-nums;
+}
+/* Lists whose items start with a bold label render as rows: icon chip, label, text (BlogRenderer, case 'list'). */
+.post-prose > .post-keylist {
+  margin-top: var(--post-gap);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.post-keyrow { display: flex; gap: 16px; padding: 16px; }
+.post-keyrow + .post-keyrow { border-top: 1px solid rgba(255, 255, 255, 0.07); }
+.post-keyicon {
+  display: flex; flex-shrink: 0; align-items: center; justify-content: center;
+  width: 40px; height: 40px; margin-top: 2px; border-radius: 12px;
+  background: rgba(217, 123, 59, 0.12); color: #E9A06A; box-shadow: inset 0 0 0 1px rgba(217, 123, 59, 0.28);
+}
+.post-keylabel { font-size: 17px; font-weight: 700; line-height: 1.35; color: #fff; }
+.post-keylabel :is(strong, b) { font-weight: inherit; }
+.post-keytext { font-size: 16px; line-height: 1.6; color: rgba(255, 255, 255, 0.78); }
+.post-keytext > p + p { margin-top: 0.5em; }
+@media (min-width: 768px) {
+  .post-keyrow { gap: 20px; padding: 20px 24px; }
+  .post-keylabel { font-size: 18px; }
+  .post-keytext { font-size: 17px; }
 }
 /* === end Blog design pass === */
 

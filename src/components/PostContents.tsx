@@ -13,7 +13,7 @@ const OPEN_QUERY = '(min-width: 768px)';
 /**
  * "On this page": ONE server-rendered list of anchors, positioned by CSS.
  * - Under 1180 px it is a native details (closed on phones, open from 768 px), after the hero.
- * - From 1180 px it is the sticky right rail of the post layout (.post-toc) and the active section is highlighted.
+ * - From 1180 px it is the sticky right rail of the post layout (.post-toc, beside the text from the first line to the end of the post) and the active section is highlighted.
  * `variant="inline"` is the same details without the rail (pillar pages). The open state is set in an effect, so the
  * prerendered markup is always closed and every link is in the HTML either way.
  */

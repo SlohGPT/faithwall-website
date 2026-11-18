@@ -15,6 +15,7 @@ import { isConversionHeld } from '../data/conversionHold';
 import { useIsAndroid } from '../hooks/useIsAndroid';
 import facts from '../data/facts.json';
 import { headingIds, contentsItems } from '../lib/postHeadings';
+import { leadItems, pickIcon } from '../lib/postIcons';
 import type { BlogSection } from '../types/blog';
 
 /*
@@ -350,7 +351,37 @@ export default function BlogRenderer({ sections, slug, title, pageType, inlineCo
                 </ol>
               );
 
-            case 'list':
+            case 'list': {
+              // Items that start with a bold label ("**Widget:** text") render as icon rows (2026-11-18 design pass).
+              const rows = leadItems(section.items);
+              if (rows) {
+                return (
+                  <ul className="post-keylist">
+                    {rows.map((row, idx) => {
+                      const Icon = pickIcon(row.label, row.text);
+                      return (
+                        <li key={idx} className="post-keyrow">
+                          <span aria-hidden="true" className="post-keyicon">
+                            <Icon className="h-5 w-5" strokeWidth={1.75} />
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            {row.label && (
+                              <div className="post-keylabel">
+                                <Markdown campaign={campaign} text={row.label} />
+                              </div>
+                            )}
+                            {row.text && (
+                              <div className={`post-keytext ${row.label ? 'mt-1' : ''}`}>
+                                <Markdown campaign={campaign} text={row.text} />
+                              </div>
+                            )}
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                );
+              }
               return (
                 <ul className="post-list list-disc list-outside space-y-2 pl-6 marker:text-brand">
                   {section.items.map((item, idx) => (
@@ -360,6 +391,7 @@ export default function BlogRenderer({ sections, slug, title, pageType, inlineCo
                   ))}
                 </ul>
               );
+            }
 
             case 'ranked-list':
               return (

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import BlogCard from './BlogCard';
-import { useStaticBars } from '../lib/useVisualZoom';
 import { PILLAR_SLUGS, clusterLabel } from '../lib/posts';
 import type { BlogPostListing, BlogCluster } from '../types/blog';
 
@@ -17,11 +16,10 @@ function groupByCluster(posts: BlogPostListing[]): { cluster: BlogCluster; posts
 }
 
 /**
- * Sticky topic chips (plain anchors to the sections below, no JS filter) followed by one section per topic.
- * The chip row stays in the document flow while the header is not fixed (pinch zoom, short viewports).
+ * Topic chips (plain anchors to the sections below, no JS filter) followed by one section per topic.
+ * The chip row is part of the page and scrolls away with it (not sticky since 2026-11-18).
  */
 export default function BlogListing({ posts }: { posts: BlogPostListing[] }) {
-  const barStatic = useStaticBars();
   if (posts.length === 0) {
     return (
       <div className="py-20 text-center text-white/65">
@@ -35,7 +33,7 @@ export default function BlogListing({ posts }: { posts: BlogPostListing[] }) {
     <>
       <nav
         aria-label="Blog topics"
-        className={`blog-chips ${barStatic ? 'is-static' : ''} z-30 -mx-4 border-b border-white/10 bg-surface px-4 sm:-mx-6 sm:px-6 lg:-mx-12 lg:px-12`}
+        className={`blog-chips -mx-4 border-b border-white/10 bg-surface px-4 sm:-mx-6 sm:px-6 lg:-mx-12 lg:px-12`}
       >
         <ul className="blog-chips-row flex h-12 items-center gap-2 overflow-x-auto">
           <li className="shrink-0">
