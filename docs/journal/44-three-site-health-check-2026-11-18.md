@@ -44,3 +44,23 @@ All nine daily runs ran and succeeded. I checked their commits on each origin/ma
 - **Karol:** Request indexing for `/blog/christmas-bible-verse-lock-screen-iphone` and `/blog/christian-lock-screen-for-men` (TODO-KAROL lines 7 and 13). NoteWall: Request Indexing for p46's six targets (its TODO-KAROL).
 - **Karol:** whether to add `www.faithwall.app` → `faithwall.app`.
 - **Karol:** the QuranWall rating-count question above.
+
+## Update, 15:05: the www redirect is live
+
+Karol left the www question to the agent ("This is completely up to you"). The agent decided to set it up. People and AI answers sometimes add `www.` to a domain, ChatGPT is the top App Store referrer, and Google never indexes a redirecting host, so the risk is close to none. Cloudflare's own DNS page listed "Visitors cannot reach www.faithwall.app" as a recommendation.
+
+**Done in Cloudflare (faithwall.app zone, Karol's sign-in, nothing in Vercel or the repo):**
+1. Redirect Rule "www.faithwall.app to faithwall.app (308)": wildcard `http*://www.faithwall.app/*` → `https://faithwall.app/${2}`, 308, query string kept. It was deployed first, so `www.` never reached Vercel without the redirect. Cloudflare warned that no proxied record matched yet, and the agent chose "deploy anyway" and did not let it create a record.
+2. DNS record: CNAME `www` → `faithwall.app`, proxied. The zone now has 10 records, and the other 9 are unchanged.
+
+FaithWall now matches QuranWall and NoteWall, which redirect `www.` with a 308 through Vercel, because their DNS is on Porkbun.
+
+**Verified:**
+- 1.1.1.1 and 8.8.8.8 resolve `www.faithwall.app` to the Cloudflare IPs.
+- Each of these answers 308 to the bare-domain URL, with path and query unchanged: `https://www.faithwall.app/`, `/blog/christian-lock-screen-for-men?ct=test&utm_source=x`, `http://www.faithwall.app/blog` and `/robots.txt`.
+- Following the redirect ends at 200 after exactly one hop, including for the GPTBot, ClaudeBot and Googlebot user agents.
+- The edge certificate covers `*.faithwall.app`.
+- `https://faithwall.app/` still answers 200 with no redirect.
+- This Mac's own resolver still held the old negative answer at 15:05. That clears by itself.
+
+**Open:** nothing for www. The remaining items for Karol are the two Request indexing lines and the QuranWall rating-count question above.
