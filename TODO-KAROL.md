@@ -2,6 +2,12 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-18 (autopilot: p68, the men's verse wallpaper post)
+
+- **Request indexing once the merge gate has deployed it (1 minute).** The new URL is `/blog/christian-lock-screen-for-men`. In Search Console → URL Inspection, click **Request indexing** once. It is the second of the two posts the indexing brake watches (with p67).
+- **If you merge or retire any of the five daily-change posts (11-17 item 1 below), keep the men's link.** `verse-of-the-day-lock-screen-iphone` and `scripture-wallpaper-for-iphone-free` now carry this post's day-one links. Whichever page absorbs either of them should keep a link to `/blog/christian-lock-screen-for-men`.
+- **One line on the wallpaper maker page to check (not changed, outside p68).** Under the maker's install note, `src/pages/WallpaperMaker.tsx` (about line 241) says the widget "starts with the verse you picked and then shows random verses hourly, every 8 hours, or daily". Random verses only come with the optional Auto-rotate verses setting, which is off by default. A fact fix for p78 or the next refresh.
+
 ## 2026-11-17 (autopilot: p67, the Christmas verses post)
 
 - **Request indexing once the merge gate has deployed it (1 minute).** The new URL is `/blog/christmas-bible-verse-lock-screen-iphone`. In Search Console → URL Inspection, click **Request indexing** once. It is one of the two posts the indexing brake watches (with p68), and Advent starts on 11-29.
