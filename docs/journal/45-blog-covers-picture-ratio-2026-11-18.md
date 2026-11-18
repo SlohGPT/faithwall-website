@@ -121,7 +121,8 @@ All done in this session with headless Chrome scripts and curl, no agents.
 
 ## Open
 
-- Karol reviews the install card captures; changes to the card go through `StickyInstallBar.tsx` on all three.
+- Install card: Karol saw the capture sheet and approved it ("Looks good", 11-18 evening). Later changes to the card
+  go through `StickyInstallBar.tsx` on all three.
 - Renaming a FaithWall cover later leaves the old URL in Cloudflare's cache for up to a year: add its redirect and purge
   the old URL (the covers skill does not say so yet).
 - Dead `.hub-map*` CSS in NoteWall `globals.css` (about lines 1020-1403) can go in a later cleanup.

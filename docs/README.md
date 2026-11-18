@@ -8,7 +8,7 @@ Session journal for this repo. One entry per session, append-only, numbered in o
   - Cover engine 1.1.0 and a covers skill per site: 46 + 8 + 108 generated covers in six layouts, wired into the blog skills and all six local autopilots; 133 old image URLs redirect permanently to them (42 FaithWall ones purged from Cloudflare's cache).
   - About one big picture per 250 words; topic maps and chip-row dividers gone; centered download card; the mobile bar is now an iOS-style card with Apple's official badge (on held pages too, annotated).
   - Live post LCP about 1.4 s on a throttled phone on all three, CLS at most 0.003, link-graph `--live` exit 0. NoteWall #418 fixed.
-  - Open for Karol: review the install card captures.
+  - Karol approved the install card captures ("Looks good").
 - **Three-site health check after the SEO and GEO pass (entry 44, 11-18 afternoon, Karol's ask).** Everything runs.
   - All three autopilots and gates ran and merged today (FaithWall p68, QuranWall p9, NoteWall p46), and each change is live.
   - link-graph `--live` exits 0 on all three sites. NoteWall went from 11 orphans and depth 5 to 0 orphans and depth 2, and llms.txt now lists every page on all three.
