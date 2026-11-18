@@ -75,42 +75,37 @@ export default function AppNudge({
         aria-label="Get FaithWall on iPhone"
         data-install-card={placement}
         data-nosnippet=""
-        className={`rounded-2xl border border-brand/30 bg-brand/10 p-5 sm:p-6 flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-8 text-left ${className}`}
+        className={`relative isolate overflow-hidden rounded-3xl border border-brand/25 bg-gradient-to-b from-brand/[0.16] to-brand/[0.04] px-6 py-8 text-center sm:px-10 sm:py-10 ${className}`}
       >
-        <div className="min-w-0 flex-1">
-          <div className="flex items-start gap-4">
-            <img
-              src="/icon-app-180.png"
-              alt=""
-              width={48}
-              height={48}
-              className="h-12 w-12 shrink-0 rounded-[11px]"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="min-w-0 flex-1 space-y-1.5">
+        {/* soft glow behind the icon; decorative */}
+        <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-0 -z-10 h-44 w-[30rem] max-w-full -translate-x-1/2 -translate-y-1/3 rounded-full bg-brand/25 blur-3xl" />
+        <img
+          src="/icon-app-180.png"
+          alt=""
+          width={72}
+          height={72}
+          className="mx-auto h-[72px] w-[72px] rounded-[18px] shadow-[0_14px_34px_-10px_rgba(0,0,0,0.7)] ring-1 ring-white/10"
+          loading="lazy"
+          decoding="async"
+        />
               {confirmation && (
-                <p className="flex items-center gap-1.5 text-[15px] font-bold text-brand">
+                <p className="mt-4 flex items-center justify-center gap-1.5 text-[15px] font-bold text-brand">
                   <Check className="h-4 w-4" aria-hidden="true" />
                   {confirmation}
                 </p>
               )}
-              {title && <p className="text-[17px] font-bold leading-snug text-white">{title}</p>}
-              <p className="text-[17px] font-bold leading-snug text-white">
-                {children ?? 'Pick a Bible verse and FaithWall puts it on your lock screen.'}
-              </p>
-              <p className="text-[15px] leading-snug text-white/75">{facts.installLine}</p>
-              <p className="text-[15px] leading-snug text-white/65">{`iPhone · ${facts.minIOSText}`}</p>
-              <RatingLine className="text-[15px] leading-snug text-white/65" />
-              {isAndroid && <p className="text-[15px] leading-snug text-white/75">FaithWall is made for iPhone.</p>}
-            </div>
-          </div>
-          {/* Apple's badge rules: clear space of at least a quarter of its height (11 px) on every side. */}
-          <div className="mt-5">
-            <AppStoreButton size="cta" href={href} theme="light" />
-          </div>
+              {title && <p className="mt-4 text-[17px] font-bold leading-snug text-white/90">{title}</p>}
+        <p className="mx-auto mt-5 max-w-[28rem] text-[20px] font-bold leading-snug text-white [text-wrap:balance] sm:text-[22px]">
+          {children ?? 'Pick a Bible verse and FaithWall puts it on your lock screen.'}
+        </p>
+              <p className="mt-2 text-[15px] leading-snug text-white/60 [text-wrap:balance]">{`iPhone · ${facts.minIOSText} · ${facts.installLine.replace(/\.$/, '')}`}</p>
+              <RatingLine className="mt-1 justify-center text-[15px] leading-snug text-white/60" />
+              {isAndroid && <p className="mt-1 text-[15px] leading-snug text-white/75">FaithWall is made for iPhone.</p>}
+        {/* Apple's badge rules: clear space of at least a quarter of its height (14-16 px) on every side. */}
+        <div className="mt-7 flex justify-center">
+          <AppStoreButton size="xl" theme="light" href={href} />
         </div>
-        <InstallHandoff />
+        <InstallHandoff collapsed className="mt-6" />
       </div>
     );
   }

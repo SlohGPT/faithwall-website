@@ -19,7 +19,7 @@ const DISMISS_KEY = 'fw-install-bar-dismissed';
 const MOBILE_QUERY = '(max-width: 767px)';
 
 /** Bar height (one row) plus the iOS home-indicator inset. Shared with the in-flow spacer and --install-bar-h. */
-const BAR_HEIGHT = 'calc(68px + env(safe-area-inset-bottom, 0px))';
+const BAR_HEIGHT = 'calc(88px + env(safe-area-inset-bottom, 0px))';
 
 /**
  * Mobile-only sticky install bar for the content pages.
@@ -32,7 +32,7 @@ const BAR_HEIGHT = 'calc(68px + env(safe-area-inset-bottom, 0px))';
  * [data-hides-sticky] (held-page closing CTA, compare CTA) or the site footer (footer[data-site-footer]; not
  * the citation <footer> inside a blockquote) is on screen,
  * so the page never shows two install prompts at once, and it is not shown on Android.
- * The link is a plain "Get the app" button, not a shrunken App Store badge (Apple's badge rules).
+ * Since 2026-11-18 (Karol) it is a floating card in the iOS style with Apple's official "Download on the App Store" badge at 40 px, its minimum, with a quarter of its height as clear space.
  *
  * Place it once per page, after the footer. It renders an in-flow spacer of the same height so
  * it never covers the last content, and publishes --install-bar-h and an `install-bar-on` class on <html> so other fixed UI can clear it.
@@ -165,39 +165,59 @@ export default function StickyInstallBar({ kind }: { kind: InstallBarKind }) {
         role="complementary"
         aria-label="Install FaithWall"
         aria-hidden={covered ? true : undefined}
-        className={`fixed inset-x-0 bottom-0 z-30 md:hidden border-t border-white/10 bg-surface-elevated/[0.97] shadow-[0_-8px_24px_rgba(0,0,0,0.45)] transition-[transform,visibility] duration-300 ease-out ${
-          entered && !covered ? 'visible translate-y-0' : 'invisible translate-y-full'
+        className={`fixed inset-x-2 z-30 md:hidden transition-[transform,opacity,visibility] duration-300 ease-out ${
+          entered && !covered ? 'visible translate-y-0 opacity-100' : 'invisible translate-y-[calc(100%+16px)] opacity-0'
         }`}
-        style={{ height: BAR_HEIGHT, paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+        style={{ bottom: 'calc(8px + env(safe-area-inset-bottom, 0px))' }}
       >
-        <div className="flex h-[68px] items-center gap-2 pl-3 pr-1">
-          <img
-            src="/icon-app-180.png"
-            alt=""
-            width={40}
-            height={40}
-            className="h-10 w-10 shrink-0 rounded-[10px]"
-            decoding="async"
-          />
-          <p className="min-w-0 flex-1 text-[13px] font-medium leading-snug text-white/85">
-            Your verse on your lock screen
-          </p>
-          <a
-            href={appStoreUrl(CAMPAIGN[kind])}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-brand px-3.5 text-[15px] font-bold text-white transition-colors hover:bg-brand-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-          >
-            Get the app
-          </a>
+        {/* An iOS-style card: close on the left (as in iOS), the app, then Apple's official badge. */}
+        <div className="flex h-[72px] items-center rounded-[22px] border border-white/[0.12] bg-[#1c1c1e]/90 pr-3 shadow-[0_12px_40px_rgba(0,0,0,0.55)] backdrop-blur-xl backdrop-saturate-150">
           <button
             type="button"
             onClick={dismiss}
             aria-label="Dismiss install banner"
-            className="flex h-11 w-11 shrink-0 items-center justify-center text-white/60 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-lg"
+            className="flex h-11 w-9 shrink-0 items-center justify-center rounded-full text-white/45 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
           >
-            <X className="h-5 w-5" aria-hidden="true" />
+            <X className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
           </button>
+          {/* the app's name and icon also open the App Store (same link; the badge is the one in the tab order) */}
+          <a
+            href={appStoreUrl(CAMPAIGN[kind])}
+            target="_blank"
+            rel="noopener noreferrer"
+            tabIndex={-1}
+            aria-hidden="true"
+            className="flex min-w-0 flex-1 items-center gap-2.5"
+          >
+            <img
+              src="/icon-app-180.png"
+              alt=""
+              width={48}
+              height={48}
+              className="h-12 w-12 shrink-0 rounded-[11px] ring-1 ring-white/10"
+              decoding="async"
+            />
+            <span className="min-w-0">
+              <span className="block truncate text-[15px] font-semibold leading-tight text-white">FaithWall</span>
+              <span className="mt-0.5 line-clamp-2 text-[12.5px] leading-snug text-white/60">A Bible verse on your Lock Screen</span>
+            </span>
+          </a>
+          {/* Apple's badge, unaltered: 40 px tall (the minimum on screen), at least 10 px (a quarter of its height) clear on every side */}
+          <a
+            href={appStoreUrl(CAMPAIGN[kind])}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-3 shrink-0 rounded-[8px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            <img
+              src="/badges/app-store-white.svg"
+              alt="Download on the App Store"
+              width={120}
+              height={40}
+              className="block h-10 w-auto max-w-none"
+              decoding="async"
+            />
+          </a>
         </div>
       </div>
     </>

@@ -83,10 +83,21 @@ function Ring({ percent }: { percent: number }) {
   );
 }
 
-export default function StatBlock({ value, label, description }: { value?: string; label?: string; description?: string }) {
+export default function StatBlock({
+  value,
+  label,
+  description,
+  quiet = false,
+}: {
+  value?: string;
+  label?: string;
+  description?: string;
+  /** Visual rhythm (src/lib/visualRhythm.ts): the number and words only, no dot field or ring. */
+  quiet?: boolean;
+}) {
   // A stat with no number has nothing to show (one post carries such an entry); draw nothing rather than an empty card.
   if (!value) return null;
-  const pic = statPicture(value);
+  const pic = quiet ? ({ kind: 'none' } as const) : statPicture(value);
   return (
     <div className="post-stat py-6 border-y border-white/10 flex items-center justify-between gap-6 md:gap-10">
       <div className="min-w-0">

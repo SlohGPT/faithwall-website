@@ -67,7 +67,9 @@ export interface LeadItem {
 export function splitLead(item: string): LeadItem | null {
   const m = item.match(/^\*\*([^*]{2,80}?)\*\*\s*(?:[:—–]|-\s|\.\s)?\s*([\s\S]*)$/);
   if (!m) return null;
-  const label = m[1].trim().replace(/[:.]$/, '').trim();
+  // The label is rendered as markdown without its ** wrapper, so a leading "1. ", "- " or "# " would turn into a
+  // list or heading (and, inside a <p>, a hydration mismatch). Escape it so it stays text.
+  const label = m[1].trim().replace(/[:.]$/, '').trim().replace(/^(\d+)([.)])(\s)/, '$1\\$2$3').replace(/^([-*+#>])(\s)/, '\\$1$2');
   let text = m[2].trim();
   const sep = /[:.]$/.test(m[1].trim()) || /^\*\*[^*]+\*\*\s*[:—–.-]/.test(item);
   if (!sep && text) return null;

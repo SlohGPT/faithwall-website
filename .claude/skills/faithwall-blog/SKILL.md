@@ -28,7 +28,7 @@ Price rule (Karol, 2026-11-17): never mention the subscription, paywall, trial, 
 
 After running this skill end-to-end:
 1. A new file `src/data/posts/{slug}.json` exists, ~800–1100 words, validates as JSON, follows the section template below.
-2. A generated lock-screen cover is at `public/blog-thumbnails/{ref-slug}-bible-verse-iphone-lock-screen.jpg`, the post's `meta.image` / `meta.imageAlt` point at it, and there is no `imageAttribution` (generated covers need no credit).
+2. A generated lock-screen cover is at `public/blog-thumbnails/{ref-slug}-bible-verse-iphone-wallpaper.jpg`, the post's `meta.image` / `meta.imageAlt` point at it, and there is no `imageAttribution` (generated covers need no credit).
 3. The new post is inserted at **index 0** of `src/data/blogPosts.json`.
 4. The post's slug is added to the matching pillar's `featured` array in `src/data/pillars.json` (drop the oldest if >6).
 5. You report back the slug, cluster, word count, and the cover verse in one paragraph. Offer to commit.
@@ -69,14 +69,14 @@ Sketch (don't write yet):
 
 ### Step 3 — Pick the cover verse and generate the cover
 
-Covers are generated, not stock photos: an iPhone lock screen showing one KJV verse on FaithWall's dark + orange look (`scripts/build-blog-thumbnails.mjs`). Do not use Unsplash.
+Covers are generated, not stock photos, and follow the **faithwall-covers** skill (`.claude/skills/faithwall-covers/SKILL.md`, read it now): a short hook with one orange accent word, a topic pill, the FaithWall mark and an iPhone lock screen with one KJV verse (`scripts/build-blog-thumbnails.mjs` on `scripts/cover-engine.mjs`). Do not use Unsplash or a paid image generator.
 
 1. Pick ONE short verse (ideally under ~20 words, a single verse) that fits the post's topic, preferably one the post itself quotes. Its reference must not already be used in `src/data/blogCovers.json` (each cover file is named after its verse).
-2. Append `{ "slug": "{slug}", "ref": "Psalm 23:1", "palette": "..." }` to `covers` in `src/data/blogCovers.json`. `palette` is any key of `PALETTES` in the script; choose one different from the previous two entries so the grid varies. Never type the verse text: the script reads it from `public/bible/kjv`.
+2. Append the full entry to `covers` in `src/data/blogCovers.json`: `slug`, `ref`, `palette` (a `PALETTES` key, not one of the two newest covers'), `hook` (2-6 words, one `*accent*` word, never the title), `tag`, `icon`, optional `badge`, and a `layout` none of the post's 3 grid neighbours uses (`duo` for comparisons, `number` + `"number"` when the hook starts with a count, `closeup` for how-to/setup, `fan` for collections, else `right`/`left`), plus an optional generic iOS `float` card (right/left/number only). The skill has the table and the banned words. Never type the verse text: the script reads it from `public/bible/kjv`. Check with `node scripts/build-blog-thumbnails.mjs --dry`.
 3. The image itself is generated at the end of Step 6, once the post and its registry entry exist.
 4. **Image rules (2026-11-17).** Cover and og images must be at least 1200 px wide and over 300,000 px in total (the current 1600x1067 covers pass). No text-heavy covers: the verse on the phone is the only text. `max-image-preview:large` stays on every page (it is in `index.html`; don't remove it). [Google Discover docs: recommendations, not hard rules.]
 
-**Cloud / no Chrome:** the cloud sandbox has no Chrome, so skip the generation in Step 6: keep the `blogCovers.json` entry, and until a local run reuse an existing generated cover (any `/blog-thumbnails/*-bible-verse-iphone-lock-screen.jpg`) as `meta.image` and `thumbnail`, with no `imageAttribution`. Note in the commit body that the cover needs `node scripts/build-blog-thumbnails.mjs {slug}`. Never remove or restyle the cover of `/blog/best-free-bible-app-iphone` (ranking measurement until 2026-11-09).
+**Cloud / no Chrome:** the cloud sandbox has no Chrome, so skip the generation in Step 6: keep the `blogCovers.json` entry, and until a local run reuse an existing generated cover (any `/blog-thumbnails/*-bible-verse-iphone-wallpaper.jpg`) as `meta.image` and `thumbnail`, with no `imageAttribution`. Note in the commit body that the cover needs `node scripts/build-blog-thumbnails.mjs {slug}`. Never remove or restyle the cover of `/blog/best-free-bible-app-iphone` (ranking measurement until 2026-11-09).
 
 ### Step 4 — Write the post
 
@@ -159,7 +159,7 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
     "date": "Month DD, YYYY",
     "datePublished": "YYYY-MM-DDTHH:MM:SS.000Z",
     "readTime": "X min read",
-    "image": "/blog-thumbnails/{ref-slug}-bible-verse-iphone-lock-screen.jpg",
+    "image": "/blog-thumbnails/{ref-slug}-bible-verse-iphone-wallpaper.jpg",
     "imageAlt": "iPhone lock screen showing {Reference} (KJV)",
     "keywords": ["primary keyword", "secondary keyword", "...", "faithwall"],
     "cluster": "one of the 5 cluster slugs"
@@ -182,6 +182,7 @@ Create `src/data/posts/{slug}.json` matching this exact structure (reference [sr
   ```json
   { "type": "verse", "reference": "Psalm 119:105", "text": "Your word is a lamp to my feet and a light to my path." }
   ```
+- **Picture ratio (2026-11-18).** The template draws `verse` blocks as a lock-screen phone, `stat` blocks with a chart, and adds the spot illustration and the mid install card itself. It keeps about one big picture per 250 words and none within about 110 words of another (`src/lib/visualRhythm.ts`); extra verse and stat blocks render as quiet quotes and plain numbers. So place verse and stat blocks where they help the text, at least two paragraphs apart, and add no `image` block just to fill space.
 - **Section type diversity** — use at least 6 of these types across the post: `callout`, `heading`, `paragraph`, `tip`, `stat`, `steps`, `list`, `highlight`, `important`, `verse`. Don't use only paragraphs.
 - **Internal links** — 2–3 markdown links to other blog posts (from `blogPosts.json`) inside `paragraph` text. Format: `[anchor text](/blog/{other-slug})`. Plus one link to the cluster's pillar URL.
 - **Final section** must be `{ "type": "cta", "title": "...", "description": "...", "buttonText": "Download FaithWall", "buttonUrl": "https://apps.apple.com/us/app/lock-screen-bible-verse/id6756815070" }`.
@@ -272,7 +273,7 @@ Read `src/data/blogPosts.json`. Use the Edit tool to **insert the new entry at i
   "slug": "...",
   "title": "...",
   "description": "...",
-  "thumbnail": "/blog-thumbnails/{ref-slug}-bible-verse-iphone-lock-screen.jpg",
+  "thumbnail": "/blog-thumbnails/{ref-slug}-bible-verse-iphone-wallpaper.jpg",
   "thumbnailAlt": "iPhone lock screen showing {Reference} (KJV)",
   "date": "Month DD, YYYY",
   "datePublished": "YYYY-MM-DDTHH:MM:SS.000Z",

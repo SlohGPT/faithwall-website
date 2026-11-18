@@ -33,7 +33,7 @@ export default function BlogListing({ posts }: { posts: BlogPostListing[] }) {
     <>
       <nav
         aria-label="Blog topics"
-        className={`blog-chips -mx-4 border-b border-white/10 bg-surface px-4 sm:-mx-6 sm:px-6 lg:-mx-12 lg:px-12`}
+        className={`blog-chips -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-12 lg:px-12`}
       >
         <ul className="blog-chips-row flex h-12 items-center gap-2 overflow-x-auto">
           <li className="shrink-0">

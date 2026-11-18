@@ -4,7 +4,8 @@ interface AppStoreButtonProps extends Omit<ComponentProps<'a'>, 'children'> {
     theme?: 'dark' | 'light';
     // 'md' = 44 px tall (compact spots: footer, inline nudge). 'cta' = 48 px on phones, 56 px from lg up: the size
     // for a CTA block, the same height as CTA_BUTTON_CLASS so a badge and a button side by side match.
-    size?: 'md' | 'cta';
+    // 'xl' = 56 px on phones, 64 px from lg up: the in-post install cards, where the badge is the one action.
+    size?: 'md' | 'cta' | 'xl';
 }
 
 // The primary "Get FaithWall" button, sized to sit beside the cta badge: h-12 (48 px) on phones, 56 px from lg up.
@@ -20,6 +21,8 @@ const BADGE_WIDTH = Math.round((119.66407 / 40) * BADGE_HEIGHT); // 132
 // The cta size is set by height in CSS (width:auto keeps the aspect ratio); the attributes reserve the 48 px box.
 const CTA_BADGE_HEIGHT = 48;
 const CTA_BADGE_WIDTH = Math.round((119.66407 / 40) * CTA_BADGE_HEIGHT); // 144
+const XL_BADGE_HEIGHT = 56;
+const XL_BADGE_WIDTH = Math.round((119.66407 / 40) * XL_BADGE_HEIGHT); // 168
 
 export default function AppStoreButton({ theme = 'light', size = 'md', className = '', ...props }: AppStoreButtonProps) {
     // theme 'light' = the white badge, theme 'dark' = the black badge.
@@ -35,9 +38,9 @@ export default function AppStoreButton({ theme = 'light', size = 'md', className
             <img
                 src={src}
                 alt="Download on the App Store"
-                width={size === 'cta' ? CTA_BADGE_WIDTH : BADGE_WIDTH}
-                height={size === 'cta' ? CTA_BADGE_HEIGHT : BADGE_HEIGHT}
-                className={size === 'cta' ? 'block h-12 w-auto lg:h-14' : 'block'}
+                width={size === 'xl' ? XL_BADGE_WIDTH : size === 'cta' ? CTA_BADGE_WIDTH : BADGE_WIDTH}
+                height={size === 'xl' ? XL_BADGE_HEIGHT : size === 'cta' ? CTA_BADGE_HEIGHT : BADGE_HEIGHT}
+                className={size === 'xl' ? 'block h-14 w-auto lg:h-16' : size === 'cta' ? 'block h-12 w-auto lg:h-14' : 'block'}
                 decoding="async"
             />
         </a>

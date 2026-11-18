@@ -16,6 +16,7 @@ import { useIsAndroid } from '../hooks/useIsAndroid';
 import facts from '../data/facts.json';
 import { headingIds, contentsItems } from '../lib/postHeadings';
 import { leadItems, pickIcon } from '../lib/postIcons';
+import { bigFlexIndexes, type RhythmItem } from '../lib/visualRhythm';
 import type { BlogSection } from '../types/blog';
 
 /*
@@ -235,9 +236,9 @@ function EndCta({ section, campaign }: { section: Extract<BlogSection, { type: '
         {isAndroid && <p>FaithWall is made for iPhone.</p>}
       </div>
       <div className="flex justify-center">
-        <AppStoreButton size="cta" href={href} theme="light" />
+        <AppStoreButton size="xl" href={href} theme="light" />
       </div>
-      <InstallHandoff className="mx-auto mt-6" />
+      <InstallHandoff collapsed className="mt-6" />
     </div>
   );
 }
@@ -267,6 +268,15 @@ export default function BlogRenderer({ sections, slug, title, pageType, inlineCo
   // Held pages (src/data/conversionHold.ts) keep today's closing block and get no mid-article card.
   const held = isConversionHeld(pageType, slug);
   const midAt = held ? -1 : midCardIndex(sections, h2Indexes, illustrationAt);
+  // Verses and stats draw as a phone or a chart only with enough reading text around them; the rest render quiet.
+  const bigFlex = bigFlexIndexes(
+    sections.map((sec): RhythmItem => ({
+      kind: sec.type === 'image' ? 'fixed' : sec.type === 'verse' || sec.type === 'stat' ? 'flex' : sec.type === 'cta' ? 'end' : 'text',
+      chars: textLength(sec),
+      rank: sec.type === 'stat' ? 1 : 0,
+    })),
+    [illustrationAt ?? -1, midAt],
+  );
 
   return (
     <div id="post-body" data-post-body className="post-prose">
@@ -329,6 +339,7 @@ export default function BlogRenderer({ sections, slug, title, pageType, inlineCo
                   value={section.number ?? section.value}
                   label={section.label}
                   description={section.description ?? section.context}
+                  quiet={!bigFlex.has(i)}
                 />
               );
 
@@ -413,7 +424,13 @@ export default function BlogRenderer({ sections, slug, title, pageType, inlineCo
               );
 
             case 'verse':
-              return <LockScreenVerse text={section.text} reference={section.reference} />;
+              if (bigFlex.has(i)) return <LockScreenVerse text={section.text} reference={section.reference} />;
+              return (
+                <blockquote className="post-quote">
+                  <p>{section.text}</p>
+                  <cite>{section.reference}</cite>
+                </blockquote>
+              );
 
             case 'image':
               return (

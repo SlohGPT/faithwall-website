@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react';
-import { Check, Copy } from 'lucide-react';
+import { Check, ChevronDown, Copy, QrCode } from 'lucide-react';
 import { HANDOFF_URL } from '../lib/appStore';
 
 /*
@@ -14,7 +14,7 @@ import { HANDOFF_URL } from '../lib/appStore';
  */
 type CopyState = 'idle' | 'copied' | 'manual';
 
-export default function InstallHandoff({ className = '' }: { className?: string }) {
+function HandoffPanel({ className = '' }: { className?: string }) {
   const [state, setState] = useState<CopyState>('idle');
   const inputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -87,5 +87,24 @@ export default function InstallHandoff({ className = '' }: { className?: string 
         {state === 'copied' ? 'Link copied' : ''}
       </span>
     </div>
+  );
+}
+
+/**
+ * collapsed (in-post install cards, 2026-11-18): the QR code no longer sits open in every card. On desktop a
+ * small "On a computer?" line opens it on request (a native <details>, no script); phones never see it.
+ * Same QR file, same HANDOFF_URL and campaign token, so the web-handoff numbers stay comparable.
+ */
+export default function InstallHandoff({ className = '', collapsed = false }: { className?: string; collapsed?: boolean }) {
+  if (!collapsed) return <HandoffPanel className={className} />;
+  return (
+    <details className={`group hidden lg:block ${className}`}>
+      <summary className="mx-auto flex w-fit cursor-pointer list-none items-center gap-2 rounded-full px-3 py-1.5 text-[14px] font-medium text-white/55 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 [&::-webkit-details-marker]:hidden">
+        <QrCode className="h-4 w-4" aria-hidden="true" />
+        On a computer? Scan a code with your iPhone
+        <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" aria-hidden="true" />
+      </summary>
+      <HandoffPanel className="mx-auto mt-4" />
+    </details>
   );
 }

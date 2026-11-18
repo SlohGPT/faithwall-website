@@ -3,7 +3,6 @@ import BlogRenderer from './BlogRenderer';
 import BlogCard from './BlogCard';
 import Breadcrumbs from './Breadcrumbs';
 import PillarHeaderVisual from './visual-pages/PillarHeaderScene';
-import PillarClusterMap from './visual-pages/PillarClusterMap';
 import type { PillarConfig, BlogPostListing, BlogCluster } from '../types/blog';
 
 interface Props {
@@ -49,8 +48,6 @@ export default function PillarPageView({ pillar, featured, allPosts = [] }: Prop
 
         <BlogRenderer sections={pillar.sections} slug={pillar.slug} title={pillar.title} pageType="pillar" inlineContents />
       </div>
-
-      <PillarClusterMap cluster={pillar.slug as BlogCluster} posts={allPosts} />
 
       {featured.length > 0 && (
         <div className="max-w-6xl mx-auto mt-20">

@@ -1,11 +1,12 @@
 /**
- * Renders the blog covers: an iPhone lock screen showing one KJV verse, on the
- * site's own dark + warm orange look. One 1600x1067 jpg per post (same pixel
- * size as the old Unsplash covers, which the cards and the post hero crop to
- * 16:9, so everything important sits in the centre band).
+ * Renders the blog covers (v2, 2026-11-18, the faithwall-covers skill): a short HOOK with one orange accent
+ * word, a topic pill with an icon and an optional badge on the left; on the right a tilted iPhone whose lock
+ * screen shows the post's KJV verse in one of the wallpaper styles. The layout comes from
+ * scripts/cover-engine.mjs, which is the same file on all three app sites. One 1600x1067 jpg per post (the
+ * cards and the post hero crop to 16:9, so everything important sits in the centre band).
  *
- * Input:  src/data/blogCovers.json  ({slug, ref, palette} per post; reviewable)
- * Output: public/blog-thumbnails/<ref>-bible-verse-iphone-lock-screen.jpg
+ * Input:  src/data/blogCovers.json  ({slug, ref, palette, hook, tag, icon, badge?, layout?} per post)
+ * Output: public/blog-thumbnails/<ref>-bible-verse-iphone-wallpaper.jpg
  *         and, in the same blogCovers.json, the resolved text / file / alt.
  *         It also points each post's meta.image + meta.imageAlt and its
  *         blogPosts.json thumbnail + thumbnailAlt at the new file, drops the
@@ -25,17 +26,16 @@
  *
  * Posts in SKIP are never touched (ranking measurement).
  */
-import { readFileSync, writeFileSync, mkdtempSync, rmSync, existsSync } from 'fs';
-import { spawn } from 'child_process';
-import { tmpdir } from 'os';
+import { readFileSync, writeFileSync, rmSync, existsSync, readdirSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import * as Lucide from 'lucide-react';
 import { STYLE_PRESETS } from '../src/lib/wallpaper.ts';
+import { launch, coverHtml, esc, LAYOUT_NAMES } from './cover-engine.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CHROME = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-const W = 1600;
-const H = 1067;
 const TRANSLATION = 'KJV';
 const SKIP = new Set(['best-free-bible-app-iphone']);
 
@@ -102,123 +102,133 @@ function kjvText(ref) {
   return text.trim().replace(/\s+/g, ' ');
 }
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-// ---------- HTML ----------
+// ---------- brand + lock screen ----------
 const b64 = (p) => readFileSync(join(root, p)).toString('base64');
 const FONT_CSS = `
 @font-face{font-family:'Gelasio';font-weight:400;font-style:normal;src:url(data:font/ttf;base64,${b64('scripts/fonts/Gelasio-Regular.ttf')})}
 @font-face{font-family:'Gelasio';font-weight:400;font-style:italic;src:url(data:font/ttf;base64,${b64('scripts/fonts/Gelasio-Italic.ttf')})}
 @font-face{font-family:'DM Sans';font-weight:500;src:url(data:font/ttf;base64,${b64('scripts/fonts/DMSans-Medium.ttf')})}
 @font-face{font-family:'DM Sans';font-weight:700;src:url(data:font/ttf;base64,${b64('scripts/fonts/DMSans-Bold.ttf')})}`;
-const ICON = `data:image/png;base64,${b64('public/icon-app-180.png')}`;
 
-function html(c, pal) {
-  const light = pal.text === '#2b2118';
-  return `<!doctype html><html><head><meta charset="utf-8"><style>${FONT_CSS}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{width:${W}px;height:${H}px;overflow:hidden;background:#0A0A0F}
-.stage{position:relative;width:${W}px;height:${H}px;overflow:hidden;font-family:${SANS};
-  background:
-   radial-gradient(900px 700px at 8% 92%, rgba(217,123,59,.34), transparent 70%),
-   radial-gradient(800px 800px at 92% 8%, ${pal.glow}40, transparent 70%),
-   linear-gradient(180deg,#12121A,#0A0A0F)}
-.brand{position:absolute;left:70px;top:330px;width:500px;color:#fff}
-.brand img{width:118px;height:118px;border-radius:27px;box-shadow:0 14px 40px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.12)}
-.brand .name{margin-top:30px;font-weight:700;font-size:84px;letter-spacing:-2px;line-height:1}
-.brand .name b{color:${BRAND};font-weight:700}
-.brand .tag{margin-top:22px;font-weight:500;font-size:40px;line-height:1.3;color:rgba(255,255,255,.7)}
-.phone{position:absolute;left:640px;top:88px;width:860px;height:1300px;border-radius:124px;
-  background:linear-gradient(160deg,#3a3a44,#121217 40%,#26262e);
-  box-shadow:0 0 0 2px rgba(255,255,255,.16),0 50px 140px rgba(0,0,0,.65),0 0 200px ${pal.glow}33}
-.btn{position:absolute;width:8px;border-radius:4px;background:#2c2c34}
-.screen{position:absolute;left:16px;top:16px;right:16px;bottom:16px;border-radius:108px;overflow:hidden;background:${pal.bg};
-  ${pal.glowLayer || ''}}
-.island{position:absolute;left:50%;top:26px;width:210px;height:62px;margin-left:-105px;border-radius:31px;background:#000}
-.date{position:absolute;top:128px;left:0;right:0;text-align:center;font-weight:500;font-size:40px;color:${pal.time};opacity:.85}
-.time{position:absolute;top:150px;left:0;right:0;text-align:center;font-weight:700;font-size:232px;letter-spacing:-6px;line-height:1.1;color:${pal.time}}
-.verse{position:absolute;left:62px;right:62px;top:425px;height:410px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
-.verse p{font-family:${pal.family};font-weight:${pal.weight};font-style:${pal.italic ? 'italic' : 'normal'};color:${pal.text};
-  ${pal.shadow ? `text-shadow:0 2px 18px ${pal.shadow};` : ''}line-height:1.28;text-wrap:balance}
-.verse .ref{margin-top:30px;font-family:${SANS};font-weight:700;font-size:44px;letter-spacing:${pal.upper ? '4px' : '1px'};color:${pal.ref};${pal.upper ? 'text-transform:uppercase;' : ''}}
-</style></head><body><div class="stage">
-<div class="brand"><img src="${ICON}" alt=""><div class="name">Faith<b>Wall</b></div><div class="tag">Your verse, on your iPhone lock screen</div></div>
-<div class="phone"><span class="btn" style="left:-6px;top:300px;height:90px"></span><span class="btn" style="left:-6px;top:430px;height:150px"></span><span class="btn" style="right:-6px;top:380px;height:210px"></span>
-<div class="screen"><div class="island"></div><div class="date">Tuesday, March 10</div><div class="time">9:41</div>
-<div class="verse"><p id="v">${esc(c.text)}</p><div class="ref">${esc(c.ref)} &middot; ${TRANSLATION}</div></div></div></div>
-</div></body></html>`;
-}
+const BRAND_CFG = {
+  name: 'FaithWall',
+  markHtml: '<span>Faith<b style="color:#D97B3B">Wall</b></span>',
+  iconSrc: `data:image/png;base64,${b64('public/icon-app-180.png')}`,
+  fontCss: FONT_CSS,
+  display: SANS,
+  accent: BRAND_LIGHT,
+  accentInk: '#1a0d04',
+  base: 'radial-gradient(120% 90% at 70% 0%, #1b1410 0%, #0d0b0c 45%, #08080b 100%)',
+  // light rays from above the phone: "a verse in view", not a gadget ad
+  pattern: 'repeating-conic-gradient(from 196deg at 78% -18%, rgba(255,236,214,.05) 0deg 3deg, transparent 3deg 8deg)',
+  screenCss: `.verse{display:flex;flex-direction:column;align-items:center;text-align:center;height:100%;justify-content:center}
+.verse p{line-height:1.3;text-wrap:balance}
+.verse .ref{margin-top:24px;font-family:${SANS};font-weight:700;font-size:26px}`,
+};
 
-// Fit: biggest font where the verse block (verse + ref) stays inside the box.
-const FIT_JS = `(async()=>{await document.fonts.ready;
-const box=document.querySelector('.verse'),p=document.getElementById('v');
-let lo=34,hi=76,best=34;
-while(lo<=hi){const mid=(lo+hi)>>1;p.style.fontSize=mid+'px';
- if(box.scrollHeight<=box.clientHeight){best=mid;lo=mid+1}else hi=mid-1}
-p.style.fontSize=best+'px';return best})()`;
-
-// ---------- CDP ----------
-async function launch() {
-  const dir = mkdtempSync(join(tmpdir(), 'fw-cover-'));
-  const port = 9300 + Math.floor(Math.random() * 500);
-  const proc = spawn(CHROME, [
-    '--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check',
-    `--remote-debugging-port=${port}`, `--user-data-dir=${dir}`, 'about:blank',
-  ], { stdio: 'ignore' });
-  let ver;
-  for (let i = 0; i < 60 && !ver; i++) {
-    try { ver = await (await fetch(`http://127.0.0.1:${port}/json/version`)).json(); }
-    catch { await new Promise((r) => setTimeout(r, 250)); }
-  }
-  if (!ver) throw new Error('Chrome did not start');
-  const targets = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json();
-  const page = targets.find((t) => t.type === 'page');
-  const ws = new WebSocket(page.webSocketDebuggerUrl);
-  await new Promise((res, rej) => { ws.onopen = res; ws.onerror = rej; });
-  let id = 0;
-  const pending = new Map();
-  ws.onmessage = (e) => {
-    const m = JSON.parse(e.data);
-    if (m.id && pending.has(m.id)) { const { res, rej } = pending.get(m.id); pending.delete(m.id); m.error ? rej(new Error(m.error.message)) : res(m.result); }
+function screen(c, pal) {
+  return {
+    bg: pal.bg,
+    time: pal.time,
+    date: c.date,
+    inner: `<div class="verse"><p class="fit" data-min="24" data-max="58" style="font-family:${pal.family};font-weight:${pal.weight};font-style:${pal.italic ? 'italic' : 'normal'};color:${pal.text};${pal.shadow ? `text-shadow:0 2px 14px ${pal.shadow};` : ''}">${esc(c.text)}</p>`
+      + `<div class="ref" style="letter-spacing:${pal.upper ? '3px' : '.5px'};color:${pal.ref};${pal.upper ? 'text-transform:uppercase;' : ''}">${esc(c.ref)} &middot; ${TRANSLATION}</div></div>`,
   };
-  const send = (method, params = {}) => new Promise((res, rej) => { const i = ++id; pending.set(i, { res, rej }); ws.send(JSON.stringify({ id: i, method, params })); });
-  const close = () => { try { ws.close(); } catch {} proc.kill(); try { rmSync(dir, { recursive: true, force: true }); } catch {} };
-  return { send, close };
 }
 
-async function render(cdp, c, pal) {
-  const { frameTree } = await cdp.send('Page.getFrameTree');
-  await cdp.send('Page.setDocumentContent', { frameId: frameTree.frame.id, html: html(c, pal) });
-  const r = await cdp.send('Runtime.evaluate', { expression: FIT_JS, awaitPromise: true, returnByValue: true });
-  const shot = await cdp.send('Page.captureScreenshot', { format: 'jpeg', quality: 88, clip: { x: 0, y: 0, width: W, height: H, scale: 1 } });
-  return { jpg: Buffer.from(shot.data, 'base64'), fontSize: r.result.value };
+function iconSvg(name) {
+  const Icon = Lucide[name];
+  if (!Icon) throw new Error(`Unknown lucide icon ${name}`);
+  return renderToStaticMarkup(createElement(Icon, { size: 30, strokeWidth: 2.25 }));
 }
+
+const HOOK_WORDS = 6; // hard cap; aim for 2-4
+const BANNED = /\b(free|price|priced|pricing|cost|costs|trial|subscribe|subscription|paywall|premium)\b|\$\d/i;
 
 // ---------- main ----------
-const only = new Set(process.argv.slice(2));
+// Flags: --out <dir> writes the jpgs there and touches no data file (samples / review);
+//        --dry checks every entry (hook, tag, icon, verse) without rendering.
+const args = process.argv.slice(2);
+const outIdx = args.indexOf('--out');
+const outDir = outIdx >= 0 ? args[outIdx + 1] : null;
+const dry = args.includes('--dry');
+const only = new Set(args.filter((a, i) => !a.startsWith('--') && (outIdx < 0 || i !== outIdx + 1)));
 const data = JSON.parse(readFileSync(coversPath, 'utf-8'));
 let listingSrc = readFileSync(listingPath, 'utf-8');
 const listing = JSON.parse(listingSrc);
 const seenFiles = new Set();
-const cdp = await launch();
-try {
-  await cdp.send('Page.enable');
-  await cdp.send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: 1, mobile: false });
-  for (const c of data.covers) {
-    if (SKIP.has(c.slug)) throw new Error(`${c.slug} is in SKIP and must not have a cover entry`);
-    const pal = PALETTES[c.palette];
-    if (!pal) throw new Error(`Unknown palette ${c.palette} for ${c.slug}`);
-    c.text = kjvText(c.ref);
-    c.file = `/blog-thumbnails/${slugify(c.ref)}-bible-verse-iphone-lock-screen.jpg`;
-    if (seenFiles.has(c.file)) throw new Error(`Duplicate verse ${c.ref}: each post needs its own verse (file name collision)`);
-    seenFiles.add(c.file);
-    c.alt = `iPhone lock screen showing ${c.ref} (${TRANSLATION})`;
-    if (only.size && !only.has(c.slug)) continue;
+const problems = [];
+for (const c of data.covers) {
+  if (SKIP.has(c.slug)) problems.push(`${c.slug} is in SKIP and must not have a cover entry`);
+  if (!PALETTES[c.palette]) problems.push(`${c.slug}: unknown palette ${c.palette}`);
+  if (!c.hook) problems.push(`${c.slug}: no hook`);
+  else {
+    const words = c.hook.replace(/\*/g, '').split(/\s+/).filter(Boolean).length;
+    if (words > HOOK_WORDS) problems.push(`${c.slug}: hook has ${words} words (max ${HOOK_WORDS})`);
+    if (!/\*[^*]+\*/.test(c.hook)) problems.push(`${c.slug}: hook needs one *accent* word`);
+  }
+  for (const f of ['hook', 'tag', 'badge']) if (c[f] && BANNED.test(c[f])) problems.push(`${c.slug}: no price/free/trial words on covers (${f}: ${c[f]})`);
+  if (!c.tag) problems.push(`${c.slug}: no tag`);
+  if (!LAYOUT_NAMES.includes(c.layout)) problems.push(`${c.slug}: layout must be one of ${LAYOUT_NAMES.join(', ')}`);
+  if (c.layout === 'number' && !(c.number && c.hook.replace(/\*/g, '').startsWith(c.number + ' '))) problems.push(`${c.slug}: number layout needs "number" and a hook that starts with it`);
+  if (c.float) {
+    if (!Lucide[c.float.icon]) problems.push(`${c.slug}: unknown float icon ${c.float.icon}`);
+    for (const f of ['title', 'text']) if (!c.float[f] || c.float[f].length > 24 || BANNED.test(c.float[f])) problems.push(`${c.slug}: float ${f} must be 1-24 characters, no price words`);
+    if (!['right', 'left', 'number'].includes(c.layout)) problems.push(`${c.slug}: float cards only fit right, left, number`);
+  }
+  if (!Lucide[c.icon]) problems.push(`${c.slug}: unknown icon ${c.icon}`);
+  if (c.badge && c.badge.length > 24) problems.push(`${c.slug}: badge longer than 24 characters`);
+  try { c.text = kjvText(c.ref); } catch (e) { problems.push(`${c.slug}: ${e.message}`); }
+  if (c.fan && (c.fan.length !== 2 || c.fan.includes(c.ref))) problems.push(`${c.slug}: fan needs exactly two other refs`);
+  for (const r of c.fan || []) { try { kjvText(r); } catch (e) { problems.push(`${c.slug} fan: ${e.message}`); } }
+  for (const fp of c.fanPalettes || []) if (!PALETTES[fp]) problems.push(`${c.slug}: unknown fan palette ${fp}`);
+  c.file = `/blog-thumbnails/${slugify(c.ref)}-bible-verse-iphone-wallpaper.jpg`;
+  if (seenFiles.has(c.file)) problems.push(`Duplicate verse ${c.ref}: each post needs its own verse (file name collision)`);
+  seenFiles.add(c.file);
+  c.alt = `iPhone lock screen showing ${c.ref} (${TRANSLATION}) as a wallpaper`;
+}
+// Grid neighbours (blogPosts.json order, the order the blog grid shows) never share a layout: same style, a different
+// picture each time. Pick one the 3 neighbours do not use (the covers skill, step 2).
+{
+  const bySlug = new Map(data.covers.map((c) => [c.slug, c]));
+  const grid = listing.map((p) => bySlug.get(p.slug)).filter(Boolean);
+  for (let i = 1; i < grid.length; i++) {
+    if (grid[i].layout === grid[i - 1].layout) problems.push(`${grid[i].slug}: same layout (${grid[i].layout}) as its grid neighbour ${grid[i - 1].slug}`);
+  }
+}
+if (problems.length) { console.error(problems.join('\n')); process.exit(1); }
+if (dry) { console.log(`${data.covers.length} cover entries OK`); process.exit(0); }
 
-    const { jpg, fontSize } = await render(cdp, c, pal);
+const engine = await launch();
+let n = 0;
+try {
+  for (const c of data.covers) {
+    if (only.size && !only.has(c.slug)) continue;
+    const pal = PALETTES[c.palette];
+    // fan: two more verses (refs in c.fan) on phones behind the front one, for list posts
+    // fan: two more verses (c.fan) behind the front phone for list posts; without c.fan, the same verse in two
+    // other wallpaper styles (one verse, three looks)
+    const others = Object.keys(PALETTES).filter((k) => k !== c.palette);
+    const h = [...c.slug].reduce((a, ch) => (a * 31 + ch.charCodeAt(0)) >>> 0, 7);
+    const fanPal = c.fanPalettes || [others[h % others.length], others[(h + 3) % others.length]];
+    const backs = c.layout !== 'fan' ? [] : c.fan
+      ? c.fan.map((ref, k) => screen({ ref, text: kjvText(ref), date: c.date }, PALETTES[fanPal[k] || c.palette]))
+      : fanPal.map((k) => screen(c, PALETTES[k]));
+    const html = coverHtml(BRAND_CFG, {
+      hook: c.hook, tag: c.tag, tagIconSvg: iconSvg(c.icon), badge: c.badge, layout: c.layout, number: c.number, float: c.float && { iconSvg: iconSvg(c.float.icon), title: c.float.title, text: c.float.text },
+      glow: pal.glow, screens: [screen(c, pal), ...backs],
+    });
+    const { jpg, fit } = await engine.render(html);
+    n++;
+    if (outDir) {
+      writeFileSync(join(outDir, `${c.slug}.jpg`), jpg);
+      console.log(`${c.slug}  hook ${fit.hook}px  verse ${fit.screens[0]}px  ${(jpg.length / 1024).toFixed(0)} KB`);
+      continue;
+    }
     writeFileSync(join(root, 'public', c.file), jpg);
 
-    // Point the post + the listing at the new cover; drop the Unsplash credit.
+    // Point the post + the listing at the new cover; drop any Unsplash credit.
     // Text edits (not JSON.stringify) so the files keep their formatting.
     const pp = postPath(c.slug);
     let postSrc = readFileSync(pp, 'utf-8');
@@ -239,18 +249,25 @@ try {
       listingSrc = listingSrc.slice(0, at) + seg + listingSrc.slice(end);
       entry.thumbnail = c.file;
     }
+    // Covers are served immutable, so a new look gets a new file name; remove the old jpg and its variants
+    // once nothing points at it.
     if (old && old !== c.file && old.startsWith('/blog-thumbnails/')) {
-      const oldAbs = join(root, 'public', old);
-      // keep it if another post still points at it
       const stillUsed = listing.some((p) => p.thumbnail === old);
-      if (!stillUsed && existsSync(oldAbs)) rmSync(oldAbs);
+      if (!stillUsed) {
+        const base = old.replace(/^\/blog-thumbnails\//, '').replace(/\.jpg$/, '');
+        for (const f of readdirSync(join(root, 'public/blog-thumbnails'))) {
+          if (f === `${base}.jpg` || (f.startsWith(`${base}-`) && /-\d+\.(webp|avif)$/.test(f))) rmSync(join(root, 'public/blog-thumbnails', f));
+        }
+      }
     }
-    console.log(`${c.slug}  ${c.ref}  ${c.palette}  ${fontSize}px  ${(jpg.length / 1024).toFixed(0)} KB`);
+    console.log(`${c.slug}  ${c.ref}  hook ${fit.hook}px  verse ${fit.screens[0]}px  ${(jpg.length / 1024).toFixed(0)} KB`);
   }
 } finally {
-  cdp.close();
+  engine.close();
 }
-writeFileSync(coversPath, JSON.stringify(data, null, 2) + '\n');
-JSON.parse(listingSrc);
-writeFileSync(listingPath, listingSrc);
-console.log(`\n${only.size || data.covers.length} cover(s) rendered`);
+if (!outDir) {
+  writeFileSync(coversPath, JSON.stringify(data, null, 2) + '\n');
+  JSON.parse(listingSrc);
+  writeFileSync(listingPath, listingSrc);
+}
+console.log(`\n${n} cover(s) rendered${outDir ? ` to ${outDir}` : ''}`);

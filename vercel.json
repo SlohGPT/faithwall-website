@@ -78,6 +78,236 @@
       "source": "/blog/best-free-all-time",
       "destination": "/blog/best-free-bible-app-iphone",
       "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/1-corinthians-16-13-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/1-corinthians-16-13-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/1-peter-5-7-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/1-peter-5-7-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/1-thessalonians-5-17-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/1-thessalonians-5-17-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/2-timothy-2-15-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/2-timothy-2-15-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/colossians-3-2-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/colossians-3-2-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/colossians-4-2-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/colossians-4-2-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/deuteronomy-6-6-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/deuteronomy-6-6-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/ecclesiastes-3-1-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/ecclesiastes-3-1-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/ecclesiastes-4-12-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/ecclesiastes-4-12-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/exodus-20-8-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/exodus-20-8-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/galatians-6-9-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/galatians-6-9-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/habakkuk-2-2-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/habakkuk-2-2-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/isaiah-26-3-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/isaiah-26-3-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/isaiah-40-8-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/isaiah-40-8-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/james-1-22-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/james-1-22-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/jeremiah-33-3-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/jeremiah-33-3-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/lamentations-3-23-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/lamentations-3-23-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/luke-2-14-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/luke-2-14-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/matthew-18-20-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/matthew-18-20-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/matthew-6-9-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/matthew-6-9-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/nehemiah-8-8-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/nehemiah-8-8-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/proverbs-4-7-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/proverbs-4-7-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-1-2-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-1-2-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-107-20-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-107-20-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-118-24-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-118-24-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-119-105-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-119-105-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-119-11-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-119-11-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-119-130-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-119-130-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-119-133-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-119-133-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-119-160-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-119-160-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-119-164-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-119-164-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-119-18-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-119-18-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-119-97-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-119-97-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-145-18-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-145-18-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-16-8-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-16-8-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-19-1-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-19-1-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-23-1-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-23-1-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-34-18-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-34-18-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-46-1-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-46-1-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-46-10-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-46-10-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-55-17-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-55-17-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-62-1-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-62-1-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-86-7-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-86-7-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-90-14-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-90-14-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/psalm-92-2-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/psalm-92-2-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-thumbnails/romans-10-17-bible-verse-iphone-lock-screen.jpg",
+      "destination": "/blog-thumbnails/romans-10-17-bible-verse-iphone-wallpaper.jpg",
+      "permanent": true
     }
   ]
 }
