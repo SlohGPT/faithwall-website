@@ -2,8 +2,9 @@
 
 Session journal for this repo. One entry per session, append-only, numbered in order (next entry = highest number + 1). Public repo: entries describe search performance qualitatively and never contain raw Search Console numbers. Direction lives in `SEO-STRATEGY.md`, the work order in `src/data/seo-priorities.json`, and human tasks in `TODO-KAROL.md`.
 
-## Status (2026-11-18)
+## Status (2026-11-19)
 
+- **Merge gate 11-19 (entry 46).** No branch to merge: today's local autopilot succeeded and found no eligible item (starved queue, earliest p66 on 11-25). Liveness is fine (last bot commit 11-18). Dry days until 11-25 are expected; the 3-day count trips on 11-21 on the count alone.
 - **Blog covers, picture ratio and the App Store badge card on all three sites (entry 45, 11-18 evening, Karol's asks, no agents).** Live: FW `42778b5`, QW `b79c308`, NW `f78d160`.
   - Cover engine 1.1.0 and a covers skill per site: 46 + 8 + 108 generated covers in six layouts, wired into the blog skills and all six local autopilots; 133 old image URLs redirect permanently to them (42 FaithWall ones purged from Cloudflare's cache).
   - About one big picture per 250 words; topic maps and chip-row dividers gone; centered download card; the mobile bar is now an iOS-style card with Apple's official badge (on held pages too, annotated).
@@ -140,3 +141,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [43 — Merge gate, 2026-11-18](journal/43-merge-gate-2026-11-18.md): local p68 branch (Bible verse wallpaper for men, second v3 post) verified (facts checked against facts.json and wallpaper.ts), fast-forwarded to da93f8e, live, IndexNow --all 200 for 59 URLs; gate cleared.
 - [44 — Three-site health check, 2026-11-18](journal/44-three-site-health-check-2026-11-18.md): read-only check after the 11-17 SEO and GEO pass. All nine runs merged and live (FW p68, QW p9, NW p46). link-graph --live exits 0 on all three, and NoteWall now has 0 orphans and depth 2. Sitemaps are 200 with no redirects, every AI and search bot gets 200, geo-probe exits 0, and lint-facts reports 0 FAIL. Google crawled `/` and a pillar today. Found `www.faithwall.app` with no DNS; it has redirected to the bare domain with a 308 since 15:05 (Cloudflare rule plus proxied CNAME). PageSpeed hit its daily quota.
 - [45 — Blog covers, picture ratio and a cleaner blog on all three sites, 2026-11-18](journal/45-blog-covers-picture-ratio-2026-11-18.md): cover engine 1.1.0 and covers skills (FW 46, QW 8, NW 108 covers, six layouts, neighbour rule), blog skills and six autopilots point there; picture ratio (`visualRhythm.ts`); topic maps and chip dividers removed; centered download card, QR behind a disclosure; the mobile install bar as an iOS-style card with the official App Store badge; NoteWall #418 fix; 133 old image URLs redirect, 46 FaithWall ones purged in Cloudflare; local and live audits (`42778b5`, `b79c308`, `f78d160`).
+- [46 — Merge gate, 2026-11-19](journal/46-merge-gate-2026-11-19.md): no branch; local autopilot succeeded with no eligible item (starved queue, earliest p66 on 11-25); liveness fine, nothing to deploy or submit.
