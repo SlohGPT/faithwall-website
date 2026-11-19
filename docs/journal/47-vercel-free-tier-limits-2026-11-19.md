@@ -22,3 +22,7 @@ Karol forwarded the Vercel emails (Image Optimization transformations at 75 % an
 
 - Verify the NoteWall session's report: its hash with `git show`, curl live `/blog` for `/_next/image` (must be none), and the cover files return 200.
 - dreamwall-web and zlavozrut use about 150 transformations together. They're harmless on their own, but they're the same pattern if they grow.
+
+## Later the same day: zlavozrut GitHub Actions turned off
+
+Karol was still getting daily "Run failed: Refresh dead-man's switch" emails from SlohGPT/zlavozrut, a project that is no longer active. Its three scheduled workflows were still running: the dead-man's switch had failed every day since at least 11-09, plus the monthly grocery rebuild and the per-leaflet store refresh. All three are now disabled (`gh workflow disable`, as SlohGPT); `gh workflow list` shows `disabled_manually`. Nothing was deleted. To turn them back on: `gh workflow enable <id> -R SlohGPT/zlavozrut`, or the repo's Actions tab.
