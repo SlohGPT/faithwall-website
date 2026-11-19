@@ -26,3 +26,7 @@ Karol forwarded the Vercel emails (Image Optimization transformations at 75 % an
 ## Later the same day: zlavozrut GitHub Actions turned off
 
 Karol was still getting daily "Run failed: Refresh dead-man's switch" emails from SlohGPT/zlavozrut, a project that is no longer active. Its three scheduled workflows were still running: the dead-man's switch had failed every day since at least 11-09, plus the monthly grocery rebuild and the per-leaflet store refresh. All three are now disabled (`gh workflow disable`, as SlohGPT); `gh workflow list` shows `disabled_manually`. Nothing was deleted. To turn them back on: `gh workflow enable <id> -R SlohGPT/zlavozrut`, or the repo's Actions tab.
+
+## NoteWall fix verified (same day)
+
+The NoteWall session shipped it: merge `da4c86f`, journal `82b0155`, now on origin/main. `next.config.ts` has `images.unoptimized: true`, and the AVIF/WebP sizes are pre-built by `scripts/build-image-variants.mjs` and served by `SiteImage.tsx` from `/sized/…`. Checked live here: `/`, `/blog` and a post contain 0 `/_next/image` URLs; the sized cover files and the old cover URL answer 200. Still open: check that the Vercel transformation counter stays flat over the next day or two.
