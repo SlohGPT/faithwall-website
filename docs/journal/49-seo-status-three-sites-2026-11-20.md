@@ -23,3 +23,23 @@ All three sites let every AI search and user bot through (Cloudflare fix 11-17, 
 - 11-23 refresh: the deciding INDEX STATE line for the four October posts.
 - QuranWall indexing: 0 indexed in the sitemap report is worth a URL Inspection pass in that repo's session.
 - 12-02: cohort read-out and the end of the holds.
+
+## Update, same session: indexing push on all three sites
+
+Karol: "whatever you need to do on all of the free websites, then do it. If you need to do Bing Webmaster Tools or GSC". Then: "Are we publishing blogs though?"
+
+**Correction.** URL Inspection on every sitemap URL (API, read-only) shows the Search Console sitemap column was wrong: QuranWall has most of its pages indexed, not none. FaithWall has all but three pages indexed. Those three are three of the four October posts: one is "discovered, not indexed", two are unknown to Google. That makes it still one of four indexed, so the §6 hold stays; the 11-23 refresh writes the INDEX STATE line as planned. NoteWall has a large share not indexed. Most of those were crawled and then left out ("Crawled - currently not indexed", many of them the June–July ADHD and productivity posts), which is a page-quality signal that a request cannot fix. The rest are unknown or only discovered.
+
+**Done.**
+- IndexNow (Bing, Yandex, Seznam, Naver): every not-indexed URL on all three sites, through each repo's own `submit-indexnow.mjs`, all accepted with 200. No repo files changed.
+- Search Console, Request Indexing in Karol's Chrome: FaithWall's three October posts; QuranWall `/blog`, the dhikr post and the about page; NoteWall's four top product pages (best lock-screen notes apps, wallpaper maker with notes, add text to wallpaper, reminders without notifications). Two more NoteWall requests may have gone through before Google's daily quota message; the rest wait for another day.
+- Sitemap resubmission through the API is not possible: the service account is a restricted user (403). Google and Bing read all three sitemaps within the last ten days anyway.
+
+**Bing Webmaster Tools.** All three sites are verified and their sitemaps read without errors. Bing's search traffic is small next to Google's. Its new AI Performance report counts citations in Microsoft Copilot answers: FaithWall and NoteWall are cited and both rose each month over the last three, and NoteWall is cited more. QuranWall has no data yet (added 11-18). This is the first direct AI-citation measure for the sites; the weekly refresh can read it. Bing flags FaithWall for "limited crawl capacity" (its generic advice to raise the crawl rate). It was left at default because a 59-URL site whose sitemap was read two days ago is not crawl-limited. Old `sitemap.xml/` and `www.notewall.info` sitemap entries in Bing are stale but harmless.
+
+**Blogs.** No new posts are being published right now, by design: FaithWall's next queue item is 11-25 and most items open 12-02 (new-URL hold plus core-update hold); NoteWall's queue is held to 12-01; QuranWall's autopilot does page work, not posts.
+
+**Open.**
+- NoteWall's crawled-not-indexed posts need consolidation or rewrites in a NoteWall session, after its 12-01 hold.
+- Re-request the remaining NoteWall pages (unknown and discovered ones) on a later day; quota is about ten a day.
+- Add a Bing AI Performance read to the weekly refreshes.
