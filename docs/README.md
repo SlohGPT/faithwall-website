@@ -4,6 +4,7 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 
 ## Status (2026-11-20)
 
+- **Three-site SEO status (entry 49, Karol's question).** FaithWall grows (best week on record to 11-17), NoteWall is flat since its September peak, QuranWall has no measurable Google traffic yet (Search Console data only from 11-15, sitemap shows 0 indexed). New posts are paused by the holds until 11-25 / 12-01 / 12-02. AI bots reach all three sites.
 - **Merge gate 11-20 (entry 48).** No branch to merge: today's local autopilot succeeded with no eligible item (starved queue, earliest p66 on 11-25). Liveness fine (last bot commit 11-18). Entry 47's three unpushed docs commits went to origin with this push. 11-21 trips the 3-day count on the count alone.
 - **Vercel free-tier limits (entry 47, Karol's ask).** The three app sites are on the free Hobby team. NoteWall's `/_next/image` made 97 % of the 5,000 monthly image transformations after the 11-18 covers, and live variants now return PAYMENT_REQUIRED. A NoteWall session is switching it to unoptimized, pre-sized WebP. Deployment storage pruned itself (1.49 GB of 10 GB). No upgrade.
 - **Merge gate 11-19 (entry 46).** No branch to merge: today's local autopilot succeeded and found no eligible item (starved queue, earliest p66 on 11-25). Liveness is fine (last bot commit 11-18). Dry days until 11-25 are expected; the 3-day count trips on 11-21 on the count alone.
@@ -146,3 +147,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [46 — Merge gate, 2026-11-19](journal/46-merge-gate-2026-11-19.md): no branch; local autopilot succeeded with no eligible item (starved queue, earliest p66 on 11-25); liveness fine, nothing to deploy or submit.
 - [47 — Vercel free-tier limits, 2026-11-19](journal/47-vercel-free-tier-limits-2026-11-19.md): Hobby team usage read in Chrome. NoteWall made 5,003 of 5,155 image transformations (covers × 8 widths × 2 formats); the fix went to its own session (unoptimized + pre-sized WebP). Deployment storage auto-pruned to 1.49 GB; FW/QW use no image optimizer.
 - [48 — Merge gate, 2026-11-20](journal/48-merge-gate-2026-11-20.md): no branch; local autopilot succeeded with no eligible item (starved queue, earliest p66 on 11-25); liveness fine; entry 47's unpushed docs commits pushed along.
+- [49 — SEO status across the three sites, 2026-11-20](journal/49-seo-status-three-sites-2026-11-20.md)
