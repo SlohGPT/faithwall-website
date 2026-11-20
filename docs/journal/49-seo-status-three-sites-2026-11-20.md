@@ -57,3 +57,20 @@ Karol: "I think we should publish more blogs, but it's up to you", and asked for
 **Cadence by site.** FaithWall: up to 2 demand-tested posts a week from 11-23. NoteWall: no new posts until its crawled-not-indexed posts are consolidated after 12-01. QuranWall: new posts only on facts settled by the app knowledge base below.
 
 **QuranWall knowledge base.** A workflow (six area readers, synthesis, an independent verify pass, a website audit) read the app source at `4e45bc1` (v1.2 build 28) and wrote `quranwall-website/docs/app-knowledge/` (11 files). The verify pass corrected one claim (the 3-save free limit is live for lapsed subscribers, not dormant). Product IDs that carry prices and promo-code details were left out of the public copy. Main findings: no free tier for new installs (hard paywall); one edition per ayah (Arabic or a translation); wallpaper changes only on in-app actions, the widget rotates only when turned on; read-along recitation exists (so QuranWall's CLAUDE.md "no audio recitation" was wrong); no Focus-mode install, packs, duas or dhikr widget; installs on iOS 15, wallpaper and Lock Screen widgets need iOS 16; Mixpanel and RevenueCat are present, so never "no tracking". The QuranWall site, rules and TODO are aligned in that repo (its journal 07). The app repo keeps a leftover third-party key in Config.swift; flagged to Karol.
+
+## Open after this session (Karol closed it 2026-11-20 evening)
+
+Nothing is running and both repos are pushed (FaithWall fefea16, QuranWall 78f0d85). The QuranWall site changes were checked live (`llms.txt` names iOS 16; the privacy policy names the analytics). Loose ends for later sessions:
+- **NoteWall Request Indexing:** the rest of the unknown and discovered pages are still to request in Search Console (about ten a day; the list is the not-indexed set from today's URL Inspection pass). The crawled-not-indexed ADHD and productivity posts need consolidation or rewrites after 12-01, in a NoteWall session.
+- **QuranWall Request Indexing:** `/blog`, the dhikr post and the about page were requested today. Its `TODO-KAROL.md` "Request Indexing" item can be trimmed at the next refresh.
+- **FaithWall p67 (Christmas/Advent):** a Sunday-by-Sunday Advent section would be a refresh, not a new post. Advent starts 11-29. Not queued.
+- **Lent post:** demand exists. Queue it for about 2027-01-09 (Ash Wednesday is 02-10) from a December refresh.
+- **John 3:16 wallpaper post:** hold until p80 and p82 are indexed.
+- **AI-citation read:** add Bing AI Performance (Copilot citations per site) to the three weekly refreshes, or make a monthly scheduled task for it. Karol was offered this and has not answered.
+- **Karol, outside the sites:**
+  - Rotate and remove the leftover key in the QuranWall app repo's `Config.swift`.
+  - Align the QuranWall App Store listing ("a new ayah every day", "alongside a trusted translation"; this is for the ASO session).
+  - Accept the Apple agreement in App Store Connect.
+  - Answer the QuranWall translation licences, live prices, privacy label and "we do not sell" wording.
+  - Handle FaithWall's five daily-change posts.
+  - Do the monthly Google generative-AI export.
