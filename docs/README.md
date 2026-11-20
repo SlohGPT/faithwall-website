@@ -2,8 +2,9 @@
 
 Session journal for this repo. One entry per session, append-only, numbered in order (next entry = highest number + 1). Public repo: entries describe search performance qualitatively and never contain raw Search Console numbers. Direction lives in `SEO-STRATEGY.md`, the work order in `src/data/seo-priorities.json`, and human tasks in `TODO-KAROL.md`.
 
-## Status (2026-11-19)
+## Status (2026-11-20)
 
+- **Merge gate 11-20 (entry 48).** No branch to merge: today's local autopilot succeeded with no eligible item (starved queue, earliest p66 on 11-25). Liveness fine (last bot commit 11-18). Entry 47's three unpushed docs commits went to origin with this push. 11-21 trips the 3-day count on the count alone.
 - **Vercel free-tier limits (entry 47, Karol's ask).** The three app sites are on the free Hobby team. NoteWall's `/_next/image` made 97 % of the 5,000 monthly image transformations after the 11-18 covers, and live variants now return PAYMENT_REQUIRED. A NoteWall session is switching it to unoptimized, pre-sized WebP. Deployment storage pruned itself (1.49 GB of 10 GB). No upgrade.
 - **Merge gate 11-19 (entry 46).** No branch to merge: today's local autopilot succeeded and found no eligible item (starved queue, earliest p66 on 11-25). Liveness is fine (last bot commit 11-18). Dry days until 11-25 are expected; the 3-day count trips on 11-21 on the count alone.
 - **Blog covers, picture ratio and the App Store badge card on all three sites (entry 45, 11-18 evening, Karol's asks, no agents).** Live: FW `42778b5`, QW `b79c308`, NW `f78d160`.
@@ -144,3 +145,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [45 — Blog covers, picture ratio and a cleaner blog on all three sites, 2026-11-18](journal/45-blog-covers-picture-ratio-2026-11-18.md): cover engine 1.1.0 and covers skills (FW 46, QW 8, NW 108 covers, six layouts, neighbour rule), blog skills and six autopilots point there; picture ratio (`visualRhythm.ts`); topic maps and chip dividers removed; centered download card, QR behind a disclosure; the mobile install bar as an iOS-style card with the official App Store badge; NoteWall #418 fix; 133 old image URLs redirect, 46 FaithWall ones purged in Cloudflare; local and live audits (`42778b5`, `b79c308`, `f78d160`).
 - [46 — Merge gate, 2026-11-19](journal/46-merge-gate-2026-11-19.md): no branch; local autopilot succeeded with no eligible item (starved queue, earliest p66 on 11-25); liveness fine, nothing to deploy or submit.
 - [47 — Vercel free-tier limits, 2026-11-19](journal/47-vercel-free-tier-limits-2026-11-19.md): Hobby team usage read in Chrome. NoteWall made 5,003 of 5,155 image transformations (covers × 8 widths × 2 formats); the fix went to its own session (unoptimized + pre-sized WebP). Deployment storage auto-pruned to 1.49 GB; FW/QW use no image optimizer.
+- [48 — Merge gate, 2026-11-20](journal/48-merge-gate-2026-11-20.md): no branch; local autopilot succeeded with no eligible item (starved queue, earliest p66 on 11-25); liveness fine; entry 47's unpushed docs commits pushed along.
