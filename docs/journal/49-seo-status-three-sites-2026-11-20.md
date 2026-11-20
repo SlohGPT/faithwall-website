@@ -43,3 +43,7 @@ Karol: "whatever you need to do on all of the free websites, then do it. If you 
 - NoteWall's crawled-not-indexed posts need consolidation or rewrites in a NoteWall session, after its 12-01 hold.
 - Re-request the remaining NoteWall pages (unknown and discovered ones) on a later day; quota is about ten a day.
 - Add a Bing AI Performance read to the weekly refreshes.
+
+## Update 2: is it all on autopilot?
+
+Karol asked whether he needs to do anything or whether it now runs by itself every day. Checked: all nine app-site scheduled tasks (three autopilots, three merge gates, three Monday refreshes) are enabled and ran on schedule today. The QuranWall refresh has never run because it had no Search Console access; it has access now, so 11-23 is its first real run. The tasks run on this Mac, so they need it awake with the Claude app open. New posts come only when a keyword passes the §5 demand test (strategy v3), not daily. Both requests for indexing p67 and p68 are already done: both URLs are indexed. Told Karol the short list of owner items still open in the three TODO-KAROL files: the Apple agreement, QuranWall's seven app questions and its CLAUDE.md line, FaithWall's five daily-change posts, and the monthly Google generative-AI export.
