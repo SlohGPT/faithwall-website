@@ -2,8 +2,9 @@
 
 Session journal for this repo. One entry per session, append-only, numbered in order (next entry = highest number + 1). Public repo: entries describe search performance qualitatively and never contain raw Search Console numbers. Direction lives in `SEO-STRATEGY.md`, the work order in `src/data/seo-priorities.json`, and human tasks in `TODO-KAROL.md`.
 
-## Status (2026-11-21)
+## Status (2026-11-22)
 
+- **Merge gate 11-22 (entry 51).** No branch to merge. Fourth dry day by count, still a starved queue: today's local autopilot succeeded with nothing due. p80 (Psalm 91) becomes eligible on 11-23, so the 11-23 gate should find a branch.
 - **Merge gate 11-21 (entry 50).** No branch to merge. Third day without bot output, but the queue is starved, not blocked: the local autopilot succeeded on 11-19, 11-20 and 11-21 with no eligible item. p80 (Psalm 91) becomes eligible on 11-23.
 - **Three-site SEO status and indexing push (entry 49, Karol's asks).** FaithWall grows (best week on record to 11-17), NoteWall is flat since September, QuranWall has little Google traffic yet but most pages indexed (the sitemap column's "0 indexed" was wrong). IndexNow for every not-indexed URL on all three, Request Indexing for 10 pages until Google's daily quota. Bing AI Performance shows Copilot citations rising monthly for FaithWall and NoteWall. NoteWall's many crawled-not-indexed posts are a quality fix for after 12-01. No new posts until the holds lift (11-25 / 12-01 / 12-02). Update 3: four demand-tested posts queued (p80-p83, two a week from 11-23, 6f727e7) and a QuranWall app knowledge base built from the iOS source (in that repo, docs/app-knowledge/).
 - **Merge gate 11-20 (entry 48).** No branch to merge: today's local autopilot succeeded with no eligible item (starved queue, earliest p66 on 11-25). Liveness fine (last bot commit 11-18). Entry 47's three unpushed docs commits went to origin with this push. 11-21 trips the 3-day count on the count alone.
@@ -150,3 +151,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [48 — Merge gate, 2026-11-20](journal/48-merge-gate-2026-11-20.md): no branch; local autopilot succeeded with no eligible item (starved queue, earliest p66 on 11-25); liveness fine; entry 47's unpushed docs commits pushed along.
 - [49 — SEO status across the three sites, 2026-11-20](journal/49-seo-status-three-sites-2026-11-20.md)
 - [50 — Merge gate, 2026-11-21](journal/50-merge-gate-2026-11-21.md): no branch; third dry day by count, but the local autopilot succeeded each day with no eligible item (starved queue, earliest p80 on 11-23); nothing to deploy or submit.
+- [51 — Merge gate, 2026-11-22](journal/51-merge-gate-2026-11-22.md): no branch; fourth dry day by count, today's local autopilot succeeded with nothing due (starved queue, p80 eligible 11-23); nothing to deploy or submit.
