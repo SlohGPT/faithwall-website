@@ -658,6 +658,19 @@
       "file": "/blog-thumbnails/1-corinthians-16-13-bible-verse-iphone-wallpaper.jpg",
       "alt": "iPhone lock screen showing 1 Corinthians 16:13 (KJV) as a wallpaper",
       "layout": "fan"
+    },
+    {
+      "slug": "psalm-91-wallpaper-iphone",
+      "ref": "Psalm 91:2",
+      "palette": "navy-gold",
+      "hook": "Your *refuge* at a glance",
+      "tag": "Psalm 91",
+      "icon": "Feather",
+      "badge": "16 verses checked",
+      "layout": "left",
+      "text": "I will say of the Lord, He is my refuge and my fortress: my God; in him will I trust.",
+      "file": "/blog-thumbnails/psalm-91-2-bible-verse-iphone-wallpaper.jpg",
+      "alt": "iPhone lock screen showing Psalm 91:2 (KJV) as a wallpaper"
     }
   ]
 }
