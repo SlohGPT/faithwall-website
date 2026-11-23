@@ -2,25 +2,33 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-23 (weekly refresh)
+
+- **Google's November core update is still rolling, and the site had a two-day dip.** Google's status page still shows the update (it began 11-10) with no end date. On 11-19 and 11-20 FaithWall's search visibility fell sharply across every page, country and device, and it came back on 11-21. QuranWall and NoteWall were normal on those days, and every live check on faithwall.app was clean: pages return 200 and are indexable, canonicals are right, www redirects, and 58 of 59 URLs are indexed. It reads as update volatility, not a site fault. Nothing for you to do; the refresh keeps watching.
+- **Watch: the prayer-app roundup stepped down from 11-17.** That day had both the core update and the price-wording removal (81f4eac), so the two can't be separated yet. The 11-30 refresh re-reads it, and nothing changes on the page before then.
+- **Three of the four October posts are indexed now.** The 11-20 Request Indexing worked for `/blog/short-bible-verses-for-lock-screen` and `/blog/scripture-based-prayer-prompts`, and the grief post has been indexed since 11-12. `/blog/bible-app-vs-olive-tree` is still unknown to Google. Nothing for you to do: asking again doesn't speed Google up, and p63's audit from 12-02 decides it.
+- **The hub's NLT row now swaps from 12-08, not 11-25.** p66 replaces the row with Literal Word: Bible & Lexicon. The core update is still running and the hub is in the control group, so the swap waits until after the 12-07 read-out. If you'd rather drop the row, keep it as it is, or name another app, add a line here before 12-08.
+- **Brand KPI, for your information:** the one-word "faithwall" query still ranks first. Its clicks eased back from the October high toward the old baseline. Branded share of clicks fell further, because generator clicks keep growing. Nothing is credited to outreach.
+- **Facts check:** `check-facts` passed with no change.
+- **Still waiting on you, unchanged:** the Apple agreement (11-16 night, first item), which the first campaign read around 12-15 needs (11-16 evening, item 1). The control-group read-out runs on the 12-07 refresh.
+- **Google-change watch:** nothing new affects the site beyond the core update. **Still proposed from 10-26 (your call):** Google's generative-AI content guide (updated 10-01) asks sites to fact-check AI output by hand, titles, meta descriptions, structured data and alt text included, and suggests telling readers how the content was made. Options: a short, honest "how these pages are made" line on the About page, and/or a weekly spot-check by you of one autopilot page.
+
 ## 2026-11-18 (autopilot: p68, the men's verse wallpaper post)
 
-- **Request indexing once the merge gate has deployed it (1 minute).** The new URL is `/blog/christian-lock-screen-for-men`. In Search Console → URL Inspection, click **Request indexing** once. It is the second of the two posts the indexing brake watches (with p67).
 - **If you merge or retire any of the five daily-change posts (11-17 item 1 below), keep the men's link.** `verse-of-the-day-lock-screen-iphone` and `scripture-wallpaper-for-iphone-free` now carry this post's day-one links. Whichever page absorbs either of them should keep a link to `/blog/christian-lock-screen-for-men`.
-- **One line on the wallpaper maker page to check (not changed, outside p68).** Under the maker's install note, `src/pages/WallpaperMaker.tsx` (about line 241) says the widget "starts with the verse you picked and then shows random verses hourly, every 8 hours, or daily". Random verses only come with the optional Auto-rotate verses setting, which is off by default. A fact fix for p78 or the next refresh.
+- **One line on the wallpaper maker page to check (not changed, outside p68).** Under the maker's install note, `src/pages/WallpaperMaker.tsx` (about line 241) says the widget "starts with the verse you picked and then shows random verses hourly, every 8 hours, or daily". Random verses only come with the optional Auto-rotate verses setting, which is off by default. Covered (11-23): p78's work list includes this file, so it is fixed after p72. Nothing for you to do.
 
 ## 2026-11-17 (autopilot: p67, the Christmas verses post)
 
-- **Request indexing once the merge gate has deployed it (1 minute).** The new URL is `/blog/christmas-bible-verse-lock-screen-iphone`. In Search Console → URL Inspection, click **Request indexing** once. It is one of the two posts the indexing brake watches (with p68), and Advent starts on 11-29.
 - **If you merge or retire any of the five daily-change posts (item 1 below), keep the Christmas link.** `best-christian-wallpaper-app-iphone` and `scripture-wallpaper-for-iphone-free` now carry the new post's day-one links. Whichever page absorbs either of them should keep a link to `/blog/christmas-bible-verse-lock-screen-iphone`.
 
 ## 2026-11-17 (research check: owner items)
 
-Checked against primary sources on 2026-11-17. Four small items, only you can do them (item 4 decided and done the same day).
+Checked against primary sources on 2026-11-17. Three small items, only you can do them.
 
 - **1. Bing Webmaster Tools (10 minutes, then monthly).** Verify faithwall.app if it isn't verified yet. Then open AI Performance (public preview since 2026-02-10: citations, cited pages and sample grounding queries) and note the citations once a month.
 - **2. Search Console's Generative AI performance report: export it by hand once a month (5 minutes).** It is in the UI only (rolled out to all sites as of 2026-08-31) and has no API: we tested the service account, and every AI `searchType`/`type` value returns HTTP 400. Save each export into the private faithwall-gsc folder.
 - **3. App Store Connect idea, after the 12-02 read-out: custom product pages.** Different App Store page versions for different traffic sources. Don't start before the read-out.
-- **4. DONE 2026-11-17 by the agent at your request ("do this yourself"): Training set to Allow and Bot Preference Sync turned off on the faithwall.app zone; robots.txt matches the repo, all AI bots get 200, geo-probe exit 0 (journal 42). Nothing left for you.** Original item: Cloudflare: unblock GPTBot, ClaudeBot and PerplexityBot (decided 2026-11-17, your click, 5 minutes). You chose "Unblock all three". Re-checked 2026-11-17 before the change: all three get 403 on faithwall.app, while OAI-SearchBot, ChatGPT-User, Perplexity-User and Claude-SearchBot get 200 (QuranWall and NoteWall return 200 to all). Steps: Cloudflare dashboard → faithwall.app → AI Crawl Control, set GPTBot, ClaudeBot and PerplexityBot to Allow, and turn off the managed robots.txt (its `Content-Signal` line is also why Lighthouse SEO is 92 instead of 100). Afterwards we verify with `npm run kw -- geo-probe` or a curl per bot user agent. This replaces the open Cloudflare questions in the sections below (the 11-16 item 8 and the weekly-refresh note): the decision is made.
 
 ## 2026-11-17 (how the wallpaper really updates)
 
@@ -76,13 +84,7 @@ The App Store agreement at the top of the next section still comes first.
 
   The next session then makes three test calls to see what the real responses look like, and only then wires Bing into the tool. Bing's AI Performance report, in the same dashboard, shows how often Copilot cites each site. It has no API yet, so glance at it once a month.
 - **3. Search Console's AI report (5 minutes).** Google now reports how often each page shows in its AI features (AI Overviews and AI Mode). It shows impressions only: no queries, no clicks. Open each of the three properties and tell the next session whether the report appears. An empty report is normal at our size.
-- **4. Cloudflare AI Crawl Control: keep AI search allowed (10 minutes per Cloudflare site).** This updates the Cloudflare part of item 8 in the evening list.
-  - **Why it matters now:** the ASO session found that ChatGPT's iPhone app is the biggest single referrer of App Store downloads for all three apps. For FaithWall and QuranWall it brings more than all websites together. App Store search is still much bigger.
-  - **What must never be blocked:** ChatGPT's search crawler (OAI-SearchBot), which finds pages, and ChatGPT-User, which fetches a page when someone asks about it.
-  - **What to check:** in Cloudflare → AI Crawl Control, the Search policy is Allow and Agent is not Block.
-  - **Your decision:** whether to block the training crawlers (GPTBot, ClaudeBot).
-
-  From now on, the weekly refresh runs the tool's `geo-probe`, which reads the live robots rules and each bot's response, and puts a blocked search bot on this list.
+- **4. Cloudflare AI Crawl Control: done for faithwall.app on 11-17 (journal 42).** QuranWall's and NoteWall's check waits on item 1. On all three sites ChatGPT's search crawler (OAI-SearchBot) and ChatGPT-User must never be blocked: ChatGPT's iPhone app is the biggest single App Store referrer for all three apps. The weekly refresh runs `geo-probe` and puts a blocked search bot on this list.
 - **5. Optional (5 minutes): apply for the Google Trends API alpha.** It gives relative interest over time, not volumes. It's a small pilot, so don't wait for it. Scraping Trends (pytrends) is off-limits.
 - **6. Later, not now: paid search volumes.** If the free data can't decide between topics after about 4 weeks, there are two options:
   - DataForSEO: you create the account and top up a $50 minimum, which doesn't expire. That is roughly a few dollars a month at our use.
@@ -107,7 +109,7 @@ The App Store agreement at the top of the next section still comes first.
   - **Two texts are labelled non-commercial.** The source collection labels Schlachter 1951 (German) and Uwspółcześniona Biblia Gdańska (Polish) as "free non-commercial distribution", and FaithWall is a paid app. For each: ask permission, swap to a cleared edition, or accept the risk knowingly.
   - **The Italian Riveduta 1927 file has no recorded source.**
   - **Small fix:** the app's short name "RVR" for the Spanish Reina-Valera 1909 reads as Reina-Valera 1960, a registered mark. "RV1909" avoids that.
-- **Vercel: which account hosts the three app sites?** faithwall.app, notewall.info and quranwall.com don't appear in the shared client Vercel team's usage report. FaithWall's and NoteWall's repos are linked to two other Vercel accounts, and QuranWall's has no link file. Check in the dashboard which account and plan each one deploys from. Vercel's Hobby plan is for non-commercial use only.
+- **Vercel: answered 11-19.** The three app sites deploy from a free Vercel Hobby account, not the shared client team. Vercel's Hobby plan is for non-commercial use only, so whether to move them to a paid plan is your call.
 
 ## 2026-11-16 evening (v3.1: install cards and measurement, live)
 
@@ -125,26 +127,11 @@ The App Store agreement at the top of the next section still comes first.
 - **5. Were the waitlist testimonials real?** The home page's testimonials, the stock avatars and the newsletter form (which sent nowhere) are gone. If the testimonials came from real people who agreed to be quoted, say so and they come back.
 - **6. Does the setup work on iOS 15?** The listing says iOS 15.0 or later, and the site now says so too, with the widget needing iOS 16. The wallpaper is applied through an Apple Shortcut. Please confirm the Shortcut setup works on iOS 15, or tell us the real minimum for the wallpaper.
 - **7. How long does setup take?** Some posts say "60-second setup", and the home page says "under 2 minutes". Time it once on a fresh install, and the site will use one number everywhere.
-- **8. Still open from earlier today:** the Cloudflare AI-crawler decision (re-checked at 19:20: GPTBot and ClaudeBot still get a 403, while ChatGPT search's crawler and Googlebot get through), and Request indexing for the three unindexed October posts.
-- **9. The sister sites keep their own lists.** QuranWall: retry Request indexing for its four URLs on 11-17, after Google's daily quota stopped it on 11-16. NoteWall: its widget, sale and terms questions. Each repo's TODO-KAROL.md has the details.
+- **8. The sister sites keep their own lists.** QuranWall: retry Request indexing for its four URLs on 11-17, after Google's daily quota stopped it on 11-16. NoteWall: its widget, sale and terms questions. Each repo's TODO-KAROL.md has the details.
 
 ## 2026-11-16 (v3 re-aim)
 
-- **v3, 2026-11-16: outreach is off, by your call.** Ignore every pitch, Advent and directory item below, in this section and in the older ones: no pitches, no directory submissions, no link building. Items p64, p30 and p31 are retired, and SEO-STRATEGY §8 and Play 4 are retired. The drafts stay in `outreach/` for the record. The brand KPI stays as measurement only. The new-URL hold is lifted and replaced by a demand test for new posts, day-one links and an indexing brake (SEO-STRATEGY §5, §6). New posts restart this week with p67 (Christmas verses) and p68 (men's lock screens). With nothing eligible, the daily run now does nothing instead of writing a fallback post. The held post `bible-study-group-iphone-tools` stays unpublished: p63 (from 11-24) checks it against the demand test, publishes it only if it passes, and otherwise adds a line here asking you to delete it. The asks below that still stand: request indexing for the unindexed October posts, the campaign review, Cloudflare, and the hub's first-person testing claim.
-
-## 2026-11-16 (weekly refresh)
-
-- **Google is rolling out a core update. It began on 11-10 and can take two weeks.** No page has dropped. Through 11-15 the generator and the pillar edged up, and the hub and the money page are flat. Nothing for you to do. The hub gets no edit until the rollout is over.
-- **The hub's NLT row: the default now applies.** No line was added here, so p66 swaps the row from 11-25, after the core update. One thing differs from the 11-09 note. The App Store has no other single-translation publisher app besides the ESV app the list already ranks, so the replacement is Literal Word: Bible & Lexicon. Its listing says it is free, has no ads, works offline and carries five word-for-word translations. The new row will say it was added from its App Store listing and wasn't part of the original hands-on pass. Add a line here before 11-25 if you'd rather drop the row, keep it as it is, or name another app.
-- **One of the four October posts is indexed.** Google indexed `/blog/lock-screen-verse-for-grief` on 11-12, five days after the in-body links went live. The other three are still unknown to Google, so the 5-minute ask stands for them: in Search Console → URL Inspection, click **Request indexing** for `/blog/short-bible-verses-for-lock-screen`, `/blog/scripture-based-prayer-prompts` and `/blog/bible-app-vs-olive-tree`. If the short-verses post is still unindexed on 11-23, p63 folds it into the pillar from 11-24. Don't use the karchi service account's Indexing API for these, because Google limits it to job-posting and livestream pages.
-- **(Superseded by the v3 block above: the new-URL hold is lifted. The publish and delete steps below for the held post still work, but p63 decides it from 11-24.)** The new-URL hold stays. It lifts once two of those four posts are indexed, and one is. Until then the held post `bible-study-group-iphone-tools` stays unpublished. To publish it anyway, run `git revert c881e9d` (or set the flag to `true` yourself), change `date`/`datePublished` to the release day in `blogPosts.json` and the post JSON, run `node scripts/generate-sitemap.mjs`, push, then submit `https://faithwall.app/blog/bible-study-group-iphone-tools` to IndexNow. To drop it, delete the post's entry and its JSON.
-- (Superseded by item 1 of the v3.1 block above: the campaign tokens changed on 11-16.) **Overdue since mid-October, and it now decides more: the App Store Connect campaign review (SEO-STRATEGY §10).** The generator page is now the site's largest source of clicks as well as of visibility, and the money page takes almost none. Under Sources → Campaigns, check which `web-*`, `blog-*`, `pillar-*` and `web-sticky-*` campaigns produced downloads since 2026-10-02. If the generator's clicks become installs, the page earns real work. If they don't, it stays a feeder.
-- **Cloudflare is still blocking AI crawlers (re-checked today).** The live robots.txt still starts with Cloudflare's managed block (`ai-train=no`, plus `Disallow: /` for GPTBot, ClaudeBot and others), and the edge answers GPTBot and ClaudeBot with a 403. OAI-SearchBot, PerplexityBot, Googlebot and Bingbot get a 200, so Google, Bing and ChatGPT answers are not cut off. **To undo it:** in the Cloudflare dashboard for faithwall.app, turn off the AI-crawler block (AI Crawl Control, or Security → Bots) and the managed robots.txt. **If it's deliberate**, add a line here and the refresh will stop flagging it.
-- **For your information: `/faithwall-vs-hallow` has not shown in search since 11-05.** It is indexed, returns 200, and Google re-crawled it today. Most of what it used to show for was a second listing under your brand name, so this looks like Google dropping that extra listing, not a fault on the page. The refresh keeps watching it.
-- **Brand KPI, for your information:** the one-word "faithwall" query is still at its old baseline and still ranks first, with a slightly better latest week. Branded share of identifiable clicks fell again, because generator clicks grew. The other FaithWall going on sale (see 2026-11-13) makes this number harder to read. Nothing is credited to outreach.
-- **App Store re-check:** the listing is unchanged ("Lock Screen Bible Verse", v2.3.2, iOS 15.0 or later). The iTunes search for "faithwall" still returns your app first and lists no app from the other FaithWall.
-- **Done 11-16 evening (b73c084), nothing for you to do:** p65's two fixes. The sitewide app schema is gone from `index.html` (one app schema now, on the homepage, iOS 15.0), and the `/faithwall-vs-hallow` verses row is corrected.
-- **Google-change watch:** the core update is the only new change that matters here. One note for the Cloudflare decision: Google says it plans to support a shared robots.txt control for AI training in early 2027. It doesn't affect Search. **Still proposed from 10-26 (your call):** Google's generative-AI content guide (updated 10-01) asks sites to fact-check AI output by hand, titles, meta descriptions, structured data and alt text included, and suggests telling readers how the content was made. Options: a short, honest "how these pages are made" line on the About page, and/or a weekly spot-check by you of one autopilot page.
+- **v3, 2026-11-16: outreach is off, by your call.** Ignore every pitch, Advent and directory item below, in this section and in the older ones: no pitches, no directory submissions, no link building. Items p64, p30 and p31 are retired, and SEO-STRATEGY §8 and Play 4 are retired. The drafts stay in `outreach/` for the record. The brand KPI stays as measurement only. The new-URL hold is lifted and replaced by a demand test for new posts, day-one links and an indexing brake (SEO-STRATEGY §5, §6). New posts restart this week with p67 (Christmas verses) and p68 (men's lock screens). With nothing eligible, the daily run now does nothing instead of writing a fallback post. The held post `bible-study-group-iphone-tools` stays unpublished: p63 (from 12-02) checks it against the demand test, publishes it only if it passes, and otherwise adds a line here asking you to delete it. The asks below that still stand: the campaign read (item 1 of the v3.1 block) and the hub's first-person testing claim (10-28).
 
 ## 2026-11-13 (local autopilot, monitoring pass)
 
@@ -157,14 +144,6 @@ The App Store agreement at the top of the next section still comes first.
 ## 2026-11-04 evening (manual session: fixes landed, two decisions settled)
 
 - **Local only:** the untracked `.agents/skills/faithwall-blog/` folder in your checkout is an old Codex copy of the blog skill. It still has the banned claims ("free", Focus modes). Codex is the only tool that reads it. Delete it, or copy the current `.claude` skill over it, if you still use Codex here.
-
-## 2026-11-03 (p28 — Advent 2026 outreach drafts ready, send-by 2026-11-16)
-
-- **Fresh restart from main, clean of the quarantined text.** Five seasonal Advent follow-up drafts now sit in `outreach/advent-2026/` (bibleversedaily, warmpeach, learnofchrist, biblegeeks, healthyspirituality — the full Tier-1 five). Each names "Lock Screen Bible Verse" (the App Store listing name since 2026-10-18) next to FaithWall, as the 11-02 refresh required, and each was checked line-by-line against the Product facts ban list (no "costs nothing"/"no cost"/"free" other than "free to download", no price, no trial length) — the exact failure that got branch `5658b65` rejected.
-- **Send the original Tier-1 five first.** `outreach/{bibleversedaily,warmpeach,learnofchrist,biblegeeks,healthyspirituality}.md` are still unsent after two months — nothing has ever gone out to any of them, and nothing has declined. Those go out before these Advent follow-ups; the Advent drafts are a seasonal add-on to use alongside or shortly after, not instead of, the standing pitch.
-- **No Advent/Christmas history confirmed for any of the five sites.** WebSearch (cloud sandbox, no direct page fetch) found no dedicated Advent or Christmas devotional-app roundup on any of bibleversedaily.org, warmpeach.com, biblegeeks.fm or healthyspirituality.org, and only incidental Advent mentions inside other apps' reviews on learnofchrist.com. Each draft says so plainly rather than claiming a seasonal callback that isn't there.
-- **healthyspirituality.org's contact route is still unresolved** — the site 403s every automated fetch from both environments. Confirm the author's email at https://healthyspirituality.org/blog/biography/ in a normal browser before sending either draft to that site (unchanged from the standing Tier-1 TODO).
-- Send-by for the Advent angle: **2026-11-16**, so a reply has time to land before Advent begins 2026-11-29.
 
 ## 2026-11-01 (local autopilot, p56)
 
@@ -190,7 +169,6 @@ The App Store agreement at the top of the next section still comes first.
     - /blog/best-christian-wallpaper-app-iphone
     - /blog/best-free-bible-app-iphone
   - **The namesake still has no public App Store listing.** Its beta page now calls it "FaithWall Verse". It is a TestFlight beta, and its public App Store release is listed as "still in progress". In the autopilot's search tool (not Google), its June Substack post ranks first for "faithwall app" and "faithwall bible app". The name and trademark call is still yours. p51 has closed, so nothing in the queue tracks the namesake any more. The weekly refresh should re-check it.
-  - **Placements: still zero.** All five Tier-1 pitches are unsent. New candidate for a later outreach wave: codeinfaith.com's 2026 Bible-widgets roundup, which is independent and doesn't mention FaithWall.
 
 ## 2026-10-10
 
@@ -199,25 +177,6 @@ The App Store agreement at the top of the next section still comes first.
 ## 2026-10-08
 
 - **2026-10-08 (optional): one real lock-screen screenshot for `/blog/short-bible-verses-for-lock-screen` (p50).** The post shipped with a reused stock hero (the same Anthony Garand photo as `bible-verse-lock-screen-iphone`, because there's no Unsplash key locally) and no device evidence. A screenshot of your own iPhone lock screen with a short verse such as Lamentations 3:23 in the FaithWall widget would be the strongest effort signal the page could carry. Drop it in the repo and the autopilot can embed it.
-
-## 2026-10-05 (weekly refresh)
-
-- **Re-ping the pages fixed on 2026-10-02 to IndexNow (Bing, which ChatGPT search leans on).** A web-search snippet check today still shows the old copy for faithwall.app: "free with premium" pricing, verse packs and Focus-mode integration. The repo is clean, so the index is stale. One command from the repo: `node scripts/submit-indexnow.mjs https://faithwall.app/ https://faithwall.app/best-bible-verse-lock-screen-apps https://faithwall.app/daily-scripture-lock-screen https://faithwall.app/blog/best-free-bible-app-iphone https://faithwall.app/faithwall-vs-hallow https://faithwall.app/faithwall-vs-youversion`. Then run URL inspection on the homepage in Bing Webmaster Tools. The weekly refresh doesn't submit on its own.
-
-## 2026-10-02 (pricing-accuracy fix)
-
-- **The five outreach drafts and the directory pack are corrected and ready to send.** Since v2.3 FaithWall needs a subscription, but the site and drafts still called it free. I rewrote the pitch bodies in `outreach/bibleversedaily.md`, `warmpeach.md`, `learnofchrist.md`, `biblegeeks.md`, `healthyspirituality.md` and the app description in `outreach/directories.md`. Each now says: free to download, subscription required, you pick your own verses, wallpaper or rotating widget. Each offers a subscription offer code so the reviewer can test the full app, and each file starts with a "Facts corrected 2026-10-02" line. **Send only these corrected copies.** Before sending, generate the offer codes in App Store Connect. The site copy and posts got the same fix, and a Product facts rule now guards the daily blog skill and SEO-STRATEGY §5.
-
-## 2026-09-24 (weekly refresh)
-
-- **Contact routes for the five Tier-1 pitches** (still unsent as of 2026-10-10):
-  - `outreach/bibleversedaily.md` → **info@bibleversedaily.org** (best of the five)
-  - `outreach/warmpeach.md` → **hello@warmpeach.com** (caveat: content marketing for their own pre-launch Bible chat app)
-  - `outreach/learnofchrist.md` → **the form at https://learnofchrist.com/contact** (pitch the missing lock-screen/widget category)
-  - `outreach/biblegeeks.md` → **the form at https://biblegeeks.fm/contact**
-  - `outreach/healthyspirituality.md` → **confirm the address in a normal browser** at https://healthyspirituality.org/blog/biography/
-  - When you send one, add a line "SENT YYYY-MM-DD" to its draft file so the weekly refresh can start tracking it.
-- **ACCOUNTS + one small paid decision: the Tier-2 directory pack at `outreach/directories.md` is still unsubmitted.** faith.tools (paid, needs your go-ahead), AlternativeTo (sign up now, 7-day account age rule), SaaSHub (free, lowest friction; re-checked today, FaithWall absent), MochiLaunch (free with badge or $1.99).
 
 ## Still open — needs your access or your decision
 
@@ -233,4 +192,3 @@ The App Store agreement at the top of the next section still comes first.
 
 - **Prayer-spoke SERPs carry mixed intent (found by p26, 2026-09-07).** The live SERPs for both `how-to-set-prayer-alarms-iphone` and `prayer-reminders-on-iphone` are dominated by Islamic salah-time content (Muslim Pro, Athan, Azan-alarm apps) rather than Christian-prayer results. Worth knowing if either page's impressions ever look anomalously low relative to position — the query itself carries intent no on-page fix reaches.
 - **Competitor noted (p22, 2026-08-31): abbeybible.com ("Abbey").** Publishes self-ranked "best lock screen Bible app" roundups placing itself #1 ahead of FaithWall on our exact head-term family — the same self-promotional pattern as FaithLock/Psalmo/Prayhouse. Not an outreach target; a competitor worth knowing about. See `outreach/targets.json`.
-- **Four additional outreach candidates surfaced and not yet drafted:** thesweetsetup.com (established independent iOS app-review publication), thecripplegate.com (independent pastoral blog), margaretfeinberg.com (independent published-author blog), codeinfaith.com (independent 2026 Bible-widgets roundup, added 2026-10-11). A future `outreach-prep` wave, after the current Tier-1 five actually ship.

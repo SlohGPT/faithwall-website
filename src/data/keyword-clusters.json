@@ -1,7 +1,7 @@
 {
-  "engine_version": "1.0.0",
+  "engine_version": "1.2.0",
   "site": "faithwall.app",
-  "updated": "2026-11-16",
+  "updated": "2026-11-23",
   "clusters": [
     {
       "id": "random-bible-verse-generator",
@@ -228,6 +228,11 @@
           "type": "gsc",
           "fetched": "2026-11-13",
           "note": "Real demand, but Google shows the pillar for this phrase, not the post"
+        },
+        {
+          "type": "gsc",
+          "fetched": "2026-11-23",
+          "note": "URL Inspection lists the post as indexed now; the pillar still gets the phrase"
         }
       ],
       "queue_id": "p63",
@@ -245,16 +250,21 @@
       "intent": "informational",
       "content_type": "blog",
       "target_url": "/blog/christian-lock-screen-for-men",
-      "decision": "new-post",
+      "decision": "monitor",
       "evidence": [
         {
           "type": "autocomplete",
           "fetched": "2026-11-16",
           "note": "Both the christian lock screen and the bible verse wallpaper seeds return men's phrasings"
+        },
+        {
+          "type": "gsc",
+          "fetched": "2026-11-20",
+          "note": "Indexed the day it was published; first impressions on the post itself"
         }
       ],
       "queue_id": "p68",
-      "notes": "Cover all three phrasings naturally. KJV text only."
+      "notes": "Published 2026-11-18 (p68). New-page gate (SEO-STRATEGY §6): read at day 14 and day 42. Cover all three phrasings naturally. KJV text only."
     },
     {
       "id": "christian-lock-screen",
@@ -380,7 +390,12 @@
         "changing bible verse wallpaper",
         "bible verse wallpaper that changes every day",
         "what is holy finger wallpaper app",
-        "holy finger wallpaper app"
+        "holy finger wallpaper app",
+        "christian wallpaper iphone",
+        "christian iphone wallpaper",
+        "christian phone wallpaper",
+        "christian wallpapers for phone",
+        "christian wallpaper for phone"
       ],
       "intent": "compare",
       "content_type": "blog",
@@ -391,6 +406,11 @@
           "type": "gsc",
           "fetched": "2026-11-13",
           "note": "The roundup owns the app phrasings; the maker and the pillar share some of them, which is fine for different intents"
+        },
+        {
+          "type": "gsc",
+          "fetched": "2026-11-20",
+          "note": "The draft proposed the phone and iPhone Christian wallpaper phrasings as a new post; the roundup already gets them, so they join this cluster"
         }
       ],
       "notes": "After the read-out: answer the changes-every-day question honestly (the wallpaper shows one picked verse; the widget changes) and Holy Finger only after checking it exists. Link to the maker; don't merge."
@@ -435,7 +455,7 @@
       "content_type": "compare",
       "target_url": "/blog/best-free-bible-app-iphone",
       "decision": "hold",
-      "hold_reason": "p72 control group until 2026-12-02 (conversion-layer read-out); p66, a factual row swap from 2026-11-25, is the only queued change",
+      "hold_reason": "p72 control group until 2026-12-02 (conversion-layer read-out); p66, a factual row swap from 2026-12-08, is the only queued change",
       "held_until": "2026-12-02",
       "evidence": [
         {
@@ -847,6 +867,187 @@
         }
       ],
       "notes": "The site stays English only (languages decision of 2026-11-16)."
+    },
+    {
+      "id": "christmas-bible-verse-wallpaper",
+      "name": "Christmas Bible verse wallpapers",
+      "head_keyword": "christmas bible verse wallpaper iphone",
+      "members": [
+        "christmas bible verse wallpaper iphone",
+        "christmas bible verse wallpaper",
+        "christmas bible verses wallpaper",
+        "christmas bible verse phone wallpaper",
+        "aesthetic christmas bible verse wallpaper",
+        "cute christmas bible verse wallpaper",
+        "inspirational christmas bible verses wallpaper",
+        "christmas bible verse backgrounds",
+        "christmas bible quote wallpaper"
+      ],
+      "intent": "informational",
+      "content_type": "blog",
+      "target_url": "/blog/christmas-bible-verse-lock-screen-iphone",
+      "decision": "monitor",
+      "evidence": [
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-23",
+          "note": "The Christmas wallpaper seed returns phone, iPhone, aesthetic, cute and background phrasings"
+        },
+        {
+          "type": "gsc",
+          "fetched": "2026-11-20",
+          "note": "Indexed the day after publishing; a Christmas wallpaper query already reaches the post"
+        }
+      ],
+      "queue_id": "p67",
+      "notes": "Seasonal. Refresh each November before Advent. The desktop phrasing is out of scope."
+    },
+    {
+      "id": "new-year-bible-verses",
+      "name": "New Year Bible verses",
+      "head_keyword": "new year bible verses kjv",
+      "members": [
+        "new year bible verses kjv",
+        "new year bible verses",
+        "new year bible verses images",
+        "new year bible verses old testament"
+      ],
+      "intent": "informational",
+      "content_type": "blog",
+      "target_url": "/blog/new-year-bible-verses-lock-screen",
+      "decision": "new-post",
+      "evidence": [
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-23",
+          "note": "The New Year seed returns KJV, image and Old Testament phrasings, plus year phrasings"
+        }
+      ],
+      "queue_id": "p69",
+      "notes": "Ships from 12-01. Other-language phrasings are out of scope (English only). Year phrasings follow the coming year, so the post names no past year as current."
+    },
+    {
+      "id": "psalm-91-wallpaper",
+      "name": "Psalm 91 wallpapers",
+      "head_keyword": "psalm 91 wallpaper iphone",
+      "members": [
+        "psalm 91 wallpaper iphone",
+        "psalm 91 wallpaper",
+        "psalm 91 wallpaper for phone",
+        "psalm 91 wallpaper black",
+        "psalm 91 wallpaper aesthetic",
+        "psalm 91 wallpaper hd",
+        "psalm 91 wallpaper background"
+      ],
+      "intent": "informational",
+      "content_type": "blog",
+      "target_url": "/blog/psalm-91-wallpaper-iphone",
+      "decision": "new-post",
+      "evidence": [
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-20",
+          "note": "The Psalm 91 wallpaper seed returns phone, iPhone, black, aesthetic and HD phrasings"
+        }
+      ],
+      "queue_id": "p80",
+      "notes": "Sibling of the Psalm 23 post. The Android phrasing is out of scope."
+    },
+    {
+      "id": "bible-verses-for-sleep",
+      "name": "Bible verses for sleep",
+      "head_keyword": "bible verses for sleep",
+      "members": [
+        "bible verses for sleep",
+        "bible verse for sleep",
+        "bible verses for sleep kjv",
+        "bible verses for sleep and peace",
+        "bible verses for sleep and rest",
+        "bible verse for sleep and rest",
+        "bible verses for sleepless nights",
+        "bible verse for sleepless night",
+        "bible verses for sleep protection",
+        "bible verses for sleep and anxiety",
+        "bible verses for sleeping at night",
+        "bible verse for sleeping in peace"
+      ],
+      "intent": "mood",
+      "content_type": "blog",
+      "target_url": "/blog/bible-verses-for-sleep-lock-screen",
+      "decision": "new-post",
+      "evidence": [
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-20",
+          "note": "The sleep seeds return rest, peace, sleepless night, protection and anxiety phrasings"
+        },
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-23",
+          "note": "The singular sleep seed returns the same family"
+        }
+      ],
+      "queue_id": "p81",
+      "notes": "Mood content that ends at the lock screen, the last screen before sleep. Sleep paralysis is a medical phrasing: leave it out."
+    },
+    {
+      "id": "jeremiah-29-11-wallpaper",
+      "name": "Jeremiah 29:11 wallpapers",
+      "head_keyword": "jeremiah 29:11 wallpaper iphone",
+      "members": [
+        "jeremiah 29:11 wallpaper iphone",
+        "jeremiah 29 11 wallpaper iphone",
+        "jeremiah 29 11 wallpaper",
+        "jeremiah 29 11 wallpaper for phone",
+        "jeremiah 29 11 wallpaper black",
+        "jeremiah 29 11 wallpaper aesthetic",
+        "jeremiah 29 11 wallpaper hd"
+      ],
+      "intent": "informational",
+      "content_type": "blog",
+      "target_url": "/blog/jeremiah-29-11-wallpaper-iphone",
+      "decision": "new-post",
+      "evidence": [
+        {
+          "type": "gsc",
+          "fetched": "2026-11-20",
+          "note": "Searches for a wallpaper of this verse reach the pillar and the maker; no page of ours is about the verse"
+        },
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-20",
+          "note": "The seed returns iPhone, phone, black, aesthetic and HD phrasings"
+        }
+      ],
+      "queue_id": "p82",
+      "notes": "Laptop, desktop and landscape phrasings are out of scope."
+    },
+    {
+      "id": "isaiah-41-10-wallpaper",
+      "name": "Isaiah 41:10 wallpapers",
+      "head_keyword": "isaiah 41:10 wallpaper iphone",
+      "members": [
+        "isaiah 41:10 wallpaper iphone",
+        "isaiah 41 10 wallpaper iphone",
+        "isaiah 41 10 wallpaper",
+        "isaiah 41 10 wallpaper for phone",
+        "isaiah 41 10 wallpaper black",
+        "isaiah 41 10 wallpaper aesthetic",
+        "isaiah 41 10 wallpaper pink"
+      ],
+      "intent": "informational",
+      "content_type": "blog",
+      "target_url": "/blog/isaiah-41-10-wallpaper-iphone",
+      "decision": "new-post",
+      "evidence": [
+        {
+          "type": "autocomplete",
+          "fetched": "2026-11-20",
+          "note": "The seed returns iPhone, phone, black, aesthetic, pink and HD phrasings"
+        }
+      ],
+      "queue_id": "p83",
+      "notes": "The weakest of the four passage posts: drop it first if the earlier ones index slowly. The laptop phrasing is out of scope."
     }
   ]
 }

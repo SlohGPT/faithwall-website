@@ -47,7 +47,9 @@
     { "seed": "bible verses for strength" },
     { "seed": "bible verse for sleep" },
     { "seed": "short bible verses" },
-    { "seed": "lock screen bible verse" }
+    { "seed": "lock screen bible verse" },
+    { "seed": "christmas bible verse wallpaper" },
+    { "seed": "new year bible verses" }
   ],
   "intent_rules": [
     { "intent": "navigational", "pattern": "\\bfaith ?wall\\b" },
