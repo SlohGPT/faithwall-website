@@ -2,6 +2,11 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-23 (autopilot: p80, the Psalm 91 wallpaper post)
+
+- **Request indexing once the merge gate has deployed it (1 minute).** The new URL is `/blog/psalm-91-wallpaper-iphone`. In Search Console → URL Inspection, click **Request indexing** once.
+- **If you merge or retire `daily-scripture-wallpaper-iphone` (one of the five daily-change posts, 11-17 item 1 below), keep the Psalm 91 link.** It and `psalm-23-wallpaper-iphone` now carry this post's day-one links. Whichever page absorbs it should keep a link to `/blog/psalm-91-wallpaper-iphone`.
+
 ## 2026-11-23 (weekly refresh)
 
 - **Google's November core update is still rolling, and the site had a two-day dip.** Google's status page still shows the update (it began 11-10) with no end date. On 11-19 and 11-20 FaithWall's search visibility fell sharply across every page, country and device, and it came back on 11-21. QuranWall and NoteWall were normal on those days, and every live check on faithwall.app was clean: pages return 200 and are indexable, canonicals are right, www redirects, and 58 of 59 URLs are indexed. It reads as update volatility, not a site fault. Nothing for you to do; the refresh keeps watching.
