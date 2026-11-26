@@ -2,6 +2,11 @@
 
 Items the SEO autopilot can't do itself. Newest first. Resolved items are deleted at each weekly refresh, not archived here — the queue and `SEO-STRATEGY.md` carry the history.
 
+## 2026-11-26 (autopilot: p81, the sleep verses post)
+
+- **Request indexing once the merge gate has deployed it (1 minute).** The new URL is `/blog/bible-verses-for-sleep-lock-screen`. In Search Console → URL Inspection, click **Request indexing** once.
+- **Keep the sleep link if either linking post is merged or retired.** `lock-screen-verses-for-anxiety` and `psalm-23-wallpaper-iphone` now carry this post's day-one links. Whichever page absorbs one of them should keep a link to `/blog/bible-verses-for-sleep-lock-screen`.
+
 ## 2026-11-23 (autopilot: p80, the Psalm 91 wallpaper post)
 
 - **Request indexing once the merge gate has deployed it (1 minute).** The new URL is `/blog/psalm-91-wallpaper-iphone`. In Search Console → URL Inspection, click **Request indexing** once.

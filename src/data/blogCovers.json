@@ -671,6 +671,24 @@
       "text": "I will say of the Lord, He is my refuge and my fortress: my God; in him will I trust.",
       "file": "/blog-thumbnails/psalm-91-2-bible-verse-iphone-wallpaper.jpg",
       "alt": "iPhone lock screen showing Psalm 91:2 (KJV) as a wallpaper"
+    },
+    {
+      "slug": "bible-verses-for-sleep-lock-screen",
+      "ref": "Psalm 4:8",
+      "palette": "dusk",
+      "hook": "Lie down in *peace*",
+      "tag": "Sleep",
+      "icon": "Moon",
+      "badge": "11 verses",
+      "layout": "right",
+      "float": {
+        "icon": "AlarmClock",
+        "title": "Alarm, 6:30 AM",
+        "text": "Wake up"
+      },
+      "text": "I will both lay me down in peace, and sleep: for thou, Lord, only makest me dwell in safety.",
+      "file": "/blog-thumbnails/psalm-4-8-bible-verse-iphone-wallpaper.jpg",
+      "alt": "iPhone lock screen showing Psalm 4:8 (KJV) as a wallpaper"
     }
   ]
 }
