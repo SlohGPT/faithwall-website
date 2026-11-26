@@ -2,8 +2,9 @@
 
 Session journal for this repo. One entry per session, append-only, numbered in order (next entry = highest number + 1). Public repo: entries describe search performance qualitatively and never contain raw Search Console numbers. Direction lives in `SEO-STRATEGY.md`, the work order in `src/data/seo-priorities.json`, and human tasks in `TODO-KAROL.md`.
 
-## Status (2026-11-25)
+## Status (2026-11-26)
 
+- **Merge gate 11-26 (entry 56).** p81, the Bible verses for sleep post, verified and fast-forwarded (`e4bc0fb`), live about 30 s after the push; all gates clean (no new type errors, 0 failed prerenders, lint-facts 0/0, KJV text and counts and the Pew stat checked). IndexNow --all 200 OK; branch deleted. Karol: Request indexing for `/blog/bible-verses-for-sleep-lock-screen`. Next item p69 on 12-01, so 11-27 to 11-30 are planned dry days.
 - **Merge gate 11-25 (entry 55).** No branch to merge; today's local autopilot succeeded with nothing due. Last bot output 11-23 (p80): the routine is healthy and the queue starved until p81 opens tomorrow, 11-26.
 - **Merge gate 11-24 (entry 54).** No branch to merge; today's local autopilot succeeded with nothing due. Last bot output 11-23 (p80), so the routine is healthy and the queue starved until p81 opens on 11-26.
 - **Merge gate 11-23 (entry 53).** p80, the Psalm 91 wallpaper post, merged (`c37dbcf`, merge commit, TODO-KAROL same-date conflict resolved branch-first) and live at 10:16; all gates clean (no new type errors, 0 failed prerenders, lint-facts 0/0, KJV counts and outside stats checked). IndexNow --all 200 OK; branch deleted. Karol: Request indexing for `/blog/psalm-91-wallpaper-iphone`.
@@ -159,3 +160,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [53 — Merge gate, 2026-11-23](journal/53-merge-gate-2026-11-23.md): p80 Psalm 91 post verified and merged (`c37dbcf`; priorities auto-merged, TODO-KAROL same-date conflict branch-first), live 10:16, IndexNow --all 200 OK, branch deleted.
 - [54 — Merge gate, 2026-11-24](journal/54-merge-gate-2026-11-24.md): no branch; local autopilot succeeded with nothing due (starved queue until p81 on 11-26); nothing to deploy or submit.
 - [55 — Merge gate, 2026-11-25](journal/55-merge-gate-2026-11-25.md): no branch; local autopilot succeeded with nothing due (starved queue, p81 eligible 11-26); nothing to deploy or submit.
+- [56 — Merge gate, 2026-11-26](journal/56-merge-gate-2026-11-26.md): p81 sleep verses post verified and fast-forwarded (`e4bc0fb`), live within a minute, IndexNow --all 200 OK, branch deleted.
