@@ -2,8 +2,9 @@
 
 Session journal for this repo. One entry per session, append-only, numbered in order (next entry = highest number + 1). Public repo: entries describe search performance qualitatively and never contain raw Search Console numbers. Direction lives in `SEO-STRATEGY.md`, the work order in `src/data/seo-priorities.json`, and human tasks in `TODO-KAROL.md`.
 
-## Status (2026-11-26)
+## Status (2026-11-27)
 
+- **Merge gate 11-27 (entry 57).** No branch to merge. Last bot output 11-26 (p81), so the routine is healthy; the queue is starved until p69 opens on 12-01.
 - **Merge gate 11-26 (entry 56).** p81, the Bible verses for sleep post, verified and fast-forwarded (`e4bc0fb`), live about 30 s after the push; all gates clean (no new type errors, 0 failed prerenders, lint-facts 0/0, KJV text and counts and the Pew stat checked). IndexNow --all 200 OK; branch deleted. Karol: Request indexing for `/blog/bible-verses-for-sleep-lock-screen`. Next item p69 on 12-01, so 11-27 to 11-30 are planned dry days.
 - **Merge gate 11-25 (entry 55).** No branch to merge; today's local autopilot succeeded with nothing due. Last bot output 11-23 (p80): the routine is healthy and the queue starved until p81 opens tomorrow, 11-26.
 - **Merge gate 11-24 (entry 54).** No branch to merge; today's local autopilot succeeded with nothing due. Last bot output 11-23 (p80), so the routine is healthy and the queue starved until p81 opens on 11-26.
@@ -161,3 +162,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [54 — Merge gate, 2026-11-24](journal/54-merge-gate-2026-11-24.md): no branch; local autopilot succeeded with nothing due (starved queue until p81 on 11-26); nothing to deploy or submit.
 - [55 — Merge gate, 2026-11-25](journal/55-merge-gate-2026-11-25.md): no branch; local autopilot succeeded with nothing due (starved queue, p81 eligible 11-26); nothing to deploy or submit.
 - [56 — Merge gate, 2026-11-26](journal/56-merge-gate-2026-11-26.md): p81 sleep verses post verified and fast-forwarded (`e4bc0fb`), live within a minute, IndexNow --all 200 OK, branch deleted.
+- [57 — Merge gate, 2026-11-27](journal/57-merge-gate-2026-11-27.md): no branch; last bot output 11-26 (p81); starved queue until p69 on 12-01; nothing to deploy or submit.
