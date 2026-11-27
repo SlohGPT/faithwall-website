@@ -91,3 +91,5 @@ Karol: "Check for the Black Friday coupon in Spaceship or something. I don't car
 - Porkbun: $10.81 for the first year with the $1 code, then $11.81.
 - Cheapest over three years: Spaceship with COM67, if the code works once Karol is logged in, at about $26. Next, Atom at $5 followed by a transfer to Spaceship before the first renewal, at about $27. Spaceship without a code costs about $31, Porkbun about $34. Name.com and Namecheap cost more over time because of their renewals.
 - Advice: open a Spaceship account, put `getvocabee.com` in the cart and try COM67. If the code is rejected, buy it there anyway at $9.68, since its renewal is the cheapest. Atom saves about $5 only if the domain is moved before its $16.20 renewal.
+
+- **Decided (Karol, evening): "Okay, let's do it."** `getvocabee.com` at Spaceship, one year. The cart in Karol's Chrome holds only that domain: 1-year registration, free privacy, total $9.68 before any code, no add-ons. Karol signs in, tries COM67 and checks out himself.
