@@ -117,3 +117,9 @@ Karol: "implement all the like blog factory and everything we also have on the o
 - **A design pass** went live too: a new blog index and post template, an animated mobile menu that respects Reduce Motion, and a dictionary-style word card. Live commit `4ee7a43`.
 - **A fourth daily pair** (Vocabee autopilot 13:20, merge gate 14:30, refresh Mondays 16:00) starts 11-28. It runs in the afternoon so it doesn't share the morning usage window. Vocabee has no git deploy, so its gate runs the production deploy itself and checks `/build.txt` against main.
 - Karol: set the permission mode on the three Vocabee tasks (it was not saved at creation), then Request Indexing for the blog. The rest is in that repo's `TODO-KAROL.md`.
+- **Later the same evening, Karol: "Please do everything yourself."** The session did Karol's open Vocabee items itself:
+  - The covers now show the real Lock Screen widget.
+  - Search Console Request Indexing ran for eight pages, until Google's daily quota ran out.
+  - The open site questions were settled from the app code.
+  - The app-side credit fixes and the App Store Connect URLs went to the vocab-app session.
+  - Two things only Karol can do: set the permission mode on the three Vocabee tasks, and give a yes or no on deleting the old audio Worker. Details are in `vocabee-website` journal 05.
