@@ -60,3 +60,24 @@ Only this entry and the hub update. Analysis scripts lived in the session scratc
 - Karol: decide the Vocabee domain and buy it (Claude doesn't make purchases). Then a Vocabee session in `vocab-app` does the move and the SEO setup.
 - FaithWall GEO is flat. Worth a look at the 12-02 cohort read-out: which pages Copilot cites, and whether the answer-first passages on the money pages need work. NoteWall's growth shows what works.
 - The merge gates don't notice when an autopilot dies on a usage limit. They read it as a quiet or starved day. A check for the limit message in the day's autopilot transcript would make that visible.
+
+## Update, afternoon: today's runs re-run, Vocabee domain prices
+
+Karol: "please continue today's run here on all of the apps", and for Vocabee: "What domain should it be? Check the prices using pork bun or some other Black Friday deal".
+
+### Runs (started at about 14:57 CET with the tasks' own "Run now", same prompts and approvals)
+
+- FaithWall autopilot: succeeded, nothing due (all 13 pending items open on 12-01 or later). Nothing to merge.
+- NoteWall autopilot: succeeded, nothing due (all 20 pending items open on 12-01 or later). Nothing to merge.
+- QuranWall autopilot: did p24, a depth pass on the best-dhikr-app roundup: two tables from live listings, seven ranked apps, a four-question FAQ (`9424202`). The QuranWall merge gate then ran by hand, passed every check, merged it (`28f48ab`) and wrote its log (`bb78b12`). The page answers 200 live with both tables and the FAQ. The lost QuranWall day is made up, and tomorrow's 07:43 run starts from a clean queue.
+- `claude/qw-no-price` on the QuranWall remote is an old 11-17 branch, not bot output; the gate already treats it that way.
+
+### Vocabee domain
+
+Read 11-27 in Karol's Chrome (Porkbun search and Porkbun's public price API, Spaceship search), plus Black Friday round-ups from a web search:
+
+- Free and sensible: `getvocabee.com`, `tryvocabee.com`, `vocabee.net`, `vocabee.day`. Taken: `vocabee.app`, `vocabee.com` (parked), `vocabee.org`, `vocabee.xyz`.
+- `.com` costs about the same everywhere and keeps renewing at that price: Porkbun charges the same each year with a $1 first-year coupon and no extra Black Friday cut on .com. Spaceship shows a slightly lower first year and a slightly lower renewal, and a reported Black Friday code may cut the first year further (unverified). Cloudflare sells at cost with no sale.
+- First-year bait to avoid: `.co`, `.io`, `.xyz`, `.online` and similar look cheap for year one and renew at several times the price.
+- **Recommendation: `getvocabee.com`**, bought at Porkbun (Karol already has the account there and karchi.xyz lives there; the Spaceship saving is a few dollars over three years). Point its nameservers at a free Cloudflare zone so the sentence-audio R2 custom domain works. Runner-up: `vocabee.day`, which echoes the app title "Word of the Day: Vocabee", renews flat, but is an unusual ending people won't guess.
+- Karol buys it himself; Claude doesn't purchase.
