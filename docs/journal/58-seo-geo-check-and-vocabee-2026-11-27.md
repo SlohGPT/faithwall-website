@@ -81,3 +81,13 @@ Read 11-27 in Karol's Chrome (Porkbun search and Porkbun's public price API, Spa
 - First-year bait to avoid: `.co`, `.io`, `.xyz`, `.online` and similar look cheap for year one and renew at several times the price.
 - **Recommendation: `getvocabee.com`**, bought at Porkbun (Karol already has the account there and karchi.xyz lives there; the Spaceship saving is a few dollars over three years). Point its nameservers at a free Cloudflare zone so the sentence-audio R2 custom domain works. Runner-up: `vocabee.day`, which echoes the app title "Word of the Day: Vocabee", renews flat, but is an unusual ending people won't guess.
 - Karol buys it himself; Claude doesn't purchase.
+
+### Update, evening: cheapest way to buy getvocabee.com
+
+Karol: "Check for the Black Friday coupon in Spaceship or something. I don't care which organization it is … I'm just about price."
+
+- Spaceship, read on its own site: `getvocabee.com` costs $9.68 for the first year including the ICANN fee, with no code; it renews at $10.68 plus the fee, the lowest renewal seen. Spaceship's site shows no Black Friday banner. The reported code COM67 could not be tested, because Spaceship asks for a login before it applies any promo code, and Claude doesn't sign in for Karol. One coupon site said it expired on 11-19. The domain was left in the browser's anonymous Spaceship cart; nothing was bought.
+- Michael Cyger's curated Black Friday list (GitHub) gives these first-year .com deals: Atom.com $5.00 with BFCOM until 12-07, renewing at $16.20; Name.com $6.99 until 11-30, renewing at $21.99; Namecheap $8.98 with THEGAMESTLD26, renewing at $15.98. All are first-year only. Spaceship's COM67 isn't on the list.
+- Porkbun: $10.81 for the first year with the $1 code, then $11.81.
+- Cheapest over three years: Spaceship with COM67, if the code works once Karol is logged in, at about $26. Next, Atom at $5 followed by a transfer to Spaceship before the first renewal, at about $27. Spaceship without a code costs about $31, Porkbun about $34. Name.com and Namecheap cost more over time because of their renewals.
+- Advice: open a Spaceship account, put `getvocabee.com` in the cart and try COM67. If the code is rejected, buy it there anyway at $9.68, since its renewal is the cheapest. Atom saves about $5 only if the domain is moved before its $16.20 renewal.
