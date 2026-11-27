@@ -103,3 +103,17 @@ Karol: "did the today's run finish on all of them … so that everything is fine
 - **Vocabee move (session in `vocab-app`, commits `de9658f`, `61343f7`, `8e96989`, `1546a6c`): checked, works.** `getvocabee.com` and its five pages, `robots.txt` and `sitemap.xml` answer 200 with the new canonical and og:url. `www` and every old `vocabee.karchi.xyz` path redirect permanently to the same path on the new domain, query kept. Nameservers are Cloudflare's, set at Spaceship. The service account sees `sc-domain:getvocabee.com` as a restricted user and the sitemap with no errors. The site is hosted on Karol's free GEEflies Vercel team, not the billik client team.
 - Still open there, both in `vocab-app`: the App Store Connect URLs change with the next app version (Karol's OK), and a second session is moving the sentence audio to `audio.getvocabee.com` (its `Config.swift` change is not committed yet).
 - **Later: the audio move is done too.** The audio session committed and pushed `6ef95b2`, so the app now loads sentence audio from `audio.getvocabee.com`. One real sound file fetched from there answers 200. The old r2.dev address stays on, because version 1.0 and build 6 still use it. Left for Karol in `vocab-app`: the App Store Connect URLs with the next version, and, if he wants, deleting the unused `vocabee-audio` Worker and its old upload token in Cloudflare.
+
+## Update, evening: Vocabee gets the blog factory and a design pass
+
+Karol: "implement all the like blog factory and everything we also have on the other website to this website as well … more free tools, whatever people need", then on the design: "Everything is completely up to you, boss."
+
+- All of this work is in the private `vocabee-website` repo; its journal entries 01 to 05 hold the details. Nothing changed in FaithWall, QuranWall, NoteWall or `vocab-app`.
+- **getvocabee.com now runs on the sister sites' stack**, and the same session rebuilt it from vocab-app's static page:
+  - free tools (word of the day, random word generator, wallpaper maker, vocabulary test);
+  - the SEO foundation (strategy, queue, keyword engine 1.2.0, link-graph 1.1.0, cover engine);
+  - a blog with three launch posts.
+- **Word accuracy** replaces the scripture checks. Every definition is copied verbatim from the app's word list, with its licence named (WordNet, Wiktionary, CMU).
+- **A design pass** went live too: a new blog index and post template, an animated mobile menu that respects Reduce Motion, and a dictionary-style word card. Live commit `4ee7a43`.
+- **A fourth daily pair** (Vocabee autopilot 13:20, merge gate 14:30, refresh Mondays 16:00) starts 11-28. It runs in the afternoon so it doesn't share the morning usage window. Vocabee has no git deploy, so its gate runs the production deploy itself and checks `/build.txt` against main.
+- Karol: set the permission mode on the three Vocabee tasks (it was not saved at creation), then Request Indexing for the blog. The rest is in that repo's `TODO-KAROL.md`.
