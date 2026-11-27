@@ -93,3 +93,4 @@ Karol: "Check for the Black Friday coupon in Spaceship or something. I don't car
 - Advice: open a Spaceship account, put `getvocabee.com` in the cart and try COM67. If the code is rejected, buy it there anyway at $9.68, since its renewal is the cheapest. Atom saves about $5 only if the domain is moved before its $16.20 renewal.
 
 - **Decided (Karol, evening): "Okay, let's do it."** `getvocabee.com` at Spaceship, one year. The cart in Karol's Chrome holds only that domain: 1-year registration, free privacy, total $9.68 before any code, no add-ons. Karol signs in, tries COM67 and checks out himself.
+- **Bought (Karol, 15:26):** `getvocabee.com` at Spaceship for $3.80 with COM67 (sub total $10.58, savings $6.78). 1-year registration, auto-renew on (yearly), free privacy. Next: a Vocabee session in `vocab-app` moves the site to it.
