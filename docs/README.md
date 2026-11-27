@@ -4,6 +4,7 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 
 ## Status (2026-11-27)
 
+- **SEO and GEO check, today's runs, Vocabee domain (entry 58, Karol's asks).** Today's three autopilots fired but died at their first reply on Claude's 5-hour usage limit (first time in ten days; gates ran fine after the reset); only QuranWall lost a working day. Google: FaithWall and NoteWall both improving (NoteWall back above its September peak), QuranWall too early. GEO (Bing Copilot citations): NoteWall clearly up, FaithWall flat over three months, QuranWall none yet. Vocabee: own domain recommended now (subdomain unknown to Google, name crowded on the App Store), Karol to decide and buy.
 - **Merge gate 11-27 (entry 57).** No branch to merge. Last bot output 11-26 (p81), so the routine is healthy; the queue is starved until p69 opens on 12-01.
 - **Merge gate 11-26 (entry 56).** p81, the Bible verses for sleep post, verified and fast-forwarded (`e4bc0fb`), live about 30 s after the push; all gates clean (no new type errors, 0 failed prerenders, lint-facts 0/0, KJV text and counts and the Pew stat checked). IndexNow --all 200 OK; branch deleted. Karol: Request indexing for `/blog/bible-verses-for-sleep-lock-screen`. Next item p69 on 12-01, so 11-27 to 11-30 are planned dry days.
 - **Merge gate 11-25 (entry 55).** No branch to merge; today's local autopilot succeeded with nothing due. Last bot output 11-23 (p80): the routine is healthy and the queue starved until p81 opens tomorrow, 11-26.
@@ -163,3 +164,4 @@ Session journal for this repo. One entry per session, append-only, numbered in o
 - [55 — Merge gate, 2026-11-25](journal/55-merge-gate-2026-11-25.md): no branch; local autopilot succeeded with nothing due (starved queue, p81 eligible 11-26); nothing to deploy or submit.
 - [56 — Merge gate, 2026-11-26](journal/56-merge-gate-2026-11-26.md): p81 sleep verses post verified and fast-forwarded (`e4bc0fb`), live within a minute, IndexNow --all 200 OK, branch deleted.
 - [57 — Merge gate, 2026-11-27](journal/57-merge-gate-2026-11-27.md): no branch; last bot output 11-26 (p81); starved queue until p69 on 12-01; nothing to deploy or submit.
+- [58 — SEO and GEO check, today's runs, Vocabee domain, 2026-11-27](journal/58-seo-geo-check-and-vocabee-2026-11-27.md): autopilots hit the usage limit today; FaithWall and NoteWall Google up; GEO up for NoteWall, flat for FaithWall; Vocabee domain advice.
