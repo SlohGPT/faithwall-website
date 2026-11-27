@@ -94,3 +94,11 @@ Karol: "Check for the Black Friday coupon in Spaceship or something. I don't car
 
 - **Decided (Karol, evening): "Okay, let's do it."** `getvocabee.com` at Spaceship, one year. The cart in Karol's Chrome holds only that domain: 1-year registration, free privacy, total $9.68 before any code, no add-ons. Karol signs in, tries COM67 and checks out himself.
 - **Bought (Karol, 15:26):** `getvocabee.com` at Spaceship for $3.80 with COM67 (sub total $10.58, savings $6.78). 1-year registration, auto-renew on (yearly), free privacy. Next: a Vocabee session in `vocab-app` moves the site to it.
+
+## Update, late afternoon: today's runs confirmed, Vocabee move checked
+
+Karol: "did the today's run finish on all of them … so that everything is fine?"
+
+- **Runs: yes, all finished.** The task run lists show today's re-runs as succeeded: FaithWall and NoteWall autopilots found nothing due (their queues open on 12-01), QuranWall did p24 and its merge gate merged it. No autopilot branch is left on any remote, and every checkout is clean and level with `origin/main`. The three homepages and the QuranWall p24 page answer 200; p24 serves its new listing-facts table and today's `dateModified`. The QuranWall gate's IndexNow submit got 200. Tomorrow's runs start from clean queues.
+- **Vocabee move (session in `vocab-app`, commits `de9658f`, `61343f7`, `8e96989`, `1546a6c`): checked, works.** `getvocabee.com` and its five pages, `robots.txt` and `sitemap.xml` answer 200 with the new canonical and og:url. `www` and every old `vocabee.karchi.xyz` path redirect permanently to the same path on the new domain, query kept. Nameservers are Cloudflare's, set at Spaceship. The service account sees `sc-domain:getvocabee.com` as a restricted user and the sitemap with no errors. The site is hosted on Karol's free GEEflies Vercel team, not the billik client team.
+- Still open there, both in `vocab-app`: the App Store Connect URLs change with the next app version (Karol's OK), and a second session is moving the sentence audio to `audio.getvocabee.com` (its `Config.swift` change is not committed yet).
