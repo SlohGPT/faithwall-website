@@ -33,3 +33,13 @@ The session re-read the signed-in account's `scheduled-tasks.json` after the sav
 
 - The two other Claude accounts on this Mac still carry Vocabee copies that start in `faithwall-website-main`, and NoteWall copies that start in `ASO`. Fix them only if Karol switches to one of those accounts.
 - Check that the first Vocabee run (13:20) and the next NoteWall run (11-29 08:30) work from their new folders.
+
+## Update, 15:15: the other accounts synced, and the session handed over
+
+- **Correction to "Still open" above.** The app synced the folder changes to the two other accounts on this Mac. At 15:13 all three accounts' `scheduled-tasks.json` files had Vocabee ×3 in `vocabee-website` and NoteWall ×3 in `website-notewall`, with the same modes. Nothing is left to fix in the other accounts.
+- Karol is moving to his other Claude account and continues there. The transcript was exported to `~/Downloads/session-export-1795875315102.zip`, which is not in any repo.
+- **Handed over: the first-run check of the Vocabee pipeline**, due from 15:00 and read-only. It has three parts:
+  1. In the task history, see whether `vocabee-seo-autopilot-local` (13:20) and `vocabee-merge-bot` (14:30) succeeded, and read their summaries.
+  2. Look for a new entry in `vocabee-website/seo-log/`. The gate writes one only when it merged, quarantined, redeployed or hit DEPLOY BLOCKED.
+  3. Check whether `curl -s https://getvocabee.com/build.txt` equals `git rev-parse origin/main`.
+- At 15:15, `vocabee-website` origin/main was still at this session's `17abe07`, so the gate had pushed nothing. That is normal on a day with nothing due, and wrong if the autopilot pushed a branch. Step 1 tells which.
